@@ -1,11 +1,9 @@
 package com.qhy040404.libraryonetap
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {

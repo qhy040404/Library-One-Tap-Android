@@ -9,7 +9,7 @@ import okhttp3.Response;
 public class Requests {
     final OkHttpClient client = new OkHttpClient();
 
-    String run(String url) throws IOException {
+    String get(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .get()

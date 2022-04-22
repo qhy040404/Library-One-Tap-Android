@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.StrictMode
@@ -54,11 +53,10 @@ class WebviewActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 libraryWebView.evaluateJavascript("javascript:strEnc($rawData,'1','2','3')", object : ValueCallback<String> {
-                    override fun onReceiveValue(value: String?) {
-                        val encryptedData : String? = value
+                    override fun onReceiveValue(p0: String?) {
+                        val encryptedData : String? = p0
                     }
                 })
-
             }
         }
 

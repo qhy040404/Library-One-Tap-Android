@@ -1,14 +1,13 @@
 <html>
 
 <head>
-	<meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>des</title>
 </head>
 
 <body>
-	<script type="text/javascript">
-		function strEnc(data, firstKey, secondKey, thirdKey) {
-
+<script type="text/javascript">
+function strEnc(data, firstKey, secondKey, thirdKey) {
     const leng = data.length;
     let encData = "";
     let firstKeyBt, secondKeyBt, thirdKeyBt, firstLength, secondLength, thirdLength;
@@ -165,87 +164,6 @@
     return encData;
 }
 
-/*
- * decrypt the encrypted string to the original string
- *
- * return  the original string
- */
-function strDec(data, firstKey, secondKey, thirdKey) {
-    const leng = data.length;
-    let decStr = "";
-    let firstKeyBt, secondKeyBt, thirdKeyBt, firstLength, secondLength, thirdLength;
-    if (firstKey !== null && firstKey !== "") {
-        firstKeyBt = getKeyBytes(firstKey);
-        firstLength = firstKeyBt.length;
-    }
-    if (secondKey !== null && secondKey !== "") {
-        secondKeyBt = getKeyBytes(secondKey);
-        secondLength = secondKeyBt.length;
-    }
-    if (thirdKey !== null && thirdKey !== "") {
-        thirdKeyBt = getKeyBytes(thirdKey);
-        thirdLength = thirdKeyBt.length;
-    }
-
-    const iterator = parseInt(leng / 16);
-    let i = 0;
-    for (i = 0; i < iterator; i++) {
-        const tempData = data.substring(i * 16 + 0, i * 16 + 16);
-        const strByte = hexToBt64(tempData);
-        const intByte = new Array(64);
-        let j = 0;
-        for (j = 0; j < 64; j++) {
-            intByte[j] = parseInt(strByte.substring(j, j + 1));
-        }
-        let decByte;
-        if (firstKey !== null && firstKey !== "" && secondKey !== null && secondKey !== "" && thirdKey !== null && thirdKey !== "") {
-            let tempBt;
-            let x, y, z;
-            tempBt = intByte;
-            for (x = thirdLength - 1; x >= 0; x--) {
-                tempBt = dec(tempBt, thirdKeyBt[x]);
-            }
-            for (y = secondLength - 1; y >= 0; y--) {
-                tempBt = dec(tempBt, secondKeyBt[y]);
-            }
-            for (z = firstLength - 1; z >= 0; z--) {
-                tempBt = dec(tempBt, firstKeyBt[z]);
-            }
-            decByte = tempBt;
-        } else {
-            if (firstKey !== null && firstKey !== "" && secondKey !== null && secondKey !== "") {
-                let tempBt;
-                let x, y;
-                tempBt = intByte;
-                for (x = secondLength - 1; x >= 0; x--) {
-                    tempBt = dec(tempBt, secondKeyBt[x]);
-                }
-                for (y = firstLength - 1; y >= 0; y--) {
-                    tempBt = dec(tempBt, firstKeyBt[y]);
-                }
-                decByte = tempBt;
-            } else {
-                if (firstKey !== null && firstKey !== "") {
-                    let tempBt;
-                    let x;
-                    tempBt = intByte;
-                    for (x = firstLength - 1; x >= 0; x--) {
-                        tempBt = dec(tempBt, firstKeyBt[x]);
-                    }
-                    decByte = tempBt;
-                }
-            }
-        }
-        decStr += byteToString(decByte);
-    }
-    return decStr;
-}
-
-/*
- * chang the string into the bit array
- *
- * return bit array(it's length % 64 = 0)
- */
 function getKeyBytes(key) {
     const keyBytes = new Array();
     const leng = key.length;
@@ -261,11 +179,6 @@ function getKeyBytes(key) {
     return keyBytes;
 }
 
-/*
- * chang the string(it's length <= 4) into the bit array
- *
- * return bit array(it's length = 64)
- */
 function strToBt(str) {
     const leng = str.length;
     const bt = new Array(64);
@@ -311,11 +224,6 @@ function strToBt(str) {
     return bt;
 }
 
-/*
- * chang the bit(it's length = 4) into the hex
- *
- * return hex
- */
 function bt4ToHex(binary) {
     let hex;
     switch (binary) {
@@ -371,89 +279,6 @@ function bt4ToHex(binary) {
     return hex;
 }
 
-/*
- * chang the hex into the bit(it's length = 4)
- *
- * return the bit(it's length = 4)
- */
-function hexToBt4(hex) {
-    let binary;
-    switch (hex) {
-        case "0":
-            binary = "0000";
-            break;
-        case "1":
-            binary = "0001";
-            break;
-        case "2":
-            binary = "0010";
-            break;
-        case "3":
-            binary = "0011";
-            break;
-        case "4":
-            binary = "0100";
-            break;
-        case "5":
-            binary = "0101";
-            break;
-        case "6":
-            binary = "0110";
-            break;
-        case "7":
-            binary = "0111";
-            break;
-        case "8":
-            binary = "1000";
-            break;
-        case "9":
-            binary = "1001";
-            break;
-        case "A":
-            binary = "1010";
-            break;
-        case "B":
-            binary = "1011";
-            break;
-        case "C":
-            binary = "1100";
-            break;
-        case "D":
-            binary = "1101";
-            break;
-        case "E":
-            binary = "1110";
-            break;
-        case "F":
-            binary = "1111";
-            break;
-    }
-    return binary;
-}
-
-/*
- * chang the bit(it's length = 64) into the string
- *
- * return string
- */
-function byteToString(byteData) {
-    let str = "";
-    for (let i = 0; i < 4; i++) {
-        let count = 0;
-        for (let j = 0; j < 16; j++) {
-            let pow = 1;
-            for (let m = 15; m > j; m--) {
-                pow *= 2;
-            }
-            count += byteData[16 * i + j] * pow;
-        }
-        if (count !== 0) {
-            str += String.fromCharCode(count);
-        }
-    }
-    return str;
-}
-
 function bt64ToHex(byteData) {
     let hex = "";
     for (let i = 0; i < 16; i++) {
@@ -465,18 +290,6 @@ function bt64ToHex(byteData) {
     }
     return hex;
 }
-
-function hexToBt64(hex) {
-    let binary = "";
-    for (let i = 0; i < 16; i++) {
-        binary += hexToBt4(hex.substring(i, i + 1));
-    }
-    return binary;
-}
-
-/*
- * the 64 bit des core arithmetic
- */
 
 function enc(dataByte, keyByte) {
     const keys = generateKeys(keyByte);
@@ -507,46 +320,6 @@ function enc(dataByte, keyByte) {
             ipRight[n] = tempRight[n];
         }
 
-    }
-
-
-    const finalData = new Array(64);
-    for (i = 0; i < 32; i++) {
-        finalData[i] = ipRight[i];
-        finalData[32 + i] = ipLeft[i];
-    }
-    return finallyPermute(finalData);
-}
-
-function dec(dataByte, keyByte) {
-    const keys = generateKeys(keyByte);
-    const ipByte = initPermute(dataByte);
-    const ipLeft = new Array(32);
-    const ipRight = new Array(32);
-    const tempLeft = new Array(32);
-    let i = 0,
-        j = 0,
-        k = 0,
-        m = 0,
-        n = 0;
-    for (k = 0; k < 32; k++) {
-        ipLeft[k] = ipByte[k];
-        ipRight[k] = ipByte[32 + k];
-    }
-    for (i = 15; i >= 0; i--) {
-        for (j = 0; j < 32; j++) {
-            tempLeft[j] = ipLeft[j];
-            ipLeft[j] = ipRight[j];
-        }
-        const key = new Array(48);
-        for (m = 0; m < 48; m++) {
-            key[m] = keys[i][m];
-        }
-
-        const tempRight = xor(pPermute(sBoxPermute(xor(expandPermute(ipRight), key))), tempLeft);
-        for (n = 0; n < 32; n++) {
-            ipRight[n] = tempRight[n];
-        }
     }
 
 
@@ -868,10 +641,6 @@ function getBoxBinary(i) {
     return binary;
 }
 
-/*
- * generate 16 keys for xor
- *
- */
 function generateKeys(keyByte) {
     const key = new Array(56);
     const keys = new Array();
@@ -1049,9 +818,9 @@ function generateKeys(keyByte) {
     return keys;
 }
 module.exports = {
-    strEnc,
-    strDec
+    strEnc
 };
+
 </script>
 </body>
 

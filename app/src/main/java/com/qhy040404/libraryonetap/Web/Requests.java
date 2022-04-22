@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap;
+package com.qhy040404.libraryonetap.web;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import okhttp3.Response;
 public class Requests {
     final OkHttpClient client = new OkHttpClient();
 
-    String get(String url) throws IOException {
+    public String get(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .get()

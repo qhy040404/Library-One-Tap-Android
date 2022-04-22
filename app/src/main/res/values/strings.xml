@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">图书馆</string>
     <string name="title_activity_settings">设置</string>
-    
+
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
 

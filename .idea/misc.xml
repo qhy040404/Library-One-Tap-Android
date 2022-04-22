@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_desWebview.xml" value="0.25" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_des_webview.xml" value="0.14739583333333334" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_webview.xml" value="0.358695652173913" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/settings_activity.xml" value="0.358695652173913" />

@@ -2,14 +2,17 @@ package com.qhy040404.libraryonetap
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.StrictMode
 import android.webkit.CookieManager
 import android.webkit.ValueCallback
 import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.qhy040404.libraryonetap.Requests
+import com.qhy040404.libraryonetap.web.Requests
 
 
 class WebviewActivity : AppCompatActivity() {
@@ -27,12 +30,14 @@ class WebviewActivity : AppCompatActivity() {
             .penaltyLog().penaltyDeath().build())
 
         val libraryWebView: WebView = findViewById(R.id.webview)
+        val textView : TextView = findViewById(R.id.textView)
         val cookieManager: CookieManager = CookieManager.getInstance()
-        val requests :Requests = Requests()
+        val requests : Requests = Requests()
 
         cookieManager.setAcceptCookie(true)
         cookieManager.setAcceptThirdPartyCookies(libraryWebView, true)
         libraryWebView.settings.javaScriptEnabled = true
+        libraryWebView.settings.javaScriptCanOpenWindowsAutomatically = true
 
         val sharedPreferences: SharedPreferences = getSharedPreferences("com.qhy040404.libraryonetap_preferences", Context.MODE_PRIVATE)
 
@@ -42,9 +47,20 @@ class WebviewActivity : AppCompatActivity() {
         val ltResponse :String = requests.get("https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php")
         val ltData :String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
-        val postData : ValueCallback<String>? = null
+        val rawData : String = "'$id$passwd$ltData'"
+
         libraryWebView.loadUrl("file:///android_assets/des.html")
-        libraryWebView.evaluateJavascript("strEnc($id+$passwd+$ltData, '1', '2', '3')", postData)
+        libraryWebView.webViewClient = object  : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                libraryWebView.evaluateJavascript("javascript:strEnc($rawData,'1','2','3')", object : ValueCallback<String> {
+                    override fun onReceiveValue(value: String?) {
+                        val encryptedData : String? = value
+                    }
+                })
+
+            }
+        }
 
         //Temp using
         libraryWebView.loadUrl("https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php")

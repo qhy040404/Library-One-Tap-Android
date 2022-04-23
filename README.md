@@ -1,7 +1,6 @@
 # Library-One-Tap
 一个便于打开离退/暂离页面的小程序
 
-[![Build status (GitHub)](https://img.shields.io/github/workflow/status/qhy040404/Library-One-Tap/Compile-and-Test-CI/master?label=Compile&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap/badge)](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap)
 [![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/Library-One-Tap.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap/commits)
 [![License](https://img.shields.io/github/license/qhy040404/Library-One-Tap.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/Library-One-Tap/blob/master/LICENSE)
@@ -20,4 +19,4 @@
 
 ## 友链
 - [约座小程序](https://github.com/qhy040404/DLUT-library-auto-reservation)
-- [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)(Android段的校园网登录思路来自这里)
+- [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)(Android端的校园网登录思路来自这里)

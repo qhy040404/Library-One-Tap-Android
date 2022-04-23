@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun buttonOpenWebView(view: View) {
-        val intent = Intent(this, WebviewActivity::class.java)
+    fun buttonOpenDetail(view: View) {
+        val intent = Intent(this, DetailActivity::class.java)
         startActivity(intent)
     }
 

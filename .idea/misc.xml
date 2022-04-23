@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/shape_fillet_translucent.xml" value="0.292" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_desWebview.xml" value="0.25" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_des_webview.xml" value="0.14739583333333334" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_webview.xml" value="0.358695652173913" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_progressbar_juhua.xml" value="0.35507246376811596" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/settings_activity.xml" value="0.358695652173913" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/network_security_config.xml" value="0.14479166666666668" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/root_preferences.xml" value="0.358695652173913" />
       </map>
     </option>

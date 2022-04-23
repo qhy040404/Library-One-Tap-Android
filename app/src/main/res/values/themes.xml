@@ -19,4 +19,9 @@
     </style>
     <style name="Theme.图书馆.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.图书馆.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">
+        <!--此属性控制悬浮窗背景是否变暗-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

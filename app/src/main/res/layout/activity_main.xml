@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:onClick="buttonOpenWebView"
+        android:onClick="buttonOpenDetail"
         android:text="离退/暂离"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="@+id/button2"

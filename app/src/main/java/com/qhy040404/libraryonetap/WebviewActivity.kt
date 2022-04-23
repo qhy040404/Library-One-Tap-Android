@@ -12,6 +12,7 @@ import android.webkit.WebViewClient
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.des.desEncrypt
 
 
 class WebviewActivity : AppCompatActivity() {
@@ -32,6 +33,7 @@ class WebviewActivity : AppCompatActivity() {
         val textView : TextView = findViewById(R.id.textView)
         val cookieManager: CookieManager = CookieManager.getInstance()
         val requests : Requests = Requests()
+        val des : desEncrypt = desEncrypt()
 
         cookieManager.setAcceptCookie(true)
         cookieManager.setAcceptThirdPartyCookies(libraryWebView, true)
@@ -46,19 +48,9 @@ class WebviewActivity : AppCompatActivity() {
         val ltResponse :String = requests.get("https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php")
         val ltData :String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
-        val rawData : String = "'$id$passwd$ltData'"
+        val rawData : String = "$id$passwd$ltData"
 
-        libraryWebView.loadUrl("file:///android_assets/des.html")
-        libraryWebView.webViewClient = object  : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                libraryWebView.evaluateJavascript("javascript:strEnc($rawData,'1','2','3')", object : ValueCallback<String> {
-                    override fun onReceiveValue(p0: String?) {
-                        val encryptedData : String? = p0
-                    }
-                })
-            }
-        }
+        val rsa : String = des.strEnc(rawData,"1","2","3")
 
         //Temp using
         libraryWebView.loadUrl("https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php")

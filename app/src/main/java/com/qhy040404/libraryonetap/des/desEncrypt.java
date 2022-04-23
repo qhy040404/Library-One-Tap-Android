@@ -576,7 +576,7 @@ public class desEncrypt {
     private byte[][] getKeyBytes(String key) {
         int leng = key.length();
         int iterater = leng / 4;
-        byte[][] keyBytes = new byte[iterater+1][];
+        byte[][] keyBytes = new byte[iterater + 1][];
         int remainder = leng % 4;
         int i = 0;
         for (i = 0; i < iterater; i++) {

@@ -5,7 +5,5 @@
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
 
-    <string name="autoLogin">启用自动登录</string>
-
     <string name="loading">加载中...</string>
 </resources>

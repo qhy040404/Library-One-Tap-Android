@@ -14,12 +14,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="便捷设置">
-
-        <SwitchPreferenceCompat
-            app:key="autoLogin"
-            app:title="@string/autoLogin" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class CheckSession implements Serializable {
     Gson gson = new Gson();
+
     /**
      * success : true
      * message : 用户在线！
@@ -19,16 +20,18 @@ public class CheckSession implements Serializable {
         private boolean getSuccess() {
             return success;
         }
+
         private String getMessage() {
             return message;
         }
-        private String getUser_id(){
+
+        private String getUser_id() {
             return user_id;
         }
     }
 
     public boolean isSuccess(String returnData) {
-        GsonData gsonData = gson.fromJson(returnData,GsonData.class);
+        GsonData gsonData = gson.fromJson(returnData, GsonData.class);
         boolean successData = gsonData.getSuccess();
         return successData;
     }

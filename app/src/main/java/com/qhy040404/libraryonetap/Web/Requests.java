@@ -22,7 +22,7 @@ public class Requests {
 
         @Override
         public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-            cookieStore.put(url.host(),cookies);
+            cookieStore.put(url.host(), cookies);
         }
 
         @Override
@@ -32,7 +32,7 @@ public class Requests {
         }
     }).build();
 
-    public String get(String url, String id) throws IOException {
+    public String get(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .get()

@@ -21,7 +21,7 @@ public class OrderList implements Serializable {
         }
 
         private String getOrder_id() {
-            String order_id = null;
+            String order_id = "没有找到状态为进行中的order";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
@@ -33,7 +33,7 @@ public class OrderList implements Serializable {
         }
 
         private String getSpace_name() {
-            String space_name = null;
+            String space_name = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
@@ -45,7 +45,7 @@ public class OrderList implements Serializable {
         }
 
         private String getSeat_label() {
-            String seat_label = null;
+            String seat_label = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
@@ -57,7 +57,7 @@ public class OrderList implements Serializable {
         }
 
         private String getOrder_date() {
-            String order_date = null;
+            String order_date = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);

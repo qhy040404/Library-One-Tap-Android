@@ -174,7 +174,7 @@ class DetailActivity : AppCompatActivity() {
                         })
                     }
                 })
-                textView.text = "当前选中：\n$space_name\n$seat_label\n$order_date"
+                textView.text = "order_id:$order_id\n\n$space_name\n$seat_label\n$order_date"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@DetailActivity)

@@ -58,7 +58,6 @@ class DetailActivity : AppCompatActivity() {
             )
 
             val textView: TextView = findViewById(R.id.textView)
-            val enter: Button = findViewById(R.id.button6)
             val leave: Button = findViewById(R.id.button4)
             val tempLeave: Button = findViewById(R.id.button5)
             val imageView: ImageView = findViewById(R.id.imageView)
@@ -123,32 +122,6 @@ class DetailActivity : AppCompatActivity() {
                 val seat_label = orderList.getSeat_label(list)
                 val order_date = orderList.getOrder_date(list)
                 val order_id = orderList.getOrder_id(list)
-                enter.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        var method = "in"
-                        val QrCodeUrl =
-                            "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
-                        var request = Request.Builder().url(QrCodeUrl).build()
-                        var call = requests.client.newCall(request)
-                        call.enqueue(object : Callback {
-                            override fun onFailure(call: Call, e: IOException) {
-                                TODO("Not yet implemented")
-                            }
-
-                            override fun onResponse(call: Call, response: Response) {
-                                var picture_bt = response.body!!.bytes()
-                                var pictureInput = response.body!!.byteStream()
-                                var bitmap =
-                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                                imageView.post(Runnable {
-                                    imageView.setImageBitmap(bitmap)
-                                })
-                                //imageView.setImageBitmap(bitmap)
-                                pictureInput.close()
-                            }
-                        })
-                    }
-                })
                 leave.setOnClickListener(object : View.OnClickListener {
                     override fun onClick(p0: View?) {
                         var method = "out"
@@ -177,7 +150,7 @@ class DetailActivity : AppCompatActivity() {
                 })
                 tempLeave.setOnClickListener(object : View.OnClickListener {
                     override fun onClick(p0: View?) {
-                        var method = "out"
+                        var method = "temp"
                         val QrCodeUrl =
                             "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
                         var request = Request.Builder().url(QrCodeUrl).build()

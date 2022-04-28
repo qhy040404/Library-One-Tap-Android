@@ -1,11 +1,11 @@
-# Library-One-Tap
+# Library-One-Tap-Android
 一个便于打开离退/暂离页面的小程序
 
-[![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap/badge)](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap)
-[![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/Library-One-Tap.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap/commits)
-[![License](https://img.shields.io/github/license/qhy040404/Library-One-Tap.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/Library-One-Tap/blob/master/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android/badge)](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android)
+[![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/Library-One-Tap-Android.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/commits)
+[![License](https://img.shields.io/github/license/qhy040404/Library-One-Tap-Android.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/Library-One-Tap-Android/blob/master/LICENSE)
 
-![GitHub top language](https://img.shields.io/github/languages/top/qhy040404/Library-One-Tap)
+![GitHub top language](https://img.shields.io/github/languages/top/qhy040404/Library-One-Tap-Android)
 
 > 每次在图书馆门口站半天就是为了把二维码打开，这个快多了:dog:
 

@@ -30,7 +30,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("暂离")) {
@@ -39,7 +39,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过")) {
@@ -60,7 +60,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_process.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("暂离")) {
@@ -69,7 +69,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_process.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过")) {
@@ -90,7 +90,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (space_name.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("暂离")) {
@@ -99,7 +99,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (space_name.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过")) {
@@ -120,7 +120,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (seat_label.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("暂离")) {
@@ -129,7 +129,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (seat_label.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过")) {
@@ -150,7 +150,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_date.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("暂离")) {
@@ -159,7 +159,7 @@ public class OrderList implements Serializable {
                 }
             }
             if (order_date.equals("")) {
-                for (int i = 0; i<rows.size();i++) {
+                for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过")) {

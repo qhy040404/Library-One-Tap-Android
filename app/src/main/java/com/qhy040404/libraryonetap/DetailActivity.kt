@@ -1,8 +1,6 @@
 package com.qhy040404.libraryonetap
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -67,10 +65,10 @@ class DetailActivity : AppCompatActivity() {
             val imageView: ImageView = findViewById(R.id.imageView)
             val refresh: Button = findViewById(R.id.button7)
 
-            val requests: Requests = Requests()
-            val des: desEncrypt = desEncrypt()
-            val checkSession: CheckSession = CheckSession()
-            val orderList: OrderList = OrderList()
+            val requests = Requests()
+            val des = desEncrypt()
+            val checkSession = CheckSession()
+            val orderList = OrderList()
 
             val sharedPreferences: SharedPreferences =
                 getSharedPreferences("com.qhy040404.libraryonetap_preferences", MODE_PRIVATE)
@@ -78,23 +76,22 @@ class DetailActivity : AppCompatActivity() {
             val id: String = sharedPreferences.getString("userid", "Error").toString()
             val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
 
-            val requestUrl: String =
+            val requestUrl =
                 "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
-            val sessionUrl: String =
+            val sessionUrl =
                 "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=checkSession"
-            var loginSuccess: Boolean = false
-            var timer: Int = 0
+            var loginSuccess = false
+            var timer = 0
             while (!loginSuccess) {
-                var ltResponse: String = requests.get(requestUrl)
-                var ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                val ltResponse: String = requests.get(requestUrl)
+                val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
-                var rawData: String = "$id$passwd$ltData"
-                var rsa: String = des.strEnc(rawData, "1", "2", "3")
+                val rawData = "$id$passwd$ltData"
+                val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                var login: String =
-                    requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa))
+                requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa))
 
-                var session: String = requests.post(sessionUrl, "")
+                val session: String = requests.post(sessionUrl, "")
                 if (checkSession.isSuccess(session)) {
                     val makeText = Toast.makeText(this@DetailActivity, "登录成功", Toast.LENGTH_LONG)
                     makeText.show()
@@ -108,12 +105,13 @@ class DetailActivity : AppCompatActivity() {
                         AlertDialog.Builder(this@DetailActivity)
                             .setMessage("连续失败3次，返回主页面\n请检查用户名和密码")
                             .setTitle("错误")
-                            .setPositiveButton("好", DialogInterface.OnClickListener { _, _ ->
+                            .setPositiveButton("好") { _, _ ->
                                 exitProcess(1)
-                            })
+                            }
                             .setCancelable(false)
                             .create()
                             .show()
+                        Looper.loop()
                         break
                     }
                 }
@@ -133,89 +131,78 @@ class DetailActivity : AppCompatActivity() {
                     order_process = "未开始"
                 }
 
-                enter.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        var method = "in"
-                        val QrCodeUrl =
-                            "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
-                        var request = Request.Builder().url(QrCodeUrl).build()
-                        var call = requests.client.newCall(request)
-                        call.enqueue(object : Callback {
-                            override fun onFailure(call: Call, e: IOException) {
+                enter.setOnClickListener {
+                    val method = "in"
+                    val qrCodeUrl =
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                    val request = Request.Builder().url(qrCodeUrl).build()
+                    val call = requests.client.newCall(request)
+                    call.enqueue(object : Callback {
+                        override fun onFailure(call: Call, e: IOException) {
 
-                            }
+                        }
 
-                            override fun onResponse(call: Call, response: Response) {
-                                var picture_bt = response.body!!.bytes()
-                                var pictureInput = response.body!!.byteStream()
-                                var bitmap =
-                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                                imageView.post(Runnable {
-                                    imageView.setImageBitmap(bitmap)
-                                })
-                                //imageView.setImageBitmap(bitmap)
-                                pictureInput.close()
+                        override fun onResponse(call: Call, response: Response) {
+                            val picture_bt = response.body!!.bytes()
+                            val pictureInput = response.body!!.byteStream()
+                            val bitmap =
+                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                            imageView.post {
+                                imageView.setImageBitmap(bitmap)
                             }
-                        })
-                    }
-                })
-                leave.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        var method = "out"
-                        val QrCodeUrl =
-                            "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
-                        var request = Request.Builder().url(QrCodeUrl).build()
-                        var call = requests.client.newCall(request)
-                        call.enqueue(object : Callback {
-                            override fun onFailure(call: Call, e: IOException) {
+                            pictureInput.close()
+                        }
+                    })
+                }
+                leave.setOnClickListener {
+                    val method = "out"
+                    val qrCodeUrl =
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                    val request = Request.Builder().url(qrCodeUrl).build()
+                    val call = requests.client.newCall(request)
+                    call.enqueue(object : Callback {
+                        override fun onFailure(call: Call, e: IOException) {
 
-                            }
+                        }
 
-                            override fun onResponse(call: Call, response: Response) {
-                                var picture_bt = response.body!!.bytes()
-                                var pictureInput = response.body!!.byteStream()
-                                var bitmap =
-                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                                imageView.post(Runnable {
-                                    imageView.setImageBitmap(bitmap)
-                                })
-                                //imageView.setImageBitmap(bitmap)
-                                pictureInput.close()
+                        override fun onResponse(call: Call, response: Response) {
+                            val picture_bt = response.body!!.bytes()
+                            val pictureInput = response.body!!.byteStream()
+                            val bitmap =
+                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                            imageView.post {
+                                imageView.setImageBitmap(bitmap)
                             }
-                        })
-                    }
-                })
-                tempLeave.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        var method = "temp"
-                        val QrCodeUrl =
-                            "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
-                        var request = Request.Builder().url(QrCodeUrl).build()
-                        var call = requests.client.newCall(request)
-                        call.enqueue(object : Callback {
-                            override fun onFailure(call: Call, e: IOException) {
+                            //imageView.setImageBitmap(bitmap)
+                            pictureInput.close()
+                        }
+                    })
+                }
+                tempLeave.setOnClickListener {
+                    val method = "temp"
+                    val qrCodeUrl =
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                    val request = Request.Builder().url(qrCodeUrl).build()
+                    val call = requests.client.newCall(request)
+                    call.enqueue(object : Callback {
+                        override fun onFailure(call: Call, e: IOException) {
 
-                            }
+                        }
 
-                            override fun onResponse(call: Call, response: Response) {
-                                var picture_bt = response.body!!.bytes()
-                                var pictureInput = response.body!!.byteStream()
-                                var bitmap =
-                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                                imageView.post(Runnable {
-                                    imageView.setImageBitmap(bitmap)
-                                })
-                                //imageView.setImageBitmap(bitmap)
-                                pictureInput.close()
+                        override fun onResponse(call: Call, response: Response) {
+                            val picture_bt = response.body!!.bytes()
+                            val pictureInput = response.body!!.byteStream()
+                            val bitmap =
+                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                            imageView.post {
+                                imageView.setImageBitmap(bitmap)
                             }
-                        })
-                    }
-                })
-                refresh.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(p0: View?) {
-                        recreate()
-                    }
-                })
+                            //imageView.setImageBitmap(bitmap)
+                            pictureInput.close()
+                        }
+                    })
+                }
+                refresh.setOnClickListener { recreate() }
                 textView.text =
                     "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date"
                 Looper.loop()
@@ -223,9 +210,9 @@ class DetailActivity : AppCompatActivity() {
                 AlertDialog.Builder(this@DetailActivity)
                     .setMessage("登录失效，请重新进入此页面")
                     .setTitle("错误")
-                    .setPositiveButton("好", DialogInterface.OnClickListener { _, _ ->
+                    .setPositiveButton("好") { _, _ ->
                         exitProcess(1)
-                    })
+                    }
                     .setCancelable(false)
                     .create()
                     .show()

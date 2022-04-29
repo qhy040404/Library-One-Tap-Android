@@ -5,5 +5,10 @@
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
 
-    <string name="loading">加载中...</string>
+    <string name="loading">加载中....</string>
+
+    <string name="enter">签到码</string>
+    <string name="leave">离退码</string>
+    <string name="temp">暂离码</string>
+    <string name="refresh">刷新数据</string>
 </resources>

@@ -216,6 +216,7 @@ class DetailActivity : AppCompatActivity() {
                     .setCancelable(false)
                     .create()
                     .show()
+                Looper.loop()
             }
         }
     }

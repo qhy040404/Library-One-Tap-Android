@@ -21,7 +21,7 @@ public class OrderList implements Serializable {
         }
 
         private String getOrder_id() {
-            String order_id = "没有找到状态为进行中的order";
+            String order_id = "没有找到状态为进行中/暂离/审核通过的order";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
@@ -29,7 +29,55 @@ public class OrderList implements Serializable {
                     order_id = list.order_id;
                 }
             }
+            if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("暂离")) {
+                        order_id = list.order_id;
+                    }
+                }
+            }
+            if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("审核通过")) {
+                        order_id = list.order_id;
+                    }
+                }
+            }
             return order_id;
+        }
+
+        private String getOrder_process() {
+            String order_process = "";
+            for (int i = 0; i < rows.size(); i++) {
+                RowsBean list = new RowsBean();
+                list = rows.get(i);
+                if (list.order_process.equals("进行中")) {
+                    order_process = list.order_process;
+                }
+            }
+            if (order_process.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("暂离")) {
+                        order_process = list.order_process;
+                    }
+                }
+            }
+            if (order_process.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("审核通过")) {
+                        order_process = list.order_process;
+                    }
+                }
+            }
+            return order_process;
         }
 
         private String getSpace_name() {
@@ -39,6 +87,24 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中")) {
                     space_name = list.space_name;
+                }
+            }
+            if (space_name.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("暂离")) {
+                        space_name = list.space_name;
+                    }
+                }
+            }
+            if (space_name.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("审核通过")) {
+                        space_name = list.space_name;
+                    }
                 }
             }
             return space_name;
@@ -53,6 +119,24 @@ public class OrderList implements Serializable {
                     seat_label = list.seat_label;
                 }
             }
+            if (seat_label.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("暂离")) {
+                        seat_label = list.seat_label;
+                    }
+                }
+            }
+            if (seat_label.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("审核通过")) {
+                        seat_label = list.seat_label;
+                    }
+                }
+            }
             return seat_label;
         }
 
@@ -63,6 +147,24 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中")) {
                     order_date = list.order_date;
+                }
+            }
+            if (order_date.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("暂离")) {
+                        order_date = list.order_date;
+                    }
+                }
+            }
+            if (order_date.equals("")) {
+                for (int i = 0; i<rows.size();i++) {
+                    RowsBean list = new RowsBean();
+                    list = rows.get(i);
+                    if (list.order_process.equals("审核通过")) {
+                        order_date = list.order_date;
+                    }
                 }
             }
             return order_date;
@@ -113,6 +215,11 @@ public class OrderList implements Serializable {
     public String getOrder_id(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
         return gsonData.getOrder_id();
+    }
+
+    public String getOrder_process(String data) {
+        GsonData gsonData = gson.fromJson(data, GsonData.class);
+        return gsonData.getOrder_process();
     }
 
     public String getSpace_name(String data) {

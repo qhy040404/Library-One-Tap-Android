@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -44,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private inner class Detail : Runnable {
+        @SuppressLint("SetTextI18n")
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(
@@ -62,6 +65,7 @@ class DetailActivity : AppCompatActivity() {
             val tempLeave: Button = findViewById(R.id.button5)
             val enter: Button = findViewById(R.id.button6)
             val imageView: ImageView = findViewById(R.id.imageView)
+            val refresh: Button = findViewById(R.id.button7)
 
             val requests: Requests = Requests()
             val des: desEncrypt = desEncrypt()
@@ -123,6 +127,12 @@ class DetailActivity : AppCompatActivity() {
                 val seat_label = orderList.getSeat_label(list)
                 val order_date = orderList.getOrder_date(list)
                 val order_id = orderList.getOrder_id(list)
+                var order_process = orderList.getOrder_process(list)
+
+                if (order_process.equals("审核通过")) {
+                    order_process = "未开始"
+                }
+
                 enter.setOnClickListener(object : View.OnClickListener {
                     override fun onClick(p0: View?) {
                         var method = "in"
@@ -201,7 +211,13 @@ class DetailActivity : AppCompatActivity() {
                         })
                     }
                 })
-                textView.text = "order_id:$order_id\n\n$space_name\n$seat_label\n$order_date"
+                refresh.setOnClickListener(object : View.OnClickListener {
+                    override fun onClick(p0: View?) {
+                        recreate()
+                    }
+                })
+                textView.text =
+                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@DetailActivity)

@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun buttonYanxiujian(view: View) {
+        val intent = Intent(this,YanxiujianActivity::class.java)
+        startActivity(intent)
+    }
+
     fun buttonExit(view: View) {
         exitProcess(0)
     }

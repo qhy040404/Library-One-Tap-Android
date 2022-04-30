@@ -20,12 +20,12 @@ public class OrderList implements Serializable {
             return total;
         }
 
-        private String getOrder_id() {
+        private String getOrder_id(String mode) {
             String order_id = "没有找到状态为进行中/暂离/审核通过的order";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中")) {
+                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_id = list.order_id;
                 }
             }
@@ -33,7 +33,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("暂离")) {
+                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_id = list.order_id;
                     }
                 }
@@ -42,7 +42,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("审核通过")) {
+                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_id = list.order_id;
                     }
                 }
@@ -50,12 +50,12 @@ public class OrderList implements Serializable {
             return order_id;
         }
 
-        private String getOrder_process() {
+        private String getOrder_process(String mode) {
             String order_process = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中")) {
+                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_process = list.order_process;
                 }
             }
@@ -63,7 +63,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("暂离")) {
+                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_process = list.order_process;
                     }
                 }
@@ -72,7 +72,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("审核通过")) {
+                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_process = list.order_process;
                     }
                 }
@@ -80,12 +80,12 @@ public class OrderList implements Serializable {
             return order_process;
         }
 
-        private String getSpace_name() {
+        private String getSpace_name(String mode) {
             String space_name = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中")) {
+                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     space_name = list.space_name;
                 }
             }
@@ -93,7 +93,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("暂离")) {
+                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         space_name = list.space_name;
                     }
                 }
@@ -102,7 +102,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("审核通过")) {
+                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         space_name = list.space_name;
                     }
                 }
@@ -110,12 +110,12 @@ public class OrderList implements Serializable {
             return space_name;
         }
 
-        private String getSeat_label() {
+        private String getSeat_label(String mode) {
             String seat_label = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中")) {
+                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     seat_label = list.seat_label;
                 }
             }
@@ -123,7 +123,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("暂离")) {
+                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         seat_label = list.seat_label;
                     }
                 }
@@ -132,7 +132,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("审核通过")) {
+                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         seat_label = list.seat_label;
                     }
                 }
@@ -140,12 +140,12 @@ public class OrderList implements Serializable {
             return seat_label;
         }
 
-        private String getOrder_date() {
+        private String getOrder_date(String mode) {
             String order_date = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中")) {
+                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_date = list.order_date;
                 }
             }
@@ -153,7 +153,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("暂离")) {
+                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_date = list.order_date;
                     }
                 }
@@ -162,7 +162,7 @@ public class OrderList implements Serializable {
                 for (int i = 0; i < rows.size(); i++) {
                     RowsBean list = new RowsBean();
                     list = rows.get(i);
-                    if (list.order_process.equals("审核通过")) {
+                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_date = list.order_date;
                     }
                 }
@@ -212,28 +212,28 @@ public class OrderList implements Serializable {
         return gsonData.getTotal();
     }
 
-    public String getOrder_id(String data) {
+    public String getOrder_id(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getOrder_id();
+        return gsonData.getOrder_id(mode);
     }
 
-    public String getOrder_process(String data) {
+    public String getOrder_process(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getOrder_process();
+        return gsonData.getOrder_process(mode);
     }
 
-    public String getSpace_name(String data) {
+    public String getSpace_name(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getSpace_name();
+        return gsonData.getSpace_name(mode);
     }
 
-    public String getSeat_label(String data) {
+    public String getSeat_label(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getSeat_label();
+        return gsonData.getSeat_label(mode);
     }
 
-    public String getOrder_date(String data) {
+    public String getOrder_date(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getOrder_date();
+        return gsonData.getOrder_date(mode);
     }
 }

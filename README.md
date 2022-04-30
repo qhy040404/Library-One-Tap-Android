@@ -18,10 +18,6 @@
 
 不是很想整Release，麻烦
 
-## 示例
-![LOTA1](https://raw.githubusercontent.com/qhy040404/Image-Resources-Repo/master/LOTA1.jpg)
-![LOTA2](https://raw.githubusercontent.com/qhy040404/Image-Resources-Repo/master/LOTA2.jpg)
-
 ## 友链
 - [约座小程序](https://github.com/qhy040404/DLUT-library-auto-reservation)
 - [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)(Android端的校园网登录思路来自这里)

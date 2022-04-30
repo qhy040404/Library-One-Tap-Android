@@ -121,11 +121,11 @@ class DetailActivity : AppCompatActivity() {
             val list = requests.get(listUrl)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
-                val space_name = orderList.getSpace_name(list)
-                val seat_label = orderList.getSeat_label(list)
-                val order_date = orderList.getOrder_date(list)
-                val order_id = orderList.getOrder_id(list)
-                var order_process = orderList.getOrder_process(list)
+                val space_name = orderList.getSpace_name(list, "2")
+                val seat_label = orderList.getSeat_label(list, "2")
+                val order_date = orderList.getOrder_date(list, "2")
+                val order_id = orderList.getOrder_id(list, "2")
+                var order_process = orderList.getOrder_process(list, "2")
 
                 if (order_process.equals("审核通过")) {
                     order_process = "未开始"
@@ -134,7 +134,7 @@ class DetailActivity : AppCompatActivity() {
                 enter.setOnClickListener {
                     val method = "in"
                     val qrCodeUrl =
-                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id"
                     val request = Request.Builder().url(qrCodeUrl).build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
@@ -157,7 +157,7 @@ class DetailActivity : AppCompatActivity() {
                 leave.setOnClickListener {
                     val method = "out"
                     val qrCodeUrl =
-                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id"
                     val request = Request.Builder().url(qrCodeUrl).build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
@@ -181,7 +181,7 @@ class DetailActivity : AppCompatActivity() {
                 tempLeave.setOnClickListener {
                     val method = "temp"
                     val qrCodeUrl =
-                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id" //具体参数明天看
+                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id"
                     val request = Request.Builder().url(qrCodeUrl).build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {

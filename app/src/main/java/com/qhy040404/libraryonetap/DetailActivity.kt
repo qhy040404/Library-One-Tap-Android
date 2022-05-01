@@ -126,6 +126,7 @@ class DetailActivity : AppCompatActivity() {
                 val order_date = orderList.getOrder_date(list, "2")
                 val order_id = orderList.getOrder_id(list, "2")
                 var order_process = orderList.getOrder_process(list, "2")
+                val back_time = orderList.getBack_time(list, "2")
 
                 if (order_process.equals("审核通过")) {
                     order_process = "未开始"
@@ -204,7 +205,7 @@ class DetailActivity : AppCompatActivity() {
                 }
                 refresh.setOnClickListener { recreate() }
                 textView.text =
-                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date"
+                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@DetailActivity)

@@ -27,6 +27,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_id = list.order_id;
+                    break;
                 }
             }
             if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
@@ -35,6 +36,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_id = list.order_id;
+                        break;
                     }
                 }
             }
@@ -44,6 +46,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_id = list.order_id;
+                        break;
                     }
                 }
             }
@@ -57,6 +60,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_process = list.order_process;
+                    break;
                 }
             }
             if (order_process.equals("")) {
@@ -65,6 +69,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_process = list.order_process;
+                        break;
                     }
                 }
             }
@@ -74,6 +79,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_process = list.order_process;
+                        break;
                     }
                 }
             }
@@ -87,6 +93,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     space_name = list.space_name;
+                    break;
                 }
             }
             if (space_name.equals("")) {
@@ -95,6 +102,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         space_name = list.space_name;
+                        break;
                     }
                 }
             }
@@ -104,6 +112,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         space_name = list.space_name;
+                        break;
                     }
                 }
             }
@@ -117,6 +126,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     seat_label = list.seat_label;
+                    break;
                 }
             }
             if (seat_label.equals("")) {
@@ -125,6 +135,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         seat_label = list.seat_label;
+                        break;
                     }
                 }
             }
@@ -134,6 +145,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         seat_label = list.seat_label;
+                        break;
                     }
                 }
             }
@@ -147,6 +159,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
                     order_date = list.order_date;
+                    break;
                 }
             }
             if (order_date.equals("")) {
@@ -155,6 +168,7 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                         order_date = list.order_date;
+                        break;
                     }
                 }
             }
@@ -164,10 +178,26 @@ public class OrderList implements Serializable {
                     list = rows.get(i);
                     if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
                         order_date = list.order_date;
+                        break;
                     }
                 }
             }
             return order_date;
+        }
+
+        private String getBack_time(String mode) {
+            String back_time = "";
+            for (int i = 0; i < rows.size(); i++) {
+                RowsBean list = new RowsBean();
+                list = rows.get(i);
+                if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
+                    if (!list.back_time.equals("00:00:00")) {
+                        back_time = "暂离截止：" + list.back_time;
+                    }
+                    break;
+                }
+            }
+            return back_time;
         }
 
         public static class RowsBean implements Serializable {
@@ -235,5 +265,10 @@ public class OrderList implements Serializable {
     public String getOrder_date(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
         return gsonData.getOrder_date(mode);
+    }
+
+    public String getBack_time(String data, String mode) {
+        GsonData gsonData = gson.fromJson(data, GsonData.class);
+        return gsonData.getBack_time(mode);
     }
 }

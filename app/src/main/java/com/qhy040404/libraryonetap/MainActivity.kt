@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.system.exitProcess
 
@@ -23,8 +24,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonYanxiujian(view: View) {
-        val intent = Intent(this,YanxiujianActivity::class.java)
-        startActivity(intent)
+        /*val intent = Intent(this,YanxiujianActivity::class.java)
+        startActivity(intent)*/
+        val makeText = Toast.makeText(this, "还在开发中哦，别慌", Toast.LENGTH_SHORT)
+        makeText.show()
     }
 
     fun buttonExit(view: View) {

@@ -17,6 +17,8 @@
 
     <!-- PROMPT -->
     <string name="loading">加载中....</string>
+    <string name="error">错误</string>
+    <string name="ok">好</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>

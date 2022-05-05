@@ -10,7 +10,7 @@ public class CheckSession implements Serializable {
     /**
      * success : true
      * message : 用户在线！
-     * user_id : 20211011300
+     * user_id : ***
      */
     private static class GsonData {
         private boolean success;

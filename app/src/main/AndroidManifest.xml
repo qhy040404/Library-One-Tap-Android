@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.图书馆">
         <activity
+            android:name=".tools.BathReserveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tools.ToolsInitActivity"
+            android:exported="false" />
+        <activity
             android:name=".YanxiujianActivity"
             android:exported="false"
             android:label="@string/title_activity_yanxiujian"
@@ -21,7 +27,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".SettingsActivity"
             android:exported="false"

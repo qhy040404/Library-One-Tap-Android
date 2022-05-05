@@ -1,20 +1,39 @@
 <resources>
+    <!-- TITLE -->
     <string name="app_name">图书馆</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_yanxiujian">研修间</string>
 
+    <!-- MAIN BUTTON -->
     <string name="detail_activity">签到/离退/暂离</string>
     <string name="yanxiujian">研修间</string>
     <string name="tools">工具箱</string>
     <string name="quit">退出</string>
 
+    <!-- SETTING -->
+    <string name="basic_information">基本信息</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
 
+    <!-- PROMPT -->
     <string name="loading">加载中....</string>
 
+    <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>
     <string name="leave">离退码</string>
     <string name="temp">暂离码</string>
     <string name="refresh">刷新数据</string>
+
+    <!-- TOOLS -->
+    <string name="bath">我TM要洗澡</string>
+
+    <!-- BATH RESERVE ACTIVITY -->
+    <string name="bathReserve">预约最近时间段</string>
+    <string-array name="placeArray">
+        <item>西山1楼</item>
+        <item>西山2楼</item>
+        <item>西山3楼</item>
+        <item>北山男</item>
+        <item>北山女</item>
+    </string-array>
 </resources>

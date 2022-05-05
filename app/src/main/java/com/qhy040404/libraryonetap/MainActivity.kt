@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)*/
         val makeText = Toast.makeText(this, "还在开发中哦，别慌", Toast.LENGTH_SHORT)
         makeText.show()
+    }
+
+    fun buttonTools(view: View) {
+        val intent = Intent(this,ToolsInitActivity::class.java)
+        startActivity(intent)
     }
 
     fun buttonExit(view: View) {

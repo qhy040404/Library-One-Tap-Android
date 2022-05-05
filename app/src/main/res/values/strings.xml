@@ -5,6 +5,7 @@
 
     <string name="detail_activity">签到/离退/暂离</string>
     <string name="yanxiujian">研修间</string>
+    <string name="tools">工具箱</string>
     <string name="quit">退出</string>
 
     <string name="user_id">学号</string>

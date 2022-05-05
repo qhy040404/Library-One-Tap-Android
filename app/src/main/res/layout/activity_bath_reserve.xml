@@ -28,12 +28,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="328dp"
-        android:layout_height="159dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="119dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="100dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="TextView"
+        android:text="@string/loading"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/button15"
         app:layout_constraintStart_toStartOf="@+id/button15"
         app:layout_constraintTop_toBottomOf="@+id/button15" />

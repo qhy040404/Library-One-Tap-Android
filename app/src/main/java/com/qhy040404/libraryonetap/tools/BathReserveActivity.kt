@@ -12,11 +12,18 @@ class BathReserveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bath_reserve)
+
+        initView()
     }
 
     override fun onResume() {
         super.onResume()
         Thread(BathReserve()).start()
+    }
+
+    private fun initView() {
+        val textViewBath: TextView = findViewById(R.id.textView3)
+        textViewBath.visibility = View.VISIBLE
     }
 
     private inner class BathReserve:Runnable {

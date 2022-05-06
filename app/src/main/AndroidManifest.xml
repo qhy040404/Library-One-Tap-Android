@@ -48,7 +48,7 @@
         <activity
             android:name=".DetailActivity"
             android:exported="false"
-            android:label="图书馆"
+            android:label="@string/library"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

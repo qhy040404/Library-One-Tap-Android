@@ -1,6 +1,7 @@
 <resources>
     <!-- TITLE -->
-    <string name="app_name">图书馆</string>
+    <string name="app_name">大工工具箱</string>
+    <string name="library">图书馆</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_yanxiujian">研修间</string>
 

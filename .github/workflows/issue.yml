@@ -1,0 +1,17 @@
+name: Issue-modifier
+on:
+  issue:
+    types: [opened]
+
+jobs:
+  Modify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add assignee and labels
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-assignees, add-labels'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: 'qhy040404'
+          labels: 'awaiting assessment'

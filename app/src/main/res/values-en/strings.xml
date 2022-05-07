@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TITLE -->
+    <string name="library">Library</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_yanxiujian">Yanxiujian</string>
+
+    <!-- MAIN BUTTON -->
+    <string name="detail_activity">Sign in/out/temp out</string>
+    <string name="yanxiujian">Yanxiujian</string>
+    <string name="tools">Tools</string>
+    <string name="quit">Quit</string>
+
+    <!-- SETTING -->
+    <string name="basic_information">Basic information</string>
+    <string name="user_id">ID</string>
+    <string name="passwd">Password</string>
+
+    <!-- PROMPT -->
+    <string name="loading">Loading....</string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+
+    <!-- DETAIL ACTIVITY -->
+    <string name="enter">Sign in QR code</string>
+    <string name="leave">Sign out QR code</string>
+    <string name="temp">Temp out QR code</string>
+    <string name="refresh">Reload</string>
+
+    <!-- TOOLS -->
+    <string name="bath">I need a bath NOW</string>
+
+    <!-- BATH RESERVE ACTIVITY -->
+    <string name="bathReserve">Reserve bathroom right now</string>
+    <string-array name="placeArray">
+        <item>West 1F</item>
+        <item>West 2F</item>
+        <item>West 3F</item>
+        <item>North Male</item>
+        <item>North Female</item>
+    </string-array>
+    <string name="cernet">Remaining campus network</string>
+    <string name="vcard">Virtual Yulan card</string>
+    <string name="vcardTitle">Virtual Yulan card</string>
+    <string name="bath_title">Bathhouse Reservation</string>
+    <string name="app_name">Library One Tap</string>
+    <string name="tools_title">Tools</string>
+</resources>

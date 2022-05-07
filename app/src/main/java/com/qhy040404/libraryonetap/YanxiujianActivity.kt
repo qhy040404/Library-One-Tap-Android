@@ -121,10 +121,11 @@ class YanxiujianActivity : AppCompatActivity() {
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
                 val space_name = orderList.getSpace_name(list, "1")
-                val seat_label = orderList.getSeat_label(list, "1")
                 val order_date = orderList.getOrder_date(list, "1")
                 val order_id = orderList.getOrder_id(list, "1")
                 var order_process = orderList.getOrder_process(list, "1")
+                val all_users = orderList.getAll_users(list)
+                val full_time = orderList.getFull_time(list)
 
                 if (order_process.equals("审核通过")) {
                     order_process = "未开始"
@@ -155,7 +156,7 @@ class YanxiujianActivity : AppCompatActivity() {
                 }
                 refresh2.setOnClickListener { recreate() }
                 textView2.text =
-                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date"
+                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@YanxiujianActivity)

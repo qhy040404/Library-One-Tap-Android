@@ -1,9 +1,12 @@
 <resources>
     <!-- TITLE -->
-    <string name="app_name">大工工具箱</string>
+    <string name="app_name">图书馆小程序</string>
     <string name="library">图书馆</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_yanxiujian">研修间</string>
+    <string name="vcardTitle">虚拟卡</string>
+    <string name="bath_title">澡堂预约</string>
+    <string name="tools_title">小工具</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">签到/离退/暂离</string>
@@ -29,6 +32,8 @@
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>
+    <string name="cernet">校园网还剩多少啊</string>
+    <string name="vcard">玉兰卡虚拟卡</string>
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bathReserve">预约最近时间段</string>

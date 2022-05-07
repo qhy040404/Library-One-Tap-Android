@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- TITLE -->
-    <string name="app_name">DLUT Tools</string>
     <string name="library">Library</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_yanxiujian">Yanxiujian</string>
@@ -40,4 +39,10 @@
         <item>North Male</item>
         <item>North Female</item>
     </string-array>
+    <string name="cernet">Remaining campus network</string>
+    <string name="vcard">Virtual Yulan card</string>
+    <string name="vcardTitle">Virtual Yulan card</string>
+    <string name="bath_title">Bathhouse Reservation</string>
+    <string name="app_name">Library One Tap</string>
+    <string name="tools_title">Tools</string>
 </resources>

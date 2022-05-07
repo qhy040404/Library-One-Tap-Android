@@ -104,8 +104,8 @@ class DetailActivity : AppCompatActivity() {
                     if (timer >= 3) {
                         AlertDialog.Builder(this@DetailActivity)
                             .setMessage("连续失败3次，返回主页面\n请检查用户名和密码")
-                            .setTitle("错误")
-                            .setPositiveButton("好") { _, _ ->
+                            .setTitle(R.string.error)
+                            .setPositiveButton(R.string.ok) { _, _ ->
                                 exitProcess(1)
                             }
                             .setCancelable(false)
@@ -210,8 +210,8 @@ class DetailActivity : AppCompatActivity() {
             } else {
                 AlertDialog.Builder(this@DetailActivity)
                     .setMessage("登录失效，请重新进入此页面")
-                    .setTitle("错误")
-                    .setPositiveButton("好") { _, _ ->
+                    .setTitle(R.string.error)
+                    .setPositiveButton(R.string.ok) { _, _ ->
                         exitProcess(1)
                     }
                     .setCancelable(false)

@@ -25,29 +25,9 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_id = list.order_id;
                     break;
-                }
-            }
-            if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
-                        order_id = list.order_id;
-                        break;
-                    }
-                }
-            }
-            if (order_id.equals("没有找到状态为进行中/暂离/审核通过的order")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
-                        order_id = list.order_id;
-                        break;
-                    }
                 }
             }
             return order_id;
@@ -58,29 +38,9 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_process = list.order_process;
                     break;
-                }
-            }
-            if (order_process.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
-                        order_process = list.order_process;
-                        break;
-                    }
-                }
-            }
-            if (order_process.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
-                        order_process = list.order_process;
-                        break;
-                    }
                 }
             }
             return order_process;
@@ -91,29 +51,9 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     space_name = list.space_name;
                     break;
-                }
-            }
-            if (space_name.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
-                        space_name = list.space_name;
-                        break;
-                    }
-                }
-            }
-            if (space_name.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
-                        space_name = list.space_name;
-                        break;
-                    }
                 }
             }
             return space_name;
@@ -124,29 +64,9 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     seat_label = list.seat_label;
                     break;
-                }
-            }
-            if (seat_label.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
-                        seat_label = list.seat_label;
-                        break;
-                    }
-                }
-            }
-            if (seat_label.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
-                        seat_label = list.seat_label;
-                        break;
-                    }
                 }
             }
             return seat_label;
@@ -157,29 +77,9 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if (list.order_process.equals("进行中") && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_date = list.order_date;
                     break;
-                }
-            }
-            if (order_date.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
-                        order_date = list.order_date;
-                        break;
-                    }
-                }
-            }
-            if (order_date.equals("")) {
-                for (int i = 0; i < rows.size(); i++) {
-                    RowsBean list = new RowsBean();
-                    list = rows.get(i);
-                    if (list.order_process.equals("审核通过") && list.order_type.equals(mode)) {
-                        order_date = list.order_date;
-                        break;
-                    }
                 }
             }
             return order_date;

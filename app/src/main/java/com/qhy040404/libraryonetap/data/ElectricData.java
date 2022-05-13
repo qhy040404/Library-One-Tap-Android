@@ -20,13 +20,13 @@ public class ElectricData implements Serializable {
         private String getSSMC() {
             DormitoryInfoListBean list = new DormitoryInfoListBean();
             list = dormitoryInfo_list.get(0);
-            return (String) list.ssmc;
+            return list.ssmc;
         }
 
         private String getResele() {
             DormitoryInfoListBean list = new DormitoryInfoListBean();
             list = dormitoryInfo_list.get(0);
-            return (String) list.resele;
+            return list.resele;
         }
 
         public static class DormitoryInfoListBean implements Serializable {

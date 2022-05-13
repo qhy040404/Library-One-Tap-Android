@@ -16,7 +16,7 @@ public class desEncrypt {
             }
         }
 
-        int i = 0;
+        int i;
         for (i = 0; i < 16; i++) {
             byte tempLeft = 0;
             byte tempRight = 0;
@@ -81,84 +81,52 @@ public class desEncrypt {
             tempKey[47] = key[31];
             switch (i) {
                 case 0:
-                    for (int m = 0; m < 48; m++) {
-                        keys[0][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[0], 0, 48);
                     break;
                 case 1:
-                    for (int m = 0; m < 48; m++) {
-                        keys[1][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[1], 0, 48);
                     break;
                 case 2:
-                    for (int m = 0; m < 48; m++) {
-                        keys[2][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[2], 0, 48);
                     break;
                 case 3:
-                    for (int m = 0; m < 48; m++) {
-                        keys[3][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[3], 0, 48);
                     break;
                 case 4:
-                    for (int m = 0; m < 48; m++) {
-                        keys[4][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[4], 0, 48);
                     break;
                 case 5:
-                    for (int m = 0; m < 48; m++) {
-                        keys[5][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[5], 0, 48);
                     break;
                 case 6:
-                    for (int m = 0; m < 48; m++) {
-                        keys[6][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[6], 0, 48);
                     break;
                 case 7:
-                    for (int m = 0; m < 48; m++) {
-                        keys[7][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[7], 0, 48);
                     break;
                 case 8:
-                    for (int m = 0; m < 48; m++) {
-                        keys[8][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[8], 0, 48);
                     break;
                 case 9:
-                    for (int m = 0; m < 48; m++) {
-                        keys[9][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[9], 0, 48);
                     break;
                 case 10:
-                    for (int m = 0; m < 48; m++) {
-                        keys[10][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[10], 0, 48);
                     break;
                 case 11:
-                    for (int m = 0; m < 48; m++) {
-                        keys[11][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[11], 0, 48);
                     break;
                 case 12:
-                    for (int m = 0; m < 48; m++) {
-                        keys[12][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[12], 0, 48);
                     break;
                 case 13:
-                    for (int m = 0; m < 48; m++) {
-                        keys[13][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[13], 0, 48);
                     break;
                 case 14:
-                    for (int m = 0; m < 48; m++) {
-                        keys[14][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[14], 0, 48);
                     break;
                 case 15:
-                    for (int m = 0; m < 48; m++) {
-                        keys[15][m] = tempKey[m];
-                    }
+                    System.arraycopy(tempKey, 0, keys[15], 0, 48);
                     break;
             }
         }
@@ -166,7 +134,7 @@ public class desEncrypt {
     }
 
     private String getBoxBinary(int i) {
-        String binary = new String("");
+        String binary = "";
         switch (i) {
             case 0:
                 binary = "0000";
@@ -235,11 +203,11 @@ public class desEncrypt {
         byte[] epByte = new byte[48];
         for (int i = 0; i < 8; i++) {
             if (i == 0) {
-                epByte[i * 6 + 0] = rightData[31];
+                epByte[i * 6] = rightData[31];
             } else {
-                epByte[i * 6 + 0] = rightData[i * 4 - 1];
+                epByte[i * 6] = rightData[i * 4 - 1];
             }
-            epByte[i * 6 + 1] = rightData[i * 4 + 0];
+            epByte[i * 6 + 1] = rightData[i * 4];
             epByte[i * 6 + 2] = rightData[i * 4 + 1];
             epByte[i * 6 + 3] = rightData[i * 4 + 2];
             epByte[i * 6 + 4] = rightData[i * 4 + 3];
@@ -262,7 +230,7 @@ public class desEncrypt {
 
     private byte[] sBoxPermute(byte[] expandByte) {
         byte[] sBoxByte = new byte[32];
-        String binary = new String("");
+        String binary = "";
         int[][] s1 = new int[][]{
                 {14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
                 {0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8},
@@ -321,7 +289,7 @@ public class desEncrypt {
 
         for (int m = 0; m < 8; m++) {
             int i = 0, j = 0;
-            i = expandByte[m * 6 + 0] * 2 + expandByte[m * 6 + 5];
+            i = expandByte[m * 6] * 2 + expandByte[m * 6 + 5];
             j = expandByte[m * 6 + 1] * 2 * 2 * 2 +
                     expandByte[m * 6 + 2] * 2 * 2 +
                     expandByte[m * 6 + 3] * 2 +
@@ -352,7 +320,7 @@ public class desEncrypt {
                     binary = getBoxBinary(s8[i][j]);
                     break;
             }
-            sBoxByte[m * 4 + 0] = (byte) parseInt(binary.substring(0, 1));
+            sBoxByte[m * 4] = (byte) parseInt(binary.substring(0, 1));
             sBoxByte[m * 4 + 1] = (byte) parseInt(binary.substring(1, 2));
             sBoxByte[m * 4 + 2] = (byte) parseInt(binary.substring(2, 3));
             sBoxByte[m * 4 + 3] = (byte) parseInt(binary.substring(3, 4));
@@ -470,11 +438,11 @@ public class desEncrypt {
         int leng = str.length();
         byte[] bt = new byte[64];
         if (leng < 4) {
-            int i = 0, j = 0, p = 0, q = 0;
+            int i, j, p, q;
             for (i = 0; i < leng; i++) {
                 char k = str.charAt(i);
                 for (j = 0; j < 16; j++) {
-                    int pow = 1, m = 0;
+                    int pow = 1, m;
                     for (m = 15; m > j; m--) {
                         pow *= 2;
                     }
@@ -482,13 +450,8 @@ public class desEncrypt {
                 }
             }
             for (p = leng; p < 4; p++) {
-                char k = 0;
                 for (q = 0; q < 16; q++) {
-                    int pow = 1, m = 0;
-                    for (m = 15; m > q; m--) {
-                        pow *= 2;
-                    }
-                    bt[16 * p + q] = (byte) ((k / pow) % 2);
+                    bt[16 * p + q] = (byte) (0);
                 }
             }
         } else {
@@ -507,7 +470,7 @@ public class desEncrypt {
     }
 
     private String bt4ToHex(String binary) {
-        String hex = new String();
+        String hex = "";
         switch (binary) {
             case "0000":
                 hex = "0";
@@ -562,15 +525,15 @@ public class desEncrypt {
     }
 
     private String bt64ToHex(byte[] byteData) {
-        String hex = new String("");
+        StringBuilder hex = new StringBuilder();
         for (int i = 0; i < 16; i++) {
-            String bt = "";
+            StringBuilder bt = new StringBuilder();
             for (int j = 0; j < 4; j++) {
-                bt += byteData[i * 4 + j];
+                bt.append(byteData[i * 4 + j]);
             }
-            hex += bt4ToHex(bt);
+            hex.append(bt4ToHex(bt.toString()));
         }
-        return hex;
+        return hex.toString();
     }
 
     private byte[][] getKeyBytes(String key) {
@@ -578,12 +541,12 @@ public class desEncrypt {
         int iterater = leng / 4;
         byte[][] keyBytes = new byte[iterater + 1][];
         int remainder = leng % 4;
-        int i = 0;
+        int i;
         for (i = 0; i < iterater; i++) {
-            keyBytes[i] = strToBt(key.substring(i * 4 + 0, i * 4 + 4));
+            keyBytes[i] = strToBt(key.substring(i * 4, i * 4 + 4));
         }
         if (remainder > 0) {
-            keyBytes[i] = strToBt(key.substring(i * 4 + 0, leng));
+            keyBytes[i] = strToBt(key.substring(i * 4, leng));
         }
         return keyBytes;
     }
@@ -594,7 +557,7 @@ public class desEncrypt {
         byte[] ipLeft = new byte[32];
         byte[] ipRight = new byte[32];
         byte[] tempLeft = new byte[32];
-        int i = 0, j = 0, k = 0, m = 0, n = 0;
+        int i, j, k, m, n;
         for (k = 0; k < 32; k++) {
             ipLeft[k] = ipByte[k];
             ipRight[k] = ipByte[32 + k];
@@ -623,7 +586,7 @@ public class desEncrypt {
 
     public String strEnc(String data, String firstKey, String secondKey, String thirdKey) {
         int leng = data.length();
-        String encData = new String("");
+        StringBuilder encData = new StringBuilder();
         byte[][] firstKeyBt = new byte[0][], secondKeyBt = new byte[0][], thirdKeyBt = new byte[0][];
         int firstLength = 0, secondLength = 0, thirdLength = 0;
         if (firstKey != null && !firstKey.equals("")) {
@@ -640,10 +603,12 @@ public class desEncrypt {
         }
 
         if (leng > 0) {
+            boolean b = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("");
+            boolean b1 = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("");
             if (leng < 4) {
                 byte[] bt = strToBt(data);
                 byte[] encByte = new byte[0];
-                if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("")) {
+                if (b) {
                     byte[] tempBt;
                     int x, y, z;
                     tempBt = bt;
@@ -658,7 +623,7 @@ public class desEncrypt {
                     }
                     encByte = tempBt;
                 } else {
-                    if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("")) {
+                    if (b1) {
                         byte[] tempBt;
                         int x, y;
                         tempBt = bt;
@@ -672,7 +637,7 @@ public class desEncrypt {
                     } else {
                         if (firstKey != null && !firstKey.equals("")) {
                             byte[] tempBt;
-                            int x = 0;
+                            int x;
                             tempBt = bt;
                             for (x = 0; x < firstLength; x++) {
                                 tempBt = enc(tempBt, firstKeyBt[x]);
@@ -681,16 +646,16 @@ public class desEncrypt {
                         }
                     }
                 }
-                encData = bt64ToHex(encByte);
+                encData = new StringBuilder(bt64ToHex(encByte));
             } else {
                 int iterator = leng / 4;
                 int remainder = leng % 4;
-                int i = 0;
+                int i;
                 for (i = 0; i < iterator; i++) {
-                    String tempData = data.substring(i * 4 + 0, i * 4 + 4);
+                    String tempData = data.substring(i * 4, i * 4 + 4);
                     byte[] tempByte = strToBt(tempData);
                     byte[] encByte = new byte[0];
-                    if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("")) {
+                    if (b) {
                         byte[] tempBt;
                         int x, y, z;
                         tempBt = tempByte;
@@ -705,7 +670,7 @@ public class desEncrypt {
                         }
                         encByte = tempBt;
                     } else {
-                        if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("")) {
+                        if (b1) {
                             byte[] tempBt;
                             int x, y;
                             tempBt = tempByte;
@@ -728,13 +693,13 @@ public class desEncrypt {
                             }
                         }
                     }
-                    encData += bt64ToHex(encByte);
+                    encData.append(bt64ToHex(encByte));
                 }
                 if (remainder > 0) {
-                    String remainderData = data.substring(iterator * 4 + 0, leng);
+                    String remainderData = data.substring(iterator * 4, leng);
                     byte[] tempByte = strToBt(remainderData);
                     byte[] encByte = new byte[0];
-                    if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("")) {
+                    if (b) {
                         byte[] tempBt;
                         int x, y, z;
                         tempBt = tempByte;
@@ -749,7 +714,7 @@ public class desEncrypt {
                         }
                         encByte = tempBt;
                     } else {
-                        if (firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("")) {
+                        if (b1) {
                             byte[] tempBt;
                             int x, y;
                             tempBt = tempByte;
@@ -772,10 +737,10 @@ public class desEncrypt {
                             }
                         }
                     }
-                    encData += bt64ToHex(encByte);
+                    encData.append(bt64ToHex(encByte));
                 }
             }
         }
-        return encData;
+        return encData.toString();
     }
 }

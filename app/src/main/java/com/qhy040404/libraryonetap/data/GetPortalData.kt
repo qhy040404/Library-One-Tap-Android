@@ -5,7 +5,7 @@ import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
-//mode 0:elec, mode 1:net
+//mode 0:electric, mode 1:net
 fun getPortalData(id: String, passwd: String, mode: Int): String {
     StrictMode.setThreadPolicy(
         StrictMode.ThreadPolicy.Builder()
@@ -22,8 +22,8 @@ fun getPortalData(id: String, passwd: String, mode: Int): String {
 
     var returnJson = ""
 
-    val ct_json: MediaType = requests.strToMT("application/json;charset=UTF-8")
-    val ct_sso: MediaType = requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
+    val ctJson: MediaType = requests.strToMT("application/json;charset=UTF-8")
+    val ctSso: MediaType = requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
 
     val requestUrl =
         "https://sso.dlut.edu.cn/cas/login?service=https%3A%2F%2Fportal.dlut.edu.cn%2Ftp%2Fview%3Fm%3Dup#act=portal/viewhome"
@@ -36,12 +36,12 @@ fun getPortalData(id: String, passwd: String, mode: Int): String {
     val rawData = "$id$passwd$ltData"
     val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-    requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa), ct_sso)
+    requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa), ctSso)
 
     if (mode == 0) {
-        returnJson = requests.post(elecUrl, "{}", ct_json)
+        returnJson = requests.post(elecUrl, "{}", ctJson)
     } else if (mode == 1) {
-        returnJson = requests.post(netUrl, "{}", ct_json)
+        returnJson = requests.post(netUrl, "{}", ctJson)
     }
 
     return returnJson

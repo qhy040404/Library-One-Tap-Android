@@ -30,7 +30,7 @@ public class Requests {
         }
     }).build();
 
-    public MediaType strToMT(String ori) throws IOException {
+    public MediaType strToMT(String ori) {
         return MediaType.get(ori);
     }
 

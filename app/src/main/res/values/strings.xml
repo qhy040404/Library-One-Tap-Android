@@ -5,6 +5,8 @@
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_yanxiujian">研修间</string>
     <string name="vcardTitle">虚拟卡</string>
+    <string name="remainNet">剩余流量</string>
+    <string name="remainElectric">剩余电量</string>
     <string name="bath_title">澡堂预约</string>
     <string name="tools_title">小工具</string>
 
@@ -20,7 +22,12 @@
     <string name="passwd">密码</string>
 
     <!-- PROMPT -->
+    <string name="remainNetAndColon">剩余流量: </string>
+    <string name="remainElectricAndColon">剩余电量: </string>
+    <string name="degree">" 度"</string>
+    <string name="gigabyte" translatable="false"> GB</string>
     <string name="loading">加载中....</string>
+    <string name="loaded">登录成功</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
 
@@ -33,10 +40,13 @@
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>
     <string name="cernet">校园网还剩多少啊</string>
+    <string name="electric">宿舍还有多少电啊</string>
     <string name="vcard">玉兰卡虚拟卡</string>
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bathReserve">预约最近时间段</string>
+    <string name="networkLimit">请在校园网环境下使用此功能</string>
+    <string name="sentRequest">已发送预约请求</string>
     <string-array name="placeArray">
         <item>西山1楼</item>
         <item>西山2楼</item>

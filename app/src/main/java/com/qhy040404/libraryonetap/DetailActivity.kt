@@ -17,10 +17,7 @@ import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.CheckSession
 import com.qhy040404.libraryonetap.web.Requests
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Request
-import okhttp3.Response
+import okhttp3.*
 import java.io.IOException
 import kotlin.system.exitProcess
 
@@ -76,6 +73,9 @@ class DetailActivity : AppCompatActivity() {
             val id: String = sharedPreferences.getString("userid", "Error").toString()
             val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
 
+            val ctLibrary: MediaType =
+                requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
+
             val requestUrl =
                 "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
             val sessionUrl =
@@ -89,9 +89,13 @@ class DetailActivity : AppCompatActivity() {
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa))
+                requests.post(
+                    requestUrl,
+                    requests.loginPostData(id, passwd, ltData, rsa),
+                    ctLibrary
+                )
 
-                val session: String = requests.post(sessionUrl, "")
+                val session: String = requests.post(sessionUrl, "", ctLibrary)
                 if (checkSession.isSuccess(session)) {
                     val makeText = Toast.makeText(this@DetailActivity, "登录成功", Toast.LENGTH_LONG)
                     makeText.show()

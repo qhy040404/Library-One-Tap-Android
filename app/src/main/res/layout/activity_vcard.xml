@@ -7,7 +7,7 @@
     tools:context=".tools.VCardActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView3"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="100dp"

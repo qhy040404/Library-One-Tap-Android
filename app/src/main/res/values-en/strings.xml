@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- TITLE -->
+    <string name="app_name">Library One Tap</string>
     <string name="library">Library</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_yanxiujian">Yanxiujian</string>
+    <string name="vcardTitle">Virtual Yulan card</string>
+    <string name="remainNet">Remain Campus Network</string>
+    <string name="remainElectric">Remain Electric Charge</string>
+    <string name="bath_title">Bathhouse Reservation</string>
+    <string name="tools_title">Tools</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">Sign in/out/temp out</string>
@@ -17,7 +23,11 @@
     <string name="passwd">Password</string>
 
     <!-- PROMPT -->
+    <string name="remainNetAndColon">"Remain network: "</string>
+    <string name="remainElectricAndColon">"Remain electric: "</string>
+    <string name="degree">" degree"</string>
     <string name="loading">Loading....</string>
+    <string name="loaded">Logged in</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
 
@@ -29,9 +39,14 @@
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>
+    <string name="cernet">Remaining campus network</string>
+    <string name="electric">Remaining electric charge</string>
+    <string name="vcard">Virtual Yulan card</string>
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bathReserve">Reserve bathroom right now</string>
+    <string name="networkLimit">Please use this function in the campus network environment</string>
+    <string name="sentRequest">Appointment request sent</string>
     <string-array name="placeArray">
         <item>West 1F</item>
         <item>West 2F</item>
@@ -39,10 +54,4 @@
         <item>North Male</item>
         <item>North Female</item>
     </string-array>
-    <string name="cernet">Remaining campus network</string>
-    <string name="vcard">Virtual Yulan card</string>
-    <string name="vcardTitle">Virtual Yulan card</string>
-    <string name="bath_title">Bathhouse Reservation</string>
-    <string name="app_name">Library One Tap</string>
-    <string name="tools_title">Tools</string>
 </resources>

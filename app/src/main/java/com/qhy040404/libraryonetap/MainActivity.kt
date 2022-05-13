@@ -30,10 +30,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonTools(view: View) {
-        /*val intent = Intent(this,ToolsInitActivity::class.java)
-        startActivity(intent)*/
-        val makeText = Toast.makeText(this, "还在开发中哦，别慌", Toast.LENGTH_SHORT)
-        makeText.show()
+        val intent = Intent(this, ToolsInitActivity::class.java)
+        startActivity(intent)
     }
 
     fun buttonExit(view: View) {

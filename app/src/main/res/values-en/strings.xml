@@ -45,4 +45,10 @@
     <string name="bath_title">Bathhouse Reservation</string>
     <string name="app_name">Library One Tap</string>
     <string name="tools_title">Tools</string>
+    <string name="remainNet">Remain Campus Network</string>
+    <string name="electric">Remaining electric charge</string>
+    <string name="remainElectric">Remain Electric Charge</string>
+    <string name="remainNetAndColon">"Remain network: "</string>
+    <string name="remainElectricAndColon">"Remain electric: "</string>
+    <string name="degree">" degree"</string>
 </resources>

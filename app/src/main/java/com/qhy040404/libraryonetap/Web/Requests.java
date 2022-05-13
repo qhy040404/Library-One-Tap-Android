@@ -15,8 +15,6 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Requests {
-    public static final MediaType FORM = MediaType.get("application/x-www-form-urlencoded; charset=utf-8");
-
     public final OkHttpClient client = new OkHttpClient.Builder().cookieJar(new CookieJar() {
         private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
 
@@ -32,6 +30,10 @@ public class Requests {
         }
     }).build();
 
+    public MediaType strToMT(String ori) throws IOException {
+        return MediaType.get(ori);
+    }
+
     public String get(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
@@ -43,10 +45,36 @@ public class Requests {
         }
     }
 
-    public String post(String url, String form) throws IOException {
+    public String getVCard(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .removeHeader("User-Agent")
+                .addHeader("User-Agent","weishao")
+                .get()
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
+    public String post(String url, String form, MediaType FORM) throws IOException {
         RequestBody body = RequestBody.create(form, FORM);
         Request request = new Request.Builder()
                 .url(url)
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
+    public String postVCard(String url, String form, MediaType FORM) throws IOException {
+        RequestBody body = RequestBody.create(form, FORM);
+        Request request = new Request.Builder()
+                .url(url)
+                .removeHeader("User-Agent")
+                .addHeader("User-Agent","weishao")
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {

@@ -26,7 +26,7 @@ class BathReserveActivity : AppCompatActivity() {
         textViewBath.visibility = View.VISIBLE
     }
 
-    private inner class BathReserve:Runnable {
+    private inner class BathReserve : Runnable {
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(
@@ -40,9 +40,9 @@ class BathReserveActivity : AppCompatActivity() {
                     .penaltyLog().penaltyDeath().build()
             )
 
-            val spinner:Spinner = findViewById(R.id.spinner2)
-            val reserve:Button = findViewById(R.id.button15)
-            val textViewBath:TextView = findViewById(R.id.textView3)
+            val spinner: Spinner = findViewById(R.id.spinner2)
+            val reserve: Button = findViewById(R.id.button15)
+            val textViewBath: TextView = findViewById(R.id.textView3)
 
             var targetRoom = "未选中"
             ArrayAdapter.createFromResource(
@@ -55,7 +55,8 @@ class BathReserveActivity : AppCompatActivity() {
             }
 
             reserve.setOnClickListener {
-
+                textViewBath.text=targetRoom
+                Looper.loop()
             }
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

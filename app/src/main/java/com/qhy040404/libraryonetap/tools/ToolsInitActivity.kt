@@ -23,7 +23,7 @@ class ToolsInitActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setMessage(R.string.networkLimit)
             .setTitle(R.string.bath_title)
-            .setPositiveButton(R.string.ok) {_,_ ->
+            .setPositiveButton(R.string.ok) { _, _ ->
                 val intent = Intent(this, BathReserveActivity::class.java)
                 startActivity(intent)
             }

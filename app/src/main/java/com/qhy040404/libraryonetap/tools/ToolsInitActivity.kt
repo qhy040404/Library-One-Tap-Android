@@ -20,8 +20,16 @@ class ToolsInitActivity : AppCompatActivity() {
     }
 
     fun buttonBath(view: View) {
-        val intent = Intent(this, BathReserveActivity::class.java)
-        startActivity(intent)
+        AlertDialog.Builder(this)
+            .setMessage(R.string.networkLimit)
+            .setTitle(R.string.bath_title)
+            .setPositiveButton(R.string.ok) {_,_ ->
+                val intent = Intent(this, BathReserveActivity::class.java)
+                startActivity(intent)
+            }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 
     fun buttonNet(view: View) {

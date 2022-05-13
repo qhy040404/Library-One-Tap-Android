@@ -27,6 +27,7 @@
     <string name="degree">" 度"</string>
     <string name="gigabyte" translatable="false"> GB</string>
     <string name="loading">加载中....</string>
+    <string name="loaded">登录成功</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
 
@@ -44,6 +45,8 @@
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bathReserve">预约最近时间段</string>
+    <string name="networkLimit">请在校园网环境下使用此功能</string>
+    <string name="sentRequest">已发送预约请求</string>
     <string-array name="placeArray">
         <item>西山1楼</item>
         <item>西山2楼</item>

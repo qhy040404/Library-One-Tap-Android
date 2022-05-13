@@ -55,7 +55,8 @@ class BathReserveActivity : AppCompatActivity() {
             }
 
             reserve.setOnClickListener {
-
+                textViewBath.text=targetRoom
+                Looper.loop()
             }
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

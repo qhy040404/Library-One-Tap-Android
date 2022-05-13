@@ -11,6 +11,7 @@
         android:layout_width="190dp"
         android:layout_height="52dp"
         android:layout_marginBottom="135dp"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toEndOf="@+id/button15"
         app:layout_constraintStart_toStartOf="@+id/button15" />
@@ -33,7 +34,7 @@
         android:layout_marginTop="100dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/loading"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/button15"
         app:layout_constraintStart_toStartOf="@+id/button15"

@@ -1,11 +1,22 @@
 package com.qhy040404.libraryonetap.data
 
+import android.os.StrictMode
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
 //mode 0:elec, mode 1:net
 fun getPortalData(id: String, passwd: String, mode: Int): String {
+    StrictMode.setThreadPolicy(
+        StrictMode.ThreadPolicy.Builder()
+            .detectDiskReads().detectDiskWrites().detectNetwork()
+            .penaltyLog().build()
+    )
+    StrictMode.setVmPolicy(
+        StrictMode.VmPolicy.Builder()
+            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+            .penaltyLog().penaltyDeath().build()
+    )
     val requests = Requests()
     val des = desEncrypt()
 

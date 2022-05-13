@@ -22,6 +22,10 @@
     <string name="passwd">密码</string>
 
     <!-- PROMPT -->
+    <string name="remainNetAndColon">剩余流量: </string>
+    <string name="remainElectricAndColon">剩余电量: </string>
+    <string name="degree">" 度"</string>
+    <string name="gigabyte" translatable="false"> GB</string>
     <string name="loading">加载中....</string>
     <string name="error">错误</string>
     <string name="ok">好</string>

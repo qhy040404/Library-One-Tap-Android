@@ -60,7 +60,6 @@ class YanxiujianActivity : AppCompatActivity() {
 
             val textView2: TextView = findViewById(R.id.textView2)
             val imageView2: ImageView = findViewById(R.id.imageView2)
-            val enter2: Button = findViewById(R.id.button11)
             val refresh2: Button = findViewById(R.id.button12)
 
             val requests = Requests()
@@ -131,29 +130,24 @@ class YanxiujianActivity : AppCompatActivity() {
                     order_process = "未开始"
                 }
 
-                enter2.setOnClickListener {
-                    val method = "in"
-                    val qrCodeUrl =
-                        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$order_id"
-                    val request = Request.Builder().url(qrCodeUrl).build()
-                    val call = requests.client.newCall(request)
-                    call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {
+                val qrUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/2codecert.php?"
+                val request = Request.Builder().url(qrUrl).build()
+                val call = requests.client.newCall(request)
+                call.enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
 
-                        }
+                    }
 
-                        override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView2.post {
-                                imageView2.setImageBitmap(bitmap)
-                            }
-                            pictureInput.close()
+                    override fun onResponse(call: Call, response: Response) {
+                        val picture_bt = response.body!!.bytes()
+                        val pictureInput = response.body!!.byteStream()
+                        val bitmap = BitmapFactory.decodeByteArray(picture_bt,0,picture_bt.size)
+                        imageView2.post {
+                            imageView2.setImageBitmap(bitmap)
                         }
-                    })
-                }
+                        pictureInput.close()
+                    }
+                })
                 refresh2.setOnClickListener { recreate() }
                 textView2.text =
                     "order_id:$order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"

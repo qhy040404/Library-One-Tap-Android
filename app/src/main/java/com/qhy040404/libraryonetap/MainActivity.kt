@@ -25,15 +25,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonYanxiujian(view: View) {
-        /*val intent = Intent(this,YanxiujianActivity::class.java)
-        startActivity(intent)*/
-        val makeText = Toast.makeText(this, "还在开发中哦，别慌", Toast.LENGTH_SHORT)
-        makeText.show()
+        val intent = Intent(this,YanxiujianActivity::class.java)
+        startActivity(intent)
     }
 
     fun buttonTools(view: View) {
-        val intent = Intent(this,ToolsInitActivity::class.java)
-        startActivity(intent)
+        /*val intent = Intent(this,ToolsInitActivity::class.java)
+        startActivity(intent)*/
+        val makeText = Toast.makeText(this, "还在开发中哦，别慌", Toast.LENGTH_SHORT)
+        makeText.show()
     }
 
     fun buttonExit(view: View) {

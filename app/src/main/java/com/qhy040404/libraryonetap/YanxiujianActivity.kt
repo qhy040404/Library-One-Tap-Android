@@ -87,9 +87,13 @@ class YanxiujianActivity : AppCompatActivity() {
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa),ctLibrary)
+                requests.post(
+                    requestUrl,
+                    requests.loginPostData(id, passwd, ltData, rsa),
+                    ctLibrary
+                )
 
-                val session: String = requests.post(sessionUrl, "",ctLibrary)
+                val session: String = requests.post(sessionUrl, "", ctLibrary)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
                         Toast.makeText(this@YanxiujianActivity, "登录成功", Toast.LENGTH_LONG)

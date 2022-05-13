@@ -49,7 +49,7 @@ public class Requests {
         Request request = new Request.Builder()
                 .url(url)
                 .removeHeader("User-Agent")
-                .addHeader("User-Agent","weishao")
+                .addHeader("User-Agent", "weishao")
                 .get()
                 .build();
 
@@ -74,7 +74,7 @@ public class Requests {
         Request request = new Request.Builder()
                 .url(url)
                 .removeHeader("User-Agent")
-                .addHeader("User-Agent","weishao")
+                .addHeader("User-Agent", "weishao")
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {

@@ -15,7 +15,7 @@ class VCardActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        val textView:TextView = findViewById(R.id.textView4)
+        val textView: TextView = findViewById(R.id.textView4)
         textView.visibility = View.VISIBLE
     }
 }

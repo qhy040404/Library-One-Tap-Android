@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonTools(view: View) {
-        val intent = Intent(this,ToolsInitActivity::class.java)
+        val intent = Intent(this, ToolsInitActivity::class.java)
         startActivity(intent)
     }
 

@@ -13,6 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.图书馆">
         <activity
+            android:name=".tools.VCardActivity"
+            android:exported="false"
+            android:label="@string/vcardTitle"
+            android:parentActivityName=".tools.ToolsInitActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".tools.ToolsInitActivity" />
+        </activity>
+        <activity
+            android:name=".tools.BathReserveActivity"
+            android:exported="false"
+            android:label="@string/bath_title"
+            android:parentActivityName=".tools.ToolsInitActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".tools.ToolsInitActivity" />
+        </activity>
+        <activity
+            android:name=".tools.ToolsInitActivity"
+            android:exported="false"
+            android:label="@string/tools_title"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".YanxiujianActivity"
             android:exported="false"
             android:label="@string/title_activity_yanxiujian"
@@ -21,7 +48,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
@@ -43,7 +69,7 @@
         <activity
             android:name=".DetailActivity"
             android:exported="false"
-            android:label="图书馆"
+            android:label="@string/library"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

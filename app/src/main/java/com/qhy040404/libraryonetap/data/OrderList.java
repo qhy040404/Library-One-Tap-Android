@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.data;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 public class OrderList implements Serializable {
@@ -15,6 +16,8 @@ public class OrderList implements Serializable {
     private static class GsonData {
         private String total;
         private List<RowsBean> rows;
+        private final Calendar calendar = Calendar.getInstance();
+        private final String today = Integer.toString(calendar.get(Calendar.YEAR)) + "-" + Integer.toString(calendar.get(Calendar.MONTH)) + "-" + Integer.toString(calendar.get(Calendar.DAY_OF_MONTH));
 
         private String getTotal() {
             return total;
@@ -25,7 +28,10 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode) && list.order_date.equals(today)) {
+                    order_id = list.order_id;
+                    break;
+                } else if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_id = list.order_id;
                     break;
                 }
@@ -38,7 +44,10 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode) && list.order_date.equals(today)) {
+                    order_process = list.order_process;
+                    break;
+                } else if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_process = list.order_process;
                     break;
                 }
@@ -51,7 +60,10 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode) && list.order_date.equals(today)) {
+                    space_name = list.space_name;
+                    break;
+                } else if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     space_name = list.space_name;
                     break;
                 }
@@ -64,8 +76,11 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
-                    seat_label = list.seat_label;
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode) && list.order_date.equals(today)) {
+                    seat_label = (String) list.seat_label;
+                    break;
+                } else if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
+                    seat_label = (String) list.seat_label;
                     break;
                 }
             }
@@ -77,7 +92,10 @@ public class OrderList implements Serializable {
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
-                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode) && list.order_date.equals(today)) {
+                    order_date = list.order_date;
+                    break;
+                } else if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals(mode)) {
                     order_date = list.order_date;
                     break;
                 }
@@ -98,6 +116,32 @@ public class OrderList implements Serializable {
                 }
             }
             return back_time;
+        }
+
+        private String getAll_users() {
+            String all_users = "";
+            for (int i = 0; i < rows.size(); i++) {
+                RowsBean list = new RowsBean();
+                list = rows.get(i);
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals("1")) {
+                    all_users = (String) list.all_users;
+                    break;
+                }
+            }
+            return all_users;
+        }
+
+        private String getFull_time() {
+            String full_time = "";
+            for (int i = 0; i < rows.size(); i++) {
+                RowsBean list = new RowsBean();
+                list = rows.get(i);
+                if ((list.order_process.equals("进行中") || list.order_process.equals("暂离") || list.order_process.equals("审核通过")) && list.order_type.equals("1")) {
+                    full_time = (list.order_start_time.split(" "))[1] + "-" + (list.order_end_time.split(" "))[1];
+                    break;
+                }
+            }
+            return full_time;
         }
 
         public static class RowsBean implements Serializable {
@@ -122,7 +166,7 @@ public class OrderList implements Serializable {
             private String order_id;
             private String order_type;
             private String space_name;
-            private String seat_label;
+            private Object seat_label;
             private Object all_users;
             private String order_start_time;
             private String area_id;
@@ -170,5 +214,15 @@ public class OrderList implements Serializable {
     public String getBack_time(String data, String mode) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
         return gsonData.getBack_time(mode);
+    }
+
+    public String getAll_users(String data) {
+        GsonData gsonData = gson.fromJson(data, GsonData.class);
+        return gsonData.getAll_users();
+    }
+
+    public String getFull_time(String data) {
+        GsonData gsonData = gson.fromJson(data, GsonData.class);
+        return gsonData.getFull_time();
     }
 }

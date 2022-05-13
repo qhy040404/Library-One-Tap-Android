@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_launcher_background.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/shape_fillet_translucent.xml" value="0.292" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_bath_reserve.xml" value="0.33" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_desWebview.xml" value="0.25" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_des_webview.xml" value="0.14739583333333334" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main.xml" value="0.23479729729729729" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_tools_init.xml" value="0.1796875" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_vcard.xml" value="0.1796875" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_webview.xml" value="0.358695652173913" />
-        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_yanxiujian.xml" value="0.1" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_yanxiujian.xml" value="0.33" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_progressbar_juhua.xml" value="0.35507246376811596" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/settings_activity.xml" value="0.358695652173913" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2965" />

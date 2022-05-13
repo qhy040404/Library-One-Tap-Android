@@ -55,7 +55,7 @@ class BathReserveActivity : AppCompatActivity() {
             }
 
             reserve.setOnClickListener {
-                textViewBath.text=targetRoom
+                textViewBath.text = targetRoom
                 Looper.loop()
             }
 

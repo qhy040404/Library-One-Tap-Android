@@ -145,7 +145,7 @@ class YanxiujianActivity : AppCompatActivity() {
                     override fun onResponse(call: Call, response: Response) {
                         val picture_bt = response.body!!.bytes()
                         val pictureInput = response.body!!.byteStream()
-                        val bitmap = BitmapFactory.decodeByteArray(picture_bt,0,picture_bt.size)
+                        val bitmap = BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                         imageView2.post {
                             imageView2.setImageBitmap(bitmap)
                         }

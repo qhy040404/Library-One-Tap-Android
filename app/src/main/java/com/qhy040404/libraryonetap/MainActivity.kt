@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import kotlin.system.exitProcess
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buttonYanxiujian(view: View) {
-        val intent = Intent(this,YanxiujianActivity::class.java)
+        val intent = Intent(this, YanxiujianActivity::class.java)
         startActivity(intent)
     }
 

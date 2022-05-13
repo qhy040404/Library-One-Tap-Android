@@ -47,8 +47,8 @@ class VCardActivity : AppCompatActivity() {
                     .penaltyLog().penaltyDeath().build()
             )
             val requests = Requests()
-            val imageView:ImageView = findViewById(R.id.imageView3)
-            val textView:TextView = findViewById(R.id.textView4)
+            val imageView: ImageView = findViewById(R.id.imageView3)
+            val textView: TextView = findViewById(R.id.textView4)
             val refresh: Button = findViewById(R.id.button18)
 
             val sharedPreferences: SharedPreferences =
@@ -66,15 +66,20 @@ class VCardActivity : AppCompatActivity() {
 
             val openidUrl = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
             val returnOpenID = requests.getVCard(openidUrl)
-            val openid = returnOpenID.split("<input id=\"openid\" value=\"")[1].split("\" type=\"hidden\">")[0]
+            val openid =
+                returnOpenID.split("<input id=\"openid\" value=\"")[1].split("\" type=\"hidden\">")[0]
 
-            val qrUrl = "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
+            val qrUrl =
+                "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 
             val qrPage = requests.getVCard(qrUrl)
             val qrInformation = qrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
-            val qrBase64 = qrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split("\">")[0]
+            val qrBase64 =
+                qrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split(
+                    "\">"
+                )[0]
             val qr = Base64.decode(qrBase64, Base64.DEFAULT)
-            val bitmap = BitmapFactory.decodeByteArray(qr,0,qr.size)
+            val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
             imageView.post {
                 imageView.setImageBitmap(bitmap)
             }
@@ -91,9 +96,12 @@ class VCardActivity : AppCompatActivity() {
                         .penaltyLog().penaltyDeath().build()
                 )
                 val newQrPage = requests.getVCard(qrUrl)
-                val newQrBase64 = newQrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split("\">")[0]
+                val newQrBase64 =
+                    newQrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split(
+                        "\">"
+                    )[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
-                val newBitmap = BitmapFactory.decodeByteArray(newQr,0,newQr.size)
+                val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
                 imageView.post {
                     imageView.setImageBitmap(newBitmap)
                 }

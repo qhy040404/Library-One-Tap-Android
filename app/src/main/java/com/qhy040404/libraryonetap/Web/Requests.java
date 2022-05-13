@@ -45,10 +45,36 @@ public class Requests {
         }
     }
 
+    public String getVCard(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .removeHeader("User-Agent")
+                .addHeader("User-Agent","weishao")
+                .get()
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
     public String post(String url, String form, MediaType FORM) throws IOException {
         RequestBody body = RequestBody.create(form, FORM);
         Request request = new Request.Builder()
                 .url(url)
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
+    public String postVCard(String url, String form, MediaType FORM) throws IOException {
+        RequestBody body = RequestBody.create(form, FORM);
+        Request request = new Request.Builder()
+                .url(url)
+                .removeHeader("User-Agent")
+                .addHeader("User-Agent","weishao")
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {

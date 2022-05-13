@@ -10,7 +10,7 @@ android {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
         targetSdk 32
-        versionCode 135
+        versionCode 136
         versionName "2.0.0"
 
 

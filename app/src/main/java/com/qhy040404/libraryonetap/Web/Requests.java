@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -15,20 +16,25 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Requests {
-    public final OkHttpClient client = new OkHttpClient.Builder().cookieJar(new CookieJar() {
-        private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
+    public final OkHttpClient client = new OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60,TimeUnit.SECONDS)
+            .writeTimeout(60,TimeUnit.SECONDS)
+            .cookieJar(new CookieJar() {
+                private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
 
-        @Override
-        public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-            cookieStore.put(url.host(), cookies);
-        }
+                @Override
+                public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                    cookieStore.put(url.host(), cookies);
+                }
 
-        @Override
-        public List<Cookie> loadForRequest(HttpUrl url) {
-            List<Cookie> cookies = cookieStore.get(url.host());
-            return cookies != null ? cookies : new ArrayList<Cookie>();
-        }
-    }).build();
+                @Override
+                public List<Cookie> loadForRequest(HttpUrl url) {
+                    List<Cookie> cookies = cookieStore.get(url.host());
+                    return cookies != null ? cookies : new ArrayList<Cookie>();
+                }
+            })
+            .build();
 
     public MediaType strToMT(String ori) {
         return MediaType.get(ori);

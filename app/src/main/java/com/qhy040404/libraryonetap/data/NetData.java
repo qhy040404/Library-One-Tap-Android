@@ -20,7 +20,7 @@ public class NetData implements Serializable {
         private String dynamicUsedFlow;
 
         private String getDynamicRemainFlow() {
-            return dynamicUsedFlow;
+            return dynamicRemainFlow;
         }
     }
 

@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.tools
 
+import android.app.UiModeManager
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -12,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
@@ -47,6 +50,8 @@ class VCardActivity : AppCompatActivity() {
                     .penaltyLog().penaltyDeath().build()
             )
             val requests = Requests()
+            val qrUtils = QRUtils()
+
             val imageView: ImageView = findViewById(R.id.imageView3)
             val textView: TextView = findViewById(R.id.textView4)
             val refresh: Button = findViewById(R.id.button18)
@@ -81,7 +86,7 @@ class VCardActivity : AppCompatActivity() {
             val qr = Base64.decode(qrBase64, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
             imageView.post {
-                imageView.setImageBitmap(bitmap)
+                imageView.setImageBitmap(qrUtils.toGrayscale(bitmap))
             }
             textView.text = qrInformation
             refresh.setOnClickListener {
@@ -103,7 +108,7 @@ class VCardActivity : AppCompatActivity() {
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
                 imageView.post {
-                    imageView.setImageBitmap(newBitmap)
+                    imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
                 }
             }
             Looper.loop()

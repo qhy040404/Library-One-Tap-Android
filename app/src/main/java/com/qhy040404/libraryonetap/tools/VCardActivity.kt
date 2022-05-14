@@ -1,7 +1,5 @@
 package com.qhy040404.libraryonetap.tools
 
-import android.app.UiModeManager
-import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Bundle

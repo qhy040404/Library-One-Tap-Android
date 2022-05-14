@@ -32,9 +32,9 @@
     <string name="ok">OK</string>
 
     <!-- DETAIL ACTIVITY -->
-    <string name="enter">Sign in QR code</string>
-    <string name="leave">Sign out QR code</string>
-    <string name="temp">Temp out QR code</string>
+    <string name="enter">Sign in</string>
+    <string name="leave">Sign out</string>
+    <string name="temp">Temp out</string>
     <string name="refresh">Reload</string>
 
     <!-- TOOLS -->

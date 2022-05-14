@@ -99,6 +99,7 @@ class VCardActivity : AppCompatActivity() {
                         .penaltyLog().penaltyDeath().build()
                 )
                 val newQrPage = requests.getVCard(qrUrl)
+                val newQrInformation = qrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
                 val newQrBase64 =
                     newQrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split(
                         "\">"
@@ -108,6 +109,7 @@ class VCardActivity : AppCompatActivity() {
                 imageView.post {
                     imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
                 }
+                textView.text = newQrInformation
             }
             Looper.loop()
         }

@@ -109,7 +109,9 @@ class VCardActivity : AppCompatActivity() {
                 imageView.post {
                     imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
                 }
-                textView.text = newQrInformation
+                textView.post {
+                    textView.text = newQrInformation
+                }
             }
             Looper.loop()
         }

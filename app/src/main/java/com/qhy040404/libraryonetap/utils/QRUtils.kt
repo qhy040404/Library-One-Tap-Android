@@ -42,8 +42,8 @@ class QRUtils {
         val whiteBorderRadius = 5.toFloat()
 
         val outBmp = Bitmap.createBitmap(
-            bmp.width + (whiteBorderWidth * 2),
-            bmp.height + (whiteBorderWidth * 2),
+            bmp.width + whiteBorderWidth * 2,
+            bmp.height + whiteBorderWidth * 2,
             Bitmap.Config.ARGB_8888
         )
         val canvas = Canvas(outBmp)

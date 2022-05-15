@@ -1,17 +1,24 @@
 package com.qhy040404.libraryonetap.tools
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.data.ElectricData
+import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData
-import com.qhy040404.libraryonetap.data.getPortalData
+import com.qhy040404.libraryonetap.utils.NetworkStateUtils
+import com.qhy040404.libraryonetap.utils.PermissionUtils
 
 class ToolsInitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,17 +26,75 @@ class ToolsInitActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tools_init)
     }
 
-    fun buttonBath(view: View) {
-        AlertDialog.Builder(this)
-            .setMessage(R.string.networkLimit)
-            .setTitle(R.string.bath_title)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                val intent = Intent(this, BathReserveActivity::class.java)
-                startActivity(intent)
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 100) {
+            for (i in permissions.indices) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    AlertDialog.Builder(this)
+                        .setMessage(R.string.gotPermission)
+                        .setTitle(R.string.bath_title)
+                        .setPositiveButton(R.string.ok) { _, _ ->
+                        }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                } else {
+                    AlertDialog.Builder(this)
+                        .setMessage(R.string.failPermission)
+                        .setTitle(R.string.error)
+                        .setPositiveButton(R.string.ok) { _, _ ->
+                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                            val uri = Uri.fromParts("package", packageName, null)
+                            intent.data = uri
+                            startActivity(intent)
+                        }
+                        .setCancelable(false)
+                        .create()
+                        .show()
+                }
             }
-            .setCancelable(false)
-            .create()
-            .show()
+        }
+    }
+
+    fun buttonBath(view: View) {
+        var netName = ""
+        val wifiManager: WifiManager =
+            applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        var wifiName = wifiManager.connectionInfo.ssid
+        if (wifiName.contains("\"")) {
+            wifiName = wifiName.substring(1, wifiName.length - 1)
+        }
+
+        when (NetworkStateUtils().checkNetworkTypeStr(this)) {
+            "WIFI" -> netName = wifiName
+            "Cellular" -> netName = "Cellular"
+            "Error" -> netName = "Error"
+        }
+
+        val permission: Array<String> = arrayOf("android.permission.ACCESS_FINE_LOCATION")
+        val hasPermission: Boolean = PermissionUtils().checkPermission(this, permission)
+
+        if (netName == "<unknown ssid>") {
+            if (hasPermission) {
+                Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show()
+            }
+        } else if (netName == "DLUT-LingShui") {
+            val intent = Intent(this, BathReserveActivity::class.java)
+            startActivity(intent)
+        } else {
+            AlertDialog.Builder(this)
+                .setMessage(R.string.networkLimit)
+                .setTitle(R.string.bath_title)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                }
+                .setCancelable(false)
+                .create()
+                .show()
+        }
     }
 
     fun buttonNet(view: View) {

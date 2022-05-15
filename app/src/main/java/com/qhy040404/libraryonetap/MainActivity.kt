@@ -1,9 +1,11 @@
 package com.qhy040404.libraryonetap
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.os.Looper
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,8 +33,10 @@ class MainActivity : AppCompatActivity() {
             var b2 = true
             var b3 = true
             var b4 = true
+            var b5 = true
 
             val versionView: TextView = findViewById(R.id.textView5)
+            val dog: ImageView = findViewById(R.id.imageView4)
 
             val packManager = packageManager
             val packInfo = packManager.getPackageInfo(packageName, 0)
@@ -52,19 +56,26 @@ class MainActivity : AppCompatActivity() {
                     makeText.show()
                 } else if (counter in 11..20 && b2) {
                     b2 = false
+                    dog.visibility = View.VISIBLE
+                    ObjectAnimator.ofFloat(dog, "alpha", 0F, 0.1F).setDuration(500).start()
                     val makeText =
                         Toast.makeText(this@MainActivity, "真的没做，骗你干嘛，别点啦~", Toast.LENGTH_LONG)
                     makeText.show()
                 } else if (counter in 20..30 && b3) {
                     b3 = false
+                    ObjectAnimator.ofFloat(dog, "alpha", 0.1F, 0.3F).setDuration(1000).start()
                     val makeText =
                         Toast.makeText(this@MainActivity, "没有东西了啊，别点了啊喂", Toast.LENGTH_LONG)
                     makeText.show()
-                } else if (counter > 30 && b4) {
+                } else if (counter in 31..40 && b4) {
                     b4 = false
+                    ObjectAnimator.ofFloat(dog, "alpha", 0.3F, 0.5F).setDuration(1000).start()
                     val makeText =
                         Toast.makeText(this@MainActivity, "你赢了，但是真的啥也没有哈哈哈哈哈哈", Toast.LENGTH_LONG)
                     makeText.show()
+                } else if (counter > 40 && b5) {
+                    b5 = false
+                    ObjectAnimator.ofFloat(dog, "alpha", 0.5F, 1F).setDuration(2500).start()
                 }
             }
             Looper.loop()

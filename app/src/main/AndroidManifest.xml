@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.图书馆">
         <activity
+            android:name=".secret.SecretActivity"
+            android:exported="false"
+            android:label="@string/secret_title"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".tools.VCardActivity"
             android:exported="false"
             android:label="@string/vcardTitle"

@@ -10,6 +10,7 @@
     <string name="remainElectric">Remain Electric Charge</string>
     <string name="bath_title">Bathhouse Reservation</string>
     <string name="tools_title">Tools</string>
+    <string name="secret_title">FAKE lol</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">Sign in/out/temp out</string>

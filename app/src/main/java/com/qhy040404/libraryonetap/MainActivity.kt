@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import kotlin.system.exitProcess
 
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             Looper.prepare()
 
             var counter = 0
+            var dogCounter = 0
             var b1 = true
             var b2 = true
             var b3 = true
@@ -76,6 +78,16 @@ class MainActivity : AppCompatActivity() {
                 } else if (counter > 40 && b5) {
                     b5 = false
                     ObjectAnimator.ofFloat(dog, "alpha", 0.5F, 1F).setDuration(2500).start()
+                }
+            }
+
+            dog.setOnClickListener {
+                if (counter >= 40) {
+                    dogCounter += 1
+                    if (dogCounter >= 5) {
+                        val intent = Intent(this@MainActivity, SecretActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
             }
             Looper.loop()

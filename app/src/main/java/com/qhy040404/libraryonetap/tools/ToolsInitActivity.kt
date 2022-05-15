@@ -73,7 +73,7 @@ class ToolsInitActivity : AppCompatActivity() {
                 .setTitle(R.string.remainNet)
                 .setPositiveButton(R.string.ok) { _, _ ->
                 }
-                .setCancelable(false)
+                .setCancelable(true)
                 .create()
                 .show()
             Looper.loop()
@@ -107,7 +107,7 @@ class ToolsInitActivity : AppCompatActivity() {
                 .setTitle(R.string.remainElectric)
                 .setPositiveButton(R.string.ok) { _, _ ->
                 }
-                .setCancelable(false)
+                .setCancelable(true)
                 .create()
                 .show()
             Looper.loop()

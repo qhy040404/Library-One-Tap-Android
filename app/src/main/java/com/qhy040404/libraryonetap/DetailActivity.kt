@@ -15,8 +15,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
-import com.qhy040404.libraryonetap.web1.CheckSession
-import com.qhy040404.libraryonetap.web1.Requests
+import com.qhy040404.libraryonetap.web.CheckSession
+import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.*
 import java.io.IOException
 import kotlin.system.exitProcess

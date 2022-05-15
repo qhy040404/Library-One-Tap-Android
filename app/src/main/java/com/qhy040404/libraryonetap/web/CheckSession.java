@@ -16,14 +16,10 @@ public class CheckSession implements Serializable {
         private boolean success;
         private String message;
         private String user_id;
-
-        private boolean getSuccess() {
-            return success;
-        }
     }
 
     public boolean isSuccess(String returnData) {
         GsonData gsonData = gson.fromJson(returnData, GsonData.class);
-        return gsonData.getSuccess();
+        return gsonData.success;
     }
 }

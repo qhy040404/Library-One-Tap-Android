@@ -17,18 +17,6 @@ public class ElectricData implements Serializable {
         private String flag;
         private List<DormitoryInfoListBean> dormitoryInfo_list;
 
-        private String getSSMC() {
-            DormitoryInfoListBean list = new DormitoryInfoListBean();
-            list = dormitoryInfo_list.get(0);
-            return list.ssmc;
-        }
-
-        private String getResele() {
-            DormitoryInfoListBean list = new DormitoryInfoListBean();
-            list = dormitoryInfo_list.get(0);
-            return list.resele;
-        }
-
         public static class DormitoryInfoListBean implements Serializable {
             /**
              * SSMC : ***
@@ -48,11 +36,11 @@ public class ElectricData implements Serializable {
 
     public String getSSMC(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getSSMC();
+        return gsonData.dormitoryInfo_list.get(0).ssmc;
     }
 
     public String getResele(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getResele();
+        return gsonData.dormitoryInfo_list.get(0).resele;
     }
 }

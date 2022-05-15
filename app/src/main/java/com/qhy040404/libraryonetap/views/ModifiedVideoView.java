@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.WindowManager;
 import android.widget.VideoView;
 
 public class ModifiedVideoView extends VideoView {
@@ -20,9 +19,6 @@ public class ModifiedVideoView extends VideoView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth();
-        int height = wm.getDefaultDisplay().getHeight();
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
     }
 }

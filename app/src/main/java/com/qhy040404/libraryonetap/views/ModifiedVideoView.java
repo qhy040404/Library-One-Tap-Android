@@ -23,6 +23,6 @@ public class ModifiedVideoView extends VideoView {
         WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         int width = wm.getDefaultDisplay().getWidth();
         int height = wm.getDefaultDisplay().getHeight();
-        setMeasuredDimension(width,height);
+        setMeasuredDimension(width, height);
     }
 }

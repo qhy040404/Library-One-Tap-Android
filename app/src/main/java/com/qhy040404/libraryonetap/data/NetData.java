@@ -26,7 +26,7 @@ public class NetData implements Serializable {
     }
 
     public String getDynamicUsedFlow(String data) {
-        GsonData gsonData = gson.fromJson(data,GsonData.class);
+        GsonData gsonData = gson.fromJson(data, GsonData.class);
         return gsonData.dynamicUsedFlow;
     }
 

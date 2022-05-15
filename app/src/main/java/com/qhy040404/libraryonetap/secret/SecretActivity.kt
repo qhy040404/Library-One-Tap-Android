@@ -14,11 +14,11 @@ class SecretActivity : AppCompatActivity() {
         Thread(Play()).start()
     }
 
-    private inner class Play:Runnable {
+    private inner class Play : Runnable {
         override fun run() {
-            val videoView :ModifiedVideoView = findViewById(R.id.videoView)
+            val videoView: ModifiedVideoView = findViewById(R.id.videoView)
             videoView.post {
-                videoView.setVideoURI(Uri.parse("android.resource://"+packageName+"/"+R.raw.lol))
+                videoView.setVideoURI(Uri.parse("android.resource://" + packageName + "/" + R.raw.lol))
                 videoView.start()
             }
         }

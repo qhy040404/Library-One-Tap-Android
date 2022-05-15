@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Looper
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import kotlin.system.exitProcess
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         override fun run() {
             Looper.prepare()
 
+            var counter = 0
+
             val versionView: TextView = findViewById(R.id.textView5)
 
             val packManager = packageManager
@@ -35,6 +38,15 @@ class MainActivity : AppCompatActivity() {
             val version = getString(R.string.app_name) + " " + versionName + "($versionCode)"
 
             versionView.text = version
+
+            versionView.setOnClickListener {
+                counter += 1
+                if (counter >= 3) {
+                    val makeText =
+                        Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_SHORT)
+                    makeText.show()
+                }
+            }
             Looper.loop()
         }
     }

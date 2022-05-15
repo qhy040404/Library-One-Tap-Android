@@ -23,12 +23,13 @@
     <string name="passwd">密码</string>
 
     <!-- PROMPT -->
-    <string name="remainNetFeeAndColon">余额: </string>
-    <string name="remainNetAndColon">剩余流量: </string>
-    <string name="remainElectricAndColon">剩余电量: </string>
-    <string name="rmb"> 元</string>
+    <string name="remainNetFeeAndColon">"余额: "</string>
+    <string name="usedNetAndColon">"已用流量: "</string>
+    <string name="remainNetAndColon">"剩余流量: "</string>
+    <string name="remainElectricAndColon">"剩余电量: "</string>
+    <string name="rmb">" 元"</string>
     <string name="degree">" 度"</string>
-    <string name="gigabyte" translatable="false"> GB</string>
+    <string name="gigabyte" translatable="false">" GB"</string>
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
     <string name="logFail">登录失败，正在重试</string>

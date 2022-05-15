@@ -18,23 +18,20 @@ public class NetData implements Serializable {
         private String flag;
         private String dynamicRemainFlow;
         private String dynamicUsedFlow;
-
-        private String getFee() {
-            return fee;
-        }
-
-        private String getDynamicRemainFlow() {
-            return dynamicRemainFlow;
-        }
     }
 
     public String getFee(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getFee();
+        return gsonData.fee;
+    }
+
+    public String getDynamicUsedFlow(String data) {
+        GsonData gsonData = gson.fromJson(data,GsonData.class);
+        return gsonData.dynamicUsedFlow;
     }
 
     public String getDynamicRemainFlow(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getDynamicRemainFlow();
+        return gsonData.dynamicRemainFlow;
     }
 }

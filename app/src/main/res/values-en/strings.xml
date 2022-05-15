@@ -24,10 +24,11 @@
     <string name="passwd">Password</string>
 
     <!-- PROMPT -->
-    <string name="remainNetFeeAndColon">Balance: </string>
+    <string name="remainNetFeeAndColon">"Balance: "</string>
+    <string name="usedNetAndColon">"Used network: "</string>
     <string name="remainNetAndColon">"Remain network: "</string>
     <string name="remainElectricAndColon">"Remain electric: "</string>
-    <string name="rmb"> Yuan</string>
+    <string name="rmb">" Yuan"</string>
     <string name="degree">" degree"</string>
     <string name="loading">Loading....</string>
     <string name="loaded">Logged in</string>

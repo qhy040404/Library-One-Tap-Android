@@ -68,6 +68,7 @@
         android:id="@+id/textView5"
         android:layout_width="317dp"
         android:layout_height="19dp"
+        android:layout_marginEnd="5dp"
         android:text="TextView"
         android:textAlignment="textEnd"
         android:textColor="#969696"

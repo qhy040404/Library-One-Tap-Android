@@ -56,6 +56,9 @@
     <string name="vcard">Virtual Yulan card</string>
 
     <!-- BATH RESERVE ACTIVITY -->
+    <string name="promptPermission">We need this permission to get SSID of WIFI</string>
+    <string name="gotPermission">Permission successfully obtained, please click the button again</string>
+    <string name="failPermission">Failed to obtain permission, please go to settings to enable it manually</string>
     <string name="bathReserve">Reserve bathroom right now</string>
     <string name="networkLimit">Please use this function in the campus network environment</string>
     <string name="sentRequest">Appointment request sent</string>

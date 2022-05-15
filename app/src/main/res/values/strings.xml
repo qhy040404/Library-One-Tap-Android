@@ -56,6 +56,9 @@
     <string name="vcard">玉兰卡虚拟卡</string>
 
     <!-- BATH RESERVE ACTIVITY -->
+    <string name="promptPermission">需要获取此权限来获得WIFI的SSID</string>
+    <string name="gotPermission">已成功获取权限，请重新点击按钮</string>
+    <string name="failPermission">获取权限失败，请到设置中手动开启</string>
     <string name="bathReserve">预约最近时间段</string>
     <string name="networkLimit">请在校园网环境下使用此功能</string>
     <string name="sentRequest">已发送预约请求</string>

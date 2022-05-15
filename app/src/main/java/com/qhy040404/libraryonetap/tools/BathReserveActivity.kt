@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.des.desEncrypt
-import com.qhy040404.libraryonetap.tools.utils.getBathTime
+import com.qhy040404.libraryonetap.tools.utils.BathTime.getBathTime
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 

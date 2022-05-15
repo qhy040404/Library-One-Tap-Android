@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             Looper.prepare()
 
             var counter = 0
+            var b1 = true
+            var b2 = true
+            var b3 = true
+            var b4 = true
 
             val versionView: TextView = findViewById(R.id.textView5)
 
@@ -41,9 +45,25 @@ class MainActivity : AppCompatActivity() {
 
             versionView.setOnClickListener {
                 counter += 1
-                if (counter >= 3) {
+                if (counter in 1..10 && b1) {
+                    b1 = false
                     val makeText =
-                        Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_LONG)
+                    makeText.show()
+                } else if (counter in 11..20 && b2) {
+                    b2 = false
+                    val makeText =
+                        Toast.makeText(this@MainActivity, "真的没做，骗你干嘛，别点啦~", Toast.LENGTH_LONG)
+                    makeText.show()
+                } else if (counter in 20..30 && b3) {
+                    b3 = false
+                    val makeText =
+                        Toast.makeText(this@MainActivity, "没有东西了啊，别点了啊喂", Toast.LENGTH_LONG)
+                    makeText.show()
+                } else if (counter > 30 && b4) {
+                    b4 = false
+                    val makeText =
+                        Toast.makeText(this@MainActivity, "你赢了，但是真的啥也没有哈哈哈哈哈哈", Toast.LENGTH_LONG)
                     makeText.show()
                 }
             }

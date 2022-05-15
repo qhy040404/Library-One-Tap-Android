@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity() {
         Thread(ShowVersion()).start()
     }
 
-    private inner class ShowVersion:Runnable {
+    private inner class ShowVersion : Runnable {
         override fun run() {
             Looper.prepare()
 
-            val versionView:TextView = findViewById(R.id.textView5)
+            val versionView: TextView = findViewById(R.id.textView5)
 
             val packManager = packageManager
-            val packInfo = packManager.getPackageInfo(packageName,0)
+            val packInfo = packManager.getPackageInfo(packageName, 0)
             val versionCode = packInfo.longVersionCode
             val versionName = packInfo.versionName
 

@@ -64,9 +64,11 @@ class ToolsInitActivity : AppCompatActivity() {
 
             val data: String = getPortalData(id, passwd, 1)
 
+            val remainFee = " " + netData.getFee(data) + " "
             val remainNet = netData.getDynamicRemainFlow(data)
             val netMessage =
-                getString(R.string.remainNetAndColon) + remainNet + getString(R.string.gigabyte)
+                getString(R.string.remainNetFeeAndColon) + remainFee + getString(R.string.rmb) + "\n" +
+                        getString(R.string.remainNetAndColon) + remainNet + getString(R.string.gigabyte)
 
             AlertDialog.Builder(this@ToolsInitActivity)
                 .setMessage(netMessage)

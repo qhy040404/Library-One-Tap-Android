@@ -23,11 +23,16 @@
     <string name="passwd">Password</string>
 
     <!-- PROMPT -->
+    <string name="remainNetFeeAndColon">Balance: </string>
     <string name="remainNetAndColon">"Remain network: "</string>
     <string name="remainElectricAndColon">"Remain electric: "</string>
+    <string name="rmb"> Yuan</string>
     <string name="degree">" degree"</string>
     <string name="loading">Loading....</string>
     <string name="loaded">Logged in</string>
+    <string name="logFail">Login failed, retrying....</string>
+    <string name="failTimes">Failed 3 times, Returning....\nCheck your id and password</string>
+    <string name="loginTimeout">Session timeout, please re-enter this page</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
 
@@ -36,6 +41,11 @@
     <string name="leave">Sign out</string>
     <string name="temp">Temp out</string>
     <string name="refresh">Reload</string>
+    <string name="inside">Inside</string>
+    <string name="outside">Temp outside</string>
+    <string name="notStart">Has not started</string>
+    <string name="noValidOrder">No valid order found</string>
+    <string name="tempEndTime">Temporary leave deadline: </string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>

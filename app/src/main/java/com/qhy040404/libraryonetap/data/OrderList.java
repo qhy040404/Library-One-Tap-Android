@@ -24,7 +24,7 @@ public class OrderList implements Serializable {
         }
 
         private String getOrder_id(String mode) {
-            String order_id = "没有找到状态为进行中/暂离/审核通过的order";
+            String order_id = "oid";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
@@ -110,7 +110,7 @@ public class OrderList implements Serializable {
                 list = rows.get(i);
                 if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                     if (!list.back_time.equals("00:00:00")) {
-                        back_time = "暂离截止：" + list.back_time;
+                        back_time = list.back_time;
                     }
                     break;
                 }

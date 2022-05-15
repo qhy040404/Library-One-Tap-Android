@@ -95,17 +95,17 @@ class YanxiujianActivity : AppCompatActivity() {
                 val session: String = requests.post(sessionUrl, "", ctLibrary)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
-                        Toast.makeText(this@YanxiujianActivity, "登录成功", Toast.LENGTH_LONG)
+                        Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)
                     makeText.show()
                     loginSuccess = true
                 } else {
                     val makeText =
-                        Toast.makeText(this@YanxiujianActivity, "登录失败，正在重试", Toast.LENGTH_LONG)
+                        Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_LONG)
                     makeText.show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@YanxiujianActivity)
-                            .setMessage("连续失败3次，返回主页面\n请检查用户名和密码")
+                            .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 exitProcess(1)
@@ -125,13 +125,21 @@ class YanxiujianActivity : AppCompatActivity() {
             if (!total.equals("0")) {
                 val space_name = orderList.getSpace_name(list, "1")
                 val order_date = orderList.getOrder_date(list, "1")
-                val order_id = orderList.getOrder_id(list, "1")
+                var order_id = orderList.getOrder_id(list, "1")
                 var order_process = orderList.getOrder_process(list, "1")
                 val all_users = orderList.getAll_users(list)
-                val full_time = orderList.getFull_time(list)
+                val full_time = getString(R.string.tempEndTime) + orderList.getFull_time(list)
+
+                if (order_id.equals("oid")) {
+                    order_id = getString(R.string.noValidOrder)
+                }
 
                 if (order_process.equals("审核通过")) {
-                    order_process = "未开始"
+                    order_process = getString(R.string.notStart)
+                } else if (order_process.equals("进行中")) {
+                    order_process = getString(R.string.inside)
+                } else if (order_process.equals("暂离")) {
+                    order_process = getString(R.string.outside)
                 }
 
                 val qrUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/2codecert.php?"
@@ -154,11 +162,11 @@ class YanxiujianActivity : AppCompatActivity() {
                 })
                 refresh2.setOnClickListener { recreate() }
                 textView2.text =
-                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
+                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@YanxiujianActivity)
-                    .setMessage("登录失效，请重新进入此页面")
+                    .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         exitProcess(1)

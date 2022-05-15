@@ -97,17 +97,18 @@ class DetailActivity : AppCompatActivity() {
 
                 val session: String = requests.post(sessionUrl, "", ctLibrary)
                 if (checkSession.isSuccess(session)) {
-                    val makeText = Toast.makeText(this@DetailActivity, "登录成功", Toast.LENGTH_LONG)
+                    val makeText =
+                        Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG)
                     makeText.show()
                     loginSuccess = true
                 } else {
                     val makeText =
-                        Toast.makeText(this@DetailActivity, "登录失败，正在重试", Toast.LENGTH_LONG)
+                        Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_LONG)
                     makeText.show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@DetailActivity)
-                            .setMessage("连续失败3次，返回主页面\n请检查用户名和密码")
+                            .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 exitProcess(1)
@@ -128,12 +129,20 @@ class DetailActivity : AppCompatActivity() {
                 val space_name = orderList.getSpace_name(list, "2")
                 val seat_label = orderList.getSeat_label(list, "2")
                 val order_date = orderList.getOrder_date(list, "2")
-                val order_id = orderList.getOrder_id(list, "2")
+                var order_id = orderList.getOrder_id(list, "2")
                 var order_process = orderList.getOrder_process(list, "2")
-                val back_time = orderList.getBack_time(list, "2")
+                val back_time = getString(R.string.tempEndTime) + orderList.getBack_time(list, "2")
+
+                if (order_id.equals("oid")) {
+                    order_id = getString(R.string.noValidOrder)
+                }
 
                 if (order_process.equals("审核通过")) {
-                    order_process = "未开始"
+                    order_process = getString(R.string.notStart)
+                } else if (order_process.equals("进行中")) {
+                    order_process = getString(R.string.inside)
+                } else if (order_process.equals("暂离")) {
+                    order_process = getString(R.string.outside)
                 }
 
                 enter.setOnClickListener {
@@ -178,7 +187,6 @@ class DetailActivity : AppCompatActivity() {
                             imageView.post {
                                 imageView.setImageBitmap(bitmap)
                             }
-                            //imageView.setImageBitmap(bitmap)
                             pictureInput.close()
                         }
                     })
@@ -202,18 +210,17 @@ class DetailActivity : AppCompatActivity() {
                             imageView.post {
                                 imageView.setImageBitmap(bitmap)
                             }
-                            //imageView.setImageBitmap(bitmap)
                             pictureInput.close()
                         }
                     })
                 }
                 refresh.setOnClickListener { recreate() }
                 textView.text =
-                    "order_id:$order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
+                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()
             } else {
                 AlertDialog.Builder(this@DetailActivity)
-                    .setMessage("登录失效，请重新进入此页面")
+                    .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         exitProcess(1)

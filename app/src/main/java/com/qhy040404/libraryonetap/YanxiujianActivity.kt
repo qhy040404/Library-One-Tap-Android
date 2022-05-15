@@ -128,7 +128,7 @@ class YanxiujianActivity : AppCompatActivity() {
                 var order_id = orderList.getOrder_id(list, "1")
                 var order_process = orderList.getOrder_process(list, "1")
                 val all_users = orderList.getAll_users(list)
-                val full_time = getString(R.string.tempEndTime) + orderList.getFull_time(list)
+                val full_time = orderList.getFull_time(list)
 
                 if (order_id.equals("oid")) {
                     order_id = getString(R.string.noValidOrder)

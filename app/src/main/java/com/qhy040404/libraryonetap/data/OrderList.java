@@ -103,14 +103,14 @@ public class OrderList implements Serializable {
             return order_date;
         }
 
-        private String getBack_time(String mode) {
+        private String getBack_time(String mode, String prompt) {
             String back_time = "";
             for (int i = 0; i < rows.size(); i++) {
                 RowsBean list = new RowsBean();
                 list = rows.get(i);
                 if (list.order_process.equals("暂离") && list.order_type.equals(mode)) {
                     if (!list.back_time.equals("00:00:00")) {
-                        back_time = list.back_time;
+                        back_time = prompt + list.back_time;
                     }
                     break;
                 }
@@ -211,9 +211,9 @@ public class OrderList implements Serializable {
         return gsonData.getOrder_date(mode);
     }
 
-    public String getBack_time(String data, String mode) {
+    public String getBack_time(String data, String mode, String prompt) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getBack_time(mode);
+        return gsonData.getBack_time(mode, prompt);
     }
 
     public String getAll_users(String data) {

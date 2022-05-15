@@ -126,12 +126,14 @@ class DetailActivity : AppCompatActivity() {
             val list = requests.get(listUrl)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
+                val back_prompt = getString(R.string.tempEndTime)
+
                 val space_name = orderList.getSpace_name(list, "2")
                 val seat_label = orderList.getSeat_label(list, "2")
                 val order_date = orderList.getOrder_date(list, "2")
                 var order_id = orderList.getOrder_id(list, "2")
                 var order_process = orderList.getOrder_process(list, "2")
-                val back_time = getString(R.string.tempEndTime) + orderList.getBack_time(list, "2")
+                val back_time = orderList.getBack_time(list, "2", back_prompt)
 
                 if (order_id.equals("oid")) {
                     order_id = getString(R.string.noValidOrder)

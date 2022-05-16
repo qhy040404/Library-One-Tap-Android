@@ -6,9 +6,6 @@ import java.util.*
 
 class LibraryOneTapApp private constructor() : Application() {
     private val activityList: MutableList<Activity> = LinkedList()
-    override fun onCreate() {
-        super.onCreate()
-    }
 
     fun addActivity(activity: Activity) {
         activityList.add(activity)

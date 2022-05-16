@@ -235,13 +235,23 @@ class DetailActivity : AppCompatActivity() {
                             .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                             .penaltyLog().penaltyDeath().build()
                     )
-                    val cancelUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderOperation"
-                    val message = CancelData().getMessage(requests.post(cancelUrl,"order_id=$order_id&order_type=2&method=Cancel",ctLibrary))
                     AlertDialog.Builder(this@DetailActivity)
-                        .setMessage(message)
+                        .setMessage(R.string.confirmCancel)
                         .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) {_,_ ->
-                            recreate()
+                        .setPositiveButton(R.string.justCancel) {_,_ ->
+                            val cancelUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderOperation"
+                            val message = CancelData().getMessage(requests.post(cancelUrl,"order_id=$order_id&order_type=2&method=Cancel",ctLibrary))
+                            AlertDialog.Builder(this@DetailActivity)
+                                .setMessage(message)
+                                .setTitle(R.string.library)
+                                .setPositiveButton(R.string.ok) {_,_ ->
+                                    recreate()
+                                }
+                                .setCancelable(true)
+                                .create()
+                                .show()
+                        }
+                        .setNegativeButton(R.string.cancelCancel) {_,_ ->
                         }
                         .setCancelable(true)
                         .create()

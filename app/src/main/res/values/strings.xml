@@ -49,6 +49,9 @@
     <string name="noValidOrder">没有找到有效的order</string>
     <string name="tempEndTime">暂离截止: </string>
     <string name="cancel">不去了，开摆</string>
+    <string name="confirmCancel">确认取消吗</string>
+    <string name="justCancel">开摆</string>
+    <string name="cancelCancel">继续卷</string>
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>

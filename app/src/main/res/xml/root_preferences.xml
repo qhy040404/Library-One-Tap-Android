@@ -1,17 +1,31 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory app:title="@string/basic_information">
-
         <EditTextPreference
             app:key="userid"
             app:title="@string/user_id"
             app:useSimpleSummaryProvider="true" />
-
         <EditTextPreference
             app:key="passwd"
             app:title="@string/passwd"
             app:useSimpleSummaryProvider="true" />
-
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/general">
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="system"
+            app:entries="@array/dark_mode"
+            app:entryValues="@array/dark_mode_value"
+            app:key="dark"
+            app:summary="%s"
+            app:title="@string/darkMode" />
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="purple"
+            app:entries="@array/themes"
+            app:entryValues="@array/themes_value"
+            app:key="theme"
+            app:summary="%s"
+            app:title="@string/mainTheme" />
     </PreferenceCategory>
 
 </PreferenceScreen>

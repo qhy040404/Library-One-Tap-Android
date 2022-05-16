@@ -26,6 +26,13 @@
             app:key="theme"
             app:summary="%s"
             app:title="@string/mainTheme" />
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="zh-Hans"
+            app:entries="@array/language_name"
+            app:entryValues="@array/language_value"
+            app:key="locale"
+            app:summary="%s"
+            app:title="@string/language" />
     </PreferenceCategory>
 
 </PreferenceScreen>

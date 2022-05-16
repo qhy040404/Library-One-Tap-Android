@@ -6,7 +6,7 @@ import android.os.StrictMode
 import android.view.View
 import android.widget.*
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.StartUpActivity
+import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.tools.utils.BathTime.getBathTime
 import com.qhy040404.libraryonetap.web.Requests
@@ -132,11 +132,8 @@ class BathReserveActivity : StartUpActivity() {
                     }
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
-
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.CheckSession

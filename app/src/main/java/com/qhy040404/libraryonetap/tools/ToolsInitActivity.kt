@@ -12,7 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.StartUpActivity
+import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData

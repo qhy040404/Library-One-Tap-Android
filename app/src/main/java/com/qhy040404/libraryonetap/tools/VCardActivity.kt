@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.StartUpActivity
+import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
@@ -101,9 +101,7 @@ class VCardActivity : StartUpActivity() {
                 imageView.post {
                     imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
                 }
-
                 textView.text = newQrInformation
-
             }
             Looper.loop()
         }

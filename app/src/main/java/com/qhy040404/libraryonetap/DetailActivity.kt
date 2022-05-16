@@ -22,23 +22,15 @@ import okhttp3.*
 import java.io.IOException
 import kotlin.system.exitProcess
 
-class DetailActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+class DetailActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(Detail()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_detail
 
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView)
         textView.visibility = View.VISIBLE
+        Thread(Detail()).start()
     }
 
     private inner class Detail : Runnable {

@@ -14,17 +14,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
 
-class ToolsInitActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tools_init)
-    }
+class ToolsInitActivity : StartUpActivity() {
+    override fun init() {}
+
+    override fun getLayoutId(): Int = R.layout.activity_tools_init
 
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>,

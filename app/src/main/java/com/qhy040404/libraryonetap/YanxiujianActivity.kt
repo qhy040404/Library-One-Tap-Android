@@ -21,23 +21,15 @@ import okhttp3.*
 import java.io.IOException
 import kotlin.system.exitProcess
 
-class YanxiujianActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_yanxiujian)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+class YanxiujianActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(Yanxiujian()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_yanxiujian
 
     private fun initView() {
         val textView2: TextView = findViewById(R.id.textView2)
         textView2.visibility = View.VISIBLE
+        Thread(Yanxiujian()).start()
     }
 
     private inner class Yanxiujian : Runnable {

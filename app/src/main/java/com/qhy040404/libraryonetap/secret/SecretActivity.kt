@@ -4,15 +4,13 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.views.ModifiedVideoView
 
-class SecretActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_secret)
+class SecretActivity : StartUpActivity() {
+    override fun init() = Thread(Play()).start()
 
-        Thread(Play()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_secret
 
     private inner class Play : Runnable {
         override fun run() {

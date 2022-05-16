@@ -12,26 +12,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
-class VCardActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vcard)
+class VCardActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(VCard()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_vcard
 
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView4)
         textView.visibility = View.VISIBLE
+        Thread(VCard()).start()
     }
 
     private inner class VCard : Runnable {

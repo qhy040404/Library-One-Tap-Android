@@ -66,13 +66,6 @@ class SettingsActivity : AppCompatActivity() {
                     true
                 }
             }
-
-            findPreference<SimpleMenuPreference>(Constants.PREF_LOCALE)?.apply {
-                setOnPreferenceChangeListener { _, _ ->
-                    activity?.recreate()
-                    true
-                }
-            }
         }
     }
 }

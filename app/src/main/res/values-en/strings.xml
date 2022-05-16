@@ -37,12 +37,6 @@
         <item>On</item>
         <item>Off</item>
     </string-array>
-    <string name="language">Language</string>
-    <string-array name="language_name">
-        <item>Follow system</item>
-        <item>简体中文</item>
-        <item>English</item>
-    </string-array>
 
     <!-- PROMPT -->
     <string name="remainNetFeeAndColon">"Balance: "</string>

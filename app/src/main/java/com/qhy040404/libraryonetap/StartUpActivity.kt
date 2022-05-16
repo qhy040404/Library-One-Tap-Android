@@ -26,16 +26,6 @@ abstract class StartUpActivity : AppCompatActivity() {
             "green" -> setTheme(R.style.Theme_Green)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
-        when (sp.getString("locale", "system").toString()) {
-            "zh-Hans" -> {
-                config.locale = Locale.SIMPLIFIED_CHINESE
-                resources.updateConfiguration(config, dm)
-            }
-            "en" -> {
-                config.locale = Locale.ENGLISH
-                resources.updateConfiguration(config, dm)
-            }
-        }
         super.onCreate(savedInstanceState)
 
         setContentView(getLayoutId())

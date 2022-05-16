@@ -1,12 +1,10 @@
 package com.qhy040404.libraryonetap.tools
 
 import android.content.SharedPreferences
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.des.desEncrypt

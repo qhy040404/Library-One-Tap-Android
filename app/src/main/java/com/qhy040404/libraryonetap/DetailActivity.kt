@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -12,7 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt

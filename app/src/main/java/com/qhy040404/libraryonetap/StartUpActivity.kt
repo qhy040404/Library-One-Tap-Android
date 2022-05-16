@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 
-abstract class StartUpActivity :AppCompatActivity() {
+abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         when (getSharedPreferences(
             "com.qhy040404.libraryonetap_preferences",
@@ -32,5 +32,5 @@ abstract class StartUpActivity :AppCompatActivity() {
 
     protected abstract fun init()
 
-    protected abstract fun getLayoutId():Int
+    protected abstract fun getLayoutId(): Int
 }

@@ -1,8 +1,6 @@
 package com.qhy040404.libraryonetap.secret
 
 import android.net.Uri
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.views.ModifiedVideoView

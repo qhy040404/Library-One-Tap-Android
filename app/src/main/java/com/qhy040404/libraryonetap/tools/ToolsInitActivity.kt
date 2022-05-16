@@ -6,13 +6,11 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.net.wifi.WifiManager
-import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.data.ElectricData

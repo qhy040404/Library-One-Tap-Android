@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.tools
 
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.util.Base64
@@ -10,7 +9,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.StartUpActivity
 import com.qhy040404.libraryonetap.utils.QRUtils

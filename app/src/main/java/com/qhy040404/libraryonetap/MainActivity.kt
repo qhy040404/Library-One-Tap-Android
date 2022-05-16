@@ -95,12 +95,12 @@ class MainActivity : StartUpActivity() {
     fun buttonOpenSettings(view: View) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     fun buttonYanxiujian(view: View) {
         val intent = Intent(this, YanxiujianActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun buttonTools(view: View) {

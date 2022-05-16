@@ -44,13 +44,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
         return super.onKeyDown(keyCode, event)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        finish()
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

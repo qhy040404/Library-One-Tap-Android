@@ -48,6 +48,7 @@
     <string name="notStart">Has not started</string>
     <string name="noValidOrder">No valid order found</string>
     <string name="tempEndTime">Temporary leave deadline: </string>
+    <string name="cancel">Cancel\nreservation</string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>

@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.CheckSession
@@ -61,6 +62,7 @@ class DetailActivity : AppCompatActivity() {
             val enter: Button = findViewById(R.id.button6)
             val imageView: ImageView = findViewById(R.id.imageView)
             val refresh: Button = findViewById(R.id.button7)
+            val cancel: Button = findViewById(R.id.button10)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -141,6 +143,11 @@ class DetailActivity : AppCompatActivity() {
 
                 if (order_process.equals("审核通过")) {
                     order_process = getString(R.string.notStart)
+
+                    cancel.post {
+                        cancel.visibility = View.VISIBLE
+                        cancel.isClickable = true
+                    }
                 } else if (order_process.equals("进行中")) {
                     order_process = getString(R.string.inside)
                 } else if (order_process.equals("暂离")) {
@@ -217,6 +224,29 @@ class DetailActivity : AppCompatActivity() {
                     })
                 }
                 refresh.setOnClickListener { recreate() }
+                cancel.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    val cancelUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderOperation"
+                    val message = CancelData().getMessage(requests.post(cancelUrl,"order_id=$order_id&order_type=2&method=Cancel",ctLibrary))
+                    AlertDialog.Builder(this@DetailActivity)
+                        .setMessage(message)
+                        .setTitle(R.string.library)
+                        .setPositiveButton(R.string.ok) {_,_ ->
+                            recreate()
+                        }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                }
                 textView.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()

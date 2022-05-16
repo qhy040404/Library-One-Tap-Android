@@ -10,8 +10,8 @@ android {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
         targetSdk 32
-        versionCode 213
-        versionName "2.2.0-pre4"
+        versionCode 214
+        versionName "2.2.0-RC1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

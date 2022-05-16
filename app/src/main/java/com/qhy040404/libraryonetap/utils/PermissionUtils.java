@@ -9,6 +9,11 @@ import androidx.core.app.ActivityCompat;
 import com.qhy040404.libraryonetap.R;
 
 public class PermissionUtils {
+    private static void requestPermission(String[] s, Activity activity) {
+        Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show();
+        ActivityCompat.requestPermissions(activity, s, 100);
+    }
+
     public boolean checkPermission(Activity activity, String[] permission) {
         boolean hasPermission = true;
         int j = 0;
@@ -21,10 +26,5 @@ public class PermissionUtils {
             }
         }
         return hasPermission;
-    }
-
-    private static void requestPermission(String[] s, Activity activity) {
-        Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show();
-        ActivityCompat.requestPermissions(activity, s, 100);
     }
 }

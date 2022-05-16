@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.tools
 
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.util.Base64
@@ -10,28 +9,21 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
-class VCardActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_vcard)
+class VCardActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(VCard()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_vcard
 
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView4)
         textView.visibility = View.VISIBLE
+        Thread(VCard()).start()
     }
 
     private inner class VCard : Runnable {
@@ -109,9 +101,7 @@ class VCardActivity : AppCompatActivity() {
                 imageView.post {
                     imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
                 }
-
                 textView.text = newQrInformation
-
             }
             Looper.loop()
         }

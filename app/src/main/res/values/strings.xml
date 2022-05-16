@@ -21,6 +21,33 @@
     <string name="basic_information">基本信息</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
+    <string name="general">通用设置</string>
+    <string name="mainTheme">主题</string>
+    <string-array name="themes">
+        <item>苍穹蓝</item>
+        <item>少女粉</item>
+        <item>青葱绿</item>
+        <item>基佬紫</item>
+        <item>简约风</item>
+    </string-array>
+    <string-array name="themes_value" translatable="false">
+        <item>blue</item>
+        <item>pink</item>
+        <item>green</item>
+        <item>purple</item>
+        <item>simple</item>
+    </string-array>
+    <string name="darkMode">深色模式</string>
+    <string-array name="dark_mode">
+        <item>跟随系统</item>
+        <item>开启</item>
+        <item>关闭</item>
+    </string-array>
+    <string-array name="dark_mode_value" translatable="false">
+        <item>system</item>
+        <item>on</item>
+        <item>off</item>
+    </string-array>
 
     <!-- PROMPT -->
     <string name="remainNetFeeAndColon">"余额: "</string>

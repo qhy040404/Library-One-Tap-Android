@@ -1,34 +1,26 @@
 package com.qhy040404.libraryonetap.tools
 
 import android.content.SharedPreferences
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.tools.utils.BathTime.getBathTime
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
 
-class BathReserveActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bath_reserve)
+class BathReserveActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(BathReserve()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_bath_reserve
 
     private fun initView() {
         val textViewBath: TextView = findViewById(R.id.textView3)
         textViewBath.visibility = View.VISIBLE
+        Thread(BathReserve()).start()
     }
 
     private inner class BathReserve : Runnable {
@@ -140,11 +132,8 @@ class BathReserveActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
-
         }
     }
 }

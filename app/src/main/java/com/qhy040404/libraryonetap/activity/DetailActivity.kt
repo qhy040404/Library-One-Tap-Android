@@ -1,9 +1,8 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -12,7 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
@@ -20,25 +19,16 @@ import com.qhy040404.libraryonetap.web.CheckSession
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.*
 import java.io.IOException
-import kotlin.system.exitProcess
 
-class DetailActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+class DetailActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(Detail()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_detail
 
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView)
         textView.visibility = View.VISIBLE
+        Thread(Detail()).start()
     }
 
     private inner class Detail : Runnable {
@@ -113,7 +103,7 @@ class DetailActivity : AppCompatActivity() {
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ ->
-                                exitProcess(1)
+                                this@DetailActivity.finish()
                             }
                             .setCancelable(false)
                             .create()
@@ -272,7 +262,7 @@ class DetailActivity : AppCompatActivity() {
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ ->
-                        exitProcess(1)
+                        this@DetailActivity.finish()
                     }
                     .setCancelable(false)
                     .create()

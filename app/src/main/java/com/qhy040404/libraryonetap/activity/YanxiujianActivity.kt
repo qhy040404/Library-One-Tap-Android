@@ -1,9 +1,8 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -12,32 +11,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.CheckSession
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.*
 import java.io.IOException
-import kotlin.system.exitProcess
 
-class YanxiujianActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_yanxiujian)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+class YanxiujianActivity : StartUpActivity() {
+    override fun init() = initView()
 
-        initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread(Yanxiujian()).start()
-    }
+    override fun getLayoutId(): Int = R.layout.activity_yanxiujian
 
     private fun initView() {
         val textView2: TextView = findViewById(R.id.textView2)
         textView2.visibility = View.VISIBLE
+        Thread(Yanxiujian()).start()
     }
 
     private inner class Yanxiujian : Runnable {
@@ -108,7 +98,7 @@ class YanxiujianActivity : AppCompatActivity() {
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ ->
-                                exitProcess(1)
+                                this@YanxiujianActivity.finish()
                             }
                             .setCancelable(false)
                             .create()
@@ -169,7 +159,7 @@ class YanxiujianActivity : AppCompatActivity() {
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ ->
-                        exitProcess(1)
+                        this@YanxiujianActivity.finish()
                     }
                     .setCancelable(false)
                     .create()

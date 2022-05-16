@@ -19,7 +19,6 @@ import com.qhy040404.libraryonetap.web.CheckSession
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.*
 import java.io.IOException
-import kotlin.system.exitProcess
 
 class DetailActivity : StartUpActivity() {
     override fun init() = initView()
@@ -104,7 +103,7 @@ class DetailActivity : StartUpActivity() {
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ ->
-                                exitProcess(1)
+                                this@DetailActivity.finish()
                             }
                             .setCancelable(false)
                             .create()
@@ -263,7 +262,7 @@ class DetailActivity : StartUpActivity() {
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ ->
-                        exitProcess(1)
+                        this@DetailActivity.finish()
                     }
                     .setCancelable(false)
                     .create()

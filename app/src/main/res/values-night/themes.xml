@@ -7,9 +7,9 @@
 
         <item name="colorSecondary">@color/purple_200</item>
         <item name="colorSecondaryVariant">@color/purple_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor" >@color/purple_700</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 
     <!-- Blue application theme. -->
@@ -20,9 +20,9 @@
 
         <item name="colorSecondary">@color/blue_200</item>
         <item name="colorSecondaryVariant">@color/blue_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor" >@color/blue_700</item>
+        <item name="android:statusBarColor">@color/blue_700</item>
     </style>
 
     <!-- Pink application theme. -->
@@ -33,9 +33,9 @@
 
         <item name="colorSecondary">@color/pink_200</item>
         <item name="colorSecondaryVariant">@color/pink_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor" >@color/pink_700</item>
+        <item name="android:statusBarColor">@color/pink_700</item>
     </style>
 
     <!-- Green application theme. -->
@@ -46,9 +46,9 @@
 
         <item name="colorSecondary">@color/green_200</item>
         <item name="colorSecondaryVariant">@color/green_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor" >@color/green_700</item>
+        <item name="android:statusBarColor">@color/green_700</item>
     </style>
 
     <!-- Simple application theme. -->
@@ -56,12 +56,12 @@
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/black</item>
-
+s
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor" >@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">

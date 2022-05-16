@@ -9,7 +9,7 @@
         <item name="colorSecondaryVariant">@color/purple_700</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor" >@color/purple_700</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 
     <style name="Theme.Purple.NoActionBar">
@@ -31,7 +31,7 @@
         <item name="colorSecondaryVariant">@color/blue_700</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor" >@color/blue_700</item>
+        <item name="android:statusBarColor">@color/blue_700</item>
     </style>
 
     <style name="Theme.Blue.NoActionBar">
@@ -53,7 +53,7 @@
         <item name="colorSecondaryVariant">@color/pink_700</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor" >@color/pink_700</item>
+        <item name="android:statusBarColor">@color/pink_700</item>
     </style>
 
     <style name="Theme.Pink.NoActionBar">
@@ -75,7 +75,7 @@
         <item name="colorSecondaryVariant">@color/green_700</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor" >@color/green_700</item>
+        <item name="android:statusBarColor">@color/green_700</item>
     </style>
 
     <style name="Theme.Green.NoActionBar">
@@ -97,7 +97,7 @@
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor" >@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
     </style>
 
     <style name="Theme.Simple.NoActionBar">

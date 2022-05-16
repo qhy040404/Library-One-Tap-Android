@@ -1,9 +1,11 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.qhy040404.libraryonetap.LibraryOneTapApp
+import com.qhy040404.libraryonetap.R
 
 abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,8 +13,6 @@ abstract class StartUpActivity : AppCompatActivity() {
             "com.qhy040404.libraryonetap_preferences",
             MODE_PRIVATE
         )
-        val config = resources.configuration
-        val dm = resources.displayMetrics
         when (sp.getString("dark", "system").toString()) {
             "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -26,6 +26,7 @@ abstract class StartUpActivity : AppCompatActivity() {
             "simple" -> setTheme(R.style.Theme_Simple)
         }
         super.onCreate(savedInstanceState)
+        LibraryOneTapApp.instance?.addActivity(this)
 
         setContentView(getLayoutId())
         init()

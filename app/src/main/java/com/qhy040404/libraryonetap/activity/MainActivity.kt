@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -7,9 +7,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.qhy040404.libraryonetap.LibraryOneTapApp
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
-import kotlin.system.exitProcess
 
 class MainActivity : StartUpActivity() {
     override fun init() = initView()
@@ -109,7 +110,7 @@ class MainActivity : StartUpActivity() {
     }
 
     fun buttonExit(view: View) {
-        exitProcess(0)
+        LibraryOneTapApp.instance?.exit()
     }
 
 }

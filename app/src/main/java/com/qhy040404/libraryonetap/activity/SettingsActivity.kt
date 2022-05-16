@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap
+package com.qhy040404.libraryonetap.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,24 +6,23 @@ import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceFragmentCompat
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import rikka.preference.SimpleMenuPreference
 
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        when (getSharedPreferences(
+        val sp = getSharedPreferences(
             "com.qhy040404.libraryonetap_preferences",
             MODE_PRIVATE
-        ).getString("dark", "system").toString()) {
+        )
+        when (sp.getString("dark", "system").toString()) {
             "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        when (getSharedPreferences(
-            "com.qhy040404.libraryonetap_preferences",
-            MODE_PRIVATE
-        ).getString("theme", "purple").toString()) {
+        when (sp.getString("theme", "purple").toString()) {
             "purple" -> setTheme(R.style.Theme_Purple)
             "blue" -> setTheme(R.style.Theme_Blue)
             "pink" -> setTheme(R.style.Theme_Pink)

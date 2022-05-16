@@ -9,7 +9,7 @@
         <item name="colorSecondaryVariant">@color/purple_200</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <!-- Blue application theme. -->
@@ -22,7 +22,7 @@
         <item name="colorSecondaryVariant">@color/blue_200</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/blue_700</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <!-- Pink application theme. -->
@@ -35,7 +35,7 @@
         <item name="colorSecondaryVariant">@color/pink_200</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/pink_700</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <!-- Green application theme. -->
@@ -48,7 +48,7 @@
         <item name="colorSecondaryVariant">@color/green_200</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/green_700</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
 
     <!-- Simple application theme. -->

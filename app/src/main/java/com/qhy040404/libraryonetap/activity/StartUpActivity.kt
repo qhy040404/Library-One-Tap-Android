@@ -23,7 +23,7 @@ abstract class StartUpActivity : AppCompatActivity() {
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        when (sp.getString("theme", "purple").toString()) {
+        when (sp.getString("theme", "simple").toString()) {
             "purple" -> setTheme(R.style.Theme_Purple)
             "blue" -> setTheme(R.style.Theme_Blue)
             "pink" -> setTheme(R.style.Theme_Pink)

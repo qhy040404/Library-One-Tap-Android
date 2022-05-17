@@ -10,6 +10,7 @@
     <string name="bath_title">澡堂预约</string>
     <string name="tools_title">小工具</string>
     <string name="secret_title">你 被 骗 了</string>
+    <string name="detail_title">各种二维码</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">签到/离退/暂离</string>

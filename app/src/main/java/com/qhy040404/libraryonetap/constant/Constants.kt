@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap.constant
 
 object Constants {
+    const val BUGLY_APPID = "e9cf71d653"
+
     const val GLOBAL_ERROR = "Error"
 
     const val PREF_ID = "userid"

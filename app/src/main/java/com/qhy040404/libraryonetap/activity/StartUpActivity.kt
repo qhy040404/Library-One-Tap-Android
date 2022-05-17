@@ -2,6 +2,7 @@ package com.qhy040404.libraryonetap.activity
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.qhy040404.libraryonetap.LibraryOneTapApp
@@ -47,7 +48,14 @@ abstract class StartUpActivity : AppCompatActivity() {
         LibraryOneTapApp.instance?.addActivity(this)
 
         setContentView(getLayoutId())
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
     }
 
     protected abstract fun init()

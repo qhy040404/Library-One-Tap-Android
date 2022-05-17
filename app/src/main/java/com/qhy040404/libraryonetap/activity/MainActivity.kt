@@ -14,7 +14,10 @@ import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 
 class MainActivity : StartUpActivity() {
-    override fun init() = initView()
+    override fun init() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        initView()
+    }
 
     override fun getLayoutId(): Int = R.layout.activity_main
 

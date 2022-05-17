@@ -12,7 +12,6 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.secret.SecretActivity
-import com.qhy040404.libraryonetap.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.tools.VCardActivity
 
@@ -33,9 +32,9 @@ class MainActivity : StartUpActivity() {
     private fun initView() = Thread(ShowVersion()).start()
 
     private fun handleIntentFromShortcuts(intent: Intent) {
-        when(intent.action) {
-            Constants.SHORTCUT_DETAIL -> startActivity(Intent(this,DetailActivity::class.java))
-            Constants.SHORTCUT_TOOLS -> startActivity(Intent(this,ToolsInitActivity::class.java))
+        when (intent.action) {
+            Constants.SHORTCUT_DETAIL -> startActivity(Intent(this, DetailActivity::class.java))
+            Constants.SHORTCUT_TOOLS -> startActivity(Intent(this, ToolsInitActivity::class.java))
             Constants.SHORTCUT_VCARD -> startActivity(Intent(this, VCardActivity::class.java))
         }
     }

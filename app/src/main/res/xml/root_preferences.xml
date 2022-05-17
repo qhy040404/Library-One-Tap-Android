@@ -20,7 +20,7 @@
             app:summary="%s"
             app:title="@string/darkMode" />
         <rikka.preference.SimpleMenuPreference
-            app:defaultValue="purple"
+            app:defaultValue="simple"
             app:entries="@array/themes"
             app:entryValues="@array/themes_value"
             app:key="theme"

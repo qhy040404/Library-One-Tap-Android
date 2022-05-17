@@ -26,6 +26,7 @@
     <string name="mainTheme">主题</string>
     <string name="darkMode">深色模式</string>
     <string name="language">语言</string>
+    <string name="checkUpdate">检查更新</string>
 
     <!-- PROMPT -->
     <string name="remainNetFeeAndColon">"余额: "</string>

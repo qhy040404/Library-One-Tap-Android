@@ -1,0 +1,32 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:shortcutId="start_vcard"
+        android:shortcutShortLabel="@string/vcardTitle">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.VCARD"
+            android:targetClass="com.qhy040404.libraryonetap.activity.MainActivity"
+            android:targetPackage="com.qhy040404.libraryonetap" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:shortcutId="start_tools"
+        android:shortcutShortLabel="@string/tools_title">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.TOOLS"
+            android:targetClass="com.qhy040404.libraryonetap.activity.MainActivity"
+            android:targetPackage="com.qhy040404.libraryonetap" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:shortcutId="start_detail"
+        android:shortcutShortLabel="@string/detail_title">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.DETAIL"
+            android:targetClass="com.qhy040404.libraryonetap.activity.MainActivity"
+            android:targetPackage="com.qhy040404.libraryonetap" />
+    </shortcut>
+</shortcuts>

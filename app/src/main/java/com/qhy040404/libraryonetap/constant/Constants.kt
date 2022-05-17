@@ -19,6 +19,6 @@ object Constants {
     const val CONTENT_TYPE_VCARD = "application/x-www-form-urlencoded"
 
     const val SHORTCUT_DETAIL = "com.qhy040404.libraryonetap.intent.action.DETAIL"
-    const val SHORTCUT_BATH = "com.qhy040404.libraryonetap.intent.action.BATH"
+    const val SHORTCUT_TOOLS = "com.qhy040404.libraryonetap.intent.action.TOOLS"
     const val SHORTCUT_VCARD = "com.qhy040404.libraryonetap.intent.action.VCARD"
 }

@@ -40,7 +40,7 @@ abstract class StartUpActivity : AppCompatActivity() {
                 config.locale = Locale.ENGLISH
             }
         }
-        resources.updateConfiguration(config,dm)
+        resources.updateConfiguration(config, dm)
 
 
         super.onCreate(savedInstanceState)

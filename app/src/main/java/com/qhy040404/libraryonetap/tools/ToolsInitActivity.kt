@@ -74,10 +74,9 @@ class ToolsInitActivity : StartUpActivity() {
         }
 
         val permission: Array<String> = arrayOf("android.permission.ACCESS_FINE_LOCATION")
-        val hasPermission: Boolean = PermissionUtils().checkPermission(this, permission)
 
         if (netName == "<unknown ssid>") {
-            if (hasPermission) {
+            if (PermissionUtils().checkPermission(this, permission)) {
                 Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show()
             }
         } else if (netName == "DLUT-LingShui") {

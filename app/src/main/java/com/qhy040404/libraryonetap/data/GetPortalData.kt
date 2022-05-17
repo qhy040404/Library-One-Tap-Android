@@ -1,9 +1,10 @@
 package com.qhy040404.libraryonetap.data
 
 import android.os.StrictMode
+import com.qhy040404.libraryonetap.constant.GlobalValues.ctJson
+import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.Requests
-import okhttp3.MediaType
 
 object GetPortalData {
     //mode 0:electric, mode 1:net
@@ -22,9 +23,6 @@ object GetPortalData {
         val des = desEncrypt()
 
         var returnJson = ""
-
-        val ctJson: MediaType = requests.strToMT("application/json;charset=UTF-8")
-        val ctSso: MediaType = requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
 
         val requestUrl =
             "https://sso.dlut.edu.cn/cas/login?service=https%3A%2F%2Fportal.dlut.edu.cn%2Ftp%2Fview%3Fm%3Dup#act=portal/viewhome"

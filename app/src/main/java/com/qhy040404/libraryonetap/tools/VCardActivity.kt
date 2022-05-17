@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.tools
 
-import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Looper
 import android.os.StrictMode
@@ -11,9 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.GlobalValues.ctVCard
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
-import okhttp3.MediaType
 
 class VCardActivity : StartUpActivity() {
     override fun init() = initView()
@@ -46,18 +46,13 @@ class VCardActivity : StartUpActivity() {
             val textView: TextView = findViewById(R.id.textView4)
             val refresh: Button = findViewById(R.id.button18)
 
-            val sharedPreferences: SharedPreferences =
-                getSharedPreferences("com.qhy040404.libraryonetap_preferences", MODE_PRIVATE)
-
-            val id: String = sharedPreferences.getString("userid", "Error").toString()
-            val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
-
-            val ct: MediaType = requests.strToMT("application/x-www-form-urlencoded")
+            val id: String = GlobalValues.id
+            val passwd: String = GlobalValues.passwd
 
             val apiRequestUrl =
                 "https://api.m.dlut.edu.cn/login?redirect_uri=https://card.m.dlut.edu.cn/homerj/openHomePage&response_type=code&scope=base_api&state=weishao"
             val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
-            requests.postVCard(apiRequestUrl, apiPostData, ct)
+            requests.postVCard(apiRequestUrl, apiPostData, ctVCard)
 
             val openidUrl = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
             val returnOpenID = requests.getVCard(openidUrl)

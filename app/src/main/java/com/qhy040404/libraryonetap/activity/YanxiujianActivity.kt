@@ -1,7 +1,6 @@
 package com.qhy040404.libraryonetap.activity
 
 import android.annotation.SuppressLint
-import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Looper
 import android.os.StrictMode
@@ -12,11 +11,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.web.CheckSession
 import com.qhy040404.libraryonetap.web.Requests
-import okhttp3.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
 
 class YanxiujianActivity : StartUpActivity() {
@@ -54,14 +57,8 @@ class YanxiujianActivity : StartUpActivity() {
             val checkSession = CheckSession()
             val orderList = OrderList()
 
-            val sharedPreferences: SharedPreferences =
-                getSharedPreferences("com.qhy040404.libraryonetap_preferences", MODE_PRIVATE)
-
-            val id: String = sharedPreferences.getString("userid", "Error").toString()
-            val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
-
-            val ctLibrary: MediaType =
-                requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
+            val id: String = GlobalValues.id
+            val passwd: String = GlobalValues.passwd
 
             val requestUrl =
                 "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
@@ -79,10 +76,10 @@ class YanxiujianActivity : StartUpActivity() {
                 requests.post(
                     requestUrl,
                     requests.loginPostData(id, passwd, ltData, rsa),
-                    ctLibrary
+                    GlobalValues.ctSso
                 )
 
-                val session: String = requests.post(sessionUrl, "", ctLibrary)
+                val session: String = requests.post(sessionUrl, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
                         Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)

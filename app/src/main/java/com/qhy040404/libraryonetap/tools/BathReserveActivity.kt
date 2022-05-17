@@ -1,16 +1,16 @@
 package com.qhy040404.libraryonetap.tools
 
-import android.content.SharedPreferences
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.*
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.des.desEncrypt
 import com.qhy040404.libraryonetap.tools.utils.BathTime.getBathTime
 import com.qhy040404.libraryonetap.web.Requests
-import okhttp3.MediaType
 
 class BathReserveActivity : StartUpActivity() {
     override fun init() = initView()
@@ -54,15 +54,8 @@ class BathReserveActivity : StartUpActivity() {
             val requests = Requests()
             val des = desEncrypt()
 
-            val sharedPreferences: SharedPreferences = getSharedPreferences(
-                "com.qhy040404.libraryonetap_preferences",
-                MODE_PRIVATE
-            )
-            val id: String = sharedPreferences.getString("userid", "Error").toString()
-            val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
-
-            val ctsso: MediaType =
-                requests.strToMT("application/x-www-form-urlencoded; charset=utf-8")
+            val id: String = GlobalValues.id
+            val passwd: String = GlobalValues.passwd
 
             val bathLoginUrl =
                 "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2F202.118.74.5%3A8193%2FopenHomeRJPage"
@@ -82,7 +75,7 @@ class BathReserveActivity : StartUpActivity() {
             requests.post(
                 bathLoginUrl,
                 requests.loginPostData(id, passwd, ltData, rsa),
-                ctsso
+                ctSso
             )
 
             textViewBath.text = getString(R.string.loaded)
@@ -103,10 +96,10 @@ class BathReserveActivity : StartUpActivity() {
                 val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                requests.post(saveUrl, savePostData, ctsso)
-                requests.post(cartUrl, cartPostData, ctsso)
-                requests.post(mainUrl, mainPostData, ctsso)
-                requests.post(payUrl, payPostData, ctsso)
+                requests.post(saveUrl, savePostData, ctSso)
+                requests.post(cartUrl, cartPostData, ctSso)
+                requests.post(mainUrl, mainPostData, ctSso)
+                requests.post(payUrl, payPostData, ctSso)
                 textViewBath.text = getString(R.string.sentRequest)
                 Looper.loop()
             }

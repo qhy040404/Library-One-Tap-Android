@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.tools
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.net.wifi.WifiManager
@@ -13,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData
@@ -116,13 +116,8 @@ class ToolsInitActivity : StartUpActivity() {
             Looper.prepare()
             val netData = NetData()
 
-            val sharedPreferences: SharedPreferences = getSharedPreferences(
-                "com.qhy040404.libraryonetap_preferences",
-                MODE_PRIVATE
-            )
-
-            val id: String = sharedPreferences.getString("userid", "Error").toString()
-            val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
+            val id: String = GlobalValues.id
+            val passwd: String = GlobalValues.passwd
 
             val data: String = getPortalData(id, passwd, 1)
 
@@ -153,13 +148,8 @@ class ToolsInitActivity : StartUpActivity() {
             Looper.prepare()
             val electricData = ElectricData()
 
-            val sharedPreferences: SharedPreferences = getSharedPreferences(
-                "com.qhy040404.libraryonetap_preferences",
-                MODE_PRIVATE
-            )
-
-            val id: String = sharedPreferences.getString("userid", "Error").toString()
-            val passwd: String = sharedPreferences.getString("passwd", "Error").toString()
+            val id: String = GlobalValues.id
+            val passwd: String = GlobalValues.passwd
 
             val data: String = getPortalData(id, passwd, 0)
 

@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 
@@ -34,14 +35,7 @@ class MainActivity : StartUpActivity() {
             val versionView: TextView = findViewById(R.id.textView5)
             val dog: ImageView = findViewById(R.id.imageView4)
 
-            val packManager = packageManager
-            val packInfo = packManager.getPackageInfo(packageName, 0)
-            val versionCode = packInfo.longVersionCode
-            val versionName = packInfo.versionName
-
-            val version = getString(R.string.app_name) + " " + versionName + "($versionCode)"
-
-            versionView.text = version
+            versionView.post { versionView.text = GlobalValues.version }
 
             versionView.setOnClickListener {
                 counter += 1

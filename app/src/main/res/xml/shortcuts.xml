@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_vcard"
+        android:icon="@drawable/ic_sc_vcard"
         android:shortcutId="start_vcard"
         android:shortcutShortLabel="@string/vcardTitle">
         <intent
@@ -13,7 +13,7 @@
 
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_tool"
+        android:icon="@drawable/ic_sc_tool"
         android:shortcutId="start_tools"
         android:shortcutShortLabel="@string/tools_title">
         <intent
@@ -24,7 +24,7 @@
 
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_qr"
+        android:icon="@drawable/ic_sc_qr"
         android:shortcutId="start_detail"
         android:shortcutShortLabel="@string/detail_title">
         <intent

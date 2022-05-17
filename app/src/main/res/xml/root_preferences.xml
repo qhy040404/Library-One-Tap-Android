@@ -3,10 +3,12 @@
 
     <PreferenceCategory app:title="@string/basic_information">
         <EditTextPreference
+            app:icon="@drawable/ic_userid"
             app:key="userid"
             app:title="@string/user_id"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
+            app:icon="@drawable/ic_passwd"
             app:key="passwd"
             app:title="@string/passwd"
             app:useSimpleSummaryProvider="true" />
@@ -16,6 +18,7 @@
             app:defaultValue="system"
             app:entries="@array/dark_mode"
             app:entryValues="@array/dark_mode_value"
+            app:icon="@drawable/ic_dark_mode"
             app:key="dark"
             app:summary="%s"
             app:title="@string/darkMode" />
@@ -23,6 +26,7 @@
             app:defaultValue="simple"
             app:entries="@array/themes"
             app:entryValues="@array/themes_value"
+            app:icon="@drawable/ic_color_palette"
             app:key="theme"
             app:summary="%s"
             app:title="@string/mainTheme" />
@@ -30,6 +34,7 @@
             app:defaultValue="system"
             app:entries="@array/language_name"
             app:entryValues="@array/language_value"
+            app:icon="@drawable/ic_language"
             app:key="locale"
             app:summary="%s"
             app:title="@string/language" />

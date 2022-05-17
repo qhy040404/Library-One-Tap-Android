@@ -2,6 +2,7 @@ package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.wifi.WifiManager
 import android.telephony.TelephonyManager
 import androidx.core.content.ContextCompat
 
@@ -30,5 +31,15 @@ class NetworkStateUtils {
             2 -> "Cellular"
             else -> "Error"
         }
+    }
+
+    fun getSSID(ctx: Context): String {
+        val wifiManager: WifiManager =
+            ctx.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        var wifiName = wifiManager.connectionInfo.ssid
+        if (wifiName.contains("\"")) {
+            wifiName = wifiName.substring(1, wifiName.length - 1)
+        }
+        return wifiName
     }
 }

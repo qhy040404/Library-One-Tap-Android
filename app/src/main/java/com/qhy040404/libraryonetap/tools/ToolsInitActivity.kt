@@ -1,10 +1,8 @@
 package com.qhy040404.libraryonetap.tools
 
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.net.wifi.WifiManager
 import android.os.Looper
 import android.provider.Settings
 import android.view.View
@@ -59,18 +57,10 @@ class ToolsInitActivity : StartUpActivity() {
     }
 
     fun buttonBath(view: View) {
-        var netName = ""
-        val wifiManager: WifiManager =
-            applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        var wifiName = wifiManager.connectionInfo.ssid
-        if (wifiName.contains("\"")) {
-            wifiName = wifiName.substring(1, wifiName.length - 1)
-        }
-
-        when (NetworkStateUtils().checkNetworkTypeStr(this)) {
-            "WIFI" -> netName = wifiName
-            "Cellular" -> netName = "Cellular"
-            "Error" -> netName = "Error"
+        val netName = when (NetworkStateUtils().checkNetworkTypeStr(this)) {
+            "WIFI" -> NetworkStateUtils().getSSID(this)
+            "Cellular" -> "Cellular"
+            else -> "Error"
         }
 
         val permission: Array<String> = arrayOf("android.permission.ACCESS_FINE_LOCATION")

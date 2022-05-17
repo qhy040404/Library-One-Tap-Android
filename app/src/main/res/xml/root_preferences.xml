@@ -38,6 +38,10 @@
             app:key="locale"
             app:summary="%s"
             app:title="@string/language" />
+        <Preference
+            app:icon="@drawable/ic_update"
+            app:key="update"
+            app:title="@string/checkUpdate" />
     </PreferenceCategory>
 
 </PreferenceScreen>

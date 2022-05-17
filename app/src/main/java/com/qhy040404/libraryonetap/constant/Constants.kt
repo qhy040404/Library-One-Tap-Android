@@ -12,6 +12,8 @@ object Constants {
     const val PREF_THEME = "theme"
     const val PREF_LOCALE = "locale"
 
+    const val PREF_UPDATE = "update"
+
     const val DEFAULT_DARK = "system"
     const val DEFAULT_THEME = "simple"
     const val DEFAULT_LOCALE = "system"

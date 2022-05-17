@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
@@ -59,27 +60,23 @@ class YanxiujianActivity : StartUpActivity() {
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
-
-            val requestUrl =
-                "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
-            val sessionUrl =
-                "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=checkSession"
+            
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val ltResponse: String = requests.get(requestUrl)
+                val ltResponse: String = requests.get(Constants.LIBRARY_SSO_URL)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
                 requests.post(
-                    requestUrl,
+                    Constants.LIBRARY_SSO_URL,
                     requests.loginPostData(id, passwd, ltData, rsa),
                     GlobalValues.ctSso
                 )
 
-                val session: String = requests.post(sessionUrl, "", GlobalValues.ctSso)
+                val session: String = requests.post(Constants.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
                         Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)
@@ -105,9 +102,7 @@ class YanxiujianActivity : StartUpActivity() {
                     }
                 }
             }
-            val listUrl =
-                "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderList&order=asc&offset=0&limit=10"
-            val list = requests.get(listUrl)
+            val list = requests.get(Constants.LIBRARY_ORDER_LIST_URL)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
                 val space_name = orderList.getSpace_name(list, "1")
@@ -129,8 +124,7 @@ class YanxiujianActivity : StartUpActivity() {
                     order_process = getString(R.string.outside)
                 }
 
-                val qrUrl = "http://seat.lib.dlut.edu.cn/yanxiujian/client/2codecert.php?"
-                val request = Request.Builder().url(qrUrl).build()
+                val request = Request.Builder().url(Constants.LIBRARY_QR_CERT_URL).build()
                 val call = requests.client.newCall(request)
                 call.enqueue(object : Callback {
                     override fun onFailure(call: Call, e: IOException) {

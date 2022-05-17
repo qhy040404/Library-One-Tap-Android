@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctVCard
 import com.qhy040404.libraryonetap.utils.QRUtils
@@ -49,15 +50,12 @@ class VCardActivity : StartUpActivity() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val apiRequestUrl =
-                "https://api.m.dlut.edu.cn/login?redirect_uri=https://card.m.dlut.edu.cn/homerj/openHomePage&response_type=code&scope=base_api&state=weishao"
             val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
-            requests.postVCard(apiRequestUrl, apiPostData, ctVCard)
+            requests.postVCard(Constants.VCARD_API_URL, apiPostData, ctVCard)
 
-            val openidUrl = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
-            val returnOpenID = requests.getVCard(openidUrl)
             val openid =
-                returnOpenID.split("<input id=\"openid\" value=\"")[1].split("\" type=\"hidden\">")[0]
+                requests.getVCard(Constants.VCARD_OPENID_URL)
+                    .split("<input id=\"openid\" value=\"")[1].split("\" type=\"hidden\">")[0]
 
             val qrUrl =
                 "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"

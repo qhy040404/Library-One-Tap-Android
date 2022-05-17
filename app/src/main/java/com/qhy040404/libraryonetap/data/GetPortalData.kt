@@ -1,6 +1,7 @@
 package com.qhy040404.libraryonetap.data
 
 import android.os.StrictMode
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctJson
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.des.desEncrypt
@@ -24,23 +25,18 @@ object GetPortalData {
 
         var returnJson = ""
 
-        val requestUrl =
-            "https://sso.dlut.edu.cn/cas/login?service=https%3A%2F%2Fportal.dlut.edu.cn%2Ftp%2Fview%3Fm%3Dup#act=portal/viewhome"
-        val elecUrl = "https://portal.dlut.edu.cn/tp/up/subgroup/getElectricCharge"
-        val netUrl = "https://portal.dlut.edu.cn/tp/up/subgroup/getWlzzList"
-
-        val ltResponse: String = requests.get(requestUrl)
+        val ltResponse: String = requests.get(Constants.PORTAL_SSO_URL)
         val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
         val rawData = "$id$passwd$ltData"
         val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-        requests.post(requestUrl, requests.loginPostData(id, passwd, ltData, rsa), ctSso)
+        requests.post(Constants.PORTAL_SSO_URL, requests.loginPostData(id, passwd, ltData, rsa), ctSso)
 
         if (mode == 0) {
-            returnJson = requests.post(elecUrl, "{}", ctJson)
+            returnJson = requests.post(Constants.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
         } else if (mode == 1) {
-            returnJson = requests.post(netUrl, "{}", ctJson)
+            returnJson = requests.post(Constants.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
         }
 
         return returnJson

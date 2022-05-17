@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.*
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.des.desEncrypt
@@ -57,23 +58,16 @@ class BathReserveActivity : StartUpActivity() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val bathLoginUrl =
-                "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2F202.118.74.5%3A8193%2FopenHomeRJPage"
-            val saveUrl = "http://202.118.74.5:8193/goods/saveGoodsShopcar"
-            val cartUrl = "http://202.118.74.5:8193/goods/updateGoodsShopcar"
-            val mainUrl = "http://202.118.74.5:8193/goods/queryNoChoiceTimeInfo"
-            val payUrl = "http://202.118.74.5:8193/payAdvanceOrder"
-
             val time = getBathTime()
 
-            val ltResponse: String = requests.get(bathLoginUrl)
+            val ltResponse: String = requests.get(Constants.BATH_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
             val rawData = "$id$passwd$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
             requests.post(
-                bathLoginUrl,
+                Constants.BATH_SSO_URL,
                 requests.loginPostData(id, passwd, ltData, rsa),
                 ctSso
             )
@@ -96,10 +90,10 @@ class BathReserveActivity : StartUpActivity() {
                 val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                requests.post(saveUrl, savePostData, ctSso)
-                requests.post(cartUrl, cartPostData, ctSso)
-                requests.post(mainUrl, mainPostData, ctSso)
-                requests.post(payUrl, payPostData, ctSso)
+                requests.post(Constants.BATH_SAVE_CART_URL, savePostData, ctSso)
+                requests.post(Constants.BATH_UPDATE_CART_URL, cartPostData, ctSso)
+                requests.post(Constants.BATH_MAIN_FUNC_URL, mainPostData, ctSso)
+                requests.post(Constants.BATH_PAY_URL, payPostData, ctSso)
                 textViewBath.text = getString(R.string.sentRequest)
                 Looper.loop()
             }

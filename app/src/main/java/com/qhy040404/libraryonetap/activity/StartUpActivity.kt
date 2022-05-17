@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import java.util.*
 
 abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +14,9 @@ abstract class StartUpActivity : AppCompatActivity() {
             "com.qhy040404.libraryonetap_preferences",
             MODE_PRIVATE
         )
+        val config = resources.configuration
+        val dm = resources.displayMetrics
+
         when (sp.getString("dark", "system").toString()) {
             "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -25,6 +29,20 @@ abstract class StartUpActivity : AppCompatActivity() {
             "green" -> setTheme(R.style.Theme_Green)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
+        when (sp.getString("locale", "system").toString()) {
+            "system" -> {
+                config.locale = Locale.getDefault()
+            }
+            "zh-Hans" -> {
+                config.locale = Locale.SIMPLIFIED_CHINESE
+            }
+            "en" -> {
+                config.locale = Locale.ENGLISH
+            }
+        }
+        resources.updateConfiguration(config,dm)
+
+
         super.onCreate(savedInstanceState)
         LibraryOneTapApp.instance?.addActivity(this)
 

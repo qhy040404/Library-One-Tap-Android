@@ -22,57 +22,31 @@
         <activity
             android:name=".secret.SecretActivity"
             android:exported="false"
-            android:label="@string/secret_title"
-            android:parentActivityName=".activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-        </activity>
+            android:label="@string/secret_title" />
         <activity
             android:name=".tools.VCardActivity"
             android:exported="false"
-            android:label="@string/vcardTitle"
-            android:parentActivityName=".tools.ToolsInitActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".tools.ToolsInitActivity" />
-        </activity>
+            android:label="@string/vcardTitle" />
         <activity
             android:name=".tools.BathReserveActivity"
             android:exported="false"
-            android:label="@string/bath_title"
-            android:parentActivityName=".tools.ToolsInitActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".tools.ToolsInitActivity" />
-        </activity>
+            android:label="@string/bath_title" />
         <activity
             android:name=".tools.ToolsInitActivity"
             android:exported="false"
-            android:label="@string/tools_title"
-            android:parentActivityName=".activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-        </activity>
+            android:label="@string/tools_title" />
         <activity
             android:name=".activity.YanxiujianActivity"
             android:exported="false"
-            android:label="@string/title_activity_yanxiujian"
-            android:parentActivityName=".activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-        </activity>
+            android:label="@string/title_activity_yanxiujian" />
         <activity
             android:name=".activity.SettingsActivity"
             android:exported="false"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-        </activity>
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activity.DetailActivity"
+            android:exported="false"
+            android:label="@string/library" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
@@ -80,15 +54,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.DetailActivity"
-            android:exported="false"
-            android:label="@string/library"
-            android:parentActivityName=".activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
         </activity>
     </application>
 

@@ -24,8 +24,8 @@ class LibraryOneTapApp : Application() {
     private fun setBeta() {
         Beta.autoInit = true
         Beta.autoCheckUpgrade = true
-        Beta.upgradeCheckPeriod = 0 * 1000
-        Beta.initDelay = 1 * 1000
+        Beta.upgradeCheckPeriod = 0
+        Beta.initDelay = 500
         Beta.largeIconId = R.mipmap.launcher_lol
         Beta.smallIconId = R.mipmap.launcher_lol
         Beta.defaultBannerId = R.mipmap.launcher_lol

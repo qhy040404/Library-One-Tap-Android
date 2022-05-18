@@ -2,6 +2,8 @@ package com.qhy040404.libraryonetap.activity
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -22,16 +24,13 @@ private const val SECRET = "Tap Dog"
 
 class AboutActivity : AbsAboutActivity() {
     private var headCount = 0
-    private val configuration by lazy {
-        Configuration(resources.configuration).apply {
-            setLocale(
-                GlobalValues.locale
-            )
-        }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initView()
     }
 
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
-        LibraryOneTapApp.instance?.addActivity(this)
         icon.load(R.mipmap.launcher_lol)
         slogan.text = getString(R.string.about_slogan)
         version.text = String.format("v%s(%d)", PackageUtils.versionName, PackageUtils.versionCode)
@@ -138,5 +137,13 @@ class AboutActivity : AbsAboutActivity() {
                 )
             )
         }
+    }
+
+    private fun initView() {
+        LibraryOneTapApp.instance?.addActivity(this)
+        val config = resources.configuration
+        val dm = resources.displayMetrics
+        config.setLocale(GlobalValues.locale)
+        resources.updateConfiguration(config, dm)
     }
 }

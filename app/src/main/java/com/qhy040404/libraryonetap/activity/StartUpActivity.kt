@@ -28,7 +28,6 @@ abstract class StartUpActivity : AppCompatActivity() {
         config.setLocale(GlobalValues.locale)
         resources.updateConfiguration(config, dm)
 
-
         super.onCreate(savedInstanceState)
         LibraryOneTapApp.instance?.addActivity(this)
 

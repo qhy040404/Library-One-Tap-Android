@@ -1,9 +1,7 @@
 package com.qhy040404.libraryonetap.activity
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast

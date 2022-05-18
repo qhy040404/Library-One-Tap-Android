@@ -2,10 +2,7 @@ package com.qhy040404.libraryonetap
 
 import android.app.Activity
 import android.app.Application
-import android.os.Environment
-import com.qhy040404.libraryonetap.activity.MainActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport
 import java.util.*
 
@@ -15,7 +12,7 @@ class LibraryOneTapApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID,false)
+        CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID, false)
         app = this
     }
 

@@ -22,7 +22,7 @@
     <string name="basic_information">基本信息</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
-    <string name="general">通用设置</string>
+    <string name="general">通用</string>
     <string name="mainTheme">主题</string>
     <string name="darkMode">深色模式</string>
     <string name="language">语言</string>

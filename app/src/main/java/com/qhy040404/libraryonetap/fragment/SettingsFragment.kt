@@ -7,7 +7,6 @@ import androidx.preference.PreferenceFragmentCompat
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.AboutActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.tencent.bugly.beta.Beta
 import rikka.preference.SimpleMenuPreference
 
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -31,13 +30,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         findPreference<SimpleMenuPreference>(Constants.PREF_LOCALE)?.apply {
             setOnPreferenceChangeListener { _, _ ->
                 activity?.recreate()
-                true
-            }
-        }
-
-        findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
-            setOnPreferenceClickListener {
-                Beta.checkUpgrade()
                 true
             }
         }

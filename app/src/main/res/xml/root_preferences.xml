@@ -43,10 +43,6 @@
             app:icon="@drawable/ic_about"
             app:key="about"
             app:title="@string/about_title" />
-        <Preference
-            app:icon="@drawable/ic_update"
-            app:key="update"
-            app:title="@string/checkUpdate" />
     </PreferenceCategory>
 
 </PreferenceScreen>

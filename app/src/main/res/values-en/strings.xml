@@ -28,7 +28,6 @@
     <string name="mainTheme">Main Theme</string>
     <string name="darkMode">Dark Mode</string>
     <string name="language">Language</string>
-    <string name="checkUpdate">Check Update</string>
     <string name="other">Others</string>
 
     <!-- PROMPT -->

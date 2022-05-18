@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap.activity
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -139,9 +141,22 @@ class AboutActivity : AbsAboutActivity() {
 
     private fun initView() {
         LibraryOneTapApp.instance?.addActivity(this)
-        val config = resources.configuration
-        val dm = resources.displayMetrics
-        config.setLocale(GlobalValues.locale)
-        resources.updateConfiguration(config, dm)
+
+        val color = when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {
+                when (GlobalValues.theme) {
+                    "purple" -> getColor(R.color.purple_500)
+                    "blue" -> getColor(R.color.blue_500)
+                    "pink" -> getColor(R.color.pink_500)
+                    "green" -> getColor(R.color.green_500)
+                    else -> getColor(R.color.black)
+                }
+            }
+            else -> {
+                getColor(R.color.black)
+            }
+        }
+        setHeaderBackground(ColorDrawable(color))
+        setHeaderContentScrim(ColorDrawable(color))
     }
 }

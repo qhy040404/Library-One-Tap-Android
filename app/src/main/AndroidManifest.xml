@@ -20,7 +20,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/launcher_lol"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Simple">
+        android:theme="@style/Theme.Simple.NoActionBar">
         <activity
             android:name=".activity.AboutActivity"
             android:exported="false"

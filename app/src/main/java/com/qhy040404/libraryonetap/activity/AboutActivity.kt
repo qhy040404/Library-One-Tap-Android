@@ -31,12 +31,8 @@ class AboutActivity : AbsAboutActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initView()
-    }
-
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
+        LibraryOneTapApp.instance?.addActivity(this)
         icon.load(R.mipmap.launcher_lol)
         slogan.text = getString(R.string.about_slogan)
         version.text = String.format("v%s(%d)", PackageUtils.versionName, PackageUtils.versionCode)
@@ -65,11 +61,10 @@ class AboutActivity : AbsAboutActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            add(Category("Welcome"))
-            add(Contributor(R.mipmap.dcmt, "别卷了，行不行", null.toString()))
+            add(Contributor(R.mipmap.dcmt, "别卷了，行不行", ""))
 
             add(Category("Developer"))
-            add(Contributor(R.mipmap.qhy040404_avatar, "qhy040404", URLManager.GITHUB_PAGE))
+            add(Contributor(R.mipmap.qhy040404_avatar, "qhy040404", URLManager.GITHUB_PAGE,URLManager.GITHUB_PAGE))
             add(
                 Contributor(
                     R.drawable.ic_github,
@@ -137,10 +132,5 @@ class AboutActivity : AbsAboutActivity() {
                 )
             )
         }
-    }
-
-    private fun initView() {
-        LibraryOneTapApp.instance?.addActivity(this)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

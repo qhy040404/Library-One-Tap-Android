@@ -1,46 +1,31 @@
 package com.qhy040404.libraryonetap.activity
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import java.util.*
+import com.qhy040404.libraryonetap.constant.GlobalValues
 
 abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val sp: SharedPreferences = getSharedPreferences(
-            "com.qhy040404.libraryonetap_preferences",
-            MODE_PRIVATE
-        )
         val config = resources.configuration
         val dm = resources.displayMetrics
 
-        when (sp.getString("dark", "system").toString()) {
+        when (GlobalValues.darkMode) {
             "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        when (sp.getString("theme", "simple").toString()) {
+        when (GlobalValues.theme) {
             "purple" -> setTheme(R.style.Theme_Purple)
             "blue" -> setTheme(R.style.Theme_Blue)
             "pink" -> setTheme(R.style.Theme_Pink)
             "green" -> setTheme(R.style.Theme_Green)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
-        when (sp.getString("locale", "system").toString()) {
-            "system" -> {
-                config.locale = Locale.getDefault()
-            }
-            "zh-Hans" -> {
-                config.locale = Locale.SIMPLIFIED_CHINESE
-            }
-            "en" -> {
-                config.locale = Locale.ENGLISH
-            }
-        }
+        config.setLocale(GlobalValues.locale)
         resources.updateConfiguration(config, dm)
 
 

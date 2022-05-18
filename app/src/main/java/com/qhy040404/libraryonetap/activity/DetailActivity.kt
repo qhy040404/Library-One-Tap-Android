@@ -14,6 +14,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
+import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderList
 import com.qhy040404.libraryonetap.des.desEncrypt
@@ -74,19 +75,19 @@ class DetailActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val ltResponse: String = requests.get(Constants.LIBRARY_SSO_URL)
+                val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
                 requests.post(
-                    Constants.LIBRARY_SSO_URL,
+                    URLManager.LIBRARY_SSO_URL,
                     requests.loginPostData(id, passwd, ltData, rsa),
                     ctSso
                 )
 
-                val session: String = requests.post(Constants.LIBRARY_SESSION_URL, "", ctSso)
+                val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
                         Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG)
@@ -112,7 +113,7 @@ class DetailActivity : StartUpActivity() {
                     }
                 }
             }
-            val list = requests.get(Constants.LIBRARY_ORDER_LIST_URL)
+            val list = requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
                 val back_prompt = getString(R.string.tempEndTime)
@@ -225,7 +226,7 @@ class DetailActivity : StartUpActivity() {
                         .setPositiveButton(R.string.justCancel) { _, _ ->
                             val message = CancelData().getMessage(
                                 requests.post(
-                                    Constants.LIBRARY_ORDER_CANCEL_URL,
+                                    URLManager.LIBRARY_ORDER_CANCEL_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
                                     ctSso
                                 )

@@ -76,7 +76,7 @@
     <string name="sentRequest">已发送预约请求</string>
 
     <!-- ABOUT -->
-    <string name="about_slogan">图书馆小程序\nLibrary One Tap</string>
+    <string name="about_slogan" translatable="false">Library One Tap</string>
 
     <!-- ARRAYS -->
     <!-- SETTINGS -->

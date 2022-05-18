@@ -75,9 +75,6 @@
     <string name="networkLimit">Please use this function in the campus network environment</string>
     <string name="sentRequest">Appointment request sent</string>
 
-    <!-- ABOUT -->
-    <string name="about_slogan">Library One Tap</string>
-
     <!-- ARRAY -->
     <!-- SETTINGS -->
     <string-array name="themes">

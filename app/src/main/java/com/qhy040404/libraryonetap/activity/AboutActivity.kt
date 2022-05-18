@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.activity
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -64,7 +63,14 @@ class AboutActivity : AbsAboutActivity() {
             add(Contributor(R.mipmap.dcmt, "别卷了，行不行", ""))
 
             add(Category("Developer"))
-            add(Contributor(R.mipmap.qhy040404_avatar, "qhy040404", URLManager.GITHUB_PAGE,URLManager.GITHUB_PAGE))
+            add(
+                Contributor(
+                    R.mipmap.qhy040404_avatar,
+                    "qhy040404",
+                    URLManager.GITHUB_PAGE,
+                    URLManager.GITHUB_PAGE
+                )
+            )
             add(
                 Contributor(
                     R.drawable.ic_github,

@@ -50,4 +50,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("dev.rikka.rikkax.preference:simplemenu-preference:1.0.3")
     implementation('com.tencent.bugly:crashreport_upgrade:1.5.23')
+    implementation("com.drakeet.about:about:2.5.1")
+    implementation("com.drakeet.multitype:multitype:4.3.0")
+    implementation("io.coil-kt:coil:2.1.0")
 }

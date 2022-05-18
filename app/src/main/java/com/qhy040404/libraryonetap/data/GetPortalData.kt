@@ -31,12 +31,18 @@ object GetPortalData {
         val rawData = "$id$passwd$ltData"
         val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-        requests.post(Constants.PORTAL_SSO_URL, requests.loginPostData(id, passwd, ltData, rsa), ctSso)
+        requests.post(
+            Constants.PORTAL_SSO_URL,
+            requests.loginPostData(id, passwd, ltData, rsa),
+            ctSso
+        )
 
         if (mode == 0) {
-            returnJson = requests.post(Constants.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
+            returnJson =
+                requests.post(Constants.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
         } else if (mode == 1) {
-            returnJson = requests.post(Constants.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
+            returnJson =
+                requests.post(Constants.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
         }
 
         return returnJson

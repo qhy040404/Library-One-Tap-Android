@@ -60,7 +60,7 @@ class YanxiujianActivity : StartUpActivity() {
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
-            
+
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
@@ -76,7 +76,8 @@ class YanxiujianActivity : StartUpActivity() {
                     GlobalValues.ctSso
                 )
 
-                val session: String = requests.post(Constants.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+                val session: String =
+                    requests.post(Constants.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     val makeText =
                         Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)

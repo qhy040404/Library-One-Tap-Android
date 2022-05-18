@@ -22,6 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simple">
         <activity
+            android:name=".activity.AboutActivity"
+            android:exported="false"
+            android:label="@string/about_title" />
+        <activity
             android:name=".secret.SecretActivity"
             android:exported="false"
             android:label="@string/secret_title" />

@@ -11,6 +11,7 @@
     <string name="tools_title">小工具</string>
     <string name="secret_title">你 被 骗 了</string>
     <string name="detail_title">各种二维码</string>
+    <string name="about_title">关于</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">签到/离退/暂离</string>
@@ -73,12 +74,15 @@
     <string name="networkLimit">请在校园网环境下使用此功能</string>
     <string name="sentRequest">已发送预约请求</string>
 
+    <!-- ABOUT -->
+    <string name="about_slogan">图书馆小程序\nLibrary One Tap</string>
+
     <!-- ARRAYS -->
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>苍穹蓝</item>
         <item>少女粉</item>
-        <item>青葱绿</item>
+        <item>青葱绿</item>s
         <item>基佬紫</item>
         <item>简约风</item>
     </string-array>
@@ -111,7 +115,7 @@
 
     <string-array name="language_value" translatable="false">
         <item>system</item>
-        <item>zh-Hans</item>
+        <item>zh</item>
         <item>en</item>
     </string-array>
 

@@ -12,6 +12,7 @@
     <string name="tools_title">Tools</string>
     <string name="secret_title">FAKE lol</string>
     <string name="detail_title">QR Codes</string>
+    <string name="about_title">About</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">Sign in/out/temp out</string>
@@ -72,6 +73,9 @@
     <string name="bathReserve">Reserve bathroom right now</string>
     <string name="networkLimit">Please use this function in the campus network environment</string>
     <string name="sentRequest">Appointment request sent</string>
+
+    <!-- ABOUT -->
+    <string name="about_slogan">Library One Tap</string>
 
     <!-- ARRAY -->
     <!-- SETTINGS -->

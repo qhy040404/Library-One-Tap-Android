@@ -16,6 +16,7 @@ import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
+import com.tencent.bugly.crashreport.BuglyLog
 
 class ToolsInitActivity : StartUpActivity() {
     override fun init() {}
@@ -111,6 +112,8 @@ class ToolsInitActivity : StartUpActivity() {
 
             val data: String = getPortalData(id, passwd, 1)
 
+            BuglyLog.d("netOriginalData", data)
+
             val remainFee = netData.getFee(data)
             val usedNet = netData.getDynamicUsedFlow(data)
             val remainNet = netData.getDynamicRemainFlow(data)
@@ -142,6 +145,8 @@ class ToolsInitActivity : StartUpActivity() {
             val passwd: String = GlobalValues.passwd
 
             val data: String = getPortalData(id, passwd, 0)
+
+            BuglyLog.d("elecOriginalData", data)
 
             val SSMC = electricData.getSSMC(data)
             val remainElectric = electricData.getResele(data)

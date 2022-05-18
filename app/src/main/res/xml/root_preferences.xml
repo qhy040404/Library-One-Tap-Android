@@ -13,7 +13,7 @@
             app:title="@string/passwd"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/general">
+    <PreferenceCategory app:title="@string/general">
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/dark_mode"
@@ -38,6 +38,12 @@
             app:key="locale"
             app:summary="%s"
             app:title="@string/language" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/other">
+        <Preference
+            app:icon="@drawable/ic_about"
+            app:key="about"
+            app:title="@string/about_title" />
         <Preference
             app:icon="@drawable/ic_update"
             app:key="update"

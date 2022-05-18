@@ -61,7 +61,7 @@ class MainActivity : StartUpActivity() {
                 if (counter in 1..10 && b1) {
                     b1 = false
                     val makeText =
-                        Toast.makeText(this@MainActivity, "检查更新不在这，别点啦~", Toast.LENGTH_LONG)
+                        Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_LONG)
                     makeText.show()
                 } else if (counter in 11..20 && b2) {
                     b2 = false

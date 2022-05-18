@@ -9,12 +9,28 @@ import com.qhy040404.libraryonetap.constant.Constants.CONTENT_TYPE_VCARD
 import com.qhy040404.libraryonetap.utils.PackageUtils.versionCode
 import com.qhy040404.libraryonetap.utils.PackageUtils.versionName
 import com.qhy040404.libraryonetap.utils.SPDelegates
+import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.web.Requests
 import okhttp3.MediaType
+import java.util.*
 
 const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
 
 object GlobalValues {
+    private fun getAndReturnLocale(): Locale {
+        return when (SPUtils.sp.getString(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)) {
+            "zh" -> {
+                Locale.SIMPLIFIED_CHINESE
+            }
+            "en" -> {
+                Locale.ENGLISH
+            }
+            else -> {
+                Locale.getDefault()
+            }
+        }
+    }
+
     // App
     val version =
         LibraryOneTapApp.app.getString(R.string.app_name) + " " + versionName + "($versionCode)"
@@ -27,7 +43,7 @@ object GlobalValues {
 
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
 
-    var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
+    var locale: Locale = getAndReturnLocale()
 
     // MediaType
     val ctJson: MediaType = Requests().strToMT(CONTENT_TYPE_JSON)

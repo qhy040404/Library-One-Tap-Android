@@ -1,5 +1,8 @@
 # Updatelog
 
+v2.3.7:
+- 修复了`关于`页面StatusBar颜色错误的问题
+
 v2.3.6
 - 修复了`关于`页面Toolbar颜色错误的问题
 

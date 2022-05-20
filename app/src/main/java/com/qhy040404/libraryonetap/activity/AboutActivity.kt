@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import coil.load
 import com.drakeet.about.AbsAboutActivity
 import com.drakeet.about.Category
@@ -154,8 +155,11 @@ class AboutActivity : AbsAboutActivity() {
             }
             else -> getColor(R.color.black)
         }
+
+        findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
+
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
-        window.statusBarColor = color
+        this.window.statusBarColor = color
     }
 }

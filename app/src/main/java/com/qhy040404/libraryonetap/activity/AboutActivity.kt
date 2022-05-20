@@ -152,12 +152,10 @@ class AboutActivity : AbsAboutActivity() {
                     else -> getColor(R.color.black)
                 }
             }
-            else -> {
-                getColor(R.color.black)
-            }
+            else -> getColor(R.color.black)
         }
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
-        window.statusBarColor=color
+        window.statusBarColor = color
     }
 }

@@ -55,22 +55,23 @@ class VCardActivity : StartUpActivity() {
 
             val openid =
                 requests.getVCard(URLManager.VCARD_OPENID_URL)
-                    .split("<input id=\"openid\" value=\"")[1].split("\" type=\"hidden\">")[0]
+                    .split("<input id=\"openid\" value=\"")[1]
+                    .split("\" type=\"hidden\">")[0]
 
             val qrUrl =
                 "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 
             val qrPage = requests.getVCard(qrUrl)
-            val qrInformation = qrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
+            val qrInformation = qrPage
+                .split("<p class=\"bdb\">")[1]
+                .split("</p>")[0]
             val qrBase64 =
-                qrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split(
-                    "\">"
-                )[0]
+                qrPage
+                    .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
+                    .split("\">")[0]
             val qr = Base64.decode(qrBase64, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-            imageView.post {
-                imageView.setImageBitmap(qrUtils.toGrayscale(bitmap))
-            }
+            imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(bitmap)) }
             textView.text = qrInformation
             refresh.setOnClickListener {
                 StrictMode.setThreadPolicy(
@@ -86,14 +87,12 @@ class VCardActivity : StartUpActivity() {
                 val newQrPage = requests.getVCard(qrUrl)
                 val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
                 val newQrBase64 =
-                    newQrPage.split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1].split(
-                        "\">"
-                    )[0]
+                    newQrPage
+                        .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
+                        .split("\">")[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                imageView.post {
-                    imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap))
-                }
+                imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap)) }
                 textView.text = newQrInformation
             }
             Looper.loop()

@@ -19,15 +19,9 @@ const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
 object GlobalValues {
     private fun getAndReturnLocale(): Locale {
         return when (SPUtils.sp.getString(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)) {
-            "zh" -> {
-                Locale.SIMPLIFIED_CHINESE
-            }
-            "en" -> {
-                Locale.ENGLISH
-            }
-            else -> {
-                Locale.getDefault()
-            }
+            "zh" -> Locale.SIMPLIFIED_CHINESE
+            "en" -> Locale.ENGLISH
+            else -> Locale.getDefault()
         }
     }
 

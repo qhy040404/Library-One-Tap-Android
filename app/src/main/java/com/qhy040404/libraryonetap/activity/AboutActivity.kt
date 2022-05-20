@@ -39,21 +39,15 @@ class AboutActivity : AbsAboutActivity() {
         icon.setOnClickListener {
             headCount++
             when (headCount) {
-                1 -> {
-                    Toast.makeText(this, "咋还想点呢", Toast.LENGTH_LONG).show()
-                }
+                1 -> Toast.makeText(this, "咋还想点呢", Toast.LENGTH_LONG).show()
                 in 2..9 -> {}
                 10 -> {
                     slogan.text = MIDDLE_SECRET
                     Toast.makeText(this, "点坏了啊喂！", Toast.LENGTH_LONG).show()
                 }
                 in 11..19 -> {}
-                20 -> {
-                    slogan.text = SECRET
-                }
-                else -> {
-                    startActivity(Intent(this, SecretActivity::class.java))
-                }
+                20 -> slogan.text = SECRET
+                else -> startActivity(Intent(this, SecretActivity::class.java))
             }
         }
     }

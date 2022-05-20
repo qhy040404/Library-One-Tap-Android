@@ -16,9 +16,7 @@ class LibraryOneTapApp : Application() {
         app = this
     }
 
-    fun addActivity(activity: Activity) {
-        activityList.add(activity)
-    }
+    fun addActivity(activity: Activity) = activityList.add(activity)
 
     fun exit() {
         for (activity in activityList) {

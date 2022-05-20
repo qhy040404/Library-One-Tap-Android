@@ -34,8 +34,7 @@ class ToolsInitActivity : StartUpActivity() {
                     AlertDialog.Builder(this)
                         .setMessage(R.string.gotPermission)
                         .setTitle(R.string.bath_title)
-                        .setPositiveButton(R.string.ok) { _, _ ->
-                        }
+                        .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(true)
                         .create()
                         .show()
@@ -71,14 +70,12 @@ class ToolsInitActivity : StartUpActivity() {
                 Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show()
             }
         } else if (netName == "DLUT-LingShui") {
-            val intent = Intent(this, BathReserveActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, BathReserveActivity::class.java))
         } else {
             AlertDialog.Builder(this)
                 .setMessage(R.string.networkLimit)
                 .setTitle(R.string.bath_title)
-                .setPositiveButton(R.string.ok) { _, _ ->
-                }
+                .setPositiveButton(R.string.ok) { _, _ -> }
                 .setCancelable(false)
                 .create()
                 .show()
@@ -86,21 +83,16 @@ class ToolsInitActivity : StartUpActivity() {
     }
 
     fun buttonNet(view: View) {
-        val makeText = Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT)
-        makeText.show()
+        Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT).show()
         Thread(getNet()).start()
     }
 
     fun buttonElectric(view: View) {
-        val makeText = Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT)
-        makeText.show()
+        Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT).show()
         Thread(getElectric()).start()
     }
 
-    fun buttonVCard(view: View) {
-        val intent = Intent(this, VCardActivity::class.java)
-        startActivity(intent)
-    }
+    fun buttonVCard(view: View) = startActivity(Intent(this, VCardActivity::class.java))
 
     private inner class getNet : Runnable {
         override fun run() {
@@ -127,8 +119,7 @@ class ToolsInitActivity : StartUpActivity() {
             AlertDialog.Builder(this@ToolsInitActivity)
                 .setMessage(netMessage)
                 .setTitle(R.string.remainNet)
-                .setPositiveButton(R.string.ok) { _, _ ->
-                }
+                .setPositiveButton(R.string.ok) { _, _ -> }
                 .setCancelable(true)
                 .create()
                 .show()
@@ -158,8 +149,7 @@ class ToolsInitActivity : StartUpActivity() {
             AlertDialog.Builder(this@ToolsInitActivity)
                 .setMessage(electricMessage)
                 .setTitle(R.string.remainElectric)
-                .setPositiveButton(R.string.ok) { _, _ ->
-                }
+                .setPositiveButton(R.string.ok) { _, _ -> }
                 .setCancelable(true)
                 .create()
                 .show()

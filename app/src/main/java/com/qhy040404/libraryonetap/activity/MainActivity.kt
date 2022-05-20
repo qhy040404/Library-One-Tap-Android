@@ -60,28 +60,21 @@ class MainActivity : StartUpActivity() {
                 counter += 1
                 if (counter in 1..10 && b1) {
                     b1 = false
-                    val makeText =
-                        Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@MainActivity, "没做检查更新，别点啦~", Toast.LENGTH_LONG).show()
                 } else if (counter in 11..20 && b2) {
                     b2 = false
                     dog.visibility = View.VISIBLE
                     ObjectAnimator.ofFloat(dog, "alpha", 0F, 0.1F).setDuration(500).start()
-                    val makeText =
-                        Toast.makeText(this@MainActivity, "真的没做，骗你干嘛，别点啦~", Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@MainActivity, "真的没做，骗你干嘛，别点啦~", Toast.LENGTH_LONG).show()
                 } else if (counter in 20..30 && b3) {
                     b3 = false
                     ObjectAnimator.ofFloat(dog, "alpha", 0.1F, 0.3F).setDuration(1000).start()
-                    val makeText =
-                        Toast.makeText(this@MainActivity, "没有东西了啊，别点了啊喂", Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@MainActivity, "没有东西了啊，别点了啊喂", Toast.LENGTH_LONG).show()
                 } else if (counter in 31..40 && b4) {
                     b4 = false
                     ObjectAnimator.ofFloat(dog, "alpha", 0.3F, 0.5F).setDuration(1000).start()
-                    val makeText =
-                        Toast.makeText(this@MainActivity, "你赢了，但是真的啥也没有哈哈哈哈哈哈", Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@MainActivity, "你赢了，但是真的啥也没有哈哈哈哈哈哈", Toast.LENGTH_LONG)
+                        .show()
                 } else if (counter > 40 && b5) {
                     b5 = false
                     ObjectAnimator.ofFloat(dog, "alpha", 0.5F, 1F).setDuration(2500).start()
@@ -92,8 +85,7 @@ class MainActivity : StartUpActivity() {
                 if (counter >= 40) {
                     dogCounter += 1
                     if (dogCounter >= 5) {
-                        val intent = Intent(this@MainActivity, SecretActivity::class.java)
-                        startActivity(intent)
+                        startActivity(Intent(this@MainActivity, SecretActivity::class.java))
                     }
                 }
             }
@@ -101,29 +93,17 @@ class MainActivity : StartUpActivity() {
         }
     }
 
-    fun buttonOpenDetail(view: View) {
-        val intent = Intent(this, DetailActivity::class.java)
-        startActivity(intent)
-    }
+    fun buttonOpenDetail(view: View) = startActivity(Intent(this, DetailActivity::class.java))
 
     fun buttonOpenSettings(view: View) {
-        val intent = Intent(this, SettingsActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, SettingsActivity::class.java))
         finish()
     }
 
-    fun buttonYanxiujian(view: View) {
-        val intent = Intent(this, YanxiujianActivity::class.java)
-        startActivity(intent)
-    }
+    fun buttonYanxiujian(view: View) = startActivity(Intent(this, YanxiujianActivity::class.java))
 
-    fun buttonTools(view: View) {
-        val intent = Intent(this, ToolsInitActivity::class.java)
-        startActivity(intent)
-    }
+    fun buttonTools(view: View) = startActivity(Intent(this, ToolsInitActivity::class.java))
 
-    fun buttonExit(view: View) {
-        LibraryOneTapApp.instance?.exit()
-    }
+    fun buttonExit(view: View) = LibraryOneTapApp.instance?.exit()
 
 }

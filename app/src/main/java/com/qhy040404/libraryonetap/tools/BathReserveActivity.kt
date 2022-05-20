@@ -101,21 +101,11 @@ class BathReserveActivity : StartUpActivity() {
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     when (spinner.selectedItem.toString()) {
-                        "西山1楼", "West 1F" -> {
-                            targetRoom = 20
-                        }
-                        "西山2楼", "West 2F" -> {
-                            targetRoom = 21
-                        }
-                        "西山3楼", "West 3F" -> {
-                            targetRoom = 17
-                        }
-                        "北山男", "North Male" -> {
-                            targetRoom = 18
-                        }
-                        "北山女", "North Female" -> {
-                            targetRoom = 19
-                        }
+                        "西山1楼", "West 1F" -> targetRoom = 20
+                        "西山2楼", "West 2F" -> targetRoom = 21
+                        "西山3楼", "West 3F" -> targetRoom = 17
+                        "北山男", "North Male" -> targetRoom = 18
+                        "北山女", "North Female" -> targetRoom = 19
                     }
                 }
 

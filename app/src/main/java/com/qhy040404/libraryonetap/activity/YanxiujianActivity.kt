@@ -79,22 +79,18 @@ class YanxiujianActivity : StartUpActivity() {
                 val session: String =
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
-                    val makeText =
-                        Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)
+                        .show()
                     loginSuccess = true
                 } else {
-                    val makeText =
-                        Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_LONG)
+                        .show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@YanxiujianActivity)
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
-                            .setPositiveButton(R.string.ok) { _, _ ->
-                                this@YanxiujianActivity.finish()
-                            }
+                            .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }
                             .setCancelable(false)
                             .create()
                             .show()
@@ -128,17 +124,13 @@ class YanxiujianActivity : StartUpActivity() {
                 val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
                 val call = requests.client.newCall(request)
                 call.enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-
-                    }
+                    override fun onFailure(call: Call, e: IOException) {}
 
                     override fun onResponse(call: Call, response: Response) {
                         val picture_bt = response.body!!.bytes()
                         val pictureInput = response.body!!.byteStream()
                         val bitmap = BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                        imageView2.post {
-                            imageView2.setImageBitmap(bitmap)
-                        }
+                        imageView2.post { imageView2.setImageBitmap(bitmap) }
                         pictureInput.close()
                     }
                 })
@@ -150,9 +142,7 @@ class YanxiujianActivity : StartUpActivity() {
                 AlertDialog.Builder(this@YanxiujianActivity)
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
-                    .setPositiveButton(R.string.ok) { _, _ ->
-                        this@YanxiujianActivity.finish()
-                    }
+                    .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }
                     .setCancelable(false)
                     .create()
                     .show()

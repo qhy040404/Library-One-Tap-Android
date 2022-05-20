@@ -89,22 +89,16 @@ class DetailActivity : StartUpActivity() {
 
                 val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 if (checkSession.isSuccess(session)) {
-                    val makeText =
-                        Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()
                     loginSuccess = true
                 } else {
-                    val makeText =
-                        Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_LONG)
-                    makeText.show()
+                    Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_LONG).show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@DetailActivity)
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
-                            .setPositiveButton(R.string.ok) { _, _ ->
-                                this@DetailActivity.finish()
-                            }
+                            .setPositiveButton(R.string.ok) { _, _ -> this@DetailActivity.finish() }
                             .setCancelable(false)
                             .create()
                             .show()
@@ -144,66 +138,57 @@ class DetailActivity : StartUpActivity() {
 
                 enter.setOnClickListener {
                     val request =
-                        Request.Builder().url(getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
+                        Request.Builder()
+                            .url(getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {
-
-                        }
+                        override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
                             val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post {
-                                imageView.setImageBitmap(bitmap)
-                            }
+                            imageView.post { imageView.setImageBitmap(bitmap) }
                             pictureInput.close()
                         }
                     })
                 }
                 leave.setOnClickListener {
                     val request =
-                        Request.Builder().url(getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
+                        Request.Builder()
+                            .url(getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {
-
-                        }
+                        override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
                             val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post {
-                                imageView.setImageBitmap(bitmap)
-                            }
+                            imageView.post { imageView.setImageBitmap(bitmap) }
                             pictureInput.close()
                         }
                     })
                 }
                 tempLeave.setOnClickListener {
                     val request =
-                        Request.Builder().url(getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
+                        Request.Builder()
+                            .url(getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {
-
-                        }
+                        override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
                             val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post {
-                                imageView.setImageBitmap(bitmap)
-                            }
+                            imageView.post { imageView.setImageBitmap(bitmap) }
                             pictureInput.close()
                         }
                     })
@@ -234,15 +219,12 @@ class DetailActivity : StartUpActivity() {
                             AlertDialog.Builder(this@DetailActivity)
                                 .setMessage(message)
                                 .setTitle(R.string.library)
-                                .setPositiveButton(R.string.ok) { _, _ ->
-                                    recreate()
-                                }
+                                .setPositiveButton(R.string.ok) { _, _ -> recreate() }
                                 .setCancelable(true)
                                 .create()
                                 .show()
                         }
-                        .setNegativeButton(R.string.cancelCancel) { _, _ ->
-                        }
+                        .setNegativeButton(R.string.cancelCancel) { _, _ -> }
                         .setCancelable(true)
                         .create()
                         .show()
@@ -254,9 +236,7 @@ class DetailActivity : StartUpActivity() {
                 AlertDialog.Builder(this@DetailActivity)
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
-                    .setPositiveButton(R.string.ok) { _, _ ->
-                        this@DetailActivity.finish()
-                    }
+                    .setPositiveButton(R.string.ok) { _, _ -> this@DetailActivity.finish() }
                     .setCancelable(false)
                     .create()
                     .show()

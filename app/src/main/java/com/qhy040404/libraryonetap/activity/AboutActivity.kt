@@ -160,6 +160,5 @@ class AboutActivity : AbsAboutActivity() {
 
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
-        this.window.statusBarColor = color
     }
 }

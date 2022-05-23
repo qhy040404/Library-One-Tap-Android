@@ -3,6 +3,11 @@
     <PreferenceCategory app:title="@string/basic_information">
         <EditTextPreference
             app:icon="@drawable/ic_userid"
+            app:key="name"
+            app:title="@string/name"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            app:icon="@drawable/ic_card"
             app:key="userid"
             app:title="@string/user_id"
             app:useSimpleSummaryProvider="true" />

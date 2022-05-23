@@ -17,7 +17,6 @@ public class CancelData implements Serializable {
     }
 
     public String getMessage(String returnData) {
-        GsonData gsonData = gson.fromJson(returnData, GsonData.class);
-        return gsonData.message;
+        return gson.fromJson(returnData, GsonData.class).message;
     }
 }

@@ -29,4 +29,6 @@ object URLManager {
     const val VCARD_API_URL =
         "https://api.m.dlut.edu.cn/login?redirect_uri=https://card.m.dlut.edu.cn/homerj/openHomePage&response_type=code&scope=base_api&state=weishao"
     const val VCARD_OPENID_URL = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
+
+    const val VOLTIME_POST_URL = "https://www.dutbit.com/apivue/voltime/"
 }

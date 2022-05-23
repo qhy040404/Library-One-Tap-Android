@@ -30,6 +30,7 @@ object GlobalValues {
         LibraryOneTapApp.app.getString(R.string.app_name) + " " + versionName + "($versionCode)"
 
     // Preferences
+    var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
     var id: String by SPDelegates(Constants.PREF_ID, Constants.GLOBAL_ERROR)
     var passwd: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
 

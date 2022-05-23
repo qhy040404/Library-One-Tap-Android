@@ -5,6 +5,7 @@ object Constants {
 
     const val GLOBAL_ERROR = "Error"
 
+    const val PREF_NAME = "name"
     const val PREF_ID = "userid"
     const val PREF_PASSWD = "passwd"
 

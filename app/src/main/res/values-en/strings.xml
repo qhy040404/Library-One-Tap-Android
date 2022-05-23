@@ -13,6 +13,7 @@
     <string name="secret_title">FAKE lol</string>
     <string name="detail_title">QR Codes</string>
     <string name="about_title">About</string>
+    <string name="volunteer_title">Volunteer hours</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">Sign in/out/temp out</string>
@@ -24,6 +25,7 @@
     <string name="basic_information">Basic information</string>
     <string name="user_id">ID</string>
     <string name="passwd">Password</string>
+    <string name="name">Name</string>
     <string name="general">General</string>
     <string name="mainTheme">Main Theme</string>
     <string name="darkMode">Dark Mode</string>
@@ -44,6 +46,8 @@
     <string name="loginTimeout">Session timeout, please re-enter this page</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
+    <string name="sameData">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
+    <string name="hours">" hours"</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>
@@ -65,6 +69,7 @@
     <string name="cernet">Remaining campus network</string>
     <string name="electric">Remaining electric charge</string>
     <string name="vcard">Virtual Yulan card</string>
+    <string name="volunteer">Total Volunteer Hours</string>
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="promptPermission">We need this permission to get SSID of WIFI</string>

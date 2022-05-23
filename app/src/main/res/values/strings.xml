@@ -12,6 +12,7 @@
     <string name="secret_title">你 被 骗 了</string>
     <string name="detail_title">各种二维码</string>
     <string name="about_title">关于</string>
+    <string name="volunteer_title">志愿时长</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail_activity">签到/离退/暂离</string>
@@ -23,6 +24,7 @@
     <string name="basic_information">基本信息</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
+    <string name="name">姓名</string>
     <string name="general">通用</string>
     <string name="mainTheme">主题</string>
     <string name="darkMode">深色模式</string>
@@ -44,6 +46,8 @@
     <string name="loginTimeout">登录失效，请重新进入此页面</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
+    <string name="sameData">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
+    <string name="hours">" 小时"</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>
@@ -65,6 +69,7 @@
     <string name="cernet">校园网还剩多少啊</string>
     <string name="electric">宿舍还有多少电啊</string>
     <string name="vcard">玉兰卡虚拟卡</string>
+    <string name="volunteer">志愿总时长</string>
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="promptPermission">需要获取此权限来获得WIFI的SSID</string>

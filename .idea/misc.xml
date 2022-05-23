@@ -6,6 +6,7 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic____1.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_card.xml" value="0.3215" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_color_palette.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_dark_mode.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_github.xml" value="0.1235" />
@@ -27,7 +28,7 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_secret.xml" value="0.3619791666666667" />
-        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_tools_init.xml" value="0.1796875" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_tools_init.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_vcard.xml" value="0.1796875" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_webview.xml" value="0.358695652173913" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_yanxiujian.xml" value="0.33" />
@@ -36,7 +37,7 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2965" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2965" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/network_security_config.xml" value="0.14479166666666668" />
-        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/root_preferences.xml" value="0.2997416020671835" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/root_preferences.xml" value="0.67" />
       </map>
     </option>
   </component>

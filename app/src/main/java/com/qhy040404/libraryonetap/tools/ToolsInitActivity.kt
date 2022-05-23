@@ -11,11 +11,15 @@ import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.activity.StartUpActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
 import com.qhy040404.libraryonetap.data.NetData
+import com.qhy040404.libraryonetap.data.VolunteerData
+import com.qhy040404.libraryonetap.tools.utils.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
+import com.qhy040404.libraryonetap.web.Requests
 import com.tencent.bugly.crashreport.BuglyLog
 
 class ToolsInitActivity : StartUpActivity() {
@@ -94,6 +98,11 @@ class ToolsInitActivity : StartUpActivity() {
 
     fun buttonVCard(view: View) = startActivity(Intent(this, VCardActivity::class.java))
 
+    fun buttonVolunteer(view: View) {
+        Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT).show()
+        Thread(getVolunteer()).start()
+    }
+
     private inner class getNet : Runnable {
         override fun run() {
             Looper.prepare()
@@ -153,6 +162,39 @@ class ToolsInitActivity : StartUpActivity() {
                 .setCancelable(true)
                 .create()
                 .show()
+            Looper.loop()
+        }
+    }
+
+    private inner class getVolunteer : Runnable {
+        override fun run() {
+            Looper.prepare()
+            val postData = VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
+            val data = Requests().post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
+
+            val sameID = VolunteerData().getSameID(data)
+            val sameName = VolunteerData().getSameName(data)
+
+            if (sameID != 1 || sameName != 1) {
+                AlertDialog.Builder(this@ToolsInitActivity)
+                    .setMessage(R.string.sameData)
+                    .setTitle(R.string.volunteer_title)
+                    .setPositiveButton(R.string.ok) {_,_->}
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            } else {
+                val totalHours:String = VolunteerData().getTotalHours(data).toString() + getString(R.string.hours)
+
+                val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
+                AlertDialog.Builder(this@ToolsInitActivity)
+                    .setMessage(message)
+                    .setTitle(R.string.volunteer_title)
+                    .setPositiveButton(R.string.ok) {_,_->}
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
             Looper.loop()
         }
     }

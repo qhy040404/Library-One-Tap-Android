@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class VolunteerData implements Serializable {
     Gson gson = new Gson();
+
     private static class Gsondata {
         private int numSameID;
         private int numSameName;
@@ -13,14 +14,14 @@ public class VolunteerData implements Serializable {
     }
 
     public int getSameID(String data) {
-        return gson.fromJson(data,Gsondata.class).numSameID;
+        return gson.fromJson(data, Gsondata.class).numSameID;
     }
 
     public int getSameName(String data) {
-        return gson.fromJson(data,Gsondata.class).numSameName;
+        return gson.fromJson(data, Gsondata.class).numSameName;
     }
 
     public double getTotalHours(String data) {
-        return gson.fromJson(data,Gsondata.class).totalDuration;
+        return gson.fromJson(data, Gsondata.class).totalDuration;
     }
 }

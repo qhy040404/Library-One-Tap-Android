@@ -169,7 +169,8 @@ class ToolsInitActivity : StartUpActivity() {
     private inner class getVolunteer : Runnable {
         override fun run() {
             Looper.prepare()
-            val postData = VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
+            val postData =
+                VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests().post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
 
             val sameID = VolunteerData().getSameID(data)
@@ -179,18 +180,19 @@ class ToolsInitActivity : StartUpActivity() {
                 AlertDialog.Builder(this@ToolsInitActivity)
                     .setMessage(R.string.sameData)
                     .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok) {_,_->}
+                    .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()
                     .show()
             } else {
-                val totalHours:String = VolunteerData().getTotalHours(data).toString() + getString(R.string.hours)
+                val totalHours: String =
+                    VolunteerData().getTotalHours(data).toString() + getString(R.string.hours)
 
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 AlertDialog.Builder(this@ToolsInitActivity)
                     .setMessage(message)
                     .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok) {_,_->}
+                    .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()
                     .show()

@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Looper
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.tools.VCardActivity
+import kotlin.system.exitProcess
 
 class MainActivity : StartUpActivity() {
     override fun init() {
@@ -53,6 +55,7 @@ class MainActivity : StartUpActivity() {
 
             val versionView: TextView = findViewById(R.id.textView5)
             val dog: ImageView = findViewById(R.id.imageView4)
+            val exit: Button = findViewById(R.id.button3)
 
             versionView.post { versionView.text = GlobalValues.version }
 
@@ -88,6 +91,11 @@ class MainActivity : StartUpActivity() {
                         startActivity(Intent(this@MainActivity, SecretActivity::class.java))
                     }
                 }
+            }
+
+            exit.setOnLongClickListener {
+                LibraryOneTapApp.instance?.exit()
+                exitProcess(0)
             }
             Looper.loop()
         }

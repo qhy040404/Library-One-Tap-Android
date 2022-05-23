@@ -7,15 +7,8 @@ import java.io.Serializable;
 public class NetData implements Serializable {
     Gson gson = new Gson();
 
-    /**
-     * fee : 47.15
-     * flag : success
-     * dynamicRemainFlow : 71.56
-     * dynamicUsedFlow : 78.44
-     */
     private static class GsonData {
         private String fee;
-        private String flag;
         private String dynamicRemainFlow;
         private String dynamicUsedFlow;
     }

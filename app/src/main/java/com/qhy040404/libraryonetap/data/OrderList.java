@@ -11,10 +11,6 @@ import java.util.List;
 public class OrderList implements Serializable {
     Gson gson = new Gson();
 
-    /**
-     * total : 53
-     * rows : [{"order_id":"***","order_type":"2","space_name":"令希图书馆201阅览室","seat_label":"146","all_users":null,"order_start_time":"2022-04-23 19:39:20","area_id":"32","order_date":"2022-04-23","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-23 19:39:09","order_process":"取消","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"230","all_users":null,"order_start_time":"2022-04-24 08:00:00","area_id":"32","order_date":"2022-04-24","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-23 06:30:04","order_process":"审核通过","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"230","all_users":null,"order_start_time":"2022-04-22 08:00:00","area_id":"32","order_date":"2022-04-22","back_time":"00:00:00","order_end_time":"2022-04-22 22:00:37","order_users":"***","order_admin_user":"***","order_time":"2022-04-21 06:30:05","order_process":"完成","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"055","all_users":null,"order_start_time":"2022-04-17 08:00:00","area_id":"32","order_date":"2022-04-17","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-16 15:50:35","order_process":"取消","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆301阅览室","seat_label":"280","all_users":null,"order_start_time":"2022-04-16 15:44:38","area_id":"32","order_date":"2022-04-16","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-16 15:44:29","order_process":"取消","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"234","all_users":null,"order_start_time":"2022-04-15 08:00:00","area_id":"32","order_date":"2022-04-15","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-14 06:30:08","order_process":"取消","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"230","all_users":null,"order_start_time":"2022-04-14 08:00:00","area_id":"32","order_date":"2022-04-14","back_time":"00:00:00","order_end_time":"2022-04-14 22:00:07","order_users":"***","order_admin_user":"***","order_time":"2022-04-13 06:30:09","order_process":"完成","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"234","all_users":null,"order_start_time":"2022-04-10 08:00:00","area_id":"32","order_date":"2022-04-10","back_time":"00:00:00","order_end_time":"2022-04-10 22:01:02","order_users":"***","order_admin_user":"***","order_time":"2022-04-09 06:37:04","order_process":"完成","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"081","all_users":null,"order_start_time":"2022-04-07 08:00:00","area_id":"32","order_date":"2022-04-07","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-06 10:34:27","order_process":"取消","punish_status":"0"},{"order_id":"***","order_type":"2","space_name":"令希图书馆302阅览室","seat_label":"081","all_users":null,"order_start_time":"2022-04-07 08:00:00","area_id":"32","order_date":"2022-04-07","back_time":"00:00:00","order_end_time":"未完成","order_users":"***","order_admin_user":"***","order_time":"2022-04-06 10:24:44","order_process":"取消","punish_status":"0"}]
-     */
     private static class GsonData {
         private String total;
         private List<RowsBean> rows;
@@ -183,24 +179,6 @@ public class OrderList implements Serializable {
         }
 
         public static class RowsBean implements Serializable {
-            /**
-             * order_id :  ***
-             * order_type : 2
-             * space_name : 令希图书馆201阅览室
-             * seat_label : 146
-             * all_users : null
-             * order_start_time : 2022-04-23 19:39:20
-             * area_id : 32
-             * order_date : 2022-04-23
-             * back_time : 00:00:00
-             * order_end_time : 未完成
-             * order_users : ***
-             * order_admin_user : ***
-             * order_time : 2022-04-23 19:39:09
-             * order_process : 取消
-             * punish_status : 0
-             */
-
             private String order_id;
             private String order_type;
             private String space_name;
@@ -215,7 +193,6 @@ public class OrderList implements Serializable {
             private String order_admin_user;
             private String order_time;
             private String order_process;
-            private String punish_status;
         }
     }
 

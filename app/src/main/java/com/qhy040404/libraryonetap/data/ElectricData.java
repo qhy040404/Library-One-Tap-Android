@@ -9,27 +9,12 @@ import java.util.List;
 public class ElectricData implements Serializable {
     Gson gson = new Gson();
 
-    /**
-     * dormitoryInfo_list : [{"SSMC":"***","ZSBH":"***","flag":"success","resele":"155.43"}]
-     * flag : success
-     */
     private static class GsonData {
-        private String flag;
         private List<DormitoryInfoListBean> dormitoryInfo_list;
 
         public static class DormitoryInfoListBean implements Serializable {
-            /**
-             * SSMC : ***
-             * ZSBH : ***
-             * flag : success
-             * resele : 155.43
-             */
-
             @SerializedName("SSMC")
             private String ssmc;
-            @SerializedName("ZSBH")
-            private String zsbh;
-            private String flag;
             private String resele;
         }
     }

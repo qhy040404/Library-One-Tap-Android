@@ -11,8 +11,8 @@ android {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
         targetSdk 32
-        versionCode 331
-        versionName "2.4.0"
+        versionCode 350
+        versionName "2.4.1"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
 

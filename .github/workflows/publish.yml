@@ -124,6 +124,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: v${{ github.ref }}
+          body_path: .github/RELEASE_TEMPLATE.md
           prerelease: true
 
       - name: Upload apk to Github release

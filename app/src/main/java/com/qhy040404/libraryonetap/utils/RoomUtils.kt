@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.utils
 
 object RoomUtils {
-    fun getRoomCode( area: String, room: String): Int {
+    fun getRoomCode(area: String, room: String): Int {
         return when (area) {
             "伯川", "Bochuan" -> when (room) {
                 "301" -> 168
@@ -13,7 +13,7 @@ object RoomUtils {
                 "504" -> 199
                 "507" -> 200
                 else -> {
-                    val temp = intArrayOf(168,170,195,197,196,198,199,200)
+                    val temp = intArrayOf(168, 170, 195, 197, 196, 198, 199, 200)
                     temp[RandomDataUtils.getNum(7)]
                 }
             }
@@ -27,7 +27,7 @@ object RoomUtils {
                 "601" -> 201
                 "602" -> 202
                 else -> {
-                    val temp = intArrayOf(201,202,203,204,205,206,207,208)
+                    val temp = intArrayOf(201, 202, 203, 204, 205, 206, 207, 208)
                     temp[RandomDataUtils.getNum(7)]
                 }
             }

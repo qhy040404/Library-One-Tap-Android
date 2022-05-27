@@ -75,7 +75,7 @@ class ReserveDialog {
                 AlertDialog.Builder(ctx)
                     .setTitle(R.string.library)
                     .setMessage(R.string.reserved)
-                    .setPositiveButton(R.string.ok) {_,_ ->}
+                    .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(false)
                     .create()
                     .show()

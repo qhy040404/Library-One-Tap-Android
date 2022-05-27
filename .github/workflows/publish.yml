@@ -138,8 +138,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.github_release.outputs.upload_url }}
-          asset_path: upload/Library-One-Tap_v${{ github.ref }}-release-signed.apk
-          asset_name: Library-One-Tap_v${{ github.ref }}-release-signed.apk
+          asset_path: upload/Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
+          asset_name: Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
           asset_content_type: application/vnd.android.package-archive
 
       - name: Upload SHA512SUMS to GitHub release

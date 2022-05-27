@@ -46,6 +46,7 @@
     <string name="loginTimeout">Session timeout, please re-enter this page</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
+    <string name="no">Cancel</string>
     <string name="sameData">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="hours">" hours"</string>
 
@@ -64,6 +65,7 @@
     <string name="justCancel">Yes</string>
     <string name="cancelCancel">No</string>
     <string name="reserve">Reserve\na seat</string>
+    <string name="random">Random</string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>
@@ -109,5 +111,11 @@
         <item>West 3F</item>
         <item>North Male</item>
         <item>North Female</item>
+    </string-array>
+
+    <!-- DETAIL -->
+    <string-array name="areaArray">
+        <item>Lingxi</item>
+        <item>Bochuan</item>
     </string-array>
 </resources>

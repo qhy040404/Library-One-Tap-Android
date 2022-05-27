@@ -46,6 +46,7 @@
     <string name="loginTimeout">登录失效，请重新进入此页面</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
+    <string name="no">取消</string>
     <string name="sameData">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="hours">" 小时"</string>
 
@@ -64,6 +65,7 @@
     <string name="justCancel">开摆</string>
     <string name="cancelCancel">继续卷</string>
     <string name="reserve">给我整个座</string>
+    <string name="random">随机</string>
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>
@@ -132,5 +134,37 @@
         <item>西山3楼</item>
         <item>北山男</item>
         <item>北山女</item>
+    </string-array>
+
+    <!-- DETAIL -->
+    <string-array name="areaArray">
+        <item>令希</item>
+        <item>伯川</item>
+    </string-array>
+
+    <string-array name="LXArray" translatable="false">
+        <item>@string/random</item>
+        <item>201</item>
+        <item>202</item>
+        <item>301</item>
+        <item>302</item>
+        <item>401</item>
+        <item>402</item>
+        <item>501</item>
+        <item>502</item>
+        <item>601</item>
+        <item>602</item>
+    </string-array>
+
+    <string-array name="BCArray" translatable="false">
+        <item>@string/random</item>
+        <item>301</item>
+        <item>312</item>
+        <item>401</item>
+        <item>404</item>
+        <item>409</item>
+        <item>501</item>
+        <item>504</item>
+        <item>507</item>
     </string-array>
 </resources>

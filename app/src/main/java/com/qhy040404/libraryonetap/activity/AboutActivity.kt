@@ -54,7 +54,7 @@ class AboutActivity : AbsAboutActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            add(Contributor(R.mipmap.dcmt, "别卷了，行不行", ""))
+            add(Contributor(R.mipmap.dcmt, "别卷了，行不行", "去下面给我点个Star"))
 
             add(Category("Developer"))
             add(
@@ -113,6 +113,30 @@ class AboutActivity : AbsAboutActivity() {
                     "Google",
                     License.APACHE_2,
                     "https://source.google.com"
+                )
+            )
+            add(
+                License(
+                    "material-components-android",
+                    "Google",
+                    License.APACHE_2,
+                    "https://github.com/material-components/material-components-android"
+                )
+            )
+            add(
+                License(
+                    "RikkaX",
+                    "RikkaApps",
+                    License.MIT,
+                    "https://github.com/RikkaApps/RikkaX"
+                )
+            )
+            add(
+                License(
+                    "Gson",
+                    "Google",
+                    License.APACHE_2,
+                    "https://github.com/google/gson"
                 )
             )
             add(

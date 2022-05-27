@@ -11,7 +11,6 @@ on:
       - '**.md'
       - 'LICENSE'
       - 'NOTICE'
-      - '.github/workflows/test.yml'
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -22,7 +21,6 @@ on:
       - '**.md'
       - 'LICENSE'
       - 'NOTICE'
-      - '.github/workflows/test.yml'
 
 jobs:
   check:
@@ -86,6 +84,7 @@ jobs:
           path: ${{ steps.signStep.outputs.signedReleaseFile }}
 
   release:
+    name: Release
     if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
     needs: build
     runs-on: ubuntu-latest

@@ -234,9 +234,7 @@ class DetailActivity : StartUpActivity() {
                         .create()
                         .show()
                 }
-                reserve.setOnClickListener {
-
-                }
+                reserve.setOnClickListener {ReserveDialog().showAlertDialog(this@DetailActivity)}
                 textView.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()

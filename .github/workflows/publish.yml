@@ -84,6 +84,7 @@ jobs:
           path: ${{ steps.signStep.outputs.signedReleaseFile }}
 
   release:
+    name: Release
     if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
     needs: build
     runs-on: ubuntu-latest

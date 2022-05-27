@@ -63,6 +63,7 @@
     <string name="confirmCancel">确认取消吗</string>
     <string name="justCancel">开摆</string>
     <string name="cancelCancel">继续卷</string>
+    <string name="reserve">给我整个座</string>
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>

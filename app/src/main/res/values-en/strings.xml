@@ -63,6 +63,7 @@
     <string name="confirmCancel">Confirm cancellation</string>
     <string name="justCancel">Yes</string>
     <string name="cancelCancel">No</string>
+    <string name="reserve">Reserve\na seat</string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>

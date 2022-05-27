@@ -63,6 +63,7 @@ class DetailActivity : StartUpActivity() {
             val imageView: ImageView = findViewById(R.id.imageView)
             val refresh: Button = findViewById(R.id.button7)
             val cancel: Button = findViewById(R.id.button10)
+            val reserve: Button = findViewById(R.id.button11)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -121,6 +122,10 @@ class DetailActivity : StartUpActivity() {
 
                 if (order_id.equals("oid")) {
                     order_id = getString(R.string.noValidOrder)
+                    reserve.post {
+                        reserve.visibility = View.VISIBLE
+                        reserve.isClickable = true
+                    }
                 }
 
                 if (order_process.equals("审核通过")) {
@@ -228,6 +233,9 @@ class DetailActivity : StartUpActivity() {
                         .setCancelable(true)
                         .create()
                         .show()
+                }
+                reserve.setOnClickListener {
+
                 }
                 textView.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"

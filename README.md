@@ -19,7 +19,7 @@
 - 相关信息会显示在按钮下方
 - *新增* 研修间
 
-不是很想整Release，麻烦
+## 自动化Publish已启用:tada:
 
 ## 友链
 - [约座小程序](https://github.com/qhy040404/DLUT-library-auto-reservation)

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
 import coil.load
 import com.drakeet.about.AbsAboutActivity
 import com.drakeet.about.Category
@@ -189,12 +190,5 @@ class AboutActivity : AbsAboutActivity() {
         setHeaderContentScrim(ColorDrawable(color))
 
         //window.statusBarColor = color
-
-        val flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-        val flagTranslucentNavigation = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION
-        val attrs = window.attributes
-        attrs.flags = attrs.flags or flagTranslucentNavigation
-        window.attributes = attrs
-        window.statusBarColor = getColor(R.color.translucent)
     }
 }

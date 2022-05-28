@@ -97,7 +97,7 @@
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">@color/translucent</item>
     </style>
 
     <style name="Theme.Simple.NoActionBar">

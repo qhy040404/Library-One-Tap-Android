@@ -34,7 +34,6 @@ class DetailActivity : StartUpActivity() {
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView)
         textView.visibility = View.VISIBLE
-        window.statusBarColor = getColor(R.color.green_500)
         Thread(Detail()).start()
     }
 

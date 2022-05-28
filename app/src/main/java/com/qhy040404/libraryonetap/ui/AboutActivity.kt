@@ -163,30 +163,9 @@ class AboutActivity : AbsAboutActivity() {
     private fun initView() {
         LibraryOneTapApp.instance?.addActivity(this)
 
-        val color = when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> {
-                when (GlobalValues.theme) {
-                    "purple" -> getColor(R.color.purple_500)
-                    "blue" -> getColor(R.color.blue_500)
-                    "pink" -> getColor(R.color.pink_500)
-                    "green" -> getColor(R.color.green_500)
-                    else -> getColor(R.color.black)
-                }
-            }
-            else -> getColor(R.color.black)
-        }
-
-        when (GlobalValues.theme) {
-            "purple" -> setTheme(R.style.Theme_Purple)
-            "blue" -> setTheme(R.style.Theme_Blue)
-            "pink" -> setTheme(R.style.Theme_Pink)
-            "green" -> setTheme(R.style.Theme_Green)
-            "simple" -> setTheme(R.style.Theme_Simple)
-        }
-
         findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
-        setHeaderBackground(ColorDrawable(color))
-        setHeaderContentScrim(ColorDrawable(color))
+        setHeaderBackground(ColorDrawable(getColor(R.color.black)))
+        setHeaderContentScrim(ColorDrawable(getColor(R.color.black)))
     }
 }

@@ -29,9 +29,8 @@ class AboutActivity : AbsAboutActivity() {
     private var headCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initView()
         super.onCreate(savedInstanceState)
-        //initView()
+        initView()
     }
 
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
@@ -185,11 +184,12 @@ class AboutActivity : AbsAboutActivity() {
             "simple" -> setTheme(R.style.Theme_Simple)
         }
 
-        /*findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
+        findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
         setHeaderBackground(ColorDrawable(color))
-        setHeaderContentScrim(ColorDrawable(color))*/
+        setHeaderContentScrim(ColorDrawable(color))
 
+        window.navigationBarColor = color
         window.statusBarColor = color
     }
 }

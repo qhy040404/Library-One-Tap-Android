@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
@@ -189,7 +188,13 @@ class AboutActivity : AbsAboutActivity() {
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
 
-        window.navigationBarColor = color
-        window.statusBarColor = color
+        //window.statusBarColor = color
+
+        val flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+        val flagTranslucentNavigation = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION
+        val attrs = window.attributes
+        attrs.flags = attrs.flags or flagTranslucentNavigation
+        window.attributes = attrs
+        window.statusBarColor = getColor(R.color.translucent)
     }
 }

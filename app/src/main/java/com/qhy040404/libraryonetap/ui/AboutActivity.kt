@@ -29,8 +29,9 @@ class AboutActivity : AbsAboutActivity() {
     private var headCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         initView()
+        super.onCreate(savedInstanceState)
+        //initView()
     }
 
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
@@ -176,10 +177,18 @@ class AboutActivity : AbsAboutActivity() {
             else -> getColor(R.color.black)
         }
 
-        findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
+        when (GlobalValues.theme) {
+            "purple" -> setTheme(R.style.Theme_Purple)
+            "blue" -> setTheme(R.style.Theme_Blue)
+            "pink" -> setTheme(R.style.Theme_Pink)
+            "green" -> setTheme(R.style.Theme_Green)
+            "simple" -> setTheme(R.style.Theme_Simple)
+        }
+
+        /*findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
         setHeaderBackground(ColorDrawable(color))
-        setHeaderContentScrim(ColorDrawable(color))
+        setHeaderContentScrim(ColorDrawable(color))*/
 
         window.statusBarColor = color
     }

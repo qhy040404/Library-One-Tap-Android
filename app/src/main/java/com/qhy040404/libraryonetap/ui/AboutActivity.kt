@@ -1,15 +1,12 @@
 package com.qhy040404.libraryonetap.ui
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
 import coil.load
 import com.drakeet.about.AbsAboutActivity
 import com.drakeet.about.Category
@@ -17,7 +14,6 @@ import com.drakeet.about.Contributor
 import com.drakeet.about.License
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.PackageUtils

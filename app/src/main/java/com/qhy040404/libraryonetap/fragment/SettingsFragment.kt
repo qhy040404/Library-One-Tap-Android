@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.ui.AboutActivity
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.ui.AboutActivity
 import rikka.preference.SimpleMenuPreference
 
 class SettingsFragment : PreferenceFragmentCompat() {

@@ -9,10 +9,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.ui.StartUpActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctVCard
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.ui.StartUpActivity
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.web.Requests
 

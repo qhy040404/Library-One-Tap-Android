@@ -49,7 +49,7 @@ class BathReserveActivity : StartUpActivity() {
                 android.R.layout.simple_spinner_item
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinner.adapter = adapter
+                spinner.post { spinner.adapter = adapter }
             }
 
             val requests = Requests()

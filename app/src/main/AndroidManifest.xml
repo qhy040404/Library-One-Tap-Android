@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simple.NoActionBar">
         <activity
-            android:name=".activity.AboutActivity"
+            android:name=".ui.AboutActivity"
             android:exported="false"
             android:label="@string/about_title" />
         <activity
@@ -40,19 +40,19 @@
             android:exported="false"
             android:label="@string/tools_title" />
         <activity
-            android:name=".activity.YanxiujianActivity"
+            android:name=".ui.YanxiujianActivity"
             android:exported="false"
             android:label="@string/title_activity_yanxiujian" />
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name=".ui.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".activity.DetailActivity"
+            android:name=".ui.DetailActivity"
             android:exported="false"
             android:label="@string/library" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

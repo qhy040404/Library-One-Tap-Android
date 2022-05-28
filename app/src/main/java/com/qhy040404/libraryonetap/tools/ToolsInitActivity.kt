@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.activity.StartUpActivity
+import com.qhy040404.libraryonetap.ui.StartUpActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ElectricData

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.activity
+package com.qhy040404.libraryonetap.ui
 
 import android.animation.ObjectAnimator
 import android.content.Intent

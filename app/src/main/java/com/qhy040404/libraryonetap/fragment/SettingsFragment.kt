@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.activity.AboutActivity
+import com.qhy040404.libraryonetap.ui.AboutActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import rikka.preference.SimpleMenuPreference
 

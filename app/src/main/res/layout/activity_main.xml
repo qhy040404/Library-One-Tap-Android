@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="20dp"
-    tools:context=".activity.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <Button
         android:id="@+id/button"

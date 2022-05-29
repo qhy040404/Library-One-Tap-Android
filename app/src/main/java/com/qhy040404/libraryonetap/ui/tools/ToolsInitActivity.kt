@@ -103,10 +103,6 @@ class ToolsInitActivity : StartUpActivity() {
         Thread(getVolunteer()).start()
     }
 
-    fun test(view: View) {
-        startActivity(Intent(this, ToolsInitNewActivity::class.java))
-    }
-
     private inner class getNet : Runnable {
         override fun run() {
             Looper.prepare()

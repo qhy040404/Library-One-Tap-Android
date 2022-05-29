@@ -1,12 +1,12 @@
-package com.qhy040404.libraryonetap.data
+package com.qhy040404.libraryonetap.utils.tools
 
 import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctJson
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.des.desEncrypt
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.web.Requests
 
 object GetPortalData {
     //mode 0:electric, mode 1:net

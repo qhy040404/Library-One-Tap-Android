@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.utils;
+package com.qhy040404.libraryonetap.utils.tools;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

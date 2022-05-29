@@ -1,10 +1,10 @@
-package com.qhy040404.libraryonetap.web;
+package com.qhy040404.libraryonetap.datamodel;
 
 import com.google.gson.Gson;
 
 import java.io.Serializable;
 
-public class CheckSession implements Serializable {
+public class SessionData implements Serializable {
     Gson gson = new Gson();
 
     /**

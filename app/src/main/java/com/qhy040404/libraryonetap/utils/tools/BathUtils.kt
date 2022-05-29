@@ -1,8 +1,8 @@
-package com.qhy040404.libraryonetap.tools.utils
+package com.qhy040404.libraryonetap.utils.tools
 
 import java.util.*
 
-object BathTime {
+object BathUtils {
     fun getBathTime(): Int {
         val calendar: Calendar = Calendar.getInstance()
         val hour: Int = calendar.get(Calendar.HOUR_OF_DAY)

@@ -15,11 +15,11 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.CancelData
-import com.qhy040404.libraryonetap.data.OrderList
-import com.qhy040404.libraryonetap.des.desEncrypt
-import com.qhy040404.libraryonetap.web.CheckSession
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.datamodel.CancelData
+import com.qhy040404.libraryonetap.datamodel.OrderListData
+import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.datamodel.SessionData
+import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -67,8 +67,8 @@ class DetailActivity : StartUpActivity() {
 
             val requests = Requests()
             val des = desEncrypt()
-            val checkSession = CheckSession()
-            val orderList = OrderList()
+            val checkSession = SessionData()
+            val orderList = OrderListData()
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd

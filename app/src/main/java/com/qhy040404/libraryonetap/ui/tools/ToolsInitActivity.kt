@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.tools
+package com.qhy040404.libraryonetap.ui.tools
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -11,15 +11,15 @@ import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.ElectricData
-import com.qhy040404.libraryonetap.data.GetPortalData.getPortalData
-import com.qhy040404.libraryonetap.data.NetData
-import com.qhy040404.libraryonetap.data.VolunteerData
-import com.qhy040404.libraryonetap.tools.utils.VolunteerUtils
+import com.qhy040404.libraryonetap.datamodel.ElectricData
+import com.qhy040404.libraryonetap.utils.tools.GetPortalData.getPortalData
+import com.qhy040404.libraryonetap.datamodel.NetData
+import com.qhy040404.libraryonetap.datamodel.VolunteerData
+import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.ui.StartUpActivity
-import com.qhy040404.libraryonetap.utils.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.PermissionUtils
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
+import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
+import com.qhy040404.libraryonetap.utils.web.Requests
 import com.tencent.bugly.crashreport.BuglyLog
 
 class ToolsInitActivity : StartUpActivity() {

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.data;
+package com.qhy040404.libraryonetap.datamodel;
 
 import com.google.gson.Gson;
 

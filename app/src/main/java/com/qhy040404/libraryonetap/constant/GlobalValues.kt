@@ -10,7 +10,7 @@ import com.qhy040404.libraryonetap.utils.PackageUtils.versionCode
 import com.qhy040404.libraryonetap.utils.PackageUtils.versionName
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.MediaType
 import java.util.*
 

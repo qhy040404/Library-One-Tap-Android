@@ -15,11 +15,11 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.id
 import com.qhy040404.libraryonetap.constant.GlobalValues.passwd
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
-import com.qhy040404.libraryonetap.web.CheckSession
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.datamodel.SessionData
+import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
     @SuppressLint("InflateParams")
@@ -100,7 +100,7 @@ class ReserveDialog {
 
         val requests = Requests()
         val des = desEncrypt()
-        val checkSession = CheckSession()
+        val checkSession = SessionData()
 
         var loginSuccess = false
         while (!loginSuccess) {

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.tools
+package com.qhy040404.libraryonetap.ui.tools
 
 import android.graphics.BitmapFactory
 import android.os.Looper
@@ -13,8 +13,8 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctVCard
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.StartUpActivity
-import com.qhy040404.libraryonetap.utils.QRUtils
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.utils.tools.QRUtils
+import com.qhy040404.libraryonetap.utils.web.Requests
 
 class VCardActivity : StartUpActivity() {
     override fun init() = initView()

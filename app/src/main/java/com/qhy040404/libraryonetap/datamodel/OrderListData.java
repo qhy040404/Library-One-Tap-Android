@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.data;
+package com.qhy040404.libraryonetap.datamodel;
 
 import static com.qhy040404.libraryonetap.utils.TimeUtilsKt.timeSingleToDouble;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-public class OrderList implements Serializable {
+public class OrderListData implements Serializable {
     Gson gson = new Gson();
 
     private static class GsonData {

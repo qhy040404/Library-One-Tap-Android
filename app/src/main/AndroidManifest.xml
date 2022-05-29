@@ -24,19 +24,19 @@
             android:exported="false"
             android:label="@string/about_title" />
         <activity
-            android:name=".secret.SecretActivity"
+            android:name="com.qhy040404.libraryonetap.ui.secret.SecretActivity"
             android:exported="false"
             android:label="@string/secret_title" />
         <activity
-            android:name=".tools.VCardActivity"
+            android:name="com.qhy040404.libraryonetap.ui.tools.VCardActivity"
             android:exported="false"
             android:label="@string/vcardTitle" />
         <activity
-            android:name=".tools.BathReserveActivity"
+            android:name="com.qhy040404.libraryonetap.ui.tools.BathReserveActivity"
             android:exported="false"
             android:label="@string/bath_title" />
         <activity
-            android:name=".tools.ToolsInitActivity"
+            android:name="com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity"
             android:exported="false"
             android:label="@string/tools_title" />
         <activity

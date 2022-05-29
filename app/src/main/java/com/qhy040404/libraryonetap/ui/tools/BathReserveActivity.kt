@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.tools
+package com.qhy040404.libraryonetap.ui.tools
 
 import android.os.Looper
 import android.os.StrictMode
@@ -8,10 +8,10 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.des.desEncrypt
-import com.qhy040404.libraryonetap.tools.utils.BathTime.getBathTime
+import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
 import com.qhy040404.libraryonetap.ui.StartUpActivity
-import com.qhy040404.libraryonetap.web.Requests
+import com.qhy040404.libraryonetap.utils.web.Requests
 
 class BathReserveActivity : StartUpActivity() {
     override fun init() = initView()

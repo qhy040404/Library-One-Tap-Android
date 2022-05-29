@@ -15,7 +15,7 @@ import com.drakeet.about.License
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.secret.SecretActivity
+import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.PackageUtils
 
 private const val MIDDLE_SECRET = "ne Tap D"

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.secret
+package com.qhy040404.libraryonetap.ui.secret
 
 import android.net.Uri
 import com.qhy040404.libraryonetap.R

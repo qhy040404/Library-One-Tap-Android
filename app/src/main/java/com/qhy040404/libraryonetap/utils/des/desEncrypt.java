@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.des;
+package com.qhy040404.libraryonetap.utils.des;
 
 import static java.lang.Integer.parseInt;
 

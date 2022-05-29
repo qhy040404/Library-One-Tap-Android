@@ -5,6 +5,7 @@ import android.view.KeyEvent
 import android.view.MenuItem
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.fragment.SettingsFragment
+import com.qhy040404.libraryonetap.ui.templates.StartUpActivity
 
 class SettingsActivity : StartUpActivity() {
     override fun init() {

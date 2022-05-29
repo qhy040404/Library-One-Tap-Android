@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.ui
+package com.qhy040404.libraryonetap.ui.templates
 
 import android.os.Bundle
 import android.view.MenuItem

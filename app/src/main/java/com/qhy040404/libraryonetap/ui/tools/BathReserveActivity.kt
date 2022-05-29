@@ -8,7 +8,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.ui.StartUpActivity
+import com.qhy040404.libraryonetap.ui.templates.StartUpActivity
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
 import com.qhy040404.libraryonetap.utils.web.Requests

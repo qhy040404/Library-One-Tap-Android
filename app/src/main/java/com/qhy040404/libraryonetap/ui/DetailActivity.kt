@@ -19,12 +19,14 @@ import com.qhy040404.libraryonetap.datamodel.CancelData
 import com.qhy040404.libraryonetap.datamodel.OrderListData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+import java.util.*
 
 class DetailActivity : StartUpActivity() {
     override fun init() = initView()
@@ -135,6 +137,16 @@ class DetailActivity : StartUpActivity() {
                         cancel.visibility = View.VISIBLE
                         cancel.isClickable = true
                     }
+
+                    val calendar = Calendar.getInstance()
+                    val today = calendar.get(Calendar.YEAR).toString() + "-" + timeSingleToDouble(calendar.get(Calendar.MONTH+ 1)) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH))
+                    if (!order_date.equals(today)) {
+                        reserve.post {
+                            reserve.visibility = View.VISIBLE
+                            reserve.isClickable = true
+                        }
+                    }
+
                 } else if (order_process.equals("进行中")) {
                     order_process = getString(R.string.inside)
                 } else if (order_process.equals("暂离")) {

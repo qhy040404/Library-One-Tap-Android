@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.id
 import com.qhy040404.libraryonetap.constant.GlobalValues.passwd
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
@@ -101,6 +102,7 @@ class ReserveDialog {
         val requests = Requests()
         val des = desEncrypt()
         val checkSession = SessionData()
+        val reserveData = ReserveData()
 
         var loginSuccess = false
         while (!loginSuccess) {
@@ -127,10 +129,15 @@ class ReserveDialog {
                 Toast.makeText(ctx, R.string.logFail, Toast.LENGTH_LONG).show()
             }
         }
-        requests.post(
-            URLManager.LIBRARY_RESERVE_URL,
-            ReserveUtils.constructPara(target),
-            GlobalValues.ctVCard
-        )
+        val addCodeOrigin =
+            requests.post(
+                URLManager.LIBRARY_RESERVE_URL,
+                ReserveUtils.constructPara(target),
+                GlobalValues.ctVCard
+            )
+        val addCode = reserveData.getAddCode(addCodeOrigin)
+        requests.post(URLManager.LIBRART_RESERVE_FINAL_URL,
+        ReserveUtils.constructParaForFinalReserve(addCode),
+            GlobalValues.ctVCard)
     }
 }

@@ -14,8 +14,8 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.datamodel.OrderListData
-import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.datamodel.SessionData
+import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback

@@ -139,7 +139,9 @@ class DetailActivity : StartUpActivity() {
                     }
 
                     val calendar = Calendar.getInstance()
-                    val today = calendar.get(Calendar.YEAR).toString() + "-" + timeSingleToDouble(calendar.get(Calendar.MONTH+ 1)) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH))
+                    val today = calendar.get(Calendar.YEAR).toString() + "-" + timeSingleToDouble(
+                        calendar.get(Calendar.MONTH + 1)
+                    ) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH))
                     if (!order_date.equals(today)) {
                         reserve.post {
                             reserve.visibility = View.VISIBLE

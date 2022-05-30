@@ -24,7 +24,7 @@ import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.tencent.bugly.crashreport.BuglyLog
 
-class ToolsInitFragment : PreferenceFragmentCompat(){
+class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.tools_list, rootKey)
 
@@ -75,7 +75,7 @@ class ToolsInitFragment : PreferenceFragmentCompat(){
 
         findPreference<Preference>(Constants.TOOLS_VCARD)?.apply {
             setOnPreferenceClickListener {
-                startActivity(Intent(requireContext(),VCardActivity::class.java))
+                startActivity(Intent(requireContext(), VCardActivity::class.java))
                 true
             }
         }

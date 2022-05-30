@@ -9,7 +9,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.template.StartUpActivity
 
-class ToolsInitActivity :StartUpActivity(){
+class ToolsInitActivity : StartUpActivity() {
     override fun init() {
         supportFragmentManager
             .beginTransaction()

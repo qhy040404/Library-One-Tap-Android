@@ -71,7 +71,7 @@ class DetailActivity : StartUpActivity() {
             val refresh: Button = findViewById(R.id.button7)
             val cancel: Button = findViewById(R.id.button10)
             val reserve: Button = findViewById(R.id.button11)
-            val reset:Button = findViewById(R.id.button9)
+            val reset: Button = findViewById(R.id.button9)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -276,13 +276,25 @@ class DetailActivity : StartUpActivity() {
                     val targetSeat = "\"seat_label\":\"$seat_label\""
                     var seat_id = ""
 
-                    val availableMap = ReserveUtils.formatAvailableMap(requests.get(URLManager.constructAvailableUrl(getToday(),roomCode)))
+                    val availableMap = ReserveUtils.formatAvailableMap(
+                        requests.get(
+                            URLManager.constructAvailableUrl(
+                                getToday(),
+                                roomCode
+                            )
+                        )
+                    )
                     val amList = availableMap.split(",")
 
                     for (element in amList) {
                         if (element == targetSeat) {
-                            if (amList[amList.indexOf(element)+4] == Constants.RESERVE_VALID || amList[amList.indexOf(element)+4] == Constants.RESERVE_HAS_PERSON) {
-                                seat_id = amList[amList.indexOf(element)-1].replace("\"seat_id\":","").replace("\"","")
+                            if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
+                                    element
+                                ) + 4] == Constants.RESERVE_HAS_PERSON
+                            ) {
+                                seat_id =
+                                    amList[amList.indexOf(element) - 1].replace("\"seat_id\":", "")
+                                        .replace("\"", "")
                                 break
                             }
                         }
@@ -294,7 +306,11 @@ class DetailActivity : StartUpActivity() {
                         ctSso
                     )
 
-                    val addCodeOrigin = requests.post(URLManager.LIBRARY_RESERVE_ADDCODE_URL,ReserveUtils.constructParaForAddCode(seat_id),GlobalValues.ctVCard)
+                    val addCodeOrigin = requests.post(
+                        URLManager.LIBRARY_RESERVE_ADDCODE_URL,
+                        ReserveUtils.constructParaForAddCode(seat_id),
+                        GlobalValues.ctVCard
+                    )
                     val addCode = reserveData.getAddCode(addCodeOrigin)
                     requests.post(
                         URLManager.LIBRART_RESERVE_FINAL_URL,

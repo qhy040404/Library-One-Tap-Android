@@ -22,7 +22,7 @@
         <activity
             android:name=".ui.tools.ToolsInitActivity"
             android:exported="false"
-            android:label="@string/tools_title"/>
+            android:label="@string/tools_title" />
         <activity
             android:name=".ui.AboutActivity"
             android:exported="false"
@@ -62,6 +62,7 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
         <meta-data
             android:name="channel"
             android:value="${CHANNEL}" />

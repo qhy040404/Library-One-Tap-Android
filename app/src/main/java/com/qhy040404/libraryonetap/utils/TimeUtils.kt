@@ -4,7 +4,7 @@ import java.util.*
 
 val calendar: Calendar = Calendar.getInstance()
 
-fun getToday():String {
+fun getToday(): String {
     return calendar[Calendar.YEAR].toString() + "/" + (calendar[Calendar.MONTH] + 1).toString() + "/" + calendar[Calendar.DAY_OF_MONTH].toString()
 }
 

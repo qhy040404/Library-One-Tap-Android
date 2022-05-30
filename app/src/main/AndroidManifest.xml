@@ -21,7 +21,8 @@
         android:theme="@style/Theme.Simple.NoActionBar">
         <activity
             android:name=".ui.tools.ToolsInitNewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/tools_title"/>
         <activity
             android:name=".ui.AboutActivity"
             android:exported="false"

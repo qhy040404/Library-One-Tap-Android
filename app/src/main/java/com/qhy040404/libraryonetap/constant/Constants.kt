@@ -32,4 +32,10 @@ object Constants {
     const val LIBRARY_METHOD_TEMP = "temp"
 
     const val PORTAL_DEFAULT_POST = "{}"
+
+    const val TOOLS_BATH = "bath"
+    const val TOOLS_NET = "net"
+    const val TOOLS_ELECTRIC = "electric"
+    const val TOOLS_VCARD = "vcard"
+    const val TOOLS_VOLUNTEER = "volunteer"
 }

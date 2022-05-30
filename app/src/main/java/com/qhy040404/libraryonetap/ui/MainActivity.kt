@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.ui.templates.StartUpActivity
 import com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity
+import com.qhy040404.libraryonetap.ui.tools.ToolsInitNewActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import kotlin.system.exitProcess
 
@@ -111,7 +112,7 @@ class MainActivity : StartUpActivity() {
 
     fun buttonYanxiujian(view: View) = startActivity(Intent(this, YanxiujianActivity::class.java))
 
-    fun buttonTools(view: View) = startActivity(Intent(this, ToolsInitActivity::class.java))
+    fun buttonTools(view: View) = startActivity(Intent(this, ToolsInitNewActivity::class.java))
 
     fun buttonExit(view: View) = LibraryOneTapApp.instance?.exit()
 

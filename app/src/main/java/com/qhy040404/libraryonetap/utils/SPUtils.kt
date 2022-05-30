@@ -9,7 +9,6 @@ object SPUtils {
     val sp: SharedPreferences =
         LibraryOneTapApp.app.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
 
-
     fun <T> getValue(name: String, default: T): T = with(sp) {
         val res: Any = when (default) {
             is Long -> getLong(name, default)

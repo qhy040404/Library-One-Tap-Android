@@ -119,14 +119,12 @@ class DetailActivity : StartUpActivity() {
             val list = requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
-                val back_prompt = getString(R.string.tempEndTime)
-
                 val space_name = orderList.getSpace_name(list, "2")
                 val seat_label = orderList.getSeat_label(list, "2")
                 val order_date = orderList.getOrder_date(list, "2")
                 var order_id = orderList.getOrder_id(list, "2")
                 var order_process = orderList.getOrder_process(list, "2")
-                val back_time = orderList.getBack_time(list, "2", back_prompt)
+                val back_time = orderList.getBack_time(list, "2", getString(R.string.tempEndTime))
 
                 if (order_id.equals("oid")) {
                     order_id = getString(R.string.noValidOrder)

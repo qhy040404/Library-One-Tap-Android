@@ -35,9 +35,7 @@ object GlobalValues {
     var passwd: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
-
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
-
     var locale: Locale = getAndReturnLocale()
 
     // MediaType

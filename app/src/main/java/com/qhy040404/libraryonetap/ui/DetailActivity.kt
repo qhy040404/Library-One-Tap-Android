@@ -141,7 +141,7 @@ class DetailActivity : StartUpActivity() {
 
                     val calendar = Calendar.getInstance()
                     val today = calendar.get(Calendar.YEAR).toString() + "-" + timeSingleToDouble(
-                        calendar.get(Calendar.MONTH + 1)
+                        calendar.get(Calendar.MONTH) + 1
                     ) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH))
                     if (!order_date.equals(today)) {
                         reserve.post {
@@ -149,7 +149,6 @@ class DetailActivity : StartUpActivity() {
                             reserve.isClickable = true
                         }
                     }
-
                 } else if (order_process.equals("进行中")) {
                     order_process = getString(R.string.inside)
                 } else if (order_process.equals("暂离")) {

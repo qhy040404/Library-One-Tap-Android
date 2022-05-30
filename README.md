@@ -1,4 +1,5 @@
 # Library-One-Tap-Android
+
 一个便于打开离退/暂离页面的小程序
 
 [![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android/badge)](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android)
@@ -14,13 +15,15 @@
 ## 签到码/离退码/暂离码
 
 ## 特性
+
 - 会自动选中```进行中/暂离/未开始```的预约
-  - 优先级：进行中>暂离>未开始
+    - 优先级：进行中>暂离>未开始
 - 相关信息会显示在按钮下方
 - *新增* 研修间
 
 ## 自动化Publish已启用:tada:
 
 ## 友链
+
 - [约座小程序](https://github.com/qhy040404/DLUT-library-auto-reservation)
 - [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)(Android端的校园网登录思路来自这里)

@@ -1,7 +1,7 @@
 name: Issue-modifier
 on:
   issues:
-    types: [opened]
+    types: [ opened ]
 
 jobs:
   Modify:

@@ -68,7 +68,7 @@ jobs:
       - name: Rename unsigned apk
         run: |
           sudo apt install rename -y
-          rename 's/-unsigned$//' app/build/outputs/apk/release/*
+          rename 's/-unsigned.apk/.apk/' app/build/outputs/apk/release/*
 
       - name: Sign apk release
         id: signStep

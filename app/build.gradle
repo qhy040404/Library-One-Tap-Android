@@ -15,6 +15,7 @@ android {
         versionName "2.5.2"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
+        manifestPlaceholders = [ CHANNEL: "release" ]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

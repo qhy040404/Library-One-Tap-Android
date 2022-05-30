@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simple.NoActionBar">
         <activity
-            android:name=".ui.tools.ToolsInitNewActivity"
+            android:name=".ui.tools.ToolsInitActivity"
             android:exported="false"
             android:label="@string/tools_title"/>
         <activity
@@ -28,21 +28,17 @@
             android:exported="false"
             android:label="@string/about_title" />
         <activity
-            android:name="com.qhy040404.libraryonetap.ui.secret.SecretActivity"
+            android:name=".ui.secret.SecretActivity"
             android:exported="false"
             android:label="@string/secret_title" />
         <activity
-            android:name="com.qhy040404.libraryonetap.ui.tools.VCardActivity"
+            android:name=".ui.tools.VCardActivity"
             android:exported="false"
             android:label="@string/vcardTitle" />
         <activity
-            android:name="com.qhy040404.libraryonetap.ui.tools.BathReserveActivity"
+            android:name=".ui.tools.BathReserveActivity"
             android:exported="false"
             android:label="@string/bath_title" />
-        <activity
-            android:name="com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity"
-            android:exported="false"
-            android:label="@string/tools_title" />
         <activity
             android:name=".ui.YanxiujianActivity"
             android:exported="false"
@@ -66,6 +62,9 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+        <meta-data
+            android:name="channel"
+            android:value="${CHANNEL}" />
     </application>
 
 </manifest>

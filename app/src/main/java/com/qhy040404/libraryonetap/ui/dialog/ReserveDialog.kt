@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.ui
+package com.qhy040404.libraryonetap.ui.dialog
 
 import android.annotation.SuppressLint
 import android.content.Context

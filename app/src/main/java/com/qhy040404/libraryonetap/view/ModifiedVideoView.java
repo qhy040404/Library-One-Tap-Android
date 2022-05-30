@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.view.secret;
+package com.qhy040404.libraryonetap.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

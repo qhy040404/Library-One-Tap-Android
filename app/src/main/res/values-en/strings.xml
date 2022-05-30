@@ -67,6 +67,7 @@
     <string name="cancelCancel">No</string>
     <string name="reserve">Reserve\na seat</string>
     <string name="random">Random</string>
+    <string name="reset">Reset\nreservation</string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW</string>

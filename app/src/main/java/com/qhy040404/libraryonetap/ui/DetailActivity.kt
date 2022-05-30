@@ -17,9 +17,12 @@ import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.datamodel.CancelData
 import com.qhy040404.libraryonetap.datamodel.OrderListData
+import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.ui.templates.StartUpActivity
+import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
@@ -67,6 +70,7 @@ class DetailActivity : StartUpActivity() {
             val refresh: Button = findViewById(R.id.button7)
             val cancel: Button = findViewById(R.id.button10)
             val reserve: Button = findViewById(R.id.button11)
+            val reset:Button = findViewById(R.id.button9)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -147,6 +151,11 @@ class DetailActivity : StartUpActivity() {
                         reserve.post {
                             reserve.visibility = View.VISIBLE
                             reserve.isClickable = true
+                        }
+                    } else {
+                        reset.post {
+                            reset.visibility = View.VISIBLE
+                            reset.isClickable = true
                         }
                     }
                 } else if (order_process.equals("进行中")) {
@@ -249,6 +258,50 @@ class DetailActivity : StartUpActivity() {
                         .show()
                 }
                 reserve.setOnClickListener { ReserveDialog().showAlertDialog(this@DetailActivity) }
+                reset.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    val reserveData = ReserveData()
+
+                    val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
+                    val targetSeat = "\"seat_label\":\"$seat_label\""
+                    var seat_id = ""
+
+                    val availableMap = ReserveUtils.formatAvailableMap(requests.get(URLManager.constructAvailableUrl(getToday(),roomCode)))
+                    val amList = availableMap.split(",")
+
+                    for (element in amList) {
+                        if (element == targetSeat) {
+                            if (amList[amList.indexOf(element)+4] == Constants.RESERVE_VALID || amList[amList.indexOf(element)+4] == Constants.RESERVE_HAS_PERSON) {
+                                seat_id = amList[amList.indexOf(element)-1].replace("\"seat_id\":","").replace("\"","")
+                                break
+                            }
+                        }
+                    }
+
+                    requests.post(
+                        URLManager.LIBRARY_ORDER_CANCEL_URL,
+                        "order_id=$order_id&order_type=2&method=Cancel",
+                        ctSso
+                    )
+
+                    val addCodeOrigin = requests.post(URLManager.LIBRARY_RESERVE_ADDCODE_URL,ReserveUtils.constructParaForAddCode(seat_id),GlobalValues.ctVCard)
+                    val addCode = reserveData.getAddCode(addCodeOrigin)
+                    requests.post(
+                        URLManager.LIBRART_RESERVE_FINAL_URL,
+                        ReserveUtils.constructParaForFinalReserve(addCode),
+                        GlobalValues.ctVCard
+                    )
+                    recreate()
+                }
                 textView.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()

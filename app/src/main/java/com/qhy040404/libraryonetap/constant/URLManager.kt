@@ -15,6 +15,7 @@ object URLManager {
     const val LIBRARY_QR_CERT_URL = "http://seat.lib.dlut.edu.cn/yanxiujian/client/2codecert.php?"
     const val LIBRARY_RESERVE_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=randomRoomSeatChoose"
+    const val LIBRARY_RESERVE_ADDCODE_URL = "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=seatChoose"
     const val LIBRART_RESERVE_FINAL_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=addSeatOrder"
 
@@ -35,4 +36,8 @@ object URLManager {
     const val VCARD_OPENID_URL = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
 
     const val VOLTIME_POST_URL = "https://www.dutbit.com/apivue/voltime/"
+
+    fun constructAvailableUrl(date:String, room:String):String {
+        return "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
+    }
 }

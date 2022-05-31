@@ -26,6 +26,7 @@ import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.tencent.bugly.crashreport.BuglyLog
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -84,7 +85,12 @@ class DetailActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
+                val sessionInitial: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
+                if (checkSession.isSuccess(sessionInitial)) {
+                    break
+                }
                 val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
+                BuglyLog.d("originalLtResponse", ltResponse)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"

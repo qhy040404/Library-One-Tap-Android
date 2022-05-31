@@ -96,8 +96,6 @@ class DetailActivity : StartUpActivity() {
                     ctSso
                 )
 
-                requests.get(URLManager.LIBRARY_SSO_URL)
-
                 val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()

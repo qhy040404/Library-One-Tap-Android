@@ -13,9 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.constant.URLManager.getQRUrl
 import com.qhy040404.libraryonetap.datamodel.CancelData
 import com.qhy040404.libraryonetap.datamodel.OrderListData
 import com.qhy040404.libraryonetap.datamodel.ReserveData
@@ -27,7 +25,6 @@ import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.tencent.bugly.crashreport.BuglyLog
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -83,7 +80,6 @@ class DetailActivity : StartUpActivity() {
             var timer = 0
             while (!loginSuccess) {
                 val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
-                BuglyLog.d("OriginalLtResponse", ltResponse)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
@@ -92,13 +88,12 @@ class DetailActivity : StartUpActivity() {
                 requests.post(
                     URLManager.LIBRARY_SSO_URL,
                     requests.loginPostData(id, passwd, ltData, rsa),
-                    ctSso
+                    GlobalValues.ctSso
                 )
 
                 requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
-                val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
-                BuglyLog.d("Session", session)
+                val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()
                     loginSuccess = true
@@ -168,7 +163,7 @@ class DetailActivity : StartUpActivity() {
                 enter.setOnClickListener {
                     val request =
                         Request.Builder()
-                            .url(getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
+                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
@@ -187,7 +182,7 @@ class DetailActivity : StartUpActivity() {
                 leave.setOnClickListener {
                     val request =
                         Request.Builder()
-                            .url(getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
+                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
@@ -206,7 +201,7 @@ class DetailActivity : StartUpActivity() {
                 tempLeave.setOnClickListener {
                     val request =
                         Request.Builder()
-                            .url(getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
+                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
                             .build()
                     val call = requests.client.newCall(request)
                     call.enqueue(object : Callback {
@@ -242,7 +237,7 @@ class DetailActivity : StartUpActivity() {
                                 requests.post(
                                     URLManager.LIBRARY_ORDER_CANCEL_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
-                                    ctSso
+                                    GlobalValues.ctSso
                                 )
                             )
                             AlertDialog.Builder(this@DetailActivity)
@@ -307,7 +302,7 @@ class DetailActivity : StartUpActivity() {
                             requests.post(
                                 URLManager.LIBRARY_ORDER_CANCEL_URL,
                                 "order_id=$order_id&order_type=2&method=Cancel",
-                                ctSso
+                                GlobalValues.ctSso
                             )
 
                             val addCodeOrigin = requests.post(

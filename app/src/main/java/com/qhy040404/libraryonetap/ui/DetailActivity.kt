@@ -26,6 +26,7 @@ import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.tencent.bugly.crashreport.BuglyLog
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -85,6 +86,7 @@ class DetailActivity : StartUpActivity() {
             var timer = 0
             while (!loginSuccess) {
                 val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
+                BuglyLog.d("OriginalLtResponse", ltResponse)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
@@ -96,7 +98,10 @@ class DetailActivity : StartUpActivity() {
                     ctSso
                 )
 
+                requests.get(URLManager.LIBRARY_SSO_URL)
+
                 val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
+                BuglyLog.d("Session", session)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()
                     loginSuccess = true

@@ -27,7 +27,6 @@ import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.tencent.bugly.crashreport.BuglyLog
-import kotlinx.coroutines.delay
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -86,7 +85,8 @@ class DetailActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val sessionInitial: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
+                val sessionInitial: String =
+                    requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 if (checkSession.isSuccess(sessionInitial)) {
                     break
                 }

@@ -20,7 +20,7 @@ object ReserveUtils {
     }
 
     fun formatAvailableMap(am: String): String {
-        return am.replace("\\ufeff\\r\\n\\r\\n[[", "").replace("]]\\r\\n\\r\\n\\r\\n\\r\\n", "")
+        return am.replace("\r\n\r\n[[", "").replace("]]\r\n\r\n\r\n\r\n", "")
             .replace("{", "").replace("}", "")
     }
 }

@@ -72,7 +72,7 @@ class BathReserveActivity : StartUpActivity() {
                 ctSso
             )
 
-            requests.get(URLManager.BATH_SSO_URL)
+            requests.get(URLManager.BATH_DIRECT_URL)
 
             textViewBath.text = getString(R.string.loaded)
 

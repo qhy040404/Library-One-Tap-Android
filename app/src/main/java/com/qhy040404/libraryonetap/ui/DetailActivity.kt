@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.constant.URLManager.getQRUrl
 import com.qhy040404.libraryonetap.datamodel.CancelData
 import com.qhy040404.libraryonetap.datamodel.OrderListData
 import com.qhy040404.libraryonetap.datamodel.ReserveData
@@ -43,10 +44,6 @@ class DetailActivity : StartUpActivity() {
         val textView: TextView = findViewById(R.id.textView)
         textView.visibility = View.VISIBLE
         Thread(Detail()).start()
-    }
-
-    private fun getQRUrl(method: String, id: String): String {
-        return "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
     }
 
     private inner class Detail : Runnable {
@@ -98,7 +95,7 @@ class DetailActivity : StartUpActivity() {
                     ctSso
                 )
 
-                requests.get(URLManager.LIBRARY_SSO_URL)
+                requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
                 val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 BuglyLog.d("Session", session)

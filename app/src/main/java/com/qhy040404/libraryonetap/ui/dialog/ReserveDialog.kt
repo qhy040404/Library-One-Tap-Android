@@ -118,7 +118,7 @@ class ReserveDialog {
                 GlobalValues.ctSso
             )
 
-            requests.get(URLManager.LIBRARY_SSO_URL)
+            requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
             val session: String = requests.post(
                 URLManager.LIBRARY_SESSION_URL, "",

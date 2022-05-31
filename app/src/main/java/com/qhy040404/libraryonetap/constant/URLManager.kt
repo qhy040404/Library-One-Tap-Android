@@ -6,6 +6,8 @@ object URLManager {
 
     const val LIBRARY_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
+    const val LIBRARY_LOGIN_DIRECT_URL =
+        "http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
     const val LIBRARY_SESSION_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=checkSession"
     const val LIBRARY_ORDER_LIST_URL =
@@ -27,6 +29,7 @@ object URLManager {
 
     const val BATH_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2F202.118.74.5%3A8193%2FopenHomeRJPage"
+    const val BATH_DIRECT_URL = "http://202.118.74.5:8193/openHomeRJPage"
     const val BATH_SAVE_CART_URL = "http://202.118.74.5:8193/goods/saveGoodsShopcar"
     const val BATH_UPDATE_CART_URL = "http://202.118.74.5:8193/goods/updateGoodsShopcar"
     const val BATH_MAIN_FUNC_URL = "http://202.118.74.5:8193/goods/queryNoChoiceTimeInfo"
@@ -40,5 +43,10 @@ object URLManager {
 
     fun constructAvailableUrl(date: String, room: String): String {
         return "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
+    }
+
+
+    fun getQRUrl(method: String, id: String): String {
+        return "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
     }
 }

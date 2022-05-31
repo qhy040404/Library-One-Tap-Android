@@ -26,17 +26,26 @@ object GetPortalData {
 
         var returnJson = ""
 
-        val ltResponse: String = requests.get(URLManager.PORTAL_SSO_URL)
-        val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+        var loginSuccess = false
 
-        val rawData = "$id$passwd$ltData"
-        val rsa: String = des.strEnc(rawData, "1", "2", "3")
+        while (!loginSuccess) {
+            val ltResponse: String = requests.get(URLManager.PORTAL_SSO_URL)
+            val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
-        requests.post(
-            URLManager.PORTAL_SSO_URL,
-            requests.loginPostData(id, passwd, ltData, rsa),
-            ctSso
-        )
+            val rawData = "$id$passwd$ltData"
+            val rsa: String = des.strEnc(rawData, "1", "2", "3")
+
+            requests.post(
+                URLManager.PORTAL_SSO_URL,
+                requests.loginPostData(id, passwd, ltData, rsa),
+                ctSso
+            )
+
+            val session = requests.get(URLManager.PORTAL_SSO_URL)
+            if ("统一身份" !in session) {
+                loginSuccess = true
+            }
+        }
 
         if (mode == 0) {
             returnJson =

@@ -72,6 +72,8 @@ class BathReserveActivity : StartUpActivity() {
                 ctSso
             )
 
+            requests.get(URLManager.BATH_SSO_URL)
+
             textViewBath.text = getString(R.string.loaded)
 
             reserve.setOnClickListener {

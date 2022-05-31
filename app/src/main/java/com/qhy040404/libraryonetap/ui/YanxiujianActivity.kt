@@ -77,6 +77,8 @@ class YanxiujianActivity : StartUpActivity() {
                     GlobalValues.ctSso
                 )
 
+                requests.get(URLManager.LIBRARY_SSO_URL)
+
                 val session: String =
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {

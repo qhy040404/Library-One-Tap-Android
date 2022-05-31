@@ -85,13 +85,7 @@ class DetailActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val sessionInitial: String =
-                    requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
-                if (checkSession.isSuccess(sessionInitial)) {
-                    break
-                }
                 val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
-                BuglyLog.d("originalLtResponse", ltResponse)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
@@ -102,6 +96,8 @@ class DetailActivity : StartUpActivity() {
                     requests.loginPostData(id, passwd, ltData, rsa),
                     ctSso
                 )
+
+                requests.get(URLManager.LIBRARY_SSO_URL)
 
                 val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", ctSso)
                 if (checkSession.isSuccess(session)) {

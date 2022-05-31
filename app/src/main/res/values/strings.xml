@@ -68,6 +68,7 @@
     <string name="reserve">给我整个座</string>
     <string name="random">随机</string>
     <string name="reset">重置预约</string>
+    <string name="confirmReset">请确认重置预约</string>
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡</string>

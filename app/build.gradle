@@ -1,6 +1,3 @@
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -61,7 +58,11 @@ dependencies {
     implementation("io.coil-kt:coil:2.1.0")
 }
 
+import java.text.SimpleDateFormat
+
 private static String getBuildTime() {
-    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-    return df.format(Calendar.getInstance(Locale.CHINA).getTime())
+    Date date = new Date()
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+    formatter.setTimeZone(TimeZone.getTimeZone("GMT+08:00"))
+    return formatter.format(date)
 }

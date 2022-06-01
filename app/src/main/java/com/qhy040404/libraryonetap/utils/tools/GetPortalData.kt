@@ -48,10 +48,18 @@ object GetPortalData {
 
         if (mode == 0) {
             returnJson =
-                requests.post(URLManager.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, GlobalValues.ctJson)
+                requests.post(
+                    URLManager.PORTAL_ELEC_URL,
+                    Constants.PORTAL_DEFAULT_POST,
+                    GlobalValues.ctJson
+                )
         } else if (mode == 1) {
             returnJson =
-                requests.post(URLManager.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, GlobalValues.ctJson)
+                requests.post(
+                    URLManager.PORTAL_NET_URL,
+                    Constants.PORTAL_DEFAULT_POST,
+                    GlobalValues.ctJson
+                )
         }
 
         return returnJson

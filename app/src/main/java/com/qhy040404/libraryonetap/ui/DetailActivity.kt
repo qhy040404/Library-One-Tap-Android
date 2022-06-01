@@ -67,7 +67,7 @@ class DetailActivity : StartUpActivity() {
             val cancel: Button = findViewById(R.id.button10)
             val reserve: Button = findViewById(R.id.button11)
             val reset: Button = findViewById(R.id.button9)
-            val tempReset:Button=findViewById(R.id.button14)
+            val tempReset: Button = findViewById(R.id.button14)
 
             val requests = Requests()
             val des = desEncrypt()

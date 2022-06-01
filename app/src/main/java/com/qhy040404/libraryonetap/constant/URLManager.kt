@@ -12,7 +12,7 @@ object URLManager {
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=checkSession"
     const val LIBRARY_ORDER_LIST_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderList&order=asc&offset=0&limit=15"
-    const val LIBRARY_ORDER_CANCEL_URL =
+    const val LIBRARY_ORDER_OPERATION_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=myOrderOperation"
     const val LIBRARY_QR_CERT_URL = "http://seat.lib.dlut.edu.cn/yanxiujian/client/2codecert.php?"
     const val LIBRARY_RESERVE_URL =

@@ -67,6 +67,7 @@ class DetailActivity : StartUpActivity() {
             val cancel: Button = findViewById(R.id.button10)
             val reserve: Button = findViewById(R.id.button11)
             val reset: Button = findViewById(R.id.button9)
+            val tempReset:Button=findViewById(R.id.button14)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -236,7 +237,7 @@ class DetailActivity : StartUpActivity() {
                         .setPositiveButton(R.string.justCancel) { _, _ ->
                             val message = CancelData().getMessage(
                                 requests.post(
-                                    URLManager.LIBRARY_ORDER_CANCEL_URL,
+                                    URLManager.LIBRARY_ORDER_OPERATION_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
                                     GlobalValues.ctSso
                                 )
@@ -304,8 +305,80 @@ class DetailActivity : StartUpActivity() {
                             }
 
                             requests.post(
-                                URLManager.LIBRARY_ORDER_CANCEL_URL,
+                                URLManager.LIBRARY_ORDER_OPERATION_URL,
                                 "order_id=$order_id&order_type=2&method=Cancel",
+                                GlobalValues.ctSso
+                            )
+
+                            val addCodeOrigin = requests.post(
+                                URLManager.LIBRARY_RESERVE_ADDCODE_URL,
+                                ReserveUtils.constructParaForAddCode(seat_id),
+                                GlobalValues.ctVCard
+                            )
+                            val addCode = reserveData.getAddCode(addCodeOrigin)
+                            requests.post(
+                                URLManager.LIBRART_RESERVE_FINAL_URL,
+                                ReserveUtils.constructParaForFinalReserve(addCode),
+                                GlobalValues.ctVCard
+                            )
+                            recreate()
+                        }
+                        .setNegativeButton(R.string.no) { _, _ -> }
+                        .setCancelable(false)
+                        .create()
+                        .show()
+                }
+                tempReset.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    AlertDialog.Builder(this@DetailActivity)
+                        .setMessage(R.string.confirmReset)
+                        .setTitle(R.string.library)
+                        .setPositiveButton(R.string.ok) { _, _ ->
+                            val reserveData = ReserveData()
+
+                            val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
+                            val targetSeat = "\"seat_label\":\"$seat_label\""
+                            var seat_id = ""
+
+                            val availableMap = ReserveUtils.formatAvailableMap(
+                                requests.get(
+                                    URLManager.constructAvailableUrl(
+                                        getToday(),
+                                        roomCode
+                                    )
+                                )
+                            )
+                            val amList = availableMap.split(",")
+
+                            for (element in amList) {
+                                if (element == targetSeat) {
+                                    if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
+                                            element
+                                        ) + 4] == Constants.RESERVE_HAS_PERSON
+                                    ) {
+                                        seat_id =
+                                            amList[amList.indexOf(element) - 1].replace(
+                                                "\"seat_id\":",
+                                                ""
+                                            )
+                                                .replace("\"", "")
+                                        break
+                                    }
+                                }
+                            }
+
+                            requests.post(
+                                URLManager.LIBRARY_ORDER_OPERATION_URL,
+                                "order_id=$order_id&order_type=2&method=Release",
                                 GlobalValues.ctSso
                             )
 

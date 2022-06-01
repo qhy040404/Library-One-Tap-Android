@@ -93,7 +93,8 @@ class DetailActivity : StartUpActivity() {
 
                 requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
-                val session: String = requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+                val session: String =
+                    requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()
                     loginSuccess = true
@@ -268,7 +269,7 @@ class DetailActivity : StartUpActivity() {
                     AlertDialog.Builder(this@DetailActivity)
                         .setMessage(R.string.confirmReset)
                         .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) {_,_ ->
+                        .setPositiveButton(R.string.ok) { _, _ ->
                             val reserveData = ReserveData()
 
                             val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
@@ -292,7 +293,10 @@ class DetailActivity : StartUpActivity() {
                                         ) + 4] == Constants.RESERVE_HAS_PERSON
                                     ) {
                                         seat_id =
-                                            amList[amList.indexOf(element) - 1].replace("\"seat_id\":", "")
+                                            amList[amList.indexOf(element) - 1].replace(
+                                                "\"seat_id\":",
+                                                ""
+                                            )
                                                 .replace("\"", "")
                                         break
                                     }
@@ -318,7 +322,7 @@ class DetailActivity : StartUpActivity() {
                             )
                             recreate()
                         }
-                        .setNegativeButton(R.string.no) {_,_ ->}
+                        .setNegativeButton(R.string.no) { _, _ -> }
                         .setCancelable(false)
                         .create()
                         .show()

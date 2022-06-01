@@ -62,7 +62,7 @@ import java.text.SimpleDateFormat
 
 private static String getBuildTime() {
     Date date = new Date()
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     formatter.setTimeZone(TimeZone.getTimeZone("GMT+08:00"))
     return formatter.format(date)
 }

@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.GlobalValues.ctVCard
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.template.StartUpActivity
 import com.qhy040404.libraryonetap.utils.tools.QRUtils
@@ -51,7 +50,7 @@ class VCardActivity : StartUpActivity() {
             val passwd: String = GlobalValues.passwd
 
             val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
-            requests.postVCard(URLManager.VCARD_API_URL, apiPostData, ctVCard)
+            requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
             val openid =
                 requests.getVCard(URLManager.VCARD_OPENID_URL)

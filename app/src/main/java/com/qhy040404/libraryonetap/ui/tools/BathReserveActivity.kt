@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.*
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.template.StartUpActivity
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
@@ -69,7 +68,7 @@ class BathReserveActivity : StartUpActivity() {
             requests.post(
                 URLManager.BATH_SSO_URL,
                 requests.loginPostData(id, passwd, ltData, rsa),
-                ctSso
+                GlobalValues.ctSso
             )
 
             requests.get(URLManager.BATH_DIRECT_URL)
@@ -92,10 +91,10 @@ class BathReserveActivity : StartUpActivity() {
                 val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, ctSso)
-                requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, ctSso)
-                requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, ctSso)
-                requests.post(URLManager.BATH_PAY_URL, payPostData, ctSso)
+                requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
+                requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
+                requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
+                requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
                 textViewBath.text = getString(R.string.sentRequest)
                 Looper.loop()
             }

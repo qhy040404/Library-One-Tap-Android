@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.GlobalValues.id
-import com.qhy040404.libraryonetap.constant.GlobalValues.passwd
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
@@ -109,12 +107,12 @@ class ReserveDialog {
             val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
-            val rawData = "$id$passwd$ltData"
+            val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
             requests.post(
                 URLManager.LIBRARY_SSO_URL,
-                requests.loginPostData(id, passwd, ltData, rsa),
+                requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
                 GlobalValues.ctSso
             )
 

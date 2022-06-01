@@ -45,7 +45,6 @@ object URLManager {
         return "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
     }
 
-
     fun getQRUrl(method: String, id: String): String {
         return "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
     }

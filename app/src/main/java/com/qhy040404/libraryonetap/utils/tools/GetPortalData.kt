@@ -2,8 +2,7 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalValues.ctJson
-import com.qhy040404.libraryonetap.constant.GlobalValues.ctSso
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -38,7 +37,7 @@ object GetPortalData {
             requests.post(
                 URLManager.PORTAL_SSO_URL,
                 requests.loginPostData(id, passwd, ltData, rsa),
-                ctSso
+                GlobalValues.ctSso
             )
 
             val session = requests.get(URLManager.PORTAL_SSO_URL)
@@ -49,10 +48,10 @@ object GetPortalData {
 
         if (mode == 0) {
             returnJson =
-                requests.post(URLManager.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
+                requests.post(URLManager.PORTAL_ELEC_URL, Constants.PORTAL_DEFAULT_POST, GlobalValues.ctJson)
         } else if (mode == 1) {
             returnJson =
-                requests.post(URLManager.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, ctJson)
+                requests.post(URLManager.PORTAL_NET_URL, Constants.PORTAL_DEFAULT_POST, GlobalValues.ctJson)
         }
 
         return returnJson

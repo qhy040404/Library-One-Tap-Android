@@ -103,3 +103,6 @@
 -keep class com.drakeet.multitype.**{*;}
 -keep class com.drakeet.about.**{*;}
 -keep class rikka.**{*;}
+
+-keep class com.bumptech.glide.**{*;}
+-keep class com.squareup.picasso.**{*;}

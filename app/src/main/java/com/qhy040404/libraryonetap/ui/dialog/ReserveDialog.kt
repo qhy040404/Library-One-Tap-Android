@@ -126,9 +126,9 @@ class ReserveDialog {
             )
             if (checkSession.isSuccess(session)) {
                 loginSuccess = true
-                Toast.makeText(ctx, R.string.loaded, Toast.LENGTH_LONG).show()
+                Toast.makeText(ctx, R.string.loaded, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(ctx, R.string.logFail, Toast.LENGTH_LONG).show()
+                Toast.makeText(ctx, R.string.logFail, Toast.LENGTH_SHORT).show()
             }
         }
         val addCodeOrigin =

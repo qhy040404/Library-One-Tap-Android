@@ -82,11 +82,11 @@ class YanxiujianActivity : StartUpActivity() {
                 val session: String =
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
-                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_LONG)
+                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT)
                         .show()
                     loginSuccess = true
                 } else {
-                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_LONG)
+                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_SHORT)
                         .show()
                     timer++
                     if (timer >= 3) {

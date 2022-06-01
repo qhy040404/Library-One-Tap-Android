@@ -96,10 +96,10 @@ class DetailActivity : StartUpActivity() {
                 val session: String =
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
-                    Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
                     loginSuccess = true
                 } else {
-                    Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_SHORT).show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@DetailActivity)

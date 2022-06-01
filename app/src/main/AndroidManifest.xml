@@ -66,6 +66,9 @@
         <meta-data
             android:name="channel"
             android:value="${CHANNEL}" />
+        <meta-data
+            android:name="build_time"
+            android:value="${BUILD_TIME}" />
     </application>
 
 </manifest>

@@ -1,3 +1,6 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -15,7 +18,7 @@ android {
         versionName "2.6.4"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
-        manifestPlaceholders = [CHANNEL: "release"]
+        manifestPlaceholders = [CHANNEL: "release", BUILD_TIME: getBuildTime()]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,4 +59,9 @@ dependencies {
     implementation("com.drakeet.about:about:2.5.1")
     implementation("com.drakeet.multitype:multitype:4.3.0")
     implementation("io.coil-kt:coil:2.1.0")
+}
+
+private static String getBuildTime() {
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    return df.format(Calendar.getInstance(Locale.CHINA).getTime())
 }

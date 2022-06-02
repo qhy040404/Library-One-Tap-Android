@@ -5,4 +5,10 @@
     ":disableRateLimiting",
     ":label(automatic)"
   ]
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }

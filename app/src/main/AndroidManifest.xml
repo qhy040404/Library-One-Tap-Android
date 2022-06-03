@@ -72,6 +72,9 @@
         <meta-data
             android:name="Build_Host"
             android:value="${BUILD_HOST}" />
+        <meta-data
+            android:name="Commit"
+            android:value="${COMMIT}" />
     </application>
 
 </manifest>

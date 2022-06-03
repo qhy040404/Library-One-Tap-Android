@@ -15,7 +15,7 @@ android {
         versionName "2.7.2"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
-        manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost()]
+        manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost(), COMMIT: getGitCommitHash()]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -78,4 +78,26 @@ private String getBuildType() {
 
 private static String getBuildHost() {
     return InetAddress.getLocalHost().getHostName()
+}
+
+private static String getGitCommitHash() {
+    Runtime runtime = Runtime.getRuntime()
+    Process process = null
+    try {
+        process = runtime.exec("git rev-parse HEAD")
+        String line = null
+        BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))
+        while ((line=input.readLine())!=null) {
+            if (process!=null){
+                process.destroy()
+            }
+            return line
+        }
+    } catch (Exception e) {
+        e.printStackTrace()
+    } finally {
+        if (process!=null){
+            process.destroy()
+        }
+    }
 }

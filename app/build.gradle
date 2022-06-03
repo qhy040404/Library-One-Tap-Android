@@ -87,8 +87,8 @@ private static String getGitCommitHash() {
         process = runtime.exec("git rev-parse HEAD")
         String line = null
         BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))
-        while ((line=input.readLine())!=null) {
-            if (process!=null){
+        while ((line = input.readLine()) != null) {
+            if (process != null) {
                 process.destroy()
             }
             return line
@@ -96,7 +96,7 @@ private static String getGitCommitHash() {
     } catch (Exception e) {
         e.printStackTrace()
     } finally {
-        if (process!=null){
+        if (process != null) {
             process.destroy()
         }
     }

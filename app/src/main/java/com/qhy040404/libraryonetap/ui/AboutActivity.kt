@@ -32,7 +32,12 @@ class AboutActivity : AbsAboutActivity() {
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
         icon.load(R.mipmap.launcher_lol)
         slogan.text = getString(R.string.about_slogan)
-        version.text = String.format("%s v%s(%d)", PackageUtils.buildType, PackageUtils.versionName, PackageUtils.versionCode)
+        version.text = String.format(
+            "%s v%s(%d)",
+            PackageUtils.buildType,
+            PackageUtils.versionName,
+            PackageUtils.versionCode
+        )
 
         icon.setOnClickListener {
             headCount++

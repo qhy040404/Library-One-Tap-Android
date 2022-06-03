@@ -68,7 +68,7 @@ private static String getBuildTime() {
 }
 
 private String getBuildType() {
-    for (String s: gradle.startParameter.taskNames) {
+    for (String s : gradle.startParameter.taskNames) {
         if (s.contains("Release") | s.contains("release")) {
             return "Release"
         }

@@ -160,6 +160,10 @@ class DetailActivity : StartUpActivity() {
                     order_process = getString(R.string.inside)
                 } else if (order_process.equals("暂离")) {
                     order_process = getString(R.string.outside)
+tempReset.post{
+tempReset.visibility=View.VISIBLE
+tempReset.isClickable=true
+}
                 }
 
                 enter.setOnClickListener {

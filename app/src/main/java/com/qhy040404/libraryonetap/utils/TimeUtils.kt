@@ -9,10 +9,9 @@ fun getToday(): String {
 }
 
 fun timeSingleToDouble(sTime: Int): String {
-    val resultTime: String = if (sTime >= 10) {
+    return if (sTime >= 10) {
         sTime.toString()
     } else {
         "0$sTime"
     }
-    return resultTime
 }

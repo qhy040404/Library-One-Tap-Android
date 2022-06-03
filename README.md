@@ -2,6 +2,8 @@
 
 一个便于打开离退/暂离页面的小程序
 
+![Alt](https://repobeats.axiom.co/api/embed/cdc58a2fe3912d736bd80f7a85a46d130ce57fb5.svg "Repobeats analytics image")
+
 [![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android/badge)](https://www.codefactor.io/repository/github/qhy040404/Library-One-Tap-Android)
 [![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/Library-One-Tap-Android.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/commits)
 [![License](https://img.shields.io/github/license/qhy040404/Library-One-Tap-Android.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/Library-One-Tap-Android/blob/master/LICENSE)

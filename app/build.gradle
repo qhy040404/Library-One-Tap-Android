@@ -15,7 +15,7 @@ android {
         versionName "2.7.1"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
-        manifestPlaceholders = [CHANNEL: "release", BUILD_TIME: getBuildTime()]
+        manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost()]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -65,4 +65,17 @@ private static String getBuildTime() {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     formatter.setTimeZone(TimeZone.getTimeZone("GMT+08:00"))
     return formatter.format(date)
+}
+
+private String getBuildType() {
+    for (String s: gradle.startParameter.taskNames) {
+        if (s.contains("Release") | s.contains("release")) {
+            return "Release"
+        }
+    }
+    return "Debug"
+}
+
+private static String getBuildHost() {
+    return InetAddress.getLocalHost().getHostName()
 }

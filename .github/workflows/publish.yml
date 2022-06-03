@@ -41,7 +41,7 @@ jobs:
         uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Check
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v2.1.5
         with:
           arguments: lintAnalyzeRelease
 
@@ -61,7 +61,7 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v2.1.5
         with:
           arguments: assembleRelease
 

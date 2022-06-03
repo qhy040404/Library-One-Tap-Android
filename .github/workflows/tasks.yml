@@ -1,11 +1,11 @@
-name: Android CI
+name: Gradle tasks
 
 on:
   workflow_dispatch:
 
 jobs:
-  check:
-    name: Check
+  tasks:
+    name: Gradle tasks
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

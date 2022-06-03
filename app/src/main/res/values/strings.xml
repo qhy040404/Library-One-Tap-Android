@@ -19,6 +19,7 @@
     <string name="yanxiujian">研修间</string>
     <string name="tools">工具箱</string>
     <string name="quit">退出</string>
+    <string name="dog_iv" translatable="false">Dog</string>
 
     <!-- SETTING -->
     <string name="basic_information">基本信息</string>

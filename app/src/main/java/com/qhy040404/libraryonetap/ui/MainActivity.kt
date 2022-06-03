@@ -55,6 +55,10 @@ class MainActivity : StartUpActivity() {
             var b5 = true
 
             val versionView: TextView = findViewById(R.id.textView5)
+            val detail:Button = findViewById(R.id.button)
+            val yxj:Button = findViewById(R.id.button8)
+            val tools:Button = findViewById(R.id.button13)
+            val settings:Button = findViewById(R.id.button2)
             val dog: ImageView = findViewById(R.id.imageView4)
             val exit: Button = findViewById(R.id.button3)
 
@@ -94,6 +98,27 @@ class MainActivity : StartUpActivity() {
                 }
             }
 
+            detail.setOnClickListener {
+                startActivity(Intent(this@MainActivity, DetailActivity::class.java))
+            }
+
+            yxj.setOnClickListener {
+                startActivity(Intent(this@MainActivity, YanxiujianActivity::class.java))
+            }
+
+            tools.setOnClickListener {
+                startActivity(Intent(this@MainActivity, ToolsInitActivity::class.java))
+            }
+
+            settings.setOnClickListener {
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+                this@MainActivity.finish()
+            }
+
+            exit.setOnClickListener {
+                LibraryOneTapApp.instance?.exit()
+            }
+
             exit.setOnLongClickListener {
                 LibraryOneTapApp.instance?.exit()
                 exitProcess(0)
@@ -101,18 +126,4 @@ class MainActivity : StartUpActivity() {
             Looper.loop()
         }
     }
-
-    fun buttonOpenDetail(view: View) = startActivity(Intent(this, DetailActivity::class.java))
-
-    fun buttonOpenSettings(view: View) {
-        startActivity(Intent(this, SettingsActivity::class.java))
-        finish()
-    }
-
-    fun buttonYanxiujian(view: View) = startActivity(Intent(this, YanxiujianActivity::class.java))
-
-    fun buttonTools(view: View) = startActivity(Intent(this, ToolsInitActivity::class.java))
-
-    fun buttonExit(view: View) = LibraryOneTapApp.instance?.exit()
-
 }

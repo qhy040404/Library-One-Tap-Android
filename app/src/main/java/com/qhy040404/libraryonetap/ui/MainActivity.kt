@@ -55,10 +55,10 @@ class MainActivity : StartUpActivity() {
             var b5 = true
 
             val versionView: TextView = findViewById(R.id.textView5)
-            val detail:Button = findViewById(R.id.button)
-            val yxj:Button = findViewById(R.id.button8)
-            val tools:Button = findViewById(R.id.button13)
-            val settings:Button = findViewById(R.id.button2)
+            val detail: Button = findViewById(R.id.button)
+            val yxj: Button = findViewById(R.id.button8)
+            val tools: Button = findViewById(R.id.button13)
+            val settings: Button = findViewById(R.id.button2)
             val dog: ImageView = findViewById(R.id.imageView4)
             val exit: Button = findViewById(R.id.button3)
 

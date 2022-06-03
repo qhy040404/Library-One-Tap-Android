@@ -7,7 +7,6 @@ import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.MediaType
-import java.util.*
 
 const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
 
@@ -23,7 +22,7 @@ object GlobalValues {
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
-    var locale:String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
+    var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
 
     // MediaType
     val ctJson: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_JSON)

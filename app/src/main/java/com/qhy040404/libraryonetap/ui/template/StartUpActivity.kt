@@ -26,11 +26,13 @@ abstract class StartUpActivity : AppCompatActivity() {
             "green" -> setTheme(R.style.Theme_Green)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
-        config.setLocale(when (GlobalValues.locale) {
-            "zh" -> Locale.SIMPLIFIED_CHINESE
-            "en" -> Locale.ENGLISH
-            else -> Locale.getDefault()
-        })
+        config.setLocale(
+            when (GlobalValues.locale) {
+                "zh" -> Locale.SIMPLIFIED_CHINESE
+                "en" -> Locale.ENGLISH
+                else -> Locale.getDefault()
+            }
+        )
         resources.updateConfiguration(config, dm)
 
         super.onCreate(savedInstanceState)

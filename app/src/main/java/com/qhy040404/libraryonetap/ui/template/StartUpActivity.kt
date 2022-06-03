@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import java.util.*
 
 abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,11 @@ abstract class StartUpActivity : AppCompatActivity() {
             "green" -> setTheme(R.style.Theme_Green)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
-        config.setLocale(GlobalValues.locale)
+        config.setLocale(when (GlobalValues.locale) {
+            "zh" -> Locale.SIMPLIFIED_CHINESE
+            "en" -> Locale.ENGLISH
+            else -> Locale.getDefault()
+        })
         resources.updateConfiguration(config, dm)
 
         super.onCreate(savedInstanceState)

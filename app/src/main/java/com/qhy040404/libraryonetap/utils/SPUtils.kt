@@ -6,7 +6,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.SP_NAME
 
 object SPUtils {
-    val sp: SharedPreferences =
+    private val sp: SharedPreferences =
         LibraryOneTapApp.app.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
 
     fun <T> getValue(name: String, default: T): T = with(sp) {

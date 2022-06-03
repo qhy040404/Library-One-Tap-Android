@@ -1,0 +1,27 @@
+name: Android CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Set up java
+        uses: actions/setup-java@v3.3.0
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1.0.4
+
+      - name: Show Gradle tasks
+        uses: gradle/gradle-build-action@v2.1.7
+        with:
+          arguments: tasks

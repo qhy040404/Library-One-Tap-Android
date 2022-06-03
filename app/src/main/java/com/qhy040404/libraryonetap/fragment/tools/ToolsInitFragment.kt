@@ -22,7 +22,6 @@ import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.tencent.bugly.crashreport.BuglyLog
 
 class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -109,8 +108,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             val data: String = GetPortalData.getPortalData(id, passwd, 1)
 
-            BuglyLog.d("netOriginalData", data)
-
             val remainFee = netData.getFee(data)
             val usedNet = netData.getDynamicUsedFlow(data)
             val remainNet = netData.getDynamicRemainFlow(data)
@@ -151,8 +148,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val passwd: String = GlobalValues.passwd
 
             val data: String = GetPortalData.getPortalData(id, passwd, 0)
-
-            BuglyLog.d("elecOriginalData", data)
 
             val SSMC = electricData.getSSMC(data)
             val remainElectric = electricData.getResele(data)

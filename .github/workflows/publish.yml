@@ -11,6 +11,8 @@ on:
       - '**.md'
       - 'LICENSE'
       - 'NOTICE'
+      - '.github/workflows/issue.yml'
+      - '.github/workflows/tasks.yml'
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -21,6 +23,8 @@ on:
       - '**.md'
       - 'LICENSE'
       - 'NOTICE'
+      - '.github/workflows/issue.yml'
+      - '.github/workflows/tasks.yml'
 
 jobs:
   check:

@@ -10,7 +10,7 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/qhy040404/Library-One-Tap-Android)
 
-[Updatelog](Updatelog.md)
+[Changelog](Changelog.md)
 
 > 每次在图书馆门口站半天就是为了把二维码打开，这个快多了:dog:
 

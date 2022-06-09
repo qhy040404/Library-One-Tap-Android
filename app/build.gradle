@@ -11,8 +11,8 @@ android {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
         targetSdk 32
-        versionCode 493
-        versionName "2.7.2"
+        versionCode 512
+        versionName "2.7.3-Pre"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
         manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost(), COMMIT: getGitCommitHash()]
@@ -70,7 +70,7 @@ private static String getBuildTime() {
 private String getBuildType() {
     for (String s : gradle.startParameter.taskNames) {
         if (s.contains("Release") | s.contains("release")) {
-            if ("pre" in android.defaultConfig.versionName) {
+            if ("pre" in android.defaultConfig.versionName | "Pre" in android.defaultConfig.versionName) {
                 return "Pre-release"
             }
             return "Release"

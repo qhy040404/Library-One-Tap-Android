@@ -17,8 +17,6 @@ class LibraryOneTapApp : Application() {
 
         CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID, BuildConfig.DEBUG, strategy)
         app = this
-
-        CrashReport.testJavaCrash()
     }
 
     fun addActivity(activity: Activity) = activityList.add(activity)

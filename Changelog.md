@@ -1,5 +1,12 @@
 # Changelog
 
+v2.7.3-Pre ( *Test* )
+
+* 测试新版本Kotlin
+* 移除了过时的logger
+* 添加了`Pre-release`的显示
+* 修改部分元数据
+
 v2.7.2
 
 * 主页面和关于页面现在会显示使用的是`Release`版本还是`Debug`版本

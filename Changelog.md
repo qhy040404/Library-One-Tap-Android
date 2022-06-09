@@ -1,5 +1,12 @@
 # Changelog
 
+v2.7.3
+
+* 升级Kotlin (1.6.21 -> 1.7.0)
+* 移除了过时的logger
+* 添加了`Pre-release`的显示
+* 修改部分元数据
+
 v2.7.3-Pre ( *Test* )
 
 * 测试新版本Kotlin

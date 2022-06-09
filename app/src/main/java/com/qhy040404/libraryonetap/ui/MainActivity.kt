@@ -13,7 +13,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
-import com.qhy040404.libraryonetap.ui.template.StartUpActivity
+import com.qhy040404.libraryonetap.view.StartUpActivity
 import com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import kotlin.system.exitProcess

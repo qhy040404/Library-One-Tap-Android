@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.ui.secret
 
 import android.net.Uri
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.ui.template.StartUpActivity
+import com.qhy040404.libraryonetap.view.StartUpActivity
 import com.qhy040404.libraryonetap.view.ModifiedVideoView
 
 class SecretActivity : StartUpActivity() {

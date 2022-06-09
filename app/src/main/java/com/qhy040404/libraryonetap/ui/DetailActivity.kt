@@ -19,7 +19,7 @@ import com.qhy040404.libraryonetap.datamodel.OrderListData
 import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
-import com.qhy040404.libraryonetap.ui.template.StartUpActivity
+import com.qhy040404.libraryonetap.view.StartUpActivity
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday

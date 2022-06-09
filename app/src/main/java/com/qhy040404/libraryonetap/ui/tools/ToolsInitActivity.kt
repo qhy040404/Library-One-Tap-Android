@@ -7,7 +7,7 @@ import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.fragment.tools.ToolsInitFragment
-import com.qhy040404.libraryonetap.ui.template.StartUpActivity
+import com.qhy040404.libraryonetap.view.StartUpActivity
 
 class ToolsInitActivity : StartUpActivity() {
     override fun init() {

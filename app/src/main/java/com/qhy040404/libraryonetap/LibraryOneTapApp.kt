@@ -2,10 +2,7 @@ package com.qhy040404.libraryonetap
 
 import android.app.Activity
 import android.app.Application
-import com.dylanc.loadingstateview.LoadingStateDelegate
-import com.dylanc.loadingstateview.LoadingStateView
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.utils.LoadingViewDelegate
 import com.tencent.bugly.crashreport.CrashReport
 import java.util.*
 

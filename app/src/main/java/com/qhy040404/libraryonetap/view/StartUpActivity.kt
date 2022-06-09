@@ -13,7 +13,8 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import java.util.*
 
-abstract class StartUpActivity : AppCompatActivity(), LoadingState by LoadingStateDelegate(), OnReloadListener, Decorative{
+abstract class StartUpActivity : AppCompatActivity(), LoadingState by LoadingStateDelegate(),
+    OnReloadListener, Decorative {
     override fun onCreate(savedInstanceState: Bundle?) {
         val config = resources.configuration
         val dm = resources.displayMetrics

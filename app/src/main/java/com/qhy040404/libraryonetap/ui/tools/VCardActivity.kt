@@ -11,9 +11,9 @@ import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.view.StartUpActivity
 import com.qhy040404.libraryonetap.utils.tools.QRUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.qhy040404.libraryonetap.view.StartUpActivity
 
 class VCardActivity : StartUpActivity() {
     override fun init() = initView()

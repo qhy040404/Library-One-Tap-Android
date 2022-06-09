@@ -70,6 +70,9 @@ private static String getBuildTime() {
 private String getBuildType() {
     for (String s : gradle.startParameter.taskNames) {
         if (s.contains("Release") | s.contains("release")) {
+            if ("pre" in android.defaultConfig.versionName) {
+                return "Pre-release"
+            }
             return "Release"
         }
     }

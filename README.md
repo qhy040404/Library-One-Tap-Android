@@ -8,6 +8,12 @@
 [![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/Library-One-Tap-Android.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/commits)
 [![License](https://img.shields.io/github/license/qhy040404/Library-One-Tap-Android.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/Library-One-Tap-Android/blob/master/LICENSE)
 
+[![GitHub stable release version](https://img.shields.io/github/v/release/qhy040404/Library-One-Tap-Android.svg?label=Stable&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/releases/latest)
+[![GitHub stable release date](https://img.shields.io/github/release-date/qhy040404/Library-One-Tap-Android.svg?label=Released&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/releases/latest)
+
+[![GitHub experimental release version](https://img.shields.io/github/v/release/qhy040404/Library-One-Tap-Android?include_prereleases&label=Experimental&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/releases)
+[![GitHub experimental release date](https://img.shields.io/github/release-date-pre/qhy040404/Library-One-Tap-Android.svg?label=Released&logo=github&cacheSeconds=600)](https://github.com/qhy040404/Library-One-Tap-Android/releases)
+
 ![GitHub top language](https://img.shields.io/github/languages/top/qhy040404/Library-One-Tap-Android)
 
 [Changelog](Changelog.md)

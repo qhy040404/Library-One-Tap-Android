@@ -21,9 +21,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
         }
     }
     compileOptions {
@@ -83,6 +88,7 @@ private static String getBuildHost() {
     return InetAddress.getLocalHost().getHostName()
 }
 
+@SuppressWarnings('GroovyUnusedAssignment')
 private static String getGitCommitHash() {
     Runtime runtime = Runtime.getRuntime()
     Process process = null

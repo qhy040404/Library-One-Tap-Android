@@ -12,7 +12,10 @@ class LibraryOneTapApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID, false)
+        val strategy = CrashReport.UserStrategy(applicationContext)
+        strategy.appChannel = BuildConfig.CHANNEL
+
+        CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID, BuildConfig.DEBUG, strategy)
         app = this
     }
 

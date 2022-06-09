@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.dylanc.loadingstateview.Decorative
-import com.dylanc.loadingstateview.LoadingState
-import com.dylanc.loadingstateview.LoadingStateDelegate
-import com.dylanc.loadingstateview.OnReloadListener
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import java.util.*
 
-abstract class StartUpActivity : AppCompatActivity(), LoadingState by LoadingStateDelegate(),
-    OnReloadListener, Decorative {
+abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val config = resources.configuration
         val dm = resources.displayMetrics

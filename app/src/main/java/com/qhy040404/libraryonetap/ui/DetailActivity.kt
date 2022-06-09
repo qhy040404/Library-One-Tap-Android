@@ -5,10 +5,7 @@ import android.graphics.BitmapFactory
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -68,6 +65,7 @@ class DetailActivity : StartUpActivity() {
             val reserve: Button = findViewById(R.id.button11)
             val reset: Button = findViewById(R.id.button9)
             val tempReset: Button = findViewById(R.id.button14)
+            val progressBar:ProgressBar=findViewById(R.id.progressBar)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -98,6 +96,7 @@ class DetailActivity : StartUpActivity() {
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
+                    progressBar.post { progressBar.visibility = View.INVISIBLE }
                     loginSuccess = true
                 } else {
                     Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_SHORT).show()

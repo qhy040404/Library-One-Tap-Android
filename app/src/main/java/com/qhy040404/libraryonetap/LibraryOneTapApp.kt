@@ -15,7 +15,12 @@ class LibraryOneTapApp : Application() {
         val strategy = CrashReport.UserStrategy(applicationContext)
         strategy.appChannel = BuildConfig.CHANNEL
 
-        CrashReport.initCrashReport(applicationContext, Constants.BUGLY_APPID, BuildConfig.DEBUG, strategy)
+        CrashReport.initCrashReport(
+            applicationContext,
+            Constants.BUGLY_APPID,
+            BuildConfig.DEBUG,
+            strategy
+        )
         app = this
     }
 

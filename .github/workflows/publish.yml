@@ -50,6 +50,11 @@ jobs:
         with:
           arguments: lintAnalyzeDebug
 
+      - name: Check_Pre-release
+        uses: gradle/gradle-build-action@v2.2.0
+        with:
+          arguments: lintAnalyzePre-release
+
       - name: Check_release
         uses: gradle/gradle-build-action@v2.2.0
         with:
@@ -94,9 +99,53 @@ jobs:
           name: signed_debug_apk
           path: ${{ steps.signStep.outputs.signedReleaseFile }}
 
+  build_pre-release:
+    name: Build_Pre-release
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && contains(github.ref, 'Pre') && !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    needs: check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Set up java
+        uses: actions/setup-java@v3.3.0
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v2.2.0
+        with:
+          arguments: assemblePre-release
+
+      - name: Rename unsigned apk
+        run: |
+          sudo apt-get install rename -y
+          rename 's/-unsigned.apk/.apk/' app/build/outputs/apk/pre-release/*
+
+      - name: Sign apk release
+        id: signStep
+        uses: r0adkll/sign-android-release@v1.0.4
+        env:
+          BUILD_TOOLS_VERSION: "32.0.0"
+        with:
+          releaseDirectory: app/build/outputs/apk/pre-release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_PASS }}
+          keyPassword: ${{ secrets.KEY_PASS }}
+
+      - name: Upload signed apk
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: signed_pre_release_apk
+          path: ${{ steps.signStep.outputs.signedReleaseFile }}
+
   build_release:
     name: Build_Release
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !contains(github.ref, 'Pre') && !startsWith(github.event.head_commit.message, '[skip ci]') }}
     needs: check
     runs-on: ubuntu-latest
 
@@ -137,6 +186,69 @@ jobs:
         with:
           name: signed_release_apk
           path: ${{ steps.signStep.outputs.signedReleaseFile }}
+
+  pre-release:
+    name: Pre-release
+    needs: build_pre-release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Download signed release apk
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: signed_pre_release_apk
+          path: upload
+
+      - name: Generate SHA-512 checksums
+        shell: sh
+        run: |
+          set -eu
+          (
+            cd "upload"
+
+            sha512sum *.apk > SHA512SUMS
+          )
+
+      - name: Upload SHA512SUMS
+        continue-on-error: true
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: SHA512SUMS
+          path: upload/SHA512SUMS
+
+      - name: Create Github release
+        id: github_release
+        uses: actions/create-release@v1.1.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: v${{ github.ref }}
+          body_path: .github/RELEASE_TEMPLATE.md
+          prerelease: true
+
+      - name: Upload apk to Github release
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
+        with:
+          upload_url: ${{ steps.github_release.outputs.upload_url }}
+          asset_path: upload/Library-One-Tap_v${{ github.ref_name }}-pre-release-signed.apk
+          asset_name: Library-One-Tap_v${{ github.ref_name }}-pre-release-signed.apk
+          asset_content_type: application/vnd.android.package-archive
+
+      - name: Upload SHA512SUMS to GitHub release
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
+        with:
+          upload_url: ${{ steps.github_release.outputs.upload_url }}
+          asset_path: upload/SHA512SUMS
+          asset_name: SHA512SUMS
+          asset_content_type: text/plain
 
   release:
     name: Release
@@ -179,7 +291,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: v${{ github.ref }}
           body_path: .github/RELEASE_TEMPLATE.md
-          prerelease: true
+          prerelease: false
 
       - name: Upload apk to Github release
         uses: actions/upload-release-asset@v1.0.2

@@ -1,5 +1,10 @@
 # Changelog
 
+v2.7.4-Pre
+
+* targetApi升级至33 （Tiramisu）
+* 修改了部分UI
+
 v2.7.3
 
 * 升级Kotlin (1.6.21 -> 1.7.0)

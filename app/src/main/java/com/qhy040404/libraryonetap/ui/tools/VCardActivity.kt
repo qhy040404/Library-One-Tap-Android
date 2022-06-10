@@ -46,7 +46,7 @@ class VCardActivity : StartUpActivity() {
             val imageView: ImageView = findViewById(R.id.imageView3)
             val textView: TextView = findViewById(R.id.textView4)
             val refresh: Button = findViewById(R.id.button18)
-            val progressBar:ProgressBar = findViewById(R.id.progressBar3)
+            val progressBar: ProgressBar = findViewById(R.id.progressBar3)
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
@@ -72,7 +72,7 @@ class VCardActivity : StartUpActivity() {
                     .split("\">")[0]
             val qr = Base64.decode(qrBase64, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-            progressBar.post { progressBar.visibility=View.INVISIBLE }
+            progressBar.post { progressBar.visibility = View.INVISIBLE }
             imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(bitmap)) }
             textView.text = qrInformation
             refresh.setOnClickListener {

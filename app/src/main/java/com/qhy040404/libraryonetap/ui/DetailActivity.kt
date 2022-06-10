@@ -65,7 +65,7 @@ class DetailActivity : StartUpActivity() {
             val reserve: Button = findViewById(R.id.button11)
             val reset: Button = findViewById(R.id.button9)
             val tempReset: Button = findViewById(R.id.button14)
-            val progressBar:ProgressBar=findViewById(R.id.progressBar)
+            val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
             val requests = Requests()
             val des = desEncrypt()

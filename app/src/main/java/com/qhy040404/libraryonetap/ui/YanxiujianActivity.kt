@@ -50,7 +50,7 @@ class YanxiujianActivity : StartUpActivity() {
             val textView2: TextView = findViewById(R.id.textView2)
             val imageView2: ImageView = findViewById(R.id.imageView2)
             val refresh2: Button = findViewById(R.id.button12)
-            val progressBar2:ProgressBar = findViewById(R.id.progressBar2)
+            val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
 
             val requests = Requests()
             val des = desEncrypt()
@@ -80,11 +80,13 @@ class YanxiujianActivity : StartUpActivity() {
                 val session: String =
                     requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
-                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT)
+                        .show()
                     progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                     loginSuccess = true
                 } else {
-                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_SHORT)
+                        .show()
                     timer++
                     if (timer >= 3) {
                         AlertDialog.Builder(this@YanxiujianActivity)

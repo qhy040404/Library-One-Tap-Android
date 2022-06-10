@@ -1,6 +1,12 @@
 # Changelog
 
-v2.7.4-Pre
+v2.7.5
+
+* targetApi升级至33 （Tiramisu）
+* 修改了部分UI
+* 常规优化
+
+v2.7.4-Pre ( *Test* )
 
 * targetApi升级至33 （Tiramisu）
 * 修改了部分UI

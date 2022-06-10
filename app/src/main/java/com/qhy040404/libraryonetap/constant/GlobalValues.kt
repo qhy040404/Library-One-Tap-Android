@@ -13,7 +13,7 @@ const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
 object GlobalValues {
     // App
     val version =
-        LibraryOneTapApp.app.getString(R.string.app_name) + " " + PackageUtils.buildType + " " + PackageUtils.versionName + "(${PackageUtils.versionCode})"
+        LibraryOneTapApp.app.getString(R.string.app_name) + " " + PackageUtils.buildType + " " + PackageUtils.versionName + " (${PackageUtils.versionCode})"
 
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)

@@ -49,7 +49,7 @@
     <string name="no">取消</string>
     <string name="sameData">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="hours">" 小时"</string>
-    <string name="reserved">已发送预约请求，请刷新数据</string>
+    <string name="reserved">已发送预约请求</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>

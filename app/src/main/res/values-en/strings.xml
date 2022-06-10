@@ -49,7 +49,7 @@
     <string name="no">Cancel</string>
     <string name="sameData">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="hours">" hours"</string>
-    <string name="reserved">Reserve request has been sent\nPress refresh</string>
+    <string name="reserved">Reserve request has been sent</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>

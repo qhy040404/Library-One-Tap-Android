@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.ui.dialog
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.app.Activity
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +22,7 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
     @SuppressLint("InflateParams")
-    fun showAlertDialog(ctx: Context) {
+    fun showAlertDialog(ctx: Activity) {
         val view = LayoutInflater.from(ctx).inflate(R.layout.dialog_reserve, null)
         val areaSpinner = view.findViewById<Spinner>(R.id.spinner3)
         val roomSpinner = view.findViewById<Spinner>(R.id.spinner4)
@@ -74,7 +74,7 @@ class ReserveDialog {
                 AlertDialog.Builder(ctx)
                     .setTitle(R.string.library)
                     .setMessage(R.string.reserved)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok) { _, _ -> ctx.recreate() }
                     .setCancelable(false)
                     .create()
                     .show()
@@ -85,7 +85,7 @@ class ReserveDialog {
             .show()
     }
 
-    private fun reserveSeat(ctx: Context, target: Int) {
+    private fun reserveSeat(ctx: Activity, target: Int) {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads().detectDiskWrites().detectNetwork()

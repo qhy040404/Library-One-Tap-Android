@@ -25,11 +25,6 @@ android {
             buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
         }
 
-        'pre-release' {
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
-        }
-
         release {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")

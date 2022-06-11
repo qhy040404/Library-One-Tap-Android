@@ -37,6 +37,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
                 val permission: Array<String> = arrayOf("android.permission.ACCESS_FINE_LOCATION")
 
+                @Suppress("SpellCheckingInspection")
                 if (netName == "<unknown ssid>") {
                     if (PermissionUtils().checkPermission(requireActivity(), permission)) {
                         Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_SHORT).show()
@@ -59,7 +60,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.TOOLS_NET)?.apply {
             setOnPreferenceClickListener {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
-                Thread(getNet()).start()
+                Thread(GetNet()).start()
                 true
             }
         }
@@ -67,7 +68,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.TOOLS_ELECTRIC)?.apply {
             setOnPreferenceClickListener {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
-                Thread(getElectric()).start()
+                Thread(GetElectric()).start()
                 true
             }
         }
@@ -82,13 +83,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.TOOLS_VOLUNTEER)?.apply {
             setOnPreferenceClickListener {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
-                Thread(getVolunteer()).start()
+                Thread(GetVolunteer()).start()
                 true
             }
         }
     }
 
-    private inner class getNet : Runnable {
+    private inner class GetNet : Runnable {
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(
@@ -129,7 +130,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private inner class getElectric : Runnable {
+    private inner class GetElectric : Runnable {
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(
@@ -149,7 +150,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             val data: String = GetPortalData.getPortalData(id, passwd, 0)
 
-            val SSMC = electricData.getSSMC(data)
+            @Suppress("SpellCheckingInspection", "LocalVariableName") val SSMC = electricData.getSSMC(data)
             val remainElectric = electricData.getResele(data)
             val electricMessage =
                 SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(
@@ -167,7 +168,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private inner class getVolunteer : Runnable {
+    private inner class GetVolunteer : Runnable {
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(

@@ -29,6 +29,7 @@ import okhttp3.Response
 import java.io.IOException
 import java.util.*
 
+@Suppress("LocalVariableName")
 class DetailActivity : StartUpActivity() {
     override fun init() = initView()
 

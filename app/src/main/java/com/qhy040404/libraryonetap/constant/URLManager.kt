@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.constant
 
+@Suppress("SpellCheckingInspection")
 object URLManager {
     const val GITHUB_PAGE = "https://github.com/qhy040404"
     const val GITHUB_REPO = "https://github.com/qhy040404/Library-One-Tap-Android"

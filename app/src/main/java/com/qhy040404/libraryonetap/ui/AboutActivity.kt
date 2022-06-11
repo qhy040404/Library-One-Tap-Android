@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.utils.PackageUtils
 private const val MIDDLE_SECRET = "ne Tap D"
 private const val SECRET = "Tap Dog"
 
+@Suppress("SpellCheckingInspection")
 class AboutActivity : AbsAboutActivity() {
     private var headCount = 0
 

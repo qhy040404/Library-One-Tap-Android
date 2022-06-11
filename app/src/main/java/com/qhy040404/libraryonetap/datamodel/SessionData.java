@@ -7,11 +7,6 @@ import java.io.Serializable;
 public class SessionData implements Serializable {
     Gson gson = new Gson();
 
-    /**
-     * success : true
-     * message : 用户在线！
-     * user_id : ***
-     */
     private static class GsonData {
         private boolean success;
         private String message;

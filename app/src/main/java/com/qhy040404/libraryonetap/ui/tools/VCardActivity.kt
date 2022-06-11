@@ -51,7 +51,7 @@ class VCardActivity : StartUpActivity() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
+            @Suppress("SpellCheckingInspection") val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
             requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
             val openid =
@@ -59,14 +59,14 @@ class VCardActivity : StartUpActivity() {
                     .split("<input id=\"openid\" value=\"")[1]
                     .split("\" type=\"hidden\">")[0]
 
-            val qrUrl =
+            @Suppress("SpellCheckingInspection") val qrUrl =
                 "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 
             val qrPage = requests.getVCard(qrUrl)
             val qrInformation = qrPage
                 .split("<p class=\"bdb\">")[1]
                 .split("</p>")[0]
-            val qrBase64 =
+            @Suppress("SpellCheckingInspection") val qrBase64 =
                 qrPage
                     .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
                     .split("\">")[0]
@@ -88,7 +88,7 @@ class VCardActivity : StartUpActivity() {
                 )
                 val newQrPage = requests.getVCard(qrUrl)
                 val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
-                val newQrBase64 =
+                @Suppress("SpellCheckingInspection") val newQrBase64 =
                     newQrPage
                         .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
                         .split("\">")[0]

@@ -21,6 +21,7 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 
+@Suppress("LocalVariableName")
 class YanxiujianActivity : StartUpActivity() {
     override fun init() = initView()
 

@@ -16,7 +16,6 @@ public class PermissionUtils {
 
     public boolean checkPermission(Activity activity, String[] permission) {
         boolean hasPermission = true;
-        int j = 0;
         for (String s : permission) {
             if (activity.checkSelfPermission(s) == PackageManager.PERMISSION_DENIED) {
                 if (s != null) {

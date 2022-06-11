@@ -18,8 +18,8 @@ public class desEncrypt {
 
         int i;
         for (i = 0; i < 16; i++) {
-            byte tempLeft = 0;
-            byte tempRight = 0;
+            byte tempLeft;
+            byte tempRight;
             for (int j = 0; j < loop[i]; j++) {
                 tempLeft = key[0];
                 tempRight = key[28];
@@ -288,7 +288,7 @@ public class desEncrypt {
         };
 
         for (int m = 0; m < 8; m++) {
-            int i = 0, j = 0;
+            int i, j;
             i = expandByte[m * 6] * 2 + expandByte[m * 6 + 5];
             j = expandByte[m * 6 + 1] * 2 * 2 * 2 +
                     expandByte[m * 6 + 2] * 2 * 2 +
@@ -435,11 +435,11 @@ public class desEncrypt {
     }
 
     private byte[] strToBt(String str) {
-        int leng = str.length();
+        int length = str.length();
         byte[] bt = new byte[64];
-        if (leng < 4) {
+        if (length < 4) {
             int i, j, p, q;
-            for (i = 0; i < leng; i++) {
+            for (i = 0; i < length; i++) {
                 char k = str.charAt(i);
                 for (j = 0; j < 16; j++) {
                     int pow = 1, m;
@@ -449,7 +449,7 @@ public class desEncrypt {
                     bt[16 * i + j] = (byte) ((k / pow) % 2);
                 }
             }
-            for (p = leng; p < 4; p++) {
+            for (p = length; p < 4; p++) {
                 for (q = 0; q < 16; q++) {
                     bt[16 * p + q] = (byte) (0);
                 }
@@ -537,16 +537,16 @@ public class desEncrypt {
     }
 
     private byte[][] getKeyBytes(String key) {
-        int leng = key.length();
-        int iterater = leng / 4;
-        byte[][] keyBytes = new byte[iterater + 1][];
-        int remainder = leng % 4;
+        int length = key.length();
+        int iterator = length / 4;
+        byte[][] keyBytes = new byte[iterator + 1][];
+        int remainder = length % 4;
         int i;
-        for (i = 0; i < iterater; i++) {
+        for (i = 0; i < iterator; i++) {
             keyBytes[i] = strToBt(key.substring(i * 4, i * 4 + 4));
         }
         if (remainder > 0) {
-            keyBytes[i] = strToBt(key.substring(i * 4, leng));
+            keyBytes[i] = strToBt(key.substring(i * 4, length));
         }
         return keyBytes;
     }
@@ -585,7 +585,7 @@ public class desEncrypt {
     }
 
     public String strEnc(String data, String firstKey, String secondKey, String thirdKey) {
-        int leng = data.length();
+        int length = data.length();
         StringBuilder encData = new StringBuilder();
         byte[][] firstKeyBt = new byte[0][], secondKeyBt = new byte[0][], thirdKeyBt = new byte[0][];
         int firstLength = 0, secondLength = 0, thirdLength = 0;
@@ -602,10 +602,10 @@ public class desEncrypt {
             thirdLength = thirdKeyBt.length;
         }
 
-        if (leng > 0) {
+        if (length > 0) {
             boolean b = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("");
             boolean b1 = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("");
-            if (leng < 4) {
+            if (length < 4) {
                 byte[] bt = strToBt(data);
                 byte[] encByte = new byte[0];
                 if (b) {
@@ -648,8 +648,8 @@ public class desEncrypt {
                 }
                 encData = new StringBuilder(bt64ToHex(encByte));
             } else {
-                int iterator = leng / 4;
-                int remainder = leng % 4;
+                int iterator = length / 4;
+                int remainder = length % 4;
                 int i;
                 for (i = 0; i < iterator; i++) {
                     String tempData = data.substring(i * 4, i * 4 + 4);
@@ -696,7 +696,7 @@ public class desEncrypt {
                     encData.append(bt64ToHex(encByte));
                 }
                 if (remainder > 0) {
-                    String remainderData = data.substring(iterator * 4, leng);
+                    String remainderData = data.substring(iterator * 4, length);
                     byte[] tempByte = strToBt(remainderData);
                     byte[] encByte = new byte[0];
                     if (b) {

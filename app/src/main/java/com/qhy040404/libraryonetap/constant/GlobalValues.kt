@@ -25,6 +25,8 @@ object GlobalValues {
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
     var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
 
+    var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
+
     // MediaType
     val ctJson: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_JSON)
     val ctSso: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_SSO)

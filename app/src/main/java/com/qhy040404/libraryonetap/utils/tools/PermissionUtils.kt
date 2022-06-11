@@ -1,29 +1,27 @@
-package com.qhy040404.libraryonetap.utils.tools;
+package com.qhy040404.libraryonetap.utils.tools
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import android.widget.Toast;
+import android.app.Activity
+import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.qhy040404.libraryonetap.R
 
-import androidx.core.app.ActivityCompat;
-
-import com.qhy040404.libraryonetap.R;
-
-public class PermissionUtils {
-    private static void requestPermission(String[] s, Activity activity) {
-        Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show();
-        ActivityCompat.requestPermissions(activity, s, 100);
-    }
-
-    public boolean checkPermission(Activity activity, String[] permission) {
-        boolean hasPermission = true;
-        for (String s : permission) {
+class PermissionUtils {
+    fun checkPermission(activity: Activity, permission: Array<String>): Boolean {
+        var hasPermission = true
+        for (s in permission) {
             if (activity.checkSelfPermission(s) == PackageManager.PERMISSION_DENIED) {
-                if (s != null) {
-                    hasPermission = false;
-                    requestPermission(new String[]{s}, activity);
-                }
+                hasPermission = false
+                requestPermission(arrayOf(s), activity)
             }
         }
-        return hasPermission;
+        return hasPermission
+    }
+
+    companion object {
+        private fun requestPermission(s: Array<String>, activity: Activity) {
+            Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show()
+            ActivityCompat.requestPermissions(activity, s, 100)
+        }
     }
 }

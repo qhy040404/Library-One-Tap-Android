@@ -18,9 +18,6 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.PackageUtils
 
-private const val MIDDLE_SECRET = "ne Tap D"
-private const val SECRET = "Tap Dog"
-
 @Suppress("SpellCheckingInspection")
 class AboutActivity : AbsAboutActivity() {
     private var headCount = 0
@@ -169,5 +166,10 @@ class AboutActivity : AbsAboutActivity() {
 
         setHeaderBackground(ColorDrawable(getColor(R.color.black)))
         setHeaderContentScrim(ColorDrawable(getColor(R.color.black)))
+    }
+
+    companion object {
+        private const val MIDDLE_SECRET = "ne Tap D"
+        private const val SECRET = "Tap Dog"
     }
 }

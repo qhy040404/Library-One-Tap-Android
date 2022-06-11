@@ -26,13 +26,13 @@ object SPUtils {
         res as T
     }
 
-    fun <T> setValue(name:String, value:T) = with(sp.edit()) {
-        when(value) {
-            is Long -> putLong(name,value)
-            is String -> putString(name,value)
-            is Int -> putInt(name,value)
-            is Boolean -> putBoolean(name,value)
-            is Float -> putFloat(name,value)
+    fun <T> setValue(name: String, value: T) = with(sp.edit()) {
+        when (value) {
+            is Long -> putLong(name, value)
+            is String -> putString(name, value)
+            is Int -> putInt(name, value)
+            is Boolean -> putBoolean(name, value)
+            is Float -> putFloat(name, value)
             else -> throw IllegalArgumentException("This type can't be saved into Preferences")
         }.apply()
     }

@@ -9,6 +9,6 @@ class SPDelegates<T>(private val key: String, private val default: T) : ReadWrit
     }
 
     override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
-        SPUtils.setValue(key,value)
+        SPUtils.setValue(key, value)
     }
 }

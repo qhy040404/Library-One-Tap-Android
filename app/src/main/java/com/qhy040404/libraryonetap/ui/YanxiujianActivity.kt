@@ -52,8 +52,7 @@ class YanxiujianActivity : StartUpActivity() {
             val imageView2: ImageView = findViewById(R.id.imageView2)
             val refresh2: Button = findViewById(R.id.button12)
             val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
-
-            val requests = Requests()
+            
             val des = desEncrypt()
             val checkSession = SessionData()
             val orderList = OrderListData()
@@ -64,22 +63,22 @@ class YanxiujianActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
+                val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                requests.post(
+                Requests.post(
                     URLManager.LIBRARY_SSO_URL,
-                    requests.loginPostData(id, passwd, ltData, rsa),
+                    Requests.loginPostData(id, passwd, ltData, rsa),
                     GlobalValues.ctSso
                 )
 
-                requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+                Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
                 val session: String =
-                    requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+                    Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT)
                         .show()
@@ -102,7 +101,7 @@ class YanxiujianActivity : StartUpActivity() {
                     }
                 }
             }
-            val list = requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
+            val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
                 val space_name = orderList.getSpace_name(list, "1")
@@ -125,7 +124,7 @@ class YanxiujianActivity : StartUpActivity() {
                 }
 
                 val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
-                val call = requests.client.newCall(request)
+                val call = Requests.client.newCall(request)
                 call.enqueue(object : Callback {
                     override fun onFailure(call: Call, e: IOException) {}
 

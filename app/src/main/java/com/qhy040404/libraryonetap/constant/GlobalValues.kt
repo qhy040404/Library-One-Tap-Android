@@ -28,7 +28,7 @@ object GlobalValues {
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 
     // MediaType
-    val ctJson: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_JSON)
-    val ctSso: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_SSO)
-    val ctVCard: MediaType = Requests().strToMT(Constants.CONTENT_TYPE_VCARD)
+    val ctJson: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_JSON)
+    val ctSso: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_SSO)
+    val ctVCard: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_VCARD)
 }

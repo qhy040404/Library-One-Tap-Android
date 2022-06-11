@@ -67,8 +67,7 @@ class DetailActivity : StartUpActivity() {
             val reset: Button = findViewById(R.id.button9)
             val tempReset: Button = findViewById(R.id.button14)
             val progressBar: ProgressBar = findViewById(R.id.progressBar)
-
-            val requests = Requests()
+            
             val des = desEncrypt()
             val checkSession = SessionData()
             val orderList = OrderListData()
@@ -79,22 +78,22 @@ class DetailActivity : StartUpActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess) {
-                val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
+                val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                requests.post(
+                Requests.post(
                     URLManager.LIBRARY_SSO_URL,
-                    requests.loginPostData(id, passwd, ltData, rsa),
+                    Requests.loginPostData(id, passwd, ltData, rsa),
                     GlobalValues.ctSso
                 )
 
-                requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+                Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
                 val session: String =
-                    requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+                    Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (checkSession.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
                     progressBar.post { progressBar.visibility = View.INVISIBLE }
@@ -115,7 +114,7 @@ class DetailActivity : StartUpActivity() {
                     }
                 }
             }
-            val list = requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
+            val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = orderList.getTotal(list)
             if (!total.equals("0")) {
                 val space_name = orderList.getSpace_name(list, "2")
@@ -171,7 +170,7 @@ class DetailActivity : StartUpActivity() {
                         Request.Builder()
                             .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
                             .build()
-                    val call = requests.client.newCall(request)
+                    val call = Requests.client.newCall(request)
                     call.enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {}
 
@@ -190,7 +189,7 @@ class DetailActivity : StartUpActivity() {
                         Request.Builder()
                             .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
                             .build()
-                    val call = requests.client.newCall(request)
+                    val call = Requests.client.newCall(request)
                     call.enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {}
 
@@ -209,7 +208,7 @@ class DetailActivity : StartUpActivity() {
                         Request.Builder()
                             .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
                             .build()
-                    val call = requests.client.newCall(request)
+                    val call = Requests.client.newCall(request)
                     call.enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {}
 
@@ -240,7 +239,7 @@ class DetailActivity : StartUpActivity() {
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.justCancel) { _, _ ->
                             val message = CancelData().getMessage(
-                                requests.post(
+                                Requests.post(
                                     URLManager.LIBRARY_ORDER_OPERATION_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
                                     GlobalValues.ctSso
@@ -282,7 +281,7 @@ class DetailActivity : StartUpActivity() {
                             var seat_id = ""
 
                             val availableMap = ReserveUtils.formatAvailableMap(
-                                requests.get(
+                                Requests.get(
                                     URLManager.constructAvailableUrl(
                                         getToday(),
                                         roomCode
@@ -308,19 +307,19 @@ class DetailActivity : StartUpActivity() {
                                 }
                             }
 
-                            requests.post(
+                            Requests.post(
                                 URLManager.LIBRARY_ORDER_OPERATION_URL,
                                 "order_id=$order_id&order_type=2&method=Cancel",
                                 GlobalValues.ctSso
                             )
 
-                            val addCodeOrigin = requests.post(
+                            val addCodeOrigin = Requests.post(
                                 URLManager.LIBRARY_RESERVE_ADDCODE_URL,
                                 ReserveUtils.constructParaForAddCode(seat_id),
                                 GlobalValues.ctVCard
                             )
                             val addCode = reserveData.getAddCode(addCodeOrigin)
-                            requests.post(
+                            Requests.post(
                                 URLManager.LIBRART_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard
@@ -354,7 +353,7 @@ class DetailActivity : StartUpActivity() {
                             var seat_id = ""
 
                             val availableMap = ReserveUtils.formatAvailableMap(
-                                requests.get(
+                                Requests.get(
                                     URLManager.constructAvailableUrl(
                                         getToday(),
                                         roomCode
@@ -380,19 +379,19 @@ class DetailActivity : StartUpActivity() {
                                 }
                             }
 
-                            requests.post(
+                            Requests.post(
                                 URLManager.LIBRARY_ORDER_OPERATION_URL,
                                 "order_id=$order_id&order_type=2&method=Release",
                                 GlobalValues.ctSso
                             )
 
-                            val addCodeOrigin = requests.post(
+                            val addCodeOrigin = Requests.post(
                                 URLManager.LIBRARY_RESERVE_ADDCODE_URL,
                                 ReserveUtils.constructParaForAddCode(seat_id),
                                 GlobalValues.ctVCard
                             )
                             val addCode = reserveData.getAddCode(addCodeOrigin)
-                            requests.post(
+                            Requests.post(
                                 URLManager.LIBRART_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard

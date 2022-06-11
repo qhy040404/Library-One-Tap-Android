@@ -96,29 +96,28 @@ class ReserveDialog {
                 .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                 .penaltyLog().penaltyDeath().build()
         )
-
-        val requests = Requests()
+        
         val des = desEncrypt()
         val checkSession = SessionData()
         val reserveData = ReserveData()
 
         var loginSuccess = false
         while (!loginSuccess) {
-            val ltResponse: String = requests.get(URLManager.LIBRARY_SSO_URL)
+            val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
             val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-            requests.post(
+            Requests.post(
                 URLManager.LIBRARY_SSO_URL,
-                requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
+                Requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
                 GlobalValues.ctSso
             )
 
-            requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+            Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
 
-            val session: String = requests.post(
+            val session: String = Requests.post(
                 URLManager.LIBRARY_SESSION_URL, "",
                 GlobalValues.ctSso
             )
@@ -130,13 +129,13 @@ class ReserveDialog {
             }
         }
         val addCodeOrigin =
-            requests.post(
+            Requests.post(
                 URLManager.LIBRARY_RESERVE_URL,
                 ReserveUtils.constructPara(target),
                 GlobalValues.ctVCard
             )
         val addCode = reserveData.getAddCode(addCodeOrigin)
-        requests.post(
+        Requests.post(
             URLManager.LIBRART_RESERVE_FINAL_URL,
             ReserveUtils.constructParaForFinalReserve(addCode),
             GlobalValues.ctVCard

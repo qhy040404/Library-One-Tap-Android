@@ -40,7 +40,6 @@ class VCardActivity : StartUpActivity() {
                     .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                     .penaltyLog().penaltyDeath().build()
             )
-            val requests = Requests()
 
             val imageView: ImageView = findViewById(R.id.imageView3)
             val textView: TextView = findViewById(R.id.textView4)
@@ -52,10 +51,10 @@ class VCardActivity : StartUpActivity() {
 
             @Suppress("SpellCheckingInspection")
             val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
-            requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
+            Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
             val openid =
-                requests.getVCard(URLManager.VCARD_OPENID_URL)
+                Requests.getVCard(URLManager.VCARD_OPENID_URL)
                     .split("<input id=\"openid\" value=\"")[1]
                     .split("\" type=\"hidden\">")[0]
 
@@ -63,7 +62,7 @@ class VCardActivity : StartUpActivity() {
             val qrUrl =
                 "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 
-            val qrPage = requests.getVCard(qrUrl)
+            val qrPage = Requests.getVCard(qrUrl)
             val qrInformation = qrPage
                 .split("<p class=\"bdb\">")[1]
                 .split("</p>")[0]
@@ -88,7 +87,7 @@ class VCardActivity : StartUpActivity() {
                         .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                         .penaltyLog().penaltyDeath().build()
                 )
-                val newQrPage = requests.getVCard(qrUrl)
+                val newQrPage = Requests.getVCard(qrUrl)
                 val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
 
                 @Suppress("SpellCheckingInspection")

@@ -50,8 +50,7 @@ class BathReserveActivity : StartUpActivity() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.post { spinner.adapter = adapter }
             }
-
-            val requests = Requests()
+            
             val des = desEncrypt()
 
             val id: String = GlobalValues.id
@@ -59,19 +58,19 @@ class BathReserveActivity : StartUpActivity() {
 
             val time = getBathTime()
 
-            val ltResponse: String = requests.get(URLManager.BATH_SSO_URL)
+            val ltResponse: String = Requests.get(URLManager.BATH_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
             val rawData = "$id$passwd$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-            requests.post(
+            Requests.post(
                 URLManager.BATH_SSO_URL,
-                requests.loginPostData(id, passwd, ltData, rsa),
+                Requests.loginPostData(id, passwd, ltData, rsa),
                 GlobalValues.ctSso
             )
 
-            requests.get(URLManager.BATH_DIRECT_URL)
+            Requests.get(URLManager.BATH_DIRECT_URL)
 
             textViewBath.text = getString(R.string.loaded)
 
@@ -98,10 +97,10 @@ class BathReserveActivity : StartUpActivity() {
                 @Suppress("SpellCheckingInspection")
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
-                requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
-                requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
-                requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
+                Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
+                Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
+                Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
+                Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
                 textViewBath.text = getString(R.string.sentRequest)
                 Looper.loop()
             }

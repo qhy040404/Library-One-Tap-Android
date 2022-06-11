@@ -20,7 +20,6 @@ object GetPortalData {
                 .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                 .penaltyLog().penaltyDeath().build()
         )
-        val requests = Requests()
         val des = desEncrypt()
 
         var returnJson = ""
@@ -28,19 +27,19 @@ object GetPortalData {
         var loginSuccess = false
 
         while (!loginSuccess) {
-            val ltResponse: String = requests.get(URLManager.PORTAL_SSO_URL)
+            val ltResponse: String = Requests.get(URLManager.PORTAL_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
 
             val rawData = "$id$passwd$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-            requests.post(
+            Requests.post(
                 URLManager.PORTAL_SSO_URL,
-                requests.loginPostData(id, passwd, ltData, rsa),
+                Requests.loginPostData(id, passwd, ltData, rsa),
                 GlobalValues.ctSso
             )
 
-            val session = requests.get(URLManager.PORTAL_SSO_URL)
+            val session = Requests.get(URLManager.PORTAL_SSO_URL)
             if ("统一身份" !in session) {
                 loginSuccess = true
             }
@@ -48,14 +47,14 @@ object GetPortalData {
 
         if (mode == 0) {
             returnJson =
-                requests.post(
+                Requests.post(
                     URLManager.PORTAL_ELEC_URL,
                     Constants.PORTAL_DEFAULT_POST,
                     GlobalValues.ctJson
                 )
         } else if (mode == 1) {
             returnJson =
-                requests.post(
+                Requests.post(
                     URLManager.PORTAL_NET_URL,
                     Constants.PORTAL_DEFAULT_POST,
                     GlobalValues.ctJson

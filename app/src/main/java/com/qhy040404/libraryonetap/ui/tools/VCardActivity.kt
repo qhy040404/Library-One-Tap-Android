@@ -51,7 +51,8 @@ class VCardActivity : StartUpActivity() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            @Suppress("SpellCheckingInspection") val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
+            @Suppress("SpellCheckingInspection") val apiPostData =
+                "schoolcode=dlut&username=$id&password=$passwd&ssokey="
             requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
             val openid =
@@ -88,10 +89,11 @@ class VCardActivity : StartUpActivity() {
                 )
                 val newQrPage = requests.getVCard(qrUrl)
                 val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
-                @Suppress("SpellCheckingInspection") val newQrBase64 =
-                    newQrPage
-                        .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
-                        .split("\">")[0]
+
+                @Suppress("SpellCheckingInspection")
+                val newQrBase64 = newQrPage
+                    .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
+                    .split("\">")[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
                 imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap)) }

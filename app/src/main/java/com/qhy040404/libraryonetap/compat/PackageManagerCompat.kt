@@ -8,14 +8,14 @@ import com.qhy040404.libraryonetap.utils.OsUtils
 
 @Suppress("DEPRECATION")
 object PackageManagerCompat {
-    fun getPackageInfo(packageName: String, flags: Int) :PackageInfo{
+    fun getPackageInfo(packageName: String, flags: Int): PackageInfo {
         return if (OsUtils.atLeastT()) {
             AppManager.packageManager.getPackageInfo(
                 packageName,
                 PackageManager.PackageInfoFlags.of(flags.toLong())
             )
         } else {
-            AppManager.packageManager.getPackageInfo(packageName,flags)
+            AppManager.packageManager.getPackageInfo(packageName, flags)
         }
     }
 
@@ -26,7 +26,7 @@ object PackageManagerCompat {
                 PackageManager.ApplicationInfoFlags.of(flags.toLong())
             )
         } else {
-           AppManager.packageManager.getApplicationInfo(packageName, flags)
+            AppManager.packageManager.getApplicationInfo(packageName, flags)
         }
     }
 }

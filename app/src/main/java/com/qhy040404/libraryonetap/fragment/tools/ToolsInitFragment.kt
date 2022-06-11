@@ -150,7 +150,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             val data: String = GetPortalData.getPortalData(id, passwd, 0)
 
-            @Suppress("SpellCheckingInspection", "LocalVariableName") val SSMC = electricData.getSSMC(data)
+            @Suppress("SpellCheckingInspection", "LocalVariableName")
+            val SSMC = electricData.getSSMC(data)
             val remainElectric = electricData.getResele(data)
             val electricMessage =
                 SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(

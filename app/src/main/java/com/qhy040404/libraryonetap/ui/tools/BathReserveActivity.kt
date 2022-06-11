@@ -88,10 +88,13 @@ class BathReserveActivity : StartUpActivity() {
                 )
                 @Suppress("SpellCheckingInspection")
                 val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
+
                 @Suppress("SpellCheckingInspection")
                 val cartPostData = "goodsShopcarId=$targetRoom&rulesid=$time"
+
                 @Suppress("SpellCheckingInspection")
                 val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
+
                 @Suppress("SpellCheckingInspection")
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 

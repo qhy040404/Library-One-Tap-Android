@@ -29,8 +29,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             setOnPreferenceClickListener {
-                val netName = when (NetworkStateUtils().checkNetworkTypeStr(requireContext())) {
-                    "WIFI" -> NetworkStateUtils().getSSID(requireContext())
+                val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
+                    "WIFI" -> NetworkStateUtils.getSSID(requireContext())
                     "Cellular" -> "Cellular"
                     else -> "Error"
                 }
@@ -39,7 +39,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
                 @Suppress("SpellCheckingInspection")
                 if (netName == "<unknown ssid>") {
-                    if (PermissionUtils().checkPermission(requireActivity(), permission)) {
+                    if (PermissionUtils.checkPermission(requireActivity(), permission)) {
                         Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_SHORT).show()
                     }
                 } else if (netName == "DLUT-LingShui") {

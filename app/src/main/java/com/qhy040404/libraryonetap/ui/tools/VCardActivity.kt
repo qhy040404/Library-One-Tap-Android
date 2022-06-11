@@ -41,7 +41,6 @@ class VCardActivity : StartUpActivity() {
                     .penaltyLog().penaltyDeath().build()
             )
             val requests = Requests()
-            val qrUtils = QRUtils()
 
             val imageView: ImageView = findViewById(R.id.imageView3)
             val textView: TextView = findViewById(R.id.textView4)
@@ -76,7 +75,7 @@ class VCardActivity : StartUpActivity() {
             val qr = Base64.decode(qrBase64, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
             progressBar.post { progressBar.visibility = View.INVISIBLE }
-            imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(bitmap)) }
+            imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(bitmap)) }
             textView.text = qrInformation
             refresh.setOnClickListener {
                 StrictMode.setThreadPolicy(
@@ -98,7 +97,7 @@ class VCardActivity : StartUpActivity() {
                     .split("\">")[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                imageView.post { imageView.setImageBitmap(qrUtils.toGrayscale(newBitmap)) }
+                imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
                 textView.text = newQrInformation
             }
             Looper.loop()

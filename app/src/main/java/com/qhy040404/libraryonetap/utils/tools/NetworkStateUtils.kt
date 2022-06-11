@@ -7,7 +7,7 @@ import android.net.wifi.WifiManager
 import androidx.core.content.ContextCompat
 
 @Suppress("DEPRECATION")
-class NetworkStateUtils {
+object NetworkStateUtils {
     private fun checkNetworkType(ctx: Context): Int {
         val context = ctx.applicationContext
         val netType = 0

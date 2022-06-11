@@ -3,7 +3,7 @@ package com.qhy040404.libraryonetap.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.qhy040404.libraryonetap.LibraryOneTapApp
-import com.qhy040404.libraryonetap.constant.SP_NAME
+import com.qhy040404.libraryonetap.constant.GlobalValues.SP_NAME
 
 object SPUtils {
     private val sp: SharedPreferences =

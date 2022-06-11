@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.qhy040404.libraryonetap.R
 
-class PermissionUtils {
+object PermissionUtils {
     fun checkPermission(activity: Activity, permission: Array<String>): Boolean {
         var hasPermission = true
         for (s in permission) {
@@ -18,10 +18,8 @@ class PermissionUtils {
         return hasPermission
     }
 
-    companion object {
-        private fun requestPermission(s: Array<String>, activity: Activity) {
-            Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show()
-            ActivityCompat.requestPermissions(activity, s, 100)
-        }
+    private fun requestPermission(s: Array<String>, activity: Activity) {
+        Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show()
+        ActivityCompat.requestPermissions(activity, s, 100)
     }
 }

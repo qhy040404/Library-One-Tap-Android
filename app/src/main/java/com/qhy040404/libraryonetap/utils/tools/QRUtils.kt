@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.graphics.*
 
-class QRUtils {
+object QRUtils {
     fun toGrayscale(bmpOriginal: Bitmap): Bitmap {
         val width = bmpOriginal.width
         val height = bmpOriginal.height

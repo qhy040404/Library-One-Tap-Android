@@ -8,9 +8,10 @@ import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.MediaType
 
-const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
-
 object GlobalValues {
+    // SharedPreferences
+    const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
+
     // App
     val version =
         LibraryOneTapApp.app.getString(R.string.app_name) + " " + PackageUtils.buildType + " " + PackageUtils.versionName + " (${PackageUtils.versionCode})"

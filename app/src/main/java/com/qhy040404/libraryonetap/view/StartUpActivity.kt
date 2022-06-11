@@ -9,6 +9,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import java.util.*
 
+@Suppress("DEPRECATION")
 abstract class StartUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val config = resources.configuration

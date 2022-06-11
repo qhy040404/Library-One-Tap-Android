@@ -1,24 +1,19 @@
-package com.qhy040404.libraryonetap.view;
+package com.qhy040404.libraryonetap.view
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.VideoView;
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.VideoView
 
-public class ModifiedVideoView extends VideoView {
-    public ModifiedVideoView(Context context) {
-        super(context);
-    }
+class ModifiedVideoView : VideoView {
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
-    public ModifiedVideoView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public ModifiedVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec)
     }
 }

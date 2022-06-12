@@ -10,9 +10,9 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.view.StartUpActivity
+import com.qhy040404.libraryonetap.base.BaseActivity
 
-class BathReserveActivity : StartUpActivity() {
+class BathReserveActivity : BaseActivity() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_bath_reserve

@@ -21,7 +21,7 @@ import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.view.StartUpActivity
+import com.qhy040404.libraryonetap.base.BaseActivity
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -30,7 +30,7 @@ import java.io.IOException
 import java.util.*
 
 @Suppress("LocalVariableName")
-class DetailActivity : StartUpActivity() {
+class DetailActivity : BaseActivity() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_detail

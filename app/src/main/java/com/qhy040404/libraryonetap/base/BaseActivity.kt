@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.view
+package com.qhy040404.libraryonetap.base
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,7 +10,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import java.util.*
 
 @Suppress("DEPRECATION")
-abstract class StartUpActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val config = resources.configuration
         val dm = resources.displayMetrics

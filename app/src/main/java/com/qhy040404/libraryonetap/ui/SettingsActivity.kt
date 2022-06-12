@@ -5,9 +5,9 @@ import android.view.KeyEvent
 import android.view.MenuItem
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.fragment.SettingsFragment
-import com.qhy040404.libraryonetap.view.StartUpActivity
+import com.qhy040404.libraryonetap.base.BaseActivity
 
-class SettingsActivity : StartUpActivity() {
+class SettingsActivity : BaseActivity() {
     override fun init() {
         supportFragmentManager
             .beginTransaction()

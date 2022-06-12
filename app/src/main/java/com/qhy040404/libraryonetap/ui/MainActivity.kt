@@ -15,10 +15,10 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
-import com.qhy040404.libraryonetap.view.StartUpActivity
+import com.qhy040404.libraryonetap.base.BaseActivity
 import kotlin.system.exitProcess
 
-class MainActivity : StartUpActivity() {
+class MainActivity : BaseActivity() {
     override fun init() {
         handleIntentFromShortcuts(intent)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)

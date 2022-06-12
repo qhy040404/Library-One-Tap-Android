@@ -14,9 +14,9 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.tools.QRUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.view.StartUpActivity
+import com.qhy040404.libraryonetap.base.BaseActivity
 
-class VCardActivity : StartUpActivity() {
+class VCardActivity : BaseActivity() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_vcard

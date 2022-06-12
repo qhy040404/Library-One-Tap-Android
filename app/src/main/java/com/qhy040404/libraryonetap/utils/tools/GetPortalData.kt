@@ -40,7 +40,7 @@ object GetPortalData {
             )
 
             val session = Requests.get(URLManager.PORTAL_SSO_URL)
-            if ("统一身份" !in session) {
+            if (!session.contains("统一身份")) {
                 loginSuccess = true
             }
         }

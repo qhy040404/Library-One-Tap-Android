@@ -20,14 +20,12 @@ import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
-import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
-import java.util.*
 
 @Suppress("LocalVariableName")
 class DetailActivity : BaseActivity() {
@@ -140,10 +138,7 @@ class DetailActivity : BaseActivity() {
                         cancel.isClickable = true
                     }
 
-                    val calendar = Calendar.getInstance()
-                    val today = calendar.get(Calendar.YEAR).toString() + "-" + timeSingleToDouble(
-                        calendar.get(Calendar.MONTH) + 1
-                    ) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH))
+                    val today = getToday("-",true)
                     if (!order_date.equals(today)) {
                         reserve.post {
                             reserve.visibility = View.VISIBLE
@@ -283,7 +278,7 @@ class DetailActivity : BaseActivity() {
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
                                     URLManager.constructAvailableUrl(
-                                        getToday(),
+                                        getToday("/", false),
                                         roomCode
                                     )
                                 )
@@ -355,7 +350,7 @@ class DetailActivity : BaseActivity() {
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
                                     URLManager.constructAvailableUrl(
-                                        getToday(),
+                                        getToday("/",false),
                                         roomCode
                                     )
                                 )

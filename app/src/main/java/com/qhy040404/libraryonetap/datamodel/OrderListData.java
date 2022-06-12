@@ -1,11 +1,10 @@
 package com.qhy040404.libraryonetap.datamodel;
 
-import static com.qhy040404.libraryonetap.utils.TimeUtilsKt.timeSingleToDouble;
+import static com.qhy040404.libraryonetap.utils.TimeUtilsKt.getToday;
 
 import com.google.gson.Gson;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 public class OrderListData {
@@ -57,8 +56,7 @@ public class OrderListData {
     }
 
     private static class GsonData implements Serializable {
-        private final Calendar calendar = Calendar.getInstance();
-        private final String today = calendar.get(Calendar.YEAR) + "-" + timeSingleToDouble(calendar.get(Calendar.MONTH) + 1) + "-" + timeSingleToDouble(calendar.get(Calendar.DAY_OF_MONTH));
+        private final String today = getToday("-",true);
         private String total;
         private List<RowsBean> rows;
 

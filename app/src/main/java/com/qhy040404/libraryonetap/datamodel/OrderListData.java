@@ -56,7 +56,7 @@ public class OrderListData {
     }
 
     private static class GsonData implements Serializable {
-        private final String today = getToday("-",true);
+        private final String today = getToday("-", true);
         private String total;
         private List<RowsBean> rows;
 

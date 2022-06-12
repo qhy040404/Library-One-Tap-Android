@@ -138,7 +138,7 @@ class DetailActivity : BaseActivity() {
                         cancel.isClickable = true
                     }
 
-                    val today = getToday("-",true)
+                    val today = getToday("-", true)
                     if (!order_date.equals(today)) {
                         reserve.post {
                             reserve.visibility = View.VISIBLE
@@ -350,7 +350,7 @@ class DetailActivity : BaseActivity() {
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
                                     URLManager.constructAvailableUrl(
-                                        getToday("/",false),
+                                        getToday("/", false),
                                         roomCode
                                     )
                                 )

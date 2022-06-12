@@ -10,12 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
-import com.qhy040404.libraryonetap.base.BaseActivity
 import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() {

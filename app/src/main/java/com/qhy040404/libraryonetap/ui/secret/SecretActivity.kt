@@ -2,8 +2,8 @@ package com.qhy040404.libraryonetap.ui.secret
 
 import android.net.Uri
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.view.ModifiedVideoView
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.view.ModifiedVideoView
 
 class SecretActivity : BaseActivity() {
     override fun init() = Thread(Play()).start()

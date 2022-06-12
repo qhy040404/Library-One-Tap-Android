@@ -228,13 +228,9 @@ public class OrderListData {
             private Object seat_label;
             private Object all_users;
             private String order_start_time;
-            private String area_id;
             private String order_date;
             private String back_time;
             private String order_end_time;
-            private String order_users;
-            private String order_admin_user;
-            private String order_time;
             private String order_process;
         }
     }

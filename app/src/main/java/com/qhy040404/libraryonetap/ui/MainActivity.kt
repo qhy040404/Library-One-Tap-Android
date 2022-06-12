@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -32,7 +33,22 @@ class MainActivity : BaseActivity() {
         handleIntentFromShortcuts(intent)
     }
 
-    private fun initView() = Thread(ShowVersion()).start()
+    private fun initView() {
+        if (!GlobalValues.initialized) {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.welcome)
+                .setMessage(R.string.welcome_message)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                    startActivity(Intent(this, SettingsActivity::class.java))
+                }
+                .setNegativeButton(R.string.no) { _, _ -> }
+                .setCancelable(false)
+                .create()
+                .show()
+            GlobalValues.initialized = true
+        }
+        Thread(ShowVersion()).start()
+    }
 
     private fun handleIntentFromShortcuts(intent: Intent) {
         when (intent.action) {

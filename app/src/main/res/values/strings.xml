@@ -31,6 +31,10 @@
     <string name="language">语言</string>
     <string name="other">其他</string>
 
+    <!-- INIT -->
+    <string name="welcome">欢迎</string>
+    <string name="welcome_message">欢迎使用此程序，首次使用先设置相关信息哦\n点击好跳转到设置</string>
+
     <!-- PROMPT -->
     <string name="remainNetFeeAndColon">"余额: "</string>
     <string name="usedNetAndColon">"已用流量: "</string>

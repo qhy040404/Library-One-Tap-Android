@@ -32,6 +32,10 @@
     <string name="language">Language</string>
     <string name="other">Others</string>
 
+    <!-- INIT -->
+    <string name="welcome">Welcome</string>
+    <string name="welcome_message">Welcome! Please set your information first. \nPress OK to go to Settings.</string>
+
     <!-- PROMPT -->
     <string name="remainNetFeeAndColon">"Balance: "</string>
     <string name="usedNetAndColon">"Used network: "</string>

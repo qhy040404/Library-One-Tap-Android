@@ -5,12 +5,12 @@ import android.os.StrictMode
 import android.view.View
 import android.widget.*
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.base.BaseActivity
 
 class BathReserveActivity : BaseActivity() {
     override fun init() = initView()
@@ -50,7 +50,7 @@ class BathReserveActivity : BaseActivity() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.post { spinner.adapter = adapter }
             }
-            
+
             val des = desEncrypt()
 
             val id: String = GlobalValues.id

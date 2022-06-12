@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -21,7 +22,6 @@ import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.timeSingleToDouble
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.base.BaseActivity
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -67,7 +67,7 @@ class DetailActivity : BaseActivity() {
             val reset: Button = findViewById(R.id.button9)
             val tempReset: Button = findViewById(R.id.button14)
             val progressBar: ProgressBar = findViewById(R.id.progressBar)
-            
+
             val des = desEncrypt()
             val checkSession = SessionData()
             val orderList = OrderListData()

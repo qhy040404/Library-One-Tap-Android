@@ -8,13 +8,13 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.datamodel.OrderListData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.base.BaseActivity
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Request
@@ -52,7 +52,7 @@ class YanxiujianActivity : BaseActivity() {
             val imageView2: ImageView = findViewById(R.id.imageView2)
             val refresh2: Button = findViewById(R.id.button12)
             val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
-            
+
             val des = desEncrypt()
             val checkSession = SessionData()
             val orderList = OrderListData()

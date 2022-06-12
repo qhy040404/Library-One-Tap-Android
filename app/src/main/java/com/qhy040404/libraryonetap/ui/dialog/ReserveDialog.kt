@@ -96,7 +96,7 @@ class ReserveDialog {
                 .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                 .penaltyLog().penaltyDeath().build()
         )
-        
+
         val des = desEncrypt()
         val checkSession = SessionData()
         val reserveData = ReserveData()

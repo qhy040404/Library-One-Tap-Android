@@ -8,11 +8,11 @@ object ReserveUtils {
     }
 
     fun constructPara(room: Int): String {
-        return "room_id=$room&order_date=${getToday()}"
+        return "room_id=$room&order_date=${getToday("/",false)}"
     }
 
     fun constructParaForAddCode(seat_id: String): String {
-        return "seat_id=$seat_id&order_date=${getToday()}"
+        return "seat_id=$seat_id&order_date=${getToday("/",false)}"
     }
 
     fun constructParaForFinalReserve(addCode: String): String {

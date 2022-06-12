@@ -7,18 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("SpellCheckingInspection")
-public class ElectricData implements Serializable {
+public class ElectricData {
     Gson gson = new Gson();
-
-    private static class GsonData {
-        private List<DormitoryInfoListBean> dormitoryInfo_list;
-
-        public static class DormitoryInfoListBean implements Serializable {
-            @SerializedName("SSMC")
-            private String ssmc;
-            private String resele;
-        }
-    }
 
     public String getSSMC(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
@@ -28,5 +18,15 @@ public class ElectricData implements Serializable {
     public String getResele(String data) {
         GsonData gsonData = gson.fromJson(data, GsonData.class);
         return gsonData.dormitoryInfo_list.get(0).resele;
+    }
+
+    private static class GsonData implements Serializable {
+        private List<DormitoryInfoListBean> dormitoryInfo_list;
+
+        public static class DormitoryInfoListBean implements Serializable {
+            @SerializedName("SSMC")
+            private String ssmc;
+            private String resele;
+        }
     }
 }

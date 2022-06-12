@@ -4,14 +4,8 @@ import com.google.gson.Gson;
 
 import java.io.Serializable;
 
-public class VolunteerData implements Serializable {
+public class VolunteerData {
     Gson gson = new Gson();
-
-    private static class GsonData {
-        private int numSameID;
-        private int numSameName;
-        private double totalDuration;
-    }
 
     public int getSameID(String data) {
         return gson.fromJson(data, GsonData.class).numSameID;
@@ -23,5 +17,11 @@ public class VolunteerData implements Serializable {
 
     public double getTotalHours(String data) {
         return gson.fromJson(data, GsonData.class).totalDuration;
+    }
+
+    private static class GsonData implements Serializable {
+        private int numSameID;
+        private int numSameName;
+        private double totalDuration;
     }
 }

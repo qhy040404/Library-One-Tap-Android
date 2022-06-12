@@ -4,14 +4,14 @@ import com.google.gson.Gson;
 
 import java.io.Serializable;
 
-public class CancelData implements Serializable {
+public class CancelData {
     Gson gson = new Gson();
-
-    private static class GsonData {
-        private String message;
-    }
 
     public String getMessage(String returnData) {
         return gson.fromJson(returnData, GsonData.class).message;
+    }
+
+    private static class GsonData implements Serializable {
+        private String message;
     }
 }

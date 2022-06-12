@@ -31,7 +31,7 @@ class AboutActivity : AbsAboutActivity() {
         icon.load(R.mipmap.launcher_lol)
         slogan.text = getString(R.string.about_slogan)
         version.text = String.format(
-            "%s v%s(%d)",
+            "%s v%s (%d)",
             PackageUtils.buildType,
             PackageUtils.versionName,
             PackageUtils.versionCode

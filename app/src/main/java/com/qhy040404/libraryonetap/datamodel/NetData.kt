@@ -1,30 +1,24 @@
-package com.qhy040404.libraryonetap.datamodel;
+package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson;
+import com.google.gson.Gson
+import java.io.Serializable
 
-import java.io.Serializable;
-
-public class NetData {
-    Gson gson = new Gson();
-
-    public String getFee(String data) {
-        GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.fee;
+class NetData {
+    fun getFee(data: String?): String? {
+        return Gson().fromJson(data, GsonData::class.java).fee
     }
 
-    public String getDynamicUsedFlow(String data) {
-        GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.dynamicUsedFlow;
+    fun getDynamicUsedFlow(data: String?): String? {
+        return Gson().fromJson(data, GsonData::class.java).dynamicUsedFlow
     }
 
-    public String getDynamicRemainFlow(String data) {
-        GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.dynamicRemainFlow;
+    fun getDynamicRemainFlow(data: String?): String? {
+        return Gson().fromJson(data, GsonData::class.java).dynamicRemainFlow
     }
 
-    private static class GsonData implements Serializable {
-        private String fee;
-        private String dynamicRemainFlow;
-        private String dynamicUsedFlow;
+    private class GsonData : Serializable {
+        val fee: String? = null
+        val dynamicRemainFlow: String? = null
+        val dynamicUsedFlow: String? = null
     }
 }

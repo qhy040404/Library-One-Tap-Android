@@ -1,27 +1,24 @@
-package com.qhy040404.libraryonetap.datamodel;
+package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson;
+import com.google.gson.Gson
+import java.io.Serializable
 
-import java.io.Serializable;
-
-public class VolunteerData {
-    Gson gson = new Gson();
-
-    public int getSameID(String data) {
-        return gson.fromJson(data, GsonData.class).numSameID;
+class VolunteerData {
+    fun getSameID(data: String?): Int {
+        return Gson().fromJson(data, GsonData::class.java).numSameID
     }
 
-    public int getSameName(String data) {
-        return gson.fromJson(data, GsonData.class).numSameName;
+    fun getSameName(data: String?): Int {
+        return Gson().fromJson(data, GsonData::class.java).numSameName
     }
 
-    public double getTotalHours(String data) {
-        return gson.fromJson(data, GsonData.class).totalDuration;
+    fun getTotalHours(data: String?): Double {
+        return Gson().fromJson(data, GsonData::class.java).totalDuration
     }
 
-    private static class GsonData implements Serializable {
-        private int numSameID;
-        private int numSameName;
-        private double totalDuration;
+    private class GsonData : Serializable {
+        val numSameID = 0
+        val numSameName = 0
+        val totalDuration = 0.0
     }
 }

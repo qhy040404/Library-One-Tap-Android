@@ -1,28 +1,18 @@
-package com.qhy040404.libraryonetap.datamodel;
+package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson;
+import com.google.gson.Gson
+import java.io.Serializable
 
-import java.io.Serializable;
-
-public class ReserveData {
-    Gson gson = new Gson();
-
-    public String getAddCode(String data) {
-        GsonData gsonData = gson.fromJson(data, GsonData.class);
-        return gsonData.getAddCode();
+class ReserveData {
+    fun getAddCode(data: String?): String? {
+        return Gson().fromJson(data, GsonData::class.java).data!!.addCode
     }
 
-    private static class GsonData implements Serializable {
-        private boolean success;
-        private DataBean data;
+    private class GsonData : Serializable {
+        val data: DataBean? = null
 
-        private String getAddCode() {
-            DataBean list = data;
-            return list.addCode;
-        }
-
-        public static class DataBean implements Serializable {
-            private String addCode;
+        class DataBean : Serializable {
+            val addCode: String? = null
         }
     }
 }

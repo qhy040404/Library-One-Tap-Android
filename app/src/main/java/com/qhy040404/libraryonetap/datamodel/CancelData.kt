@@ -1,17 +1,14 @@
-package com.qhy040404.libraryonetap.datamodel;
+package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson;
+import com.google.gson.Gson
+import java.io.Serializable
 
-import java.io.Serializable;
-
-public class CancelData {
-    Gson gson = new Gson();
-
-    public String getMessage(String returnData) {
-        return gson.fromJson(returnData, GsonData.class).message;
+class CancelData {
+    fun getMessage(returnData: String?): String? {
+        return Gson().fromJson(returnData, GsonData::class.java).message
     }
 
-    private static class GsonData implements Serializable {
-        private String message;
+    private class GsonData : Serializable {
+        val message: String? = null
     }
 }

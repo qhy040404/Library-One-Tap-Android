@@ -11,8 +11,8 @@ android {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
         targetSdk 33
-        versionCode 571
-        versionName "2.8.1"
+        versionCode 575
+        versionName "2.8.2"
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
         manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost(), COMMIT: getGitCommitHash()]

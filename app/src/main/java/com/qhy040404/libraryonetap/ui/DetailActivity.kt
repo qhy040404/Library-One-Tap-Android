@@ -67,7 +67,6 @@ class DetailActivity : BaseActivity() {
             val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
             val des = desEncrypt()
-            val checkSession = SessionData()
             val orderList = OrderListData()
 
             val id: String = GlobalValues.id
@@ -92,7 +91,7 @@ class DetailActivity : BaseActivity() {
 
                 val session: String =
                     Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
-                if (checkSession.isSuccess(session)) {
+                if (SessionData.isSuccess(session)) {
                     Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
                     progressBar.post { progressBar.visibility = View.INVISIBLE }
                     loginSuccess = true
@@ -233,7 +232,7 @@ class DetailActivity : BaseActivity() {
                         .setMessage(R.string.confirmCancel)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.justCancel) { _, _ ->
-                            val message = CancelData().getMessage(
+                            val message = CancelData.getMessage(
                                 Requests.post(
                                     URLManager.LIBRARY_ORDER_OPERATION_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
@@ -269,8 +268,6 @@ class DetailActivity : BaseActivity() {
                         .setMessage(R.string.confirmReset)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.ok) { _, _ ->
-                            val reserveData = ReserveData()
-
                             val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
                             val targetSeat = "\"seat_label\":\"$seat_label\""
                             var seat_id = ""
@@ -313,7 +310,7 @@ class DetailActivity : BaseActivity() {
                                 ReserveUtils.constructParaForAddCode(seat_id),
                                 GlobalValues.ctVCard
                             )
-                            val addCode = reserveData.getAddCode(addCodeOrigin)
+                            val addCode = ReserveData.getAddCode(addCodeOrigin)
                             Requests.post(
                                 URLManager.LIBRART_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),
@@ -341,8 +338,6 @@ class DetailActivity : BaseActivity() {
                         .setMessage(R.string.confirmReset)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.ok) { _, _ ->
-                            val reserveData = ReserveData()
-
                             val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
                             val targetSeat = "\"seat_label\":\"$seat_label\""
                             var seat_id = ""
@@ -385,7 +380,7 @@ class DetailActivity : BaseActivity() {
                                 ReserveUtils.constructParaForAddCode(seat_id),
                                 GlobalValues.ctVCard
                             )
-                            val addCode = reserveData.getAddCode(addCodeOrigin)
+                            val addCode = ReserveData.getAddCode(addCodeOrigin)
                             Requests.post(
                                 URLManager.LIBRART_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),

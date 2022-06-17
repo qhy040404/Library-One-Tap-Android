@@ -102,16 +102,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                     .penaltyLog().penaltyDeath().build()
             )
-            val netData = NetData()
-
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
             val data: String = GetPortalData.getPortalData(id, passwd, 1)
 
-            val remainFee = netData.getFee(data)
-            val usedNet = netData.getDynamicUsedFlow(data)
-            val remainNet = netData.getDynamicRemainFlow(data)
+            val remainFee = NetData.getFee(data)
+            val usedNet = NetData.getDynamicUsedFlow(data)
+            val remainNet = NetData.getDynamicRemainFlow(data)
             val netMessage =
                 getString(R.string.remainNetFeeAndColon) + remainFee + getString(R.string.rmb) + "\n" + getString(
                     R.string.usedNetAndColon
@@ -143,16 +141,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                     .penaltyLog().penaltyDeath().build()
             )
-            val electricData = ElectricData()
-
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
             val data: String = GetPortalData.getPortalData(id, passwd, 0)
 
             @Suppress("SpellCheckingInspection", "LocalVariableName")
-            val SSMC = electricData.getSSMC(data)
-            val remainElectric = electricData.getResele(data)
+            val SSMC = ElectricData.getSSMC(data)
+            val remainElectric = ElectricData.getResele(data)
             val electricMessage =
                 SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(
                     R.string.degree
@@ -186,8 +182,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
 
-            val sameID = VolunteerData().getSameID(data)
-            val sameName = VolunteerData().getSameName(data)
+            val sameID = VolunteerData.getSameID(data)
+            val sameName = VolunteerData.getSameName(data)
 
             if (sameID != 1 || sameName != 1) {
                 AlertDialog.Builder(requireContext())
@@ -199,7 +195,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     .show()
             } else {
                 val totalHours: String =
-                    VolunteerData().getTotalHours(data).toString() + getString(R.string.hours)
+                    VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
 
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 AlertDialog.Builder(requireContext())

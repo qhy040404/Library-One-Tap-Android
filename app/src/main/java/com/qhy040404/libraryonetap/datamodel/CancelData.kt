@@ -3,9 +3,9 @@ package com.qhy040404.libraryonetap.datamodel
 import com.google.gson.Gson
 import java.io.Serializable
 
-class CancelData {
-    fun getMessage(returnData: String?): String? {
-        return Gson().fromJson(returnData, GsonData::class.java).message
+object CancelData {
+    fun getMessage(returnData: String?): String {
+        return Gson().fromJson(returnData, GsonData::class.java).message!!
     }
 
     private class GsonData : Serializable {

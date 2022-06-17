@@ -98,8 +98,6 @@ class ReserveDialog {
         )
 
         val des = desEncrypt()
-        val checkSession = SessionData()
-        val reserveData = ReserveData()
 
         var loginSuccess = false
         while (!loginSuccess) {
@@ -121,7 +119,7 @@ class ReserveDialog {
                 URLManager.LIBRARY_SESSION_URL, "",
                 GlobalValues.ctSso
             )
-            if (checkSession.isSuccess(session)) {
+            if (SessionData.isSuccess(session)) {
                 loginSuccess = true
                 Toast.makeText(ctx, R.string.loaded, Toast.LENGTH_SHORT).show()
             } else {
@@ -134,7 +132,7 @@ class ReserveDialog {
                 ReserveUtils.constructPara(target),
                 GlobalValues.ctVCard
             )
-        val addCode = reserveData.getAddCode(addCodeOrigin)
+        val addCode = ReserveData.getAddCode(addCodeOrigin)
         Requests.post(
             URLManager.LIBRART_RESERVE_FINAL_URL,
             ReserveUtils.constructParaForFinalReserve(addCode),

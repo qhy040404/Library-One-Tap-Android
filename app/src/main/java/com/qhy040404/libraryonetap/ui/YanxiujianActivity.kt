@@ -54,7 +54,6 @@ class YanxiujianActivity : BaseActivity() {
             val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
 
             val des = desEncrypt()
-            val checkSession = SessionData()
             val orderList = OrderListData()
 
             val id: String = GlobalValues.id
@@ -79,7 +78,7 @@ class YanxiujianActivity : BaseActivity() {
 
                 val session: String =
                     Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
-                if (checkSession.isSuccess(session)) {
+                if (SessionData.isSuccess(session)) {
                     Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT)
                         .show()
                     progressBar2.post { progressBar2.visibility = View.INVISIBLE }

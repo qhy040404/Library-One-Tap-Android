@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Suppress("SpellCheckingInspection")
-class ElectricData {
-    fun getSSMC(data: String?): String? {
-        return Gson().fromJson(data, GsonData::class.java).dormitoryInfo_list!![0].ssmc
+object ElectricData {
+    fun getSSMC(data: String?): String {
+        return Gson().fromJson(data, GsonData::class.java).dormitoryInfo_list!![0].ssmc!!
     }
 
-    fun getResele(data: String?): String? {
-        return Gson().fromJson(data, GsonData::class.java).dormitoryInfo_list!![0].resele
+    fun getResele(data: String?): String {
+        return Gson().fromJson(data, GsonData::class.java).dormitoryInfo_list!![0].resele!!
     }
 
     @Suppress("PropertyName")

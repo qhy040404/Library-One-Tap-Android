@@ -3,7 +3,7 @@ package com.qhy040404.libraryonetap.datamodel
 import com.google.gson.Gson
 import java.io.Serializable
 
-class VolunteerData {
+object VolunteerData {
     fun getSameID(data: String?): Int {
         return Gson().fromJson(data, GsonData::class.java).numSameID
     }

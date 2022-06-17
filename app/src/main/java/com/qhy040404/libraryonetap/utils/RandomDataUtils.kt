@@ -15,10 +15,10 @@ object RandomDataUtils {
 
     val randomTheme by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
         when (getNum(4)) {
-            0-> "purple"
-            1-> "blue"
-            2-> "pink"
-            3-> "green"
+            0 -> "purple"
+            1 -> "blue"
+            2 -> "pink"
+            3 -> "green"
             else -> "simple"
         }
     }

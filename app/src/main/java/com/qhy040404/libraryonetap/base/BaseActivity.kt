@@ -8,7 +8,6 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.RandomDataUtils
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import java.util.*
 
 @Suppress("DEPRECATION")
@@ -23,7 +22,9 @@ abstract class BaseActivity : AppCompatActivity() {
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        if (GlobalValues.theme == "random") {theme = RandomDataUtils.randomTheme}
+        if (GlobalValues.theme == "random") {
+            theme = RandomDataUtils.randomTheme
+        }
         when (theme) {
             "purple" -> setTheme(R.style.Theme_Purple)
             "blue" -> setTheme(R.style.Theme_Blue)

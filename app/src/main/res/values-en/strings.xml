@@ -92,6 +92,7 @@
     <!-- ARRAY -->
     <!-- SETTINGS -->
     <string-array name="themes">
+        <item>Random</item>
         <item>Blue</item>
         <item>Pink</item>
         <item>Green</item>

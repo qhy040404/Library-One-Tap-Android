@@ -16,24 +16,15 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val config = resources.configuration
         val dm = resources.displayMetrics
-        val lazyMgr = ResettableLazyUtils.resettableManager()
+        var theme = GlobalValues.theme
 
         when (GlobalValues.darkMode) {
             "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-        when (GlobalValues.theme) {
-            "random" -> {
-                val randomTheme by ResettableLazyUtils.resettableLazy(lazyMgr) { RandomDataUtils.getNum(4) }
-                when (randomTheme) {
-                    0-> setTheme(R.style.Theme_Purple)
-                    1-> setTheme(R.style.Theme_Blue)
-                    2-> setTheme(R.style.Theme_Pink)
-                    3-> setTheme(R.style.Theme_Green)
-                    4-> setTheme(R.style.Theme_Simple)
-                }
-            }
+        if (GlobalValues.theme == "random") {theme = RandomDataUtils.randomTheme}
+        when (theme) {
             "purple" -> setTheme(R.style.Theme_Purple)
             "blue" -> setTheme(R.style.Theme_Blue)
             "pink" -> setTheme(R.style.Theme_Pink)

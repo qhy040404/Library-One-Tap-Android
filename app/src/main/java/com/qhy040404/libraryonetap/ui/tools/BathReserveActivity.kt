@@ -8,7 +8,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
 import com.qhy040404.libraryonetap.utils.web.Requests
 
@@ -51,7 +51,7 @@ class BathReserveActivity : BaseActivity() {
                 spinner.post { spinner.adapter = adapter }
             }
 
-            val des = desEncrypt()
+            val des = DesEncryptUtils()
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd

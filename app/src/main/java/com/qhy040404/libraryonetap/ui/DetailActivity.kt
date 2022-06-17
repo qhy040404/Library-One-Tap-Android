@@ -19,7 +19,7 @@ import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback
@@ -66,7 +66,7 @@ class DetailActivity : BaseActivity() {
             val tempReset: Button = findViewById(R.id.button14)
             val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
-            val des = desEncrypt()
+            val des = DesEncryptUtils()
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd

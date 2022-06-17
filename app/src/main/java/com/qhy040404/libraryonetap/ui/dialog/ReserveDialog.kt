@@ -17,7 +17,7 @@ import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
-import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
@@ -97,7 +97,7 @@ class ReserveDialog {
                 .penaltyLog().penaltyDeath().build()
         )
 
-        val des = desEncrypt()
+        val des = DesEncryptUtils()
 
         var loginSuccess = false
         while (!loginSuccess) {

@@ -2,8 +2,7 @@ package com.qhy040404.libraryonetap.utils.des;
 
 import static java.lang.Integer.parseInt;
 
-public class desEncrypt {
-
+public class DesEncryptUtils {
     private byte[][] generateKeys(byte[] keyByte) {
         byte[] key = new byte[56];
         byte[][] keys = new byte[16][48];

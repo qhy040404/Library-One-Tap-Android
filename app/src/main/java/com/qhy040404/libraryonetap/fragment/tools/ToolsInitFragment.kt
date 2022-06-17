@@ -196,7 +196,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             } else {
                 val totalHours: String =
                     VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
-
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 AlertDialog.Builder(requireContext())
                     .setMessage(message)

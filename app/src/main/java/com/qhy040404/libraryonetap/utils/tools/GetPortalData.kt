@@ -4,7 +4,7 @@ import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.utils.des.desEncrypt
+import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 object GetPortalData {
@@ -20,7 +20,7 @@ object GetPortalData {
                 .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                 .penaltyLog().penaltyDeath().build()
         )
-        val des = desEncrypt()
+        val des = DesEncryptUtils()
 
         var returnJson = ""
 

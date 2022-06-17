@@ -54,7 +54,6 @@ class YanxiujianActivity : BaseActivity() {
             val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
 
             val des = desEncrypt()
-            val orderList = OrderListData()
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
@@ -101,25 +100,29 @@ class YanxiujianActivity : BaseActivity() {
                 }
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
-            val total = orderList.getTotal(list)
-            if (!total.equals("0")) {
-                val space_name = orderList.getSpace_name(list, "1")
-                val order_date = orderList.getOrder_date(list, "1")
-                var order_id = orderList.getOrder_id(list, "1")
-                var order_process = orderList.getOrder_process(list, "1")
-                val all_users = orderList.getAll_users(list)
-                val full_time = orderList.getFull_time(list)
+            val total = OrderListData.getTotal(list)
+            if (total != "0") {
+                val space_name = OrderListData.getSpace_name(list, "1")
+                val order_date = OrderListData.getOrder_date(list, "1")
+                var order_id = OrderListData.getOrder_id(list, "1")
+                var order_process = OrderListData.getOrder_process(list, "1")
+                val all_users = OrderListData.getAll_users(list)
+                val full_time = OrderListData.getFull_time(list)
 
-                if (order_id.equals("oid")) {
+                if (order_id == "oid") {
                     order_id = getString(R.string.noValidOrder)
                 }
 
-                if (order_process.equals("审核通过")) {
-                    order_process = getString(R.string.notStart)
-                } else if (order_process.equals("进行中")) {
-                    order_process = getString(R.string.inside)
-                } else if (order_process.equals("暂离")) {
-                    order_process = getString(R.string.outside)
+                when (order_process) {
+                    "审核通过" -> {
+                        order_process = getString(R.string.notStart)
+                    }
+                    "进行中" -> {
+                        order_process = getString(R.string.inside)
+                    }
+                    "暂离" -> {
+                        order_process = getString(R.string.outside)
+                    }
                 }
 
                 val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()

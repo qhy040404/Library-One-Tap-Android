@@ -18,8 +18,8 @@ import com.qhy040404.libraryonetap.datamodel.ReserveData
 import com.qhy040404.libraryonetap.datamodel.SessionData
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
+import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.des.desEncrypt
-import com.qhy040404.libraryonetap.utils.getToday
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
 import okhttp3.Callback
@@ -67,7 +67,6 @@ class DetailActivity : BaseActivity() {
             val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
             val des = desEncrypt()
-            val orderList = OrderListData()
 
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
@@ -112,16 +111,17 @@ class DetailActivity : BaseActivity() {
                 }
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
-            val total = orderList.getTotal(list)
-            if (!total.equals("0")) {
-                val space_name = orderList.getSpace_name(list, "2")
-                val seat_label = orderList.getSeat_label(list, "2")
-                val order_date = orderList.getOrder_date(list, "2")
-                var order_id = orderList.getOrder_id(list, "2")
-                var order_process = orderList.getOrder_process(list, "2")
-                val back_time = orderList.getBack_time(list, "2", getString(R.string.tempEndTime))
+            val total = OrderListData.getTotal(list)
+            if (total != "0") {
+                val space_name = OrderListData.getSpace_name(list, "2")
+                val seat_label = OrderListData.getSeat_label(list, "2")
+                val order_date = OrderListData.getOrder_date(list, "2")
+                var order_id = OrderListData.getOrder_id(list, "2")
+                var order_process = OrderListData.getOrder_process(list, "2")
+                val back_time =
+                    OrderListData.getBack_time(list, "2", getString(R.string.tempEndTime))
 
-                if (order_id.equals("oid")) {
+                if (order_id == "oid") {
                     order_id = getString(R.string.noValidOrder)
                     reserve.post {
                         reserve.visibility = View.VISIBLE
@@ -129,7 +129,7 @@ class DetailActivity : BaseActivity() {
                     }
                 }
 
-                if (order_process.equals("审核通过")) {
+                if (order_process == "审核通过") {
                     order_process = getString(R.string.notStart)
 
                     cancel.post {
@@ -137,8 +137,8 @@ class DetailActivity : BaseActivity() {
                         cancel.isClickable = true
                     }
 
-                    val today = getToday("-", true)
-                    if (!order_date.equals(today)) {
+                    val today = TimeUtils.getToday("-", true)
+                    if (order_date != today) {
                         reserve.post {
                             reserve.visibility = View.VISIBLE
                             reserve.isClickable = true
@@ -149,9 +149,9 @@ class DetailActivity : BaseActivity() {
                             reset.isClickable = true
                         }
                     }
-                } else if (order_process.equals("进行中")) {
+                } else if (order_process == "进行中") {
                     order_process = getString(R.string.inside)
-                } else if (order_process.equals("暂离")) {
+                } else if (order_process == "暂离") {
                     order_process = getString(R.string.outside)
                     tempReset.post {
                         tempReset.visibility = View.VISIBLE
@@ -275,7 +275,7 @@ class DetailActivity : BaseActivity() {
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
                                     URLManager.constructAvailableUrl(
-                                        getToday("/", false),
+                                        TimeUtils.getToday("/", false),
                                         roomCode
                                     )
                                 )
@@ -345,7 +345,7 @@ class DetailActivity : BaseActivity() {
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
                                     URLManager.constructAvailableUrl(
-                                        getToday("/", false),
+                                        TimeUtils.getToday("/", false),
                                         roomCode
                                     )
                                 )

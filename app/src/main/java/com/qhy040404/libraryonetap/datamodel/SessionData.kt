@@ -1,11 +1,11 @@
 package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson
+import com.qhy040404.libraryonetap.constant.GlobalManager.gson
 import java.io.Serializable
 
 object SessionData {
     fun isSuccess(returnData: String?): Boolean {
-        return Gson().fromJson(returnData, GsonData::class.java).success
+        return gson.fromJson(returnData, GsonData::class.java).success
     }
 
     private class GsonData : Serializable {

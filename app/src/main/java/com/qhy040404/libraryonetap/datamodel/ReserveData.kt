@@ -1,11 +1,11 @@
 package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson
+import com.qhy040404.libraryonetap.constant.GlobalManager.gson
 import java.io.Serializable
 
 object ReserveData {
     fun getAddCode(data: String?): String {
-        return Gson().fromJson(data, GsonData::class.java).data!!.addCode!!
+        return gson.fromJson(data, GsonData::class.java).data!!.addCode!!
     }
 
     private class GsonData : Serializable {

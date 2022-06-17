@@ -1,19 +1,19 @@
 package com.qhy040404.libraryonetap.datamodel
 
-import com.google.gson.Gson
+import com.qhy040404.libraryonetap.constant.GlobalManager.gson
 import java.io.Serializable
 
 object NetData {
     fun getFee(data: String?): String {
-        return Gson().fromJson(data, GsonData::class.java).fee!!
+        return gson.fromJson(data, GsonData::class.java).fee!!
     }
 
     fun getDynamicUsedFlow(data: String?): String {
-        return Gson().fromJson(data, GsonData::class.java).dynamicUsedFlow!!
+        return gson.fromJson(data, GsonData::class.java).dynamicUsedFlow!!
     }
 
     fun getDynamicRemainFlow(data: String?): String {
-        return Gson().fromJson(data, GsonData::class.java).dynamicRemainFlow!!
+        return gson.fromJson(data, GsonData::class.java).dynamicRemainFlow!!
     }
 
     private class GsonData : Serializable {

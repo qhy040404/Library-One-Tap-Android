@@ -2,14 +2,14 @@ package com.qhy040404.libraryonetap.utils.lazy
 
 import kotlin.reflect.KProperty
 
-class ResettableLazy<PROPTYPE>(
+class ResettableLazy<T>(
     private val manager: ResettableLazyManager,
-    val init: () -> PROPTYPE,
+    val init: () -> T,
 ) : Resettable {
     @Volatile
     var lazyHolder = makeInitBlock()
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): PROPTYPE {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): T {
         return lazyHolder.value
     }
 
@@ -17,7 +17,7 @@ class ResettableLazy<PROPTYPE>(
         lazyHolder = makeInitBlock()
     }
 
-    private fun makeInitBlock(): Lazy<PROPTYPE> {
+    private fun makeInitBlock(): Lazy<T> {
         return lazy {
             manager.register(this)
             init()

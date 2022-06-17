@@ -1,10 +1,10 @@
 package com.qhy040404.libraryonetap.utils.lazy
 
 object ResettableLazyUtils {
-    fun <PROPTYPE> resettableLazy(
+    fun <T> resettableLazy(
         manager: ResettableLazyManager,
-        init: () -> PROPTYPE,
-    ): ResettableLazy<PROPTYPE> {
+        init: () -> T,
+    ): ResettableLazy<T> {
         return ResettableLazy(manager, init)
     }
 

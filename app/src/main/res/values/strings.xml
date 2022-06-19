@@ -29,6 +29,7 @@
     <string name="mainTheme">主题</string>
     <string name="darkMode">深色模式</string>
     <string name="language">语言</string>
+    <string name="resetData">重置应用数据</string>
     <string name="other">其他</string>
 
     <!-- INIT -->
@@ -54,6 +55,8 @@
     <string name="sameData">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="hours">" 小时"</string>
     <string name="reserved">已发送预约请求</string>
+    <string name="dataResetConfirm">请确认重置应用数据</string>
+    <string name="dataResetFinish">数据已被重置，程序即将退出....</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>

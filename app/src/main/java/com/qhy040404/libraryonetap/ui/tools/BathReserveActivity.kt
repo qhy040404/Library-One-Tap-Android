@@ -9,7 +9,7 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
-import com.qhy040404.libraryonetap.utils.tools.BathUtils.getBathTime
+import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class BathReserveActivity : BaseActivity() {
@@ -56,7 +56,7 @@ class BathReserveActivity : BaseActivity() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val time = getBathTime()
+            val time = BathUtils.getBathTime()
 
             val ltResponse: String = Requests.get(URLManager.BATH_SSO_URL)
             val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"

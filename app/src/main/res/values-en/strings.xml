@@ -30,6 +30,7 @@
     <string name="mainTheme">Main Theme</string>
     <string name="darkMode">Dark Mode</string>
     <string name="language">Language</string>
+    <string name="resetData">Reset App Data</string>
     <string name="other">Others</string>
 
     <!-- INIT -->
@@ -54,6 +55,8 @@
     <string name="sameData">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="hours">" hours"</string>
     <string name="reserved">Reserve request has been sent</string>
+    <string name="dataResetConfirm">Please confirm to clear appdata.</string>
+    <string name="dataResetFinish">AppData has been cleared, Exiting....</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>

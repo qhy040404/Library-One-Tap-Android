@@ -42,6 +42,10 @@
             app:key="locale"
             app:summary="%s"
             app:title="@string/language" />
+        <Preference
+            app:icon="@drawable/ic_refresh"
+            app:key="reset"
+            app:title="@string/resetData" />
     </PreferenceCategory>
     <PreferenceCategory app:title="@string/other">
         <Preference

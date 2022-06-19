@@ -36,4 +36,8 @@ object SPUtils {
             else -> throw IllegalArgumentException("This type can't be saved into Preferences")
         }.apply()
     }
+
+    fun resetAll() = with(sp.edit()) {
+        clear().apply()
+    }
 }

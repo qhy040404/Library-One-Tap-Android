@@ -1,5 +1,10 @@
 # Changelog
 
+v2.8.4
+
+* 现在可以重置应用数据
+* 常规优化
+
 v2.8.3-Pre ( *Test* )
 
 * 测试`OrderListData.kt`是否工作正常

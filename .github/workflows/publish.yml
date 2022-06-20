@@ -46,12 +46,12 @@ jobs:
         uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Check_debug
-        uses: gradle/gradle-build-action@v2.2.0
+        uses: gradle/gradle-build-action@v2.2.1
         with:
           arguments: lintAnalyzeDebug
 
       - name: Check_release
-        uses: gradle/gradle-build-action@v2.2.0
+        uses: gradle/gradle-build-action@v2.2.1
         with:
           arguments: lintAnalyzeRelease
 
@@ -72,7 +72,7 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2.2.0
+        uses: gradle/gradle-build-action@v2.2.1
         with:
           arguments: assembleDebug
 
@@ -111,7 +111,7 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2.2.0
+        uses: gradle/gradle-build-action@v2.2.1
         with:
           arguments: assembleRelease
 

@@ -5,16 +5,16 @@ import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import java.util.*
 
 object RandomDataUtils {
-    fun getNum(endNum: Int): Int {
-        return if (endNum > 0) {
-            Random().nextInt(endNum)
+    fun getNum(numCount: Int): Int {
+        return if (numCount > 0) {
+            Random().nextInt(numCount)
         } else {
             0
         }
     }
 
     val randomTheme by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
-        when (getNum(4)) {
+        when (getNum(5)) {
             0 -> "purple"
             1 -> "blue"
             2 -> "pink"

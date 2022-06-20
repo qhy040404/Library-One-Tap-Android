@@ -14,7 +14,7 @@ object RoomUtils {
                 "507" -> 200
                 else -> {
                     val temp = intArrayOf(168, 170, 195, 197, 196, 198, 199, 200)
-                    temp[RandomDataUtils.getNum(7)]
+                    temp[RandomDataUtils.getNum(8)]
                 }
             }
             "令希", "Lingxi" -> when (room) {
@@ -28,7 +28,7 @@ object RoomUtils {
                 "602" -> 202
                 else -> {
                     val temp = intArrayOf(201, 202, 203, 204, 205, 206, 207, 208)
-                    temp[RandomDataUtils.getNum(7)]
+                    temp[RandomDataUtils.getNum(8)]
                 }
             }
             else -> 0

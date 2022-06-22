@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.datamodel
 
-import com.qhy040404.libraryonetap.constant.GlobalManager.gson
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.utils.TimeUtils
 
 @Suppress("FunctionName", "LocalVariableName", "PropertyName")
@@ -8,14 +8,14 @@ object OrderListData {
     private val today = TimeUtils.getToday("-", true)
 
     fun getTotal(data: String): String {
-        return gson.fromJson(data, OrderListDataClass::class.java).total!!
+        return moshi.adapter(OrderListDataClass::class.java).fromJson(data)?.total!!
     }
 
     fun getOrder_id(data: String, mode: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var order_id = "oid"
         var notHasToday = true
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == mode && list.order_date == today) {
                 order_id = list.order_id!!
@@ -36,10 +36,10 @@ object OrderListData {
     }
 
     fun getOrder_process(data: String, mode: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var order_process = ""
         var notHasToday = true
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == mode && list.order_date == today) {
                 order_process = list.order_process
@@ -60,10 +60,10 @@ object OrderListData {
     }
 
     fun getSpace_name(data: String, mode: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var space_name = ""
         var notHasToday = true
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == mode && list.order_date == today) {
                 space_name = list.space_name!!
@@ -84,10 +84,10 @@ object OrderListData {
     }
 
     fun getSeat_label(data: String, mode: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var seat_label = ""
         var notHasToday = true
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == mode && list.order_date == today) {
                 seat_label = list.seat_label.toString()
@@ -108,10 +108,10 @@ object OrderListData {
     }
 
     fun getOrder_date(data: String, mode: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var order_date = ""
         var notHasToday = true
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == mode && list.order_date == today) {
                 order_date = list.order_date
@@ -132,9 +132,9 @@ object OrderListData {
     }
 
     fun getBack_time(data: String, mode: String, prompt: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var back_time = ""
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if (list.order_process == "暂离" && list.order_type == mode) {
                 if (list.back_time != "00:00:00") {
@@ -147,9 +147,9 @@ object OrderListData {
     }
 
     fun getAll_users(data: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var all_users = ""
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == "1") {
                 all_users = list.all_users.toString()
@@ -160,9 +160,9 @@ object OrderListData {
     }
 
     fun getFull_time(data: String): String {
-        val mClass = gson.fromJson(data, OrderListDataClass::class.java)
+        val mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(data)
         var full_time = ""
-        for (i in mClass.rows!!.indices) {
+        for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == "1") {
                 full_time = list.order_start_time!!.split(" ")

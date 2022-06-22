@@ -134,14 +134,6 @@ class AboutActivity : AbsAboutActivity() {
             )
             add(
                 License(
-                    "Gson",
-                    "Google",
-                    License.APACHE_2,
-                    "https://github.com/google/gson"
-                )
-            )
-            add(
-                License(
                     "OkHttp",
                     "Square",
                     License.APACHE_2,
@@ -154,6 +146,14 @@ class AboutActivity : AbsAboutActivity() {
                     "coil-kt",
                     License.APACHE_2,
                     "https://github.com/coil-kt/coil"
+                )
+            )
+            add(
+                License(
+                    "Moshi",
+                    "Square",
+                    License.APACHE_2,
+                    "https://github.com/square/moshi"
                 )
             )
         }

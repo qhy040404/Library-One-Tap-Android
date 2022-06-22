@@ -228,6 +228,11 @@ jobs:
           name: signed_release_apk
           path: upload
 
+      - name: Rename pre-release apk
+        run: |
+          sudo apt-get install rename -y
+          rename 's/-release-signed.apk/-Pre-release-signed.apk/' upload/*
+
       - name: Generate SHA-512 checksums
         shell: sh
         run: |

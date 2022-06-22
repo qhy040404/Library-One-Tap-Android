@@ -1,5 +1,9 @@
 # Changelog
 
+v2.8.6
+
+* 修复了Channel错误的问题
+
 v2.8.5
 
 * Java 8 -> 11

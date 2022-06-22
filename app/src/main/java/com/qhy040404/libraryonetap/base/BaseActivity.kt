@@ -30,6 +30,8 @@ abstract class BaseActivity : AppCompatActivity() {
             "blue" -> setTheme(R.style.Theme_Blue)
             "pink" -> setTheme(R.style.Theme_Pink)
             "green" -> setTheme(R.style.Theme_Green)
+            "orange" -> setTheme(R.style.Theme_Orange)
+            "red" -> setTheme(R.style.Theme_Red)
             "simple" -> setTheme(R.style.Theme_Simple)
         }
         config.setLocale(

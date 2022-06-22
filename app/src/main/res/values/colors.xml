@@ -12,6 +12,12 @@
     <color name="green_200">#FF7FFFAA</color>
     <color name="green_500">#FF00FA9A</color>
     <color name="green_700">#FF00FF7F</color>
+    <color name="orange_200">#FFFFE0B2</color>
+    <color name="orange_500">#FFFF9800</color>
+    <color name="orange_700">#FFF57C00</color>
+    <color name="red_200">#FFFFCDD2</color>
+    <color name="red_500">#FFF44336</color>
+    <color name="red_700">#FFD32F2F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="translucent">#00000000</color>

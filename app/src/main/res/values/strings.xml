@@ -101,7 +101,9 @@
         <item>随机主题</item>
         <item>苍穹蓝</item>
         <item>少女粉</item>
-        <item>青葱绿</item>s
+        <item>青葱绿</item>
+        <item>活力橙</item>
+        <item>淡雅红</item>
         <item>基佬紫</item>
         <item>简约风</item>
     </string-array>
@@ -111,6 +113,8 @@
         <item>blue</item>
         <item>pink</item>
         <item>green</item>
+        <item>orange</item>
+        <item>red</item>
         <item>purple</item>
         <item>simple</item>
     </string-array>

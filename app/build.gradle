@@ -109,14 +109,14 @@ private static int getCommitsCount() {
     try {
         process = runtime.exec("git rev-list --count HEAD")
         String line
-        BufferedReader input = new BufferedReader(new  InputStreamReader(process.getInputStream()))
-        while ((line=input.readLine())!=null) {
-            if (process!=null){
+        BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))
+        while ((line = input.readLine()) != null) {
+            if (process != null) {
                 process.destroy()
             }
             return Integer.parseInt(line)
         }
-    }catch (Exception e) {
+    } catch (Exception e) {
         e.printStackTrace()
     } finally {
         if (process != null) {

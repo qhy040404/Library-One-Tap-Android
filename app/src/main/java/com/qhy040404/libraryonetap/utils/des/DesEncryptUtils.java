@@ -1,7 +1,5 @@
 package com.qhy040404.libraryonetap.utils.des;
 
-import static java.lang.Integer.parseInt;
-
 public class DesEncryptUtils {
     private byte[][] generateKeys(byte[] keyByte) {
         byte[] key = new byte[56];
@@ -319,10 +317,10 @@ public class DesEncryptUtils {
                     binary = getBoxBinary(s8[i][j]);
                     break;
             }
-            sBoxByte[m * 4] = (byte) parseInt(binary.substring(0, 1));
-            sBoxByte[m * 4 + 1] = (byte) parseInt(binary.substring(1, 2));
-            sBoxByte[m * 4 + 2] = (byte) parseInt(binary.substring(2, 3));
-            sBoxByte[m * 4 + 3] = (byte) parseInt(binary.substring(3, 4));
+            sBoxByte[m * 4] = (byte) Integer.parseInt(binary.substring(0, 1));
+            sBoxByte[m * 4 + 1] = (byte) Integer.parseInt(binary.substring(1, 2));
+            sBoxByte[m * 4 + 2] = (byte) Integer.parseInt(binary.substring(2, 3));
+            sBoxByte[m * 4 + 3] = (byte) Integer.parseInt(binary.substring(3, 4));
         }
         return sBoxByte;
     }

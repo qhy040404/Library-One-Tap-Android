@@ -4,7 +4,7 @@ plugins {
 }
 
 private static String baseVersionName() {
-    return "2.8.6"
+    return "2.8.5.1"
 }
 
 android {
@@ -70,14 +70,13 @@ private static String getBuildTime() {
 }
 
 private static String getBuildType() {
-    String tag = execute("git describe --abbrev=0")
-    if (tag.contains(baseVersionName())) {
-        if (tag.contains("Pre")) {
-            return "Pre-release"
-        }
+    if (execute(String.format("git tag -l %s", baseVersionName())) != null) {
         return "Release"
+    } else if (execute(String.format("git tag -l %s-Pre", baseVersionName())) != null) {
+        return "Pre-release"
+    } else {
+        return "Debug"
     }
-    return "Debug"
 }
 
 private static String getBuildHost() {

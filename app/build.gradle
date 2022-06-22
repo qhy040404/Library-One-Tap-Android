@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+private static String baseVersionName() {
+    return "2.8.5"
+}
+
 android {
     compileSdk 33
 
@@ -57,10 +61,6 @@ dependencies {
 }
 
 import java.text.SimpleDateFormat
-
-private static String baseVersionName() {
-    return "2.8.5"
-}
 
 private static String getBuildTime() {
     Date date = new Date()

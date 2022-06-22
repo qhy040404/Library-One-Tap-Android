@@ -12,7 +12,7 @@ android {
         minSdk 29
         targetSdk 33
         versionCode getCommitsCount()
-        versionName "2.8.4"
+        versionName baseVersionName()
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
         manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost(), COMMIT: getGitCommitHash()]
@@ -58,6 +58,10 @@ dependencies {
 
 import java.text.SimpleDateFormat
 
+private static String baseVersionName() {
+    return "2.8.5"
+}
+
 private static String getBuildTime() {
     Date date = new Date()
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -65,14 +69,13 @@ private static String getBuildTime() {
     return formatter.format(date)
 }
 
-private String getBuildType() {
-    for (String s : gradle.startParameter.taskNames) {
-        if (s.contains("Release") | s.contains("release")) {
-            if (android.defaultConfig.versionName.contains("pre") | android.defaultConfig.versionName.contains("Pre")) {
-                return "Pre-release"
-            }
-            return "Release"
+private static String getBuildType() {
+    String tag = execute("git describe --abbrev=0")
+    if (tag.contains(baseVersionName())) {
+        if (tag.contains("Pre")) {
+            return "Pre-release"
         }
+        return "Release"
     }
     return "Debug"
 }
@@ -82,10 +85,18 @@ private static String getBuildHost() {
 }
 
 private static String getGitCommitHash() {
+    return execute("git rev-parse HEAD")
+}
+
+private static int getCommitsCount() {
+    return Integer.parseInt(execute("git rev-list --count HEAD"))
+}
+
+private static String execute(String param) {
     Runtime runtime = Runtime.getRuntime()
     Process process = null
     try {
-        process = runtime.exec("git rev-parse HEAD")
+        process = runtime.exec(param)
         String line
         BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))
         while ((line = input.readLine()) != null) {
@@ -93,28 +104,6 @@ private static String getGitCommitHash() {
                 process.destroy()
             }
             return line
-        }
-    } catch (Exception e) {
-        e.printStackTrace()
-    } finally {
-        if (process != null) {
-            process.destroy()
-        }
-    }
-}
-
-private static int getCommitsCount() {
-    Runtime runtime = Runtime.getRuntime()
-    Process process = null
-    try {
-        process = runtime.exec("git rev-list --count HEAD")
-        String line
-        BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))
-        while ((line = input.readLine()) != null) {
-            if (process != null) {
-                process.destroy()
-            }
-            return Integer.parseInt(line)
         }
     } catch (Exception e) {
         e.printStackTrace()

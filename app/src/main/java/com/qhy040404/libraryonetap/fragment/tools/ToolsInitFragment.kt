@@ -12,9 +12,9 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.datamodel.ElectricData
-import com.qhy040404.libraryonetap.datamodel.NetData
-import com.qhy040404.libraryonetap.datamodel.VolunteerData
+import com.qhy040404.libraryonetap.data.ElectricData
+import com.qhy040404.libraryonetap.data.NetData
+import com.qhy040404.libraryonetap.data.VolunteerData
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData

@@ -12,10 +12,10 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.datamodel.CancelData
-import com.qhy040404.libraryonetap.datamodel.OrderListData
-import com.qhy040404.libraryonetap.datamodel.ReserveData
-import com.qhy040404.libraryonetap.datamodel.SessionData
+import com.qhy040404.libraryonetap.data.CancelData
+import com.qhy040404.libraryonetap.data.OrderListData
+import com.qhy040404.libraryonetap.data.ReserveData
+import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils

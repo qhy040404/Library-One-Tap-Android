@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.datamodel
+package com.qhy040404.libraryonetap.data.model
 
 data class VolunteerDataClass(
     val numSameID: Int = 0,

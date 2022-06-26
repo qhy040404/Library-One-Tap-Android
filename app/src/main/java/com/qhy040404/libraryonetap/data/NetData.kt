@@ -1,6 +1,7 @@
-package com.qhy040404.libraryonetap.datamodel
+package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
+import com.qhy040404.libraryonetap.data.model.NetDataClass
 
 object NetData {
     fun getFee(data: String): String {

@@ -13,8 +13,8 @@ import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.datamodel.ReserveData
-import com.qhy040404.libraryonetap.datamodel.SessionData
+import com.qhy040404.libraryonetap.data.ReserveData
+import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils

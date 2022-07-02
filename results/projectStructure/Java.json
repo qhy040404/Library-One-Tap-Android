@@ -1,0 +1,12 @@
+{
+  "modules": [
+    {
+      "name": "图书馆",
+      "languageLevel": 11
+    },
+    {
+      "name": "图书馆.app",
+      "languageLevel": 11
+    }
+  ]
+}

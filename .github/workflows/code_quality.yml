@@ -12,6 +12,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v5.1.0
 

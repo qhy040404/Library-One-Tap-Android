@@ -21,5 +21,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="translucent">#00000000</color>
-    <color name="icon_background">#10000000</color>
+    <color name="ic_launcher_background">#FF104287</color>
 </resources>

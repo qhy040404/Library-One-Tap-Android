@@ -27,6 +27,7 @@
     <string name="name">姓名</string>
     <string name="general">通用</string>
     <string name="mainTheme">主题</string>
+    <string name="md3" translatable="false">Material 3 (Preview)</string>
     <string name="darkMode">深色模式</string>
     <string name="language">语言</string>
     <string name="resetData">重置应用数据</string>

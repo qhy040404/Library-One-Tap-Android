@@ -5,6 +5,7 @@ import android.os.Looper
 import android.os.StrictMode
 import android.util.Base64
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -21,6 +22,11 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     override fun init() = initView()
 
     private fun initView() {
+        setSupportActionBar(binding.toolbar)
+        (binding.root as ViewGroup).bringChildToFront(binding.appbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.title = getString(R.string.vcardTitle)
+
         val textView: TextView = findViewById(R.id.textView4)
         textView.visibility = View.VISIBLE
         Thread(VCard()).start()

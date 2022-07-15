@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.ui.tools
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -17,6 +18,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     override fun init() = initView()
 
     private fun initView() {
+        setSupportActionBar(binding.toolbar)
+        (binding.root as ViewGroup).bringChildToFront(binding.appbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.title = getString(R.string.vcardTitle)
+
         val textViewBath: TextView = findViewById(R.id.textView3)
         textViewBath.visibility = View.VISIBLE
         Thread(BathReserve()).start()
@@ -68,8 +74,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 Requests.loginPostData(id, passwd, ltData, rsa),
                 GlobalValues.ctSso
             )
-
-            Requests.get(URLManager.BATH_DIRECT_URL)
 
             textViewBath.text = getString(R.string.loaded)
 

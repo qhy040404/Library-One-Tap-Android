@@ -5,9 +5,10 @@ import android.view.KeyEvent
 import android.view.MenuItem
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.databinding.SettingsActivityBinding
 import com.qhy040404.libraryonetap.fragment.SettingsFragment
 
-class SettingsActivity : BaseActivity() {
+class SettingsActivity : BaseActivity<SettingsActivityBinding>() {
     override fun init() {
         supportFragmentManager
             .beginTransaction()

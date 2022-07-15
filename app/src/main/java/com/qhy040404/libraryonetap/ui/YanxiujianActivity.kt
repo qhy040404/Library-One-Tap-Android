@@ -13,6 +13,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.SessionData
+import com.qhy040404.libraryonetap.databinding.ActivityYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
@@ -22,7 +23,7 @@ import okhttp3.Response
 import java.io.IOException
 
 @Suppress("LocalVariableName")
-class YanxiujianActivity : BaseActivity() {
+class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_yanxiujian

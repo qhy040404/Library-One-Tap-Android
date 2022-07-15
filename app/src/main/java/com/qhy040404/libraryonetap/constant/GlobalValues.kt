@@ -22,7 +22,6 @@ object GlobalValues {
     var passwd: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
-    var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
     var md3: Boolean by SPDelegates(Constants.PREF_MD3, false)
     var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
 

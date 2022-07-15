@@ -7,9 +7,10 @@ import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.databinding.ActivityToolsInitBinding
 import com.qhy040404.libraryonetap.fragment.tools.ToolsInitFragment
 
-class ToolsInitActivity : BaseActivity() {
+class ToolsInitActivity : BaseActivity<ActivityToolsInitBinding>() {
     override fun init() {
         supportFragmentManager
             .beginTransaction()

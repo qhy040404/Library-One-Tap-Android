@@ -14,12 +14,13 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.databinding.ActivityMainBinding
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.ui.tools.ToolsInitActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import kotlin.system.exitProcess
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun init() {
         handleIntentFromShortcuts(intent)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)

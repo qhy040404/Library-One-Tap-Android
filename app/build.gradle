@@ -42,8 +42,12 @@ android {
     }
 }
 
+configurations.all {
+    exclude group: 'androidx.appcompat', module: 'appcompat'
+}
+
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.6.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.preference:preference:1.2.0'
@@ -55,6 +59,9 @@ dependencies {
     implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'com.tencent.bugly:crashreport:4.0.4'
+    implementation 'dev.rikka.rikkax.appcompat:appcompat:1.4.1'
+    implementation 'dev.rikka.rikkax.material:material:2.5.0'
+    implementation 'dev.rikka.rikkax.material:material-preference:2.0.0'
     implementation 'dev.rikka.rikkax.preference:simplemenu-preference:1.0.3'
     implementation 'io.coil-kt:coil:2.1.0'
 }

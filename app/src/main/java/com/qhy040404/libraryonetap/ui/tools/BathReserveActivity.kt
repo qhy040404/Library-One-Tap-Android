@@ -8,11 +8,12 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
-class BathReserveActivity : BaseActivity() {
+class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_bath_reserve

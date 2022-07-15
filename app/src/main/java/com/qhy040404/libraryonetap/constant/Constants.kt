@@ -10,7 +10,6 @@ object Constants {
     const val PREF_PASSWD = "passwd"
 
     const val PREF_DARK = "dark"
-    const val PREF_THEME = "theme"
     const val PREF_MD3 = "md3"
     const val PREF_LOCALE = "locale"
     const val PREF_RESET = "reset"
@@ -20,7 +19,6 @@ object Constants {
     const val PREF_ABOUT = "about"
 
     const val DEFAULT_DARK = "system"
-    const val DEFAULT_THEME = "simple"
     const val DEFAULT_LOCALE = "system"
 
     const val CONTENT_TYPE_SSO = "application/x-www-form-urlencoded; charset=utf-8"

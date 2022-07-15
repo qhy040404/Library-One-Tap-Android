@@ -16,6 +16,7 @@ import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
+import com.qhy040404.libraryonetap.databinding.ActivityDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
@@ -28,7 +29,7 @@ import okhttp3.Response
 import java.io.IOException
 
 @Suppress("LocalVariableName")
-class DetailActivity : BaseActivity() {
+class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override fun init() = initView()
 
     override fun getLayoutId(): Int = R.layout.activity_detail

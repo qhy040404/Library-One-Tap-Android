@@ -10,7 +10,6 @@ object Constants {
     const val PREF_PASSWD = "passwd"
 
     const val PREF_DARK = "dark"
-    const val PREF_MD3 = "md3"
     const val PREF_LOCALE = "locale"
     const val PREF_RESET = "reset"
 

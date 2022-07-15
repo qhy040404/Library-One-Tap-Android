@@ -115,9 +115,9 @@
     </string-array>
 
     <string-array name="language_value" translatable="false">
-        <item>system</item>
-        <item>zh</item>
-        <item>en</item>
+        <item>SYSTEM</item>
+        <item>zh-CN</item>
+        <item>en-US</item>
     </string-array>
 
     <!-- BATH RESERVE ACTIVITY -->

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailActivity">
+    tools:context=".fragment.library.DetailFragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="337dp"
         android:layout_height="176dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="120dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/loading"
         android:textSize="20sp"

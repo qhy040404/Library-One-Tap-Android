@@ -1,14 +1,17 @@
-package com.qhy040404.libraryonetap.ui
+package com.qhy040404.libraryonetap.fragment.library
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -16,7 +19,7 @@ import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
-import com.qhy040404.libraryonetap.databinding.ActivityDetailBinding
+import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
@@ -29,11 +32,11 @@ import okhttp3.Response
 import java.io.IOException
 
 @Suppress("LocalVariableName")
-class DetailActivity : BaseActivity<ActivityDetailBinding>() {
+class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView: TextView = findViewById(R.id.textView)
+        val textView: TextView = binding.textView
         textView.visibility = View.VISIBLE
         Thread(Detail()).start()
     }
@@ -53,17 +56,17 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                     .penaltyLog().penaltyDeath().build()
             )
 
-            val textView: TextView = findViewById(R.id.textView)
-            val leave: Button = findViewById(R.id.button4)
-            val tempLeave: Button = findViewById(R.id.button5)
-            val enter: Button = findViewById(R.id.button6)
-            val imageView: ImageView = findViewById(R.id.imageView)
-            val refresh: Button = findViewById(R.id.button7)
-            val cancel: Button = findViewById(R.id.button10)
-            val reserve: Button = findViewById(R.id.button11)
-            val reset: Button = findViewById(R.id.button9)
-            val tempReset: Button = findViewById(R.id.button14)
-            val progressBar: ProgressBar = findViewById(R.id.progressBar)
+            val textView = binding.textView
+            val leave = binding.button4
+            val tempLeave: Button = binding.button5
+            val enter: Button = binding.button6
+            val imageView: ImageView = binding.imageView
+            val refresh: Button = binding.button7
+            val cancel: Button = binding.button10
+            val reserve: Button = binding.button11
+            val reset: Button = binding.button9
+            val tempReset: Button = binding.button14
+            val progressBar: ProgressBar = binding.progressBar
 
             val des = DesEncryptUtils()
 
@@ -74,36 +77,32 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
             var timer = 0
             while (!loginSuccess) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-                val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                val ltData: String = try {
+                    "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                } catch (e: Exception) {
+                    ""
+                }
 
-                val rawData = "$id$passwd$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                if (ltData != "") {
+                    val rawData = "$id$passwd$ltData"
+                    val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                Requests.post(
-                    URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa),
-                    GlobalValues.ctSso
-                )
-
-                Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+                    Requests.post(
+                        URLManager.LIBRARY_SSO_URL,
+                        Requests.loginPostData(id, passwd, ltData, rsa),
+                        GlobalValues.ctSso
+                    )
+                }
 
                 val session: String =
                     Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (SessionData.isSuccess(session)) {
-                    Toast.makeText(this@DetailActivity, R.string.loaded, Toast.LENGTH_SHORT).show()
                     progressBar.post { progressBar.visibility = View.INVISIBLE }
                     loginSuccess = true
                 } else {
-                    Toast.makeText(this@DetailActivity, R.string.logFail, Toast.LENGTH_SHORT).show()
                     timer++
                     if (timer >= 3) {
-                        MaterialAlertDialogBuilder(this@DetailActivity)
-                            .setMessage(R.string.failTimes)
-                            .setTitle(R.string.error)
-                            .setPositiveButton(R.string.ok) { _, _ -> this@DetailActivity.finish() }
-                            .setCancelable(false)
-                            .create()
-                            .show()
+                        textView.post { textView.text = getString(R.string.failTimes) }
                         Looper.loop()
                         break
                     }
@@ -215,7 +214,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                         }
                     })
                 }
-                refresh.setOnClickListener { recreate() }
+                refresh.setOnClickListener { activity?.recreate() }
                 cancel.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder()
@@ -227,7 +226,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                             .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                             .penaltyLog().penaltyDeath().build()
                     )
-                    MaterialAlertDialogBuilder(this@DetailActivity)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.confirmCancel)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.justCancel) { _, _ ->
@@ -238,10 +237,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                                     GlobalValues.ctSso
                                 )
                             )
-                            MaterialAlertDialogBuilder(this@DetailActivity)
+                            MaterialAlertDialogBuilder(requireContext())
                                 .setMessage(message)
                                 .setTitle(R.string.library)
-                                .setPositiveButton(R.string.ok) { _, _ -> recreate() }
+                                .setPositiveButton(R.string.ok) { _, _ -> requireActivity().recreate() }
                                 .setCancelable(true)
                                 .create()
                                 .show()
@@ -251,7 +250,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                         .create()
                         .show()
                 }
-                reserve.setOnClickListener { ReserveDialog().showAlertDialog(this@DetailActivity) }
+                reserve.setOnClickListener { ReserveDialog().showAlertDialog(requireActivity()) }
                 reset.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder()
@@ -263,7 +262,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                             .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                             .penaltyLog().penaltyDeath().build()
                     )
-                    MaterialAlertDialogBuilder(this@DetailActivity)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.confirmReset)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.ok) { _, _ ->
@@ -315,7 +314,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard
                             )
-                            recreate()
+                            requireActivity().recreate()
                         }
                         .setNegativeButton(R.string.no) { _, _ -> }
                         .setCancelable(false)
@@ -333,7 +332,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                             .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                             .penaltyLog().penaltyDeath().build()
                     )
-                    MaterialAlertDialogBuilder(this@DetailActivity)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.confirmReset)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.ok) { _, _ ->
@@ -385,7 +384,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard
                             )
-                            recreate()
+                            requireActivity().recreate()
                         }
                         .setNegativeButton(R.string.no) { _, _ -> }
                         .setCancelable(false)
@@ -396,13 +395,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()
             } else {
-                MaterialAlertDialogBuilder(this@DetailActivity)
-                    .setMessage(R.string.loginTimeout)
-                    .setTitle(R.string.error)
-                    .setPositiveButton(R.string.ok) { _, _ -> this@DetailActivity.finish() }
-                    .setCancelable(false)
-                    .create()
-                    .show()
+                textView.text = getString(R.string.loginTimeout)
                 Looper.loop()
             }
         }

@@ -1,19 +1,21 @@
-package com.qhy040404.libraryonetap.ui
+package com.qhy040404.libraryonetap.fragment.library
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
-import android.widget.*
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.SessionData
-import com.qhy040404.libraryonetap.databinding.ActivityYanxiujianBinding
+import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
@@ -23,11 +25,11 @@ import okhttp3.Response
 import java.io.IOException
 
 @Suppress("LocalVariableName")
-class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
+class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView2: TextView = findViewById(R.id.textView2)
+        val textView2: TextView = binding.textView2
         textView2.visibility = View.VISIBLE
         Thread(Yanxiujian()).start()
     }
@@ -47,10 +49,10 @@ class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
                     .penaltyLog().penaltyDeath().build()
             )
 
-            val textView2: TextView = findViewById(R.id.textView2)
-            val imageView2: ImageView = findViewById(R.id.imageView2)
-            val refresh2: Button = findViewById(R.id.button12)
-            val progressBar2: ProgressBar = findViewById(R.id.progressBar2)
+            val textView2: TextView = binding.textView2
+            val imageView2: ImageView = binding.imageView2
+            val refresh2: Button = binding.button12
+            val progressBar2: ProgressBar = binding.progressBar2
 
             val des = DesEncryptUtils()
 
@@ -61,38 +63,32 @@ class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
             var timer = 0
             while (!loginSuccess) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-                val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                val ltData: String = try {
+                    "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                } catch (e: Exception) {
+                    ""
+                }
 
-                val rawData = "$id$passwd$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                if (ltData != "") {
+                    val rawData = "$id$passwd$ltData"
+                    val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-                Requests.post(
-                    URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa),
-                    GlobalValues.ctSso
-                )
-
-                Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+                    Requests.post(
+                        URLManager.LIBRARY_SSO_URL,
+                        Requests.loginPostData(id, passwd, ltData, rsa),
+                        GlobalValues.ctSso
+                    )
+                }
 
                 val session: String =
                     Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
                 if (SessionData.isSuccess(session)) {
-                    Toast.makeText(this@YanxiujianActivity, R.string.loaded, Toast.LENGTH_SHORT)
-                        .show()
                     progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                     loginSuccess = true
                 } else {
-                    Toast.makeText(this@YanxiujianActivity, R.string.logFail, Toast.LENGTH_SHORT)
-                        .show()
                     timer++
                     if (timer >= 3) {
-                        MaterialAlertDialogBuilder(this@YanxiujianActivity)
-                            .setMessage(R.string.failTimes)
-                            .setTitle(R.string.error)
-                            .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }
-                            .setCancelable(false)
-                            .create()
-                            .show()
+                        textView2.text = getString(R.string.failTimes)
                         Looper.loop()
                         break
                     }
@@ -137,18 +133,12 @@ class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
                         pictureInput.close()
                     }
                 })
-                refresh2.setOnClickListener { recreate() }
+                refresh2.setOnClickListener { requireActivity().recreate() }
                 textView2.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
                 Looper.loop()
             } else {
-                MaterialAlertDialogBuilder(this@YanxiujianActivity)
-                    .setMessage(R.string.loginTimeout)
-                    .setTitle(R.string.error)
-                    .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }
-                    .setCancelable(false)
-                    .create()
-                    .show()
+                textView2.text = getString(R.string.loginTimeout)
                 Looper.loop()
             }
         }

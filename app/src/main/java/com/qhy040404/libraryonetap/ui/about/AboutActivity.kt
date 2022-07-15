@@ -155,6 +155,22 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "https://github.com/square/moshi"
                 )
             )
+            add(
+                License(
+                    "libraries",
+                    "zhaobozhen",
+                    License.MIT,
+                    "https://github.com/zhaobozhen/libraries"
+                )
+            )
+            add(
+                License(
+                    "AppIconLoader",
+                    "zhanghai",
+                    License.APACHE_2,
+                    "https://github.com/zhanghai/AppIconLoader"
+                )
+            )
         }
     }
 

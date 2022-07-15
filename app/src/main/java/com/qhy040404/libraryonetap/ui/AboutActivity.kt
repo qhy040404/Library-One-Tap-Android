@@ -164,8 +164,9 @@ class AboutActivity : AbsAboutActivity() {
 
         findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
-        setHeaderBackground(ColorDrawable(getColor(R.color.black)))
-        setHeaderContentScrim(ColorDrawable(getColor(R.color.black)))
+        val color = getColor(R.color.aboutHeader)
+        setHeaderBackground(ColorDrawable(color))
+        setHeaderContentScrim(ColorDrawable(color))
     }
 
     companion object {

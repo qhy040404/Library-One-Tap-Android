@@ -7,7 +7,7 @@
         android:shortcutShortLabel="@string/vcardTitle">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.VCARD"
-            android:targetClass="com.qhy040404.libraryonetap.ui.MainActivity"
+            android:targetClass="com.qhy040404.libraryonetap.ui.tools.VCardActivity"
             android:targetPackage="com.qhy040404.libraryonetap" />
     </shortcut>
 
@@ -15,10 +15,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_sc_tool"
         android:shortcutId="start_tools"
-        android:shortcutShortLabel="@string/tools_title">
+        android:shortcutShortLabel="@string/tools">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.TOOLS"
-            android:targetClass="com.qhy040404.libraryonetap.ui.MainActivity"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainBottomActivity"
             android:targetPackage="com.qhy040404.libraryonetap" />
     </shortcut>
 
@@ -26,10 +26,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_sc_qr"
         android:shortcutId="start_detail"
-        android:shortcutShortLabel="@string/detail_title">
+        android:shortcutShortLabel="@string/detail">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.DETAIL"
-            android:targetClass="com.qhy040404.libraryonetap.ui.MainActivity"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainBottomActivity"
             android:targetPackage="com.qhy040404.libraryonetap" />
     </shortcut>
 </shortcuts>

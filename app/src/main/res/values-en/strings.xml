@@ -27,7 +27,6 @@
     <string name="passwd">Password</string>
     <string name="name">Name</string>
     <string name="general">General</string>
-    <string name="mainTheme">Main Theme</string>
     <string name="darkMode">Dark Mode</string>
     <string name="language">Language</string>
     <string name="resetData">Reset App Data</string>
@@ -94,17 +93,6 @@
 
     <!-- ARRAY -->
     <!-- SETTINGS -->
-    <string-array name="themes">
-        <item>Random</item>
-        <item>Blue</item>
-        <item>Pink</item>
-        <item>Green</item>
-        <item>Orange</item>
-        <item>Red</item>
-        <item>Purple</item>
-        <item>Simple</item>
-    </string-array>
-
     <string-array name="dark_mode">
         <item>Follow system</item>
         <item>On</item>

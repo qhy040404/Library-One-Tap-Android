@@ -27,19 +27,6 @@
             app:summary="%s"
             app:title="@string/darkMode" />
         <rikka.preference.SimpleMenuPreference
-            app:defaultValue="simple"
-            app:entries="@array/themes"
-            app:entryValues="@array/themes_value"
-            app:icon="@drawable/ic_color_palette"
-            app:key="theme"
-            app:summary="%s"
-            app:title="@string/mainTheme" />
-        <SwitchPreference
-            app:defaultValue="false"
-            app:icon="@drawable/ic_material"
-            app:key="md3"
-            app:title="@string/md3" />
-        <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/language_name"
             app:entryValues="@array/language_value"

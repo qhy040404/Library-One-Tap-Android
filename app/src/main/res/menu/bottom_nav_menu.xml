@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_qr"
+        android:icon="@drawable/ic_about"
+        android:title="@string/detail" />
+
+    <item
+        android:id="@+id/navigation_yxj"
+        android:icon="@drawable/ic_about"
+        android:title="@string/yanxiujian" />
+
+    <item
+        android:id="@+id/navigation_tools"
+        android:icon="@drawable/ic_about"
+        android:title="@string/tools" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_about"
+        android:title="@string/title_activity_settings" />
+
+</menu>

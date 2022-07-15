@@ -6,7 +6,7 @@ import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -88,7 +88,7 @@ class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
                         .show()
                     timer++
                     if (timer >= 3) {
-                        AlertDialog.Builder(this@YanxiujianActivity)
+                        MaterialAlertDialogBuilder(this@YanxiujianActivity)
                             .setMessage(R.string.failTimes)
                             .setTitle(R.string.error)
                             .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }
@@ -144,7 +144,7 @@ class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
                 Looper.loop()
             } else {
-                AlertDialog.Builder(this@YanxiujianActivity)
+                MaterialAlertDialogBuilder(this@YanxiujianActivity)
                     .setMessage(R.string.loginTimeout)
                     .setTitle(R.string.error)
                     .setPositiveButton(R.string.ok) { _, _ -> this@YanxiujianActivity.finish() }

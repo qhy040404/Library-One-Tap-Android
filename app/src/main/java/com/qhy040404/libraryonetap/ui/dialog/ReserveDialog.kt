@@ -9,7 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -66,12 +66,12 @@ class ReserveDialog {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
-        AlertDialog.Builder(ctx)
+        MaterialAlertDialogBuilder(ctx)
             .setTitle(R.string.library)
             .setView(view)
             .setPositiveButton(R.string.ok) { _, _ ->
                 reserveSeat(ctx, targetRoom)
-                AlertDialog.Builder(ctx)
+                MaterialAlertDialogBuilder(ctx)
                     .setTitle(R.string.library)
                     .setMessage(R.string.reserved)
                     .setPositiveButton(R.string.ok) { _, _ -> ctx.recreate() }

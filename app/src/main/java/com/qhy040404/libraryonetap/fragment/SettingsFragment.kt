@@ -2,9 +2,9 @@ package com.qhy040404.libraryonetap.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -33,12 +33,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.PREF_RESET)?.apply {
             setOnPreferenceClickListener {
-                AlertDialog.Builder(requireContext())
+                MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.dataResetConfirm)
                     .setTitle(R.string.title_activity_settings)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         SPUtils.resetAll()
-                        AlertDialog.Builder(requireContext())
+                        MaterialAlertDialogBuilder(requireContext())
                             .setMessage(R.string.dataResetFinish)
                             .setTitle(R.string.title_activity_settings)
                             .setPositiveButton(R.string.ok) { _, _ ->

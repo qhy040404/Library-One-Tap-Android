@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.os.Looper
 import android.os.StrictMode
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -45,7 +45,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 } else if (netName == "DLUT-LingShui") {
                     startActivity(Intent(requireContext(), BathReserveActivity::class.java))
                 } else {
-                    AlertDialog.Builder(requireContext())
+                    MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.networkLimit)
                         .setTitle(R.string.bath_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
@@ -117,7 +117,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     R.string.gigabyte
                 )
 
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                 .setMessage(netMessage)
                 .setTitle(R.string.remainNet)
                 .setPositiveButton(R.string.ok) { _, _ -> }
@@ -154,7 +154,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     R.string.degree
                 )
 
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                 .setMessage(electricMessage)
                 .setTitle(R.string.remainElectric)
                 .setPositiveButton(R.string.ok) { _, _ -> }
@@ -186,7 +186,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val sameName = VolunteerData.getSameName(data)
 
             if (sameID != 1 || sameName != 1) {
-                AlertDialog.Builder(requireContext())
+                MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.sameData)
                     .setTitle(R.string.volunteer_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }
@@ -197,7 +197,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val totalHours: String =
                     VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
-                AlertDialog.Builder(requireContext())
+                MaterialAlertDialogBuilder(requireContext())
                     .setMessage(message)
                     .setTitle(R.string.volunteer_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }

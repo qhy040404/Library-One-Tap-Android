@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -36,7 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun initView() {
         if (!GlobalValues.initialized) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.welcome)
                 .setMessage(R.string.welcome_message)
                 .setPositiveButton(R.string.ok) { _, _ ->

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.databinding.ActivityToolsInitBinding
@@ -29,7 +29,7 @@ class ToolsInitActivity : BaseActivity<ActivityToolsInitBinding>() {
         if (requestCode == 100) {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    AlertDialog.Builder(this)
+                    MaterialAlertDialogBuilder(this)
                         .setMessage(R.string.gotPermission)
                         .setTitle(R.string.bath_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
@@ -37,7 +37,7 @@ class ToolsInitActivity : BaseActivity<ActivityToolsInitBinding>() {
                         .create()
                         .show()
                 } else {
-                    AlertDialog.Builder(this)
+                    MaterialAlertDialogBuilder(this)
                         .setMessage(R.string.failPermission)
                         .setTitle(R.string.error)
                         .setPositiveButton(R.string.ok) { _, _ ->

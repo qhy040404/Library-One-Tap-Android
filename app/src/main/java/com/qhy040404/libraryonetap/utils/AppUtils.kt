@@ -1,6 +1,11 @@
 package com.qhy040404.libraryonetap.utils
 
+import android.content.Context
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import androidx.core.content.edit
+import androidx.core.text.toSpannable
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import rikka.material.app.DayNightDelegate
@@ -27,4 +32,9 @@ object AppUtils {
             field = value
             SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
         }
+
+    fun setTitle(ctx: Context): Spannable {
+        val sb = SpannableStringBuilder(ctx.getString(R.string.app_name))
+        return sb.toSpannable()
+    }
 }

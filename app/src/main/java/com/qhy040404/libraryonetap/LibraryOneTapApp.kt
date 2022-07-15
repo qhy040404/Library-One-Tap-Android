@@ -2,6 +2,10 @@ package com.qhy040404.libraryonetap
 
 import android.app.Activity
 import android.app.Application
+import coil.Coil
+import coil.ImageLoader
+import com.google.android.material.color.DynamicColors
+import com.qhy040404.libraryonetap.app.AppIconFetcherFactory
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -30,6 +34,15 @@ class LibraryOneTapApp : Application() {
         LocaleDelegate.defaultLocale = AppUtils.locale
         DayNightDelegate.setApplicationContext(this)
         DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(GlobalValues.darkMode))
+        DynamicColors.applyToActivitiesIfAvailable(this)
+
+        Coil.setImageLoader {
+            ImageLoader(this).newBuilder()
+                .components {
+                    add(AppIconFetcherFactory(this@LibraryOneTapApp))
+                }
+                .build()
+        }
     }
 
     fun addActivity(activity: Activity) = activityList.add(activity)

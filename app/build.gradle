@@ -64,6 +64,7 @@ dependencies {
     implementation 'dev.rikka.rikkax.material:material-preference:2.0.0'
     implementation 'dev.rikka.rikkax.preference:simplemenu-preference:1.0.3'
     implementation 'io.coil-kt:coil:2.1.0'
+    implementation 'me.zhanghai.android.appiconloader:appiconloader:1.4.0'
 }
 
 import java.text.SimpleDateFormat

@@ -12,7 +12,7 @@
     <string name="volunteer_title">志愿时长</string>
 
     <!-- MAIN BUTTON -->
-    <string name="detail">单人座位</string>
+    <string name="detail">单人座</string>
     <string name="yanxiujian">研修间</string>
     <string name="tools">工具箱</string>
     <string name="quit">退出</string>

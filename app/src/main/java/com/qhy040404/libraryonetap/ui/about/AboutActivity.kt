@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.ui
+package com.qhy040404.libraryonetap.ui.about
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import coil.load
-import com.drakeet.about.AbsAboutActivity
 import com.drakeet.about.Category
 import com.drakeet.about.Contributor
 import com.drakeet.about.License
@@ -19,7 +18,7 @@ import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.PackageUtils
 
 @Suppress("SpellCheckingInspection")
-class AboutActivity : AbsAboutActivity() {
+class AboutActivity : AbsAboutActivityProxy() {
     private var headCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

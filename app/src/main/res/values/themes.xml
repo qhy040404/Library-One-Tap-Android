@@ -18,4 +18,8 @@
     </style>
 
     <style name="Theme" parent="Base.AppTheme" />
+
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Library" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
 </resources>

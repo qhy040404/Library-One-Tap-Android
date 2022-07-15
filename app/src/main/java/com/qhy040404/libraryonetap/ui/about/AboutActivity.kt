@@ -163,7 +163,7 @@ class AboutActivity : AbsAboutActivityProxy() {
 
         findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
-        val color = getColor(R.color.aboutHeader)
+        val color = getColor(R.color.black)
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
     }

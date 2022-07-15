@@ -22,10 +22,6 @@
         android:theme="@style/AppTheme"
         tools:targetApi="33">
         <activity
-            android:name=".ui.tools.ToolsInitActivity"
-            android:exported="false"
-            android:label="@string/tools_title" />
-        <activity
             android:name=".ui.about.AboutActivity"
             android:exported="false"
             android:label="@string/about_title"
@@ -43,19 +39,7 @@
             android:exported="false"
             android:label="@string/bath_title" />
         <activity
-            android:name=".ui.YanxiujianActivity"
-            android:exported="false"
-            android:label="@string/title_activity_yanxiujian" />
-        <activity
-            android:name=".ui.SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".ui.DetailActivity"
-            android:exported="false"
-            android:label="@string/library" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.main.MainBottomActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -102,18 +102,22 @@ class ReserveDialog {
         var loginSuccess = false
         while (!loginSuccess) {
             val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+            val ltData: String = try {
+                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+            } catch (e: Exception) {
+                ""
+            }
 
-            val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
-            val rsa: String = des.strEnc(rawData, "1", "2", "3")
+            if (ltData != "") {
+                val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
+                val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
-            Requests.post(
-                URLManager.LIBRARY_SSO_URL,
-                Requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
-                GlobalValues.ctSso
-            )
-
-            Requests.get(URLManager.LIBRARY_LOGIN_DIRECT_URL)
+                Requests.post(
+                    URLManager.LIBRARY_SSO_URL,
+                    Requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
+                    GlobalValues.ctSso
+                )
+            }
 
             val session: String = Requests.post(
                 URLManager.LIBRARY_SESSION_URL, "",

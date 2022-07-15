@@ -27,7 +27,7 @@
             app:summary="%s"
             app:title="@string/darkMode" />
         <rikka.preference.SimpleMenuPreference
-            app:defaultValue="system"
+            app:defaultValue="SYSTEM"
             app:entries="@array/language_name"
             app:entryValues="@array/language_value"
             app:icon="@drawable/ic_language"

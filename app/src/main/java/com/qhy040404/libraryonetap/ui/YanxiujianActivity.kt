@@ -26,8 +26,6 @@ import java.io.IOException
 class YanxiujianActivity : BaseActivity<ActivityYanxiujianBinding>() {
     override fun init() = initView()
 
-    override fun getLayoutId(): Int = R.layout.activity_yanxiujian
-
     private fun initView() {
         val textView2: TextView = findViewById(R.id.textView2)
         textView2.visibility = View.VISIBLE

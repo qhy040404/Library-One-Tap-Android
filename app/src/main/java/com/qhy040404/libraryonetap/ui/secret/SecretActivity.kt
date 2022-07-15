@@ -9,8 +9,6 @@ import com.qhy040404.libraryonetap.view.ModifiedVideoView
 class SecretActivity : BaseActivity<ActivitySecretBinding>() {
     override fun init() = Thread(Play()).start()
 
-    override fun getLayoutId(): Int = R.layout.activity_secret
-
     private inner class Play : Runnable {
         override fun run() {
             val videoView: ModifiedVideoView = findViewById(R.id.videoView)

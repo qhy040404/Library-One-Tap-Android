@@ -19,8 +19,6 @@ class ToolsInitActivity : BaseActivity<ActivityToolsInitBinding>() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_tools_init
-
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>,
         grantResults: IntArray,

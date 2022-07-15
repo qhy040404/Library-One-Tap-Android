@@ -32,8 +32,6 @@ import java.io.IOException
 class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     override fun init() = initView()
 
-    override fun getLayoutId(): Int = R.layout.activity_detail
-
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView)
         textView.visibility = View.VISIBLE

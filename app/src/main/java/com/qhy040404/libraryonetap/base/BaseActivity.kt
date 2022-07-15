@@ -25,7 +25,7 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
             binding = inflateBinding(layoutInflater)
         }
 
-        setContentView(getLayoutId())
+        setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
@@ -60,6 +60,4 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
     }
 
     protected abstract fun init()
-
-    protected abstract fun getLayoutId(): Int
 }

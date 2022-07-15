@@ -16,8 +16,6 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     override fun init() = initView()
 
-    override fun getLayoutId(): Int = R.layout.activity_bath_reserve
-
     private fun initView() {
         val textViewBath: TextView = findViewById(R.id.textView3)
         textViewBath.visibility = View.VISIBLE

@@ -27,8 +27,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         initView()
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_main
-
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntentFromShortcuts(intent)

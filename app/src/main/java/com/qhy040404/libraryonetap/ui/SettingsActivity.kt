@@ -17,8 +17,6 @@ class SettingsActivity : BaseActivity<SettingsActivityBinding>() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun getLayoutId(): Int = R.layout.settings_activity
-
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             startActivity(Intent(this, MainActivity::class.java))

@@ -20,8 +20,6 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     override fun init() = initView()
 
-    override fun getLayoutId(): Int = R.layout.activity_vcard
-
     private fun initView() {
         val textView: TextView = findViewById(R.id.textView4)
         textView.visibility = View.VISIBLE

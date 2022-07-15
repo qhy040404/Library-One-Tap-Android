@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import coil.Coil
 import coil.ImageLoader
+import com.absinthe.libraries.utils.utils.Utility
 import com.google.android.material.color.DynamicColors
 import com.qhy040404.libraryonetap.app.AppIconFetcherFactory
 import com.qhy040404.libraryonetap.constant.Constants
@@ -35,6 +36,8 @@ class LibraryOneTapApp : Application() {
         DayNightDelegate.setApplicationContext(this)
         DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(GlobalValues.darkMode))
         DynamicColors.applyToActivitiesIfAvailable(this)
+
+        Utility.init(this)
 
         Coil.setImageLoader {
             ImageLoader(this).newBuilder()

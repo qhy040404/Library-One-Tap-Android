@@ -22,6 +22,7 @@ import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
@@ -76,7 +77,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             var loginSuccess = false
             var timer = 0
-            while (!loginSuccess) {
+            while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = try {
                     "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
@@ -394,6 +395,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
                 textView.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
+                Looper.loop()
+            } else if (!AppUtils.checkData(id, passwd)) {
+                textView.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                progressBar.visibility = View.INVISIBLE
                 Looper.loop()
             } else {
                 textView.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)

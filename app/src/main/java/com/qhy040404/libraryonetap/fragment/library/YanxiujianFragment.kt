@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.Call
@@ -62,7 +63,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
             var loginSuccess = false
             var timer = 0
-            while (!loginSuccess) {
+            while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = try {
                     "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
@@ -137,6 +138,10 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 refresh2.setOnClickListener { requireActivity().recreate() }
                 textView2.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
+                Looper.loop()
+            } else if (!AppUtils.checkData(id, passwd)) {
+                textView2.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                progressBar2.visibility = View.INVISIBLE
                 Looper.loop()
             } else {
                 textView2.text = getString(R.string.loginTimeout)

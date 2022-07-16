@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
@@ -43,7 +44,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_SHORT).show()
                     }
                 } else if (netName == "DLUT-LingShui") {
-                    startActivity(Intent(requireContext(), BathReserveActivity::class.java))
+                    if (AppUtils.checkDataAndDialog(requireContext(),
+                            GlobalValues.id,
+                            GlobalValues.passwd,
+                            R.string.tools,
+                            R.string.noLoginData)
+                    ) {
+                        startActivity(Intent(requireContext(), BathReserveActivity::class.java))
+                    }
                 } else {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.networkLimit)
@@ -59,7 +67,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_NET)?.apply {
             setOnPreferenceClickListener {
-                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
                 Thread(GetNet()).start()
                 true
             }
@@ -67,7 +74,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_ELECTRIC)?.apply {
             setOnPreferenceClickListener {
-                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
                 Thread(GetElectric()).start()
                 true
             }
@@ -75,14 +81,20 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_VCARD)?.apply {
             setOnPreferenceClickListener {
-                startActivity(Intent(requireContext(), VCardActivity::class.java))
+                if (AppUtils.checkDataAndDialog(requireContext(),
+                        GlobalValues.id,
+                        GlobalValues.passwd,
+                        R.string.tools,
+                        R.string.noLoginData)
+                ) {
+                    startActivity(Intent(requireContext(), VCardActivity::class.java))
+                }
                 true
             }
         }
 
         findPreference<Preference>(Constants.TOOLS_VOLUNTEER)?.apply {
             setOnPreferenceClickListener {
-                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
                 Thread(GetVolunteer()).start()
                 true
             }
@@ -105,25 +117,35 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val data: String = GetPortalData.getPortalData(id, passwd, 1)
+            val checked = AppUtils.checkDataAndDialog(requireContext(),
+                id,
+                passwd,
+                R.string.tools,
+                R.string.noLoginData)
 
-            val remainFee = NetData.getFee(data)
-            val usedNet = NetData.getDynamicUsedFlow(data)
-            val remainNet = NetData.getDynamicRemainFlow(data)
-            val netMessage =
-                getString(R.string.remainNetFeeAndColon) + remainFee + getString(R.string.rmb) + "\n" + getString(
-                    R.string.usedNetAndColon
-                ) + usedNet + getString(R.string.gigabyte) + "\n" + getString(R.string.remainNetAndColon) + remainNet + getString(
-                    R.string.gigabyte
-                )
+            if (checked) {
+                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
 
-            MaterialAlertDialogBuilder(requireContext())
-                .setMessage(netMessage)
-                .setTitle(R.string.remainNet)
-                .setPositiveButton(R.string.ok) { _, _ -> }
-                .setCancelable(true)
-                .create()
-                .show()
+                val data: String = GetPortalData.getPortalData(id, passwd, 1)
+
+                val remainFee = NetData.getFee(data)
+                val usedNet = NetData.getDynamicUsedFlow(data)
+                val remainNet = NetData.getDynamicRemainFlow(data)
+                val netMessage =
+                    getString(R.string.remainNetFeeAndColon) + remainFee + getString(R.string.rmb) + "\n" + getString(
+                        R.string.usedNetAndColon
+                    ) + usedNet + getString(R.string.gigabyte) + "\n" + getString(R.string.remainNetAndColon) + remainNet + getString(
+                        R.string.gigabyte
+                    )
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(netMessage)
+                    .setTitle(R.string.remainNet)
+                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
             Looper.loop()
         }
     }
@@ -144,23 +166,33 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val id: String = GlobalValues.id
             val passwd: String = GlobalValues.passwd
 
-            val data: String = GetPortalData.getPortalData(id, passwd, 0)
+            val checked = AppUtils.checkDataAndDialog(requireContext(),
+                id,
+                passwd,
+                R.string.tools,
+                R.string.noLoginData)
 
-            @Suppress("SpellCheckingInspection", "LocalVariableName")
-            val SSMC = ElectricData.getSSMC(data)
-            val remainElectric = ElectricData.getResele(data)
-            val electricMessage =
-                SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(
-                    R.string.degree
-                )
+            if (checked) {
+                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
 
-            MaterialAlertDialogBuilder(requireContext())
-                .setMessage(electricMessage)
-                .setTitle(R.string.remainElectric)
-                .setPositiveButton(R.string.ok) { _, _ -> }
-                .setCancelable(true)
-                .create()
-                .show()
+                val data: String = GetPortalData.getPortalData(id, passwd, 0)
+
+                @Suppress("SpellCheckingInspection", "LocalVariableName")
+                val SSMC = ElectricData.getSSMC(data)
+                val remainElectric = ElectricData.getResele(data)
+                val electricMessage =
+                    SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(
+                        R.string.degree
+                    )
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(electricMessage)
+                    .setTitle(R.string.remainElectric)
+                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
             Looper.loop()
         }
     }
@@ -178,32 +210,42 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                     .penaltyLog().penaltyDeath().build()
             )
-            val postData =
-                VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
-            val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
+            val checked = AppUtils.checkDataAndDialog(requireContext(),
+                GlobalValues.name,
+                GlobalValues.id,
+                R.string.tools,
+                R.string.noLoginData)
 
-            val sameID = VolunteerData.getSameID(data)
-            val sameName = VolunteerData.getSameName(data)
+            if (checked) {
+                Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
 
-            if (sameID != 1 || sameName != 1) {
-                MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.sameData)
-                    .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
-                    .setCancelable(true)
-                    .create()
-                    .show()
-            } else {
-                val totalHours: String =
-                    VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
-                val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
-                MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(message)
-                    .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
-                    .setCancelable(true)
-                    .create()
-                    .show()
+                val postData =
+                    VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
+                val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
+
+                val sameID = VolunteerData.getSameID(data)
+                val sameName = VolunteerData.getSameName(data)
+
+                if (sameID != 1 || sameName != 1) {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setMessage(R.string.sameData)
+                        .setTitle(R.string.volunteer_title)
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                } else {
+                    val totalHours: String =
+                        VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
+                    val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setMessage(message)
+                        .setTitle(R.string.volunteer_title)
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                }
             }
             Looper.loop()
         }

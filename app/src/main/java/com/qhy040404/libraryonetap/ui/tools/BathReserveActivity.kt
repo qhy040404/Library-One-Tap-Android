@@ -22,6 +22,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbar.title = getString(R.string.vcardTitle)
+        if (!GlobalValues.md3) {
+            binding.toolbar.setTitleTextColor(getColor(R.color.white))
+        }
 
         val textViewBath: TextView = findViewById(R.id.textView3)
         textViewBath.visibility = View.VISIBLE

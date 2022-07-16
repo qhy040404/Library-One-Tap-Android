@@ -5,6 +5,7 @@
         app:title="@string/bath" />
 
     <Preference
+        app:icon="@drawable/ic_language"
         app:key="net"
         app:title="@string/cernet" />
 
@@ -13,6 +14,7 @@
         app:title="@string/electric" />
 
     <Preference
+        app:icon="@drawable/ic_card"
         app:key="vcard"
         app:title="@string/vcard" />
 

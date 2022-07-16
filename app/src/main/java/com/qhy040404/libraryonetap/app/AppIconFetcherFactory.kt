@@ -15,7 +15,7 @@ import me.zhanghai.android.appiconloader.AppIconLoader
 class AppIconFetcherFactory(private val ctx: Context) : Fetcher.Factory<PackageInfo> {
     private val loader = AppIconLoader(40.dp, false, ctx)
 
-    override fun create(data: PackageInfo, options: Options, imageLoader: ImageLoader): Fetcher? {
+    override fun create(data: PackageInfo, options: Options, imageLoader: ImageLoader): Fetcher {
         return AppIconFetcher(ctx, data, loader)
     }
 

@@ -52,56 +52,8 @@ object AppUtils {
         }
     }
 
-    /**
-     * Check if has id and passwd
-     * @param id String ( First original data )
-     * @param passwd String ( Second original data )
-     * @param targetOne String ( First target data )
-     * @param targetTwo String ( Second target data )
-     * @return Boolean
-     */
-
-    fun checkData(id: String, passwd: String, targetOne: String, targetTwo: String): Boolean {
-        return id != targetOne && passwd != targetTwo
-    }
-
     fun checkData(id: String, passwd: String): Boolean {
         return id != "Error" && passwd != "Error"
-    }
-
-    /**
-     * Check id and passwd and show a dialog
-     * @param ctx Context ( Dialog required context )
-     * @param id String ( First original data )
-     * @param passwd String ( Second original data )
-     * @param targetOne String ( First target data )
-     * @param targetTwo String ( Second target data )
-     * @param titleResId Int ( Dialog title resource ID )
-     * @param messageResId Int ( Dialog message resource ID )
-     * @return Boolean
-     */
-
-    fun checkDataAndDialog(
-        ctx: Context,
-        id: String,
-        passwd: String,
-        targetOne: String,
-        targetTwo: String,
-        titleResId: Int,
-        messageResId: Int,
-    ): Boolean {
-        return if (id == targetOne || passwd == targetTwo) {
-            MaterialAlertDialogBuilder(ctx)
-                .setTitle(titleResId)
-                .setMessage(messageResId)
-                .setPositiveButton(R.string.ok) { _, _ -> }
-                .setCancelable(true)
-                .create()
-                .show()
-            false
-        } else {
-            true
-        }
     }
 
     fun checkDataAndDialog(

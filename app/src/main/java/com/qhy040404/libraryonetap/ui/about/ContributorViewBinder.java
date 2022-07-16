@@ -54,9 +54,9 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
 
         protected @NonNull
         final AbsAboutActivityProxy activity;
-        public ImageView avatar;
-        public TextView name;
-        public TextView desc;
+        public final ImageView avatar;
+        public final TextView name;
+        public final TextView desc;
         public Contributor data;
 
         public ViewHolder(View itemView, @NonNull AbsAboutActivityProxy activity) {

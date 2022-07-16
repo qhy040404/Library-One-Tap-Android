@@ -19,5 +19,4 @@
     <color name="bottom_sheet_header_handler_activated_md3">#FFFFFFFF</color>
 
     <color name="ic_launcher_foreground">@color/blue_500</color>
-    <color name="ic_launcher_background">#E1F5FE</color>
 </resources>

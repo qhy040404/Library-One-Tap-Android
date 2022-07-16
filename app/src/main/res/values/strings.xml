@@ -45,8 +45,8 @@
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
     <string name="logFail">登录失败，正在重试</string>
-    <string name="failTimes">连续失败3次，返回主页面\n请检查用户名和密码</string>
-    <string name="loginTimeout">登录失效，请重新进入此页面</string>
+    <string name="failTimes">连续失败3次\n请检查用户名和密码</string>
+    <string name="loginTimeout">登录失效，请重新加载</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
     <string name="no">取消</string>

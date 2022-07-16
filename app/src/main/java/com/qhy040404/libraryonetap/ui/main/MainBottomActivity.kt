@@ -16,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
 import com.qhy040404.libraryonetap.fragment.IAppBarContainer
 import com.qhy040404.libraryonetap.fragment.SettingsFragment
@@ -101,6 +102,8 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewCo
                 }
             }
         }
+        handleIntentFromShortcuts(intent)
+        showWelcomeDialog()
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -170,6 +173,24 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewCo
                         .show()
                 }
             }
+        }
+    }
+
+    private fun showWelcomeDialog() {
+        if (GlobalValues.initialized) {
+            return
+        } else {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.welcome)
+                .setMessage(R.string.welcome_message)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                    this.binding.viewpager.setCurrentItem(3, true)
+                }
+                .setNegativeButton(R.string.no) { _, _ -> }
+                .setCancelable(false)
+                .create()
+                .show()
+            GlobalValues.initialized = true
         }
     }
 }

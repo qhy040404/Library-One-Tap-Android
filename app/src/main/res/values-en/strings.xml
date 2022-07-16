@@ -54,6 +54,7 @@
     <string name="reserved">Reserve request has been sent</string>
     <string name="dataResetConfirm">Please confirm to clear appdata.</string>
     <string name="dataResetFinish">AppData has been cleared, Exiting....</string>
+    <string name="noLoginData">Please input your information in the Settings page first.</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>

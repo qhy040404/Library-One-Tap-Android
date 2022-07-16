@@ -55,6 +55,7 @@
     <string name="reserved">已发送预约请求</string>
     <string name="dataResetConfirm">请确认重置应用数据</string>
     <string name="dataResetFinish">数据已被重置，程序即将退出....</string>
+    <string name="noLoginData">请先到设置输入基本信息</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>

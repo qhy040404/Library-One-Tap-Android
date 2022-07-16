@@ -8,12 +8,12 @@ private static String baseVersionName() {
 }
 
 android {
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29
-        targetSdk 33
+        targetSdk 32
         versionCode getCommitsCount()
         versionName baseVersionName()
 

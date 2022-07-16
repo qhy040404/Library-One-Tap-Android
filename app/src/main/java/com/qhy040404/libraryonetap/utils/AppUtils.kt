@@ -23,7 +23,7 @@ object AppUtils {
     var locale: Locale = Locale.getDefault()
         get() {
             val tag = GlobalValues.locale
-            if (tag.isEmpty() || "SYSTEM" == tag) {
+            if (tag.isEmpty() || "SYSTEM" == tag || "system" == tag) {
                 return Locale.getDefault()
             }
             return Locale.forLanguageTag(tag)

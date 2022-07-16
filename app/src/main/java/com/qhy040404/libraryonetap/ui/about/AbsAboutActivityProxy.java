@@ -70,6 +70,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     OnRecommendationClickedListener onRecommendationClickedListener;
     private @Nullable
     OnContributorClickedListener onContributorClickedListener;
+    private boolean givenInsetsToDecorView = false;
 
     protected abstract void onCreateHeader(@NonNull ImageView icon, @NonNull TextView slogan, @NonNull TextView version);
 
@@ -78,16 +79,16 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     protected void onTitleViewCreated(@NonNull CollapsingToolbarLayout collapsingToolbar) {
     }
 
+    public @Nullable
+    ImageLoader getImageLoader() {
+        return imageLoader;
+    }
+
     public void setImageLoader(@NonNull ImageLoader imageLoader) {
         this.imageLoader = imageLoader;
         if (initialized) {
             adapter.notifyDataSetChanged();
         }
-    }
-
-    public @Nullable
-    ImageLoader getImageLoader() {
-        return imageLoader;
     }
 
     @LayoutRes
@@ -120,8 +121,6 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
             applyEdgeToEdge();
         }
     }
-
-    private boolean givenInsetsToDecorView = false;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void applyEdgeToEdge() {
@@ -292,21 +291,21 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         return version;
     }
 
-    public void setOnRecommendationClickedListener(@Nullable OnRecommendationClickedListener listener) {
-        this.onRecommendationClickedListener = listener;
-    }
-
     public @Nullable
     OnRecommendationClickedListener getOnRecommendationClickedListener() {
         return onRecommendationClickedListener;
     }
 
-    public void setOnContributorClickedListener(@Nullable OnContributorClickedListener listener) {
-        this.onContributorClickedListener = listener;
+    public void setOnRecommendationClickedListener(@Nullable OnRecommendationClickedListener listener) {
+        this.onRecommendationClickedListener = listener;
     }
 
     public @Nullable
     OnContributorClickedListener getOnContributorClickedListener() {
         return onContributorClickedListener;
+    }
+
+    public void setOnContributorClickedListener(@Nullable OnContributorClickedListener listener) {
+        this.onContributorClickedListener = listener;
     }
 }

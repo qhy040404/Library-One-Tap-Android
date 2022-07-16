@@ -8,16 +8,16 @@
         android:scaleY="0.5912934"
         android:translateX="31.258858"
         android:translateY="30.57">
-      <path
-          android:fillColor="#00000000"
-          android:pathData="M75.92,42.55c-0.94,19.87 -17.35,35.7 -37.46,35.7S1.85,62.34 1,42.38"
-          android:strokeWidth="2"
-          android:strokeColor="#FFF" />
-      <path
-          android:fillColor="#00000000"
-          android:pathData="M1,39.12C1.85,19.16 18.3,3.25 38.46,3.25s36.51,15.81 37.46,35.68"
-          android:strokeWidth="2"
-          android:strokeColor="#FFF" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M75.92,42.55c-0.94,19.87 -17.35,35.7 -37.46,35.7S1.85,62.34 1,42.38"
+            android:strokeWidth="2"
+            android:strokeColor="#FFF" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M1,39.12C1.85,19.16 18.3,3.25 38.46,3.25s36.51,15.81 37.46,35.68"
+            android:strokeWidth="2"
+            android:strokeColor="#FFF" />
         <path
             android:fillColor="#00000000"
             android:pathData="M38.46,40.75m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0"

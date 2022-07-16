@@ -1,6 +1,7 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
+        app:icon="@drawable/ic_bath"
         app:key="bath"
         app:title="@string/bath" />
 
@@ -10,6 +11,7 @@
         app:title="@string/cernet" />
 
     <Preference
+        app:icon="@drawable/ic_elec"
         app:key="electric"
         app:title="@string/electric" />
 
@@ -19,6 +21,7 @@
         app:title="@string/vcard" />
 
     <Preference
+        app:icon="@drawable/ic_volunteer"
         app:key="volunteer"
         app:title="@string/volunteer" />
 </PreferenceScreen>

@@ -14,12 +14,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
+import rikka.material.preference.MaterialSwitchPreference
 import rikka.preference.SimpleMenuPreference
 import rikka.recyclerview.fixEdgeEffect
 import rikka.widget.borderview.BorderRecyclerView
@@ -36,10 +38,29 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
+        findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !GlobalValues.md3
+
         findPreference<SimpleMenuPreference>(Constants.PREF_DARK)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 GlobalValues.darkMode = newValue.toString()
                 DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(newValue.toString()))
+                activity?.recreate()
+                true
+            }
+        }
+
+        findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                GlobalValues.theme = newValue.toString()
+                GlobalManager.lazyMgr.reset()
+                activity?.recreate()
+                true
+            }
+        }
+
+        findPreference<MaterialSwitchPreference>(Constants.PREF_MD3)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                GlobalValues.md3 = newValue as Boolean
                 activity?.recreate()
                 true
             }

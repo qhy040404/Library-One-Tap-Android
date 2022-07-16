@@ -24,6 +24,8 @@
     <string name="name">姓名</string>
     <string name="general">通用</string>
     <string name="darkMode">深色模式</string>
+    <string name="mainTheme">主题</string>
+    <string name="md3" translatable="false">Material 3 (Preview)</string>
     <string name="language">语言</string>
     <string name="resetData">重置应用数据</string>
     <string name="other">其他</string>
@@ -93,6 +95,28 @@
 
     <!-- ARRAYS -->
     <!-- SETTINGS -->
+    <string-array name="themes">
+        <item>随机主题</item>
+        <item>苍穹蓝</item>
+        <item>少女粉</item>
+        <item>青葱绿</item>
+        <item>活力橙</item>
+        <item>淡雅红</item>
+        <item>基佬紫</item>
+        <item>简约风</item>
+    </string-array>
+
+    <string-array name="themes_value" translatable="false">
+        <item>random</item>
+        <item>blue</item>
+        <item>pink</item>
+        <item>green</item>
+        <item>orange</item>
+        <item>red</item>
+        <item>purple</item>
+        <item>simple</item>
+    </string-array>
+
     <string-array name="dark_mode">
         <item>跟随系统</item>
         <item>开启</item>

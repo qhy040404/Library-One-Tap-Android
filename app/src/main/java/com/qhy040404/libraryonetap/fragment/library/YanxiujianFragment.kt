@@ -98,6 +98,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = OrderListData.getTotal(list)
+            refresh2.post { refresh2.setOnClickListener { requireActivity().recreate() } }
             if (total != "0") {
                 val space_name = OrderListData.getSpace_name(list, "1")
                 val order_date = OrderListData.getOrder_date(list, "1")
@@ -135,16 +136,19 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                         pictureInput.close()
                     }
                 })
-                refresh2.setOnClickListener { requireActivity().recreate() }
-                textView2.text =
-                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
+                textView2.post {
+                    textView2.text =
+                        "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
+                }
                 Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
-                textView2.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
-                progressBar2.visibility = View.INVISIBLE
+                textView2.post {
+                    textView2.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                }
+                progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                 Looper.loop()
             } else {
-                textView2.text = getString(R.string.loginTimeout)
+                textView2.post { textView2.text = getString(R.string.loginTimeout) }
                 Looper.loop()
             }
         }

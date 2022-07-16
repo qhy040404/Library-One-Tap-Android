@@ -83,29 +83,31 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
             progressBar.post { progressBar.visibility = View.INVISIBLE }
             imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(bitmap)) }
-            textView.text = qrInformation
-            refresh.setOnClickListener {
-                StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder()
-                        .detectDiskReads().detectDiskWrites().detectNetwork()
-                        .penaltyLog().build()
-                )
-                StrictMode.setVmPolicy(
-                    StrictMode.VmPolicy.Builder()
-                        .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                        .penaltyLog().penaltyDeath().build()
-                )
-                val newQrPage = Requests.getVCard(qrUrl)
-                val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
+            textView.post { textView.text = qrInformation }
+            refresh.post {
+                refresh.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    val newQrPage = Requests.getVCard(qrUrl)
+                    val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
 
-                @Suppress("SpellCheckingInspection")
-                val newQrBase64 = newQrPage
-                    .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
-                    .split("\">")[0]
-                val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
-                val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
-                textView.text = newQrInformation
+                    @Suppress("SpellCheckingInspection")
+                    val newQrBase64 = newQrPage
+                        .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
+                        .split("\">")[0]
+                    val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
+                    val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
+                    imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
+                    textView.text = newQrInformation
+                }
             }
             Looper.loop()
         }

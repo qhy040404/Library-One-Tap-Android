@@ -112,6 +112,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = OrderListData.getTotal(list)
+            refresh.post { refresh.setOnClickListener { requireActivity().recreate() } }
             if (total != "0") {
                 val space_name = OrderListData.getSpace_name(list, "2")
                 val seat_label = OrderListData.getSeat_label(list, "2")
@@ -159,249 +160,270 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     }
                 }
 
-                enter.setOnClickListener {
-                    val request =
-                        Request.Builder()
-                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
-                            .build()
-                    val call = Requests.client.newCall(request)
-                    call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {}
+                enter.post {
+                    enter.setOnClickListener {
+                        val request =
+                            Request.Builder()
+                                .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_IN, order_id))
+                                .build()
+                        val call = Requests.client.newCall(request)
+                        call.enqueue(object : Callback {
+                            override fun onFailure(call: Call, e: IOException) {}
 
-                        override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
-                        }
-                    })
+                            override fun onResponse(call: Call, response: Response) {
+                                val picture_bt = response.body!!.bytes()
+                                val pictureInput = response.body!!.byteStream()
+                                val bitmap =
+                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                                imageView.post { imageView.setImageBitmap(bitmap) }
+                                pictureInput.close()
+                            }
+                        })
+                    }
                 }
-                leave.setOnClickListener {
-                    val request =
-                        Request.Builder()
-                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
-                            .build()
-                    val call = Requests.client.newCall(request)
-                    call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {}
+                leave.post {
+                    leave.setOnClickListener {
+                        val request =
+                            Request.Builder()
+                                .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_OUT, order_id))
+                                .build()
+                        val call = Requests.client.newCall(request)
+                        call.enqueue(object : Callback {
+                            override fun onFailure(call: Call, e: IOException) {}
 
-                        override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
-                        }
-                    })
+                            override fun onResponse(call: Call, response: Response) {
+                                val picture_bt = response.body!!.bytes()
+                                val pictureInput = response.body!!.byteStream()
+                                val bitmap =
+                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                                imageView.post { imageView.setImageBitmap(bitmap) }
+                                pictureInput.close()
+                            }
+                        })
+                    }
                 }
-                tempLeave.setOnClickListener {
-                    val request =
-                        Request.Builder()
-                            .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
-                            .build()
-                    val call = Requests.client.newCall(request)
-                    call.enqueue(object : Callback {
-                        override fun onFailure(call: Call, e: IOException) {}
+                tempLeave.post {
+                    tempLeave.setOnClickListener {
+                        val request =
+                            Request.Builder()
+                                .url(URLManager.getQRUrl(Constants.LIBRARY_METHOD_TEMP, order_id))
+                                .build()
+                        val call = Requests.client.newCall(request)
+                        call.enqueue(object : Callback {
+                            override fun onFailure(call: Call, e: IOException) {}
 
-                        override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
-                        }
-                    })
+                            override fun onResponse(call: Call, response: Response) {
+                                val picture_bt = response.body!!.bytes()
+                                val pictureInput = response.body!!.byteStream()
+                                val bitmap =
+                                    BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
+                                imageView.post { imageView.setImageBitmap(bitmap) }
+                                pictureInput.close()
+                            }
+                        })
+                    }
                 }
-                refresh.setOnClickListener { activity?.recreate() }
-                cancel.setOnClickListener {
-                    StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
-                    )
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.confirmCancel)
-                        .setTitle(R.string.library)
-                        .setPositiveButton(R.string.justCancel) { _, _ ->
-                            val message = CancelData.getMessage(
+                cancel.post {
+                    cancel.setOnClickListener {
+                        StrictMode.setThreadPolicy(
+                            StrictMode.ThreadPolicy.Builder()
+                                .detectDiskReads().detectDiskWrites().detectNetwork()
+                                .penaltyLog().build()
+                        )
+                        StrictMode.setVmPolicy(
+                            StrictMode.VmPolicy.Builder()
+                                .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                                .penaltyLog().penaltyDeath().build()
+                        )
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setMessage(R.string.confirmCancel)
+                            .setTitle(R.string.library)
+                            .setPositiveButton(R.string.justCancel) { _, _ ->
+                                val message = CancelData.getMessage(
+                                    Requests.post(
+                                        URLManager.LIBRARY_ORDER_OPERATION_URL,
+                                        "order_id=$order_id&order_type=2&method=Cancel",
+                                        GlobalValues.ctSso
+                                    )
+                                )
+                                MaterialAlertDialogBuilder(requireContext())
+                                    .setMessage(message)
+                                    .setTitle(R.string.library)
+                                    .setPositiveButton(R.string.ok) { _, _ -> requireActivity().recreate() }
+                                    .setCancelable(true)
+                                    .create()
+                                    .show()
+                            }
+                            .setNegativeButton(R.string.cancelCancel) { _, _ -> }
+                            .setCancelable(true)
+                            .create()
+                            .show()
+                    }
+                }
+                reserve.post {
+                    reserve.setOnClickListener {
+                        ReserveDialog().showAlertDialog(requireActivity())
+                    }
+                }
+                reset.post {
+                    reset.setOnClickListener {
+                        StrictMode.setThreadPolicy(
+                            StrictMode.ThreadPolicy.Builder()
+                                .detectDiskReads().detectDiskWrites().detectNetwork()
+                                .penaltyLog().build()
+                        )
+                        StrictMode.setVmPolicy(
+                            StrictMode.VmPolicy.Builder()
+                                .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                                .penaltyLog().penaltyDeath().build()
+                        )
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setMessage(R.string.confirmReset)
+                            .setTitle(R.string.library)
+                            .setPositiveButton(R.string.ok) { _, _ ->
+                                val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
+                                val targetSeat = "\"seat_label\":\"$seat_label\""
+                                var seat_id = ""
+
+                                val availableMap = ReserveUtils.formatAvailableMap(
+                                    Requests.get(
+                                        URLManager.constructAvailableUrl(
+                                            TimeUtils.getToday("/", false),
+                                            roomCode
+                                        )
+                                    )
+                                )
+                                val amList = availableMap.split(",")
+
+                                for (element in amList) {
+                                    if (element == targetSeat) {
+                                        if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
+                                                element
+                                            ) + 4] == Constants.RESERVE_HAS_PERSON
+                                        ) {
+                                            seat_id =
+                                                amList[amList.indexOf(element) - 1].replace(
+                                                    "\"seat_id\":",
+                                                    ""
+                                                )
+                                                    .replace("\"", "")
+                                            break
+                                        }
+                                    }
+                                }
+
                                 Requests.post(
                                     URLManager.LIBRARY_ORDER_OPERATION_URL,
                                     "order_id=$order_id&order_type=2&method=Cancel",
                                     GlobalValues.ctSso
                                 )
-                            )
-                            MaterialAlertDialogBuilder(requireContext())
-                                .setMessage(message)
-                                .setTitle(R.string.library)
-                                .setPositiveButton(R.string.ok) { _, _ -> requireActivity().recreate() }
-                                .setCancelable(true)
-                                .create()
-                                .show()
-                        }
-                        .setNegativeButton(R.string.cancelCancel) { _, _ -> }
-                        .setCancelable(true)
-                        .create()
-                        .show()
-                }
-                reserve.setOnClickListener { ReserveDialog().showAlertDialog(requireActivity()) }
-                reset.setOnClickListener {
-                    StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
-                    )
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.confirmReset)
-                        .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) { _, _ ->
-                            val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
-                            val targetSeat = "\"seat_label\":\"$seat_label\""
-                            var seat_id = ""
 
-                            val availableMap = ReserveUtils.formatAvailableMap(
-                                Requests.get(
-                                    URLManager.constructAvailableUrl(
-                                        TimeUtils.getToday("/", false),
-                                        roomCode
+                                val addCodeOrigin = Requests.post(
+                                    URLManager.LIBRARY_RESERVE_ADDCODE_URL,
+                                    ReserveUtils.constructParaForAddCode(seat_id),
+                                    GlobalValues.ctVCard
+                                )
+                                val addCode = ReserveData.getAddCode(addCodeOrigin)
+                                Requests.post(
+                                    URLManager.LIBRART_RESERVE_FINAL_URL,
+                                    ReserveUtils.constructParaForFinalReserve(addCode),
+                                    GlobalValues.ctVCard
+                                )
+                                requireActivity().recreate()
+                            }
+                            .setNegativeButton(R.string.no) { _, _ -> }
+                            .setCancelable(false)
+                            .create()
+                            .show()
+                    }
+                }
+                tempReset.post {
+                    tempReset.setOnClickListener {
+                        StrictMode.setThreadPolicy(
+                            StrictMode.ThreadPolicy.Builder()
+                                .detectDiskReads().detectDiskWrites().detectNetwork()
+                                .penaltyLog().build()
+                        )
+                        StrictMode.setVmPolicy(
+                            StrictMode.VmPolicy.Builder()
+                                .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                                .penaltyLog().penaltyDeath().build()
+                        )
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setMessage(R.string.confirmReset)
+                            .setTitle(R.string.library)
+                            .setPositiveButton(R.string.ok) { _, _ ->
+                                val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
+                                val targetSeat = "\"seat_label\":\"$seat_label\""
+                                var seat_id = ""
+
+                                val availableMap = ReserveUtils.formatAvailableMap(
+                                    Requests.get(
+                                        URLManager.constructAvailableUrl(
+                                            TimeUtils.getToday("/", false),
+                                            roomCode
+                                        )
                                     )
                                 )
-                            )
-                            val amList = availableMap.split(",")
+                                val amList = availableMap.split(",")
 
-                            for (element in amList) {
-                                if (element == targetSeat) {
-                                    if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
-                                            element
-                                        ) + 4] == Constants.RESERVE_HAS_PERSON
-                                    ) {
-                                        seat_id =
-                                            amList[amList.indexOf(element) - 1].replace(
-                                                "\"seat_id\":",
-                                                ""
-                                            )
-                                                .replace("\"", "")
-                                        break
+                                for (element in amList) {
+                                    if (element == targetSeat) {
+                                        if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
+                                                element
+                                            ) + 4] == Constants.RESERVE_HAS_PERSON
+                                        ) {
+                                            seat_id =
+                                                amList[amList.indexOf(element) - 1].replace(
+                                                    "\"seat_id\":",
+                                                    ""
+                                                )
+                                                    .replace("\"", "")
+                                            break
+                                        }
                                     }
                                 }
-                            }
 
-                            Requests.post(
-                                URLManager.LIBRARY_ORDER_OPERATION_URL,
-                                "order_id=$order_id&order_type=2&method=Cancel",
-                                GlobalValues.ctSso
-                            )
-
-                            val addCodeOrigin = Requests.post(
-                                URLManager.LIBRARY_RESERVE_ADDCODE_URL,
-                                ReserveUtils.constructParaForAddCode(seat_id),
-                                GlobalValues.ctVCard
-                            )
-                            val addCode = ReserveData.getAddCode(addCodeOrigin)
-                            Requests.post(
-                                URLManager.LIBRART_RESERVE_FINAL_URL,
-                                ReserveUtils.constructParaForFinalReserve(addCode),
-                                GlobalValues.ctVCard
-                            )
-                            requireActivity().recreate()
-                        }
-                        .setNegativeButton(R.string.no) { _, _ -> }
-                        .setCancelable(false)
-                        .create()
-                        .show()
-                }
-                tempReset.setOnClickListener {
-                    StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
-                    )
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.confirmReset)
-                        .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) { _, _ ->
-                            val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
-                            val targetSeat = "\"seat_label\":\"$seat_label\""
-                            var seat_id = ""
-
-                            val availableMap = ReserveUtils.formatAvailableMap(
-                                Requests.get(
-                                    URLManager.constructAvailableUrl(
-                                        TimeUtils.getToday("/", false),
-                                        roomCode
-                                    )
+                                Requests.post(
+                                    URLManager.LIBRARY_ORDER_OPERATION_URL,
+                                    "order_id=$order_id&order_type=2&method=Release",
+                                    GlobalValues.ctSso
                                 )
-                            )
-                            val amList = availableMap.split(",")
 
-                            for (element in amList) {
-                                if (element == targetSeat) {
-                                    if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
-                                            element
-                                        ) + 4] == Constants.RESERVE_HAS_PERSON
-                                    ) {
-                                        seat_id =
-                                            amList[amList.indexOf(element) - 1].replace(
-                                                "\"seat_id\":",
-                                                ""
-                                            )
-                                                .replace("\"", "")
-                                        break
-                                    }
-                                }
+                                val addCodeOrigin = Requests.post(
+                                    URLManager.LIBRARY_RESERVE_ADDCODE_URL,
+                                    ReserveUtils.constructParaForAddCode(seat_id),
+                                    GlobalValues.ctVCard
+                                )
+                                val addCode = ReserveData.getAddCode(addCodeOrigin)
+                                Requests.post(
+                                    URLManager.LIBRART_RESERVE_FINAL_URL,
+                                    ReserveUtils.constructParaForFinalReserve(addCode),
+                                    GlobalValues.ctVCard
+                                )
+                                requireActivity().recreate()
                             }
-
-                            Requests.post(
-                                URLManager.LIBRARY_ORDER_OPERATION_URL,
-                                "order_id=$order_id&order_type=2&method=Release",
-                                GlobalValues.ctSso
-                            )
-
-                            val addCodeOrigin = Requests.post(
-                                URLManager.LIBRARY_RESERVE_ADDCODE_URL,
-                                ReserveUtils.constructParaForAddCode(seat_id),
-                                GlobalValues.ctVCard
-                            )
-                            val addCode = ReserveData.getAddCode(addCodeOrigin)
-                            Requests.post(
-                                URLManager.LIBRART_RESERVE_FINAL_URL,
-                                ReserveUtils.constructParaForFinalReserve(addCode),
-                                GlobalValues.ctVCard
-                            )
-                            requireActivity().recreate()
-                        }
-                        .setNegativeButton(R.string.no) { _, _ -> }
-                        .setCancelable(false)
-                        .create()
-                        .show()
+                            .setNegativeButton(R.string.no) { _, _ -> }
+                            .setCancelable(false)
+                            .create()
+                            .show()
+                    }
                 }
-                textView.text =
-                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
+                textView.post {
+                    textView.text =
+                        "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
+                }
                 Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
-                textView.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
-                progressBar.visibility = View.INVISIBLE
+                textView.post {
+                    textView.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                }
+                progressBar.post { progressBar.visibility = View.INVISIBLE }
                 Looper.loop()
             } else {
-                textView.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
+                textView.post {
+                    textView.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
+                }
                 Looper.loop()
             }
         }

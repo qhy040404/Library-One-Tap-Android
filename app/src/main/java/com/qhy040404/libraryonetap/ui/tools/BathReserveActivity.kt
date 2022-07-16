@@ -78,37 +78,38 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 GlobalValues.ctSso
             )
 
-            textViewBath.text = getString(R.string.loaded)
+            textViewBath.post { textViewBath.text = getString(R.string.loaded) }
 
-            reserve.setOnClickListener {
-                StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder()
-                        .detectDiskReads().detectDiskWrites().detectNetwork()
-                        .penaltyLog().build()
-                )
-                StrictMode.setVmPolicy(
-                    StrictMode.VmPolicy.Builder()
-                        .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                        .penaltyLog().penaltyDeath().build()
-                )
-                @Suppress("SpellCheckingInspection")
-                val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
+            reserve.post {
+                reserve.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    @Suppress("SpellCheckingInspection")
+                    val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
 
-                @Suppress("SpellCheckingInspection")
-                val cartPostData = "goodsShopcarId=$targetRoom&rulesid=$time"
+                    @Suppress("SpellCheckingInspection")
+                    val cartPostData = "goodsShopcarId=$targetRoom&rulesid=$time"
 
-                @Suppress("SpellCheckingInspection")
-                val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
+                    @Suppress("SpellCheckingInspection")
+                    val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
 
-                @Suppress("SpellCheckingInspection")
-                val payPostData = "goodis=$targetRoom&payway=nopay"
+                    @Suppress("SpellCheckingInspection")
+                    val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
-                textViewBath.text = getString(R.string.sentRequest)
-                Looper.loop()
+                    Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
+                    textViewBath.post { textViewBath.text = getString(R.string.sentRequest) }
+                }
             }
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -124,6 +125,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
+            Looper.loop()
         }
     }
 }

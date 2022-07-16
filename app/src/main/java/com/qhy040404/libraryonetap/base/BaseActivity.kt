@@ -8,6 +8,7 @@ import androidx.viewbinding.ViewBinding
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.OsUtils
 import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
 import rikka.material.app.MaterialActivity
@@ -18,6 +19,10 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
     protected lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (!GlobalValues.md3) {
+            setTheme(AppUtils.getThemeID(GlobalValues.theme))
+        }
+
         super.onCreate(savedInstanceState)
         LibraryOneTapApp.instance?.addActivity(this)
 
@@ -36,7 +41,7 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
     }
 
     override fun computeUserThemeKey(): String? {
-        return GlobalValues.darkMode
+        return GlobalValues.darkMode + GlobalValues.theme + GlobalValues.md3
     }
 
     override fun onApplyTranslucentSystemBars() {
@@ -52,6 +57,10 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
 
     override fun onApplyUserThemeResource(theme: Resources.Theme, isDecorView: Boolean) {
         theme.applyStyle(R.style.ThemeOverlay, true)
+
+        if (!GlobalValues.md3) {
+            theme.applyStyle(AppUtils.getThemeID(GlobalValues.theme), true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

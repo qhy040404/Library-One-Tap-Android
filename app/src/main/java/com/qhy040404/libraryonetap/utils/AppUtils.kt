@@ -37,4 +37,17 @@ object AppUtils {
         val sb = SpannableStringBuilder(ctx.getString(R.string.app_name))
         return sb.toSpannable()
     }
+
+    fun getThemeID(theme: String): Int {
+        return when (theme) {
+            "purple" -> R.style.Theme_Purple_NoActionBar
+            "blue" -> R.style.Theme_Blue_NoActionBar
+            "pink" -> R.style.Theme_Pink_NoActionBar
+            "green" -> R.style.Theme_Green_NoActionBar
+            "orange" -> R.style.Theme_Orange_NoActionBar
+            "red" -> R.style.Theme_Red_NoActionBar
+            "simple" -> R.style.Theme_Simple_NoActionBar
+            else -> getThemeID(RandomDataUtils.randomTheme)
+        }
+    }
 }

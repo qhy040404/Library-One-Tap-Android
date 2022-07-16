@@ -108,18 +108,18 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 val full_time = OrderListData.getFull_time(list)
 
                 if (order_id == "oid") {
-                    order_id = getString(R.string.noValidOrder)
+                    order_id = LibraryOneTapApp.app.getString(R.string.noValidOrder)
                 }
 
                 when (order_process) {
                     "审核通过" -> {
-                        order_process = getString(R.string.notStart)
+                        order_process = LibraryOneTapApp.app.getString(R.string.notStart)
                     }
                     "进行中" -> {
-                        order_process = getString(R.string.inside)
+                        order_process = LibraryOneTapApp.app.getString(R.string.inside)
                     }
                     "暂离" -> {
-                        order_process = getString(R.string.outside)
+                        order_process = LibraryOneTapApp.app.getString(R.string.outside)
                     }
                 }
 
@@ -148,7 +148,9 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                 Looper.loop()
             } else {
-                textView2.post { textView2.text = getString(R.string.loginTimeout) }
+                textView2.post {
+                    textView2.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
+                }
                 Looper.loop()
             }
         }

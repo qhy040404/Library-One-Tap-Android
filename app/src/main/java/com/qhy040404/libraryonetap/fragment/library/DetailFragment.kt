@@ -104,7 +104,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        textView.post { textView.text = getString(R.string.failTimes) }
+                        textView.post {
+                            textView.text = LibraryOneTapApp.app.getString(R.string.failTimes)
+                        }
                         Looper.loop()
                         break
                     }
@@ -120,10 +122,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 var order_id = OrderListData.getOrder_id(list, "2")
                 var order_process = OrderListData.getOrder_process(list, "2")
                 val back_time =
-                    OrderListData.getBack_time(list, "2", getString(R.string.tempEndTime))
+                    OrderListData.getBack_time(list,
+                        "2",
+                        LibraryOneTapApp.app.getString(R.string.tempEndTime))
 
                 if (order_id == "oid") {
-                    order_id = getString(R.string.noValidOrder)
+                    order_id = LibraryOneTapApp.app.getString(R.string.noValidOrder)
                     reserve.post {
                         reserve.visibility = View.VISIBLE
                         reserve.isClickable = true
@@ -131,7 +135,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
 
                 if (order_process == "审核通过") {
-                    order_process = getString(R.string.notStart)
+                    order_process = LibraryOneTapApp.app.getString(R.string.notStart)
 
                     cancel.post {
                         cancel.visibility = View.VISIBLE
@@ -151,9 +155,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         }
                     }
                 } else if (order_process == "进行中") {
-                    order_process = getString(R.string.inside)
+                    order_process = LibraryOneTapApp.app.getString(R.string.inside)
                 } else if (order_process == "暂离") {
-                    order_process = getString(R.string.outside)
+                    order_process = LibraryOneTapApp.app.getString(R.string.outside)
                     tempReset.post {
                         tempReset.visibility = View.VISIBLE
                         tempReset.isClickable = true

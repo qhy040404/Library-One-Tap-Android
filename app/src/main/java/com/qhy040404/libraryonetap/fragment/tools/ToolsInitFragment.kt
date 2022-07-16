@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -132,9 +133,11 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val usedNet = NetData.getDynamicUsedFlow(data)
                 val remainNet = NetData.getDynamicRemainFlow(data)
                 val netMessage =
-                    getString(R.string.remainNetFeeAndColon) + remainFee + getString(R.string.rmb) + "\n" + getString(
+                    LibraryOneTapApp.app.getString(R.string.remainNetFeeAndColon) + remainFee + LibraryOneTapApp.app.getString(
+                        R.string.rmb) + "\n" + LibraryOneTapApp.app.getString(
                         R.string.usedNetAndColon
-                    ) + usedNet + getString(R.string.gigabyte) + "\n" + getString(R.string.remainNetAndColon) + remainNet + getString(
+                    ) + usedNet + LibraryOneTapApp.app.getString(R.string.gigabyte) + "\n" + LibraryOneTapApp.app.getString(
+                        R.string.remainNetAndColon) + remainNet + LibraryOneTapApp.app.getString(
                         R.string.gigabyte
                     )
 
@@ -181,7 +184,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val SSMC = ElectricData.getSSMC(data)
                 val remainElectric = ElectricData.getResele(data)
                 val electricMessage =
-                    SSMC + "\n" + getString(R.string.remainElectricAndColon) + remainElectric + getString(
+                    SSMC + "\n" + LibraryOneTapApp.app.getString(R.string.remainElectricAndColon) + remainElectric + LibraryOneTapApp.app.getString(
                         R.string.degree
                     )
 
@@ -236,7 +239,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .show()
                 } else {
                     val totalHours: String =
-                        VolunteerData.getTotalHours(data).toString() + getString(R.string.hours)
+                        VolunteerData.getTotalHours(data)
+                            .toString() + LibraryOneTapApp.app.getString(R.string.hours)
                     val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)

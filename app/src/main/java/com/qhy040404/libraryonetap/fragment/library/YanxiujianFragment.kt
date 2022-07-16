@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -88,7 +89,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        textView2.text = getString(R.string.failTimes)
+                        textView2.text = LibraryOneTapApp.app.getString(R.string.failTimes)
                         Looper.loop()
                         break
                     }

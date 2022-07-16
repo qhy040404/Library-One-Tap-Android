@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
@@ -395,7 +396,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 Looper.loop()
             } else {
-                textView.text = getString(R.string.loginTimeout)
+                textView.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
                 Looper.loop()
             }
         }

@@ -1,6 +1,8 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/basic_information">
+    <PreferenceCategory
+        app:key="basic"
+        app:title="@string/basic_information">
         <EditTextPreference
             app:icon="@drawable/ic_userid"
             app:key="name"
@@ -17,7 +19,9 @@
             app:title="@string/passwd"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/general">
+    <PreferenceCategory
+        app:key="general"
+        app:title="@string/general">
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/dark_mode"
@@ -26,6 +30,20 @@
             app:key="dark"
             app:summary="%s"
             app:title="@string/darkMode" />
+        <rikka.material.preference.MaterialSwitchPreference
+            app:defaultValue="false"
+            app:icon="@drawable/ic_material"
+            app:key="md3"
+            app:title="@string/md3" />
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="blue"
+            app:entries="@array/themes"
+            app:entryValues="@array/themes_value"
+            app:icon="@drawable/ic_color_palette"
+            app:isPreferenceVisible="false"
+            app:key="theme"
+            app:summary="%s"
+            app:title="@string/mainTheme" />
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="SYSTEM"
             app:entries="@array/language_name"
@@ -39,7 +57,9 @@
             app:key="reset"
             app:title="@string/resetData" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/other">
+    <PreferenceCategory
+        app:key="other"
+        app:title="@string/other">
         <Preference
             app:icon="@drawable/ic_about"
             app:key="about"

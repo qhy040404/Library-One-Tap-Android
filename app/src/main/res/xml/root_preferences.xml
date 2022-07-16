@@ -45,7 +45,7 @@
             app:summary="%s"
             app:title="@string/mainTheme" />
         <rikka.preference.SimpleMenuPreference
-            app:defaultValue="SYSTEM"
+            app:defaultValue="system"
             app:entries="@array/language_name"
             app:entryValues="@array/language_value"
             app:icon="@drawable/ic_language"

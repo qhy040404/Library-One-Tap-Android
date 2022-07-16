@@ -137,7 +137,7 @@
     </string-array>
 
     <string-array name="language_value" translatable="false">
-        <item>SYSTEM</item>
+        <item>system</item>
         <item>zh-CN</item>
         <item>en-US</item>
     </string-array>

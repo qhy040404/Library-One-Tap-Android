@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.utils
 
+import android.app.ActivityManager
+import android.app.Application
 import android.content.Context
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -75,5 +77,10 @@ object AppUtils {
         } else {
             true
         }
+    }
+
+    fun clearAppData(app: Application) {
+        val am = app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        am.clearApplicationUserData()
     }
 }

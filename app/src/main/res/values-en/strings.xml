@@ -29,6 +29,7 @@
     <string name="language">Language</string>
     <string name="resetData">Reset App Data</string>
     <string name="other">Others</string>
+    <string name="cache">Clear Cache</string>
 
     <!-- INIT -->
     <string name="welcome">Welcome</string>
@@ -55,6 +56,7 @@
     <string name="dataResetConfirm">Please confirm to clear appdata.</string>
     <string name="dataResetFinish">AppData has been cleared, Exiting....</string>
     <string name="noLoginData">Please input your information in the Settings page first.</string>
+    <string name="cacheCleared">Cache has been cleared</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>

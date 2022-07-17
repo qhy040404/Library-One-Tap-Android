@@ -29,6 +29,7 @@
     <string name="language">语言</string>
     <string name="resetData">重置应用数据</string>
     <string name="other">其他</string>
+    <string name="cache">清理缓存</string>
 
     <!-- INIT -->
     <string name="welcome">欢迎</string>
@@ -56,6 +57,7 @@
     <string name="dataResetConfirm">请确认重置应用数据</string>
     <string name="dataResetFinish">数据已被重置，程序即将退出....</string>
     <string name="noLoginData">请先到设置输入基本信息</string>
+    <string name="cacheCleared">缓存清理完毕</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>

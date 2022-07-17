@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
@@ -101,6 +103,17 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     .setNegativeButton(R.string.no) { _, _ -> }
                     .create()
                     .show()
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.PREF_CACHE)?.apply {
+            summary = CacheUtils.getCacheSize()
+            setOnPreferenceClickListener {
+                CacheUtils.trimCaches()
+                Toast.makeText(requireContext(), R.string.cacheCleared, Toast.LENGTH_SHORT)
+                    .show()
+                summary = "0.00 K"
                 true
             }
         }

@@ -61,6 +61,7 @@
         app:key="other"
         app:title="@string/other">
         <Preference
+            app:icon="@drawable/ic_cache"
             app:key="cache"
             app:title="@string/cache" />
         <Preference

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="SimplePageActivity" tools:ignore="ResourceName">
+
+        <attr format="reference|color" name="simplePageHeaderBackground" />
+
+        <attr format="reference|color" name="simplePageHeaderContentScrim" />
+
+        <attr format="color" name="simplePageHeaderTextColor" />
+
+        <attr format="reference" name="simplePageNavigationIcon" />
+
+    </declare-styleable>
+</resources>

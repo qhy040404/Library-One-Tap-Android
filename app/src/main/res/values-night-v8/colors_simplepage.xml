@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <color name="simple_page_card_normal">#282828</color>
+    <color name="simple_page_card_selected">#363636</color>
+    <color name="simple_page_name_color">@color/simple_page_card_text_color</color>
+    <color name="simple_page_desc_color">@color/simple_page_hint</color>
+    <color name="simple_page_card_text_color">#deffffff</color>
+    <color name="simple_page_hint">#80ffffff</color>
+    <color name="simple_page_category_text_color">#abaaaa</color>
+    <color name="simple_page_background">#141414</color>
+    <color name="simple_page_navigationBarColor">#5C000000</color>
+</resources>

@@ -119,6 +119,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         }
 
         findPreference<Preference>(Constants.PREF_ABOUT)?.apply {
+            summary = GlobalValues.version
             setOnPreferenceClickListener {
                 startActivity(Intent(requireContext(), AboutActivity::class.java))
                 true

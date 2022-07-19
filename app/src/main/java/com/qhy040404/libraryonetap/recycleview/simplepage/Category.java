@@ -31,12 +31,12 @@ public class Category {
         this.actionIconContentDescription = actionIconContentDescription;
     }
 
-    public void setOnActionClickListener(@Nullable View.OnClickListener onActionClickListener) {
-        this.onActionClickListener = onActionClickListener;
-    }
-
     @Nullable
     public View.OnClickListener getOnActionClickListener() {
         return onActionClickListener;
+    }
+
+    public void setOnActionClickListener(@Nullable View.OnClickListener onActionClickListener) {
+        this.onActionClickListener = onActionClickListener;
     }
 }

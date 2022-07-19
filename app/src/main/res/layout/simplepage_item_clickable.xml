@@ -5,25 +5,25 @@
 
     <!--suppress AndroidDomInspection -->
     <ImageView
-        style="@style/SimplePage.ContributorAvatar"
         android:id="@+id/avatar"
+        style="@style/SimplePage.ContributorAvatar"
         tools:ignore="ContentDescription"
         tools:src="#000000" />
 
     <TextView
-        style="@style/SimplePage.ContributorName"
         android:id="@+id/name"
-        android:layout_toRightOf="@id/avatar"
-        android:layout_toEndOf="@id/avatar"
+        style="@style/SimplePage.ContributorName"
         android:layout_alignTop="@id/avatar"
+        android:layout_toEndOf="@id/avatar"
+        android:layout_toRightOf="@id/avatar"
         tools:text="qhy040404" />
 
     <TextView
-        style="@style/SimplePage.ContributorDesc"
         android:id="@+id/desc"
+        style="@style/SimplePage.ContributorDesc"
         android:layout_below="@id/name"
-        android:layout_toRightOf="@id/avatar"
         android:layout_toEndOf="@id/avatar"
+        android:layout_toRightOf="@id/avatar"
         tools:text="Developer" />
 
 </RelativeLayout>

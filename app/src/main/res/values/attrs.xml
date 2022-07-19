@@ -3,13 +3,13 @@
 
     <declare-styleable name="SimplePageActivity" tools:ignore="ResourceName">
 
-        <attr format="reference|color" name="simplePageHeaderBackground" />
+        <attr name="simplePageHeaderBackground" format="reference|color" />
 
-        <attr format="reference|color" name="simplePageHeaderContentScrim" />
+        <attr name="simplePageHeaderContentScrim" format="reference|color" />
 
-        <attr format="color" name="simplePageHeaderTextColor" />
+        <attr name="simplePageHeaderTextColor" format="color" />
 
-        <attr format="reference" name="simplePageNavigationIcon" />
+        <attr name="simplePageNavigationIcon" format="reference" />
 
     </declare-styleable>
 </resources>

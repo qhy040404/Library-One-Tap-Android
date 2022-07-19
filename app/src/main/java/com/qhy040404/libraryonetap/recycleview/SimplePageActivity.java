@@ -49,8 +49,14 @@ public abstract class SimplePageActivity extends MaterialActivity {
     private boolean initialized;
     private @Nullable
     OnClickableItemClickedListener onClickableItemClickedListener;
+    private boolean givenInsetsToDecorView = false;
 
     protected abstract void onItemsCreated(@NonNull List<Object> items);
+
+    public @Nullable
+    ImageLoader getImageLoader() {
+        return imageLoader;
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     public void setImageLoader(@NonNull ImageLoader imageLoader) {
@@ -58,11 +64,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
         if (initialized) {
             adapter.notifyDataSetChanged();
         }
-    }
-
-    public @Nullable
-    ImageLoader getImageLoader() {
-        return imageLoader;
     }
 
     @LayoutRes
@@ -86,8 +87,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
         recyclerView = findViewById(R.id.simple_list);
         applyEdgeToEdge();
     }
-
-    private boolean givenInsetsToDecorView = false;
 
     private void applyEdgeToEdge() {
         Window window = getWindow();
@@ -190,12 +189,12 @@ public abstract class SimplePageActivity extends MaterialActivity {
         return adapter;
     }
 
-    public void setOnClickableItemClickedListener(@Nullable OnClickableItemClickedListener listener) {
-        this.onClickableItemClickedListener = listener;
-    }
-
     public @Nullable
     OnClickableItemClickedListener getOnClickableItemClickedListener() {
         return onClickableItemClickedListener;
+    }
+
+    public void setOnClickableItemClickedListener(@Nullable OnClickableItemClickedListener listener) {
+        this.onClickableItemClickedListener = listener;
     }
 }

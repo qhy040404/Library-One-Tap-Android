@@ -7,8 +7,8 @@
     android:orientation="horizontal">
 
     <TextView
-        style="@style/SimplePage.Item.Category"
         android:id="@+id/category"
+        style="@style/SimplePage.Item.Category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -18,9 +18,9 @@
         android:id="@+id/actionIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginEnd="@dimen/simple_page_item_category_padding_horizontal"
         android:layout_marginRight="@dimen/simple_page_item_category_padding_horizontal"
+        android:background="?attr/selectableItemBackgroundBorderless"
         tools:contentDescription="will be set programmatically"
         tools:ignore="ContentDescription" />
 </LinearLayout>

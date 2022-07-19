@@ -46,6 +46,12 @@ configurations.all {
     exclude group: 'androidx.appcompat', module: 'appcompat'
 }
 
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+}
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

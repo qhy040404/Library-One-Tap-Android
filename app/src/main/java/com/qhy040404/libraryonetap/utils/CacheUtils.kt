@@ -11,8 +11,9 @@ object CacheUtils {
 
     fun getCacheSize(): String {
         return formatFileSize(
-            FileUtils.getFileSize(externalCache!!) + FileUtils.getFileSize(cache) + FileUtils.getFileSize(
-                codeCache)
+            FileUtils.getFileSize(externalCache!!) +
+                    FileUtils.getFileSize(cache) +
+                    FileUtils.getFileSize(codeCache)
         )
     }
 

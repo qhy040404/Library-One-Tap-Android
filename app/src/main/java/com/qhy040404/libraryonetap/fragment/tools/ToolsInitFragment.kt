@@ -239,8 +239,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .show()
                 } else {
                     val totalHours: String =
-                        VolunteerData.getTotalHours(data)
-                            .toString() + LibraryOneTapApp.app.getString(R.string.hours)
+                        VolunteerData.getTotalHours(data).toString() +
+                                LibraryOneTapApp.app.getString(R.string.hours)
                     val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)

@@ -301,10 +301,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                                 for (element in amList) {
                                     if (element == targetSeat) {
-                                        if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
-                                                element
-                                            ) + 4] == Constants.RESERVE_HAS_PERSON
-                                        ) {
+                                        val i = amList.indexOf(element)
+                                        if (amList[i + 4] == Constants.RESERVE_VALID || amList[i + 4] == Constants.RESERVE_HAS_PERSON) {
                                             seat_id =
                                                 amList[amList.indexOf(element) - 1].replace(
                                                     "\"seat_id\":",
@@ -373,10 +371,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                                 for (element in amList) {
                                     if (element == targetSeat) {
-                                        if (amList[amList.indexOf(element) + 4] == Constants.RESERVE_VALID || amList[amList.indexOf(
-                                                element
-                                            ) + 4] == Constants.RESERVE_HAS_PERSON
-                                        ) {
+                                        val i = amList.indexOf(element)
+                                        if (amList[i + 4] == Constants.RESERVE_VALID || amList[i + 4] == Constants.RESERVE_HAS_PERSON) {
                                             seat_id =
                                                 amList[amList.indexOf(element) - 1].replace(
                                                     "\"seat_id\":",

@@ -37,6 +37,7 @@ import java.util.List;
 
 import rikka.material.app.MaterialActivity;
 
+@SuppressWarnings("All")
 public abstract class SimplePageActivity extends MaterialActivity {
 
     private Toolbar toolbar;
@@ -100,6 +101,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         givenInsetsToDecorView = false;
         WindowCompat.setDecorFitsSystemWindows(window, false);
         ViewCompat.setOnApplyWindowInsetsListener(decorView, new OnApplyWindowInsetsListener() {
+            @SuppressWarnings("deprecation")
             @Override
             public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat windowInsets) {
                 Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
@@ -128,7 +130,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         adapter = new MultiTypeAdapter();

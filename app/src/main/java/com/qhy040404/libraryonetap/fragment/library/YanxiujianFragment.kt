@@ -112,15 +112,9 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 }
 
                 when (order_process) {
-                    "审核通过" -> {
-                        order_process = LibraryOneTapApp.app.getString(R.string.notStart)
-                    }
-                    "进行中" -> {
-                        order_process = LibraryOneTapApp.app.getString(R.string.inside)
-                    }
-                    "暂离" -> {
-                        order_process = LibraryOneTapApp.app.getString(R.string.outside)
-                    }
+                    "审核通过" -> order_process = LibraryOneTapApp.app.getString(R.string.notStart)
+                    "进行中" -> order_process = LibraryOneTapApp.app.getString(R.string.inside)
+                    "暂离" -> order_process = LibraryOneTapApp.app.getString(R.string.outside)
                 }
 
                 val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()

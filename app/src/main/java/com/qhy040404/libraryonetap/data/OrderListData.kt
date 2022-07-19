@@ -166,9 +166,8 @@ object OrderListData {
         for (i in mClass?.rows!!.indices) {
             val list = mClass.rows[i]
             if ((list.order_process == "进行中" || list.order_process == "暂离" || list.order_process == "审核通过") && list.order_type == "1") {
-                full_time = list.order_start_time!!.split(" ")
-                    .toTypedArray()[1] + "-" + list.order_end_time!!.split(" ")
-                    .toTypedArray()[1]
+                full_time = list.order_start_time!!.split(" ").toTypedArray()[1] + "-" +
+                        list.order_end_time!!.split(" ").toTypedArray()[1]
                 break
             }
         }

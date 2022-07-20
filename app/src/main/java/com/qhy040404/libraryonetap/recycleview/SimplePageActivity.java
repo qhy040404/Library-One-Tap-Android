@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ProgressBar;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
@@ -41,6 +42,7 @@ import rikka.material.app.MaterialActivity;
 public abstract class SimplePageActivity extends MaterialActivity {
 
     private Toolbar toolbar;
+    private ProgressBar progressBar;
 
     private List<Object> items;
     private MultiTypeAdapter adapter;
@@ -77,6 +79,9 @@ public abstract class SimplePageActivity extends MaterialActivity {
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
         toolbar = findViewById(R.id.simple_toolbar);
+        progressBar = findViewById(R.id.simple_progressbar);
+
+        progressBar.setVisibility(View.INVISIBLE);
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();

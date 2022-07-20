@@ -28,4 +28,12 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <ProgressBar
+        android:id="@+id/simple_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/simple_list"
+        app:layout_anchorGravity="center" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

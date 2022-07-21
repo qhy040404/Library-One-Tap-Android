@@ -1,5 +1,22 @@
 # Changelog
 
+v3.0.0
+
+* 全新 UI
+* 全新 icon
+* `清除缓存`
+* 修改`AlertDialog`
+* Gson -> Moshi
+* 重写 DataModel
+* 现在会检查基本信息是否填写
+* 加入 Material Design 3 主题
+* 加入了一个 RecycleView 的模板
+* 加入更多主题
+* 加入工具对应icon
+* 修复了登录时可能的崩溃
+* 更新依赖
+* 常规优化
+
 v2.8.6
 
 * 修复了Channel错误的问题

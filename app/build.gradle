@@ -4,7 +4,7 @@ plugins {
 }
 
 private static String baseVersionName() {
-    return "3.0.0"
+    return "3.0.1"
 }
 
 android {

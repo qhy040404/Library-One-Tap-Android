@@ -96,6 +96,7 @@
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>Random</item>
+        <item>Library</item>
         <item>Blue</item>
         <item>Pink</item>
         <item>Green</item>

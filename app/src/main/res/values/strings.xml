@@ -100,6 +100,7 @@
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>随机主题</item>
+        <item>馆藏蓝</item>
         <item>苍穹蓝</item>
         <item>少女粉</item>
         <item>青葱绿</item>
@@ -111,6 +112,7 @@
 
     <string-array name="themes_value" translatable="false">
         <item>random</item>
+        <item>library</item>
         <item>blue</item>
         <item>pink</item>
         <item>green</item>

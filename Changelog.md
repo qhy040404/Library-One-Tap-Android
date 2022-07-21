@@ -8,6 +8,7 @@ v3.0.0
 * 修改`AlertDialog`
 * Gson -> Moshi
 * 重写 DataModel
+* 重写重置数据的 method
 * 现在会检查基本信息是否填写
 * 加入 Material Design 3 主题
 * 加入了一个 RecycleView 的模板

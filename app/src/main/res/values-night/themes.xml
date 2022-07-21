@@ -3,4 +3,15 @@
 
     <style name="Platform.V23.Theme.Library" parent="Theme.Material3.Dark.Library" />
 
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Library" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
 </resources>

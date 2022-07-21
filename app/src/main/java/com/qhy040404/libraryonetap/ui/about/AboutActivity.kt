@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 
 @Suppress("SpellCheckingInspection")
@@ -27,7 +28,7 @@ class AboutActivity : AbsAboutActivityProxy() {
     }
 
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
-        icon.load(R.mipmap.launcher_lol)
+        icon.load(R.drawable.ic_about_foreground)
         slogan.text = getString(R.string.about_slogan)
         version.text = String.format(
             "%s v%s (%d)",
@@ -179,7 +180,11 @@ class AboutActivity : AbsAboutActivityProxy() {
 
         findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
-        val color = getColor(R.color.black)
+        val color = getColor(if (AppUtils.currentIsNightMode(this)) {
+            R.color.black
+        } else {
+            R.color.library_500
+        })
         setHeaderBackground(ColorDrawable(color))
         setHeaderContentScrim(ColorDrawable(color))
     }

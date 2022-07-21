@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.utils
 import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
+import android.content.res.Configuration
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import androidx.core.content.edit
@@ -82,5 +83,13 @@ object AppUtils {
     fun clearAppData(app: Application) {
         val am = app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         am.clearApplicationUserData()
+    }
+
+    fun currentIsNightMode(ctx: Context): Boolean {
+        val uiMode = ctx.resources.configuration.uiMode
+        return when (uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> true
+            else -> false
+        }
     }
 }

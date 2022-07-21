@@ -20,14 +20,14 @@
     <style name="Theme" parent="Base.AppTheme" />
 
     <style name="Theme.MaterialComponents.DayNight.NoActionBar.Library" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorPrimary">@color/library_500</item>
+        <item name="colorPrimaryVariant">@color/library_700</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/black</item>
-        <item name="colorSecondaryVariant">@color/black</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondary">@color/library_500</item>
+        <item name="colorSecondaryVariant">@color/library_700</item>
+        <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">@color/library_500</item>
     </style>
 </resources>

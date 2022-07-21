@@ -3,21 +3,29 @@ package com.qhy040404.libraryonetap.ui.tools
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
-class BathReserveActivity : BaseActivity() {
+class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     override fun init() = initView()
 
-    override fun getLayoutId(): Int = R.layout.activity_bath_reserve
-
     private fun initView() {
+        setSupportActionBar(binding.toolbar)
+        (binding.root as ViewGroup).bringChildToFront(binding.appbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.title = getString(R.string.vcardTitle)
+        if (!GlobalValues.md3) {
+            binding.toolbar.setTitleTextColor(getColor(R.color.white))
+        }
+
         val textViewBath: TextView = findViewById(R.id.textView3)
         textViewBath.visibility = View.VISIBLE
         Thread(BathReserve()).start()
@@ -70,39 +78,38 @@ class BathReserveActivity : BaseActivity() {
                 GlobalValues.ctSso
             )
 
-            Requests.get(URLManager.BATH_DIRECT_URL)
+            textViewBath.post { textViewBath.text = getString(R.string.loaded) }
 
-            textViewBath.text = getString(R.string.loaded)
+            reserve.post {
+                reserve.setOnClickListener {
+                    StrictMode.setThreadPolicy(
+                        StrictMode.ThreadPolicy.Builder()
+                            .detectDiskReads().detectDiskWrites().detectNetwork()
+                            .penaltyLog().build()
+                    )
+                    StrictMode.setVmPolicy(
+                        StrictMode.VmPolicy.Builder()
+                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+                            .penaltyLog().penaltyDeath().build()
+                    )
+                    @Suppress("SpellCheckingInspection")
+                    val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
 
-            reserve.setOnClickListener {
-                StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder()
-                        .detectDiskReads().detectDiskWrites().detectNetwork()
-                        .penaltyLog().build()
-                )
-                StrictMode.setVmPolicy(
-                    StrictMode.VmPolicy.Builder()
-                        .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                        .penaltyLog().penaltyDeath().build()
-                )
-                @Suppress("SpellCheckingInspection")
-                val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
+                    @Suppress("SpellCheckingInspection")
+                    val cartPostData = "goodsShopcarId=$targetRoom&rulesid=$time"
 
-                @Suppress("SpellCheckingInspection")
-                val cartPostData = "goodsShopcarId=$targetRoom&rulesid=$time"
+                    @Suppress("SpellCheckingInspection")
+                    val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
 
-                @Suppress("SpellCheckingInspection")
-                val mainPostData = "goodsid=$targetRoom%2C&ruleid=$time"
+                    @Suppress("SpellCheckingInspection")
+                    val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                @Suppress("SpellCheckingInspection")
-                val payPostData = "goodis=$targetRoom&payway=nopay"
-
-                Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
-                textViewBath.text = getString(R.string.sentRequest)
-                Looper.loop()
+                    Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
+                    Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
+                    textViewBath.post { textViewBath.text = getString(R.string.sentRequest) }
+                }
             }
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -118,6 +125,7 @@ class BathReserveActivity : BaseActivity() {
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
+            Looper.loop()
         }
     }
 }

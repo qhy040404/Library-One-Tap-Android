@@ -3,19 +3,16 @@
     <string name="app_name">图书馆小程序</string>
     <string name="library">图书馆</string>
     <string name="title_activity_settings">设置</string>
-    <string name="title_activity_yanxiujian">研修间</string>
     <string name="vcardTitle">虚拟卡</string>
     <string name="remainNet">剩余流量</string>
     <string name="remainElectric">剩余电量</string>
     <string name="bath_title">澡堂预约</string>
-    <string name="tools_title">小工具</string>
     <string name="secret_title">你 被 骗 了</string>
-    <string name="detail_title">各种二维码</string>
     <string name="about_title">关于</string>
     <string name="volunteer_title">志愿时长</string>
 
     <!-- MAIN BUTTON -->
-    <string name="detail_activity">签到/离退/暂离</string>
+    <string name="detail">单人座</string>
     <string name="yanxiujian">研修间</string>
     <string name="tools">工具箱</string>
     <string name="quit">退出</string>
@@ -26,11 +23,13 @@
     <string name="passwd">密码</string>
     <string name="name">姓名</string>
     <string name="general">通用</string>
-    <string name="mainTheme">主题</string>
     <string name="darkMode">深色模式</string>
+    <string name="mainTheme">主题</string>
+    <string name="md3" translatable="false">Material 3 (Preview)</string>
     <string name="language">语言</string>
     <string name="resetData">重置应用数据</string>
     <string name="other">其他</string>
+    <string name="cache">清理缓存</string>
 
     <!-- INIT -->
     <string name="welcome">欢迎</string>
@@ -47,8 +46,8 @@
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
     <string name="logFail">登录失败，正在重试</string>
-    <string name="failTimes">连续失败3次，返回主页面\n请检查用户名和密码</string>
-    <string name="loginTimeout">登录失效，请重新进入此页面</string>
+    <string name="failTimes">连续失败3次\n请检查用户名和密码</string>
+    <string name="loginTimeout">登录失效，请重新加载</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
     <string name="no">取消</string>
@@ -57,6 +56,8 @@
     <string name="reserved">已发送预约请求</string>
     <string name="dataResetConfirm">请确认重置应用数据</string>
     <string name="dataResetFinish">数据已被重置，程序即将退出....</string>
+    <string name="noLoginData">请先到设置输入基本信息</string>
+    <string name="cacheCleared">缓存清理完毕</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>
@@ -99,18 +100,24 @@
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>随机主题</item>
+        <item>馆藏蓝</item>
         <item>苍穹蓝</item>
         <item>少女粉</item>
-        <item>青葱绿</item>s
+        <item>青葱绿</item>
+        <item>活力橙</item>
+        <item>淡雅红</item>
         <item>基佬紫</item>
         <item>简约风</item>
     </string-array>
 
     <string-array name="themes_value" translatable="false">
         <item>random</item>
+        <item>library</item>
         <item>blue</item>
         <item>pink</item>
         <item>green</item>
+        <item>orange</item>
+        <item>red</item>
         <item>purple</item>
         <item>simple</item>
     </string-array>
@@ -135,8 +142,8 @@
 
     <string-array name="language_value" translatable="false">
         <item>system</item>
-        <item>zh</item>
-        <item>en</item>
+        <item>zh-CN</item>
+        <item>en-US</item>
     </string-array>
 
     <!-- BATH RESERVE ACTIVITY -->

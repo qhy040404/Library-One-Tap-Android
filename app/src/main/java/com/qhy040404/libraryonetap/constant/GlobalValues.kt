@@ -14,7 +14,7 @@ object GlobalValues {
 
     // App
     val version =
-        LibraryOneTapApp.app.getString(R.string.app_name) + " " + PackageUtils.buildType + " " + PackageUtils.versionName + " (${PackageUtils.versionCode})"
+        LibraryOneTapApp.app.getString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
 
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
@@ -23,6 +23,7 @@ object GlobalValues {
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
+    var md3: Boolean by SPDelegates(Constants.PREF_MD3, false)
     var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
 
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)

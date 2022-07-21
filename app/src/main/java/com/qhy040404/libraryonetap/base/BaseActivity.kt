@@ -1,53 +1,66 @@
 package com.qhy040404.libraryonetap.base
 
+import android.content.res.Resources
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.viewbinding.ViewBinding
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.utils.RandomDataUtils
-import java.util.*
+import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.OsUtils
+import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
+import rikka.material.app.MaterialActivity
 
 @Suppress("DEPRECATION")
-abstract class BaseActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        val config = resources.configuration
-        val dm = resources.displayMetrics
-        var theme = GlobalValues.theme
+abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
 
-        when (GlobalValues.darkMode) {
-            "system" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-            "on" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            "off" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    protected lateinit var binding: VB
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        if (!GlobalValues.md3) {
+            setTheme(AppUtils.getThemeID(GlobalValues.theme))
         }
-        if (GlobalValues.theme == "random") {
-            theme = RandomDataUtils.randomTheme
-        }
-        when (theme) {
-            "purple" -> setTheme(R.style.Theme_Purple)
-            "blue" -> setTheme(R.style.Theme_Blue)
-            "pink" -> setTheme(R.style.Theme_Pink)
-            "green" -> setTheme(R.style.Theme_Green)
-            "simple" -> setTheme(R.style.Theme_Simple)
-        }
-        config.setLocale(
-            when (GlobalValues.locale) {
-                "zh" -> Locale.SIMPLIFIED_CHINESE
-                "en" -> Locale.ENGLISH
-                else -> Locale.getDefault()
-            }
-        )
-        resources.updateConfiguration(config, dm)
 
         super.onCreate(savedInstanceState)
         LibraryOneTapApp.instance?.addActivity(this)
 
-        setContentView(getLayoutId())
+        if (!this::binding.isInitialized) {
+            binding = inflateBinding(layoutInflater)
+        }
+
+        setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
+    }
+
+    override fun shouldApplyTranslucentSystemBars(): Boolean {
+        return true
+    }
+
+    override fun computeUserThemeKey(): String? {
+        return GlobalValues.darkMode + GlobalValues.theme + GlobalValues.md3
+    }
+
+    override fun onApplyTranslucentSystemBars() {
+        super.onApplyTranslucentSystemBars()
+        window.statusBarColor = Color.TRANSPARENT
+        window.decorView.post {
+            window.navigationBarColor = Color.TRANSPARENT
+            if (OsUtils.atLeastQ()) {
+                window.isNavigationBarContrastEnforced = false
+            }
+        }
+    }
+
+    override fun onApplyUserThemeResource(theme: Resources.Theme, isDecorView: Boolean) {
+        theme.applyStyle(R.style.ThemeOverlay, true)
+
+        if (!GlobalValues.md3) {
+            theme.applyStyle(AppUtils.getThemeID(GlobalValues.theme), true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -56,6 +69,4 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected abstract fun init()
-
-    protected abstract fun getLayoutId(): Int
 }

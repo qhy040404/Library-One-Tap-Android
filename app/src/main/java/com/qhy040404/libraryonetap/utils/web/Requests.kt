@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit
 @Suppress("SpellCheckingInspection")
 object Requests {
     val client = OkHttpClient.Builder()
+        .followRedirects(false)
+        .followSslRedirects(false)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
@@ -32,44 +34,87 @@ object Requests {
 
     @Throws(IOException::class)
     fun get(url: String): String {
-        val request: Request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .get()
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return get(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
+    }
+
+    @Throws(IOException::class)
+    fun getRedirectURL(url: String): String {
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .build()
+        client.newCall(request).execute().use { response ->
+            return response.headers["Location"].toString()
+        }
     }
 
     @Throws(IOException::class)
     fun getVCard(url: String): String {
-        val request: Request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
             .addHeader("User-Agent", "weishao")
             .get()
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return getVCard(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     @Throws(IOException::class)
     fun post(url: String, form: String, FORM: MediaType): String {
-        val body: RequestBody = form.toRequestBody(FORM)
-        val request: Request = Request.Builder()
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
             .url(url)
             .post(body)
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return get(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
+    }
+
+    @Throws(IOException::class)
+    fun postRedirectURL(url: String, form: String, FORM: MediaType): String {
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+        client.newCall(request).execute().use { response ->
+            return response.headers["Location"].toString()
+        }
     }
 
     @Throws(IOException::class)
     fun postVCard(url: String, form: String, FORM: MediaType): String {
-        val body: RequestBody = form.toRequestBody(FORM)
-        val request: Request = Request.Builder()
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
             .addHeader("User-Agent", "weishao")
             .post(body)
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return getVCard(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     fun loginPostData(id: String, passwd: String, ltData: String, rsa: String): String {

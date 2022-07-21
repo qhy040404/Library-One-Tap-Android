@@ -6,7 +6,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.GlobalValues.SP_NAME
 
 object SPUtils {
-    private val sp: SharedPreferences by lazy {
+    val sp: SharedPreferences by lazy {
         LibraryOneTapApp.app.getSharedPreferences(
             SP_NAME,
             Context.MODE_PRIVATE

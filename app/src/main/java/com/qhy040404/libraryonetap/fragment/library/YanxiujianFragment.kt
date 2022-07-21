@@ -67,7 +67,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = try {
                     "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     ""
                 }
 

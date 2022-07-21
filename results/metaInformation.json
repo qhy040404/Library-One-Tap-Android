@@ -7,8 +7,8 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "7d1c9d46d5a5ffad63f8649cd50f8d124a49e3b9",
-        "branch": "master"
+        "revisionId": "180536a60b73db9c1e860e851d6aced0dfc4bce2",
+        "branch": "renovate/dev.rikka.rikkax.material-material-2.x"
       }
     },
     "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726"

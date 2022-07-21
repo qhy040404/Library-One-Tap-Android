@@ -21,7 +21,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.title = getString(R.string.vcardTitle)
+        binding.toolbar.title = getString(R.string.bath_title)
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
         }

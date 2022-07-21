@@ -34,7 +34,7 @@ object Requests {
 
     @Throws(IOException::class)
     fun get(url: String): String {
-        val request: Request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .get()
             .build()
@@ -47,8 +47,19 @@ object Requests {
     }
 
     @Throws(IOException::class)
+    fun getRedirectURL(url: String): String {
+        val request = Request.Builder()
+            .url(url)
+            .get()
+            .build()
+        client.newCall(request).execute().use { response ->
+            return response.headers["Location"].toString()
+        }
+    }
+
+    @Throws(IOException::class)
     fun getVCard(url: String): String {
-        val request: Request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
             .addHeader("User-Agent", "weishao")
@@ -64,8 +75,8 @@ object Requests {
 
     @Throws(IOException::class)
     fun post(url: String, form: String, FORM: MediaType): String {
-        val body: RequestBody = form.toRequestBody(FORM)
-        val request: Request = Request.Builder()
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
             .url(url)
             .post(body)
             .build()
@@ -78,9 +89,21 @@ object Requests {
     }
 
     @Throws(IOException::class)
+    fun postRedirectURL(url: String, form: String, FORM: MediaType): String {
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+        client.newCall(request).execute().use { response ->
+            return response.headers["Location"].toString()
+        }
+    }
+
+    @Throws(IOException::class)
     fun postVCard(url: String, form: String, FORM: MediaType): String {
-        val body: RequestBody = form.toRequestBody(FORM)
-        val request: Request = Request.Builder()
+        val body = form.toRequestBody(FORM)
+        val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
             .addHeader("User-Agent", "weishao")

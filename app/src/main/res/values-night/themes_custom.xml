@@ -1,5 +1,18 @@
 <resources>
-    <!-- Default application theme. (Purple) -->
+    <!-- Default application theme. ( Main ) -->
+    <style name="Theme.Main" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/library_200</item>
+        <item name="colorPrimaryVariant">@color/library_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <item name="colorSecondary">@color/library_200</item>
+        <item name="colorSecondaryVariant">@color/library_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <!-- Purple application theme. -->
     <style name="Theme.Purple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

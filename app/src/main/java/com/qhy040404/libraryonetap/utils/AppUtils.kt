@@ -45,6 +45,7 @@ object AppUtils {
     fun getThemeID(theme: String): Int {
         return when (theme) {
             "purple" -> R.style.Theme_Purple_NoActionBar
+            "library" -> R.style.Theme_Main_NoActionBar
             "blue" -> R.style.Theme_Blue_NoActionBar
             "pink" -> R.style.Theme_Pink_NoActionBar
             "green" -> R.style.Theme_Green_NoActionBar

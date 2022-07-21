@@ -21,7 +21,7 @@ object Constants {
     const val PREF_ABOUT = "about"
 
     const val DEFAULT_DARK = "system"
-    const val DEFAULT_THEME = "blue"
+    const val DEFAULT_THEME = "library"
     const val DEFAULT_LOCALE = "system"
 
     const val CONTENT_TYPE_SSO = "application/x-www-form-urlencoded; charset=utf-8"

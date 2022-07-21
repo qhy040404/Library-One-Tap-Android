@@ -67,14 +67,23 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             val time = BathUtils.getBathTime()
 
             val ltResponse: String = Requests.get(URLManager.BATH_SSO_URL)
-            val ltData: String = "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+            val ltData: String = try {
+                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+            } catch (_: Exception) {
+                ""
+            }
+            val ltExecution: String = try {
+                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+            } catch (_: Exception) {
+                ""
+            }
 
             val rawData = "$id$passwd$ltData"
             val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
             Requests.post(
                 URLManager.BATH_SSO_URL,
-                Requests.loginPostData(id, passwd, ltData, rsa),
+                Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
                 GlobalValues.ctSso
             )
 

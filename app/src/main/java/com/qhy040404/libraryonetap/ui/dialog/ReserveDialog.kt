@@ -107,6 +107,11 @@ class ReserveDialog {
             } catch (_: Exception) {
                 ""
             }
+            val ltExecution: String = try {
+                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+            } catch (_: Exception) {
+                ""
+            }
 
             if (ltData != "") {
                 val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
@@ -114,7 +119,11 @@ class ReserveDialog {
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(GlobalValues.id, GlobalValues.passwd, ltData, rsa),
+                    Requests.loginPostData(GlobalValues.id,
+                        GlobalValues.passwd,
+                        ltData,
+                        rsa,
+                        ltExecution),
                     GlobalValues.ctSso
                 )
             }

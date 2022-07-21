@@ -33,6 +33,11 @@ object GetPortalData {
             } catch (_: Exception) {
                 ""
             }
+            val ltExecution: String = try {
+                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+            } catch (_: Exception) {
+                ""
+            }
 
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
@@ -40,7 +45,7 @@ object GetPortalData {
 
                 Requests.post(
                     URLManager.PORTAL_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa),
+                    Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
                     GlobalValues.ctSso
                 )
             }

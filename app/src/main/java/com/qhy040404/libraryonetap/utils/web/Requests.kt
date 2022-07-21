@@ -92,7 +92,13 @@ object Requests {
         client.newCall(request).execute().use { response -> return response.body!!.string() }
     }
 
-    fun loginPostData(id: String, passwd: String, ltData: String, rsa: String): String {
-        return "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=e1s1&_eventId=submit"
+    fun loginPostData(
+        id: String,
+        passwd: String,
+        ltData: String,
+        rsa: String,
+        execution: String,
+    ): String {
+        return "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=$execution&_eventId=submit"
     }
 }

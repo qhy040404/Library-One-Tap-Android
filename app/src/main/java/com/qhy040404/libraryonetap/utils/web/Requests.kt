@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit
 @Suppress("SpellCheckingInspection")
 object Requests {
     val client = OkHttpClient.Builder()
+        .followRedirects(false)
+        .followSslRedirects(false)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
@@ -36,7 +38,12 @@ object Requests {
             .url(url)
             .get()
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return get(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     @Throws(IOException::class)
@@ -47,7 +54,12 @@ object Requests {
             .addHeader("User-Agent", "weishao")
             .get()
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return getVCard(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     @Throws(IOException::class)
@@ -57,7 +69,12 @@ object Requests {
             .url(url)
             .post(body)
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return get(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     @Throws(IOException::class)
@@ -69,7 +86,12 @@ object Requests {
             .addHeader("User-Agent", "weishao")
             .post(body)
             .build()
-        client.newCall(request).execute().use { response -> return response.body!!.string() }
+        client.newCall(request).execute().use { response ->
+            if (response.code == 302) {
+                return getVCard(response.headers["Location"].toString())
+            }
+            return response.body!!.string()
+        }
     }
 
     fun loginPostData(id: String, passwd: String, ltData: String, rsa: String): String {

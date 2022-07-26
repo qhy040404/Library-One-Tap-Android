@@ -40,7 +40,7 @@ class AboutActivity : AbsAboutActivityProxy() {
         icon.setOnClickListener {
             headCount++
             when (headCount) {
-                1 -> Toast.makeText(this, "咋还想点呢", Toast.LENGTH_SHORT).show()
+                1 -> Toast.makeText(this, "点我干啥？", Toast.LENGTH_SHORT).show()
                 in 2..9 -> {}
                 10 -> {
                     slogan.text = MIDDLE_SECRET
@@ -190,7 +190,7 @@ class AboutActivity : AbsAboutActivityProxy() {
     }
 
     companion object {
-        private const val MIDDLE_SECRET = "ne Tap D"
-        private const val SECRET = "Tap Dog"
+        private const val MIDDLE_SECRET = "ne Tap Ag"
+        private const val SECRET = "Tap Again"
     }
 }

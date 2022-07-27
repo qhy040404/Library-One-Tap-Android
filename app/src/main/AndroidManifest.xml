@@ -22,6 +22,10 @@
         android:theme="@style/AppTheme"
         tools:targetApi="33">
         <activity
+            android:name=".ui.tools.GradesActivity"
+            android:exported="false"
+            android:label="@string/grade_title" />
+        <activity
             android:name=".ui.about.AboutActivity"
             android:exported="false"
             android:label="@string/about_title"

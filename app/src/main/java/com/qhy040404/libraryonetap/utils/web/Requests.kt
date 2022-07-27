@@ -12,15 +12,14 @@ object Requests {
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
         .cookieJar(object : CookieJar {
-            private val cookieStore = HashMap<String, List<Cookie>>()
+            private val cookieStore = mutableListOf<Cookie>()
 
             override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-                cookieStore[url.host] = cookies
+                cookieStore.addAll(cookies)
             }
 
             override fun loadForRequest(url: HttpUrl): List<Cookie> {
-                val cookies: List<Cookie>? = cookieStore[url.host]
-                return cookies ?: ArrayList()
+                return cookieStore
             }
         })
         .build()

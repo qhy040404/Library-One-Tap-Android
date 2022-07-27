@@ -10,6 +10,7 @@
     <string name="secret_title">你 被 骗 了</string>
     <string name="about_title">关于</string>
     <string name="volunteer_title">志愿时长</string>
+    <string name="grade_title">成绩</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail">单人座</string>

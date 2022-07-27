@@ -24,4 +24,8 @@
         app:icon="@drawable/ic_volunteer"
         app:key="volunteer"
         app:title="@string/volunteer" />
+
+    <Preference
+        app:key="grades"
+        app:title="@string/grade_title" />
 </PreferenceScreen>

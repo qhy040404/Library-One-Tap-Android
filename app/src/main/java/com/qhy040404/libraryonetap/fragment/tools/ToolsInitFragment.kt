@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
+import com.qhy040404.libraryonetap.ui.tools.GradesActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
@@ -97,6 +98,20 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.TOOLS_VOLUNTEER)?.apply {
             setOnPreferenceClickListener {
                 Thread(GetVolunteer()).start()
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.TOOLS_GRADES)?.apply {
+            setOnPreferenceClickListener {
+                if (AppUtils.checkDataAndDialog(requireContext(),
+                        GlobalValues.id,
+                        GlobalValues.passwd,
+                        R.string.tools,
+                        R.string.noLoginData)
+                ) {
+                    startActivity(Intent(requireContext(), GradesActivity::class.java))
+                }
                 true
             }
         }

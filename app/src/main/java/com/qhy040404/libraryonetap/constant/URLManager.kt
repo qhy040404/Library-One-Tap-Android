@@ -39,6 +39,15 @@ object URLManager {
 
     const val VOLTIME_POST_URL = "https://www.dutbit.com/apivue/voltime/"
 
+    const val EDU_LOGIN_SSO_URL =
+        "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2Fjxgl.dlut.edu.cn%2Fstudent%2Fucas-sso%2Flogin"
+    const val EDU_CHECK_URL = "http://jxgl.dlut.edu.cn/student/ws/student/home-page/students"
+    const val EDU_GRADE_INIT_URL = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
+
+    fun getEduGradeUrl(stuId: Int): String {
+        return "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="
+    }
+
     fun constructAvailableUrl(date: String, room: String): String {
         return "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
     }

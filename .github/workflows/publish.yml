@@ -50,12 +50,12 @@ jobs:
       - name: Check_debug
         uses: gradle/gradle-build-action@v2.2.2
         with:
-          arguments: lintAnalyzeDebug --warning-mode all
+          arguments: lintAnalyzeDebug --warning-mode all --scan
 
       - name: Check_release
         uses: gradle/gradle-build-action@v2.2.2
         with:
-          arguments: lintAnalyzeRelease --warning-mode all
+          arguments: lintAnalyzeRelease --warning-mode all --scan
 
   build_debug:
     name: Build_Debug

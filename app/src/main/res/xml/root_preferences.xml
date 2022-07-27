@@ -30,7 +30,7 @@
             app:key="dark"
             app:summary="%s"
             app:title="@string/darkMode" />
-        <rikka.material.preference.MaterialSwitchPreference
+        <SwitchPreference
             app:defaultValue="false"
             app:icon="@drawable/ic_material"
             app:key="md3"

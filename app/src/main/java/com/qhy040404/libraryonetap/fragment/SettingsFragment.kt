@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import androidx.recyclerview.widget.RecyclerView
 import com.absinthe.libraries.utils.extensions.addPaddingTop
 import com.absinthe.libraries.utils.utils.UiUtils
@@ -23,7 +24,6 @@ import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
-import rikka.material.preference.MaterialSwitchPreference
 import rikka.preference.SimpleMenuPreference
 import rikka.recyclerview.fixEdgeEffect
 import rikka.widget.borderview.BorderRecyclerView
@@ -59,7 +59,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             }
         }
 
-        findPreference<MaterialSwitchPreference>(Constants.PREF_MD3)?.apply {
+        findPreference<SwitchPreference>(Constants.PREF_MD3)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 GlobalValues.md3 = newValue as Boolean
                 activity?.recreate()

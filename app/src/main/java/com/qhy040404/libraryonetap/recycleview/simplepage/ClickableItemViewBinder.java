@@ -32,10 +32,10 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull ClickableItem contributor) {
-        holder.name.setText(contributor.name);
-        holder.desc.setText(contributor.desc);
-        holder.data = contributor;
+    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull ClickableItem clickableItem) {
+        holder.name.setText(clickableItem.name);
+        holder.desc.setText(clickableItem.desc);
+        holder.data = clickableItem;
     }
 
     @Override

@@ -5,6 +5,10 @@ import com.qhy040404.libraryonetap.data.model.SessionDataClass
 
 object SessionData {
     fun isSuccess(returnData: String): Boolean {
-        return moshi.adapter(SessionDataClass::class.java).fromJson(returnData)?.success!!
+        return try {
+            moshi.adapter(SessionDataClass::class.java).fromJson(returnData)?.success!!
+        } catch (_: Exception) {
+            return false
+        }
     }
 }

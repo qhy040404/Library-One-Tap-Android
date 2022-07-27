@@ -9,7 +9,11 @@ object OrderListData {
     private val today = TimeUtils.getToday("-", true)
 
     fun getTotal(data: String): String {
-        return moshi.adapter(OrderListDataClass::class.java).fromJson(data)?.total!!
+        return try {
+            moshi.adapter(OrderListDataClass::class.java).fromJson(data)?.total!!
+        } catch (_: Exception) {
+            return "0"
+        }
     }
 
     fun getOrder_id(data: String, mode: String): String {

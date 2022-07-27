@@ -1,5 +1,11 @@
 # Changelog
 
+v3.1.2
+
+* 修改了部分Preference的样式
+* 修复了RecycleView页面可能闪退的bug
+* 更新依赖
+
 v3.1.1
 
 * 修复了重复进入成绩查询时数据未清空而导致出现多个重复成绩的bug

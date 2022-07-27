@@ -6,17 +6,12 @@
     <TextView
         android:id="@+id/name"
         style="@style/SimplePage.ContributorName"
-        android:layout_alignTop="@id/avatar"
-        android:layout_toEndOf="@id/avatar"
-        android:layout_toRightOf="@id/avatar"
         tools:text="qhy040404" />
 
     <TextView
         android:id="@+id/desc"
         style="@style/SimplePage.ContributorDesc"
         android:layout_below="@id/name"
-        android:layout_toEndOf="@id/avatar"
-        android:layout_toRightOf="@id/avatar"
         tools:text="Developer" />
 
 </RelativeLayout>

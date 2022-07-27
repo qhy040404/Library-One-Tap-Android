@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,7 +33,6 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull ClickableItem contributor) {
-        holder.avatar.setImageResource(contributor.avatarResId);
         holder.name.setText(contributor.name);
         holder.desc.setText(contributor.desc);
         holder.data = contributor;
@@ -49,7 +47,6 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
 
         protected @NonNull
         final SimplePageActivity activity;
-        public ImageView avatar;
         public TextView name;
         public TextView desc;
         public ClickableItem data;
@@ -57,7 +54,6 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
         public ViewHolder(View itemView, @NonNull SimplePageActivity activity) {
             super(itemView);
             this.activity = activity;
-            avatar = itemView.findViewById(R.id.avatar);
             name = itemView.findViewById(R.id.name);
             desc = itemView.findViewById(R.id.desc);
             itemView.setOnClickListener(this);

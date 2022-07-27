@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.recycleview;
 
-import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,7 +29,6 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder;
-import com.qhy040404.libraryonetap.recycleview.simplepage.ImageLoader;
 import com.qhy040404.libraryonetap.recycleview.simplepage.OnClickableItemClickedListener;
 
 import java.util.ArrayList;
@@ -47,27 +45,14 @@ public abstract class SimplePageActivity extends MaterialActivity {
     private List<Object> items;
     private MultiTypeAdapter adapter;
     private RecyclerView recyclerView;
-    private @Nullable
-    ImageLoader imageLoader;
     private boolean initialized;
     private @Nullable
     OnClickableItemClickedListener onClickableItemClickedListener;
     private boolean givenInsetsToDecorView = false;
 
+    protected abstract void initialization();
+
     protected abstract void onItemsCreated(@NonNull List<Object> items);
-
-    public @Nullable
-    ImageLoader getImageLoader() {
-        return imageLoader;
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    public void setImageLoader(@NonNull ImageLoader imageLoader) {
-        this.imageLoader = imageLoader;
-        if (initialized) {
-            adapter.notifyDataSetChanged();
-        }
-    }
 
     @LayoutRes
     protected int layoutRes() {
@@ -92,6 +77,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         onApplyPresetAttrs();
         recyclerView = findViewById(R.id.simple_list);
         applyEdgeToEdge();
+        initialization();
     }
 
     private void applyEdgeToEdge() {
@@ -134,9 +120,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         });
     }
 
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    public void syncRecycleView() {
         adapter = new MultiTypeAdapter();
         adapter.register(Category.class, new CategoryViewBinder());
         adapter.register(ClickableItem.class, new ClickableItemViewBinder(this));
@@ -144,7 +128,12 @@ public abstract class SimplePageActivity extends MaterialActivity {
         onItemsCreated(items);
         adapter.setItems(items);
         adapter.setHasStableIds(true);
-        recyclerView.setAdapter(adapter);
+        recyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView.setAdapter(adapter);
+            }
+        });
         initialized = true;
     }
 

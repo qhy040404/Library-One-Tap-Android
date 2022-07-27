@@ -3,13 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/SimplePage.Item.Clickable">
 
-    <!--suppress AndroidDomInspection -->
-    <ImageView
-        android:id="@+id/avatar"
-        style="@style/SimplePage.ContributorAvatar"
-        tools:ignore="ContentDescription"
-        tools:src="#000000" />
-
     <TextView
         android:id="@+id/name"
         style="@style/SimplePage.ContributorName"

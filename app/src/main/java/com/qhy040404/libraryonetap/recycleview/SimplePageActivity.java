@@ -172,11 +172,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override
-    public void setTitle(@NonNull CharSequence title) {
-        toolbar.setTitle(title);
-    }
-
     public Toolbar getToolbar() {
         return toolbar;
     }

@@ -262,11 +262,6 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override
-    public void setTitle(@NonNull CharSequence title) {
-        collapsingToolbar.setTitle(title);
-    }
-
     public Toolbar getToolbar() {
         return toolbar;
     }

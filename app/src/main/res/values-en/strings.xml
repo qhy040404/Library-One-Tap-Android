@@ -11,7 +11,8 @@
     <string name="secret_title">FAKE lol</string>
     <string name="about_title">About</string>
     <string name="volunteer_title">Volunteer hours</string>
-    <string name="grade_title">Grades</string>
+    <string name="grade_major_title">Grades (Major)</string>
+    <string name="grade_minor_title">Grades (Minor)</string>
 
     <!-- MAIN BUTTON -->
     <string name="detail">Single</string>

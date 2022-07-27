@@ -32,4 +32,8 @@ object GlobalValues {
     val ctJson: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_JSON)
     val ctSso: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_SSO)
     val ctVCard: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_VCARD)
+
+    // Grades
+    var minorVisible: Boolean = false
+    var minorDetected: Boolean = false
 }

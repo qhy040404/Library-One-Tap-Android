@@ -18,7 +18,7 @@ import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
-class GradesActivity : SimplePageActivity() {
+class GradesMajorActivity : SimplePageActivity() {
     override fun initialization() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
@@ -120,8 +120,8 @@ class GradesActivity : SimplePageActivity() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        MaterialAlertDialogBuilder(this@GradesActivity)
-                            .setTitle(R.string.grade_title)
+                        MaterialAlertDialogBuilder(this@GradesMajorActivity)
+                            .setTitle(R.string.grade_major_title)
                             .setMessage(R.string.failTimes)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 finish()
@@ -142,6 +142,12 @@ class GradesActivity : SimplePageActivity() {
                 } else {
                     val initList =
                         initData.split("onclick=\"myFunction(this)\" value=\"")
+                    if (initList.size == 3) {
+                        GradesTempValues.secondStuId = initList[2].split("\"")[0].toInt()
+                        if (!GlobalValues.minorVisible) {
+                            GlobalValues.minorDetected = true
+                        }
+                    }
                     initList[1].split("\"")[0].toInt()
                 }
 

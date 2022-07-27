@@ -26,6 +26,11 @@
         app:title="@string/volunteer" />
 
     <Preference
-        app:key="grades"
-        app:title="@string/grade_title" />
+        app:key="major"
+        app:title="@string/grade_major_title" />
+
+    <Preference
+        app:isPreferenceVisible="false"
+        app:key="minor"
+        app:title="@string/grade_minor_title" />
 </PreferenceScreen>

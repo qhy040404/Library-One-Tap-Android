@@ -17,7 +17,8 @@ import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
-import com.qhy040404.libraryonetap.ui.tools.GradesActivity
+import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
+import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
@@ -27,6 +28,16 @@ import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ToolsInitFragment : PreferenceFragmentCompat() {
+    override fun onResume() {
+        super.onResume()
+        if (GlobalValues.minorDetected) {
+            findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
+            GlobalValues.minorVisible = true
+            GlobalValues.minorDetected = false
+            activity?.recreate()
+        }
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.tools_list, rootKey)
 
@@ -102,7 +113,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             }
         }
 
-        findPreference<Preference>(Constants.TOOLS_GRADES)?.apply {
+        findPreference<Preference>(Constants.TOOLS_GRADES_MAJOR)?.apply {
             setOnPreferenceClickListener {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
@@ -110,7 +121,21 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.tools,
                         R.string.noLoginData)
                 ) {
-                    startActivity(Intent(requireContext(), GradesActivity::class.java))
+                    startActivity(Intent(requireContext(), GradesMajorActivity::class.java))
+                }
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.apply {
+            setOnPreferenceClickListener {
+                if (AppUtils.checkDataAndDialog(requireContext(),
+                        GlobalValues.id,
+                        GlobalValues.passwd,
+                        R.string.tools,
+                        R.string.noLoginData)
+                ) {
+                    startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
                 }
                 true
             }

@@ -7,8 +7,8 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "c2ed645db348469cd01c0110b9dd9733901ec6a1",
-        "branch": "renovate/androidx.navigation-navigation-ui-ktx-2.x"
+        "revisionId": "f8145dd54d3d9414f3d947d7df78950e73ab9122",
+        "branch": "master"
       }
     },
     "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726"

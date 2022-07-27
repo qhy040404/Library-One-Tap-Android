@@ -36,6 +36,11 @@ import java.util.List;
 
 import rikka.material.app.MaterialActivity;
 
+/**
+ * MUST CALL syncRecycleView()
+ * to show items in RecycleView
+ */
+
 @SuppressWarnings("All")
 public abstract class SimplePageActivity extends MaterialActivity {
 

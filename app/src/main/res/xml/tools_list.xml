@@ -26,10 +26,12 @@
         app:title="@string/volunteer" />
 
     <Preference
+        app:icon="@drawable/ic_grades"
         app:key="major"
         app:title="@string/grade_major_title" />
 
     <Preference
+        app:icon="@drawable/ic_grades"
         app:isPreferenceVisible="false"
         app:key="minor"
         app:title="@string/grade_minor_title" />

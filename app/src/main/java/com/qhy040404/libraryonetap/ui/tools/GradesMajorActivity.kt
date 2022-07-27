@@ -37,6 +37,12 @@ class GradesMajorActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
+            if (GlobalValues.minorDetected) {
+                add(ClickableItem(
+                    "检测到辅修/双学位，已在工具箱添加入口",
+                    ""
+                ))
+            }
             for (semester in GradesTempValues.semestersName) {
                 add(Category(semester))
                 val count =
@@ -151,6 +157,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     initList[1].split("\"")[0].toInt()
                 }
 
+                Thread.sleep(5000L)
                 val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
 
                 val gradesJsonObject = JSONObject(gradesData)

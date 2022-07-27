@@ -37,6 +37,12 @@ class GradesMinorActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
+            if (GradesTempValues.secondSemestersName.isEmpty()) {
+                add(ClickableItem(
+                    "无数据",
+                    ""
+                ))
+            }
             for (semester in GradesTempValues.secondSemestersName) {
                 add(Category(semester))
                 val count =
@@ -136,6 +142,7 @@ class GradesMinorActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
+                Thread.sleep(1000L)
                 val gradesData =
                     Requests.get(URLManager.getEduGradeUrl(GradesTempValues.secondStuId))
 

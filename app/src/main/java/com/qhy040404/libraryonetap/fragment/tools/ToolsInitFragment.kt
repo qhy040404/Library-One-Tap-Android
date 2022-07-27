@@ -28,18 +28,14 @@ import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ToolsInitFragment : PreferenceFragmentCompat() {
-    override fun onResume() {
-        super.onResume()
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.tools_list, rootKey)
+
         if (GlobalValues.minorDetected) {
             findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
             GlobalValues.minorVisible = true
             GlobalValues.minorDetected = false
-            activity?.recreate()
         }
-    }
-
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.tools_list, rootKey)
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             setOnPreferenceClickListener {

@@ -32,4 +32,29 @@ object GradesTempValues {
 
     var secondStartCount = 0
     var secondEndCount = 0
+
+    fun clear() {
+        semesters.clear()
+        semestersName.clear()
+        courseName.clear()
+        courseCode.clear()
+        courseCredits.clear()
+        courseGrade.clear()
+        courseGP.clear()
+        courseStudyType.clear()
+        courseCountList.clear()
+        startCount = 0
+        endCount = 0
+        secondSemesters.clear()
+        secondSemestersName.clear()
+        secondCourseName.clear()
+        secondCourseCode.clear()
+        secondCourseCredits.clear()
+        secondCourseGrade.clear()
+        secondCourseGP.clear()
+        secondCourseStudyType.clear()
+        secondCourseCountList.clear()
+        secondStartCount = 0
+        secondEndCount = 0
+    }
 }

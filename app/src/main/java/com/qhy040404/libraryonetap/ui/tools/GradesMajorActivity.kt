@@ -32,6 +32,7 @@ class GradesMajorActivity : SimplePageActivity() {
         )
 
         initView()
+        GradesTempValues.clear()
         Thread(PrepareData()).start()
     }
 

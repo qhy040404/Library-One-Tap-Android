@@ -9,10 +9,12 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
+import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.GradesUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
@@ -33,9 +35,22 @@ class GradesMinorActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (GradesTempValues.secondSemestersName.isEmpty()) {
-                add(ClickableItem(
-                    "无数据",
-                    ""
+                add(Card(
+                    "无数据"
+                ))
+            } else {
+                add(Card(
+                    "加权均分: ${
+                        GradesUtils.calculateWeightedAverage(
+                            GradesTempValues.courseGrade,
+                            GradesTempValues.courseCredits
+                        )
+                    }  平均绩点: ${
+                        GradesUtils.calculateAverageGP(
+                            GradesTempValues.courseGP,
+                            GradesTempValues.courseCredits
+                        )
+                    }"
                 ))
             }
             for (semester in GradesTempValues.secondSemestersName) {

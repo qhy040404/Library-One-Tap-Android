@@ -9,6 +9,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
+import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
@@ -34,12 +35,11 @@ class GradesMajorActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (GlobalValues.minorDetected) {
-                add(ClickableItem(
-                    "检测到辅修/双学位，已在工具箱添加入口",
-                    ""
+                add(Card(
+                    "检测到辅修/双学位，已在工具箱添加入口"
                 ))
             }
-            add(ClickableItem(
+            add(Card(
                 "加权均分: ${
                     GradesUtils.calculateWeightedAverage(
                         GradesTempValues.courseGrade,
@@ -50,8 +50,7 @@ class GradesMajorActivity : SimplePageActivity() {
                         GradesTempValues.courseGP,
                         GradesTempValues.courseCredits
                     )
-                }",
-                ""
+                }"
             ))
             for (semester in GradesTempValues.semestersName) {
                 add(Category(semester))

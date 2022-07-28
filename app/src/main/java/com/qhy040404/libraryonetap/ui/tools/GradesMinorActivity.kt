@@ -145,7 +145,7 @@ class GradesMinorActivity : SimplePageActivity() {
                     if (timer >= 3) {
                         MaterialAlertDialogBuilder(this@GradesMinorActivity)
                             .setTitle(R.string.grade_minor_title)
-                            .setMessage(R.string.failTimes)
+                            .setMessage(R.string.fail_to_login_three_times)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 finish()
                             }

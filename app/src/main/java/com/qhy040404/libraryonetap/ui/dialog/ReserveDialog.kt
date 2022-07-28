@@ -30,7 +30,7 @@ class ReserveDialog {
         var targetRoom = 0
         ArrayAdapter.createFromResource(
             ctx,
-            R.array.areaArray,
+            R.array.area_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -136,7 +136,7 @@ class ReserveDialog {
                 loginSuccess = true
                 Toast.makeText(ctx, R.string.loaded, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(ctx, R.string.logFail, Toast.LENGTH_SHORT).show()
+                Toast.makeText(ctx, R.string.fail_to_login, Toast.LENGTH_SHORT).show()
             }
         }
         val addCodeOrigin =

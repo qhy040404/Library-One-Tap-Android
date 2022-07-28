@@ -41,7 +41,7 @@
         <activity
             android:name=".ui.tools.VCardActivity"
             android:exported="false"
-            android:label="@string/vcardTitle" />
+            android:label="@string/vcard_title" />
         <activity
             android:name=".ui.tools.BathReserveActivity"
             android:exported="false"

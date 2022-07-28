@@ -143,7 +143,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     if (timer >= 3) {
                         MaterialAlertDialogBuilder(this@GradesMajorActivity)
                             .setTitle(R.string.grade_major_title)
-                            .setMessage(R.string.failTimes)
+                            .setMessage(R.string.fail_to_login_three_times)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 finish()
                             }

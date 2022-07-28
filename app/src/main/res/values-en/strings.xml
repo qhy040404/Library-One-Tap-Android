@@ -3,10 +3,10 @@
     <!-- TITLE -->
     <string name="app_name">Library One Tap</string>
     <string name="library">Library</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="vcardTitle">Virtual Yulan card</string>
-    <string name="remainNet">Remain Campus Network</string>
-    <string name="remainElectric">Remain Electric Charge</string>
+    <string name="settings_title">Settings</string>
+    <string name="vcard_title">Virtual Yulan card</string>
+    <string name="net_title">Remain Campus Network</string>
+    <string name="electric_title">Remain Electric Charge</string>
     <string name="bath_title">Bathhouse Reservation</string>
     <string name="secret_title">FAKE lol</string>
     <string name="about_title">About</string>
@@ -18,7 +18,6 @@
     <string name="detail">Single</string>
     <string name="yanxiujian">Yanxiujian</string>
     <string name="tools">Tools</string>
-    <string name="quit">Quit</string>
 
     <!-- SETTING -->
     <string name="basic_information">Basic information</string>
@@ -26,10 +25,10 @@
     <string name="passwd">Password</string>
     <string name="name">Name</string>
     <string name="general">General</string>
-    <string name="darkMode">Dark Mode</string>
-    <string name="mainTheme">Theme</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="main_theme">Theme</string>
     <string name="language">Language</string>
-    <string name="resetData">Reset App Data</string>
+    <string name="reset_data">Reset App Data</string>
     <string name="other">Others</string>
     <string name="cache">Clear Cache</string>
 
@@ -38,27 +37,27 @@
     <string name="welcome_message">Welcome! Please set your information first. \nPress OK to go to Settings.</string>
 
     <!-- PROMPT -->
-    <string name="remainNetFeeAndColon">"Balance: "</string>
-    <string name="usedNetAndColon">"Used network: "</string>
-    <string name="remainNetAndColon">"Remain network: "</string>
-    <string name="remainElectricAndColon">"Remain electric: "</string>
+    <string name="remain_net_fee">"Balance: "</string>
+    <string name="used_net">"Used network: "</string>
+    <string name="remain_net">"Remain network: "</string>
+    <string name="remain_electric">"Remain electric: "</string>
     <string name="rmb">" Yuan"</string>
     <string name="degree">" degree"</string>
     <string name="loading">Loading....</string>
     <string name="loaded">Logged in</string>
-    <string name="logFail">Login failed, retrying....</string>
-    <string name="failTimes">Failed 3 times....\nCheck your id and password</string>
-    <string name="loginTimeout">Session timeout, please refresh</string>
+    <string name="fail_to_login">Login failed, retrying....</string>
+    <string name="fail_to_login_three_times">Failed 3 times....\nCheck your id and password</string>
+    <string name="login_timeout">Session timeout, please refresh</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
     <string name="no">Cancel</string>
-    <string name="sameData">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
+    <string name="find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="hours">" hours"</string>
     <string name="reserved">Reserve request has been sent</string>
-    <string name="dataResetConfirm">Please confirm to clear appdata.</string>
-    <string name="dataResetFinish">AppData has been cleared, Exiting....</string>
-    <string name="noLoginData">Please input your information in the Settings page first.</string>
-    <string name="cacheCleared">Cache has been cleared</string>
+    <string name="data_reset_confirm">Please confirm to clear appdata.</string>
+    <string name="data_reset_completed">AppData has been cleared, Exiting....</string>
+    <string name="no_userdata">Please input your information in the Settings page first.</string>
+    <string name="cache_cleared">Cache has been cleared</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">Sign in</string>
@@ -67,17 +66,17 @@
     <string name="refresh">Reload</string>
     <string name="inside">Inside</string>
     <string name="outside">Temp outside</string>
-    <string name="notStart">Has not started</string>
-    <string name="noValidOrder">No valid order found</string>
-    <string name="tempEndTime">Temporary leave deadline: </string>
+    <string name="not_start">Has not started</string>
+    <string name="no_valid_order">No valid order found</string>
+    <string name="temp_end_time">Temporary leave deadline: </string>
     <string name="cancel">Cancel\nreservation</string>
-    <string name="confirmCancel">Confirm cancellation</string>
-    <string name="justCancel">Yes</string>
-    <string name="cancelCancel">No</string>
+    <string name="cancel_confirm">Confirm cancellation</string>
+    <string name="cancel_confirm_yes">Yes</string>
+    <string name="cancel_confirm_no">No</string>
     <string name="reserve">Reserve\na seat</string>
     <string name="random">Random</string>
     <string name="reset">Reset\nreservation</string>
-    <string name="confirmReset">Please confirm to reset reservation</string>
+    <string name="reserve_reset_confirm">Please confirm to reset reservation</string>
 
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW (Needs campus network)</string>
@@ -87,12 +86,12 @@
     <string name="volunteer">Total Volunteer Hours</string>
 
     <!-- BATH RESERVE ACTIVITY -->
-    <string name="promptPermission">We need this permission to get SSID of WIFI</string>
-    <string name="gotPermission">Permission successfully obtained, please click the button again</string>
-    <string name="failPermission">Failed to obtain permission, please go to settings to enable it manually</string>
-    <string name="bathReserve">Reserve bathroom right now</string>
-    <string name="networkLimit">Please use this function in the campus network environment</string>
-    <string name="sentRequest">Appointment request sent</string>
+    <string name="permission_prompt">We need this permission to get SSID of WIFI</string>
+    <string name="permission_got">Permission successfully obtained, please click the button again</string>
+    <string name="permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
+    <string name="bath_reserve">Reserve bathroom right now</string>
+    <string name="network_env_limit">Please use this function in the campus network environment</string>
+    <string name="request_sent">Appointment request sent</string>
 
     <!-- ARRAY -->
     <!-- SETTINGS -->
@@ -121,7 +120,7 @@
     </string-array>
 
     <!-- BATH RESERVE ACTIVITY -->
-    <string-array name="placeArray">
+    <string-array name="bath_array">
         <item>West 1F</item>
         <item>West 2F</item>
         <item>West 3F</item>
@@ -130,7 +129,7 @@
     </string-array>
 
     <!-- DETAIL -->
-    <string-array name="areaArray">
+    <string-array name="area_array">
         <item>Lingxi</item>
         <item>Bochuan</item>
     </string-array>

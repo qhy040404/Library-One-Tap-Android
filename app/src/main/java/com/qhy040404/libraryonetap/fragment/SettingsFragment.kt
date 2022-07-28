@@ -114,13 +114,13 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_RESET)?.apply {
             setOnPreferenceClickListener {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.dataResetConfirm)
-                    .setTitle(R.string.title_activity_settings)
+                    .setMessage(R.string.data_reset_confirm)
+                    .setTitle(R.string.settings_title)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         SPUtils.resetAll()
                         MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.dataResetFinish)
-                            .setTitle(R.string.title_activity_settings)
+                            .setMessage(R.string.data_reset_completed)
+                            .setTitle(R.string.settings_title)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
                                 AppUtils.clearAppData(LibraryOneTapApp.app)
@@ -140,7 +140,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             summary = CacheUtils.getCacheSize()
             setOnPreferenceClickListener {
                 CacheUtils.trimCaches()
-                Toast.makeText(requireContext(), R.string.cacheCleared, Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), R.string.cache_cleared, Toast.LENGTH_SHORT)
                     .show()
                 summary = "0.00 K"
                 true

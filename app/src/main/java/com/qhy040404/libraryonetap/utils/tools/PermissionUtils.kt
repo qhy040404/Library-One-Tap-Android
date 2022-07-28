@@ -19,7 +19,7 @@ object PermissionUtils {
     }
 
     private fun requestPermission(s: Array<String>, activity: Activity) {
-        Toast.makeText(activity, R.string.promptPermission, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, R.string.permission_prompt, Toast.LENGTH_SHORT).show()
         ActivityCompat.requestPermissions(activity, s, 100)
     }
 }

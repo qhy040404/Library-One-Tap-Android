@@ -162,7 +162,7 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewCo
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                     MaterialAlertDialogBuilder(this)
-                        .setMessage(R.string.gotPermission)
+                        .setMessage(R.string.permission_got)
                         .setTitle(R.string.bath_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(true)
@@ -170,7 +170,7 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewCo
                         .show()
                 } else {
                     MaterialAlertDialogBuilder(this)
-                        .setMessage(R.string.failPermission)
+                        .setMessage(R.string.permission_fail)
                         .setTitle(R.string.error)
                         .setPositiveButton(R.string.ok) { _, _ ->
                             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

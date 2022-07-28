@@ -53,7 +53,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             var targetRoom = 20
             ArrayAdapter.createFromResource(
                 this@BathReserveActivity,
-                R.array.placeArray,
+                R.array.bath_array,
                 android.R.layout.simple_spinner_item
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -118,7 +118,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                     Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
                     Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
                     Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
-                    textViewBath.post { textViewBath.text = getString(R.string.sentRequest) }
+                    textViewBath.post { textViewBath.text = getString(R.string.request_sent) }
                 }
             }
 

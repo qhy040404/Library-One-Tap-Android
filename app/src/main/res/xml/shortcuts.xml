@@ -4,7 +4,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_sc_vcard"
         android:shortcutId="start_vcard"
-        android:shortcutShortLabel="@string/vcardTitle">
+        android:shortcutShortLabel="@string/vcard_title">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.VCARD"
             android:targetClass="com.qhy040404.libraryonetap.ui.tools.VCardActivity"

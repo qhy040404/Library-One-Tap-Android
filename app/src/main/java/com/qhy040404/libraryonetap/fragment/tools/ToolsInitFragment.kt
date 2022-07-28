@@ -57,13 +57,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                             GlobalValues.id,
                             GlobalValues.passwd,
                             R.string.tools,
-                            R.string.noLoginData)
+                            R.string.no_userdata)
                     ) {
                         startActivity(Intent(requireContext(), BathReserveActivity::class.java))
                     }
                 } else {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.networkLimit)
+                        .setMessage(R.string.network_env_limit)
                         .setTitle(R.string.bath_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(false)
@@ -94,7 +94,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         GlobalValues.id,
                         GlobalValues.passwd,
                         R.string.tools,
-                        R.string.noLoginData)
+                        R.string.no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), VCardActivity::class.java))
                 }
@@ -115,7 +115,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         GlobalValues.id,
                         GlobalValues.passwd,
                         R.string.tools,
-                        R.string.noLoginData)
+                        R.string.no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), GradesMajorActivity::class.java))
                 }
@@ -129,7 +129,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         GlobalValues.id,
                         GlobalValues.passwd,
                         R.string.tools,
-                        R.string.noLoginData)
+                        R.string.no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
                 }
@@ -158,7 +158,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 id,
                 passwd,
                 R.string.tools,
-                R.string.noLoginData)
+                R.string.no_userdata)
 
             if (checked) {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
@@ -169,17 +169,17 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val usedNet = NetData.getDynamicUsedFlow(data)
                 val remainNet = NetData.getDynamicRemainFlow(data)
                 val netMessage =
-                    LibraryOneTapApp.app.getString(R.string.remainNetFeeAndColon) + remainFee + LibraryOneTapApp.app.getString(
+                    LibraryOneTapApp.app.getString(R.string.remain_net_fee) + remainFee + LibraryOneTapApp.app.getString(
                         R.string.rmb) + "\n" + LibraryOneTapApp.app.getString(
-                        R.string.usedNetAndColon
+                        R.string.used_net
                     ) + usedNet + LibraryOneTapApp.app.getString(R.string.gigabyte) + "\n" + LibraryOneTapApp.app.getString(
-                        R.string.remainNetAndColon) + remainNet + LibraryOneTapApp.app.getString(
+                        R.string.remain_net) + remainNet + LibraryOneTapApp.app.getString(
                         R.string.gigabyte
                     )
 
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(netMessage)
-                    .setTitle(R.string.remainNet)
+                    .setTitle(R.string.net_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()
@@ -209,7 +209,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 id,
                 passwd,
                 R.string.tools,
-                R.string.noLoginData)
+                R.string.no_userdata)
 
             if (checked) {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
@@ -220,13 +220,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val SSMC = ElectricData.getSSMC(data)
                 val remainElectric = ElectricData.getResele(data)
                 val electricMessage =
-                    SSMC + "\n" + LibraryOneTapApp.app.getString(R.string.remainElectricAndColon) + remainElectric + LibraryOneTapApp.app.getString(
+                    SSMC + "\n" + LibraryOneTapApp.app.getString(R.string.remain_electric) + remainElectric + LibraryOneTapApp.app.getString(
                         R.string.degree
                     )
 
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(electricMessage)
-                    .setTitle(R.string.remainElectric)
+                    .setTitle(R.string.electric_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()
@@ -253,7 +253,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 GlobalValues.name,
                 GlobalValues.id,
                 R.string.tools,
-                R.string.noLoginData)
+                R.string.no_userdata)
 
             if (checked) {
                 Toast.makeText(requireContext(), R.string.loading, Toast.LENGTH_SHORT).show()
@@ -267,7 +267,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
                 if (sameID != 1 || sameName != 1) {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.sameData)
+                        .setMessage(R.string.find_same_data)
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(true)

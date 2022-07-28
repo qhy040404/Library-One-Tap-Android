@@ -29,7 +29,7 @@
             app:icon="@drawable/ic_dark_mode"
             app:key="dark"
             app:summary="%s"
-            app:title="@string/darkMode" />
+            app:title="@string/dark_mode" />
         <SwitchPreference
             app:defaultValue="false"
             app:icon="@drawable/ic_material"
@@ -43,7 +43,7 @@
             app:isPreferenceVisible="false"
             app:key="theme"
             app:summary="%s"
-            app:title="@string/mainTheme" />
+            app:title="@string/main_theme" />
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/language_name"
@@ -55,7 +55,7 @@
         <Preference
             app:icon="@drawable/ic_refresh"
             app:key="reset"
-            app:title="@string/resetData" />
+            app:title="@string/reset_data" />
     </PreferenceCategory>
     <PreferenceCategory
         app:key="other"

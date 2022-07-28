@@ -110,7 +110,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     timer++
                     if (timer >= 3) {
                         textView.post {
-                            textView.text = LibraryOneTapApp.app.getString(R.string.failTimes)
+                            textView.text =
+                                LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
                         }
                         Looper.loop()
                         break
@@ -129,10 +130,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 val back_time =
                     OrderListData.getBack_time(list,
                         "2",
-                        LibraryOneTapApp.app.getString(R.string.tempEndTime))
+                        LibraryOneTapApp.app.getString(R.string.temp_end_time))
 
                 if (order_id == "oid") {
-                    order_id = LibraryOneTapApp.app.getString(R.string.noValidOrder)
+                    order_id = LibraryOneTapApp.app.getString(R.string.no_valid_order)
                     reserve.post {
                         reserve.visibility = View.VISIBLE
                         reserve.isClickable = true
@@ -140,7 +141,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
 
                 if (order_process == "审核通过") {
-                    order_process = LibraryOneTapApp.app.getString(R.string.notStart)
+                    order_process = LibraryOneTapApp.app.getString(R.string.not_start)
 
                     cancel.post {
                         cancel.visibility = View.VISIBLE
@@ -245,9 +246,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                 .penaltyLog().penaltyDeath().build()
                         )
                         MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.confirmCancel)
+                            .setMessage(R.string.cancel_confirm)
                             .setTitle(R.string.library)
-                            .setPositiveButton(R.string.justCancel) { _, _ ->
+                            .setPositiveButton(R.string.cancel_confirm_yes) { _, _ ->
                                 val message = CancelData.getMessage(
                                     Requests.post(
                                         URLManager.LIBRARY_ORDER_OPERATION_URL,
@@ -263,7 +264,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     .create()
                                     .show()
                             }
-                            .setNegativeButton(R.string.cancelCancel) { _, _ -> }
+                            .setNegativeButton(R.string.cancel_confirm_no) { _, _ -> }
                             .setCancelable(true)
                             .create()
                             .show()
@@ -287,7 +288,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                 .penaltyLog().penaltyDeath().build()
                         )
                         MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.confirmReset)
+                            .setMessage(R.string.reserve_reset_confirm)
                             .setTitle(R.string.library)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
@@ -357,7 +358,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                 .penaltyLog().penaltyDeath().build()
                         )
                         MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.confirmReset)
+                            .setMessage(R.string.reserve_reset_confirm)
                             .setTitle(R.string.library)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
@@ -421,13 +422,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
                 textView.post {
-                    textView.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                    textView.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
                 }
                 progressBar.post { progressBar.visibility = View.INVISIBLE }
                 Looper.loop()
             } else {
                 textView.post {
-                    textView.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
+                    textView.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
                 }
                 Looper.loop()
             }

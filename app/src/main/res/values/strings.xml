@@ -2,10 +2,10 @@
     <!-- TITLE -->
     <string name="app_name">图书馆小程序</string>
     <string name="library">图书馆</string>
-    <string name="title_activity_settings">设置</string>
-    <string name="vcardTitle">虚拟卡</string>
-    <string name="remainNet">剩余流量</string>
-    <string name="remainElectric">剩余电量</string>
+    <string name="settings_title">设置</string>
+    <string name="vcard_title">虚拟卡</string>
+    <string name="net_title">剩余流量</string>
+    <string name="electric_title">剩余电量</string>
     <string name="bath_title">澡堂预约</string>
     <string name="secret_title">你 被 骗 了</string>
     <string name="about_title">关于</string>
@@ -13,23 +13,22 @@
     <string name="grade_major_title">成绩 (主修)</string>
     <string name="grade_minor_title">成绩 (辅修/双学位)</string>
 
-    <!-- MAIN BUTTON -->
+    <!-- MENU -->
     <string name="detail">单人座</string>
     <string name="yanxiujian">研修间</string>
     <string name="tools">工具箱</string>
-    <string name="quit">退出</string>
 
     <!-- SETTING -->
     <string name="basic_information">基本信息</string>
+    <string name="name">姓名</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
-    <string name="name">姓名</string>
     <string name="general">通用</string>
-    <string name="darkMode">深色模式</string>
-    <string name="mainTheme">主题</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="main_theme">主题</string>
     <string name="md3" translatable="false">Material 3 (Preview)</string>
     <string name="language">语言</string>
-    <string name="resetData">重置应用数据</string>
+    <string name="reset_data">重置应用数据</string>
     <string name="other">其他</string>
     <string name="cache">清理缓存</string>
 
@@ -38,28 +37,28 @@
     <string name="welcome_message">欢迎使用此程序，首次使用先设置相关信息哦\n点击好跳转到设置</string>
 
     <!-- PROMPT -->
-    <string name="remainNetFeeAndColon">"余额: "</string>
-    <string name="usedNetAndColon">"已用流量: "</string>
-    <string name="remainNetAndColon">"剩余流量: "</string>
-    <string name="remainElectricAndColon">"剩余电量: "</string>
+    <string name="remain_net_fee">"余额: "</string>
+    <string name="used_net">"已用流量: "</string>
+    <string name="remain_net">"剩余流量: "</string>
+    <string name="remain_electric">"剩余电量: "</string>
     <string name="rmb">" 元"</string>
     <string name="degree">" 度"</string>
     <string name="gigabyte" translatable="false">" GB"</string>
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
-    <string name="logFail">登录失败，正在重试</string>
-    <string name="failTimes">连续失败3次\n请检查用户名和密码</string>
-    <string name="loginTimeout">登录失效，请重新加载</string>
+    <string name="fail_to_login">登录失败，正在重试</string>
+    <string name="fail_to_login_three_times">连续失败3次\n请检查用户名和密码</string>
+    <string name="login_timeout">登录失效，请重新加载</string>
     <string name="error">错误</string>
     <string name="ok">好</string>
     <string name="no">取消</string>
-    <string name="sameData">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
+    <string name="find_same_data">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="hours">" 小时"</string>
     <string name="reserved">已发送预约请求</string>
-    <string name="dataResetConfirm">请确认重置应用数据</string>
-    <string name="dataResetFinish">数据已被重置，程序即将退出....</string>
-    <string name="noLoginData">请先到设置输入基本信息</string>
-    <string name="cacheCleared">缓存清理完毕</string>
+    <string name="data_reset_confirm">请确认重置应用数据</string>
+    <string name="data_reset_completed">数据已被重置，程序即将退出....</string>
+    <string name="no_userdata">请先到设置输入基本信息</string>
+    <string name="cache_cleared">缓存清理完毕</string>
 
     <!-- DETAIL ACTIVITY -->
     <string name="enter">签到码</string>
@@ -68,17 +67,17 @@
     <string name="refresh">刷新数据</string>
     <string name="inside">进行中</string>
     <string name="outside">暂离</string>
-    <string name="notStart">未开始</string>
-    <string name="noValidOrder">没有找到有效的order</string>
-    <string name="tempEndTime">暂离截止: </string>
+    <string name="not_start">未开始</string>
+    <string name="no_valid_order">没有找到有效的order</string>
+    <string name="temp_end_time">暂离截止: </string>
     <string name="cancel">不去了，开摆</string>
-    <string name="confirmCancel">确认取消吗</string>
-    <string name="justCancel">开摆</string>
-    <string name="cancelCancel">继续卷</string>
+    <string name="cancel_confirm">确认取消吗</string>
+    <string name="cancel_confirm_yes">开摆</string>
+    <string name="cancel_confirm_no">继续卷</string>
     <string name="reserve">给我整个座</string>
     <string name="random">随机</string>
     <string name="reset">重置预约</string>
-    <string name="confirmReset">请确认重置预约</string>
+    <string name="reserve_reset_confirm">请确认重置预约</string>
 
     <!-- TOOLS -->
     <string name="bath">我TM要洗澡 (需连接校园网)</string>
@@ -88,12 +87,12 @@
     <string name="volunteer">志愿总时长</string>
 
     <!-- BATH RESERVE ACTIVITY -->
-    <string name="promptPermission">需要获取此权限来获得WIFI的SSID</string>
-    <string name="gotPermission">已成功获取权限，请重新点击按钮</string>
-    <string name="failPermission">获取权限失败，请到设置中手动开启</string>
-    <string name="bathReserve">预约最近时间段</string>
-    <string name="networkLimit">请在校园网环境下使用此功能</string>
-    <string name="sentRequest">已发送预约请求</string>
+    <string name="permission_prompt">需要获取此权限来获得WIFI的SSID</string>
+    <string name="permission_got">已成功获取权限，请重新点击按钮</string>
+    <string name="permission_fail">获取权限失败，请到设置中手动开启</string>
+    <string name="bath_reserve">预约最近时间段</string>
+    <string name="network_env_limit">请在校园网环境下使用此功能</string>
+    <string name="request_sent">已发送预约请求</string>
 
     <!-- ABOUT -->
     <string name="about_slogan" translatable="false">Library One Tap</string>
@@ -149,7 +148,7 @@
     </string-array>
 
     <!-- BATH RESERVE ACTIVITY -->
-    <string-array name="placeArray">
+    <string-array name="bath_array">
         <item>西山1楼</item>
         <item>西山2楼</item>
         <item>西山3楼</item>
@@ -158,7 +157,7 @@
     </string-array>
 
     <!-- DETAIL -->
-    <string-array name="areaArray">
+    <string-array name="area_array">
         <item>令希</item>
         <item>伯川</item>
     </string-array>

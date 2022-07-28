@@ -95,7 +95,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        textView2.text = LibraryOneTapApp.app.getString(R.string.failTimes)
+                        textView2.text =
+                            LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
                         Looper.loop()
                         break
                     }
@@ -113,11 +114,11 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 val full_time = OrderListData.getFull_time(list)
 
                 if (order_id == "oid") {
-                    order_id = LibraryOneTapApp.app.getString(R.string.noValidOrder)
+                    order_id = LibraryOneTapApp.app.getString(R.string.no_valid_order)
                 }
 
                 when (order_process) {
-                    "审核通过" -> order_process = LibraryOneTapApp.app.getString(R.string.notStart)
+                    "审核通过" -> order_process = LibraryOneTapApp.app.getString(R.string.not_start)
                     "进行中" -> order_process = LibraryOneTapApp.app.getString(R.string.inside)
                     "暂离" -> order_process = LibraryOneTapApp.app.getString(R.string.outside)
                 }
@@ -142,13 +143,13 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
                 textView2.post {
-                    textView2.text = LibraryOneTapApp.app.getString(R.string.noLoginData)
+                    textView2.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
                 }
                 progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                 Looper.loop()
             } else {
                 textView2.post {
-                    textView2.text = LibraryOneTapApp.app.getString(R.string.loginTimeout)
+                    textView2.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
                 }
                 Looper.loop()
             }

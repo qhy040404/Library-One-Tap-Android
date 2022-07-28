@@ -25,6 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.qhy040404.libraryonetap.R;
+import com.qhy040404.libraryonetap.recycleview.simplepage.Card;
+import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
@@ -147,6 +149,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
 
     public void syncRecycleView() {
         adapter = new MultiTypeAdapter();
+        adapter.register(Card.class, new CardViewBinder());
         adapter.register(Category.class, new CategoryViewBinder());
         adapter.register(ClickableItem.class, new ClickableItemViewBinder(this));
         items = new ArrayList<>();

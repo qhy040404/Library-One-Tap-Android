@@ -5,6 +5,7 @@
     <color name="simple_page_name_color">@color/simple_page_card_text_color</color>
     <color name="simple_page_desc_color">@color/simple_page_hint</color>
     <color name="simple_page_card_text_color">#de000000</color>
+    <color name="simple_page_link_text_color">@android:color/black</color>
     <color name="simple_page_hint">#757575</color>
     <color name="simple_page_category_text_color">#757575</color>
     <color name="simple_page_background">#F1F1F1</color>

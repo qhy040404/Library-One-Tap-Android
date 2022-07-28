@@ -5,6 +5,7 @@
     <color name="simple_page_name_color">@color/simple_page_card_text_color</color>
     <color name="simple_page_desc_color">@color/simple_page_hint</color>
     <color name="simple_page_card_text_color">#deffffff</color>
+    <color name="simple_page_link_text_color">@color/simple_page_card_text_color</color>
     <color name="simple_page_hint">#80ffffff</color>
     <color name="simple_page_category_text_color">#abaaaa</color>
     <color name="simple_page_background">#141414</color>

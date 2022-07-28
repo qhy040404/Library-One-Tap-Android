@@ -11,6 +11,27 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="SimplePage.Item.Card">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:background">@drawable/simplepage_card</item>
+        <item name="android:elevation" tools:ignore="NewApi">1dp
+        </item>
+    </style>
+
+    <style name="SimplePage.CardContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:autoLink">web</item>
+        <item name="android:textColorLink">@color/simple_page_link_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/simple_page_card_text_color</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
     <style name="SimplePage.Item.Clickable">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">12dp</item>

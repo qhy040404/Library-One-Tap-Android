@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SimplePage.Item.Card">
+
+    <TextView
+        style="@style/SimplePage.CardContent"
+        android:id="@+id/simple_content"
+        tools:text="content" />
+
+</RelativeLayout>

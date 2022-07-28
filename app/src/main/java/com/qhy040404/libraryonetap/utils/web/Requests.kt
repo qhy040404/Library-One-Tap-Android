@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.utils.web
 
+import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -7,22 +8,25 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
-    val client = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
-        .cookieJar(object : CookieJar {
-            private val cookieStore = mutableListOf<Cookie>()
+    val netLazyMgr = ResettableLazyUtils.resettableManager()
+    val client by ResettableLazyUtils.resettableLazy(netLazyMgr) {
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .cookieJar(object : CookieJar {
+                private val cookieStore = mutableListOf<Cookie>()
 
-            override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-                cookieStore.addAll(cookies)
-            }
+                override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+                    cookieStore.addAll(cookies)
+                }
 
-            override fun loadForRequest(url: HttpUrl): List<Cookie> {
-                return cookieStore
-            }
-        })
-        .build()
+                override fun loadForRequest(url: HttpUrl): List<Cookie> {
+                    return cookieStore
+                }
+            })
+            .build()
+    }
 
     fun strToMT(ori: String): MediaType {
         return ori.toMediaType()

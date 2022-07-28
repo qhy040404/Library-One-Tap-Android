@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -22,6 +23,7 @@ import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.web.Requests
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import rikka.preference.SimpleMenuPreference
@@ -40,6 +42,33 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
         findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !GlobalValues.md3
+
+        findPreference<EditTextPreference>(Constants.PREF_NAME)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                GlobalValues.name = newValue.toString()
+                Requests.netLazyMgr.reset()
+                activity?.recreate()
+                true
+            }
+        }
+
+        findPreference<EditTextPreference>(Constants.PREF_ID)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                GlobalValues.id = newValue.toString()
+                Requests.netLazyMgr.reset()
+                activity?.recreate()
+                true
+            }
+        }
+
+        findPreference<EditTextPreference>(Constants.PREF_PASSWD)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                GlobalValues.passwd = newValue.toString()
+                Requests.netLazyMgr.reset()
+                activity?.recreate()
+                true
+            }
+        }
 
         findPreference<SimpleMenuPreference>(Constants.PREF_DARK)?.apply {
             setOnPreferenceChangeListener { _, newValue ->

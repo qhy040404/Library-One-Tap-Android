@@ -45,6 +45,8 @@ import rikka.material.app.MaterialActivity;
 
 @SuppressWarnings("All")
 public abstract class SimplePageActivity extends MaterialActivity {
+    protected Thread innerThread;
+
     private Toolbar toolbar;
     private ProgressBar progressBar;
 
@@ -70,7 +72,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
             }
         }
     });
-    public Thread innerThread;
 
     protected abstract void initializeView();
 

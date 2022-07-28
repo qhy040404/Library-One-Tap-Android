@@ -80,7 +80,7 @@
     <string name="confirmReset">Please confirm to reset reservation</string>
 
     <!-- TOOLS -->
-    <string name="bath">I need a bath NOW</string>
+    <string name="bath">I need a bath NOW (Needs campus network)</string>
     <string name="cernet">Remaining campus network</string>
     <string name="electric">Remaining electric charge</string>
     <string name="vcard">Virtual Yulan card</string>

@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.ui.tools
 
-import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.ProgressBar
@@ -26,20 +25,9 @@ class GradesMinorActivity : SimplePageActivity() {
     }
 
     override fun initializeView() {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder()
-                .detectDiskReads().detectDiskWrites().detectNetwork()
-                .penaltyLog().build()
-        )
-        StrictMode.setVmPolicy(
-            StrictMode.VmPolicy.Builder()
-                .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                .penaltyLog().penaltyDeath().build()
-        )
-
         initView()
         GradesTempValues.clear()
-        Thread(PrepareData()).start()
+        innerThread = Thread(PrepareData())
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
@@ -90,7 +78,6 @@ class GradesMinorActivity : SimplePageActivity() {
 
     private inner class PrepareData : Runnable {
         override fun run() {
-            Looper.prepare()
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder()
                     .detectDiskReads().detectDiskWrites().detectNetwork()
@@ -148,7 +135,6 @@ class GradesMinorActivity : SimplePageActivity() {
                             .setCancelable(false)
                             .create()
                             .show()
-                        Looper.loop()
                         break
                     }
                 }
@@ -198,7 +184,6 @@ class GradesMinorActivity : SimplePageActivity() {
             }
             syncRecycleView()
             findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.INVISIBLE
-            Looper.loop()
         }
     }
 }

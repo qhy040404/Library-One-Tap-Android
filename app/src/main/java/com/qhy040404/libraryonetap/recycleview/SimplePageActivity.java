@@ -49,10 +49,26 @@ public abstract class SimplePageActivity extends MaterialActivity {
     private List<Object> items;
     private MultiTypeAdapter adapter;
     private RecyclerView recyclerView;
-    private boolean initialized;
+    private boolean initialized = false;
     private @Nullable
     OnClickableItemClickedListener onClickableItemClickedListener;
     private boolean givenInsetsToDecorView = false;
+
+    private Thread mThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                innerThread.start();
+                innerThread.join();
+                if (!initialized) {
+                    throw new NullPointerException("You must call syncRecycleView() #onCreate");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+    public Thread innerThread;
 
     protected abstract void initializeView();
 
@@ -85,6 +101,8 @@ public abstract class SimplePageActivity extends MaterialActivity {
         recyclerView = findViewById(R.id.simple_list);
         applyEdgeToEdge();
         initializeView();
+
+        mThread.start();
     }
 
     private void applyEdgeToEdge() {

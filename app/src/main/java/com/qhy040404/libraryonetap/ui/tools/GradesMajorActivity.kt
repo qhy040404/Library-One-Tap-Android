@@ -13,6 +13,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.GradesUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
@@ -38,6 +39,20 @@ class GradesMajorActivity : SimplePageActivity() {
                     ""
                 ))
             }
+            add(ClickableItem(
+                "加权均分: ${
+                    GradesUtils.calculateWeightedAverage(
+                        GradesTempValues.courseGrade,
+                        GradesTempValues.courseCredits
+                    )
+                }  平均绩点: ${
+                    GradesUtils.calculateAverageGP(
+                        GradesTempValues.courseGP,
+                        GradesTempValues.courseCredits
+                    )
+                }",
+                ""
+            ))
             for (semester in GradesTempValues.semestersName) {
                 add(Category(semester))
                 val count =
@@ -155,7 +170,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     initList[1].split("\"")[0].toInt()
                 }
 
-                Thread.sleep(5000L)
+                Thread.sleep(3000L)
                 val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
 
                 val gradesJsonObject = JSONObject(gradesData)

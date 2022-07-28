@@ -14,68 +14,37 @@
     <string name="grade_major_title">Grades (Major)</string>
     <string name="grade_minor_title">Grades (Minor)</string>
 
-    <!-- MAIN BUTTON -->
-    <string name="detail">Single</string>
-    <string name="yanxiujian">Yanxiujian</string>
-    <string name="tools">Tools</string>
-
-    <!-- SETTING -->
-    <string name="basic_information">Basic information</string>
-    <string name="user_id">ID</string>
-    <string name="passwd">Password</string>
-    <string name="name">Name</string>
-    <string name="general">General</string>
-    <string name="dark_mode">Dark Mode</string>
-    <string name="main_theme">Theme</string>
-    <string name="language">Language</string>
-    <string name="reset_data">Reset App Data</string>
-    <string name="other">Others</string>
-    <string name="cache">Clear Cache</string>
-
     <!-- INIT -->
     <string name="welcome">Welcome</string>
     <string name="welcome_message">Welcome! Please set your information first. \nPress OK to go to Settings.</string>
 
-    <!-- PROMPT -->
-    <string name="remain_net_fee">"Balance: "</string>
-    <string name="used_net">"Used network: "</string>
-    <string name="remain_net">"Remain network: "</string>
-    <string name="remain_electric">"Remain electric: "</string>
-    <string name="rmb">" Yuan"</string>
-    <string name="degree">" degree"</string>
-    <string name="loading">Loading....</string>
-    <string name="loaded">Logged in</string>
-    <string name="fail_to_login">Login failed, retrying....</string>
-    <string name="fail_to_login_three_times">Failed 3 times....\nCheck your id and password</string>
-    <string name="login_timeout">Session timeout, please refresh</string>
-    <string name="error">Error</string>
-    <string name="ok">OK</string>
-    <string name="no">Cancel</string>
-    <string name="find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
-    <string name="hours">" hours"</string>
-    <string name="reserved">Reserve request has been sent</string>
-    <string name="data_reset_confirm">Please confirm to clear appdata.</string>
-    <string name="data_reset_completed">AppData has been cleared, Exiting....</string>
-    <string name="no_userdata">Please input your information in the Settings page first.</string>
-    <string name="cache_cleared">Cache has been cleared</string>
+    <!-- MENU -->
+    <string name="detail">Single</string>
+    <string name="yanxiujian">Yanxiujian</string>
+    <string name="tools">Tools</string>
 
-    <!-- DETAIL ACTIVITY -->
+    <!-- DETAIL FRAGMENT -->
     <string name="enter">Sign in</string>
     <string name="leave">Sign out</string>
     <string name="temp">Temp out</string>
     <string name="refresh">Reload</string>
+    <string name="cancel">Cancel\nreservation</string>
+    <string name="reserve">Reserve\na seat</string>
+    <string name="reset">Reset\nreservation</string>
+
     <string name="inside">Inside</string>
     <string name="outside">Temp outside</string>
     <string name="not_start">Has not started</string>
+
     <string name="no_valid_order">No valid order found</string>
     <string name="temp_end_time">Temporary leave deadline: </string>
-    <string name="cancel">Cancel\nreservation</string>
+
     <string name="cancel_confirm">Confirm cancellation</string>
     <string name="cancel_confirm_yes">Yes</string>
     <string name="cancel_confirm_no">No</string>
-    <string name="reserve">Reserve\na seat</string>
+
     <string name="random">Random</string>
-    <string name="reset">Reset\nreservation</string>
+
     <string name="reserve_reset_confirm">Please confirm to reset reservation</string>
 
     <!-- TOOLS -->
@@ -86,12 +55,56 @@
     <string name="volunteer">Total Volunteer Hours</string>
 
     <!-- BATH RESERVE ACTIVITY -->
-    <string name="permission_prompt">We need this permission to get SSID of WIFI</string>
-    <string name="permission_got">Permission successfully obtained, please click the button again</string>
-    <string name="permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
     <string name="bath_reserve">Reserve bathroom right now</string>
     <string name="network_env_limit">Please use this function in the campus network environment</string>
     <string name="request_sent">Appointment request sent</string>
+
+    <string name="permission_prompt">We need this permission to get SSID of WIFI</string>
+    <string name="permission_got">Permission successfully obtained, please click the button again</string>
+    <string name="permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
+
+    <!-- SETTING -->
+    <string name="basic_information">Basic information</string>
+    <string name="name">Name</string>
+    <string name="user_id">ID</string>
+    <string name="passwd">Password</string>
+    <string name="general">General</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="main_theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="reset_data">Reset App Data</string>
+    <string name="other">Others</string>
+    <string name="cache">Clear Cache</string>
+
+    <!-- GLOBAL PROMPT -->
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+    <string name="no">Cancel</string>
+
+    <string name="loading">Loading....</string>
+    <string name="loaded">Logged in</string>
+    <string name="fail_to_login">Login failed, retrying....</string>
+    <string name="fail_to_login_three_times">Failed 3 times....\nCheck your id and password</string>
+    <string name="login_timeout">Session timeout, please refresh</string>
+    <string name="no_userdata">Please input your information in the Settings page first.</string>
+
+    <!-- UNIT -->
+    <string name="rmb">" Yuan"</string>
+    <string name="degree">" degree"</string>
+    <string name="hours">" hours"</string>
+
+    <!-- TOOLS PROMPT -->
+    <string name="remain_net_fee">"Balance: "</string>
+    <string name="used_net">"Used network: "</string>
+    <string name="remain_net">"Remain network: "</string>
+    <string name="remain_electric">"Remain electric: "</string>
+    <string name="find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
+    <string name="reserved">Reserve request has been sent</string>
+
+    <!-- SETTINGS PROMPT -->
+    <string name="data_reset_confirm">Please confirm to clear appdata.</string>
+    <string name="data_reset_completed">AppData has been cleared, Exiting....</string>
+    <string name="cache_cleared">Cache has been cleared</string>
 
     <!-- ARRAY -->
     <!-- SETTINGS -->
@@ -128,7 +141,7 @@
         <item>North Female</item>
     </string-array>
 
-    <!-- DETAIL -->
+    <!-- DETAIL FRAGMENT -->
     <string-array name="area_array">
         <item>Lingxi</item>
         <item>Bochuan</item>

@@ -16,6 +16,7 @@ class SecretActivity : BaseActivity<ActivitySecretBinding>() {
         binding.toolbar.title = getString(R.string.secret_title)
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
         Thread(Play()).start()

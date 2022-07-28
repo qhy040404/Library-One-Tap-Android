@@ -24,6 +24,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         binding.toolbar.title = getString(R.string.bath_title)
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
         val textViewBath: TextView = findViewById(R.id.textView3)

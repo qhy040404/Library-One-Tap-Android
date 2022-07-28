@@ -19,7 +19,13 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
 class GradesMinorActivity : SimplePageActivity() {
-    override fun initialization() {
+    override fun initializeViewPref() {
+        if (!GlobalValues.md3) {
+            setTheme(AppUtils.getThemeID(GlobalValues.theme))
+        }
+    }
+
+    override fun initializeView() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads().detectDiskWrites().detectNetwork()
@@ -75,6 +81,11 @@ class GradesMinorActivity : SimplePageActivity() {
         LibraryOneTapApp.instance?.addActivity(this)
 
         findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
+
+        if (!GlobalValues.md3) {
+            toolbar.setTitleTextColor(getColor(R.color.white))
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
+        }
     }
 
     private inner class PrepareData : Runnable {

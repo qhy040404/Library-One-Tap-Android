@@ -55,7 +55,9 @@ public abstract class SimplePageActivity extends MaterialActivity {
     OnClickableItemClickedListener onClickableItemClickedListener;
     private boolean givenInsetsToDecorView = false;
 
-    protected abstract void initialization();
+    protected abstract void initializeView();
+
+    protected abstract void initializeViewPref();
 
     protected abstract void onItemsCreated(@NonNull List<Object> items);
 
@@ -66,6 +68,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initializeViewPref();
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
         toolbar = findViewById(R.id.simple_toolbar);
@@ -82,7 +85,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         onApplyPresetAttrs();
         recyclerView = findViewById(R.id.simple_list);
         applyEdgeToEdge();
-        initialization();
+        initializeView();
     }
 
     private void applyEdgeToEdge() {

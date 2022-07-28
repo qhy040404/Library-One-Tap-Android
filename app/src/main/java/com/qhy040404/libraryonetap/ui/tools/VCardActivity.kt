@@ -28,6 +28,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         binding.toolbar.title = getString(R.string.vcardTitle)
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
         val textView: TextView = findViewById(R.id.textView4)

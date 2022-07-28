@@ -43,7 +43,6 @@ import rikka.material.app.MaterialActivity;
 
 @SuppressWarnings("All")
 public abstract class SimplePageActivity extends MaterialActivity {
-
     private Toolbar toolbar;
     private ProgressBar progressBar;
 

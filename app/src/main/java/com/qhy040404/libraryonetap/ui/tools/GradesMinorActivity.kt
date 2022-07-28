@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.ui.tools
 
+import android.os.Looper
 import android.os.StrictMode
 import android.view.View
 import android.widget.ProgressBar
@@ -93,6 +94,7 @@ class GradesMinorActivity : SimplePageActivity() {
 
     private inner class PrepareData : Runnable {
         override fun run() {
+            Looper.prepare()
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder()
                     .detectDiskReads().detectDiskWrites().detectNetwork()
@@ -150,6 +152,7 @@ class GradesMinorActivity : SimplePageActivity() {
                             .setCancelable(false)
                             .create()
                             .show()
+                        Looper.loop()
                         break
                     }
                 }

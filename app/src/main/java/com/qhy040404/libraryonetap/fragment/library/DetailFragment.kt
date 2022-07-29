@@ -120,7 +120,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = OrderListData.getTotal(list)
-            refresh.post { refresh.setOnClickListener { requireActivity().recreate() } }
             if (total != "0") {
                 val space_name = OrderListData.getSpace_name(list, "2")
                 val seat_label = OrderListData.getSeat_label(list, "2")
@@ -432,6 +431,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
                 Looper.loop()
             }
+            refresh.post { refresh.setOnClickListener { requireActivity().recreate() } }
         }
     }
 }

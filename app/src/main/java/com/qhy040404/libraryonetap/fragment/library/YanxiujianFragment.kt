@@ -104,7 +104,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
             val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
             val total = OrderListData.getTotal(list)
-            refresh2.post { refresh2.setOnClickListener { requireActivity().recreate() } }
             if (total != "0") {
                 val space_name = OrderListData.getSpace_name(list, "1")
                 val order_date = OrderListData.getOrder_date(list, "1")
@@ -153,6 +152,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 }
                 Looper.loop()
             }
+            refresh2.post { refresh2.setOnClickListener { requireActivity().recreate() } }
         }
     }
 }

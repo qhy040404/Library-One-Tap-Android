@@ -4,26 +4,37 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.GlobalValues.SP_NAME
+import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 
 object SPUtils {
-    val sp: SharedPreferences by lazy {
+    private val spLazyMgr = ResettableLazyUtils.resettableManager()
+    val sp: SharedPreferences by ResettableLazyUtils.resettableLazy(spLazyMgr) {
         LibraryOneTapApp.app.getSharedPreferences(
             SP_NAME,
             Context.MODE_PRIVATE
         )
     }
 
-    fun <T> getValue(name: String, default: T): T = with(sp) {
-        val res: Any = when (default) {
-            is Long -> getLong(name, default)
-            is String -> getString(name, default).orEmpty()
-            is Int -> getInt(name, default)
-            is Boolean -> getBoolean(name, default)
-            is Float -> getFloat(name, default)
-            else -> throw java.lang.IllegalArgumentException()
+    fun <T> getValue(name: String, default: T): T = getValue(name, default, false)
+
+    fun <T> getValue(name: String, default: T, confirm: Boolean): T {
+        val value = with(sp) {
+            val res: Any = when (default) {
+                is Long -> getLong(name, default)
+                is String -> getString(name, default).orEmpty()
+                is Int -> getInt(name, default)
+                is Boolean -> getBoolean(name, default)
+                is Float -> getFloat(name, default)
+                else -> throw java.lang.IllegalArgumentException()
+            }
+            @Suppress("UNCHECKED_CAST")
+            res as T
         }
-        @Suppress("UNCHECKED_CAST")
-        res as T
+        if (!confirm && value == default) {
+            spLazyMgr.reset()
+            return getValue(name, default, true)
+        }
+        return value
     }
 
     fun <T> setValue(name: String, value: T) = with(sp.edit()) {

@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import coil.Coil
 import coil.ImageLoader
 import com.absinthe.libraries.utils.utils.Utility
@@ -59,9 +60,13 @@ class LibraryOneTapApp : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         AppStatusHelper.register(this, object : OnAppStatusListener {
-            override fun onFront() {}
+            override fun onFront() {
+                Log.e("AppStatus", "Front")
+                delayTerminateJob?.cancel()
+            }
 
             override fun onBack() {
+                Log.e("AppStatus", "Back")
                 delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
                     delay(30000L)
                     withContext(Dispatchers.Main) {

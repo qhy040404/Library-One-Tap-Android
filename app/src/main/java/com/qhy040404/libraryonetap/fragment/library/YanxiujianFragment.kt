@@ -63,6 +63,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
             var loginSuccess = false
             var timer = 0
+            var failLogin = false
+
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = try {
@@ -95,9 +97,11 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        textView2.text =
-                            LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
-                        Looper.loop()
+                        textView2.post {
+                            textView2.text =
+                                LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
+                        }
+                        failLogin = true
                         break
                     }
                 }
@@ -139,20 +143,19 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                     textView2.text =
                         "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
                 }
-                Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
                 textView2.post {
                     textView2.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
                 }
                 progressBar2.post { progressBar2.visibility = View.INVISIBLE }
-                Looper.loop()
+            } else if (failLogin) {
+                AppUtils.pass()
             } else {
                 textView2.post {
                     textView2.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
                 }
-                Looper.loop()
             }
-            refresh2.post { refresh2.setOnClickListener { requireActivity().recreate() } }
+            refresh2.post { refresh2.setOnClickListener { activity?.recreate() } }
         }
     }
 }

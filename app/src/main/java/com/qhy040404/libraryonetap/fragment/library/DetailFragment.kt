@@ -77,6 +77,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             var loginSuccess = false
             var timer = 0
+            var failLogin = false
+
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
                 val ltData: String = try {
@@ -113,7 +115,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             textView.text =
                                 LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
                         }
-                        Looper.loop()
+                        failLogin = true
                         break
                     }
                 }
@@ -258,7 +260,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                 MaterialAlertDialogBuilder(requireContext())
                                     .setMessage(message)
                                     .setTitle(R.string.library)
-                                    .setPositiveButton(R.string.ok) { _, _ -> requireActivity().recreate() }
+                                    .setPositiveButton(R.string.ok) { _, _ -> activity?.recreate() }
                                     .setCancelable(true)
                                     .create()
                                     .show()
@@ -336,7 +338,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     ReserveUtils.constructParaForFinalReserve(addCode),
                                     GlobalValues.ctVCard
                                 )
-                                requireActivity().recreate()
+                                activity?.recreate()
                             }
                             .setNegativeButton(R.string.no) { _, _ -> }
                             .setCancelable(false)
@@ -406,7 +408,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     ReserveUtils.constructParaForFinalReserve(addCode),
                                     GlobalValues.ctVCard
                                 )
-                                requireActivity().recreate()
+                                activity?.recreate()
                             }
                             .setNegativeButton(R.string.no) { _, _ -> }
                             .setCancelable(false)
@@ -418,20 +420,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     textView.text =
                         "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
                 }
-                Looper.loop()
             } else if (!AppUtils.checkData(id, passwd)) {
                 textView.post {
                     textView.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
                 }
                 progressBar.post { progressBar.visibility = View.INVISIBLE }
-                Looper.loop()
+            } else if (failLogin) {
+                AppUtils.pass()
             } else {
                 textView.post {
                     textView.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
                 }
-                Looper.loop()
             }
-            refresh.post { refresh.setOnClickListener { requireActivity().recreate() } }
+            refresh.post { refresh.setOnClickListener { activity?.recreate() } }
         }
     }
 }

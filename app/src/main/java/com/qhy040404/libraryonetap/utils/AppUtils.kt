@@ -93,4 +93,6 @@ object AppUtils {
             else -> false
         }
     }
+
+    fun pass() {}
 }

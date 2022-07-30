@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ProgressBar;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +15,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -25,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.qhy040404.libraryonetap.R;
+import com.qhy040404.libraryonetap.constant.InsetsParams;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category;
@@ -32,6 +31,8 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.OnClickableItemClickedListener;
+import com.qhy040404.libraryonetap.utils.WindowInsetsCompatUtils;
+import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,14 +44,11 @@ import rikka.material.app.MaterialActivity;
  * to show items in RecycleView
  */
 
-@SuppressWarnings("All")
 public abstract class SimplePageActivity extends MaterialActivity {
     protected Thread innerThread;
 
     private Toolbar toolbar;
-    private ProgressBar progressBar;
 
-    private List<Object> items;
     private MultiTypeAdapter adapter;
     private RecyclerView recyclerView;
     private boolean initialized = false;
@@ -58,7 +56,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
     OnClickableItemClickedListener onClickableItemClickedListener;
     private boolean givenInsetsToDecorView = false;
 
-    private Thread mThread = new Thread(new Runnable() {
+    private final Thread mThread = new Thread(new Runnable() {
         @Override
         public void run() {
             try {
@@ -90,7 +88,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         super.onCreate(savedInstanceState);
         setContentView(layoutRes());
         toolbar = findViewById(R.id.simple_toolbar);
-        progressBar = findViewById(R.id.simple_progressbar);
+        ProgressBar progressBar = findViewById(R.id.simple_progressbar);
 
         progressBar.setVisibility(View.INVISIBLE);
 
@@ -119,32 +117,35 @@ public abstract class SimplePageActivity extends MaterialActivity {
 
         givenInsetsToDecorView = false;
         WindowCompat.setDecorFitsSystemWindows(window, false);
-        ViewCompat.setOnApplyWindowInsetsListener(decorView, new OnApplyWindowInsetsListener() {
-            @SuppressWarnings("deprecation")
-            @Override
-            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat windowInsets) {
-                Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-                boolean isGestureNavigation = navigationBarsInsets.bottom <= 20 * getResources().getDisplayMetrics().density;
+        ViewCompat.setOnApplyWindowInsetsListener(decorView, (v, windowInsets) -> {
+            int insetLeft, insetRight, insetTop;
 
-                if (!isGestureNavigation) {
-                    ViewCompat.onApplyWindowInsets(decorView, windowInsets);
-                    givenInsetsToDecorView = true;
-                } else if (givenInsetsToDecorView) {
-                    ViewCompat.onApplyWindowInsets(
-                            decorView,
-                            new WindowInsetsCompat.Builder()
-                                    .setInsets(
-                                            WindowInsetsCompat.Type.navigationBars(),
-                                            Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
-                                    )
-                                    .build()
-                    );
-                }
-                decorView.setPadding(windowInsets.getSystemWindowInsetLeft(), decorView.getPaddingTop(), windowInsets.getSystemWindowInsetRight(), decorView.getPaddingBottom());
-                appBarLayout.setPadding(appBarLayout.getPaddingLeft(), windowInsets.getSystemWindowInsetTop(), appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());
-                recyclerView.setPadding(recyclerView.getPaddingLeft(), recyclerView.getPaddingTop(), recyclerView.getPaddingRight(), originalRecyclerViewPaddingBottom + navigationBarsInsets.bottom);
-                return windowInsets;
+            Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
+            boolean isGestureNavigation = navigationBarsInsets.bottom <= 20 * getResources().getDisplayMetrics().density;
+
+            if (!isGestureNavigation) {
+                ViewCompat.onApplyWindowInsets(decorView, windowInsets);
+                givenInsetsToDecorView = true;
+            } else if (givenInsetsToDecorView) {
+                ViewCompat.onApplyWindowInsets(
+                        decorView,
+                        new WindowInsetsCompat.Builder()
+                                .setInsets(
+                                        WindowInsetsCompat.Type.navigationBars(),
+                                        Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
+                                )
+                                .build()
+                );
             }
+
+            insetLeft = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
+            insetRight = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
+            insetTop = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
+
+            decorView.setPadding(insetLeft, decorView.getPaddingTop(), insetRight, decorView.getPaddingBottom());
+            appBarLayout.setPadding(appBarLayout.getPaddingLeft(), insetTop, appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());
+            recyclerView.setPadding(recyclerView.getPaddingLeft(), recyclerView.getPaddingTop(), recyclerView.getPaddingRight(), originalRecyclerViewPaddingBottom + navigationBarsInsets.bottom);
+            return windowInsets;
         });
     }
 
@@ -153,16 +154,11 @@ public abstract class SimplePageActivity extends MaterialActivity {
         adapter.register(Card.class, new CardViewBinder());
         adapter.register(Category.class, new CategoryViewBinder());
         adapter.register(ClickableItem.class, new ClickableItemViewBinder(this));
-        items = new ArrayList<>();
+        List<Object> items = new ArrayList<>();
         onItemsCreated(items);
         adapter.setItems(items);
         adapter.setHasStableIds(true);
-        recyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                recyclerView.setAdapter(adapter);
-            }
-        });
+        recyclerView.post(() -> recyclerView.setAdapter(adapter));
         initialized = true;
     }
 
@@ -173,15 +169,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
             setNavigationIcon(navigationIcon);
         }
         a.recycle();
-    }
-
-    /**
-     * Set the icon to use for the toolbar's navigation button.
-     *
-     * @param resId Resource ID of a drawable to set
-     */
-    public void setNavigationIcon(@DrawableRes int resId) {
-        toolbar.setNavigationIcon(resId);
     }
 
     public void setNavigationIcon(@NonNull Drawable drawable) {
@@ -200,10 +187,6 @@ public abstract class SimplePageActivity extends MaterialActivity {
         return toolbar;
     }
 
-    public List<Object> getItems() {
-        return items;
-    }
-
     public MultiTypeAdapter getAdapter() {
         return adapter;
     }
@@ -213,6 +196,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         return onClickableItemClickedListener;
     }
 
+    @SuppressWarnings("unused")
     public void setOnClickableItemClickedListener(@Nullable OnClickableItemClickedListener listener) {
         this.onClickableItemClickedListener = listener;
     }

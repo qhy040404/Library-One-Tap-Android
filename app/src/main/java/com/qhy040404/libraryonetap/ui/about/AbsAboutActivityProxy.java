@@ -49,7 +49,6 @@ import rikka.material.app.MaterialActivity;
 /**
  * @author drakeet
  */
-@SuppressWarnings("ALL")
 public abstract class AbsAboutActivityProxy extends MaterialActivity {
 
     private Toolbar toolbar;
@@ -239,6 +238,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         return onContributorClickedListener;
     }
 
+    @SuppressWarnings("unused")
     public void setOnContributorClickedListener(@Nullable OnContributorClickedListener listener) {
         this.onContributorClickedListener = listener;
     }

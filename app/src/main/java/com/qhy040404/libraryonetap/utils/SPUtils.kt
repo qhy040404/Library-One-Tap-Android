@@ -7,7 +7,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues.SP_NAME
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 
 object SPUtils {
-    private val spLazyMgr = ResettableLazyUtils.resettableManager()
+    val spLazyMgr = ResettableLazyUtils.resettableManager()
     val sp: SharedPreferences by ResettableLazyUtils.resettableLazy(spLazyMgr) {
         LibraryOneTapApp.app.getSharedPreferences(
             SP_NAME,
@@ -25,7 +25,7 @@ object SPUtils {
                 is Int -> getInt(name, default)
                 is Boolean -> getBoolean(name, default)
                 is Float -> getFloat(name, default)
-                else -> throw java.lang.IllegalArgumentException()
+                else -> throw IllegalArgumentException("Unknown data type")
             }
             @Suppress("UNCHECKED_CAST")
             res as T

@@ -9,7 +9,6 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.OsUtils
 import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
 import rikka.material.app.MaterialActivity
 
@@ -49,9 +48,7 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
         window.statusBarColor = Color.TRANSPARENT
         window.decorView.post {
             window.navigationBarColor = Color.TRANSPARENT
-            if (OsUtils.atLeastQ()) {
-                window.isNavigationBarContrastEnforced = false
-            }
+            window.isNavigationBarContrastEnforced = false
         }
     }
 

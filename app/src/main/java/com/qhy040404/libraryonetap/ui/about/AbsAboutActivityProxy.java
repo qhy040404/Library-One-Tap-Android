@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.ui.about;
 
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +15,10 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -32,42 +29,35 @@ import com.drakeet.about.CardViewBinder;
 import com.drakeet.about.Category;
 import com.drakeet.about.CategoryViewBinder;
 import com.drakeet.about.Contributor;
-import com.drakeet.about.ImageLoader;
 import com.drakeet.about.License;
 import com.drakeet.about.LicenseViewBinder;
-import com.drakeet.about.Line;
-import com.drakeet.about.LineViewBinder;
 import com.drakeet.about.OnContributorClickedListener;
-import com.drakeet.about.OnRecommendationClickedListener;
 import com.drakeet.about.R;
 import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.qhy040404.libraryonetap.constant.InsetsParams;
+import com.qhy040404.libraryonetap.utils.WindowInsetsCompatUtils;
+import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import rikka.material.app.MaterialActivity;
 
 /**
  * @author drakeet
  */
-@SuppressWarnings("ALL")
 public abstract class AbsAboutActivityProxy extends MaterialActivity {
 
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbar;
     private LinearLayout headerContentLayout;
 
-    private List<Object> items;
     private MultiTypeAdapter adapter;
     private TextView slogan, version;
     private RecyclerView recyclerView;
-    private @Nullable
-    ImageLoader imageLoader;
-    private boolean initialized;
-    private @Nullable
-    OnRecommendationClickedListener onRecommendationClickedListener;
     private @Nullable
     OnContributorClickedListener onContributorClickedListener;
     private boolean givenInsetsToDecorView = false;
@@ -76,19 +66,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
 
     protected abstract void onItemsCreated(@NonNull List<Object> items);
 
-    protected void onTitleViewCreated(@NonNull CollapsingToolbarLayout collapsingToolbar) {
-    }
-
-    public @Nullable
-    ImageLoader getImageLoader() {
-        return imageLoader;
-    }
-
-    public void setImageLoader(@NonNull ImageLoader imageLoader) {
-        this.imageLoader = imageLoader;
-        if (initialized) {
-            adapter.notifyDataSetChanged();
-        }
+    protected void onTitleViewCreated() {
     }
 
     @LayoutRes
@@ -106,7 +84,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         version = findViewById(R.id.version);
         collapsingToolbar = findViewById(R.id.collapsing_toolbar);
         headerContentLayout = findViewById(R.id.header_content_layout);
-        onTitleViewCreated(collapsingToolbar);
+        onTitleViewCreated();
         onCreateHeader(icon, slogan, version);
 
         setSupportActionBar(toolbar);
@@ -117,12 +95,9 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         }
         onApplyPresetAttrs();
         recyclerView = findViewById(R.id.list);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            applyEdgeToEdge();
-        }
+        applyEdgeToEdge();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void applyEdgeToEdge() {
         Window window = getWindow();
         int navigationBarColor = ContextCompat.getColor(this, R.color.about_page_navigationBarColor);
@@ -134,51 +109,52 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
 
         givenInsetsToDecorView = false;
         WindowCompat.setDecorFitsSystemWindows(window, false);
-        ViewCompat.setOnApplyWindowInsetsListener(decorView, new OnApplyWindowInsetsListener() {
-            @Override
-            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat windowInsets) {
-                Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-                boolean isGestureNavigation = navigationBarsInsets.bottom <= 20 * getResources().getDisplayMetrics().density;
+        ViewCompat.setOnApplyWindowInsetsListener(decorView, (v, windowInsets) -> {
+            int insetLeft, insetRight, insetTop;
 
-                if (!isGestureNavigation) {
-                    ViewCompat.onApplyWindowInsets(decorView, windowInsets);
-                    givenInsetsToDecorView = true;
-                } else if (givenInsetsToDecorView) {
-                    ViewCompat.onApplyWindowInsets(
-                            decorView,
-                            new WindowInsetsCompat.Builder()
-                                    .setInsets(
-                                            WindowInsetsCompat.Type.navigationBars(),
-                                            Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
-                                    )
-                                    .build()
-                    );
-                }
-                decorView.setPadding(windowInsets.getSystemWindowInsetLeft(), decorView.getPaddingTop(), windowInsets.getSystemWindowInsetRight(), decorView.getPaddingBottom());
-                appBarLayout.setPadding(appBarLayout.getPaddingLeft(), windowInsets.getSystemWindowInsetTop(), appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());
-                recyclerView.setPadding(recyclerView.getPaddingLeft(), recyclerView.getPaddingTop(), recyclerView.getPaddingRight(), originalRecyclerViewPaddingBottom + navigationBarsInsets.bottom);
-                return windowInsets;
+            Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
+            boolean isGestureNavigation = navigationBarsInsets.bottom <= 20 * getResources().getDisplayMetrics().density;
+
+            if (!isGestureNavigation) {
+                ViewCompat.onApplyWindowInsets(decorView, windowInsets);
+                givenInsetsToDecorView = true;
+            } else if (givenInsetsToDecorView) {
+                ViewCompat.onApplyWindowInsets(
+                        decorView,
+                        new WindowInsetsCompat.Builder()
+                                .setInsets(
+                                        WindowInsetsCompat.Type.navigationBars(),
+                                        Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
+                                )
+                                .build()
+                );
             }
+
+            insetLeft = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
+            insetRight = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
+            insetTop = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
+
+            decorView.setPadding(insetLeft, decorView.getPaddingTop(), insetRight, decorView.getPaddingBottom());
+            appBarLayout.setPadding(appBarLayout.getPaddingLeft(), insetTop, appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());
+            recyclerView.setPadding(recyclerView.getPaddingLeft(), recyclerView.getPaddingTop(), recyclerView.getPaddingRight(), originalRecyclerViewPaddingBottom + navigationBarsInsets.bottom);
+            return windowInsets;
         });
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         adapter = new MultiTypeAdapter();
         adapter.register(Category.class, new CategoryViewBinder());
         adapter.register(Card.class, new CardViewBinder());
-        adapter.register(Line.class, new LineViewBinder());
         adapter.register(Contributor.class, new ContributorViewBinder(this));
         adapter.register(License.class, new LicenseViewBinder());
-        items = new ArrayList<>();
+        List<Object> items = new ArrayList<>();
         onItemsCreated(items);
         adapter.setItems(items);
         adapter.setHasStableIds(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(adapter));
         recyclerView.setAdapter(adapter);
-        initialized = true;
     }
 
     private void onApplyPresetAttrs() {
@@ -214,7 +190,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     }
 
     public void setHeaderBackground(@DrawableRes int resId) {
-        setHeaderBackground(ContextCompat.getDrawable(this, resId));
+        setHeaderBackground(Objects.requireNonNull(ContextCompat.getDrawable(this, resId)));
     }
 
     public void setHeaderBackground(@NonNull Drawable drawable) {
@@ -231,23 +207,10 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         collapsingToolbar.setContentScrim(drawable);
     }
 
-    public void setHeaderContentScrim(@DrawableRes int resId) {
-        setHeaderContentScrim(ContextCompat.getDrawable(this, resId));
-    }
-
     public void setHeaderTextColor(@ColorInt int color) {
         collapsingToolbar.setCollapsedTitleTextColor(color);
         slogan.setTextColor(color);
         version.setTextColor(color);
-    }
-
-    /**
-     * Set the icon to use for the toolbar's navigation button.
-     *
-     * @param resId Resource ID of a drawable to set
-     */
-    public void setNavigationIcon(@DrawableRes int resId) {
-        toolbar.setNavigationIcon(resId);
     }
 
     public void setNavigationIcon(@NonNull Drawable drawable) {
@@ -266,33 +229,8 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         return toolbar;
     }
 
-    public CollapsingToolbarLayout getCollapsingToolbar() {
-        return collapsingToolbar;
-    }
-
-    public List<Object> getItems() {
-        return items;
-    }
-
     public MultiTypeAdapter getAdapter() {
         return adapter;
-    }
-
-    public TextView getSloganTextView() {
-        return slogan;
-    }
-
-    public TextView getVersionTextView() {
-        return version;
-    }
-
-    public @Nullable
-    OnRecommendationClickedListener getOnRecommendationClickedListener() {
-        return onRecommendationClickedListener;
-    }
-
-    public void setOnRecommendationClickedListener(@Nullable OnRecommendationClickedListener listener) {
-        this.onRecommendationClickedListener = listener;
     }
 
     public @Nullable
@@ -300,6 +238,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         return onContributorClickedListener;
     }
 
+    @SuppressWarnings("unused")
     public void setOnContributorClickedListener(@Nullable OnContributorClickedListener listener) {
         this.onContributorClickedListener = listener;
     }

@@ -57,7 +57,7 @@
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bath_reserve">Reserve bathroom right now</string>
     <string name="network_env_limit">Please use this function in the campus network environment</string>
-    <string name="request_sent">Appointment request sent</string>
+    <string name="request_sent">Appointment request has been sent</string>
 
     <string name="permission_prompt">We need this permission to get SSID of WIFI</string>
     <string name="permission_got">Permission successfully obtained, please click the button again</string>

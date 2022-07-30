@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.text.Spannable
 import android.text.SpannableStringBuilder
+import android.util.Log
 import androidx.core.content.edit
 import androidx.core.text.toSpannable
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -92,5 +93,9 @@ object AppUtils {
             Configuration.UI_MODE_NIGHT_YES -> true
             else -> false
         }
+    }
+
+    fun pass() {
+        Log.i("Pass", "Slack off")
     }
 }

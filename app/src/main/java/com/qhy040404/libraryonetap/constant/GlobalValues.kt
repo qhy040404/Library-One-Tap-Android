@@ -5,6 +5,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
+import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.MediaType
 
@@ -36,4 +37,23 @@ object GlobalValues {
     // Grades
     var minorVisible: Boolean = false
     var minorDetected: Boolean = false
+
+    fun initBasic() {
+        SPUtils.spLazyMgr.reset()
+        if (name != SPUtils.getValue(Constants.PREF_NAME,
+                Constants.GLOBAL_ERROR) && name != Constants.GLOBAL_ERROR
+        ) {
+            name = SPUtils.getValue(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
+        }
+        if (id != SPUtils.getValue(Constants.PREF_ID,
+                Constants.GLOBAL_ERROR) && id != Constants.GLOBAL_ERROR
+        ) {
+            id = SPUtils.getValue(Constants.PREF_ID, Constants.GLOBAL_ERROR)
+        }
+        if (passwd != SPUtils.getValue(Constants.PREF_PASSWD,
+                Constants.GLOBAL_ERROR) && passwd != Constants.GLOBAL_ERROR
+        ) {
+            passwd = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
+        }
+    }
 }

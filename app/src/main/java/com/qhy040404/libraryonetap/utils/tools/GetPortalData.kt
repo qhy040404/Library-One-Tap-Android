@@ -8,7 +8,10 @@ import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 object GetPortalData {
-    //mode 0:electric, mode 1:net
+    /**
+     * mode 0:electric
+     * mode 1:net
+     */
     fun getPortalData(id: String, passwd: String, mode: Int): String {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()

@@ -44,6 +44,7 @@ class LibraryOneTapApp : Application() {
         DynamicColors.applyToActivitiesIfAvailable(this)
 
         Utility.init(this)
+        GlobalValues.initBasic()
 
         Coil.setImageLoader {
             ImageLoader(this).newBuilder()

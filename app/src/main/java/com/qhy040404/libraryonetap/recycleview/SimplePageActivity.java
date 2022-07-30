@@ -41,7 +41,10 @@ import rikka.material.app.MaterialActivity;
 
 /**
  * MUST CALL syncRecycleView()
- * to show items in RecycleView
+ * to show items in RecycleView.
+ * <p>
+ * MUST DEFINE innerThread
+ * in class.
  */
 
 public abstract class SimplePageActivity extends MaterialActivity {
@@ -60,6 +63,9 @@ public abstract class SimplePageActivity extends MaterialActivity {
         @Override
         public void run() {
             try {
+                if (innerThread == null) {
+                    throw new IllegalArgumentException("innerThread is null. Did you assign a value to it?");
+                }
                 innerThread.start();
                 innerThread.join();
                 if (!initialized) {

@@ -12,31 +12,26 @@ object AppStatusHelper {
         app.registerActivityLifecycleCallbacks(activityLifecycleCallbacks)
     }
 
-    fun unregister(app: Application) {
-        app.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks)
-    }
-
-    private val activityLifecycleCallbacks: Application.ActivityLifecycleCallbacks =
-        object : Application.ActivityLifecycleCallbacks {
-            private var activityStartCount = 0
-            override fun onActivityCreated(p0: Activity, p1: Bundle?) {}
-            override fun onActivityStarted(p0: Activity) {
-                activityStartCount++
-                if (activityStartCount == 1) {
-                    mOnAppStatusListener?.onFront()
-                }
+    private val activityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {
+        private var activityStartCount = 0
+        override fun onActivityCreated(p0: Activity, p1: Bundle?) {}
+        override fun onActivityStarted(p0: Activity) {
+            activityStartCount++
+            if (activityStartCount == 1) {
+                mOnAppStatusListener?.onFront()
             }
-
-            override fun onActivityResumed(p0: Activity) {}
-            override fun onActivityPaused(p0: Activity) {}
-            override fun onActivityStopped(p0: Activity) {
-                activityStartCount--
-                if (activityStartCount == 0) {
-                    mOnAppStatusListener?.onBack()
-                }
-            }
-
-            override fun onActivitySaveInstanceState(p0: Activity, p1: Bundle) {}
-            override fun onActivityDestroyed(p0: Activity) {}
         }
+
+        override fun onActivityResumed(p0: Activity) {}
+        override fun onActivityPaused(p0: Activity) {}
+        override fun onActivityStopped(p0: Activity) {
+            activityStartCount--
+            if (activityStartCount == 0) {
+                mOnAppStatusListener?.onBack()
+            }
+        }
+
+        override fun onActivitySaveInstanceState(p0: Activity, p1: Bundle) {}
+        override fun onActivityDestroyed(p0: Activity) {}
+    }
 }

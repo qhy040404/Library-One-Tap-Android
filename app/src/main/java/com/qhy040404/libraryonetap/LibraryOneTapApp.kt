@@ -2,6 +2,7 @@ package com.qhy040404.libraryonetap
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import coil.Coil
 import coil.ImageLoader
 import com.absinthe.libraries.utils.utils.Utility
@@ -10,13 +11,18 @@ import com.qhy040404.libraryonetap.app.AppIconFetcherFactory
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
+import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
 import com.tencent.bugly.crashreport.CrashReport
+import kotlinx.coroutines.*
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import java.util.*
+import kotlin.system.exitProcess
 
 class LibraryOneTapApp : Application() {
     private val activityList: MutableList<Activity> = LinkedList()
+    private var delayTerminateJob: Job? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -46,6 +52,26 @@ class LibraryOneTapApp : Application() {
                 }
                 .build()
         }
+    }
+
+    @DelicateCoroutinesApi
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        AppStatusHelper.register(this, object : OnAppStatusListener {
+            override fun onFront() {}
+
+            override fun onBack() {
+                delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
+                    delay(30000L)
+                    withContext(Dispatchers.Main) {
+                        this@LibraryOneTapApp.exit()
+                        exitProcess(0)
+                    }
+                }.also {
+                    it.start()
+                }
+            }
+        })
     }
 
     fun addActivity(activity: Activity) = activityList.add(activity)

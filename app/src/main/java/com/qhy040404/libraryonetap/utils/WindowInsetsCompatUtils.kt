@@ -11,7 +11,7 @@ object WindowInsetsCompatUtils {
                 "right" -> windowInsets.getInsets(typeMask).right
                 "top" -> windowInsets.getInsets(typeMask).top
                 "bottom" -> windowInsets.getInsets(typeMask).bottom
-                else -> throw NullPointerException("invalid param")
+                else -> throw IllegalArgumentException()
             }
         } else {
             when (param) {
@@ -19,7 +19,7 @@ object WindowInsetsCompatUtils {
                 "right" -> windowInsets.systemWindowInsetRight
                 "top" -> windowInsets.systemWindowInsetTop
                 "bottom" -> windowInsets.systemWindowInsetBottom
-                else -> throw NullPointerException("invalid param")
+                else -> throw IllegalArgumentException()
             }
         }
     }

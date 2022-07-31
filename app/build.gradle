@@ -19,15 +19,14 @@ android {
 
         project.archivesBaseName = "Library-One-Tap_v$versionName"
         manifestPlaceholders = [CHANNEL: getBuildType(), BUILD_TIME: getBuildTime(), BUILD_HOST: getBuildHost(), COMMIT: getGitCommitHash()]
-
-        ndk {
-            abiFilter 'arm64-v8a'
-        }
     }
 
     buildTypes {
         release {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilter 'arm64-v8a'
+            }
         }
 
         all {

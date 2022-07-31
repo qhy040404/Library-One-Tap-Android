@@ -33,10 +33,11 @@ object NetworkStateUtils {
     fun getSSID(ctx: Context): String {
         val wifiManager: WifiManager =
             ctx.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        var wifiName = wifiManager.connectionInfo.ssid
-        if (wifiName.contains("\"")) {
-            wifiName = wifiName.substring(1, wifiName.length - 1)
+        val wifiName = wifiManager.connectionInfo.ssid
+        return if (wifiName.startsWith("\"")) {
+            wifiName.substring(1, wifiName.length - 1)
+        } else {
+            wifiName
         }
-        return wifiName
     }
 }

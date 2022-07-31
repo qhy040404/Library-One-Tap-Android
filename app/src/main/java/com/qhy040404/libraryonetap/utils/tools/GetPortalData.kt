@@ -25,8 +25,6 @@ object GetPortalData {
         )
         val des = DesEncryptUtils()
 
-        var returnJson = ""
-
         var loginSuccess = false
 
         while (!loginSuccess) {
@@ -59,22 +57,18 @@ object GetPortalData {
             }
         }
 
-        if (mode == 0) {
-            returnJson =
-                Requests.post(
-                    URLManager.PORTAL_ELEC_URL,
-                    Constants.PORTAL_DEFAULT_POST,
-                    GlobalValues.ctJson
-                )
-        } else if (mode == 1) {
-            returnJson =
-                Requests.post(
-                    URLManager.PORTAL_NET_URL,
-                    Constants.PORTAL_DEFAULT_POST,
-                    GlobalValues.ctJson
-                )
+        return when (mode) {
+            0 -> Requests.post(
+                URLManager.PORTAL_ELEC_URL,
+                Constants.PORTAL_DEFAULT_POST,
+                GlobalValues.ctJson
+            )
+            1 -> Requests.post(
+                URLManager.PORTAL_NET_URL,
+                Constants.PORTAL_DEFAULT_POST,
+                GlobalValues.ctJson
+            )
+            else -> throw IllegalArgumentException("Unknown mode")
         }
-
-        return returnJson
     }
 }

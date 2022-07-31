@@ -15,9 +15,9 @@ import java.util.List;
 
 /**
  * @author drakeet
+ * @author qhy040404
  */
 class DividerItemDecoration extends RecyclerView.ItemDecoration {
-
     private final @NonNull
     MultiTypeAdapter adapter;
     private final Class<?>[] dividerClasses = {License.class, Recommendation.class};

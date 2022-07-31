@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ClickableItem {
-
     public @NonNull
     final String name;
     public @NonNull
     final String desc;
     public @Nullable
-    String url;
+    final String url;
 
     public ClickableItem(@NonNull String name, @NonNull String desc) {
         this(name, desc, null);

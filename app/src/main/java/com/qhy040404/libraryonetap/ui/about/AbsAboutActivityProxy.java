@@ -48,9 +48,9 @@ import rikka.material.app.MaterialActivity;
 
 /**
  * @author drakeet
+ * @author qhy040404
  */
 public abstract class AbsAboutActivityProxy extends MaterialActivity {
-
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbar;
     private LinearLayout headerContentLayout;

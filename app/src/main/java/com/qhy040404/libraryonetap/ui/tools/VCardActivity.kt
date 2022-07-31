@@ -60,9 +60,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 .split("<input id=\"openid\" value=\"")[1]
                 .split("\" type=\"hidden\">")[0]
 
-        @Suppress("SpellCheckingInspection")
-        val qrUrl =
-            "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
+        val qrUrl = URLManager.getVCardQRUrl(openid)
 
         val qrPage = Requests.getVCard(qrUrl)
         val qrInformation = qrPage

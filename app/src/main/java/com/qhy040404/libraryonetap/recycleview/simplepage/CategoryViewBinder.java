@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 
-@SuppressWarnings("WeakerAccess")
 public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBinder.ViewHolder> {
-
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -41,8 +39,8 @@ public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBin
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView category;
-        public ImageButton actionIcon;
+        public final TextView category;
+        public final ImageButton actionIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);

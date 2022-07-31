@@ -15,9 +15,7 @@ import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity;
 
-@SuppressWarnings("WeakerAccess")
 public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, ClickableItemViewBinder.ViewHolder> {
-
     private @NonNull
     final SimplePageActivity activity;
 
@@ -47,8 +45,8 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
 
         protected @NonNull
         final SimplePageActivity activity;
-        public TextView name;
-        public TextView desc;
+        public final TextView name;
+        public final TextView desc;
         public ClickableItem data;
 
         public ViewHolder(View itemView, @NonNull SimplePageActivity activity) {

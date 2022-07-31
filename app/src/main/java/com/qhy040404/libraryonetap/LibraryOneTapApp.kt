@@ -61,12 +61,12 @@ class LibraryOneTapApp : Application() {
         super.attachBaseContext(base)
         AppStatusHelper.register(this, object : OnAppStatusListener {
             override fun onFront() {
-                Log.e("AppStatus", "Front")
+                Log.w("AppStatus", "Front")
                 delayTerminateJob?.cancel()
             }
 
             override fun onBack() {
-                Log.e("AppStatus", "Back")
+                Log.w("AppStatus", "Back")
                 delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
                     delay(30000L)
                     withContext(Dispatchers.Main) {

@@ -16,7 +16,6 @@ import com.qhy040404.libraryonetap.R;
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity;
 
 public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, ClickableItemViewBinder.ViewHolder> {
-
     private @NonNull
     final SimplePageActivity activity;
 

@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class Category {
-
     public @NonNull
     final String title;
     public @Nullable

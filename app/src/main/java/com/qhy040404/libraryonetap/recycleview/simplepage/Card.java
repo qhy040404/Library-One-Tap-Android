@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 
 public class Card {
-
     public @NonNull
     final CharSequence content;
 

@@ -13,7 +13,6 @@ import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 
 public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBinder.ViewHolder> {
-
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {

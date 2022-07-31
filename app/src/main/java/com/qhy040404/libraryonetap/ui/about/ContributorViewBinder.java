@@ -23,7 +23,6 @@ import com.drakeet.multitype.ItemViewBinder;
  * @author qhy040404
  */
 public class ContributorViewBinder extends ItemViewBinder<Contributor, ContributorViewBinder.ViewHolder> {
-
     private @NonNull
     final AbsAboutActivityProxy activity;
 

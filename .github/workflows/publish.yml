@@ -13,6 +13,8 @@ on:
       - 'NOTICE'
       - '.github/workflows/issue.yml'
       - '.github/workflows/tasks.yml'
+      - '.github/workflows/code_quality.yml'
+      - '.github/workflows/nightly-merge.yml'
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -25,6 +27,8 @@ on:
       - 'NOTICE'
       - '.github/workflows/issue.yml'
       - '.github/workflows/tasks.yml'
+      - '.github/workflows/code_quality.yml'
+      - '.github/workflows/nightly-merge.yml'
 
 jobs:
   check:

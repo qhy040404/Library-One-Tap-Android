@@ -1,9 +1,5 @@
 # Changelog
 
-v3.2.0.1-Pre
-
-* 测试 action
-
 v3.2.0
 
 * 启用 Kotlin 协程

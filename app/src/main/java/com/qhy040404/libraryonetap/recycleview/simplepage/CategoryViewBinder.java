@@ -40,8 +40,8 @@ public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBin
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView category;
-        public ImageButton actionIcon;
+        public final TextView category;
+        public final ImageButton actionIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);

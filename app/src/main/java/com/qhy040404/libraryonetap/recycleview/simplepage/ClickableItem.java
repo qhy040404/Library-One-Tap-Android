@@ -10,7 +10,7 @@ public class ClickableItem {
     public @NonNull
     final String desc;
     public @Nullable
-    String url;
+    final String url;
 
     public ClickableItem(@NonNull String name, @NonNull String desc) {
         this(name, desc, null);

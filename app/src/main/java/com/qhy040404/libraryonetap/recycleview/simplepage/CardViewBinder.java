@@ -32,7 +32,7 @@ public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView content;
+        public final TextView content;
 
         public ViewHolder(View itemView) {
             super(itemView);

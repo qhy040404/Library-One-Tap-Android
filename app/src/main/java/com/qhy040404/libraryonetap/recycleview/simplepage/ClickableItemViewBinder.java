@@ -46,8 +46,8 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
 
         protected @NonNull
         final SimplePageActivity activity;
-        public TextView name;
-        public TextView desc;
+        public final TextView name;
+        public final TextView desc;
         public ClickableItem data;
 
         public ViewHolder(View itemView, @NonNull SimplePageActivity activity) {

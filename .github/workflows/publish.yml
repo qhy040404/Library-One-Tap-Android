@@ -188,16 +188,16 @@ jobs:
           name: SHA512SUMS
           path: upload/SHA512SUMS
 
-      #      - name: Generate release body
-      #        continue-on-error: true
-      #        uses: qhy040404/auto-generate-release-log@v1.0.2
-      #        with:
-      #          changelog: 'Changelog.md'
-      #          template: '.github/RELEASE_TEMPLATE.md'
-      #          tag: ${{ github.ref_name }}
-      #          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
-      #          fore-delimiter: '\n\n'
-      #          back-delimiter: '\n\nv'
+      - name: Generate release body
+        continue-on-error: true
+        uses: qhy040404/auto-generate-release-log@v1.0.2
+        with:
+          changelog: 'Changelog.md'
+          template: '.github/RELEASE_TEMPLATE.md'
+          tag: ${{ github.ref_name }}
+          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
+          fore-delimiter: '\n\n'
+          back-delimiter: '\n\nv'
 
       - name: Create GitHub release
         id: github_release
@@ -265,16 +265,16 @@ jobs:
           name: SHA512SUMS
           path: upload/SHA512SUMS
 
-      #      - name: Generate release body
-      #        continue-on-error: true
-      #        uses: qhy040404/auto-generate-release-log@v1.0.2
-      #        with:
-      #          changelog: 'Changelog.md'
-      #          template: '.github/RELEASE_TEMPLATE.md'
-      #          tag: ${{ github.ref_name }}
-      #          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
-      #          fore-delimiter: '\n\n'
-      #          back-delimiter: '\n\nv'
+      - name: Generate release body
+        continue-on-error: true
+        uses: qhy040404/auto-generate-release-log@v1.0.2
+        with:
+          changelog: 'Changelog.md'
+          template: '.github/RELEASE_TEMPLATE.md'
+          tag: ${{ github.ref_name }}
+          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
+          fore-delimiter: '\n\n'
+          back-delimiter: '\n\nv'
 
       - name: Create Github release
         id: github_release

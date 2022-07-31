@@ -1,0 +1,25 @@
+name: 'Nightly Merge'
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  nightly-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Nightly Merge
+        uses: robotology/gh-action-nightly-merge@v1.3.3
+        with:
+          stable_branch: 'master'
+          development_branch: 'exams'
+          allow_ff: false
+          user_name: 'qhyBot'
+          user_email: '104984534+qhyBot@users.noreply.github.com'
+          push_token: 'QHYBOT_TOKEN'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          QHYBOT_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}

@@ -55,4 +55,8 @@ object URLManager {
     fun getQRUrl(method: String, id: String): String {
         return "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
     }
+
+    fun getVCardQRUrl(openid: String): String {
+        return "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
+    }
 }

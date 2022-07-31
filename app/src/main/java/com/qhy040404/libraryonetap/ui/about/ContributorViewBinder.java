@@ -20,8 +20,8 @@ import com.drakeet.multitype.ItemViewBinder;
 
 /**
  * @author drakeet
+ * @author qhy040404
  */
-@SuppressWarnings("WeakerAccess")
 public class ContributorViewBinder extends ItemViewBinder<Contributor, ContributorViewBinder.ViewHolder> {
 
     private @NonNull

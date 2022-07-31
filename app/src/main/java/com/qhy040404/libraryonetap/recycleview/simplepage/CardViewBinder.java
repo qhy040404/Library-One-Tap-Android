@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 
-@SuppressWarnings("WeakerAccess")
 public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.ViewHolder> {
 
     @Override

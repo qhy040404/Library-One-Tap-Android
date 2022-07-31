@@ -6,7 +6,6 @@ import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
 
 public interface OnClickableItemClickedListener {
-
     @CheckResult
     boolean onClickableItemClicked(@NonNull View itemView, @NonNull ClickableItem contributor);
 }

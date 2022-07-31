@@ -1,9 +1,5 @@
 # Changelog
 
-v3.2.0.2-Pre
-
-* Test
-
 v3.2.0
 
 * 启用 Kotlin 协程

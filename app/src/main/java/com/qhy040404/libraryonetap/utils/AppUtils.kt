@@ -39,8 +39,7 @@ object AppUtils {
         }
 
     fun setTitle(ctx: Context): Spannable {
-        val sb = SpannableStringBuilder(ctx.getString(R.string.app_name))
-        return sb.toSpannable()
+        return SpannableStringBuilder(ctx.getString(R.string.app_name)).toSpannable()
     }
 
     fun getThemeID(theme: String): Int {

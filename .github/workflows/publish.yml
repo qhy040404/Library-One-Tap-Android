@@ -13,6 +13,8 @@ on:
       - 'NOTICE'
       - '.github/workflows/issue.yml'
       - '.github/workflows/tasks.yml'
+      - '.github/workflows/code_quality.yml'
+      - '.github/workflows/nightly-merge.yml'
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -25,6 +27,8 @@ on:
       - 'NOTICE'
       - '.github/workflows/issue.yml'
       - '.github/workflows/tasks.yml'
+      - '.github/workflows/code_quality.yml'
+      - '.github/workflows/nightly-merge.yml'
 
 jobs:
   check:
@@ -184,7 +188,18 @@ jobs:
           name: SHA512SUMS
           path: upload/SHA512SUMS
 
-      - name: Create Github release
+      - name: Generate release body
+        continue-on-error: true
+        uses: qhy040404/auto-generate-release-log@v1.1.4
+        with:
+          changelog: 'Changelog.md'
+          template: '.github/RELEASE_TEMPLATE.md'
+          tag: ${{ github.ref_name }}
+          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
+          fore-delimiter: '\n\n'
+          back-delimiter: '\n\nv'
+
+      - name: Create GitHub release
         id: github_release
         uses: actions/create-release@v1.1.4
         env:
@@ -249,6 +264,17 @@ jobs:
         with:
           name: SHA512SUMS
           path: upload/SHA512SUMS
+
+      - name: Generate release body
+        continue-on-error: true
+        uses: qhy040404/auto-generate-release-log@v1.1.4
+        with:
+          changelog: 'Changelog.md'
+          template: '.github/RELEASE_TEMPLATE.md'
+          tag: ${{ github.ref_name }}
+          template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
+          fore-delimiter: '\n\n'
+          back-delimiter: '\n\nv'
 
       - name: Create Github release
         id: github_release

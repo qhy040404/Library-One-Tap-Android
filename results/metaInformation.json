@@ -7,10 +7,12 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "f6ec4622e028d4b7f773d931efb76d0591d7399d",
-        "branch": "master"
+        "revisionId": "9c7526aa689e876cfcb11f2785dcb0d2d47cdfe1",
+        "branch": "renovate/jetbrains-qodana-action-2022.x"
       }
     },
-    "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726"
+    "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726",
+    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/2790451304",
+    "repoUrl": "https://github.com/qhy040404/Library-One-Tap-Android"
   }
 }

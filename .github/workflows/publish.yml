@@ -15,6 +15,7 @@ on:
       - '.github/workflows/tasks.yml'
       - '.github/workflows/code_quality.yml'
       - '.github/workflows/nightly-merge.yml'
+      - '.github/workflows/clear-qodana-cache.yml'
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -29,6 +30,7 @@ on:
       - '.github/workflows/tasks.yml'
       - '.github/workflows/code_quality.yml'
       - '.github/workflows/nightly-merge.yml'
+      - '.github/workflows/clear-qodana-cache.yml'
 
 jobs:
   check:

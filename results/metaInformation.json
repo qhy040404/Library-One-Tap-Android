@@ -1,18 +1,18 @@
 {
-  "total": 500,
+  "total": 535,
   "tools inspection": {
-    "Code Inspection": 500
+    "Code Inspection": 535
   },
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "dd7781f75f107556b79f6789cdf80d3f8c307c1f",
+        "revisionId": "512706d93462d1a32bec99061cc611dddc906f34",
         "branch": "master"
       }
     },
     "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726",
-    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/2818137570",
+    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/2818200290",
     "repoUrl": "https://github.com/qhy040404/Library-One-Tap-Android"
   }
 }

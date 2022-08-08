@@ -1,7 +1,7 @@
 {
   "modules": [
     {
-      "name": "图书馆",
+      "name": "project",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$",
@@ -10,26 +10,7 @@
       ],
       "orderEntries": [
         {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        }
-      ]
-    },
-    {
-      "name": "图书馆.app",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/app",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
+          "name": "Android Studio default JDK",
           "type": "SDK"
         },
         {

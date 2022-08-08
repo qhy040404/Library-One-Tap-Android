@@ -1,4 +1,4 @@
 {
-  "gradleJvm": "#JAVA_HOME",
+  "gradleJvm": "#USE_PROJECT_JDK",
   "libraries": []
 }

@@ -1,4 +1,4 @@
-name: Qodana
+name: Qodana Cache clear
 on:
   workflow_dispatch:
 

@@ -10,7 +10,7 @@
       ],
       "orderEntries": [
         {
-          "name": "Android Studio default JDK",
+          "name": "jbr-11",
           "type": "SDK"
         },
         {

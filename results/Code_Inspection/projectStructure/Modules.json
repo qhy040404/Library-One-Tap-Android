@@ -47,7 +47,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out",
+              "type": "GeneratedSource",
+              "packagePrefix": ""
+            }
+          ]
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out",
@@ -55,7 +61,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/res/resValues/debug",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/build/generated/res/resValues/debug",
+              "type": "Resource",
+              "packagePrefix": ""
+            }
+          ]
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/res/rs/debug",
@@ -63,7 +75,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug",
+              "type": "GeneratedSource",
+              "packagePrefix": ""
+            }
+          ]
         },
         {
           "path": "file://$PROJECT_DIR$/app/src/debug",
@@ -832,7 +850,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/res/resValues/androidTest/debug",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/build/generated/res/resValues/androidTest/debug",
+              "type": "TestResource",
+              "packagePrefix": ""
+            }
+          ]
         },
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/res/rs/androidTest/debug",

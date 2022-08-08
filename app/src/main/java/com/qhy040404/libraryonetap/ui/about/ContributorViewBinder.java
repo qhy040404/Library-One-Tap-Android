@@ -22,7 +22,7 @@ import com.drakeet.multitype.ItemViewBinder;
  * @author drakeet
  * @author qhy040404
  */
-public class ContributorViewBinder extends ItemViewBinder<Contributor, ContributorViewBinder.ViewHolder> {
+public class ContributorViewBinder extends ItemViewBinder<Contributor, ContributorViewBinder.CBViewHolder> {
     private @NonNull
     final AbsAboutActivityProxy activity;
 
@@ -32,12 +32,12 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
 
     @Override
     @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.about_page_item_contributor, parent, false), activity);
+    public CBViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+        return new CBViewHolder(inflater.inflate(R.layout.about_page_item_contributor, parent, false), activity);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Contributor contributor) {
+    public void onBindViewHolder(@NonNull CBViewHolder holder, @NonNull Contributor contributor) {
         holder.avatar.setImageResource(contributor.avatarResId);
         holder.name.setText(contributor.name);
         holder.desc.setText(contributor.desc);
@@ -49,7 +49,7 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
         return item.hashCode();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class CBViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final ImageView avatar;
         public final TextView name;
@@ -58,7 +58,7 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
         final AbsAboutActivityProxy activity;
         public Contributor data;
 
-        public ViewHolder(View itemView, @NonNull AbsAboutActivityProxy activity) {
+        public CBViewHolder(View itemView, @NonNull AbsAboutActivityProxy activity) {
             super(itemView);
             this.activity = activity;
             avatar = itemView.findViewById(R.id.avatar);

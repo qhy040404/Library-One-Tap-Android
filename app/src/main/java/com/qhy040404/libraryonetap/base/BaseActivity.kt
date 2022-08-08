@@ -12,7 +12,6 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
 import rikka.material.app.MaterialActivity
 
-@Suppress("DEPRECATION")
 abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
 
     protected lateinit var binding: VB

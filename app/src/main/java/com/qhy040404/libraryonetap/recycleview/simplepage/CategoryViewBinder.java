@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 
-public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBinder.ViewHolder> {
+public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBinder.CGViewHolder> {
     @Override
     @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.simplepage_item_category, parent, false));
+    public CGViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+        return new CGViewHolder(inflater.inflate(R.layout.simplepage_item_category, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Category category) {
+    public void onBindViewHolder(@NonNull CGViewHolder holder, @NonNull Category category) {
         holder.category.setText(category.title);
         holder.actionIcon.setImageDrawable(category.actionIcon);
         holder.actionIcon.setContentDescription(category.actionIconContentDescription);
@@ -37,12 +37,12 @@ public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBin
         return item.hashCode();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class CGViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView category;
         public final ImageButton actionIcon;
 
-        public ViewHolder(View itemView) {
+        public CGViewHolder(View itemView) {
             super(itemView);
             category = itemView.findViewById(R.id.category);
             actionIcon = itemView.findViewById(R.id.actionIcon);

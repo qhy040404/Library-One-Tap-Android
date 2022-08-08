@@ -11,15 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 
-public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.ViewHolder> {
+public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.CViewHolder> {
     @Override
     @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.simplepage_item_card, parent, false));
+    public CViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+        return new CViewHolder(inflater.inflate(R.layout.simplepage_item_card, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Card card) {
+    public void onBindViewHolder(@NonNull CViewHolder holder, @NonNull Card card) {
         holder.content.setLineSpacing(card.lineSpacingExtra, holder.content.getLineSpacingMultiplier());
         holder.content.setText(card.content);
     }
@@ -29,11 +29,11 @@ public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.ViewHold
         return item.hashCode();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class CViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView content;
 
-        public ViewHolder(View itemView) {
+        public CViewHolder(View itemView) {
             super(itemView);
             content = itemView.findViewById(R.id.simple_content);
         }

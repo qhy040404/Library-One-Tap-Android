@@ -37,7 +37,7 @@ object FileUtils {
         return getFileSize(file.path)
     }
 
-    fun getFileSize(path: String): Long {
+    private fun getFileSize(path: String): Long {
         return runCatching {
             Files.size(Paths.get(path))
         }.getOrDefault(0L)

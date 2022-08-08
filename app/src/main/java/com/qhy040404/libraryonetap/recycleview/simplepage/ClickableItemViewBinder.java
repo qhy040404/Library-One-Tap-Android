@@ -15,7 +15,7 @@ import com.drakeet.multitype.ItemViewBinder;
 import com.qhy040404.libraryonetap.R;
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity;
 
-public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, ClickableItemViewBinder.ViewHolder> {
+public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, ClickableItemViewBinder.CIViewHolder> {
     private @NonNull
     final SimplePageActivity activity;
 
@@ -25,12 +25,12 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
 
     @Override
     @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        return new ViewHolder(inflater.inflate(R.layout.simplepage_item_clickable, parent, false), activity);
+    public CIViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+        return new CIViewHolder(inflater.inflate(R.layout.simplepage_item_clickable, parent, false), activity);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @NonNull ClickableItem clickableItem) {
+    public void onBindViewHolder(@NonNull CIViewHolder holder, @NonNull ClickableItem clickableItem) {
         holder.name.setText(clickableItem.name);
         holder.desc.setText(clickableItem.desc);
         holder.data = clickableItem;
@@ -41,7 +41,7 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
         return item.hashCode();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class CIViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         protected @NonNull
         final SimplePageActivity activity;
@@ -49,7 +49,7 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
         public final TextView desc;
         public ClickableItem data;
 
-        public ViewHolder(View itemView, @NonNull SimplePageActivity activity) {
+        public CIViewHolder(View itemView, @NonNull SimplePageActivity activity) {
             super(itemView);
             this.activity = activity;
             name = itemView.findViewById(R.id.name);

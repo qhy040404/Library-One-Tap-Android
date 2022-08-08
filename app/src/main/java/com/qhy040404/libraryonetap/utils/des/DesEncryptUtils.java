@@ -586,22 +586,22 @@ public class DesEncryptUtils {
         StringBuilder encData = new StringBuilder();
         byte[][] firstKeyBt = new byte[0][], secondKeyBt = new byte[0][], thirdKeyBt = new byte[0][];
         int firstLength = 0, secondLength = 0, thirdLength = 0;
-        if (firstKey != null && !firstKey.equals("")) {
+        if (firstKey != null && !firstKey.isEmpty()) {
             firstKeyBt = getKeyBytes(firstKey);
             firstLength = firstKeyBt.length;
         }
-        if (secondKey != null && !secondKey.equals("")) {
+        if (secondKey != null && !secondKey.isEmpty()) {
             secondKeyBt = getKeyBytes(secondKey);
             secondLength = secondKeyBt.length;
         }
-        if (thirdKey != null && !thirdKey.equals("")) {
+        if (thirdKey != null && !thirdKey.isEmpty()) {
             thirdKeyBt = getKeyBytes(thirdKey);
             thirdLength = thirdKeyBt.length;
         }
 
         if (length > 0) {
-            boolean b = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("") && thirdKey != null && !thirdKey.equals("");
-            boolean b1 = firstKey != null && !firstKey.equals("") && secondKey != null && !secondKey.equals("");
+            boolean b = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty() && thirdKey != null && !thirdKey.isEmpty();
+            boolean b1 = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty();
             if (length < 4) {
                 byte[] bt = strToBt(data);
                 byte[] encByte = new byte[0];
@@ -632,7 +632,7 @@ public class DesEncryptUtils {
                         }
                         encByte = tempBt;
                     } else {
-                        if (firstKey != null && !firstKey.equals("")) {
+                        if (firstKey != null && !firstKey.isEmpty()) {
                             byte[] tempBt;
                             int x;
                             tempBt = bt;
@@ -679,7 +679,7 @@ public class DesEncryptUtils {
                             }
                             encByte = tempBt;
                         } else {
-                            if (firstKey != null && !firstKey.equals("")) {
+                            if (firstKey != null && !firstKey.isEmpty()) {
                                 byte[] tempBt;
                                 int x;
                                 tempBt = tempByte;
@@ -723,7 +723,7 @@ public class DesEncryptUtils {
                             }
                             encByte = tempBt;
                         } else {
-                            if (firstKey != null && !firstKey.equals("")) {
+                            if (firstKey != null && !firstKey.isEmpty()) {
                                 byte[] tempBt;
                                 int x;
                                 tempBt = tempByte;

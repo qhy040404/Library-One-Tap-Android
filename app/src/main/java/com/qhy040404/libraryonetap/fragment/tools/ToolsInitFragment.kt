@@ -7,7 +7,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -175,13 +174,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
             val netMessage =
-                LibraryOneTapApp.app.getString(R.string.remain_net_fee) + remainFee + LibraryOneTapApp.app.getString(
-                    R.string.rmb) + "\n" + LibraryOneTapApp.app.getString(
-                    R.string.used_net
-                ) + usedNet + LibraryOneTapApp.app.getString(R.string.gigabyte) + "\n" + LibraryOneTapApp.app.getString(
-                    R.string.remain_net) + remainNet + LibraryOneTapApp.app.getString(
-                    R.string.gigabyte
-                )
+                AppUtils.getResString(R.string.remain_net_fee) + remainFee +
+                        AppUtils.getResString(R.string.rmb) + "\n" +
+                        AppUtils.getResString(R.string.used_net) + usedNet +
+                        AppUtils.getResString(R.string.gigabyte) + "\n" +
+                        AppUtils.getResString(R.string.remain_net) + remainNet +
+                        AppUtils.getResString(R.string.gigabyte)
 
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
@@ -218,7 +216,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val SSMC = ElectricData.getSSMC(data)
             val remainElectric = ElectricData.getResele(data)
             val electricMessage =
-                SSMC + "\n" + LibraryOneTapApp.app.getString(R.string.remain_electric) + remainElectric + LibraryOneTapApp.app.getString(
+                SSMC + "\n" + AppUtils.getResString(R.string.remain_electric) + remainElectric + AppUtils.getResString(
                     R.string.degree
                 )
 
@@ -270,7 +268,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             } else {
                 val totalHours: String =
                     VolunteerData.getTotalHours(data).toString() +
-                            LibraryOneTapApp.app.getString(R.string.hours)
+                            AppUtils.getResString(R.string.hours)
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())

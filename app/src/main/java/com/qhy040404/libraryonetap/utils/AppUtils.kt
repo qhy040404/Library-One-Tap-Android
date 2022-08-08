@@ -7,9 +7,11 @@ import android.content.res.Configuration
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.util.Log
+import androidx.annotation.StringRes
 import androidx.core.content.edit
 import androidx.core.text.toSpannable
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -96,5 +98,9 @@ object AppUtils {
 
     fun pass() {
         Log.i("Pass", "Slack off")
+    }
+
+    fun getResString(@StringRes resId: Int): String {
+        return LibraryOneTapApp.app.getString(resId)
     }
 }

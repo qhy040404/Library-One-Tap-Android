@@ -10,7 +10,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
@@ -106,7 +105,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 if (timer >= 3) {
                     textView.post {
                         textView.text =
-                            LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
+                            AppUtils.getResString(R.string.fail_to_login_three_times)
                     }
                     failLogin = true
                     break
@@ -124,10 +123,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             val back_time =
                 OrderListData.getBack_time(list,
                     "2",
-                    LibraryOneTapApp.app.getString(R.string.temp_end_time))
+                    AppUtils.getResString(R.string.temp_end_time))
 
             if (order_id == "oid") {
-                order_id = LibraryOneTapApp.app.getString(R.string.no_valid_order)
+                order_id = AppUtils.getResString(R.string.no_valid_order)
                 reserve.post {
                     reserve.visibility = View.VISIBLE
                     reserve.isClickable = true
@@ -135,7 +134,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
 
             if (order_process == "审核通过") {
-                order_process = LibraryOneTapApp.app.getString(R.string.not_start)
+                order_process = AppUtils.getResString(R.string.not_start)
 
                 cancel.post {
                     cancel.visibility = View.VISIBLE
@@ -155,9 +154,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     }
                 }
             } else if (order_process == "进行中") {
-                order_process = LibraryOneTapApp.app.getString(R.string.inside)
+                order_process = AppUtils.getResString(R.string.inside)
             } else if (order_process == "暂离") {
-                order_process = LibraryOneTapApp.app.getString(R.string.outside)
+                order_process = AppUtils.getResString(R.string.outside)
                 tempReset.post {
                     tempReset.visibility = View.VISIBLE
                     tempReset.isClickable = true
@@ -415,14 +414,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         } else if (!AppUtils.checkData(id, passwd)) {
             textView.post {
-                textView.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
+                textView.text = AppUtils.getResString(R.string.no_userdata)
             }
             progressBar.post { progressBar.visibility = View.INVISIBLE }
         } else if (failLogin) {
             AppUtils.pass()
         } else {
             textView.post {
-                textView.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
+                textView.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
         refresh.post { refresh.setOnClickListener { activity?.recreate() } }

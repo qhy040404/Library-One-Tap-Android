@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
-import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -91,7 +90,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 if (timer >= 3) {
                     textView2.post {
                         textView2.text =
-                            LibraryOneTapApp.app.getString(R.string.fail_to_login_three_times)
+                            AppUtils.getResString(R.string.fail_to_login_three_times)
                     }
                     failLogin = true
                     break
@@ -109,13 +108,13 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             val full_time = OrderListData.getFull_time(list)
 
             if (order_id == "oid") {
-                order_id = LibraryOneTapApp.app.getString(R.string.no_valid_order)
+                order_id = AppUtils.getResString(R.string.no_valid_order)
             }
 
             when (order_process) {
-                "审核通过" -> order_process = LibraryOneTapApp.app.getString(R.string.not_start)
-                "进行中" -> order_process = LibraryOneTapApp.app.getString(R.string.inside)
-                "暂离" -> order_process = LibraryOneTapApp.app.getString(R.string.outside)
+                "审核通过" -> order_process = AppUtils.getResString(R.string.not_start)
+                "进行中" -> order_process = AppUtils.getResString(R.string.inside)
+                "暂离" -> order_process = AppUtils.getResString(R.string.outside)
             }
 
             val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
@@ -137,14 +136,14 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         } else if (!AppUtils.checkData(id, passwd)) {
             textView2.post {
-                textView2.text = LibraryOneTapApp.app.getString(R.string.no_userdata)
+                textView2.text = AppUtils.getResString(R.string.no_userdata)
             }
             progressBar2.post { progressBar2.visibility = View.INVISIBLE }
         } else if (failLogin) {
             AppUtils.pass()
         } else {
             textView2.post {
-                textView2.text = LibraryOneTapApp.app.getString(R.string.login_timeout)
+                textView2.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
         refresh2.post { refresh2.setOnClickListener { activity?.recreate() } }

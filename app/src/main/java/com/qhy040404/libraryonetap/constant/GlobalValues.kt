@@ -1,8 +1,8 @@
 package com.qhy040404.libraryonetap.constant
 
 import com.qhy040404.libraryonetap.BuildConfig
-import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
@@ -15,7 +15,7 @@ object GlobalValues {
 
     // App
     val version =
-        LibraryOneTapApp.app.getString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
+        AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
 
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)

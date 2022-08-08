@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic____1.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about_foreground.xml" value="0.3305" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_bath.xml" value="0.3175" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_cache.xml" value="0.299" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_card.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_color_palette.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_dark_mode.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_elec.xml" value="0.3175" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_foreground.xml" value="0.254" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_github.xml" value="0.1235" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_grades.xml" value="0.193" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_language.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_launcher_background.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.327" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_material.xml" value="0.327" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_multi.xml" value="0.162" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_passwd.xml" value="0.188" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_qr.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_refresh.xml" value="0.1955" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_sc_qr.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_sc_tool.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_sc_vcard.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_single.xml" value="0.162" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_tool.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_tools.xml" value="0.3175" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_update.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_userid.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_vcard.xml" value="0.3215" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_volunteer.xml" value="0.3175" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/shape_fillet_translucent.xml" value="0.292" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/simplepage_card.xml" value="0.1465" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/white_back_btn.xml" value="0.321" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_bath_reserve.xml" value="0.33" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_desWebview.xml" value="0.25" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_des_webview.xml" value="0.14739583333333334" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main.xml" value="0.2710997442455243" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_main_bottom.xml" value="0.33" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_secret.xml" value="0.1" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_tools_init.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_tools_init_new.xml" value="0.1287037037037037" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_vcard.xml" value="0.1796875" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_webview.xml" value="0.358695652173913" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_yanxiujian.xml" value="0.33" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_progressbar_juhua.xml" value="0.35507246376811596" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_reserve.xml" value="0.15892857142857142" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_detail.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_tools.xml" value="0.29628046173578454" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_yanxiujian.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/preference_recyclerview.xml" value="0.1" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/settings_activity.xml" value="0.358695652173913" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/simplepage_activity.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/simplepage_item_card.xml" value="0.1" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/simplepage_item_category.xml" value="0.1450062682824906" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/simplepage_item_clickable.xml" value="0.1450062682824906" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/menu/bottom_nav_menu.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2965" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2965" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/network_security_config.xml" value="0.14479166666666668" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/root_preferences.xml" value="0.33" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/xml/tools_list.xml" value="0.3619791666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="EntryPointsManager">
+    <pattern value="com.qhy040404.libraryonetap.ui.about.AbsAboutActivityProxy" method="getAdapter" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

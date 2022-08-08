@@ -173,6 +173,11 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+      "gradleName": "androidx.core:core-splashscreen:1.0.0@aar",
+      "unresolved": false
+    },
+    {
       "ideaName": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
       "gradleName": "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
       "unresolved": false

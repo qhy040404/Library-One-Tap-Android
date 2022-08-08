@@ -209,6 +209,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
           "type": "Library"
         },
@@ -581,6 +585,10 @@
         },
         {
           "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
           "type": "Library"
         },
         {
@@ -982,6 +990,10 @@
         },
         {
           "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
           "type": "Library"
         },
         {

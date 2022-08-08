@@ -160,6 +160,14 @@
       ]
     },
     {
+      "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8dcf35ed0b5f2f945db59dc8c9a6bb0a/transformed/core-splashscreen-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8dcf35ed0b5f2f945db59dc8c9a6bb0a/transformed/core-splashscreen-1.0.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8dcf35ed0b5f2f945db59dc8c9a6bb0a/transformed/core-splashscreen-1.0.0/AndroidManifest.xml"
+      ]
+    },
+    {
       "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a6eb74ebbb0297f62a74815ba5c44f04/transformed/lifecycle-runtime-ktx-2.5.1/jars/classes.jar!/",

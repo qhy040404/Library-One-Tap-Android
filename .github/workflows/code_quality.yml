@@ -19,8 +19,6 @@ jobs:
 
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v2022.2.1
-        with:
-          args: --yaml-name,qodana.yaml
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.8.0

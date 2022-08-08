@@ -199,6 +199,622 @@
   "category": "Android",
   "type": "Android Resources Validation",
   "severity": "Critical",
+  "comment": "Unresolved class 'LibraryOneTapApp'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 15,
+      "offset": 24,
+      "length": 16,
+      "code": {
+        "startLine": 13,
+        "length": 16,
+        "offset": 41,
+        "surroundingCode": "\n    <application\n        android:name=\".LibraryOneTapApp\"\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "ded1b9846e85ac101dd4d7b6b3950e72026e5a1c58d84cf25e0a064404b60529"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 25,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 23,
+        "length": 2,
+        "offset": 75,
+        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "4df721ce83e0278005ae564f70af9a67ee5914832f76ef650c572b209709af5b"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'tools'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 25,
+      "offset": 31,
+      "length": 5,
+      "code": {
+        "startLine": 23,
+        "length": 5,
+        "offset": 78,
+        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "c25e03806af19679dc4531e7c1ed96544ae7b259bab2fb1cab2af7810837feef"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'GradesMinorActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 25,
+      "offset": 37,
+      "length": 19,
+      "code": {
+        "startLine": 23,
+        "length": 19,
+        "offset": 84,
+        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "04d468197be89b6ee1d94445de16bd546d21a6642b0b3c79c31a686e68e1deef"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 29,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 27,
+        "length": 2,
+        "offset": 102,
+        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "f5f40aa161cc409cda34bd375d227146c878d5f5a6efde11d3143168429b6842"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'tools'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 29,
+      "offset": 31,
+      "length": 5,
+      "code": {
+        "startLine": 27,
+        "length": 5,
+        "offset": 105,
+        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "4e27621919c55e91bcf082733e6414a3700cbcf824275cf0e17366f94efa2b4f"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'GradesMajorActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 29,
+      "offset": 37,
+      "length": 19,
+      "code": {
+        "startLine": 27,
+        "length": 19,
+        "offset": 111,
+        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "540f34915e1a4da351817967682437482b338e6354d76429ad4108cc869e3c27"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 33,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 31,
+        "length": 2,
+        "offset": 102,
+        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "a481168235a921adca0ff27ba4b32352c0db56c6065ec566bd9160d5a1395401"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'about'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 33,
+      "offset": 31,
+      "length": 5,
+      "code": {
+        "startLine": 31,
+        "length": 5,
+        "offset": 105,
+        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "3a88d8f7b7cc03222c8f743e4e5666058c3f9bb82d3a66fea911c9cf6f699560"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'AboutActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 33,
+      "offset": 37,
+      "length": 13,
+      "code": {
+        "startLine": 31,
+        "length": 13,
+        "offset": 111,
+        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "2153865bb98344e54b95075ba2c9b4320e41c30db374eb5365272e5571dd7af2"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 38,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 36,
+        "length": 2,
+        "offset": 137,
+        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "438dad9a20e9aca639fdbf8fe7805cb1174edb61efc96d2189f87c31bea18818"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'secret'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 38,
+      "offset": 31,
+      "length": 6,
+      "code": {
+        "startLine": 36,
+        "length": 6,
+        "offset": 140,
+        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "c817ab19270a3568bf714539f4a90ebd7309ec150c40d59eb2dfc9e6d75e2cc9"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'SecretActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 38,
+      "offset": 38,
+      "length": 14,
+      "code": {
+        "startLine": 36,
+        "length": 14,
+        "offset": 147,
+        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "496a6533782365f201958ce1057a4452852677ce69de5c444d4a5d877b72dabc"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 42,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 40,
+        "length": 2,
+        "offset": 97,
+        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "45237708b8bd85dc9abb17761fcaa029bf5d3677279c89a6fce7a4077ea6a0ff"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'tools'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 42,
+      "offset": 31,
+      "length": 5,
+      "code": {
+        "startLine": 40,
+        "length": 5,
+        "offset": 100,
+        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "9ddcef02b050b33495f7d3d7f8c89fc8ac9308d08cadba1b5f895dceb6a11766"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'VCardActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 42,
+      "offset": 37,
+      "length": 13,
+      "code": {
+        "startLine": 40,
+        "length": 13,
+        "offset": 106,
+        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "b27c03f44218a3d97ddbc2aa5c44f125b0593b9b3931aeaa4c6aa561cd2ec222"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 46,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 44,
+        "length": 2,
+        "offset": 96,
+        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "619eea5e9e9cfd716ab8ff6c98b3d71686599e708f6b244ccd552952acf74e21"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'tools'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 46,
+      "offset": 31,
+      "length": 5,
+      "code": {
+        "startLine": 44,
+        "length": 5,
+        "offset": 99,
+        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "89cdd0c194c09eb0dbb56f6591ac59ad8523463c39992a71f56a1f3ea2094619"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'BathReserveActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 46,
+      "offset": 37,
+      "length": 19,
+      "code": {
+        "startLine": 44,
+        "length": 19,
+        "offset": 105,
+        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "24dedbf00ae36c27c59aa08b124b38988a6ce3899875efc2546d4bf1cc2c7407"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'ui'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 50,
+      "offset": 28,
+      "length": 2,
+      "code": {
+        "startLine": 48,
+        "length": 2,
+        "offset": 95,
+        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "d71d4e33d37fdd618c34a266e96461e68c31cfa512458fb1d3ab691f6dd77c38"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved package 'main'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 50,
+      "offset": 31,
+      "length": 4,
+      "code": {
+        "startLine": 48,
+        "length": 4,
+        "offset": 98,
+        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "33b270885e6ffd0b7c731d6aa8d88ec06267ba5da324038e06ad824276039b37"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
+  "comment": "Unresolved class 'MainBottomActivity'",
+  "detailsInfo": "Validates resource references inside Android XML files.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/AndroidManifest.xml",
+      "language": "XML",
+      "line": 50,
+      "offset": 36,
+      "length": 18,
+      "code": {
+        "startLine": 48,
+        "length": 18,
+        "offset": 103,
+        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "AndroidDomInspection"
+  },
+  "hash": "82511457b3f04be09147027d153365321a4dfa36ff13263b453500c32f93e924"
+},{
+  "tool": "Code Inspection",
+  "category": "Android",
+  "type": "Android Resources Validation",
+  "severity": "Critical",
   "comment": "Cannot resolve class or package 'com'",
   "detailsInfo": "Validates resource references inside Android XML files.",
   "sources": [
@@ -950,622 +1566,6 @@
     "inspectionName": "AndroidDomInspection"
   },
   "hash": "0537b3b49c15cd63fe3f9308ba7b368fca7aec701c56e0f66d4bf81f2c50088f"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'LibraryOneTapApp'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 15,
-      "offset": 24,
-      "length": 16,
-      "code": {
-        "startLine": 13,
-        "length": 16,
-        "offset": 41,
-        "surroundingCode": "\n    <application\n        android:name=\".LibraryOneTapApp\"\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\""
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "ded1b9846e85ac101dd4d7b6b3950e72026e5a1c58d84cf25e0a064404b60529"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 25,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 23,
-        "length": 2,
-        "offset": 75,
-        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "4df721ce83e0278005ae564f70af9a67ee5914832f76ef650c572b209709af5b"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'tools'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 25,
-      "offset": 31,
-      "length": 5,
-      "code": {
-        "startLine": 23,
-        "length": 5,
-        "offset": 78,
-        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "c25e03806af19679dc4531e7c1ed96544ae7b259bab2fb1cab2af7810837feef"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'GradesMinorActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 25,
-      "offset": 37,
-      "length": 19,
-      "code": {
-        "startLine": 23,
-        "length": 19,
-        "offset": 84,
-        "surroundingCode": "        tools:targetApi=\"33\">\n        <activity\n            android:name=\".ui.tools.GradesMinorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_minor_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "04d468197be89b6ee1d94445de16bd546d21a6642b0b3c79c31a686e68e1deef"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 29,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 27,
-        "length": 2,
-        "offset": 102,
-        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "f5f40aa161cc409cda34bd375d227146c878d5f5a6efde11d3143168429b6842"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'tools'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 29,
-      "offset": 31,
-      "length": 5,
-      "code": {
-        "startLine": 27,
-        "length": 5,
-        "offset": 105,
-        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "4e27621919c55e91bcf082733e6414a3700cbcf824275cf0e17366f94efa2b4f"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'GradesMajorActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 29,
-      "offset": 37,
-      "length": 19,
-      "code": {
-        "startLine": 27,
-        "length": 19,
-        "offset": 111,
-        "surroundingCode": "            android:label=\"@string/grade_minor_title\" />\n        <activity\n            android:name=\".ui.tools.GradesMajorActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/grade_major_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "540f34915e1a4da351817967682437482b338e6354d76429ad4108cc869e3c27"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 33,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 31,
-        "length": 2,
-        "offset": 102,
-        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "a481168235a921adca0ff27ba4b32352c0db56c6065ec566bd9160d5a1395401"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'about'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 33,
-      "offset": 31,
-      "length": 5,
-      "code": {
-        "startLine": 31,
-        "length": 5,
-        "offset": 105,
-        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "3a88d8f7b7cc03222c8f743e4e5666058c3f9bb82d3a66fea911c9cf6f699560"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'AboutActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 33,
-      "offset": 37,
-      "length": 13,
-      "code": {
-        "startLine": 31,
-        "length": 13,
-        "offset": 111,
-        "surroundingCode": "            android:label=\"@string/grade_major_title\" />\n        <activity\n            android:name=\".ui.about.AboutActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/about_title\""
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "2153865bb98344e54b95075ba2c9b4320e41c30db374eb5365272e5571dd7af2"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 38,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 36,
-        "length": 2,
-        "offset": 137,
-        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "438dad9a20e9aca639fdbf8fe7805cb1174edb61efc96d2189f87c31bea18818"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'secret'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 38,
-      "offset": 31,
-      "length": 6,
-      "code": {
-        "startLine": 36,
-        "length": 6,
-        "offset": 140,
-        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "c817ab19270a3568bf714539f4a90ebd7309ec150c40d59eb2dfc9e6d75e2cc9"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'SecretActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 38,
-      "offset": 38,
-      "length": 14,
-      "code": {
-        "startLine": 36,
-        "length": 14,
-        "offset": 147,
-        "surroundingCode": "            android:theme=\"@style/Theme.MaterialComponents.DayNight.NoActionBar.Library\" />\n        <activity\n            android:name=\".ui.secret.SecretActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/secret_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "496a6533782365f201958ce1057a4452852677ce69de5c444d4a5d877b72dabc"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 42,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 40,
-        "length": 2,
-        "offset": 97,
-        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "45237708b8bd85dc9abb17761fcaa029bf5d3677279c89a6fce7a4077ea6a0ff"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'tools'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 42,
-      "offset": 31,
-      "length": 5,
-      "code": {
-        "startLine": 40,
-        "length": 5,
-        "offset": 100,
-        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "9ddcef02b050b33495f7d3d7f8c89fc8ac9308d08cadba1b5f895dceb6a11766"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'VCardActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 42,
-      "offset": 37,
-      "length": 13,
-      "code": {
-        "startLine": 40,
-        "length": 13,
-        "offset": 106,
-        "surroundingCode": "            android:label=\"@string/secret_title\" />\n        <activity\n            android:name=\".ui.tools.VCardActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/vcard_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "b27c03f44218a3d97ddbc2aa5c44f125b0593b9b3931aeaa4c6aa561cd2ec222"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 46,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 44,
-        "length": 2,
-        "offset": 96,
-        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "619eea5e9e9cfd716ab8ff6c98b3d71686599e708f6b244ccd552952acf74e21"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'tools'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 46,
-      "offset": 31,
-      "length": 5,
-      "code": {
-        "startLine": 44,
-        "length": 5,
-        "offset": 99,
-        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "89cdd0c194c09eb0dbb56f6591ac59ad8523463c39992a71f56a1f3ea2094619"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'BathReserveActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 46,
-      "offset": 37,
-      "length": 19,
-      "code": {
-        "startLine": 44,
-        "length": 19,
-        "offset": 105,
-        "surroundingCode": "            android:label=\"@string/vcard_title\" />\n        <activity\n            android:name=\".ui.tools.BathReserveActivity\"\n            android:exported=\"false\"\n            android:label=\"@string/bath_title\" />"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "24dedbf00ae36c27c59aa08b124b38988a6ce3899875efc2546d4bf1cc2c7407"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'ui'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 50,
-      "offset": 28,
-      "length": 2,
-      "code": {
-        "startLine": 48,
-        "length": 2,
-        "offset": 95,
-        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "d71d4e33d37fdd618c34a266e96461e68c31cfa512458fb1d3ab691f6dd77c38"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved package 'main'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 50,
-      "offset": 31,
-      "length": 4,
-      "code": {
-        "startLine": 48,
-        "length": 4,
-        "offset": 98,
-        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "33b270885e6ffd0b7c731d6aa8d88ec06267ba5da324038e06ad824276039b37"
-},{
-  "tool": "Code Inspection",
-  "category": "Android",
-  "type": "Android Resources Validation",
-  "severity": "Critical",
-  "comment": "Unresolved class 'MainBottomActivity'",
-  "detailsInfo": "Validates resource references inside Android XML files.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/AndroidManifest.xml",
-      "language": "XML",
-      "line": 50,
-      "offset": 36,
-      "length": 18,
-      "code": {
-        "startLine": 48,
-        "length": 18,
-        "offset": 103,
-        "surroundingCode": "            android:label=\"@string/bath_title\" />\n        <activity\n            android:name=\".ui.main.MainBottomActivity\"\n            android:exported=\"true\">\n            <intent-filter>"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project",
-    "inspectionName": "AndroidDomInspection"
-  },
-  "hash": "82511457b3f04be09147027d153365321a4dfa36ff13263b453500c32f93e924"
 },{
   "tool": "Code Inspection",
   "category": "Android",

@@ -31,7 +31,7 @@ import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentIte
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(),
+class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     INavViewContainer,
     IAppBarContainer {
     private val navViewBehavior by lazy { HideBottomViewOnScrollBehavior<BottomNavigationView>() }
@@ -49,7 +49,7 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(),
         binding.apply {
             root.bringChildToFront(binding.appbar)
             viewpager.apply {
-                adapter = object : FragmentStateAdapter(this@MainBottomActivity) {
+                adapter = object : FragmentStateAdapter(this@MainActivity) {
                     override fun getItemCount(): Int {
                         return 4
                     }

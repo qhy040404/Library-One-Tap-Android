@@ -47,7 +47,7 @@
             android:exported="false"
             android:label="@string/bath_title" />
         <activity
-            android:name=".ui.main.MainBottomActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

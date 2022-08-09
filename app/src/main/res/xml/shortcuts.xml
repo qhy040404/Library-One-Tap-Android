@@ -18,7 +18,7 @@
         android:shortcutShortLabel="@string/tools">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.TOOLS"
-            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainBottomActivity"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"
             android:targetPackage="com.qhy040404.libraryonetap" />
     </shortcut>
 
@@ -29,7 +29,7 @@
         android:shortcutShortLabel="@string/detail">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.DETAIL"
-            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainBottomActivity"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"
             android:targetPackage="com.qhy040404.libraryonetap" />
     </shortcut>
 </shortcuts>

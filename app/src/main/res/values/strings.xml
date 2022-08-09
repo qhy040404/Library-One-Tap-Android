@@ -102,6 +102,7 @@
     <string name="used_net">"已用流量: "</string>
     <string name="remain_net">"剩余流量: "</string>
     <string name="remain_electric">"剩余电量: "</string>
+    <string name="invalid_id_or_name">姓名或ID错误</string>
     <string name="find_same_data">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="reserved">预约请求已发送</string>
 

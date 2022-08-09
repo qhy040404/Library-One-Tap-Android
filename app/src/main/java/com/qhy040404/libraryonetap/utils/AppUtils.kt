@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import rikka.material.app.DayNightDelegate
 import java.util.*
 
+@Suppress("MemberVisibilityCanBePrivate")
 object AppUtils {
     fun getNightMode(modeString: String) = when (modeString) {
         "on" -> DayNightDelegate.MODE_NIGHT_YES
@@ -95,4 +96,16 @@ object AppUtils {
     fun pass() = Log.i("Pass", "Slack off")
 
     fun getResString(@StringRes resId: Int) = LibraryOneTapApp.app.getString(resId)
+
+    fun isError(a: String): Boolean = isError(a, "")
+
+    fun isError(a: String, b: String): Boolean = isError(a, b, "")
+
+    fun isError(a: String, b: String, c: String): Boolean = isError(a, b, c, "")
+
+    fun isError(a: String, b: String, c: String, d: String): Boolean = isError(a, b, c, d, "")
+
+    fun isError(a: String, b: String, c: String, d: String, e: String): Boolean {
+        return a == Constants.GLOBAL_ERROR || b == Constants.GLOBAL_ERROR || c == Constants.GLOBAL_ERROR || d == Constants.GLOBAL_ERROR || e == Constants.GLOBAL_ERROR
+    }
 }

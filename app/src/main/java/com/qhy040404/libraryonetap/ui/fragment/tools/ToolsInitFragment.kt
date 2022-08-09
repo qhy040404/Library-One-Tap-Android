@@ -174,12 +174,16 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val remainFee = NetData.getFee(data)
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
-            val netMessage = AppUtils.getResString(R.string.remain_net_fee) + remainFee +
-                    AppUtils.getResString(R.string.rmb) + "\n" +
-                    AppUtils.getResString(R.string.used_net) + usedNet +
-                    AppUtils.getResString(R.string.gigabyte) + "\n" +
-                    AppUtils.getResString(R.string.remain_net) + remainNet +
-                    AppUtils.getResString(R.string.gigabyte)
+            val netMessage = if (AppUtils.isError(remainFee, usedNet, remainNet)) {
+                AppUtils.getResString(R.string.remain_net_fee) + remainFee +
+                        AppUtils.getResString(R.string.rmb) + "\n" +
+                        AppUtils.getResString(R.string.used_net) + usedNet +
+                        AppUtils.getResString(R.string.gigabyte) + "\n" +
+                        AppUtils.getResString(R.string.remain_net) + remainNet +
+                        AppUtils.getResString(R.string.gigabyte)
+            } else {
+                Constants.GLOBAL_ERROR
+            }
 
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
@@ -213,9 +217,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             @Suppress("SpellCheckingInspection", "LocalVariableName")
             val SSMC = ElectricData.getSSMC(data)
             val remainElectric = ElectricData.getResele(data)
-            val electricMessage = SSMC + "\n" +
-                    AppUtils.getResString(R.string.remain_electric) + remainElectric +
-                    AppUtils.getResString(R.string.degree)
+            val electricMessage = if (AppUtils.isError(SSMC, remainElectric)) {
+                SSMC + "\n" +
+                        AppUtils.getResString(R.string.remain_electric) + remainElectric +
+                        AppUtils.getResString(R.string.degree)
+            } else {
+                Constants.GLOBAL_ERROR
+            }
 
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
@@ -254,6 +262,16 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.net_error)
+                        .setTitle(R.string.volunteer_title)
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                }
+            } else if (sameID == 0 || sameName == 0) {
+                withContext(Dispatchers.Main) {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setMessage(R.string.invalid_id_or_name)
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(true)

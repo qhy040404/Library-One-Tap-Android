@@ -35,7 +35,7 @@ class GradesMinorActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (GradesTempValues.secondSemestersName.isEmpty()) {
+            if (GradesTempValues.secondSemestersName.isEmpty() || GradesTempValues.secondCourseCredits.isEmpty()) {
                 add(Card(
                     "无数据"
                 ))
@@ -43,13 +43,13 @@ class GradesMinorActivity : SimplePageActivity() {
                 add(Card(
                     "加权均分: ${
                         GradesUtils.calculateWeightedAverage(
-                            GradesTempValues.courseGrade,
-                            GradesTempValues.courseCredits
+                            GradesTempValues.secondCourseGrade,
+                            GradesTempValues.secondCourseCredits
                         )
                     }  平均绩点: ${
                         GradesUtils.calculateAverageGP(
-                            GradesTempValues.courseGP,
-                            GradesTempValues.courseCredits
+                            GradesTempValues.secondCourseGP,
+                            GradesTempValues.secondCourseCredits
                         )
                     }"
                 ))

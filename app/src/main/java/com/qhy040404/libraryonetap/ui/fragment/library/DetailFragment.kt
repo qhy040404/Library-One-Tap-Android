@@ -178,11 +178,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
                         }
                     })
                 }
@@ -199,11 +197,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
                         }
                     })
                 }
@@ -220,11 +216,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             val picture_bt = response.body!!.bytes()
-                            val pictureInput = response.body!!.byteStream()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             imageView.post { imageView.setImageBitmap(bitmap) }
-                            pictureInput.close()
                         }
                     })
                 }

@@ -5,3 +5,4 @@ profile:
   name: qodana.recommended
 exclude:
   - name: AndroidUnknownAttribute
+  - name: UnusedSymbol

@@ -85,6 +85,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 loginSuccess = true
             } else {
                 timer++
+                if (timer == 2) Requests.netLazyMgr.reset()
                 if (timer >= 3) {
                     textView2.post {
                         textView2.text =
@@ -142,6 +143,11 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 textView2.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
-        refresh2.post { refresh2.setOnClickListener { activity?.recreate() } }
+        refresh2.post {
+            refresh2.setOnClickListener {
+                Requests.netLazyMgr.reset()
+                activity?.recreate()
+            }
+        }
     }
 }

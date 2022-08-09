@@ -100,6 +100,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 loginSuccess = true
             } else {
                 timer++
+                if (timer == 2) Requests.netLazyMgr.reset()
                 if (timer >= 3) {
                     textView.post {
                         textView.text =
@@ -416,6 +417,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 textView.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
-        refresh.post { refresh.setOnClickListener { activity?.recreate() } }
+        refresh.post {
+            refresh.setOnClickListener {
+                Requests.netLazyMgr.reset()
+                activity?.recreate()
+            }
+        }
     }
 }

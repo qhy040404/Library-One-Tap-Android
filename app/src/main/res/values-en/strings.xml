@@ -88,6 +88,8 @@
     <string name="login_timeout">Session timeout, please refresh</string>
     <string name="no_userdata">Please input your information in the Settings page first.</string>
 
+    <string name="net_error">Network Error</string>
+
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>
     <string name="degree">" degree"</string>

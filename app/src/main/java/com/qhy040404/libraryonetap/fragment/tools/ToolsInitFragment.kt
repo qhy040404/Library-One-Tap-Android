@@ -255,7 +255,17 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val sameID = VolunteerData.getSameID(data)
             val sameName = VolunteerData.getSameName(data)
 
-            if (sameID != 1 || sameName != 1) {
+            if (sameID == -1 || sameName == -1) {
+                withContext(Dispatchers.Main) {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setMessage(R.string.net_error)
+                        .setTitle(R.string.volunteer_title)
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                }
+            } else if (sameID != 1 || sameName != 1) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.find_same_data)

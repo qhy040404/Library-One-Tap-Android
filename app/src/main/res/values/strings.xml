@@ -89,6 +89,8 @@
     <string name="login_timeout">登录失效，请重新加载</string>
     <string name="no_userdata">请先到设置输入基本信息</string>
 
+    <string name="net_error">网络错误</string>
+
     <!-- UNIT -->
     <string name="rmb">" 元"</string>
     <string name="degree">" 度"</string>

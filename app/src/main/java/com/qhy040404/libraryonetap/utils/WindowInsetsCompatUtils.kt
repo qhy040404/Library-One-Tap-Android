@@ -1,11 +1,15 @@
 package com.qhy040404.libraryonetap.utils
 
 import androidx.core.view.WindowInsetsCompat
-import com.qhy040404.libraryonetap.constant.InsetsParams
+import com.qhy040404.libraryonetap.annotation.InsetsParams
 
 @Suppress("DEPRECATION")
 object WindowInsetsCompatUtils {
-    fun getInsetsParam(windowInsets: WindowInsetsCompat, typeMask: Int, param: String): Int {
+    fun getInsetsParam(
+        windowInsets: WindowInsetsCompat,
+        typeMask: Int,
+        @InsetsParams param: Int,
+    ): Int {
         return if (OsUtils.atLeastR()) {
             when (param) {
                 InsetsParams.LEFT -> windowInsets.getInsets(typeMask).left

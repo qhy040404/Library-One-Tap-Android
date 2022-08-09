@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.qhy040404.libraryonetap.R;
-import com.qhy040404.libraryonetap.constant.InsetsParams;
+import com.qhy040404.libraryonetap.annotation.InsetsParams;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category;

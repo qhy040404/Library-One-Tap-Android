@@ -36,7 +36,7 @@ import com.drakeet.about.R;
 import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.qhy040404.libraryonetap.constant.InsetsParams;
+import com.qhy040404.libraryonetap.annotation.InsetsParams;
 import com.qhy040404.libraryonetap.utils.WindowInsetsCompatUtils;
 import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
 

@@ -18,11 +18,12 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
-import com.qhy040404.libraryonetap.fragment.IAppBarContainer
-import com.qhy040404.libraryonetap.fragment.SettingsFragment
-import com.qhy040404.libraryonetap.fragment.library.DetailFragment
-import com.qhy040404.libraryonetap.fragment.library.YanxiujianFragment
-import com.qhy040404.libraryonetap.fragment.tools.ToolsInitFragment
+import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
+import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
+import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
+import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
+import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
+import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem

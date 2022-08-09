@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.fragment
+package com.qhy040404.libraryonetap.ui.fragment.settings
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,6 +20,8 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
+import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
+import com.qhy040404.libraryonetap.ui.interfaces.IListController
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils

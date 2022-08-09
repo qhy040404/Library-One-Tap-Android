@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.fragment.library
+package com.qhy040404.libraryonetap.ui.fragment.library
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory

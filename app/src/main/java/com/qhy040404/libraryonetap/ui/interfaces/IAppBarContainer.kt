@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.fragment
+package com.qhy040404.libraryonetap.ui.interfaces
 
 import android.view.View
 

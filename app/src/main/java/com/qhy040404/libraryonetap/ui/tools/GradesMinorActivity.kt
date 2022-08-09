@@ -142,6 +142,7 @@ class GradesMinorActivity : SimplePageActivity() {
                     loginSuccess = true
                 } else {
                     timer++
+                    Requests.netLazyMgr.reset()
                     if (timer >= 3) {
                         MaterialAlertDialogBuilder(this@GradesMinorActivity)
                             .setTitle(R.string.grade_minor_title)

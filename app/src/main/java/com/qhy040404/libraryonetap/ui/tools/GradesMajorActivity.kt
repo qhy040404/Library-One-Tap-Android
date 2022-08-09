@@ -140,6 +140,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     loginSuccess = true
                 } else {
                     timer++
+                    Requests.netLazyMgr.reset()
                     if (timer >= 3) {
                         MaterialAlertDialogBuilder(this@GradesMajorActivity)
                             .setTitle(R.string.grade_major_title)

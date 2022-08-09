@@ -102,6 +102,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 loginSuccess = true
             } else {
                 timer++
+                Requests.netLazyMgr.reset()
                 if (timer >= 3) {
                     textView.post {
                         textView.text =

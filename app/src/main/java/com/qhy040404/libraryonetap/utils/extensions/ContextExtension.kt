@@ -5,6 +5,7 @@ import androidx.annotation.AnyThread
 import androidx.annotation.StringRes
 import com.qhy040404.libraryonetap.utils.Toasty
 
+@Suppress("unused")
 object ContextExtension {
     @AnyThread
     fun Context.showToast(message: String) {

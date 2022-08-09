@@ -61,16 +61,6 @@ jobs:
         with:
           arguments: lintAnalyzeRelease --warning-mode all --scan
 
-      - name: Ktlint
-        uses: gradle/gradle-build-action@v2.2.2
-        with:
-          arguments: ktlintCheck --warning-mode all --scan
-
-      - name: Detekt
-        uses: gradle/gradle-build-action@v2.2.2
-        with:
-          arguments: detekt --warning-mode all --scan
-
   ktlint:
     name: Ktlint
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}

@@ -57,8 +57,8 @@ class GradesMinorActivity : SimplePageActivity() {
             for (semester in GradesTempValues.secondSemestersName) {
                 add(Category(semester))
                 val count =
-                    GradesTempValues.secondCourseCountList[GradesTempValues.secondSemestersName.indexOf(
-                        semester)]
+                    GradesTempValues.secondCourseCountList[GradesTempValues.secondSemestersName
+                        .indexOf(semester)]
                 GradesTempValues.secondEndCount += count
                 for (i in GradesTempValues.secondStartCount until GradesTempValues.secondEndCount) {
                     val head = """
@@ -113,13 +113,13 @@ class GradesMinorActivity : SimplePageActivity() {
             var loginSuccess = false
             var timer = 0
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-                val ltResponse: String = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
-                val ltData: String = try {
+                val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
+                val ltData = try {
                     "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
                 } catch (_: Exception) {
                     ""
                 }
-                val ltExecution: String = try {
+                val ltExecution = try {
                     ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
                 } catch (_: Exception) {
                     ""
@@ -127,7 +127,7 @@ class GradesMinorActivity : SimplePageActivity() {
 
                 if (ltData != "") {
                     val rawData = "$id$passwd$ltData"
-                    val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                    val rsa = des.strEnc(rawData, "1", "2", "3")
 
                     Thread.sleep(200L)
 
@@ -138,7 +138,7 @@ class GradesMinorActivity : SimplePageActivity() {
                     )
                 }
 
-                val session: String = Requests.get(URLManager.EDU_CHECK_URL)
+                val session = Requests.get(URLManager.EDU_CHECK_URL)
                 if (session.contains("person")) {
                     loginSuccess = true
                 } else {

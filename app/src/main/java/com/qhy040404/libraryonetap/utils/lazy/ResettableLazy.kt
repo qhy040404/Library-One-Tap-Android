@@ -9,9 +9,7 @@ class ResettableLazy<T>(
     @Volatile
     var lazyHolder = makeInitBlock()
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): T {
-        return lazyHolder.value
-    }
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): T = lazyHolder.value
 
     override fun reset() {
         lazyHolder = makeInitBlock()

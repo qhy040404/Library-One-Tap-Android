@@ -5,10 +5,6 @@ import android.os.StrictMode
 import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -33,7 +29,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        val textView: TextView = findViewById(R.id.textView4)
+        val textView = binding.textView4
         textView.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             vCard()
@@ -43,22 +39,21 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     }
 
     private fun vCard() {
-        val imageView: ImageView = findViewById(R.id.imageView3)
-        val textView: TextView = findViewById(R.id.textView4)
-        val refresh: Button = findViewById(R.id.button18)
-        val progressBar: ProgressBar = findViewById(R.id.progressBar3)
+        val imageView = binding.imageView3
+        val textView = binding.textView4
+        val refresh = binding.button18
+        val progressBar = binding.progressBar3
 
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         @Suppress("SpellCheckingInspection")
         val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
         Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
-        val openid =
-            Requests.getVCard(URLManager.VCARD_OPENID_URL)
-                .split("<input id=\"openid\" value=\"")[1]
-                .split("\" type=\"hidden\">")[0]
+        val openid = Requests.getVCard(URLManager.VCARD_OPENID_URL)
+            .split("<input id=\"openid\" value=\"")[1]
+            .split("\" type=\"hidden\">")[0]
 
         val qrUrl = URLManager.getVCardQRUrl(openid)
 

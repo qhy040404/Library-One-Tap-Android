@@ -155,8 +155,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     }
 
     private suspend fun getNet() {
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         val checked = AppUtils.checkDataAndDialog(requireContext(),
             id,
@@ -169,18 +169,17 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 requireContext().showToast(R.string.loading)
             }
 
-            val data: String = GetPortalData.getPortalData(id, passwd, 1)
+            val data = GetPortalData.getPortalData(id, passwd, 1)
 
             val remainFee = NetData.getFee(data)
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
-            val netMessage =
-                AppUtils.getResString(R.string.remain_net_fee) + remainFee +
-                        AppUtils.getResString(R.string.rmb) + "\n" +
-                        AppUtils.getResString(R.string.used_net) + usedNet +
-                        AppUtils.getResString(R.string.gigabyte) + "\n" +
-                        AppUtils.getResString(R.string.remain_net) + remainNet +
-                        AppUtils.getResString(R.string.gigabyte)
+            val netMessage = AppUtils.getResString(R.string.remain_net_fee) + remainFee +
+                    AppUtils.getResString(R.string.rmb) + "\n" +
+                    AppUtils.getResString(R.string.used_net) + usedNet +
+                    AppUtils.getResString(R.string.gigabyte) + "\n" +
+                    AppUtils.getResString(R.string.remain_net) + remainNet +
+                    AppUtils.getResString(R.string.gigabyte)
 
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
@@ -195,8 +194,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     }
 
     private suspend fun getElectric() {
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         val checked = AppUtils.checkDataAndDialog(requireContext(),
             id,
@@ -209,15 +208,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 requireContext().showToast(R.string.loading)
             }
 
-            val data: String = GetPortalData.getPortalData(id, passwd, 0)
+            val data = GetPortalData.getPortalData(id, passwd, 0)
 
             @Suppress("SpellCheckingInspection", "LocalVariableName")
             val SSMC = ElectricData.getSSMC(data)
             val remainElectric = ElectricData.getResele(data)
-            val electricMessage =
-                SSMC + "\n" + AppUtils.getResString(R.string.remain_electric) + remainElectric + AppUtils.getResString(
-                    R.string.degree
-                )
+            val electricMessage = SSMC + "\n" +
+                    AppUtils.getResString(R.string.remain_electric) + remainElectric +
+                    AppUtils.getResString(R.string.degree)
 
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
@@ -273,9 +271,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .show()
                 }
             } else {
-                val totalHours: String =
-                    VolunteerData.getTotalHours(data).toString() +
-                            AppUtils.getResString(R.string.hours)
+                val totalHours = VolunteerData.getTotalHours(data).toString() +
+                        AppUtils.getResString(R.string.hours)
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())

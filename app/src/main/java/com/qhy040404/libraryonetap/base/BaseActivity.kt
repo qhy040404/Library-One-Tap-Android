@@ -13,7 +13,6 @@ import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBind
 import rikka.material.app.MaterialActivity
 
 abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
-
     protected lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -30,7 +30,6 @@ public class CardViewBinder extends ItemViewBinder<Card, CardViewBinder.CViewHol
     }
 
     public static class CViewHolder extends RecyclerView.ViewHolder {
-
         public final TextView content;
 
         public CViewHolder(View itemView) {

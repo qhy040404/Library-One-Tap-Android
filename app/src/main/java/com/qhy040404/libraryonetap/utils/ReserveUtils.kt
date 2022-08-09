@@ -7,22 +7,15 @@ object ReserveUtils {
         return RoomUtils.getRoomCode(area, room)
     }
 
-    fun constructPara(room: Int): String {
-        return "room_id=$room&order_date=${TimeUtils.getToday("/", false)}"
-    }
+    fun constructPara(room: Int) = "room_id=$room&order_date=${TimeUtils.getToday("/", false)}"
 
-    fun constructParaForAddCode(seat_id: String): String {
-        return "seat_id=$seat_id&order_date=${TimeUtils.getToday("/", false)}"
-    }
+    fun constructParaForAddCode(seat_id: String) =
+        "seat_id=$seat_id&order_date=${TimeUtils.getToday("/", false)}"
 
-    fun constructParaForFinalReserve(addCode: String): String {
-        return "addCode=$addCode&method=addSeat"
-    }
+    fun constructParaForFinalReserve(addCode: String) = "addCode=$addCode&method=addSeat"
 
-    fun formatAvailableMap(am: String): String {
-        return am.replace("\r\n\r\n[[", "")
-            .replace("]]\r\n\r\n\r\n\r\n", "")
-            .replace("{", "")
-            .replace("}", "")
-    }
+    fun formatAvailableMap(am: String) = am.replace("\r\n\r\n[[", "")
+        .replace("]]\r\n\r\n\r\n\r\n", "")
+        .replace("{", "")
+        .replace("}", "")
 }

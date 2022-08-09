@@ -44,19 +44,15 @@ object URLManager {
     const val EDU_CHECK_URL = "http://jxgl.dlut.edu.cn/student/ws/student/home-page/students"
     const val EDU_GRADE_INIT_URL = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
 
-    fun getEduGradeUrl(stuId: Int): String {
-        return "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="
-    }
+    fun getEduGradeUrl(stuId: Int) =
+        "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="
 
-    fun constructAvailableUrl(date: String, room: String): String {
-        return "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
-    }
+    fun constructAvailableUrl(date: String, room: String) =
+        "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
 
-    fun getQRUrl(method: String, id: String): String {
-        return "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
-    }
+    fun getQRUrl(method: String, id: String) =
+        "http://seat.lib.dlut.edu.cn/yanxiujian/client/2code.php?method=$method&order_id=$id"
 
-    fun getVCardQRUrl(openid: String): String {
-        return "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
-    }
+    fun getVCardQRUrl(openid: String) =
+        "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 }

@@ -6,7 +6,6 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 
 object GlobalValues {
@@ -30,13 +29,13 @@ object GlobalValues {
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 
     // MediaType
-    val ctJson: MediaType = Constants.CONTENT_TYPE_JSON.toMediaType()
-    val ctSso: MediaType = Constants.CONTENT_TYPE_SSO.toMediaType()
-    val ctVCard: MediaType = Constants.CONTENT_TYPE_VCARD.toMediaType()
+    val ctJson = Constants.CONTENT_TYPE_JSON.toMediaType()
+    val ctSso = Constants.CONTENT_TYPE_SSO.toMediaType()
+    val ctVCard = Constants.CONTENT_TYPE_VCARD.toMediaType()
 
     // Grades
-    var minorVisible: Boolean = false
-    var minorDetected: Boolean = false
+    var minorVisible = false
+    var minorDetected = false
 
     fun initBasic() {
         SPUtils.spLazyMgr.reset()

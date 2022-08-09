@@ -3,7 +3,8 @@ package com.qhy040404.libraryonetap.ui.tools
 import android.os.StrictMode
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -29,7 +30,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        val textViewBath: TextView = findViewById(R.id.textView3)
+        val textViewBath = binding.textView3
         textViewBath.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             bathReserve()
@@ -39,9 +40,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun bathReserve() {
-        val spinner: Spinner = findViewById(R.id.spinner2)
-        val reserve: Button = findViewById(R.id.button15)
-        val textViewBath: TextView = findViewById(R.id.textView3)
+        val spinner = binding.spinner2
+        val reserve = binding.button15
+        val textViewBath = binding.textView3
 
         var targetRoom = 20
         ArrayAdapter.createFromResource(
@@ -55,25 +56,25 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         val des = DesEncryptUtils()
 
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         val time = BathUtils.getBathTime()
 
-        val ltResponse: String = Requests.get(URLManager.BATH_SSO_URL)
-        val ltData: String = try {
+        val ltResponse = Requests.get(URLManager.BATH_SSO_URL)
+        val ltData = try {
             "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
         } catch (_: Exception) {
             ""
         }
-        val ltExecution: String = try {
+        val ltExecution = try {
             ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
         } catch (_: Exception) {
             ""
         }
 
         val rawData = "$id$passwd$ltData"
-        val rsa: String = des.strEnc(rawData, "1", "2", "3")
+        val rsa = des.strEnc(rawData, "1", "2", "3")
 
         Requests.post(
             URLManager.BATH_SSO_URL,

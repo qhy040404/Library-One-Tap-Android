@@ -27,9 +27,7 @@ object Requests {
             .build()
     }
 
-    fun get(url: String): String {
-        return get(url, false)
-    }
+    fun get(url: String) = get(url, false)
 
     fun get(url: String, getUrl: Boolean): String {
         val request = Request.Builder()
@@ -65,9 +63,7 @@ object Requests {
         }
     }
 
-    fun post(url: String, form: String, FORM: MediaType): String {
-        return post(url, form, FORM, false)
-    }
+    fun post(url: String, form: String, FORM: MediaType) = post(url, form, FORM, false)
 
     fun post(url: String, form: String, FORM: MediaType, getUrl: Boolean): String {
         val body = form.toRequestBody(FORM)
@@ -111,7 +107,6 @@ object Requests {
         ltData: String,
         rsa: String,
         execution: String,
-    ): String {
-        return "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=$execution&_eventId=submit"
-    }
+    ) =
+        "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=$execution&_eventId=submit"
 }

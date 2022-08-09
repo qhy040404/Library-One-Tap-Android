@@ -8,12 +8,10 @@ import com.qhy040404.libraryonetap.utils.TimeUtils
 object OrderListData {
     private val today = TimeUtils.getToday("-", true)
 
-    fun getTotal(data: String): String {
-        return try {
-            moshi.adapter(OrderListDataClass::class.java).fromJson(data)?.total!!
-        } catch (_: Exception) {
-            return "0"
-        }
+    fun getTotal(data: String) = try {
+        moshi.adapter(OrderListDataClass::class.java).fromJson(data)?.total!!
+    } catch (_: Exception) {
+        "0"
     }
 
     fun getOrder_id(data: String, mode: String): String {

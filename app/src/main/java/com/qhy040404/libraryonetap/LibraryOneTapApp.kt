@@ -80,15 +80,11 @@ class LibraryOneTapApp : Application() {
     }
 
     fun addActivity(activity: Activity) {
-        if (!activityList.contains(activity)) {
-            activityList.add(activity)
-        }
+        if (!activityList.contains(activity)) activityList.add(activity)
     }
 
     fun removeActivity(activity: Activity) {
-        if (activityList.contains(activity)) {
-            activityList.remove(activity)
-        }
+        if (activityList.contains(activity)) activityList.remove(activity)
     }
 
     fun exit() {

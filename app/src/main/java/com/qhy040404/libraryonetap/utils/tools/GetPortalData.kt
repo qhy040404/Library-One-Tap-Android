@@ -28,13 +28,13 @@ object GetPortalData {
         var loginSuccess = false
 
         while (!loginSuccess) {
-            val ltResponse: String = Requests.get(URLManager.PORTAL_SSO_URL)
-            val ltData: String = try {
+            val ltResponse = Requests.get(URLManager.PORTAL_SSO_URL)
+            val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
                 ""
             }
-            val ltExecution: String = try {
+            val ltExecution = try {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
             } catch (_: Exception) {
                 ""
@@ -42,7 +42,7 @@ object GetPortalData {
 
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                val rsa = des.strEnc(rawData, "1", "2", "3")
 
                 Requests.post(
                     URLManager.PORTAL_SSO_URL,

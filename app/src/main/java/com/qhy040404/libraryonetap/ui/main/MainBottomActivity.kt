@@ -31,23 +31,20 @@ import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentIte
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewContainer,
+class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(),
+    INavViewContainer,
     IAppBarContainer {
     private val navViewBehavior by lazy { HideBottomViewOnScrollBehavior<BottomNavigationView>() }
 
     override fun onResume() {
         super.onResume()
-        if (GlobalValues.minorDetected) {
-            recreate()
-        }
+        if (GlobalValues.minorDetected) recreate()
     }
 
     override fun init() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = AppUtils.setTitle(this)
-        if (!GlobalValues.md3) {
-            binding.toolbar.setTitleTextColor(getColor(R.color.white))
-        }
+        if (!GlobalValues.md3) binding.toolbar.setTitleTextColor(getColor(R.color.white))
 
         binding.apply {
             root.bringChildToFront(binding.appbar)

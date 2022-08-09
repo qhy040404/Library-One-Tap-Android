@@ -20,11 +20,9 @@ object TimeUtils {
         return year + separator + month + separator + day
     }
 
-    private fun timeSingleToDouble(sTime: Int): String {
-        return if (sTime >= 10) {
-            sTime.toString()
-        } else {
-            "0$sTime"
-        }
+    private fun timeSingleToDouble(sTime: Int) = if (sTime >= 10) {
+        sTime.toString()
+    } else {
+        "0$sTime"
     }
 }

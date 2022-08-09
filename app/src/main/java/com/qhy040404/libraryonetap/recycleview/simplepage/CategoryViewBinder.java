@@ -38,7 +38,6 @@ public class CategoryViewBinder extends ItemViewBinder<Category, CategoryViewBin
     }
 
     public static class CGViewHolder extends RecyclerView.ViewHolder {
-
         public final TextView category;
         public final ImageButton actionIcon;
 

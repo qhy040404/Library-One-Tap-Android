@@ -27,9 +27,8 @@ object Toasty {
     }
 
     @AnyThread
-    fun showShort(context: Context, @StringRes res: Int) {
+    fun showShort(context: Context, @StringRes res: Int) =
         showShort(context, context.getString(res))
-    }
 
     @AnyThread
     fun showLong(context: Context, message: String) {
@@ -42,9 +41,8 @@ object Toasty {
     }
 
     @AnyThread
-    fun showLong(context: Context, @StringRes res: Int) {
+    fun showLong(context: Context, @StringRes res: Int) =
         showLong(context, context.getString(res))
-    }
 
     @Suppress("deprecation")
     @MainThread

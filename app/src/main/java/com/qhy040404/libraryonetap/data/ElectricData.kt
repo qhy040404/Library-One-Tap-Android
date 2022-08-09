@@ -6,21 +6,17 @@ import com.qhy040404.libraryonetap.data.model.ElectricDataClass
 
 @Suppress("SpellCheckingInspection")
 object ElectricData {
-    fun getSSMC(data: String): String {
-        return try {
-            moshi.adapter(ElectricDataClass::class.java)
-                .fromJson(data)?.dormitoryInfo_list!![0].SSMC!!
-        } catch (_: Exception) {
-            Constants.GLOBAL_ERROR
-        }
+    fun getSSMC(data: String) = try {
+        moshi.adapter(ElectricDataClass::class.java)
+            .fromJson(data)?.dormitoryInfo_list!![0].SSMC!!
+    } catch (_: Exception) {
+        Constants.GLOBAL_ERROR
     }
 
-    fun getResele(data: String): String {
-        return try {
-            moshi.adapter(ElectricDataClass::class.java)
-                .fromJson(data)?.dormitoryInfo_list!![0].resele!!
-        } catch (_: Exception) {
-            Constants.GLOBAL_ERROR
-        }
+    fun getResele(data: String) = try {
+        moshi.adapter(ElectricDataClass::class.java)
+            .fromJson(data)?.dormitoryInfo_list!![0].resele!!
+    } catch (_: Exception) {
+        Constants.GLOBAL_ERROR
     }
 }

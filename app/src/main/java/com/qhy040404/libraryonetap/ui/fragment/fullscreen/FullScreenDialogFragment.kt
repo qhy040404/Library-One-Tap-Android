@@ -22,7 +22,7 @@ class FullScreenDialogFragment(private val message: String) :
         binding.pmDetail.text = message
     }
 
-    override fun isCancelable(): Boolean = false
+    override fun isCancelable() = false
 
-    override fun onBackPressed(): Boolean = true
+    override fun onBackPressed() = true
 }

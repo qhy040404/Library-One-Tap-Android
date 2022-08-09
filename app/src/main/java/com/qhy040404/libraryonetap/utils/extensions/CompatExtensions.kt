@@ -7,11 +7,10 @@ import java.lang.reflect.ParameterizedType
 
 object CompatExtensions {
     @Suppress("UNCHECKED_CAST")
-    fun <T : ViewBinding> LifecycleOwner.inflateBinding(inflater: LayoutInflater): T {
-        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments
+    fun <T : ViewBinding> LifecycleOwner.inflateBinding(inflater: LayoutInflater): T =
+        (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments
             .filterIsInstance<Class<T>>()
             .first()
             .getDeclaredMethod("inflate", LayoutInflater::class.java)
             .invoke(null, inflater) as T
-    }
 }

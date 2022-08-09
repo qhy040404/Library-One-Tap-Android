@@ -42,7 +42,6 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
     }
 
     public static class CIViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
         protected @NonNull
         final SimplePageActivity activity;
         public final TextView name;

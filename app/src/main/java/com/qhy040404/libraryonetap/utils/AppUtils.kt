@@ -4,7 +4,6 @@ import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
-import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.util.Log
 import androidx.annotation.StringRes
@@ -19,12 +18,10 @@ import rikka.material.app.DayNightDelegate
 import java.util.*
 
 object AppUtils {
-    fun getNightMode(modeString: String): Int {
-        return when (modeString) {
-            "on" -> DayNightDelegate.MODE_NIGHT_YES
-            "off" -> DayNightDelegate.MODE_NIGHT_NO
-            else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-        }
+    fun getNightMode(modeString: String) = when (modeString) {
+        "on" -> DayNightDelegate.MODE_NIGHT_YES
+        "off" -> DayNightDelegate.MODE_NIGHT_NO
+        else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
     }
 
     var locale: Locale = Locale.getDefault()
@@ -40,9 +37,8 @@ object AppUtils {
             SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
         }
 
-    fun setTitle(ctx: Context): Spannable {
-        return SpannableStringBuilder(ctx.getString(R.string.app_name)).toSpannable()
-    }
+    fun setTitle(ctx: Context) =
+        SpannableStringBuilder(ctx.getString(R.string.app_name)).toSpannable()
 
     fun getThemeID(theme: String): Int {
         return when (theme) {
@@ -96,11 +92,7 @@ object AppUtils {
         }
     }
 
-    fun pass() {
-        Log.i("Pass", "Slack off")
-    }
+    fun pass() = Log.i("Pass", "Slack off")
 
-    fun getResString(@StringRes resId: Int): String {
-        return LibraryOneTapApp.app.getString(resId)
-    }
+    fun getResString(@StringRes resId: Int) = LibraryOneTapApp.app.getString(resId)
 }

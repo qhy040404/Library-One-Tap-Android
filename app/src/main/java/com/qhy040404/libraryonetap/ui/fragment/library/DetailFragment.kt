@@ -4,10 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.StrictMode
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
@@ -40,7 +36,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView: TextView = binding.textView
+        val textView = binding.textView
         textView.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             detail()
@@ -53,33 +49,33 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     private suspend fun detail() {
         val textView = binding.textView
         val leave = binding.button4
-        val tempLeave: Button = binding.button5
-        val enter: Button = binding.button6
-        val imageView: ImageView = binding.imageView
-        val refresh: Button = binding.button7
-        val cancel: Button = binding.button10
-        val reserve: Button = binding.button11
-        val reset: Button = binding.button9
-        val tempReset: Button = binding.button14
-        val progressBar: ProgressBar = binding.progressBar
+        val tempLeave = binding.button5
+        val enter = binding.button6
+        val imageView = binding.imageView
+        val refresh = binding.button7
+        val cancel = binding.button10
+        val reserve = binding.button11
+        val reset = binding.button9
+        val tempReset = binding.button14
+        val progressBar = binding.progressBar
 
         val des = DesEncryptUtils()
 
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         var loginSuccess = false
         var timer = 0
         var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData: String = try {
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
+            val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
                 ""
             }
-            val ltExecution: String = try {
+            val ltExecution = try {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
             } catch (_: Exception) {
                 ""
@@ -87,7 +83,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                val rsa = des.strEnc(rawData, "1", "2", "3")
 
                 delay(200L)
 
@@ -98,8 +94,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 )
             }
 
-            val session: String =
-                Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+            val session = Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
             if (SessionData.isSuccess(session)) {
                 progressBar.post { progressBar.visibility = View.INVISIBLE }
                 loginSuccess = true

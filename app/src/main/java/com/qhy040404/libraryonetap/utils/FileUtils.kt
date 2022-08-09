@@ -33,13 +33,9 @@ object FileUtils {
         return file != null && (!file.exists() || file.isFile && file.delete())
     }
 
-    fun getFileSize(file: File): Long {
-        return getFileSize(file.path)
-    }
+    fun getFileSize(file: File) = getFileSize(file.path)
 
-    private fun getFileSize(path: String): Long {
-        return runCatching {
-            Files.size(Paths.get(path))
-        }.getOrDefault(0L)
-    }
+    private fun getFileSize(path: String) = runCatching {
+        Files.size(Paths.get(path))
+    }.getOrDefault(0L)
 }

@@ -18,5 +18,5 @@ object PackageUtils {
     val versionCode = packInfo.longVersionCode
     val versionName: String = packInfo.versionName
 
-    val buildType: String = appInfo.metaData.getString("Channel").toString()
+    val buildType = appInfo.metaData.getString("Channel").toString()
 }

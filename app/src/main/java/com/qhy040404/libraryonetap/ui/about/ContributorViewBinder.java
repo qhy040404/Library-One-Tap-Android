@@ -50,7 +50,6 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
     }
 
     public static class CBViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
         public final ImageView avatar;
         public final TextView name;
         public final TextView desc;

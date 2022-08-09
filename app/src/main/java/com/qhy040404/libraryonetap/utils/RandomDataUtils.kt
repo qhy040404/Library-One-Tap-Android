@@ -5,12 +5,10 @@ import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import java.util.*
 
 object RandomDataUtils {
-    fun getNum(numCount: Int): Int {
-        return if (numCount > 0) {
-            Random().nextInt(numCount)
-        } else {
-            0
-        }
+    fun getNum(numCount: Int) = if (numCount > 0) {
+        Random().nextInt(numCount)
+    } else {
+        0
     }
 
     val randomTheme by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {

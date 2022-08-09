@@ -5,8 +5,8 @@ import java.util.*
 object BathUtils {
     fun getBathTime(): Int {
         val calendar: Calendar = Calendar.getInstance()
-        val hour: Int = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute: Int = calendar.get(Calendar.MINUTE)
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
 
         return when (hour) {
             9 -> when (minute) {

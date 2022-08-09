@@ -99,13 +99,13 @@ class ReserveDialog {
 
         var loginSuccess = false
         while (!loginSuccess) {
-            val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData: String = try {
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
+            val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
                 ""
             }
-            val ltExecution: String = try {
+            val ltExecution = try {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
             } catch (_: Exception) {
                 ""
@@ -113,7 +113,7 @@ class ReserveDialog {
 
             if (ltData != "") {
                 val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                val rsa = des.strEnc(rawData, "1", "2", "3")
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,
@@ -126,7 +126,7 @@ class ReserveDialog {
                 )
             }
 
-            val session: String = Requests.post(
+            val session = Requests.post(
                 URLManager.LIBRARY_SESSION_URL, "",
                 GlobalValues.ctSso
             )
@@ -137,12 +137,11 @@ class ReserveDialog {
                 ctx.showToast(R.string.fail_to_login)
             }
         }
-        val addCodeOrigin =
-            Requests.post(
-                URLManager.LIBRARY_RESERVE_URL,
-                ReserveUtils.constructPara(target),
-                GlobalValues.ctVCard
-            )
+        val addCodeOrigin = Requests.post(
+            URLManager.LIBRARY_RESERVE_URL,
+            ReserveUtils.constructPara(target),
+            GlobalValues.ctVCard
+        )
         val addCode = ReserveData.getAddCode(addCodeOrigin)
         Requests.post(
             URLManager.LIBRART_RESERVE_FINAL_URL,

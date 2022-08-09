@@ -36,7 +36,6 @@ import rikka.widget.borderview.BorderViewDelegate
 import java.util.*
 
 class SettingsFragment : PreferenceFragmentCompat(), IListController {
-
     private lateinit var borderViewDelegate: BorderViewDelegate
     private lateinit var prefRecyclerView: RecyclerView
 
@@ -181,9 +180,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         val lp = recyclerView.layoutParams
         if (lp is FrameLayout.LayoutParams) {
-            lp.rightMargin =
-                recyclerView.context.resources.getDimension(rikka.material.R.dimen.rd_activity_horizontal_margin)
-                    .toInt()
+            lp.rightMargin = recyclerView.context.resources
+                .getDimension(rikka.material.R.dimen.rd_activity_horizontal_margin)
+                .toInt()
             lp.leftMargin = lp.rightMargin
         }
 

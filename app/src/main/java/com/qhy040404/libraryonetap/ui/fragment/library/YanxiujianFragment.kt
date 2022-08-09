@@ -3,10 +3,6 @@ package com.qhy040404.libraryonetap.ui.fragment.library
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
@@ -32,7 +28,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView2: TextView = binding.textView2
+        val textView2 = binding.textView2
         textView2.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             yanxiujian()
@@ -43,28 +39,28 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
     @SuppressLint("SetTextI18n")
     private suspend fun yanxiujian() {
-        val textView2: TextView = binding.textView2
-        val imageView2: ImageView = binding.imageView2
-        val refresh2: Button = binding.button12
-        val progressBar2: ProgressBar = binding.progressBar2
+        val textView2 = binding.textView2
+        val imageView2 = binding.imageView2
+        val refresh2 = binding.button12
+        val progressBar2 = binding.progressBar2
 
         val des = DesEncryptUtils()
 
-        val id: String = GlobalValues.id
-        val passwd: String = GlobalValues.passwd
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
 
         var loginSuccess = false
         var timer = 0
         var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse: String = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData: String = try {
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
+            val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
                 ""
             }
-            val ltExecution: String = try {
+            val ltExecution = try {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
             } catch (_: Exception) {
                 ""
@@ -72,7 +68,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
-                val rsa: String = des.strEnc(rawData, "1", "2", "3")
+                val rsa = des.strEnc(rawData, "1", "2", "3")
 
                 delay(200L)
 
@@ -83,8 +79,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 )
             }
 
-            val session: String =
-                Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
+            val session = Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
             if (SessionData.isSuccess(session)) {
                 progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                 loginSuccess = true
@@ -127,10 +122,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
                 override fun onResponse(call: Call, response: Response) {
                     val picture_bt = response.body!!.bytes()
-                    val pictureInput = response.body!!.byteStream()
                     val bitmap = BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                     imageView2.post { imageView2.setImageBitmap(bitmap) }
-                    pictureInput.close()
                 }
             })
             textView2.post {

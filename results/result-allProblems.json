@@ -1,1 +1,85 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"showLongToast\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/extensions/ContextExtension.kt",
+      "language": "kotlin",
+      "line": 20,
+      "offset": 17,
+      "length": 13,
+      "code": {
+        "startLine": 18,
+        "length": 13,
+        "offset": 32,
+        "surroundingCode": "\n    @AnyThread\n    fun Context.showLongToast(message: String) {\n        Toasty.showLong(this, message)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8d078df672ef95050993dcfa634ccfe7ce3b560180df2b386da279a8c9189c30"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Object \"ContextExtension\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/extensions/ContextExtension.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 8,
+      "length": 16,
+      "code": {
+        "startLine": 6,
+        "length": 16,
+        "offset": 56,
+        "surroundingCode": "import com.qhy040404.libraryonetap.utils.Toasty\n\nobject ContextExtension {\n    @AnyThread\n    fun Context.showToast(message: String) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "1c51538185ba0f68bb0cd53814fb574c7b24181887c3ecac9206eae02e5a994e"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"showLongToast\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/extensions/ContextExtension.kt",
+      "language": "kotlin",
+      "line": 25,
+      "offset": 17,
+      "length": 13,
+      "code": {
+        "startLine": 23,
+        "length": 13,
+        "offset": 32,
+        "surroundingCode": "\n    @AnyThread\n    fun Context.showLongToast(@StringRes res: Int) {\n        Toasty.showLong(this, res)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8e6f4aae02ea0201b8578722447c4f012dce2f0576d247505538083a02acdc6d"
+}]}

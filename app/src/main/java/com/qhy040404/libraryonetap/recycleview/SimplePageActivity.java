@@ -71,8 +71,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
                 if (!initialized) {
                     throw new NullPointerException("You must call syncRecycleView() #onCreate");
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ignored) {
             }
         }
     });

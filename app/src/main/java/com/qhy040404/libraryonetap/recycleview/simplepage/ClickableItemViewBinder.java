@@ -68,8 +68,7 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
                 intent.setData(Uri.parse(data.url));
                 try {
                     v.getContext().startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-                    e.printStackTrace();
+                } catch (ActivityNotFoundException ignored) {
                 }
             }
         }

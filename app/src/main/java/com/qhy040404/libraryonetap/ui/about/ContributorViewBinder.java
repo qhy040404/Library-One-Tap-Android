@@ -78,8 +78,7 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
                 intent.setData(parse(data.url));
                 try {
                     v.getContext().startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-                    e.printStackTrace();
+                } catch (ActivityNotFoundException ignored) {
                 }
             }
         }

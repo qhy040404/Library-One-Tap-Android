@@ -76,7 +76,6 @@ class GradesMinorActivity : SimplePageActivity() {
                     ))
                 }
                 GradesTempValues.secondStartCount = count
-
             }
         }
     }

@@ -1,12 +1,14 @@
 package com.qhy040404.libraryonetap.utils.tools
 
-import org.json.JSONObject
+import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.toJson
 
 object VolunteerUtils {
     fun createVolunteerPostData(name: String, id: String): String {
-        val data = JSONObject()
-        data.put("name", name)
-        data.put("stu_id", id)
-        return data.toString()
+        return VolunteerDataClass(name, id).toJson().toString()
     }
+
+    data class VolunteerDataClass(
+        val name: String? = null,
+        val stu_id: String? = null,
+    )
 }

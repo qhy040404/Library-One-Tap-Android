@@ -86,7 +86,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 progressBar2.post { progressBar2.visibility = View.INVISIBLE }
                 loginSuccess = true
             } else {
-                Requests.netLazyMgr.reset()
                 timer++
                 if (timer >= 3) {
                     textView2.post {

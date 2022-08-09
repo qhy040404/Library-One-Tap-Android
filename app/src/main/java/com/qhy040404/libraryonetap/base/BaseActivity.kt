@@ -34,6 +34,11 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity() {
         init()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        LibraryOneTapApp.instance?.removeActivity(this)
+    }
+
     override fun shouldApplyTranslucentSystemBars(): Boolean {
         return true
     }

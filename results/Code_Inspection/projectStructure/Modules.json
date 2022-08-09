@@ -56,6 +56,16 @@
           ]
         },
         {
+          "path": "file://$PROJECT_DIR$/app/build/generated/data_binding_trigger/debug",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/build/generated/data_binding_trigger/debug",
+              "type": "GeneratedSource",
+              "packagePrefix": ""
+            }
+          ]
+        },
+        {
           "path": "file://$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out",
           "sourceFolders": []
         },
@@ -129,11 +139,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "name": "Gradle: androidx.databinding:databinding-common:7.2.2",
           "type": "Library"
         },
         {
@@ -145,15 +151,23 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.collection:collection:1.2.0",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
           "type": "Library"
         },
         {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.collection:collection:1.2.0",
           "type": "Library"
         },
         {
@@ -185,6 +199,54 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: androidx.databinding:databinding-runtime:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-adapters:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-ktx:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
           "type": "Library"
         },
@@ -201,19 +263,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
           "type": "Library"
         },
         {
           "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -237,15 +291,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -266,14 +312,6 @@
         },
         {
           "name": "Gradle: androidx.loader:loader:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
           "type": "Library"
         },
         {
@@ -508,11 +546,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "name": "Gradle: androidx.databinding:databinding-common:7.2.2",
           "type": "Library"
         },
         {
@@ -524,15 +558,23 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.collection:collection:1.2.0",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
           "type": "Library"
         },
         {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.collection:collection:1.2.0",
           "type": "Library"
         },
         {
@@ -564,6 +606,54 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: androidx.databinding:databinding-runtime:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-adapters:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-ktx:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
           "type": "Library"
         },
@@ -580,19 +670,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
           "type": "Library"
         },
         {
           "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -616,15 +698,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -645,14 +719,6 @@
         },
         {
           "name": "Gradle: androidx.loader:loader:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
           "type": "Library"
         },
         {
@@ -901,6 +967,26 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: androidx.databinding:databinding-common:7.2.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.arch.core:core-common:2.1.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-common:2.5.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
@@ -921,23 +1007,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.arch.core:core-common:2.1.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-common:2.5.1",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.collection:collection:1.1.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -969,6 +1039,50 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: androidx.databinding:databinding-runtime:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-adapters:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.databinding:databinding-ktx:7.2.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
           "type": "Library"
         },
@@ -985,19 +1099,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
           "type": "Library"
         },
         {
           "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -1021,15 +1127,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -1050,14 +1148,6 @@
         },
         {
           "name": "Gradle: androidx.loader:loader:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.arch.core:core-runtime:2.0.0@aar",
           "type": "Library"
         },
         {

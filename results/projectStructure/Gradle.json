@@ -34,20 +34,12 @@
       "version": "13.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "ideaName": "Gradle: androidx.databinding:databinding-common:7.2.2",
+      "gradleName": "androidx.databinding:databinding-common:7.2.2",
       "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-jdk8",
-      "version": "1.7.10"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-jdk7",
-      "version": "1.7.10"
+      "groupId": "androidx.databinding",
+      "artifactId": "databinding-common",
+      "version": "7.2.2"
     },
     {
       "ideaName": "Gradle: androidx.arch.core:core-common:2.1.0",
@@ -66,14 +58,6 @@
       "version": "2.5.1"
     },
     {
-      "ideaName": "Gradle: androidx.collection:collection:1.2.0",
-      "gradleName": "androidx.collection:collection:1.2.0",
-      "unresolved": false,
-      "groupId": "androidx.collection",
-      "artifactId": "collection",
-      "version": "1.2.0"
-    },
-    {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
       "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
       "unresolved": false,
@@ -88,6 +72,30 @@
       "groupId": "org.jetbrains.kotlinx",
       "artifactId": "kotlinx-coroutines-core-jvm",
       "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-jdk8",
+      "version": "1.7.10"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-jdk7",
+      "version": "1.7.10"
+    },
+    {
+      "ideaName": "Gradle: androidx.collection:collection:1.2.0",
+      "gradleName": "androidx.collection:collection:1.2.0",
+      "unresolved": false,
+      "groupId": "androidx.collection",
+      "artifactId": "collection",
+      "version": "1.2.0"
     },
     {
       "ideaName": "Gradle: androidx.collection:collection-ktx:1.1.0",
@@ -143,6 +151,66 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: androidx.databinding:databinding-runtime:7.2.2@aar",
+      "gradleName": "androidx.databinding:databinding-runtime:7.2.2@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.databinding:databinding-adapters:7.2.2@aar",
+      "gradleName": "androidx.databinding:databinding-adapters:7.2.2@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.databinding:databinding-ktx:7.2.2@aar",
+      "gradleName": "androidx.databinding:databinding-ktx:7.2.2@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-livedata:2.2.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
+      "gradleName": "androidx.arch.core:core-runtime:2.1.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-process:2.4.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
+      "gradleName": "androidx.startup:startup-runtime:1.0.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-service:2.2.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+      "unresolved": false
+    },
+    {
       "ideaName": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
       "gradleName": "androidx.constraintlayout:constraintlayout:2.1.4@aar",
       "unresolved": false
@@ -163,11 +231,6 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
-      "unresolved": false
-    },
-    {
       "ideaName": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
       "gradleName": "androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
       "unresolved": false
@@ -175,11 +238,6 @@
     {
       "ideaName": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
       "gradleName": "androidx.core:core-splashscreen:1.0.0@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
       "unresolved": false
     },
     {
@@ -208,18 +266,8 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
-      "unresolved": false
-    },
-    {
       "ideaName": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
       "gradleName": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
       "unresolved": false
     },
     {
@@ -245,16 +293,6 @@
     {
       "ideaName": "Gradle: androidx.loader:loader:1.0.0@aar",
       "gradleName": "androidx.loader:loader:1.0.0@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-livedata:2.0.0@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
-      "gradleName": "androidx.arch.core:core-runtime:2.1.0@aar",
       "unresolved": false
     },
     {
@@ -504,8 +542,8 @@
       "version": "1.1.0"
     },
     {
-      "ideaName": "Gradle: androidx.arch.core:core-runtime:2.0.0@aar",
-      "gradleName": "androidx.arch.core:core-runtime:2.0.0@aar",
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-process:2.2.0@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-process:2.2.0@aar",
       "unresolved": false
     },
     {

@@ -23,6 +23,8 @@ class AboutActivity : AbsAboutActivityProxy() {
     private var headCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_MaterialComponents_DayNight_NoActionBar_Library)
+
         super.onCreate(savedInstanceState)
         initView()
     }
@@ -184,7 +186,7 @@ class AboutActivity : AbsAboutActivityProxy() {
         findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
 
         val color = getColor(if (AppUtils.currentIsNightMode(this)) {
-            R.color.black
+            R.color.about_black
         } else {
             R.color.library_500
         })

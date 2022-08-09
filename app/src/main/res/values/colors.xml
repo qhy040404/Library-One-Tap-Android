@@ -5,6 +5,7 @@
     <color name="translucent">#00000000</color>
     <color name="ic_launcher_foreground">#FFFFFF</color>
     <color name="ic_launcher_background">#FF104287</color>
+    <color name="about_black">#121212</color>
 
     <color name="colorPrimary">@color/blue_500</color>
     <color name="colorPrimaryMd3">@color/blue_500</color>

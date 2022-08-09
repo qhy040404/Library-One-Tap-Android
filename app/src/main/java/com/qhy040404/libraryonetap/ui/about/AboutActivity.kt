@@ -47,7 +47,10 @@ class AboutActivity : AbsAboutActivityProxy() {
                     Toast.makeText(this, "点坏了啊喂！", Toast.LENGTH_SHORT).show()
                 }
                 in 11..19 -> {}
-                20 -> slogan.text = SECRET
+                20 -> {
+                    slogan.text = SECRET
+                    Toast.makeText(this, "你有本事继续点", Toast.LENGTH_SHORT).show()
+                }
                 else -> startActivity(Intent(this, SecretActivity::class.java))
             }
         }

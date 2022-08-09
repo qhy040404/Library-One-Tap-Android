@@ -6,6 +6,7 @@ import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -15,6 +16,7 @@ import com.qhy040404.libraryonetap.utils.tools.QRUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     override fun init() = initView()
@@ -38,7 +40,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         }
     }
 
-    private fun vCard() {
+    private suspend fun vCard() {
         val imageView = binding.imageView3
         val textView = binding.textView4
         val refresh = binding.button18
@@ -51,9 +53,25 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
         Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
-        val openid = Requests.getVCard(URLManager.VCARD_OPENID_URL)
-            .split("<input id=\"openid\" value=\"")[1]
-            .split("\" type=\"hidden\">")[0]
+        val openid = try {
+            Requests.getVCard(URLManager.VCARD_OPENID_URL)
+                .split("<input id=\"openid\" value=\"")[1]
+                .split("\" type=\"hidden\">")[0]
+        } catch (_: Exception) {
+            withContext(Dispatchers.Main)
+            {
+                MaterialAlertDialogBuilder(this@VCardActivity)
+                    .setTitle(R.string.vcard_title)
+                    .setMessage(R.string.fail_to_login_three_times)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        finish()
+                    }
+                    .setCancelable(false)
+                    .create()
+                    .show()
+            }
+            return
+        }
 
         val qrUrl = URLManager.getVCardQRUrl(openid)
 

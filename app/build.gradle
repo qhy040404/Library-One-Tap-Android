@@ -31,6 +31,7 @@ android {
 
         all {
             buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
+            buildConfigField("String", "BUGLY_APPID", "\"${getBuglyAppID()}\"")
         }
     }
     compileOptions {
@@ -84,6 +85,10 @@ dependencies {
 }
 
 import java.text.SimpleDateFormat
+
+private static String getBuglyAppID() {
+    return System.getenv("BUGLY_APPID")
+}
 
 private static String getBuildTime() {
     Date date = new Date()

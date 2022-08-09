@@ -9,7 +9,6 @@ import coil.ImageLoader
 import com.absinthe.libraries.utils.utils.Utility
 import com.google.android.material.color.DynamicColors
 import com.qhy040404.libraryonetap.app.AppIconFetcherFactory
-import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
@@ -33,7 +32,7 @@ class LibraryOneTapApp : Application() {
 
         CrashReport.initCrashReport(
             applicationContext,
-            Constants.BUGLY_APPID,
+            BuildConfig.BUGLY_APPID,
             BuildConfig.DEBUG,
             strategy
         )

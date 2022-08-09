@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   push:
 
+env:
+  BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
+
 jobs:
   qodana:
     runs-on: ubuntu-latest

@@ -30,6 +30,9 @@ on:
       - '.github/workflows/code_quality.yml'
       - '.github/workflows/nightly-merge.yml'
 
+env:
+  BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
+
 jobs:
   check:
     name: Check

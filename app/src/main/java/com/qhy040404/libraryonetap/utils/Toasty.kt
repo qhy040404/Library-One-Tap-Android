@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference
 
 object Toasty {
     private val handler = Handler(Looper.getMainLooper())
-    private var toast: Toast? = null
+    var toast: Toast? = null
 
     @AnyThread
     fun showShort(context: Context, message: String) {

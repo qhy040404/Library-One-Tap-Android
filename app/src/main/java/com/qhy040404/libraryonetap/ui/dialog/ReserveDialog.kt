@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
+import com.qhy040404.libraryonetap.utils.Toasty
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -97,6 +98,7 @@ class ReserveDialog {
 
         val des = DesEncryptUtils()
 
+        var timer = 0
         var loginSuccess = false
         while (!loginSuccess) {
             val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
@@ -132,9 +134,19 @@ class ReserveDialog {
             )
             if (SessionData.isSuccess(session)) {
                 loginSuccess = true
-                ctx.showToast(R.string.loaded)
             } else {
+                timer++
                 ctx.showToast(R.string.fail_to_login)
+                if (timer >= 3) {
+                    Toasty.toast?.cancel()
+                    MaterialAlertDialogBuilder(ctx)
+                        .setTitle(R.string.library)
+                        .setMessage(R.string.fail_to_login_three_times)
+                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setCancelable(true)
+                        .create()
+                        .show()
+                }
             }
         }
         val addCodeOrigin = Requests.post(

@@ -5,14 +5,26 @@ import com.qhy040404.libraryonetap.data.model.VolunteerDataClass
 
 object VolunteerData {
     fun getSameID(data: String): Int {
-        return moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.numSameID!!
+        return try {
+            moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.numSameID!!
+        } catch (_: Exception) {
+            -1
+        }
     }
 
     fun getSameName(data: String): Int {
-        return moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.numSameName!!
+        return try {
+            moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.numSameName!!
+        } catch (_: Exception) {
+            -1
+        }
     }
 
     fun getTotalHours(data: String): Double {
-        return moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.totalDuration!!
+        return try {
+            moshi.adapter(VolunteerDataClass::class.java).fromJson(data)?.totalDuration!!
+        } catch (_: Exception) {
+            -1.0
+        }
     }
 }

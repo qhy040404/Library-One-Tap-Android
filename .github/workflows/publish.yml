@@ -300,7 +300,7 @@ jobs:
           tag: ${{ github.ref_name }}
           template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
           fore-delimiter: ${{ github.ref_name }}
-          back-delimiter: 'v'
+          back-delimiter: '---'
 
       - name: Create GitHub release
         id: github_release
@@ -377,7 +377,7 @@ jobs:
           tag: ${{ github.ref_name }}
           template-data: '* This is automated GitHub deployment, human-readable changelog should be available soon.'
           fore-delimiter: ${{ github.ref_name }}
-          back-delimiter: 'v'
+          back-delimiter: '---'
 
       - name: Create Github release
         id: github_release

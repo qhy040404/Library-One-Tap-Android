@@ -6,4 +6,6 @@
     <dimen name="simple_page_recommendation_icon_size">48dp</dimen>
     <dimen name="simple_page_bottom_sheet_item_height">48dp</dimen>
     <dimen name="simple_page_item_category_padding_horizontal">16dp</dimen>
+
+    <dimen name="toast_radius">24dp</dimen>
 </resources>

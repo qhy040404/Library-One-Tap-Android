@@ -2,9 +2,9 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.app.Activity
 import android.content.pm.PackageManager
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 
 object PermissionUtils {
     fun checkPermission(activity: Activity, permission: Array<String>): Boolean {
@@ -19,7 +19,7 @@ object PermissionUtils {
     }
 
     private fun requestPermission(s: Array<String>, activity: Activity) {
-        Toast.makeText(activity, R.string.permission_prompt, Toast.LENGTH_SHORT).show()
+        activity.showToast(R.string.permission_prompt)
         ActivityCompat.requestPermissions(activity, s, 100)
     }
 }

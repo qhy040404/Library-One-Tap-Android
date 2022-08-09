@@ -5,7 +5,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import coil.load
 import com.drakeet.about.Category
@@ -17,6 +16,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 
 @Suppress("SpellCheckingInspection")
 class AboutActivity : AbsAboutActivityProxy() {
@@ -42,16 +42,16 @@ class AboutActivity : AbsAboutActivityProxy() {
         icon.setOnClickListener {
             headCount++
             when (headCount) {
-                1 -> Toast.makeText(this, "点我干啥？", Toast.LENGTH_SHORT).show()
+                1 -> showToast("点我干啥？")
                 in 2..9 -> {}
                 10 -> {
                     slogan.text = MIDDLE_SECRET
-                    Toast.makeText(this, "点坏了啊喂！", Toast.LENGTH_SHORT).show()
+                    showToast("点坏了啊喂！")
                 }
                 in 11..19 -> {}
                 20 -> {
                     slogan.text = SECRET
-                    Toast.makeText(this, "你有本事继续点", Toast.LENGTH_SHORT).show()
+                    showToast("你有本事继续点")
                 }
                 else -> startActivity(Intent(this, SecretActivity::class.java))
             }

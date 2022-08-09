@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -25,6 +24,7 @@ import com.qhy040404.libraryonetap.ui.interfaces.IListController
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
@@ -142,8 +142,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             summary = CacheUtils.getCacheSize()
             setOnPreferenceClickListener {
                 CacheUtils.trimCaches()
-                Toast.makeText(requireContext(), R.string.cache_cleared, Toast.LENGTH_SHORT)
-                    .show()
+                requireContext().showToast(R.string.cache_cleared)
                 summary = "0.00 K"
                 true
             }

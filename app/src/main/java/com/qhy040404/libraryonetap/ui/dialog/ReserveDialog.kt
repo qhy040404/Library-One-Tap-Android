@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -17,6 +16,7 @@ import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
@@ -132,9 +132,9 @@ class ReserveDialog {
             )
             if (SessionData.isSuccess(session)) {
                 loginSuccess = true
-                Toast.makeText(ctx, R.string.loaded, Toast.LENGTH_SHORT).show()
+                ctx.showToast(R.string.loaded)
             } else {
-                Toast.makeText(ctx, R.string.fail_to_login, Toast.LENGTH_SHORT).show()
+                ctx.showToast(R.string.fail_to_login)
             }
         }
         val addCodeOrigin =

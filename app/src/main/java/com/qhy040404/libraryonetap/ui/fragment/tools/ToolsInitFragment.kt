@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.ui.fragment.tools
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -19,6 +18,7 @@ import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
@@ -51,7 +51,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 @Suppress("SpellCheckingInspection")
                 if (netName == "<unknown ssid>") {
                     if (PermissionUtils.checkPermission(requireActivity(), permission)) {
-                        Toast.makeText(requireContext(), R.string.error, Toast.LENGTH_SHORT).show()
+                        requireContext().showToast(R.string.error)
                     }
                 } else if (netName == "DLUT-LingShui") {
                     if (AppUtils.checkDataAndDialog(requireContext(),
@@ -163,9 +163,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checked) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(),
-                    R.string.loading,
-                    Toast.LENGTH_SHORT).show()
+                requireContext().showToast(R.string.loading)
             }
 
             val data: String = GetPortalData.getPortalData(id, passwd, 1)
@@ -205,9 +203,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checked) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(),
-                    R.string.loading,
-                    Toast.LENGTH_SHORT).show()
+                requireContext().showToast(R.string.loading)
             }
 
             val data: String = GetPortalData.getPortalData(id, passwd, 0)
@@ -243,9 +239,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checked) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(),
-                    R.string.loading,
-                    Toast.LENGTH_SHORT).show()
+                requireContext().showToast(R.string.loading)
             }
 
             val postData =

@@ -8,8 +8,8 @@ import androidx.fragment.app.DialogFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IFragment
 
 abstract class BaseDialogFragment : DialogFragment(), IFragment {
-    var onDismissListener: DialogInterface.OnDismissListener? = null
-    var onCancelListener: DialogInterface.OnCancelListener? = null
+    private var onDismissListener: DialogInterface.OnDismissListener? = null
+    private var onCancelListener: DialogInterface.OnCancelListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).apply {

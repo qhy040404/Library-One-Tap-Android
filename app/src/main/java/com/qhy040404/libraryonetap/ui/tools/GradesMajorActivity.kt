@@ -111,6 +111,7 @@ class GradesMajorActivity : SimplePageActivity() {
 
             var loginSuccess = false
             var timer = 0
+            var majorStuId = 0
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse: String = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
                 val ltData: String = try {
@@ -166,12 +167,23 @@ class GradesMajorActivity : SimplePageActivity() {
                     val initList =
                         initData.split("onclick=\"myFunction(this)\" value=\"")
                     if (initList.size == 3) {
-                        GradesTempValues.secondStuId = initList[2].split("\"")[0].toInt()
-                        if (!GlobalValues.minorVisible) {
-                            GlobalValues.minorDetected = true
+                        val aStuId = initList[1].split("\"")[0].toInt()
+                        val bStuId = initList[2].split("\"")[0].toInt()
+                        when {
+                            aStuId > bStuId -> {
+                                GradesTempValues.secondStuId = aStuId
+                                if (!GlobalValues.minorVisible) GlobalValues.minorDetected = true
+                                majorStuId = bStuId
+                            }
+                            bStuId > aStuId -> {
+                                GradesTempValues.secondStuId = bStuId
+                                if (!GlobalValues.minorVisible) GlobalValues.minorDetected = true
+                                majorStuId = aStuId
+                            }
+                            else -> throw IllegalStateException("Illegal Student ID")
                         }
                     }
-                    initList[1].split("\"")[0].toInt()
+                    majorStuId
                 }
 
                 Thread.sleep(3000L)

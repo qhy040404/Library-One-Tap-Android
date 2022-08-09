@@ -38,34 +38,6 @@
       "type": "file",
       "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/library/DetailFragment.kt",
       "language": "kotlin",
-      "line": 185,
-      "offset": 42,
-      "length": 5,
-      "code": {
-        "startLine": 183,
-        "length": 5,
-        "offset": 215,
-        "surroundingCode": "                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)\n                            imageView.post { imageView.setImageBitmap(bitmap) }\n                            pictureInput.close()\n                        }\n                    })"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "图书馆.app.main",
-    "inspectionName": "BlockingMethodInNonBlockingContext"
-  },
-  "hash": "fdfc426d0e306aebd2e3378c1e4a91ef4a6e75023232a19ec049cc88417cd84b"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Possibly blocking call in non-blocking context",
-  "severity": "High",
-  "comment": "Possibly blocking call in non-blocking context could lead to thread starvation",
-  "detailsInfo": "Reports thread-blocking method calls in code fragments where threads should not be blocked.\n\n**Example (Project Reactor):**\n\n\n    Flux.just(\"1\").flatMap(f -> {\n        Flux<String> just = loadUsersFromDatabase();\n        just.toIterable(); // Error: blocking operator call in non-blocking scope\n        return just;\n      }\n    );\n\nConsider running blocking code [with a proper\nscheduler](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking), for example `Schedulers.boundedElastic()`, or try to find an alternative non-blocking API.\n\n**Example (Kotlin Coroutines):**\n\n\n    suspend fun exampleFun() {\n        Thread.sleep(100); // Error: blocking method call inside suspend function\n    }\n\nConsider running blocking code [with a special dispatcher](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html),\nfor example `Dispatchers.IO`, or try to find an alternative non-blocking API.\n\nConfigure the inspection:\n\n* In the **Blocking Annotations** list, specify annotations that mark thread-blocking methods.\n* In the **Non-Blocking Annotations** list, specify annotations that mark non-blocking methods.\n\nSpecified annotations can be used as [External Annotations](https://www.jetbrains.com/help/idea/external-annotations.html)",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/library/DetailFragment.kt",
-      "language": "kotlin",
       "line": 206,
       "offset": 42,
       "length": 5,
@@ -82,4 +54,32 @@
     "inspectionName": "BlockingMethodInNonBlockingContext"
   },
   "hash": "6f09def676576737be711bafb32e709c24ab24df26692c03afc6b0a7b38062d2"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Possibly blocking call in non-blocking context",
+  "severity": "High",
+  "comment": "Possibly blocking call in non-blocking context could lead to thread starvation",
+  "detailsInfo": "Reports thread-blocking method calls in code fragments where threads should not be blocked.\n\n**Example (Project Reactor):**\n\n\n    Flux.just(\"1\").flatMap(f -> {\n        Flux<String> just = loadUsersFromDatabase();\n        just.toIterable(); // Error: blocking operator call in non-blocking scope\n        return just;\n      }\n    );\n\nConsider running blocking code [with a proper\nscheduler](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking), for example `Schedulers.boundedElastic()`, or try to find an alternative non-blocking API.\n\n**Example (Kotlin Coroutines):**\n\n\n    suspend fun exampleFun() {\n        Thread.sleep(100); // Error: blocking method call inside suspend function\n    }\n\nConsider running blocking code [with a special dispatcher](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html),\nfor example `Dispatchers.IO`, or try to find an alternative non-blocking API.\n\nConfigure the inspection:\n\n* In the **Blocking Annotations** list, specify annotations that mark thread-blocking methods.\n* In the **Non-Blocking Annotations** list, specify annotations that mark non-blocking methods.\n\nSpecified annotations can be used as [External Annotations](https://www.jetbrains.com/help/idea/external-annotations.html)",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/library/DetailFragment.kt",
+      "language": "kotlin",
+      "line": 185,
+      "offset": 42,
+      "length": 5,
+      "code": {
+        "startLine": 183,
+        "length": 5,
+        "offset": 215,
+        "surroundingCode": "                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)\n                            imageView.post { imageView.setImageBitmap(bitmap) }\n                            pictureInput.close()\n                        }\n                    })"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "BlockingMethodInNonBlockingContext"
+  },
+  "hash": "fdfc426d0e306aebd2e3378c1e4a91ef4a6e75023232a19ec049cc88417cd84b"
 }]}

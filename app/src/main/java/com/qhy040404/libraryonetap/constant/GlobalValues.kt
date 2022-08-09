@@ -6,8 +6,8 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
-import com.qhy040404.libraryonetap.utils.web.Requests
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 
 object GlobalValues {
     // SharedPreferences
@@ -30,9 +30,9 @@ object GlobalValues {
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 
     // MediaType
-    val ctJson: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_JSON)
-    val ctSso: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_SSO)
-    val ctVCard: MediaType = Requests.strToMT(Constants.CONTENT_TYPE_VCARD)
+    val ctJson: MediaType = Constants.CONTENT_TYPE_JSON.toMediaType()
+    val ctSso: MediaType = Constants.CONTENT_TYPE_SSO.toMediaType()
+    val ctVCard: MediaType = Constants.CONTENT_TYPE_VCARD.toMediaType()
 
     // Grades
     var minorVisible: Boolean = false

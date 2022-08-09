@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.utils.web
 
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
@@ -26,10 +25,6 @@ object Requests {
                 }
             })
             .build()
-    }
-
-    fun strToMT(ori: String): MediaType {
-        return ori.toMediaType()
     }
 
     fun get(url: String): String {

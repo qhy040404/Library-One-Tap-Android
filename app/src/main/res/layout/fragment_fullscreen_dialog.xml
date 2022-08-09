@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_transparent_30">
+
+        <ImageView
+            android:id="@+id/pm_dialog"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/bg_fs_dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/pm_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/pic_splash"
+            app:layout_constraintStart_toStartOf="@+id/pm_dialog"
+            app:layout_constraintTop_toTopOf="@+id/pm_dialog" />
+
+        <TextView
+            android:id="@+id/pm_slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="@string/about_slogan"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/pm_logo"
+            app:layout_constraintStart_toEndOf="@+id/pm_logo"
+            app:layout_constraintTop_toTopOf="@+id/pm_logo" />
+
+        <TextView
+            android:id="@+id/pm_detail"
+            android:layout_width="337dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pm_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

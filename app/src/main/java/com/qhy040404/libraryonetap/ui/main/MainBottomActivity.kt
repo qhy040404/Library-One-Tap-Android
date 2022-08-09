@@ -16,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
 import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
@@ -162,6 +163,7 @@ class MainBottomActivity : BaseActivity<ActivityMainBottomBinding>(), INavViewCo
         if (requestCode == 100) {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    GlobalManager.permissionFullScrFragment.dismiss()
                     MaterialAlertDialogBuilder(this)
                         .setMessage(R.string.permission_got)
                         .setTitle(R.string.bath_title)

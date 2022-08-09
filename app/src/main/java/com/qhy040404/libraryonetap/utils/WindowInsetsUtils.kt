@@ -4,6 +4,7 @@ import android.view.WindowInsets
 import androidx.core.view.WindowInsetsCompat
 import com.qhy040404.libraryonetap.annotation.InsetsParams
 
+@Suppress("DEPRECATION")
 object WindowInsetsUtils {
     fun getSystemBars(): Int {
         return if (OsUtils.atLeastR()) {

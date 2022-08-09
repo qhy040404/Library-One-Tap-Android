@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-xxxhdpi/bg_toast.xml" value="0.1" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/bg_fs_dialog.xml" value="0.3235" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic____1.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about.xml" value="0.3215" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about_foreground.xml" value="0.3305" />
@@ -37,6 +38,7 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_volunteer.xml" value="0.3175" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/shape_fillet_translucent.xml" value="0.292" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/simplepage_card.xml" value="0.1465" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/splash_drawable.xml" value="0.326" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/white_back_btn.xml" value="0.321" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_bath_reserve.xml" value="0.33" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/activity_desWebview.xml" value="0.25" />
@@ -53,6 +55,7 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_progressbar_juhua.xml" value="0.35507246376811596" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_reserve.xml" value="0.15892857142857142" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_detail.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_fullscreen_dialog.xml" value="0.29713552800342025" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_tools.xml" value="0.29628046173578454" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_yanxiujian.xml" value="0.29713552800342025" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/preference_recyclerview.xml" value="0.1" />

@@ -50,7 +50,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
                 @Suppress("SpellCheckingInspection")
                 if (netName == "<unknown ssid>") {
-                    if (PermissionUtils.checkPermission(requireActivity(), permission)) {
+                    if (PermissionUtils.checkPermission(requireActivity(),
+                            permission,
+                            childFragmentManager)
+                    ) {
                         requireContext().showToast(R.string.error)
                     }
                 } else if (netName == "DLUT-LingShui") {

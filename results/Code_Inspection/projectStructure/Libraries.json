@@ -745,6 +745,18 @@
         "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a8d925ce1c3eac0ca8cd328e2e755df5/transformed/transition-1.2.0/res",
         "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a8d925ce1c3eac0ca8cd328e2e755df5/transformed/transition-1.2.0/AndroidManifest.xml"
       ]
+    },
+    {
+      "name": "Gradle: junit:junit:4.13.2",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.hamcrest:hamcrest-core:1.3",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/"
+      ]
     }
   ]
 }

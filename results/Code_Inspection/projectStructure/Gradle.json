@@ -526,6 +526,22 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: junit:junit:4.13.2",
+      "gradleName": "junit:junit:4.13.2",
+      "unresolved": false,
+      "groupId": "junit",
+      "artifactId": "junit",
+      "version": "4.13.2"
+    },
+    {
+      "ideaName": "Gradle: org.hamcrest:hamcrest-core:1.3",
+      "gradleName": "org.hamcrest:hamcrest-core:1.3",
+      "unresolved": false,
+      "groupId": "org.hamcrest",
+      "artifactId": "hamcrest-core",
+      "version": "1.3"
+    },
+    {
       "ideaName": "Gradle: androidx.annotation:annotation:1.3.0",
       "gradleName": "androidx.annotation:annotation:1.3.0",
       "unresolved": false,

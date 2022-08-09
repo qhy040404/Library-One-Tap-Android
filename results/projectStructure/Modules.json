@@ -509,7 +509,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/src/test",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/src/test/java",
+              "type": "TestSource",
+              "packagePrefix": ""
+            }
+          ]
         },
         {
           "path": "file://$PROJECT_DIR$/app/src/testDebug",
@@ -599,6 +605,14 @@
         },
         {
           "name": "Gradle: com.squareup.okhttp3:okhttp:4.10.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: junit:junit:4.13.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.hamcrest:hamcrest-core:1.3",
           "type": "Library"
         },
         {

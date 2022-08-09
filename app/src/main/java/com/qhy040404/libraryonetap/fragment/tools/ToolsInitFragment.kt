@@ -32,7 +32,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.tools_list, rootKey)
 
-        if (GlobalValues.minorDetected) {
+        if (GlobalValues.minorDetected || GlobalValues.minorVisible) {
             findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
             GlobalValues.minorVisible = true
             GlobalValues.minorDetected = false

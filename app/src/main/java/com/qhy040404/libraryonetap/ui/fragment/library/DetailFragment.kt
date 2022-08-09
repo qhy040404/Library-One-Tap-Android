@@ -27,6 +27,7 @@ import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
@@ -49,7 +50,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun detail() {
+    private suspend fun detail() {
         val textView = binding.textView
         val leave = binding.button4
         val tempLeave: Button = binding.button5
@@ -87,6 +88,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
+
+                delay(200L)
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,

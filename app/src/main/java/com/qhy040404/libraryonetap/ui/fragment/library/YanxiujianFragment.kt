@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
@@ -41,7 +42,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun yanxiujian() {
+    private suspend fun yanxiujian() {
         val textView2: TextView = binding.textView2
         val imageView2: ImageView = binding.imageView2
         val refresh2: Button = binding.button12
@@ -72,6 +73,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             if (ltData != "") {
                 val rawData = "$id$passwd$ltData"
                 val rsa: String = des.strEnc(rawData, "1", "2", "3")
+
+                delay(200L)
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,

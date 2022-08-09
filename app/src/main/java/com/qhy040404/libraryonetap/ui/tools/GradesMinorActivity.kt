@@ -130,6 +130,8 @@ class GradesMinorActivity : SimplePageActivity() {
                     val rawData = "$id$passwd$ltData"
                     val rsa: String = des.strEnc(rawData, "1", "2", "3")
 
+                    Thread.sleep(200L)
+
                     Requests.post(
                         URLManager.EDU_LOGIN_SSO_URL,
                         Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),

@@ -34,6 +34,7 @@ import rikka.widget.borderview.BorderRecyclerView
 import rikka.widget.borderview.BorderView
 import rikka.widget.borderview.BorderViewDelegate
 import java.util.*
+import kotlin.system.exitProcess
 
 class SettingsFragment : PreferenceFragmentCompat(), IListController {
     private lateinit var borderViewDelegate: BorderViewDelegate
@@ -125,6 +126,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
                                 AppUtils.clearAppData(LibraryOneTapApp.app)
+                                exitProcess(0)
                             }
                             .setCancelable(false)
                             .create()

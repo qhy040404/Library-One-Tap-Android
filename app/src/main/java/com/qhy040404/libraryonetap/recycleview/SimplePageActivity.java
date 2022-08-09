@@ -31,7 +31,6 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.OnClickableItemClickedListener;
-import com.qhy040404.libraryonetap.utils.WindowInsetsCompatUtils;
 import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
 
 import java.util.ArrayList;
@@ -143,9 +142,9 @@ public abstract class SimplePageActivity extends MaterialActivity {
                 );
             }
 
-            insetLeft = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
-            insetRight = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
-            insetTop = WindowInsetsCompatUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
+            insetLeft = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
+            insetRight = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
+            insetTop = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
 
             decorView.setPadding(insetLeft, decorView.getPaddingTop(), insetRight, decorView.getPaddingBottom());
             appBarLayout.setPadding(appBarLayout.getPaddingLeft(), insetTop, appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());

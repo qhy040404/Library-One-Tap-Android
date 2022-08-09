@@ -10,11 +10,11 @@
       "type": "file",
       "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/library/DetailFragment.kt",
       "language": "kotlin",
-      "line": 227,
+      "line": 185,
       "offset": 42,
       "length": 5,
       "code": {
-        "startLine": 225,
+        "startLine": 183,
         "length": 5,
         "offset": 215,
         "surroundingCode": "                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)\n                            imageView.post { imageView.setImageBitmap(bitmap) }\n                            pictureInput.close()\n                        }\n                    })"
@@ -25,7 +25,7 @@
     "module": "图书馆.app.main",
     "inspectionName": "BlockingMethodInNonBlockingContext"
   },
-  "hash": "e5d65a2abf46a97acb05706c72e7eaa55d3f129696edda9e33a1b932f7cef00c"
+  "hash": "fdfc426d0e306aebd2e3378c1e4a91ef4a6e75023232a19ec049cc88417cd84b"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -66,11 +66,11 @@
       "type": "file",
       "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/library/DetailFragment.kt",
       "language": "kotlin",
-      "line": 185,
+      "line": 227,
       "offset": 42,
       "length": 5,
       "code": {
-        "startLine": 183,
+        "startLine": 225,
         "length": 5,
         "offset": 215,
         "surroundingCode": "                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)\n                            imageView.post { imageView.setImageBitmap(bitmap) }\n                            pictureInput.close()\n                        }\n                    })"
@@ -81,5 +81,5 @@
     "module": "图书馆.app.main",
     "inspectionName": "BlockingMethodInNonBlockingContext"
   },
-  "hash": "fdfc426d0e306aebd2e3378c1e4a91ef4a6e75023232a19ec049cc88417cd84b"
+  "hash": "e5d65a2abf46a97acb05706c72e7eaa55d3f129696edda9e33a1b932f7cef00c"
 }]}

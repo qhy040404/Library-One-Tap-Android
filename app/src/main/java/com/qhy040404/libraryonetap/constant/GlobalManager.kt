@@ -15,6 +15,7 @@ object GlobalManager {
     val moshi: Moshi = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .build()
-    val permissionFullScrFragment =
-        FullScreenDialogFragment(AppUtils.getResString(R.string.permission_prompt))
+
+    val bathPermissionFullScrFragment =
+        FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt))
 }

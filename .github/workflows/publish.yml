@@ -293,7 +293,7 @@ jobs:
 
       - name: Generate release body
         continue-on-error: true
-        uses: qhy040404/auto-generate-release-body@v1.1.0
+        uses: qhy040404/auto-generate-release-body@v1.1.2
         with:
           changelog: 'Changelog.md'
           template: '.github/RELEASE_TEMPLATE.md'
@@ -370,7 +370,7 @@ jobs:
 
       - name: Generate release body
         continue-on-error: true
-        uses: qhy040404/auto-generate-release-body@v1.1.0
+        uses: qhy040404/auto-generate-release-body@v1.1.2
         with:
           changelog: 'Changelog.md'
           template: '.github/RELEASE_TEMPLATE.md'

@@ -174,7 +174,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val remainFee = NetData.getFee(data)
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
-            val netMessage = if (AppUtils.isError(remainFee, usedNet, remainNet)) {
+            val netMessage = if (!AppUtils.isError(remainFee, usedNet, remainNet)) {
                 AppUtils.getResString(R.string.remain_net_fee) + remainFee +
                         AppUtils.getResString(R.string.rmb) + "\n" +
                         AppUtils.getResString(R.string.used_net) + usedNet +
@@ -217,7 +217,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             @Suppress("SpellCheckingInspection", "LocalVariableName")
             val SSMC = ElectricData.getSSMC(data)
             val remainElectric = ElectricData.getResele(data)
-            val electricMessage = if (AppUtils.isError(SSMC, remainElectric)) {
+            val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
                 SSMC + "\n" +
                         AppUtils.getResString(R.string.remain_electric) + remainElectric +
                         AppUtils.getResString(R.string.degree)

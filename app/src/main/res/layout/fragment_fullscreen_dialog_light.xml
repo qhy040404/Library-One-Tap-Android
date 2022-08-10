@@ -45,6 +45,7 @@
             android:layout_width="337dp"
             android:layout_height="75dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

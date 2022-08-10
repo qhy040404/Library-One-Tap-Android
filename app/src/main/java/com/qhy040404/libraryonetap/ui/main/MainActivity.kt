@@ -157,10 +157,10 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        GlobalManager.permissionFullScrFragment.dismiss()
         if (requestCode == 100) {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    GlobalManager.permissionFullScrFragment.dismiss()
                     MaterialAlertDialogBuilder(this)
                         .setMessage(R.string.permission_got)
                         .setTitle(R.string.bath_title)

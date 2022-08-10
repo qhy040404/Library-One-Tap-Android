@@ -5,10 +5,10 @@ import android.view.Gravity
 import android.view.ViewGroup
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.base.BaseBindingDialogFragment
-import com.qhy040404.libraryonetap.databinding.FragmentFullscreenDialogLightBinding
+import com.qhy040404.libraryonetap.databinding.FragmentFullscreenDialogBinding
 
-class FullScreenDialogFragmentLight(private val message: String) :
-    BaseBindingDialogFragment<FragmentFullscreenDialogLightBinding>() {
+class FullScreenDialogFragment(private val message: String) :
+    BaseBindingDialogFragment<FragmentFullscreenDialogBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LibraryOneTapApp.instance?.addFragment(this)

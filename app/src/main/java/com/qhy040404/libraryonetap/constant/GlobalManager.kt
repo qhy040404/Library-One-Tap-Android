@@ -3,7 +3,7 @@ package com.qhy040404.libraryonetap.constant
 import android.content.pm.PackageManager
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragmentLight
+import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import com.squareup.moshi.Moshi
@@ -16,6 +16,6 @@ object GlobalManager {
         .addLast(KotlinJsonAdapterFactory())
         .build()
 
-    val bathPermissionFullScrFragmentLight =
-        FullScreenDialogFragmentLight(AppUtils.getResString(R.string.bath_permission_prompt))
+    val bathPermissionFullScrFragment =
+        FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt))
 }

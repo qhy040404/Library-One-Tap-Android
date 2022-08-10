@@ -5,7 +5,7 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
 import com.qhy040404.libraryonetap.constant.GlobalManager
-import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragmentLight
+import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
 
 object PermissionUtils {
     fun checkPermission(
@@ -20,7 +20,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    GlobalManager.bathPermissionFullScrFragmentLight)
+                    GlobalManager.bathPermissionFullScrFragment)
             }
         }
         return hasPermission
@@ -30,7 +30,7 @@ object PermissionUtils {
         s: Array<String>,
         activity: Activity,
         fragmentMgr: FragmentManager,
-        fsFragment: FullScreenDialogFragmentLight,
+        fsFragment: FullScreenDialogFragment,
     ) {
         fsFragment.show(fragmentMgr, null)
         ActivityCompat.requestPermissions(activity, s, 100)

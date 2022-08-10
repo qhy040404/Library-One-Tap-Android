@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-night/bg_fs_dialog.xml" value="0.231" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable-xxxhdpi/bg_toast.xml" value="0.1" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/bg_fs_dialog.xml" value="0.3235" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/bg_fs_dialog_dark.xml" value="0.33" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic____1.xml" value="0.188" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about.xml" value="0.3215" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/drawable/ic_about_foreground.xml" value="0.3305" />
@@ -56,6 +58,8 @@
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/dialog_reserve.xml" value="0.15892857142857142" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_detail.xml" value="0.29713552800342025" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_fullscreen_dialog.xml" value="0.29713552800342025" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_fullscreen_dialog_dark.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_fullscreen_dialog_light.xml" value="0.36216779572694113" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_tools.xml" value="0.29628046173578454" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/fragment_yanxiujian.xml" value="0.29713552800342025" />
         <entry key="..\:/AndroidProjs/Library/app/src/main/res/layout/preference_recyclerview.xml" value="0.1" />

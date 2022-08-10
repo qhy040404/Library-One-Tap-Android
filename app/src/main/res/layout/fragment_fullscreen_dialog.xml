@@ -35,7 +35,7 @@
             android:layout_marginStart="10dp"
             android:gravity="center"
             android:text="@string/about_slogan"
-            android:textColor="@color/black"
+            android:textColor="@color/fullscreen_text"
             app:layout_constraintBottom_toBottomOf="@+id/pm_logo"
             app:layout_constraintStart_toEndOf="@+id/pm_logo"
             app:layout_constraintTop_toTopOf="@+id/pm_logo" />
@@ -45,7 +45,7 @@
             android:layout_width="337dp"
             android:layout_height="75dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textColor="@color/fullscreen_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

@@ -20,7 +20,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    GlobalManager.bathPermissionFullScrFragment)
+                    GlobalManager.bathPermissionFullScrFragmentLight)
             }
         }
         return hasPermission

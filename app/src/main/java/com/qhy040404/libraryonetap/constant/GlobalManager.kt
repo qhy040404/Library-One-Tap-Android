@@ -16,6 +16,6 @@ object GlobalManager {
         .addLast(KotlinJsonAdapterFactory())
         .build()
 
-    val bathPermissionFullScrFragment =
+    val bathPermissionFullScrFragmentLight =
         FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt))
 }

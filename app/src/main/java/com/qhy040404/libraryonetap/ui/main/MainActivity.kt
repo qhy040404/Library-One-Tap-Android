@@ -13,10 +13,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
 import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
@@ -157,7 +157,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        GlobalManager.permissionFullScrFragment.dismiss()
+        LibraryOneTapApp.instance?.dismissFragment()
         if (requestCode == 100) {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {

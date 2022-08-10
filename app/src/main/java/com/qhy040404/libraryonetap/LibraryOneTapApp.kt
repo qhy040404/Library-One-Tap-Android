@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import androidx.fragment.app.DialogFragment
 import coil.Coil
 import coil.ImageLoader
 import com.absinthe.libraries.utils.utils.Utility
@@ -22,6 +23,7 @@ import kotlin.system.exitProcess
 
 class LibraryOneTapApp : Application() {
     private val activityList: MutableList<Activity> = LinkedList()
+    private val fragmentList: MutableList<DialogFragment> = LinkedList()
     private var delayTerminateJob: Job? = null
 
     override fun onCreate() {
@@ -85,6 +87,17 @@ class LibraryOneTapApp : Application() {
 
     fun removeActivity(activity: Activity) {
         if (activityList.contains(activity)) activityList.remove(activity)
+    }
+
+    fun addFragment(fragment: DialogFragment) {
+        if (!fragmentList.contains(fragment)) fragmentList.add(fragment)
+    }
+
+    fun dismissFragment() {
+        for (fragment in fragmentList) {
+            fragment.dismiss()
+        }
+        fragmentList.clear()
     }
 
     fun exit() {

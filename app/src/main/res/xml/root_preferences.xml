@@ -36,7 +36,7 @@
             app:key="md3"
             app:title="@string/md3" />
         <rikka.preference.SimpleMenuPreference
-            app:defaultValue="blue"
+            app:defaultValue="library"
             app:entries="@array/themes"
             app:entryValues="@array/themes_value"
             app:icon="@drawable/ic_color_palette"

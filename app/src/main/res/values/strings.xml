@@ -59,7 +59,7 @@
     <string name="network_env_limit">请在校园网环境下使用此功能</string>
     <string name="request_sent">已发送预约请求</string>
 
-    <string name="permission_prompt">需要获取此权限来获得WIFI的SSID</string>
+    <string name="bath_permission_prompt">需要获取此权限来获得WIFI的SSID，从而检测是否在校园网环境中</string>
     <string name="permission_got">已成功获取权限，请重新点击按钮</string>
     <string name="permission_fail">获取权限失败，请到设置中手动开启</string>
 

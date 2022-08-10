@@ -59,7 +59,7 @@
     <string name="network_env_limit">Please use this function in the campus network environment</string>
     <string name="request_sent">Appointment request has been sent</string>
 
-    <string name="permission_prompt">We need this permission to get SSID of WIFI</string>
+    <string name="bath_permission_prompt">We need this permission to get SSID of WIFI, so as to detect whether it is in the campus network environment</string>
     <string name="permission_got">Permission successfully obtained, please click the button again</string>
     <string name="permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
 

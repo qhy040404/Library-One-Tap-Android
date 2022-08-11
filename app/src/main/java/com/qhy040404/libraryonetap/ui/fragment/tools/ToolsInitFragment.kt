@@ -70,7 +70,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .setMessage(R.string.network_env_limit)
                         .setTitle(R.string.bath_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .create()
                         .show()
                 }

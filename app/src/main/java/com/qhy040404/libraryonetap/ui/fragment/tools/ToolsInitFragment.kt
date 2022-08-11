@@ -40,39 +40,40 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             setOnPreferenceClickListener {
-                val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
-                    "WIFI" -> NetworkStateUtils.getSSID(requireContext())
-                    "Cellular" -> "Cellular"
-                    else -> "Error"
-                }
-
-                val permission: Array<String> = arrayOf("android.permission.ACCESS_FINE_LOCATION")
-
-                @Suppress("SpellCheckingInspection")
-                if (netName == "<unknown ssid>") {
-                    if (PermissionUtils.checkPermission(requireActivity(),
-                            permission,
-                            childFragmentManager)
-                    ) {
-                        requireContext().showToast(R.string.error)
+                if (AppUtils.checkDataAndDialog(requireContext(),
+                        GlobalValues.id,
+                        GlobalValues.passwd,
+                        R.string.tools,
+                        R.string.no_userdata)
+                ) {
+                    val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
+                        "WIFI" -> NetworkStateUtils.getSSID(requireContext())
+                        "Cellular" -> "Cellular"
+                        else -> "Error"
                     }
-                } else if (netName == "DLUT-LingShui") {
-                    if (AppUtils.checkDataAndDialog(requireContext(),
-                            GlobalValues.id,
-                            GlobalValues.passwd,
-                            R.string.tools,
-                            R.string.no_userdata)
-                    ) {
+
+                    val permission: Array<String> =
+                        arrayOf("android.permission.ACCESS_FINE_LOCATION")
+
+                    @Suppress("SpellCheckingInspection")
+                    if (netName == "<unknown ssid>") {
+                        if (PermissionUtils.checkPermission(requireActivity(),
+                                permission,
+                                childFragmentManager)
+                        ) {
+                            requireContext().showToast(R.string.error)
+                        }
+                    } else if (netName == "DLUT-LingShui") {
                         startActivity(Intent(requireContext(), BathReserveActivity::class.java))
+                    } else {
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setMessage(R.string.network_env_limit)
+                            .setTitle(R.string.bath_title)
+                            .setPositiveButton(R.string.ok) { _, _ -> }
+                            .setCancelable(true)
+                            .create()
+                            .show()
                     }
-                } else {
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.network_env_limit)
-                        .setTitle(R.string.bath_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
-                        .setCancelable(true)
-                        .create()
-                        .show()
                 }
                 true
             }
@@ -171,11 +172,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
-        val checked = AppUtils.checkDataAndDialog(requireContext(),
-            id,
-            passwd,
-            R.string.tools,
-            R.string.no_userdata)
+        val checked = withContext(Dispatchers.Main) {
+            AppUtils.checkDataAndDialog(requireContext(),
+                id,
+                passwd,
+                R.string.tools,
+                R.string.no_userdata)
+        }
 
         if (checked) {
             withContext(Dispatchers.Main) {
@@ -232,11 +235,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
-        val checked = AppUtils.checkDataAndDialog(requireContext(),
-            id,
-            passwd,
-            R.string.tools,
-            R.string.no_userdata)
+        val checked = withContext(Dispatchers.Main)
+        {
+            AppUtils.checkDataAndDialog(requireContext(),
+                id,
+                passwd,
+                R.string.tools,
+                R.string.no_userdata)
+        }
 
         if (checked) {
             withContext(Dispatchers.Main) {

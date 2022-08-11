@@ -30,8 +30,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        val textViewBath = binding.textView3
-        textViewBath.visibility = View.VISIBLE
+        binding.bathText.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             bathReserve()
         }.also {
@@ -40,9 +39,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun bathReserve() {
-        val spinner = binding.spinner2
-        val reserve = binding.button15
-        val textViewBath = binding.textView3
+        val spinner = binding.bathSpinner
+        val reserve = binding.bathReserve
+        val text = binding.bathText
 
         var targetRoom = 20
         ArrayAdapter.createFromResource(
@@ -82,7 +81,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             GlobalValues.ctSso
         )
 
-        textViewBath.post { textViewBath.text = getString(R.string.loaded) }
+        text.post { text.text = getString(R.string.loaded) }
 
         reserve.post {
             reserve.setOnClickListener {
@@ -112,7 +111,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
                 Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
                 Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
-                textViewBath.post { textViewBath.text = getString(R.string.request_sent) }
+                text.post { text.text = getString(R.string.request_sent) }
             }
         }
 

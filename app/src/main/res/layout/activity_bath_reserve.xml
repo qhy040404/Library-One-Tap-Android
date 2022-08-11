@@ -28,17 +28,17 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/bath_spinner"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_marginBottom="135dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/button15"
-        app:layout_constraintEnd_toEndOf="@+id/button15"
-        app:layout_constraintStart_toStartOf="@+id/button15" />
+        app:layout_constraintBottom_toTopOf="@+id/bath_reserve"
+        app:layout_constraintEnd_toEndOf="@+id/bath_reserve"
+        app:layout_constraintStart_toStartOf="@+id/bath_reserve" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/bath_reserve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bath_reserve"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/bath_text"
         android:layout_width="119dp"
         android:layout_height="57dp"
         android:layout_marginTop="100dp"
@@ -57,7 +57,7 @@
         android:text="@string/loading"
         android:textSize="16sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/button15"
-        app:layout_constraintStart_toStartOf="@+id/button15"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+        app:layout_constraintEnd_toEndOf="@+id/bath_reserve"
+        app:layout_constraintStart_toStartOf="@+id/bath_reserve"
+        app:layout_constraintTop_toBottomOf="@+id/bath_reserve" />
 </androidx.constraintlayout.widget.ConstraintLayout>

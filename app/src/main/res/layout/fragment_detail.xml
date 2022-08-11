@@ -7,7 +7,7 @@
     tools:context=".ui.fragment.library.DetailFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/detail_detail"
         android:layout_width="350dp"
         android:layout_height="130dp"
         android:layout_marginTop="50dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.658" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/detail_leave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FF0606"
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/detail_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="250dp"
@@ -46,24 +46,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintStart_toEndOf="@+id/detail_leave"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/detail_qr"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="130dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/detail_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/detail_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="250dp"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/detail_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -85,10 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_detail" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/detail_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -96,12 +96,12 @@
         android:text="@string/cancel"
         android:textSize="12sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintBottom_toBottomOf="@+id/detail_refresh"
+        app:layout_constraintStart_toEndOf="@+id/detail_refresh"
+        app:layout_constraintTop_toTopOf="@+id/detail_refresh" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/detail_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
@@ -109,51 +109,51 @@
         android:text="@string/reserve"
         android:textSize="12sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintBottom_toBottomOf="@+id/detail_refresh"
+        app:layout_constraintEnd_toStartOf="@+id/detail_refresh"
+        app:layout_constraintTop_toTopOf="@+id/detail_refresh" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/detail_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:clickable="false"
         android:text="@string/reset"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintBottom_toBottomOf="@+id/detail_refresh"
+        app:layout_constraintEnd_toStartOf="@+id/detail_refresh"
+        app:layout_constraintTop_toTopOf="@+id/detail_refresh" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/detail_temp_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:clickable="false"
         android:text="@string/reset"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintBottom_toBottomOf="@+id/detail_refresh"
+        app:layout_constraintEnd_toStartOf="@+id/detail_refresh"
+        app:layout_constraintTop_toTopOf="@+id/detail_refresh" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/detail_loading"
         style="?android:attr/progressBarStyle"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/detail_qr"
+        app:layout_constraintEnd_toEndOf="@+id/detail_qr"
+        app:layout_constraintStart_toStartOf="@+id/detail_qr"
+        app:layout_constraintTop_toTopOf="@+id/detail_qr" />
 
     <TextView
         android:id="@+id/detail_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintBottom_toTopOf="@+id/detail_leave"
+        app:layout_constraintEnd_toEndOf="@+id/detail_qr"
+        app:layout_constraintStart_toStartOf="@+id/detail_qr"
+        app:layout_constraintTop_toBottomOf="@+id/detail_qr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

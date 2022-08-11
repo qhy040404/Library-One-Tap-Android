@@ -33,7 +33,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        binding.textView4.visibility = View.VISIBLE
+        binding.vcardBalance.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             vCard()
         }.also {
@@ -42,10 +42,10 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     }
 
     private suspend fun vCard() {
-        val imageView = binding.imageView3
-        val textView = binding.textView4
-        val refresh = binding.button18
-        val progressBar = binding.progressBar3
+        val qrView = binding.vcardQr
+        val balance = binding.vcardBalance
+        val refresh = binding.vcardRefresh
+        val loading = binding.vcardLoading
 
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
@@ -109,9 +109,9 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             .split("\">")[0]
         val qr = Base64.decode(qrBase64, Base64.DEFAULT)
         val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-        progressBar.post { progressBar.visibility = View.INVISIBLE }
-        imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(bitmap)) }
-        textView.post { textView.text = qrInformation }
+        loading.post { loading.visibility = View.INVISIBLE }
+        qrView.post { qrView.setImageBitmap(QRUtils.toGrayscale(bitmap)) }
+        balance.post { balance.text = qrInformation }
         refresh.post {
             refresh.setOnClickListener {
                 StrictMode.setThreadPolicy(
@@ -133,8 +133,8 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                     .split("\">")[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                imageView.post { imageView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
-                textView.text = newQrInformation
+                qrView.post { qrView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
+                balance.text = newQrInformation
             }
         }
     }

@@ -36,8 +36,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        binding.textView.visibility = View.VISIBLE
-        binding.button7.setOnClickListener {
+        binding.detailDetail.visibility = View.VISIBLE
+        binding.detailRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             GlobalValues.netError = false
             activity?.recreate()
@@ -51,16 +51,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     @SuppressLint("SetTextI18n")
     private suspend fun detail() {
-        val textView = binding.textView
-        val leave = binding.button4
-        val tempLeave = binding.button5
-        val enter = binding.button6
-        val imageView = binding.imageView
-        val cancel = binding.button10
-        val reserve = binding.button11
-        val reset = binding.button9
-        val tempReset = binding.button14
-        val progressBar = binding.progressBar
+        val detail = binding.detailDetail
+        val leave = binding.detailLeave
+        val tempLeave = binding.detailTemp
+        val enter = binding.detailEnter
+        val qr = binding.detailQr
+        val cancel = binding.detailCancel
+        val reserve = binding.detailNew
+        val reset = binding.detailReset
+        val tempReset = binding.detailTempReset
+        val loading = binding.detailLoading
         val type = binding.detailType
 
         val des = DesEncryptUtils()
@@ -73,7 +73,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, textView)
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, detail)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
@@ -100,14 +100,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             val session = Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
             if (SessionData.isSuccess(session)) {
-                progressBar.post { progressBar.visibility = View.INVISIBLE }
+                loading.post { loading.visibility = View.INVISIBLE }
                 loginSuccess = true
             } else {
                 timer++
                 if (timer == 2) Requests.netLazyMgr.reset()
                 if (timer >= 3) {
-                    textView.post {
-                        textView.text =
+                    detail.post {
+                        detail.text =
                             AppUtils.getResString(R.string.fail_to_login_three_times)
                     }
                     failLogin = true
@@ -115,7 +115,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
             }
         }
-        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, textView)
+        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         val total = OrderListData.getTotal(list)
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(list, "2")
@@ -180,7 +180,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val picture_bt = response.body!!.bytes()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
+                            qr.post { qr.setImageBitmap(bitmap) }
                         }
                     })
                     type.post { type.text = AppUtils.getResString(R.string.enter) }
@@ -200,7 +200,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val picture_bt = response.body!!.bytes()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
+                            qr.post { qr.setImageBitmap(bitmap) }
                         }
                     })
                     type.post { type.text = AppUtils.getResString(R.string.leave) }
@@ -220,7 +220,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val picture_bt = response.body!!.bytes()
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            imageView.post { imageView.setImageBitmap(bitmap) }
+                            qr.post { qr.setImageBitmap(bitmap) }
                         }
                     })
                     type.post { type.text = AppUtils.getResString(R.string.temp) }
@@ -294,7 +294,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                         TimeUtils.getToday("/", false),
                                         roomCode
                                     ),
-                                    textView
+                                    detail
                                 )
                             )
                             val amList = availableMap.split(",")
@@ -364,7 +364,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     URLManager.constructAvailableUrl(
                                         TimeUtils.getToday("/", false),
                                         roomCode
-                                    ), textView
+                                    ), detail
                                 )
                             )
                             val amList = availableMap.split(",")
@@ -409,20 +409,20 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         .show()
                 }
             }
-            textView.post {
-                textView.text =
+            detail.post {
+                detail.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
             }
         } else if (!AppUtils.checkData(id, passwd)) {
-            textView.post {
-                textView.text = AppUtils.getResString(R.string.no_userdata)
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.no_userdata)
             }
-            progressBar.post { progressBar.visibility = View.INVISIBLE }
+            loading.post { loading.visibility = View.INVISIBLE }
         } else if (failLogin || GlobalValues.netError) {
             AppUtils.pass()
         } else {
-            textView.post {
-                textView.text = AppUtils.getResString(R.string.login_timeout)
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
     }

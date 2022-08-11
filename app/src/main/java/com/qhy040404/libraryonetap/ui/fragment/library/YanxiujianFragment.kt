@@ -28,8 +28,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        binding.textView2.visibility = View.VISIBLE
-        binding.button12.setOnClickListener {
+        binding.yxjDetail.visibility = View.VISIBLE
+        binding.yxjRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             GlobalValues.netError = false
             activity?.recreate()
@@ -43,9 +43,9 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
     @SuppressLint("SetTextI18n")
     private suspend fun yanxiujian() {
-        val textView2 = binding.textView2
-        val imageView2 = binding.imageView2
-        val progressBar2 = binding.progressBar2
+        val detail = binding.yxjDetail
+        val qr = binding.yxjQr
+        val loading = binding.yxjLoading
 
         val des = DesEncryptUtils()
 
@@ -57,7 +57,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, textView2)
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, detail)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
@@ -84,14 +84,14 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
             val session = Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
             if (SessionData.isSuccess(session)) {
-                progressBar2.post { progressBar2.visibility = View.INVISIBLE }
+                loading.post { loading.visibility = View.INVISIBLE }
                 loginSuccess = true
             } else {
                 timer++
                 if (timer == 2) Requests.netLazyMgr.reset()
                 if (timer >= 3) {
-                    textView2.post {
-                        textView2.text =
+                    detail.post {
+                        detail.text =
                             AppUtils.getResString(R.string.fail_to_login_three_times)
                     }
                     failLogin = true
@@ -99,7 +99,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 }
             }
         }
-        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, textView2)
+        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         val total = OrderListData.getTotal(list)
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(list, "1")
@@ -127,23 +127,23 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 override fun onResponse(call: Call, response: Response) {
                     val picture_bt = response.body!!.bytes()
                     val bitmap = BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                    imageView2.post { imageView2.setImageBitmap(bitmap) }
+                    qr.post { qr.setImageBitmap(bitmap) }
                 }
             })
-            textView2.post {
-                textView2.text =
+            detail.post {
+                detail.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
             }
         } else if (!AppUtils.checkData(id, passwd)) {
-            textView2.post {
-                textView2.text = AppUtils.getResString(R.string.no_userdata)
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.no_userdata)
             }
-            progressBar2.post { progressBar2.visibility = View.INVISIBLE }
+            loading.post { loading.visibility = View.INVISIBLE }
         } else if (failLogin || GlobalValues.netError) {
             AppUtils.pass()
         } else {
-            textView2.post {
-                textView2.text = AppUtils.getResString(R.string.login_timeout)
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.login_timeout)
             }
         }
     }

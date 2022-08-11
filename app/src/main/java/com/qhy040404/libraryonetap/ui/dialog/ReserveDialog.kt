@@ -23,8 +23,8 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 class ReserveDialog {
     fun showAlertDialog(ctx: Activity) {
         val view = LayoutInflater.from(ctx).inflate(R.layout.dialog_reserve, null)
-        val areaSpinner = view.findViewById<Spinner>(R.id.spinner3)
-        val roomSpinner = view.findViewById<Spinner>(R.id.spinner4)
+        val areaSpinner = view.findViewById<Spinner>(R.id.reserve_area)
+        val roomSpinner = view.findViewById<Spinner>(R.id.reserve_room)
 
         var targetRoom = 0
         ArrayAdapter.createFromResource(

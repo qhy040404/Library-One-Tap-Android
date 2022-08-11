@@ -231,11 +231,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
+          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
+          "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
           "type": "Library"
         },
         {
@@ -427,7 +427,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
+          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
           "type": "Library"
         },
         {
@@ -435,7 +435,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
+          "name": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
           "type": "Library"
         },
         {
@@ -652,11 +652,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
+          "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
+          "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
           "type": "Library"
         },
         {
@@ -848,7 +848,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
+          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
           "type": "Library"
         },
         {
@@ -856,7 +856,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
+          "name": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
           "type": "Library"
         },
         {
@@ -1277,7 +1277,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
+          "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
           "type": "Library"
         },
         {
@@ -1285,7 +1285,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
+          "name": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
           "type": "Library"
         },
         {

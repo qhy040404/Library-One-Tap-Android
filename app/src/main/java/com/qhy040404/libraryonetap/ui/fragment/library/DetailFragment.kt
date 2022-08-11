@@ -36,8 +36,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView = binding.textView
-        textView.visibility = View.VISIBLE
+        binding.textView.visibility = View.VISIBLE
+        binding.button7.setOnClickListener {
+            Requests.netLazyMgr.reset()
+            activity?.recreate()
+        }
         lifecycleScope.launch(Dispatchers.IO) {
             detail()
         }.also {
@@ -52,7 +55,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val tempLeave = binding.button5
         val enter = binding.button6
         val imageView = binding.imageView
-        val refresh = binding.button7
         val cancel = binding.button10
         val reserve = binding.button11
         val reset = binding.button9
@@ -415,12 +417,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         } else {
             textView.post {
                 textView.text = AppUtils.getResString(R.string.login_timeout)
-            }
-        }
-        refresh.post {
-            refresh.setOnClickListener {
-                Requests.netLazyMgr.reset()
-                activity?.recreate()
             }
         }
     }

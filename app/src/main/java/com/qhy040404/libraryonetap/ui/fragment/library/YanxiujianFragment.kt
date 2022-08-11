@@ -28,8 +28,11 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     override fun init() = initView()
 
     private fun initView() {
-        val textView2 = binding.textView2
-        textView2.visibility = View.VISIBLE
+        binding.textView2.visibility = View.VISIBLE
+        binding.button12.setOnClickListener {
+            Requests.netLazyMgr.reset()
+            activity?.recreate()
+        }
         lifecycleScope.launch(Dispatchers.IO) {
             yanxiujian()
         }.also {
@@ -41,7 +44,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     private suspend fun yanxiujian() {
         val textView2 = binding.textView2
         val imageView2 = binding.imageView2
-        val refresh2 = binding.button12
         val progressBar2 = binding.progressBar2
 
         val des = DesEncryptUtils()
@@ -141,12 +143,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         } else {
             textView2.post {
                 textView2.text = AppUtils.getResString(R.string.login_timeout)
-            }
-        }
-        refresh2.post {
-            refresh2.setOnClickListener {
-                Requests.netLazyMgr.reset()
-                activity?.recreate()
             }
         }
     }

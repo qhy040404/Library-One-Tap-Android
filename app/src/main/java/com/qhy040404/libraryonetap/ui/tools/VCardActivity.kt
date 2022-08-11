@@ -31,8 +31,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        val textView = binding.textView4
-        textView.visibility = View.VISIBLE
+        binding.textView4.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             vCard()
         }.also {

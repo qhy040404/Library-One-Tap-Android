@@ -1,6 +1,9 @@
 package com.qhy040404.libraryonetap.utils.web
 
+import android.widget.TextView
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
@@ -31,31 +34,41 @@ object Requests {
             .build()
     }
 
-    fun get(url: String) = get(url, false)
+    fun get(url: String, textView: TextView? = null) = get(url, textView, false)
 
-    fun get(url: String, getUrl: Boolean): String {
-        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+    fun get(url: String, textView: TextView? = null, getUrl: Boolean): String {
+        if (!AppUtils.hasNetwork()) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
+            GlobalValues.netError = true
+            return Constants.NET_DISCONNECTED
+        }
         val request = Request.Builder()
             .url(url)
             .get()
             .build()
         try {
             client.newCall(request).execute().use { response ->
-                if (getUrl) {
-                    return response.request.url.toString()
-                }
+                if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
         } catch (e: Exception) {
-            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_ERROR
+            if (e is SocketTimeoutException) {
+                textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+                GlobalValues.netError = true
+                return Constants.NET_TIMEOUT
+            }
+            if (e is UnknownHostException) {
+                textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+                GlobalValues.netError = true
+                return Constants.NET_ERROR
+            }
             e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
 
     fun getVCard(url: String): String {
-        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+        if (!AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
@@ -73,10 +86,21 @@ object Requests {
         }
     }
 
-    fun post(url: String, form: String, FORM: MediaType) = post(url, form, FORM, false)
+    fun post(url: String, form: String, FORM: MediaType, textView: TextView? = null) =
+        post(url, form, FORM, textView, false)
 
-    fun post(url: String, form: String, FORM: MediaType, getUrl: Boolean): String {
-        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+    fun post(
+        url: String,
+        form: String,
+        FORM: MediaType,
+        textView: TextView? = null,
+        getUrl: Boolean,
+    ): String {
+        if (!AppUtils.hasNetwork()) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
+            GlobalValues.netError = true
+            return Constants.NET_DISCONNECTED
+        }
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()
             .url(url)
@@ -84,21 +108,27 @@ object Requests {
             .build()
         try {
             client.newCall(request).execute().use { response ->
-                if (getUrl) {
-                    return response.request.url.toString()
-                }
+                if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
         } catch (e: Exception) {
-            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_ERROR
+            if (e is SocketTimeoutException) {
+                textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+                GlobalValues.netError = true
+                return Constants.NET_TIMEOUT
+            }
+            if (e is UnknownHostException) {
+                textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+                GlobalValues.netError = true
+                return Constants.NET_ERROR
+            }
             e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
 
-    fun postVCard(url: String, form: String, FORM: MediaType): String {
-        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+    fun postVCard(url: String, form: String, FORM: MediaType, textView: TextView? = null): String {
+        if (!AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()
             .url(url)

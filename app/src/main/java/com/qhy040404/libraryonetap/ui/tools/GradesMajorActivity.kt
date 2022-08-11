@@ -7,6 +7,7 @@ import android.widget.ProgressBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
@@ -103,6 +104,20 @@ class GradesMajorActivity : SimplePageActivity() {
                     .penaltyLog().penaltyDeath().build()
             )
 
+            if (!AppUtils.hasNetwork()) {
+                MaterialAlertDialogBuilder(this@GradesMajorActivity)
+                    .setMessage(R.string.net_disconnected)
+                    .setTitle(R.string.net_title)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        finish()
+                    }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+                Looper.loop()
+                return
+            }
+
             val des = DesEncryptUtils()
 
             val id = GlobalValues.id
@@ -145,7 +160,12 @@ class GradesMajorActivity : SimplePageActivity() {
                     if (timer >= 3) {
                         MaterialAlertDialogBuilder(this@GradesMajorActivity)
                             .setTitle(R.string.grade_major_title)
-                            .setMessage(R.string.fail_to_login_three_times)
+                            .setMessage(when (session) {
+                                Constants.NET_DISCONNECTED -> R.string.net_disconnected
+                                Constants.NET_ERROR -> R.string.net_error
+                                Constants.NET_TIMEOUT -> R.string.net_timeout
+                                else -> R.string.fail_to_login_three_times
+                            })
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 finish()
                             }
@@ -158,7 +178,7 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
-                val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, true)
+                val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                 val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
                 val stuId = if (initUrl.contains("semester-index")) {
                     initUrl.split("/").last().toInt()

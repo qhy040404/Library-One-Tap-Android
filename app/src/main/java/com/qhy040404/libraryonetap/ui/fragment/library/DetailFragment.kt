@@ -72,7 +72,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
+            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, textView)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
@@ -114,7 +114,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
             }
         }
-        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL)
+        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, textView)
         val total = OrderListData.getTotal(list)
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(list, "2")
@@ -289,7 +289,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     URLManager.constructAvailableUrl(
                                         TimeUtils.getToday("/", false),
                                         roomCode
-                                    )
+                                    ),
+                                    textView
                                 )
                             )
                             val amList = availableMap.split(",")
@@ -359,7 +360,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                     URLManager.constructAvailableUrl(
                                         TimeUtils.getToday("/", false),
                                         roomCode
-                                    )
+                                    ), textView
                                 )
                             )
                             val amList = availableMap.split(",")

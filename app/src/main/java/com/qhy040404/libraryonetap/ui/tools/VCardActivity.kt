@@ -9,9 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.tools.QRUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -52,8 +54,30 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
         Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
 
+        val openidOrigin = Requests.getVCard(URLManager.VCARD_OPENID_URL)
+        if (!openidOrigin.isValid()) {
+            withContext(Dispatchers.Main)
+            {
+                MaterialAlertDialogBuilder(this@VCardActivity)
+                    .setTitle(R.string.vcard_title)
+                    .setMessage(when (openidOrigin) {
+                        Constants.NET_DISCONNECTED -> R.string.net_disconnected
+                        Constants.NET_ERROR -> R.string.net_error
+                        Constants.NET_TIMEOUT -> R.string.net_timeout
+                        else -> R.string.unknown_error
+                    })
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        finish()
+                    }
+                    .setCancelable(false)
+                    .create()
+                    .show()
+            }
+            return
+        }
+
         val openid = try {
-            Requests.getVCard(URLManager.VCARD_OPENID_URL)
+            openidOrigin
                 .split("<input id=\"openid\" value=\"")[1]
                 .split("\" type=\"hidden\">")[0]
         } catch (_: Exception) {

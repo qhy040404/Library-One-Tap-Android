@@ -155,6 +155,19 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     }
 
     private suspend fun getNet() {
+        if (!AppUtils.hasNetwork()) {
+            withContext(Dispatchers.Main) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(R.string.net_disconnected)
+                    .setTitle(R.string.net_title)
+                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
+            return
+        }
+
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
@@ -182,7 +195,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         AppUtils.getResString(R.string.remain_net) + remainNet +
                         AppUtils.getResString(R.string.gigabyte)
             } else {
-                Constants.GLOBAL_ERROR
+                when (data) {
+                    Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
+                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.net_disconnected)
+                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.net_timeout)
+                    else -> AppUtils.getResString(R.string.fail_to_login_three_times)
+                }
             }
 
             withContext(Dispatchers.Main) {
@@ -198,6 +216,19 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     }
 
     private suspend fun getElectric() {
+        if (!AppUtils.hasNetwork()) {
+            withContext(Dispatchers.Main) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(R.string.net_disconnected)
+                    .setTitle(R.string.net_title)
+                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
+            return
+        }
+
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
@@ -222,7 +253,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         AppUtils.getResString(R.string.remain_electric) + remainElectric +
                         AppUtils.getResString(R.string.degree)
             } else {
-                Constants.GLOBAL_ERROR
+                when (data) {
+                    Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
+                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.net_disconnected)
+                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.net_timeout)
+                    else -> AppUtils.getResString(R.string.fail_to_login_three_times)
+                }
             }
 
             withContext(Dispatchers.Main) {
@@ -238,6 +274,19 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     }
 
     private suspend fun getVolunteer() {
+        if (!AppUtils.hasNetwork()) {
+            withContext(Dispatchers.Main) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setMessage(R.string.net_disconnected)
+                    .setTitle(R.string.net_title)
+                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
+            return
+        }
+
         val checked = withContext(Dispatchers.Main) {
             AppUtils.checkDataAndDialog(requireContext(),
                 GlobalValues.name,
@@ -261,7 +310,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             if (sameID == -1 || sameName == -1) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.net_error)
+                        .setMessage(when (data) {
+                            Constants.NET_DISCONNECTED -> R.string.net_disconnected
+                            Constants.NET_ERROR -> R.string.net_error
+                            Constants.NET_TIMEOUT -> R.string.net_timeout
+                            else -> R.string.unknown_error
+                        })
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.ok) { _, _ -> }
                         .setCancelable(true)

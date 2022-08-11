@@ -61,6 +61,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val reset = binding.button9
         val tempReset = binding.button14
         val progressBar = binding.progressBar
+        val type = binding.detailType
 
         val des = DesEncryptUtils()
 
@@ -182,6 +183,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             imageView.post { imageView.setImageBitmap(bitmap) }
                         }
                     })
+                    type.post { type.text = AppUtils.getResString(R.string.enter) }
                 }
             }
             leave.post {
@@ -201,6 +203,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             imageView.post { imageView.setImageBitmap(bitmap) }
                         }
                     })
+                    type.post { type.text = AppUtils.getResString(R.string.leave) }
                 }
             }
             tempLeave.post {
@@ -220,6 +223,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             imageView.post { imageView.setImageBitmap(bitmap) }
                         }
                     })
+                    type.post { type.text = AppUtils.getResString(R.string.temp) }
                 }
             }
             cancel.post {

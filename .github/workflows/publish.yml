@@ -34,9 +34,29 @@ env:
   BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
 
 jobs:
+  validate-gradle-wrapper:
+    name: Validate_Gradle_Wrapper
+    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up java
+        uses: actions/setup-java@3.4.1
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1.0.4
+
   check:
     name: Check
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -50,9 +70,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Check_debug
         uses: gradle/gradle-build-action@v2.2.2
@@ -67,6 +84,7 @@ jobs:
   ktlint:
     name: Ktlint
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -80,9 +98,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Ktlint
         uses: gradle/gradle-build-action@v2.2.2
@@ -92,6 +107,7 @@ jobs:
   detekt:
     name: Detekt
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
+    needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -105,9 +121,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Detekt
         uses: gradle/gradle-build-action@v2.2.2
@@ -171,9 +184,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Test_Debug
         uses: gradle/gradle-build-action@v2.2.2
@@ -242,9 +252,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
-
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Test_Release
         uses: gradle/gradle-build-action@v2.2.2

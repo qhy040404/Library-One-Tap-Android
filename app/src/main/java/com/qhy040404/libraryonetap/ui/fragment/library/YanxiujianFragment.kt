@@ -31,6 +31,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         binding.textView2.visibility = View.VISIBLE
         binding.button12.setOnClickListener {
             Requests.netLazyMgr.reset()
+            GlobalValues.netError = false
             activity?.recreate()
         }
         lifecycleScope.launch(Dispatchers.IO) {

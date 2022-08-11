@@ -39,6 +39,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         binding.textView.visibility = View.VISIBLE
         binding.button7.setOnClickListener {
             Requests.netLazyMgr.reset()
+            GlobalValues.netError = false
             activity?.recreate()
         }
         lifecycleScope.launch(Dispatchers.IO) {

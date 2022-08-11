@@ -127,7 +127,7 @@ object Requests {
         }
     }
 
-    fun postVCard(url: String, form: String, FORM: MediaType, textView: TextView? = null): String {
+    fun postVCard(url: String, form: String, FORM: MediaType): String {
         if (!AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()

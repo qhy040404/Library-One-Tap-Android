@@ -26,5 +26,5 @@
     <color name="bottom_sheet_header_handler_md3">#CC888888</color>
     <color name="bottom_sheet_header_handler_activated_md3">#CC444444</color>
 
-    <color name="common_transparent_30">#4D000000</color>
+    <color name="common_transparent_20">#33000000</color>
 </resources>

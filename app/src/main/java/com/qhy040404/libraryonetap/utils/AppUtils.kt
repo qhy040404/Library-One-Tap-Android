@@ -14,11 +14,14 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
 import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
 object AppUtils {
+    private val ctx = LibraryOneTapApp.app
+
     fun getNightMode(modeString: String) = when (modeString) {
         "on" -> DayNightDelegate.MODE_NIGHT_YES
         "off" -> DayNightDelegate.MODE_NIGHT_NO
@@ -95,7 +98,7 @@ object AppUtils {
 
     fun pass() = Log.i("Pass", "Slack off")
 
-    fun getResString(@StringRes resId: Int) = LibraryOneTapApp.app.getString(resId)
+    fun getResString(@StringRes resId: Int) = ctx.getString(resId)
 
     fun isError(a: String): Boolean = isError(a, "")
 
@@ -107,5 +110,9 @@ object AppUtils {
 
     fun isError(a: String, b: String, c: String, d: String, e: String): Boolean {
         return a == Constants.GLOBAL_ERROR || b == Constants.GLOBAL_ERROR || c == Constants.GLOBAL_ERROR || d == Constants.GLOBAL_ERROR || e == Constants.GLOBAL_ERROR
+    }
+
+    fun hasNetwork(): Boolean {
+        return NetworkStateUtils.checkNetworkTypeStr(ctx) != Constants.GLOBAL_ERROR
     }
 }

@@ -2,6 +2,20 @@ name: Qodana
 on:
   workflow_dispatch:
   push:
+    paths-ignore:
+      - '**.png'
+      - '**.jpg'
+      - '.gitattributes'
+      - '.github/**.json'
+      - '.gitignore'
+      - '.gitmodules'
+      - '**.md'
+      - 'LICENSE'
+      - 'NOTICE'
+      - '.github/workflows/issue.yml'
+      - '.github/workflows/tasks.yml'
+      - '.github/workflows/publish.yml'
+      - '.github/workflows/nightly-merge.yml'
 
 env:
   BUGLY_APPID: ${{ secrets.BUGLY_APPID }}

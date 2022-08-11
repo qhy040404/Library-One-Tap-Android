@@ -91,6 +91,7 @@
 
     <string name="net_error">网络错误</string>
     <string name="net_disconnected">无网络</string>
+    <string name="net_timeout">网络超时</string>
 
     <!-- UNIT -->
     <string name="rmb">" 元"</string>

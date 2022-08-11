@@ -90,6 +90,7 @@
 
     <string name="net_error">Network Error</string>
     <string name="net_disconnected">Network Disconnected</string>
+    <string name="net_timeout">Network Timeout</string>
 
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>

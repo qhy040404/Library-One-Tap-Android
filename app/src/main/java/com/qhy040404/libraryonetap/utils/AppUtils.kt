@@ -100,6 +100,7 @@ object AppUtils {
 
     fun getResString(@StringRes resId: Int) = ctx.getString(resId)
 
+    @Suppress("unused")
     fun isError(a: String): Boolean = isError(a, "")
 
     fun isError(a: String, b: String): Boolean = isError(a, b, "")

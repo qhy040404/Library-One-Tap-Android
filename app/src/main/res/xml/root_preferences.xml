@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         app:key="basic"
@@ -13,10 +14,11 @@
             app:key="userid"
             app:title="@string/user_id"
             app:useSimpleSummaryProvider="true" />
-        <EditTextPreference
+        <com.qhy040404.libraryonetap.view.PasswordPreference
             app:icon="@drawable/ic_passwd"
             app:key="passwd"
             app:title="@string/passwd"
+            android:inputType="textVisiblePassword"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
     <PreferenceCategory

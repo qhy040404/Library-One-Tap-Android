@@ -28,6 +28,7 @@ object GetPortalData {
         var loginSuccess = false
 
         while (!loginSuccess) {
+            var timer = 0
             val ltResponse = Requests.get(URLManager.PORTAL_SSO_URL)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
@@ -55,6 +56,8 @@ object GetPortalData {
             if (!session.contains("统一身份")) {
                 loginSuccess = true
             }
+            timer++
+            if (timer >= 3) break
         }
 
         return when (mode) {

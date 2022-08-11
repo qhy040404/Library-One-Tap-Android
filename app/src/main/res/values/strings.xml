@@ -90,6 +90,7 @@
     <string name="no_userdata">请先到设置输入基本信息</string>
 
     <string name="net_error">网络错误</string>
+    <string name="net_disconnected">无网络</string>
 
     <!-- UNIT -->
     <string name="rmb">" 元"</string>

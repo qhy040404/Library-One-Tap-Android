@@ -89,6 +89,7 @@
     <string name="no_userdata">Please input your information in the Settings page first.</string>
 
     <string name="net_error">Network Error</string>
+    <string name="net_disconnected">Network Disconnected</string>
 
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>

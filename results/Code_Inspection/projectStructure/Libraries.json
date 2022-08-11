@@ -182,19 +182,19 @@
       ]
     },
     {
-      "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
+      "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3b45f326ff3a02460f14c5d5fc96e240/transformed/lifecycle-process-2.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3b45f326ff3a02460f14c5d5fc96e240/transformed/lifecycle-process-2.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3b45f326ff3a02460f14c5d5fc96e240/transformed/lifecycle-process-2.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2566cd896d00dacd6eb23c45ebf2cc75/transformed/lifecycle-process-2.4.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2566cd896d00dacd6eb23c45ebf2cc75/transformed/lifecycle-process-2.4.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2566cd896d00dacd6eb23c45ebf2cc75/transformed/lifecycle-process-2.4.1/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
+      "name": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/afaa580888f7d03a4e987e03d2a4cf1f/transformed/startup-runtime-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/afaa580888f7d03a4e987e03d2a4cf1f/transformed/startup-runtime-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/afaa580888f7d03a4e987e03d2a4cf1f/transformed/startup-runtime-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7eb2113e8676eb36aa6278721e827fb1/transformed/startup-runtime-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7eb2113e8676eb36aa6278721e827fb1/transformed/startup-runtime-1.1.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7eb2113e8676eb36aa6278721e827fb1/transformed/startup-runtime-1.1.1/AndroidManifest.xml"
       ]
     },
     {
@@ -575,11 +575,11 @@
       ]
     },
     {
-      "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
+      "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4e64f9371825a09217eaffc6913af8ef/transformed/appcompat-1.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4e64f9371825a09217eaffc6913af8ef/transformed/appcompat-1.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4e64f9371825a09217eaffc6913af8ef/transformed/appcompat-1.4.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193762d5c184610fde717213fc918477/transformed/appcompat-1.5.0-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193762d5c184610fde717213fc918477/transformed/appcompat-1.5.0-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193762d5c184610fde717213fc918477/transformed/appcompat-1.5.0-debug/AndroidManifest.xml"
       ]
     },
     {
@@ -591,11 +591,11 @@
       ]
     },
     {
-      "name": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
+      "name": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/233e119f4425d37f7d97da75c93e4677/transformed/appcompat-resources-1.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/233e119f4425d37f7d97da75c93e4677/transformed/appcompat-resources-1.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/233e119f4425d37f7d97da75c93e4677/transformed/appcompat-resources-1.4.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/49a21d6dcde0f0595de4fb54fb25e8e0/transformed/appcompat-resources-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/49a21d6dcde0f0595de4fb54fb25e8e0/transformed/appcompat-resources-1.5.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/49a21d6dcde0f0595de4fb54fb25e8e0/transformed/appcompat-resources-1.5.0/AndroidManifest.xml"
       ]
     },
     {

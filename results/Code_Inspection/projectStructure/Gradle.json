@@ -191,13 +191,13 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
-      "gradleName": "androidx.lifecycle:lifecycle-process:2.4.0@aar",
+      "ideaName": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
+      "gradleName": "androidx.lifecycle:lifecycle-process:2.4.1@aar",
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
-      "gradleName": "androidx.startup:startup-runtime:1.0.0@aar",
+      "ideaName": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
+      "gradleName": "androidx.startup:startup-runtime:1.1.1@aar",
       "unresolved": false
     },
     {
@@ -436,8 +436,8 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
-      "gradleName": "dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
+      "ideaName": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
+      "gradleName": "dev.rikka.rikkax.appcompat:appcompat:1.5.0@aar",
       "unresolved": false
     },
     {
@@ -446,8 +446,8 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
-      "gradleName": "androidx.appcompat:appcompat-resources:1.4.1@aar",
+      "ideaName": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
+      "gradleName": "androidx.appcompat:appcompat-resources:1.5.0@aar",
       "unresolved": false
     },
     {

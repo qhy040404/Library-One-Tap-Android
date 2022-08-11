@@ -8,8 +8,8 @@ private static String baseVersionName() {
 }
 
 android {
+    namespace "com.qhy040404.libraryonetap"
     compileSdk 33
-
     defaultConfig {
         applicationId "com.qhy040404.libraryonetap"
         minSdk 29

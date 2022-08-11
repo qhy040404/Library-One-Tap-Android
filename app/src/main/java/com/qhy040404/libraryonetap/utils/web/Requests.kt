@@ -10,9 +10,9 @@ object Requests {
     val netLazyMgr = ResettableLazyUtils.resettableManager()
     val client by ResettableLazyUtils.resettableLazy(netLazyMgr) {
         OkHttpClient.Builder()
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
+            .connectTimeout(25, TimeUnit.SECONDS)
+            .readTimeout(50, TimeUnit.SECONDS)
+            .writeTimeout(50, TimeUnit.SECONDS)
             .cookieJar(object : CookieJar {
                 private val cookieStore = mutableListOf<Cookie>()
 

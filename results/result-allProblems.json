@@ -1,1 +1,113 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Constructor is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/view/PasswordPreference.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 12,
+        "length": 11,
+        "offset": 56,
+        "surroundingCode": "    constructor(context: Context) : super(context)\n\n    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)\n\n    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "f4394f3d503228fbc5ab7ec500667c31a46f17f302258c04096b0ec9b7d39a8c"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Constructor is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/view/PasswordPreference.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 14,
+        "length": 11,
+        "offset": 85,
+        "surroundingCode": "    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)\n\n    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context,\n        attrs,\n        defStyleAttr)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "fdfad5fe897de5efd9b18bcf8bc732c6442630a1acb1c6674eecc557b78bdc25"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Constructor is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/view/PasswordPreference.kt",
+      "language": "kotlin",
+      "line": 20,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 18,
+        "length": 11,
+        "offset": 27,
+        "surroundingCode": "        defStyleAttr)\n\n    constructor(\n        context: Context,\n        attrs: AttributeSet?,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "dab24de1d382e013135addc0c48b7e2eda739e3e7c3927b6ec5a9250ffb8b11f"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Constructor is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/view/PasswordPreference.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 10,
+        "length": 11,
+        "offset": 53,
+        "surroundingCode": "\nclass PasswordPreference : EditTextPreference {\n    constructor(context: Context) : super(context)\n\n    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "图书馆.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "1bf24c75efdff5700e4fed3d1e441e5030ddfb6636dd46b159f8960982e57f60"
+}]}

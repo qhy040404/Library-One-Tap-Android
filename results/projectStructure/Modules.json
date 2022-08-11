@@ -423,6 +423,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.tencent.bugly:crashreport:4.0.4@aar",
           "type": "Library"
         },
@@ -841,6 +845,10 @@
         },
         {
           "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
           "type": "Library"
         },
         {
@@ -1270,6 +1278,10 @@
         },
         {
           "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
           "type": "Library"
         },
         {

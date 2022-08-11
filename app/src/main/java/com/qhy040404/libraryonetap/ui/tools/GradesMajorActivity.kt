@@ -107,7 +107,7 @@ class GradesMajorActivity : SimplePageActivity() {
             if (!AppUtils.hasNetwork()) {
                 MaterialAlertDialogBuilder(this@GradesMajorActivity)
                     .setMessage(R.string.net_disconnected)
-                    .setTitle(R.string.net_title)
+                    .setTitle(R.string.grade_major_title)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         finish()
                     }

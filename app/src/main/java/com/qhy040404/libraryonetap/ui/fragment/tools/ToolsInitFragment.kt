@@ -223,7 +223,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.net_disconnected)
-                    .setTitle(R.string.net_title)
+                    .setTitle(R.string.electric_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()
@@ -284,7 +284,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.net_disconnected)
-                    .setTitle(R.string.net_title)
+                    .setTitle(R.string.volunteer_title)
                     .setPositiveButton(R.string.ok) { _, _ -> }
                     .setCancelable(true)
                     .create()

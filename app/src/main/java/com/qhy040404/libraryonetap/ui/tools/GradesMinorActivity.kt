@@ -109,7 +109,7 @@ class GradesMinorActivity : SimplePageActivity() {
             if (!AppUtils.hasNetwork()) {
                 MaterialAlertDialogBuilder(this@GradesMinorActivity)
                     .setMessage(R.string.net_disconnected)
-                    .setTitle(R.string.net_title)
+                    .setTitle(R.string.grade_minor_title)
                     .setPositiveButton(R.string.ok) { _, _ ->
                         finish()
                     }

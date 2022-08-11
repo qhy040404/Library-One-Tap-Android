@@ -1,8 +1,11 @@
 package com.qhy040404.libraryonetap.utils.web
 
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
@@ -42,8 +45,10 @@ object Requests {
                 return response.body!!.string()
             }
         } catch (e: Exception) {
+            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
+            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
             e.printStackTrace()
-            return ""
+            return Constants.STRING_NULL
         }
     }
 
@@ -58,8 +63,10 @@ object Requests {
             client.newCall(request).execute()
                 .use { response -> return response.body!!.string() }
         } catch (e: Exception) {
+            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
+            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
             e.printStackTrace()
-            return ""
+            return Constants.STRING_NULL
         }
     }
 
@@ -79,8 +86,10 @@ object Requests {
                 return response.body!!.string()
             }
         } catch (e: Exception) {
+            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
+            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
             e.printStackTrace()
-            return ""
+            return Constants.STRING_NULL
         }
     }
 
@@ -96,8 +105,10 @@ object Requests {
             client.newCall(request).execute()
                 .use { response -> return response.body!!.string() }
         } catch (e: Exception) {
+            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
+            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
             e.printStackTrace()
-            return ""
+            return Constants.STRING_NULL
         }
     }
 

@@ -81,6 +81,8 @@
     <string name="ok">OK</string>
     <string name="no">Cancel</string>
 
+    <string name="unknown_error">Unknown Error</string>
+
     <string name="loading">Loading....</string>
     <string name="loaded">Logged in</string>
     <string name="fail_to_login">Login failed, retrying....</string>

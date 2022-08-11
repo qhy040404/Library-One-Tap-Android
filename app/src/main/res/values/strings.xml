@@ -82,6 +82,8 @@
     <string name="ok">好</string>
     <string name="no">取消</string>
 
+    <string name="unknown_error">未知错误</string>
+
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
     <string name="fail_to_login">登录失败，正在重试</string>

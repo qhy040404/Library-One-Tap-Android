@@ -26,9 +26,9 @@ object GetPortalData {
         val des = DesEncryptUtils()
 
         var loginSuccess = false
+        var timer = 0
 
         while (!loginSuccess) {
-            var timer = 0
             val ltResponse = Requests.get(URLManager.PORTAL_SSO_URL)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"

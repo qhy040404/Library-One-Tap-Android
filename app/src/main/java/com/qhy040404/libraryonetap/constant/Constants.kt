@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.constant
 object Constants {
     const val GLOBAL_ERROR = "Error"
     const val NET_TIMEOUT = "Timeout"
+    const val NET_ERROR = "Network Unknown Error"
     const val NET_DISCONNECTED = "Offline"
     const val STRING_NULL = ""
 

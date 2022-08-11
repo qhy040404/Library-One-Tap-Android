@@ -1,6 +1,7 @@
 package com.qhy040404.libraryonetap.utils.web
 
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -33,6 +34,7 @@ object Requests {
     fun get(url: String) = get(url, false)
 
     fun get(url: String, getUrl: Boolean): String {
+        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val request = Request.Builder()
             .url(url)
             .get()
@@ -46,13 +48,14 @@ object Requests {
             }
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
+            if (e is UnknownHostException) return Constants.NET_ERROR
             e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
 
     fun getVCard(url: String): String {
+        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
@@ -64,7 +67,7 @@ object Requests {
                 .use { response -> return response.body!!.string() }
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
+            if (e is UnknownHostException) return Constants.NET_ERROR
             e.printStackTrace()
             return Constants.STRING_NULL
         }
@@ -73,6 +76,7 @@ object Requests {
     fun post(url: String, form: String, FORM: MediaType) = post(url, form, FORM, false)
 
     fun post(url: String, form: String, FORM: MediaType, getUrl: Boolean): String {
+        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()
             .url(url)
@@ -87,13 +91,14 @@ object Requests {
             }
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
+            if (e is UnknownHostException) return Constants.NET_ERROR
             e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
 
     fun postVCard(url: String, form: String, FORM: MediaType): String {
+        if (AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()
             .url(url)
@@ -106,7 +111,7 @@ object Requests {
                 .use { response -> return response.body!!.string() }
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_DISCONNECTED
+            if (e is UnknownHostException) return Constants.NET_ERROR
             e.printStackTrace()
             return Constants.STRING_NULL
         }

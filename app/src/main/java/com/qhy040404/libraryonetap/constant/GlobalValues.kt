@@ -37,6 +37,9 @@ object GlobalValues {
     var minorVisible = false
     var minorDetected = false
 
+    // Net
+    var netError = false
+
     fun initBasic() {
         SPUtils.spLazyMgr.reset()
         if (name != SPUtils.getValue(Constants.PREF_NAME,

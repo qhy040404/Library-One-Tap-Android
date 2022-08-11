@@ -138,7 +138,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 textView2.text = AppUtils.getResString(R.string.no_userdata)
             }
             progressBar2.post { progressBar2.visibility = View.INVISIBLE }
-        } else if (failLogin) {
+        } else if (failLogin || GlobalValues.netError) {
             AppUtils.pass()
         } else {
             textView2.post {

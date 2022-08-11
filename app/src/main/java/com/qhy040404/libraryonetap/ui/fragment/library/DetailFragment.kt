@@ -412,7 +412,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 textView.text = AppUtils.getResString(R.string.no_userdata)
             }
             progressBar.post { progressBar.visibility = View.INVISIBLE }
-        } else if (failLogin) {
+        } else if (failLogin || GlobalValues.netError) {
             AppUtils.pass()
         } else {
             textView.post {

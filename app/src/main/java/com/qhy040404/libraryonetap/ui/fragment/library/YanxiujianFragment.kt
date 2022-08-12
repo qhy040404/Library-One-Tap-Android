@@ -32,6 +32,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         binding.yxjRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             GlobalValues.netError = false
+            GlobalValues.initBasic()
             activity?.recreate()
         }
         lifecycleScope.launch(Dispatchers.IO) {

@@ -40,6 +40,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         binding.detailRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             GlobalValues.netError = false
+            GlobalValues.initBasic()
             activity?.recreate()
         }
         lifecycleScope.launch(Dispatchers.IO) {

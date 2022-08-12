@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.annotation.AnyThread
 import androidx.annotation.MainThread
 import androidx.annotation.StringRes
-import com.qhy040404.libraryonetap.view.ToastView
+import com.qhy040404.libraryonetap.ui.global.ToastView
 import java.lang.ref.WeakReference
 
 object Toasty {

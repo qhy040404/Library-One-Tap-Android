@@ -26,6 +26,8 @@
 
 Android 10 ~ 13 Beta 4
 
+iOS 版本部分[源码][ios]在此，版本在 1.0 时期
+
 ## 功能
 
 * 单人座位签到码、离退码、暂离码
@@ -36,3 +38,5 @@ Android 10 ~ 13 Beta 4
 
 - [约座小程序](https://github.com/qhy040404/DLUT-library-auto-reservation)
 - [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)(Android端的校园网登录思路来自这里)
+
+[ios]:https://github.com/qhy040404/Library-One-Tap-iOS

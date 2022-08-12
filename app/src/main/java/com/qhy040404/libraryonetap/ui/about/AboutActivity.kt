@@ -177,6 +177,22 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "https://github.com/zhanghai/AppIconLoader"
                 )
             )
+            add(
+                License(
+                    "Okio",
+                    "Square",
+                    License.APACHE_2,
+                    "https://github.com/square/okio"
+                )
+            )
+            add(
+                License(
+                    "PreferenceX",
+                    "takisoft",
+                    License.APACHE_2,
+                    "https://github.com/takisoft/preferencex-android"
+                )
+            )
         }
     }
 

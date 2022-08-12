@@ -8,11 +8,10 @@ import androidx.annotation.StyleRes
 import com.takisoft.preferencex.EditTextPreference
 import androidx.preference.EditTextPreference as AEditTextPreference
 
+@Suppress("unused")
 class PasswordPreference : EditTextPreference {
     constructor(context: Context) : super(context)
-
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-
     constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context,
         attrs,
         defStyleAttr)

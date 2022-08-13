@@ -38,6 +38,7 @@ jobs:
     name: Validate_Gradle_Wrapper
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2

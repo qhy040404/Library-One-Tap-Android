@@ -1,6 +1,10 @@
 # Library-One-Tap-Android
 
-一个便于打开离退/暂离页面的小程序
+一个便于打开离退/暂离页面的小程序，逐渐在成长为一个大工人的小工具箱
+
+![header](./source/header.png)
+
+---
 
 ![Alt](https://repobeats.axiom.co/api/embed/cdc58a2fe3912d736bd80f7a85a46d130ce57fb5.svg "Repobeats analytics image")
 

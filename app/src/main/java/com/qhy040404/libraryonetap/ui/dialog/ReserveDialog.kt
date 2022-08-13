@@ -142,7 +142,7 @@ class ReserveDialog {
                     MaterialAlertDialogBuilder(ctx)
                         .setTitle(R.string.library)
                         .setMessage(R.string.fail_to_login_three_times)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()

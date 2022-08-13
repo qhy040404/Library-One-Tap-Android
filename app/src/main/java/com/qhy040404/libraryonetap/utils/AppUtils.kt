@@ -73,7 +73,7 @@ object AppUtils {
             MaterialAlertDialogBuilder(ctx)
                 .setTitle(titleResId)
                 .setMessage(messageResId)
-                .setPositiveButton(R.string.ok) { _, _ -> }
+                .setPositiveButton(R.string.ok, null)
                 .setCancelable(true)
                 .create()
                 .show()

@@ -164,7 +164,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                     MaterialAlertDialogBuilder(this)
                         .setMessage(R.string.permission_got)
                         .setTitle(R.string.bath_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()

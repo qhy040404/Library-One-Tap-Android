@@ -69,7 +69,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         MaterialAlertDialogBuilder(requireContext())
                             .setMessage(R.string.network_env_limit)
                             .setTitle(R.string.bath_title)
-                            .setPositiveButton(R.string.ok) { _, _ -> }
+                            .setPositiveButton(R.string.ok, null)
                             .setCancelable(true)
                             .create()
                             .show()
@@ -161,7 +161,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.net_disconnected)
                     .setTitle(R.string.net_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -210,7 +210,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(netMessage)
                     .setTitle(R.string.net_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -224,7 +224,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.net_disconnected)
                     .setTitle(R.string.electric_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -271,7 +271,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(electricMessage)
                     .setTitle(R.string.electric_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -285,7 +285,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(R.string.net_disconnected)
                     .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok) { _, _ -> }
+                    .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -323,7 +323,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                             else -> R.string.unknown_error
                         })
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -333,7 +333,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.invalid_id_or_name)
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -343,7 +343,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.find_same_data)
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -356,7 +356,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok) { _, _ -> }
+                        .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()
                         .show()

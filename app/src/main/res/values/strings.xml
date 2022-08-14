@@ -29,7 +29,7 @@
     <string name="temp">暂离码</string>
     <string name="refresh">刷新</string>
     <string name="cancel">取消预约</string>
-    <string name="reserve">给我整个座</string>
+    <string name="reserve">预约座位</string>
     <string name="reset">重置预约</string>
 
     <string name="inside">进行中</string>

@@ -47,6 +47,8 @@
 
     <string name="reserve_reset_confirm">Please confirm to reset reservation</string>
 
+    <string name="not_in_valid_time">Cannot reserve NOW</string>
+
     <!-- TOOLS -->
     <string name="bath">I need a bath NOW (Needs campus network)</string>
     <string name="cernet">Remaining campus network</string>

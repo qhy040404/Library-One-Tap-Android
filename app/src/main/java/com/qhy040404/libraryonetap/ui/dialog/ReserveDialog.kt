@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.RoomUtils
+import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.Toasty
 import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
@@ -68,16 +69,7 @@ class ReserveDialog {
         MaterialAlertDialogBuilder(ctx)
             .setTitle(R.string.library)
             .setView(view)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                reserveSeat(ctx, targetRoom)
-                MaterialAlertDialogBuilder(ctx)
-                    .setTitle(R.string.library)
-                    .setMessage(R.string.reserved)
-                    .setPositiveButton(R.string.ok) { _, _ -> ctx.recreate() }
-                    .setCancelable(false)
-                    .create()
-                    .show()
-            }
+            .setPositiveButton(R.string.ok) { _, _ -> reserveSeat(ctx, targetRoom) }
             .setNegativeButton(R.string.no) { _, _ -> }
             .setCancelable(false)
             .create()
@@ -85,6 +77,17 @@ class ReserveDialog {
     }
 
     private fun reserveSeat(ctx: Activity, target: Int) {
+        if (!TimeUtils.isValidReserveTime()) {
+            MaterialAlertDialogBuilder(ctx)
+                .setTitle(R.string.library)
+                .setMessage(R.string.not_in_valid_time)
+                .setPositiveButton(R.string.ok, null)
+                .setCancelable(true)
+                .create()
+                .show()
+            return
+        }
+
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads().detectDiskWrites().detectNetwork()
@@ -160,5 +163,12 @@ class ReserveDialog {
             ReserveUtils.constructParaForFinalReserve(addCode),
             GlobalValues.ctVCard
         )
+        MaterialAlertDialogBuilder(ctx)
+            .setTitle(R.string.library)
+            .setMessage(R.string.reserved)
+            .setPositiveButton(R.string.ok) { _, _ -> ctx.recreate() }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 }

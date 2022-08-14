@@ -20,9 +20,22 @@ object TimeUtils {
         return year + separator + month + separator + day
     }
 
+    fun isValidReserveTime(): Boolean {
+        val now = now()
+        if (now[0] in 7..22) return true
+        if (now[0] == 6 && now[1] > 30) return true
+        return false
+    }
+
     private fun timeSingleToDouble(sTime: Int) = if (sTime >= 10) {
         sTime.toString()
     } else {
         "0$sTime"
+    }
+
+    private fun now(): Array<Int> {
+        val hour = calendar[Calendar.HOUR_OF_DAY]
+        val minute = calendar[Calendar.MINUTE]
+        return arrayOf(hour, minute)
     }
 }

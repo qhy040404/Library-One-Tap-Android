@@ -47,6 +47,8 @@
 
     <string name="reserve_reset_confirm">请确认重置预约</string>
 
+    <string name="not_in_valid_time">现在不能预约</string>
+
     <!-- TOOLS -->
     <string name="bath">预约浴室 (需连接校园网)</string>
     <string name="cernet">校园网还剩多少啊</string>

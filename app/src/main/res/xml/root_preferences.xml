@@ -33,7 +33,7 @@
             app:summary="%s"
             app:title="@string/dark_mode" />
         <SwitchPreference
-            app:defaultValue="false"
+            app:defaultValue="true"
             app:icon="@drawable/ic_material"
             app:key="md3"
             app:title="@string/md3" />

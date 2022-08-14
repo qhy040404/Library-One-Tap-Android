@@ -23,7 +23,7 @@ object GlobalValues {
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
-    var md3: Boolean by SPDelegates(Constants.PREF_MD3, false)
+    var md3: Boolean by SPDelegates(Constants.PREF_MD3, true)
     var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
 
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)

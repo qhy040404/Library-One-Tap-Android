@@ -73,7 +73,7 @@
     <string name="general">通用</string>
     <string name="dark_mode">深色模式</string>
     <string name="main_theme">主题</string>
-    <string name="md3" translatable="false">Material 3 (Preview)</string>
+    <string name="md3" translatable="false">Material Design 3 (Preview)</string>
     <string name="language">语言</string>
     <string name="reset_data">重置应用数据</string>
     <string name="other">其他</string>
@@ -116,6 +116,7 @@
     <string name="data_reset_confirm">请确认重置应用数据</string>
     <string name="data_reset_completed">数据已被重置，程序即将退出....</string>
     <string name="cache_cleared">缓存清理完毕</string>
+    <string name="custom_deprecated">数个版本后MD3主题将会强制全局启用</string>
 
     <!-- ABOUT -->
     <string name="about_slogan" translatable="false">Library One Tap</string>

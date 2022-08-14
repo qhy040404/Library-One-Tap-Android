@@ -114,6 +114,7 @@
     <string name="data_reset_confirm">Please confirm to clear appdata.</string>
     <string name="data_reset_completed">AppData has been cleared, Exiting....</string>
     <string name="cache_cleared">Cache has been cleared</string>
+    <string name="custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
 
     <!-- ARRAY -->
     <!-- SETTINGS -->

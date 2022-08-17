@@ -7,12 +7,12 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "d97bc2533738533c01c7212a787c828ed67d56ce",
-        "branch": "renovate/io.coil-kt-coil-2.x"
+        "revisionId": "fab4d9b6acfc6a89e100ad294b6f4ae38ce7fd8c",
+        "branch": "master"
       }
     },
     "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726",
-    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/2872451470",
+    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/2872825992",
     "repoUrl": "https://github.com/qhy040404/Library-One-Tap-Android"
   }
 }

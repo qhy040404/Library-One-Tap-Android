@@ -703,19 +703,19 @@
       ]
     },
     {
-      "name": "Gradle: io.coil-kt:coil:2.1.0@aar",
+      "name": "Gradle: io.coil-kt:coil:2.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac59439386223a59a6d3a734a87c7661/transformed/coil-2.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac59439386223a59a6d3a734a87c7661/transformed/coil-2.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac59439386223a59a6d3a734a87c7661/transformed/coil-2.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d58452139e2586b9f8f171cfebcd0cd7/transformed/coil-2.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d58452139e2586b9f8f171cfebcd0cd7/transformed/coil-2.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d58452139e2586b9f8f171cfebcd0cd7/transformed/coil-2.2.0/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: io.coil-kt:coil-base:2.1.0@aar",
+      "name": "Gradle: io.coil-kt:coil-base:2.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dd8f99cf0d64f3aa64049c07aa64e71c/transformed/coil-base-2.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dd8f99cf0d64f3aa64049c07aa64e71c/transformed/coil-base-2.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dd8f99cf0d64f3aa64049c07aa64e71c/transformed/coil-base-2.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e2fbe29e0909fad96a26bb701be9eb8b/transformed/coil-base-2.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e2fbe29e0909fad96a26bb701be9eb8b/transformed/coil-base-2.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e2fbe29e0909fad96a26bb701be9eb8b/transformed/coil-base-2.2.0/AndroidManifest.xml"
       ]
     },
     {

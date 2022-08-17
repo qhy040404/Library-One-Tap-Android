@@ -1,7 +1,7 @@
 {
   "modules": [
     {
-      "name": "图书馆",
+      "name": "Library-One-Tap",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "name": "图书馆.app",
+      "name": "Library-One-Tap.app",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/app",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "name": "图书馆.app.main",
+      "name": "Library-One-Tap.app.main",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/aidl_source_output_dir/debug/out",
@@ -505,7 +505,7 @@
       ]
     },
     {
-      "name": "图书馆.app.unitTest",
+      "name": "Library-One-Tap.app.unitTest",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugUnitTest/out",
@@ -536,7 +536,7 @@
           "type": "Own sources"
         },
         {
-          "name": "图书馆.app.main",
+          "name": "Library-One-Tap.app.main",
           "type": "Module"
         },
         {
@@ -930,7 +930,7 @@
       ]
     },
     {
-      "name": "图书馆.app.androidTest",
+      "name": "Library-One-Tap.app.androidTest",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/app/build/generated/aidl_source_output_dir/debugAndroidTest/out",
@@ -981,7 +981,7 @@
           "type": "Own sources"
         },
         {
-          "name": "图书馆.app.main",
+          "name": "Library-One-Tap.app.main",
           "type": "Module"
         },
         {

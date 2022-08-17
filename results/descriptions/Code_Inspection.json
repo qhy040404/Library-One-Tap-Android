@@ -135,16 +135,16 @@
           "description": "Reports calls to `assertTrue()` and `assertFalse()` that can be replaced with assert equality functions.\n\n\n`assertEquals()`, `assertSame()`, and their negating counterparts (-Not-) provide more informative messages on\nfailure.\n\n**Example:**\n\n      assertTrue(a == b)\n\nAfter the quick-fix is applied:\n\n      assertEquals(a, b)\n"
         },
         {
-          "shortName": "ReplaceNotNullAssertionWithElvisReturn",
-          "displayName": "Not-null assertion can be replaced with 'return'",
-          "enabled": false,
-          "description": "Reports not-null assertion (`!!`) calls that can be replaced with the elvis operator and return (`?: return`).\n\nA not-null assertion can lead to NPE (NullPointerException) that is not expected. Avoiding the use of `!!` is good practice.\n\nThe quick-fix replaces the not-null assertion with `return` or `return null`.\n\n**Example:**\n\n\n      fun test(number: Int?) {\n          val x = number!!\n      }\n\nAfter the quick-fix is applied:\n\n\n      fun test(number: Int?) {\n          val x = number ?: return\n      }\n"
-        },
-        {
           "shortName": "ReplaceStringFormatWithLiteral",
           "displayName": "'String.format' call can be replaced with string templates",
           "enabled": true,
           "description": "Reports `String.format` calls that can be replaced with string templates.\n\nUsing string templates makes your code simpler.\n\nThe quick-fix replaces the call with a string template.\n\n**Example:**\n\n\n      fun main() {\n          val id = \"abc\"\n          val date = \"123\"\n          val s = String.format(\"%s_%s_%s\", id, date, id)\n      }\n\nAfter the quick-fix is applied:\n\n\n      fun main() {\n          val id = \"abc\"\n          val date = \"123\"\n          val s = \"${id}_${date}_$id\"\n      }\n"
+        },
+        {
+          "shortName": "ReplaceNotNullAssertionWithElvisReturn",
+          "displayName": "Not-null assertion can be replaced with 'return'",
+          "enabled": false,
+          "description": "Reports not-null assertion (`!!`) calls that can be replaced with the elvis operator and return (`?: return`).\n\nA not-null assertion can lead to NPE (NullPointerException) that is not expected. Avoiding the use of `!!` is good practice.\n\nThe quick-fix replaces the not-null assertion with `return` or `return null`.\n\n**Example:**\n\n\n      fun test(number: Int?) {\n          val x = number!!\n      }\n\nAfter the quick-fix is applied:\n\n\n      fun test(number: Int?) {\n          val x = number ?: return\n      }\n"
         },
         {
           "shortName": "ReplaceSubstringWithSubstringBefore",
@@ -1217,16 +1217,16 @@
           "description": "Manifest Resource References  \n\nElements in the manifest can reference resources, but those resources cannot vary across configurations (except as a special case, by version, and except for a few specific package attributes such as the application title and icon).  \n\nIssue id: ManifestResource"
         },
         {
-          "shortName": "AndroidLintSlices",
-          "displayName": "Slices",
-          "enabled": true,
-          "description": "Slices  \n\nThis check analyzes usages of the Slices API and offers suggestions based  \non best practices.  \n\nIssue id: Slices"
-        },
-        {
           "shortName": "AndroidLintNamespaceTypo",
           "displayName": "Misspelled namespace declaration",
           "enabled": true,
           "description": "Misspelled namespace declaration  \n\nAccidental misspellings in namespace declarations can lead to some very obscure error messages. This check looks for potential misspellings to help track these down.  \n\nIssue id: NamespaceTypo"
+        },
+        {
+          "shortName": "AndroidLintSlices",
+          "displayName": "Slices",
+          "enabled": true,
+          "description": "Slices  \n\nThis check analyzes usages of the Slices API and offers suggestions based  \non best practices.  \n\nIssue id: Slices"
         },
         {
           "shortName": "AndroidLintShowToast",
@@ -2129,10 +2129,10 @@
           "description": "Likely cut \\& paste mistakes  \n\nThis lint check looks for cases where you have cut \\& pasted calls to `findViewById` but have forgotten to update the R.id field. It's possible that your code is simply (redundantly) looking up the field repeatedly, but lint cannot distinguish that from a case where you for example want to initialize fields `prev` and `next` and you cut \\& pasted `findViewById(R.id.prev)` and forgot to update the second initialization to `R.id.next`.  \n\nIssue id: CutPasteId"
         },
         {
-          "shortName": "AndroidLintResourceName",
-          "displayName": "Resource with Wrong Prefix",
+          "shortName": "AndroidLintMissingIntentFilterForMediaSearch",
+          "displayName": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter",
           "enabled": true,
-          "description": "Resource with Wrong Prefix  \n\nIn Gradle projects you can specify a resource prefix that all resources in the project must conform to. This makes it easier to ensure that you don't accidentally combine resources from different libraries, since they all end up in the same shared app namespace.  \n\nIssue id: ResourceName"
+          "description": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter  \n\nTo support voice searches on Android Auto, you should also register an `intent-filter` for the action `android.media.action.MEDIA_PLAY_FROM_SEARCH`.  \nTo do this, add\n\n```\n`<intent-filter>`\n    `<action android:name=\"android.media.action.MEDIA_PLAY_FROM_SEARCH\" />`\n`</intent-filter>`\n```\n\nto your `<activity>` or `<service>`.  \n\nIssue id: MissingIntentFilterForMediaSearch  \n\n<https://developer.android.com/training/auto/audio/index.html#support_voice>"
         },
         {
           "shortName": "AndroidLintLockedOrientationActivity",
@@ -2141,10 +2141,10 @@
           "description": "Incompatible screenOrientation value  \n\nThe `<activity>` element should not be locked to any orientation so that users can take advantage of the multi-window environments and larger screens available on Android. To fix the issue, consider declaring the corresponding activity element with \\`screenOrientation=\"unspecified\"`or `\"fullSensor\"\\` attribute.  \n\nIssue id: LockedOrientationActivity  \n\n<https://developer.android.com/topic/arc/window-management>"
         },
         {
-          "shortName": "AndroidLintMissingIntentFilterForMediaSearch",
-          "displayName": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter",
+          "shortName": "AndroidLintResourceName",
+          "displayName": "Resource with Wrong Prefix",
           "enabled": true,
-          "description": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter  \n\nTo support voice searches on Android Auto, you should also register an `intent-filter` for the action `android.media.action.MEDIA_PLAY_FROM_SEARCH`.  \nTo do this, add\n\n```\n`<intent-filter>`\n    `<action android:name=\"android.media.action.MEDIA_PLAY_FROM_SEARCH\" />`\n`</intent-filter>`\n```\n\nto your `<activity>` or `<service>`.  \n\nIssue id: MissingIntentFilterForMediaSearch  \n\n<https://developer.android.com/training/auto/audio/index.html#support_voice>"
+          "description": "Resource with Wrong Prefix  \n\nIn Gradle projects you can specify a resource prefix that all resources in the project must conform to. This makes it easier to ensure that you don't accidentally combine resources from different libraries, since they all end up in the same shared app namespace.  \n\nIssue id: ResourceName"
         },
         {
           "shortName": "AndroidLintImpliedTouchscreenHardware",
@@ -4102,16 +4102,16 @@
           "description": "Reports calls to `StringBuffer` and `StringBuilder` constructors with `char` as the argument. In this case, `char` is silently cast to an integer and interpreted as the initial capacity of the buffer.\n\n**Example:**\n\n\n      new StringBuilder('(').append(\"1\").append(')');\n\nAfter the quick-fix is applied:\n\n\n      new StringBuilder(\"(\").append(\"1\").append(')');\n"
         },
         {
-          "shortName": "ClassGetClass",
-          "displayName": "Suspicious 'Class.getClass()' call",
-          "enabled": true,
-          "description": "Reports `getClass()` methods that are called on a `java.lang.Class` instance.\n\nThis is usually a mistake as the result is always equivalent to `Class.class`.\nIf it's a mistake, then it's better to remove the `getClass()` call and use the qualifier directly.\nIf the behavior is intended, then it's better to write `Class.class` explicitly to avoid confusion.\n\nExample:\n\n\n      void test(Class<?> clazz) {\n        String name = clazz.getClass().getName();\n      }\n\nAfter one of the possible quick-fixes is applied:\n\n\n      void test(Class<?> clazz) {\n        String name = clazz.getName();\n      }\n\nNew in 2018.2"
-        },
-        {
           "shortName": "ResultOfObjectAllocationIgnored",
           "displayName": "Result of object allocation ignored",
           "enabled": false,
           "description": "Reports object allocations where the allocated object is ignored and neither assigned to a variable nor used in another way.\n\n\nSuch allocation expressions are legal in Java, but are usually either unintended, or\nevidence of a very odd object initialization strategy.\n\n\nUse the options to list classes whose allocations should be ignored by this inspection."
+        },
+        {
+          "shortName": "ClassGetClass",
+          "displayName": "Suspicious 'Class.getClass()' call",
+          "enabled": true,
+          "description": "Reports `getClass()` methods that are called on a `java.lang.Class` instance.\n\nThis is usually a mistake as the result is always equivalent to `Class.class`.\nIf it's a mistake, then it's better to remove the `getClass()` call and use the qualifier directly.\nIf the behavior is intended, then it's better to write `Class.class` explicitly to avoid confusion.\n\nExample:\n\n\n      void test(Class<?> clazz) {\n        String name = clazz.getClass().getName();\n      }\n\nAfter one of the possible quick-fixes is applied:\n\n\n      void test(Class<?> clazz) {\n        String name = clazz.getName();\n      }\n\nNew in 2018.2"
         },
         {
           "shortName": "MismatchedStringBuilderQueryUpdate",
@@ -5626,16 +5626,16 @@
           "description": "Reports classes that refer to their subclasses in static initializers or static fields.\n\nSuch references can cause JVM-level deadlocks in multithreaded environment, when one thread tries to load the superclass\nand another thread tries to load the subclass at the same time.\n\n**Example:**\n\n\n      class Parent {\n        static final Child field = new Child();\n      }\n      class Child extends Parent { }\n"
         },
         {
-          "shortName": "NonSynchronizedMethodOverridesSynchronizedMethod",
-          "displayName": "Unsynchronized method overrides 'synchronized' method",
-          "enabled": true,
-          "description": "Reports non-`synchronized` methods overriding `synchronized` methods.\n\n\nThe overridden method will not be automatically synchronized if the superclass method\nis declared as `synchronized`. This may result in unexpected race conditions when using the subclass.\n\n**Example:**\n\n\n      class Super {\n        synchronized void process() {}\n      }\n      class Sub extends Super {\n        // Unsynchronized method 'process()' overrides synchronized method\n        void process() {}\n      }  \n"
-        },
-        {
           "shortName": "WaitCalledOnCondition",
           "displayName": "'wait()' called on 'java.util.concurrent.locks.Condition' object",
           "enabled": false,
           "description": "Reports calls to `wait()` made on a `java.util.concurrent.locks.Condition` object. This is probably a programming error, and some variant of the `await()` method was intended instead.\n\n**Example:**\n\n\n      void acquire(Condition released) throws InterruptedException {\n        while (acquired) {\n          released.wait();\n        }\n      }\n\nGood code would look like this:\n\n\n      void acquire(Condition released) throws InterruptedException {\n        while (acquired) {\n          released.await();\n        }\n      }\n"
+        },
+        {
+          "shortName": "NonSynchronizedMethodOverridesSynchronizedMethod",
+          "displayName": "Unsynchronized method overrides 'synchronized' method",
+          "enabled": true,
+          "description": "Reports non-`synchronized` methods overriding `synchronized` methods.\n\n\nThe overridden method will not be automatically synchronized if the superclass method\nis declared as `synchronized`. This may result in unexpected race conditions when using the subclass.\n\n**Example:**\n\n\n      class Super {\n        synchronized void process() {}\n      }\n      class Sub extends Super {\n        // Unsynchronized method 'process()' overrides synchronized method\n        void process() {}\n      }  \n"
         },
         {
           "shortName": "WaitNotifyNotInSynchronizedContext",
@@ -5907,16 +5907,16 @@
           "description": "Reports equality expressions which are negated by a prefix expression.\n\nSuch expressions can be simplified using the `!=` operator.\n\nExample:\n\n\n      !(i == 1)\n\nAfter the quick-fix is applied:\n\n\n      i != 1\n"
         },
         {
-          "shortName": "AssertionCanBeIf",
-          "displayName": "Assertion can be replaced with 'if' statement",
-          "enabled": true,
-          "description": "Reports `assert` statements and suggests replacing them with `if` statements that throw `java.lang.AssertionError`.\n\nExample:\n\n\n      assert param != null;\n\nAfter the quick-fix is applied:\n\n\n      if (param == null) throw new AssertionError();\n"
-        },
-        {
           "shortName": "DoubleNegation",
           "displayName": "Double negation",
           "enabled": true,
           "description": "Reports double negations that can be simplified.\n\nExample:\n\n\n      if (!!functionCall()) {}\n\nAfter the quick-fix is applied:\n\n\n      if (functionCall()) {}\n\nExample:\n\n\n      if (!(a != b)) {}\n\nAfter the quick-fix is applied:\n\n\n      if (a == b) {}\n"
+        },
+        {
+          "shortName": "AssertionCanBeIf",
+          "displayName": "Assertion can be replaced with 'if' statement",
+          "enabled": true,
+          "description": "Reports `assert` statements and suggests replacing them with `if` statements that throw `java.lang.AssertionError`.\n\nExample:\n\n\n      assert param != null;\n\nAfter the quick-fix is applied:\n\n\n      if (param == null) throw new AssertionError();\n"
         },
         {
           "shortName": "BreakStatement",

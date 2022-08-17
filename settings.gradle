@@ -16,5 +16,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "图书馆"
+rootProject.name = "Library-One-Tap"
 include ':app'

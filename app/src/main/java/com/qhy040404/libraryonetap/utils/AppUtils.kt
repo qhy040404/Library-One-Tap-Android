@@ -98,12 +98,17 @@ object AppUtils {
 
     fun pass() = Log.i("Pass", "Slack off")
 
+    @Suppress("DEPRECATION")
     fun getResString(@StringRes resId: Int): String {
         val res = ctx.resources
         val conf = res.configuration
+        val savedLocale = conf.locale
         conf.setLocale(locale)
         res.updateConfiguration(conf, null)
-        return res.getString(resId)
+        val result = res.getString(resId)
+        conf.setLocale(savedLocale)
+        res.updateConfiguration(conf, null)
+        return result
     }
 
     @Suppress("unused")

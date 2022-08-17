@@ -16,6 +16,7 @@ object GlobalManager {
         .addLast(KotlinJsonAdapterFactory())
         .build()
 
-    val bathPermissionFullScrFragment =
+    val bathPermissionFullScrFragment by ResettableLazyUtils.resettableLazy(lazyMgr) {
         FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt))
+    }
 }

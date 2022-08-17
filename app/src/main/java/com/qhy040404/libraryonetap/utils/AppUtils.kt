@@ -7,15 +7,17 @@ import android.content.res.Configuration
 import android.text.SpannableStringBuilder
 import android.util.Log
 import androidx.annotation.StringRes
-import androidx.core.content.edit
 import androidx.core.text.toSpannable
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
+import rikka.material.app.LocaleDelegate
 import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -28,18 +30,13 @@ object AppUtils {
         else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
     }
 
-    var locale: Locale = Locale.getDefault()
-        get() {
-            val tag = GlobalValues.locale
-            if (tag.isEmpty() || "system" == tag) {
-                return Locale.getDefault()
-            }
-            return Locale.forLanguageTag(tag)
+    val locale: Locale by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
+        val tag = GlobalValues.locale
+        if (tag.isEmpty() || "system" == tag) {
+            LocaleDelegate.systemLocale
         }
-        set(value) {
-            field = value
-            SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
-        }
+        Locale.forLanguageTag(tag)
+    }
 
     fun setTitle(ctx: Context) =
         SpannableStringBuilder(ctx.getString(R.string.app_name)).toSpannable()
@@ -98,17 +95,11 @@ object AppUtils {
 
     fun pass() = Log.i("Pass", "Slack off")
 
-    @Suppress("DEPRECATION")
     fun getResString(@StringRes resId: Int): String {
-        val res = ctx.resources
-        val conf = res.configuration
-        val savedLocale = conf.locale
-        conf.setLocale(locale)
-        res.updateConfiguration(conf, null)
-        val result = res.getString(resId)
-        conf.setLocale(savedLocale)
-        res.updateConfiguration(conf, null)
-        return result
+        val conf = ctx.resources.configuration.also {
+            it.setLocale(locale)
+        }
+        return ctx.createConfigurationContext(conf).getString(resId)
     }
 
     @Suppress("unused")

@@ -6,15 +6,12 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.MediaType.Companion.toMediaType
 
 object GlobalValues {
     // SharedPreferences
     const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
-
-    // App
-    val version =
-        AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
 
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
@@ -32,6 +29,11 @@ object GlobalValues {
     val ctJson = Constants.CONTENT_TYPE_JSON.toMediaType()
     val ctSso = Constants.CONTENT_TYPE_SSO.toMediaType()
     val ctVCard = Constants.CONTENT_TYPE_VCARD.toMediaType()
+
+    // App
+    val version by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
+        AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
+    }
 
     // Grades
     var minorVisible = false

@@ -101,12 +101,13 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<SimpleMenuPreference>(Constants.PREF_LOCALE)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue is String) {
-                    val locale: Locale = if ("SYSTEM" == newValue) {
+                    val locale: Locale = if ("system" == newValue) {
                         LocaleDelegate.systemLocale
                     } else {
                         Locale.forLanguageTag(newValue)
                     }
                     LocaleDelegate.defaultLocale = locale
+                    GlobalManager.lazyMgr.reset()
                     activity?.recreate()
                 }
                 true

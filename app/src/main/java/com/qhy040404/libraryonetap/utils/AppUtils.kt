@@ -98,7 +98,13 @@ object AppUtils {
 
     fun pass() = Log.i("Pass", "Slack off")
 
-    fun getResString(@StringRes resId: Int) = ctx.getString(resId)
+    fun getResString(@StringRes resId: Int): String {
+        val res = ctx.resources
+        val conf = res.configuration
+        conf.setLocale(locale)
+        res.updateConfiguration(conf, null)
+        return res.getString(resId)
+    }
 
     @Suppress("unused")
     fun isError(a: String): Boolean = isError(a, "")

@@ -49,6 +49,13 @@ jobs:
         with:
           arguments: build
 
+      - name: Replace BUGLY_APPID into qodana.yaml
+        uses: qhy040404/replace-file-content@v1.0.0
+        with:
+          file: qodana.yaml
+          past: '< delay init >'
+          content: ${{ secrets.BUGLY_APPID }}
+
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v2022.2.1
         with:

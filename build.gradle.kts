@@ -9,6 +9,11 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "10.3.0" apply true
 }
 
+allprojects {
+    apply(plugin = "io.gitlab.arturbosch.detekt")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+}
+
 buildScan {
     termsOfServiceUrl = "https://gradle.com/terms-of-service"
     termsOfServiceAgree = "yes"

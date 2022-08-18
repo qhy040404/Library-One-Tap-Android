@@ -84,58 +84,10 @@ jobs:
         with:
           arguments: lintAnalyzeRelease --warning-mode all --scan
 
-  ktlint:
-    name: Ktlint
-    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: validate-gradle-wrapper
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    timeout-minutes: 10
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
-        with:
-          fetch-depth: 0
-
-      - name: Set up java
-        uses: actions/setup-java@v3.4.1
-        with:
-          distribution: 'zulu'
-          java-version: 17
-
-      - name: Ktlint
-        uses: gradle/gradle-build-action@v2.2.3
-        with:
-          arguments: ktlintCheck --warning-mode all --scan
-
-  detekt:
-    name: Detekt
-    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: validate-gradle-wrapper
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    timeout-minutes: 10
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
-        with:
-          fetch-depth: 0
-
-      - name: Set up java
-        uses: actions/setup-java@v3.4.1
-        with:
-          distribution: 'zulu'
-          java-version: 17
-
-      - name: Detekt
-        uses: gradle/gradle-build-action@v2.2.3
-        with:
-          arguments: detekt --warning-mode all --scan
-
   build_debug:
     name: Build_Debug
     if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/') && !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: [ check, ktlint, detekt ]
+    needs: check
     runs-on: ubuntu-latest
 
     steps:
@@ -176,7 +128,7 @@ jobs:
   test_debug:
     name: Test_Debug
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: [ check, ktlint, detekt ]
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -198,7 +150,7 @@ jobs:
   build_release:
     name: Build_Release
     if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: [ check, ktlint, detekt ]
+    needs: check
     runs-on: ubuntu-latest
 
     steps:
@@ -244,7 +196,7 @@ jobs:
   test_release:
     name: Test_Release
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
-    needs: [ check, ktlint, detekt ]
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

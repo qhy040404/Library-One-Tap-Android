@@ -94,8 +94,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     testImplementation("junit:junit:4.13.2")
-
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
 }
 
 fun getBuglyAppID(): String = System.getenv("BUGLY_APPID")

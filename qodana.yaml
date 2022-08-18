@@ -5,7 +5,9 @@ bootstrap: export BUGLY_APPID=< delay init >
 profile:
   name: qodana.recommended
 exclude:
+  # Disable Unknown Attributes check when target API is 33 before AGP 7.3 release
   - name: AndroidUnknownAttribute
+  # Disable Gradle Kotlin DSL check
   - name: UnstableApiUsage
     paths:
       - app/build.gradle.kts

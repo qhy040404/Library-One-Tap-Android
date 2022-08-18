@@ -7,14 +7,17 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
+import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -117,17 +120,15 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         }
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
-        val total = OrderListData.getTotal(list)
+        OrderListData.mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(list)
+        val total = OrderListData.getTotal()
         if (total != "0") {
-            val space_name = OrderListData.getSpace_name(list, "2")
-            val seat_label = OrderListData.getSeat_label(list, "2")
-            val order_date = OrderListData.getOrder_date(list, "2")
-            var order_id = OrderListData.getOrder_id(list, "2")
-            var order_process = OrderListData.getOrder_process(list, "2")
-            val back_time =
-                OrderListData.getBack_time(list,
-                    "2",
-                    AppUtils.getResString(R.string.temp_end_time))
+            val space_name = OrderListData.getSpace_name(OrderModes.DETAIL)
+            val seat_label = OrderListData.getSeat_label(OrderModes.DETAIL)
+            val order_date = OrderListData.getOrder_date(OrderModes.DETAIL)
+            var order_id = OrderListData.getOrder_id(OrderModes.DETAIL)
+            var order_process = OrderListData.getOrder_process(OrderModes.DETAIL)
+            val back_time = OrderListData.getBack_time(OrderModes.DETAIL)
 
             if (order_id == "oid") {
                 order_id = AppUtils.getResString(R.string.no_valid_order)

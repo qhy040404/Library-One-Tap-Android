@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -101,14 +102,14 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         }
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
-        val total = OrderListData.getTotal(list)
+        val total = OrderListData.getTotal()
         if (total != "0") {
-            val space_name = OrderListData.getSpace_name(list, "1")
-            val order_date = OrderListData.getOrder_date(list, "1")
-            var order_id = OrderListData.getOrder_id(list, "1")
-            var order_process = OrderListData.getOrder_process(list, "1")
-            val all_users = OrderListData.getAll_users(list)
-            val full_time = OrderListData.getFull_time(list)
+            val space_name = OrderListData.getSpace_name(OrderModes.YANXIUJIAN)
+            val order_date = OrderListData.getOrder_date(OrderModes.YANXIUJIAN)
+            var order_id = OrderListData.getOrder_id(OrderModes.YANXIUJIAN)
+            var order_process = OrderListData.getOrder_process(OrderModes.YANXIUJIAN)
+            val all_users = OrderListData.getAll_users()
+            val full_time = OrderListData.getFull_time()
 
             if (order_id == "oid") {
                 order_id = AppUtils.getResString(R.string.no_valid_order)

@@ -6,3 +6,8 @@ profile:
   name: qodana.recommended
 exclude:
   - name: AndroidUnknownAttribute
+  - name: UnstableApiUsage
+    paths:
+      - app/build.gradle.kts
+      - build.gradle.kts
+      - settings.gradle.kts

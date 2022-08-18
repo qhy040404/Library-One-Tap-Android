@@ -119,13 +119,13 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
                 givenInsetsToDecorView = true;
             } else if (givenInsetsToDecorView) {
                 ViewCompat.onApplyWindowInsets(
-                        decorView,
-                        new WindowInsetsCompat.Builder()
-                                .setInsets(
-                                        WindowInsetsCompat.Type.navigationBars(),
-                                        Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
-                                )
-                                .build()
+                    decorView,
+                    new WindowInsetsCompat.Builder()
+                        .setInsets(
+                            WindowInsetsCompat.Type.navigationBars(),
+                            Insets.of(navigationBarsInsets.left, navigationBarsInsets.top, navigationBarsInsets.right, 0)
+                        )
+                        .build()
                 );
             }
 

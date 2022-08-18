@@ -16,9 +16,9 @@ public class ClickableItem {
     }
 
     public ClickableItem(
-            @NonNull String name,
-            @NonNull String desc,
-            @Nullable String url) {
+        @NonNull String name,
+        @NonNull String desc,
+        @Nullable String url) {
         this.name = name;
         this.desc = desc;
         this.url = url;

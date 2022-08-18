@@ -192,11 +192,11 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val remainNet = NetData.getDynamicRemainFlow(data)
             val netMessage = if (!AppUtils.isError(remainFee, usedNet, remainNet)) {
                 AppUtils.getResString(R.string.remain_net_fee) + remainFee +
-                        AppUtils.getResString(R.string.rmb) + "\n" +
-                        AppUtils.getResString(R.string.used_net) + usedNet +
-                        AppUtils.getResString(R.string.gigabyte) + "\n" +
-                        AppUtils.getResString(R.string.remain_net) + remainNet +
-                        AppUtils.getResString(R.string.gigabyte)
+                    AppUtils.getResString(R.string.rmb) + "\n" +
+                    AppUtils.getResString(R.string.used_net) + usedNet +
+                    AppUtils.getResString(R.string.gigabyte) + "\n" +
+                    AppUtils.getResString(R.string.remain_net) + remainNet +
+                    AppUtils.getResString(R.string.gigabyte)
             } else {
                 when (data) {
                     Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
@@ -256,8 +256,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val remainElectric = ElectricData.getResele(data)
             val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
                 SSMC + "\n" +
-                        AppUtils.getResString(R.string.remain_electric) + remainElectric +
-                        AppUtils.getResString(R.string.degree)
+                    AppUtils.getResString(R.string.remain_electric) + remainElectric +
+                    AppUtils.getResString(R.string.degree)
             } else {
                 when (data) {
                     Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
@@ -350,7 +350,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 }
             } else {
                 val totalHours = VolunteerData.getTotalHours(data).toString() +
-                        AppUtils.getResString(R.string.hours)
+                    AppUtils.getResString(R.string.hours)
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())

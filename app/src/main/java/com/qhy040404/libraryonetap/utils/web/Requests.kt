@@ -77,9 +77,9 @@ object Requests {
                 .use { response -> return response.body!!.string() }
         } catch (socket: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
-        } catch (host:UnknownHostException) {
+        } catch (host: UnknownHostException) {
             return Constants.NET_ERROR
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return Constants.STRING_NULL
         }
     }
@@ -109,15 +109,15 @@ object Requests {
                 if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
-        } catch (socket:SocketTimeoutException) {
+        } catch (socket: SocketTimeoutException) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
-        } catch (host:UnknownHostException) {
+        } catch (host: UnknownHostException) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
             GlobalValues.netError = true
             return Constants.NET_ERROR
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return Constants.STRING_NULL
         }
     }
@@ -134,11 +134,11 @@ object Requests {
         try {
             client.newCall(request).execute()
                 .use { response -> return response.body!!.string() }
-        } catch (socket:SocketTimeoutException) {
+        } catch (socket: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
-        } catch (host:UnknownHostException) {
+        } catch (host: UnknownHostException) {
             return Constants.NET_ERROR
-        } catch (e:Exception) {
+        } catch (e: Exception) {
             return Constants.STRING_NULL
         }
     }

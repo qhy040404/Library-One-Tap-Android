@@ -11,8 +11,8 @@ object CacheUtils {
 
     fun getCacheSize() = formatFileSize(
         FileUtils.getFileSize(externalCache!!) +
-                FileUtils.getFileSize(cache) +
-                FileUtils.getFileSize(codeCache)
+            FileUtils.getFileSize(cache) +
+            FileUtils.getFileSize(codeCache)
     )
 
     private fun formatFileSize(fileSize: Long) = if (fileSize == 0L) {

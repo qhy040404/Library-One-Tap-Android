@@ -43,8 +43,8 @@ class DividerItemDecoration extends RecyclerView.ItemDecoration {
         boolean should = false;
         for (int i = 0; !should && i < dividerClasses.length; i++) {
             should = position + 1 < items.size()
-                    && items.get(position).getClass().isAssignableFrom(dividerClasses[i])
-                    && (items.get(position + 1).getClass().isAssignableFrom(dividerClasses[i]));
+                && items.get(position).getClass().isAssignableFrom(dividerClasses[i])
+                && (items.get(position + 1).getClass().isAssignableFrom(dividerClasses[i]));
         }
         if (should) {
             outRect.set(0, 0, 0, 1);

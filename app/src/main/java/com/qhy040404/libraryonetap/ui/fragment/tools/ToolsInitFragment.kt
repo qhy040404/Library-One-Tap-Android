@@ -235,8 +235,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
-        val checked = withContext(Dispatchers.Main)
-        {
+        val checked = withContext(Dispatchers.Main) {
             AppUtils.checkDataAndDialog(requireContext(),
                 id,
                 passwd,

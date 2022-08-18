@@ -19,7 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/simple_page_item_category_padding_horizontal"
-        android:layout_marginRight="@dimen/simple_page_item_category_padding_horizontal"
         android:background="?attr/selectableItemBackgroundBorderless"
         tools:contentDescription="will be set programmatically"
         tools:ignore="ContentDescription" />

@@ -6,15 +6,15 @@ pluginManagement {
     }
 }
 plugins {
-    id 'com.gradle.enterprise' version '3.11.1'
+    id("com.gradle.enterprise") version "3.11.1"
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven("https://jitpack.io")
     }
 }
 rootProject.name = "Library-One-Tap"
-include ':app'
+include(":app")

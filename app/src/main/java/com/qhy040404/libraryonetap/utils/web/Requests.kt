@@ -51,17 +51,15 @@ object Requests {
                 if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
+        } catch (socket: SocketTimeoutException) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+            GlobalValues.netError = true
+            return Constants.NET_TIMEOUT
+        } catch (host: UnknownHostException) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+            GlobalValues.netError = true
+            return Constants.NET_ERROR
         } catch (e: Exception) {
-            if (e is SocketTimeoutException) {
-                textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
-                GlobalValues.netError = true
-                return Constants.NET_TIMEOUT
-            }
-            if (e is UnknownHostException) {
-                textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
-                GlobalValues.netError = true
-                return Constants.NET_ERROR
-            }
             return Constants.STRING_NULL
         }
     }
@@ -77,9 +75,11 @@ object Requests {
         try {
             client.newCall(request).execute()
                 .use { response -> return response.body!!.string() }
-        } catch (e: Exception) {
-            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_ERROR
+        } catch (socket: SocketTimeoutException) {
+            return Constants.NET_TIMEOUT
+        } catch (host:UnknownHostException) {
+            return Constants.NET_ERROR
+        } catch (e:Exception) {
             return Constants.STRING_NULL
         }
     }
@@ -109,17 +109,15 @@ object Requests {
                 if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
-        } catch (e: Exception) {
-            if (e is SocketTimeoutException) {
-                textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
-                GlobalValues.netError = true
-                return Constants.NET_TIMEOUT
-            }
-            if (e is UnknownHostException) {
-                textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
-                GlobalValues.netError = true
-                return Constants.NET_ERROR
-            }
+        } catch (socket:SocketTimeoutException) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+            GlobalValues.netError = true
+            return Constants.NET_TIMEOUT
+        } catch (host:UnknownHostException) {
+            textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+            GlobalValues.netError = true
+            return Constants.NET_ERROR
+        } catch (e:Exception) {
             return Constants.STRING_NULL
         }
     }
@@ -136,9 +134,11 @@ object Requests {
         try {
             client.newCall(request).execute()
                 .use { response -> return response.body!!.string() }
-        } catch (e: Exception) {
-            if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
-            if (e is UnknownHostException) return Constants.NET_ERROR
+        } catch (socket:SocketTimeoutException) {
+            return Constants.NET_TIMEOUT
+        } catch (host:UnknownHostException) {
+            return Constants.NET_ERROR
+        } catch (e:Exception) {
             return Constants.STRING_NULL
         }
     }

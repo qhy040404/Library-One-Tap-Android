@@ -3,7 +3,8 @@
 import java.net.InetAddress
 import java.nio.charset.Charset
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.TimeZone
 
 plugins {
     id("com.android.application")
@@ -36,8 +37,7 @@ android {
         }
 
         release {
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk {
                 abiFilters.add("arm64-v8a")
             }

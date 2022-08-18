@@ -1,0 +1,8 @@
+# Qodana configuration:
+# https://www.jetbrains.com/help/qodana/qodana-yaml.html
+version: 1.0
+bootstrap: export BUGLY_APPID=e9cf71d653
+profile:
+  name: qodana.recommended
+exclude:
+  - name: AndroidUnknownAttribute

@@ -10,8 +10,8 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalManager.des
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.CancelData
@@ -118,7 +118,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         }
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
-        OrderListData.mClass = moshi.adapter(OrderListDataClass::class.java).fromJson(list)
+        OrderListData.mClass =
+            runCatching { moshi.adapter(OrderListDataClass::class.java).fromJson(list) }.getOrNull()
         val total = OrderListData.getTotal()
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(OrderModes.DETAIL)

@@ -8,10 +8,12 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.GlobalManager.des
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.SessionData
+import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -100,6 +102,8 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         }
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
+        OrderListData.mClass =
+            runCatching { moshi.adapter(OrderListDataClass::class.java).fromJson(list) }.getOrNull()
         val total = OrderListData.getTotal()
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(OrderModes.YANXIUJIAN)

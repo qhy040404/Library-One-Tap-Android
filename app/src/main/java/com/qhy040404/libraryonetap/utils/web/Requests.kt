@@ -62,7 +62,6 @@ object Requests {
                 GlobalValues.netError = true
                 return Constants.NET_ERROR
             }
-            e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
@@ -81,7 +80,6 @@ object Requests {
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
             if (e is UnknownHostException) return Constants.NET_ERROR
-            e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
@@ -122,7 +120,6 @@ object Requests {
                 GlobalValues.netError = true
                 return Constants.NET_ERROR
             }
-            e.printStackTrace()
             return Constants.STRING_NULL
         }
     }
@@ -142,7 +139,6 @@ object Requests {
         } catch (e: Exception) {
             if (e is SocketTimeoutException) return Constants.NET_TIMEOUT
             if (e is UnknownHostException) return Constants.NET_ERROR
-            e.printStackTrace()
             return Constants.STRING_NULL
         }
     }

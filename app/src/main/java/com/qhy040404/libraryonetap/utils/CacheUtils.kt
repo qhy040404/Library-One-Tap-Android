@@ -39,8 +39,7 @@ object CacheUtils {
         } else {
             false
         }
-    } catch (e: Exception) {
-        e.printStackTrace()
+    } catch (_: Exception) {
         false
     }
 
@@ -52,8 +51,7 @@ object CacheUtils {
         } else {
             false
         }
-    } catch (e: Exception) {
-        e.printStackTrace()
+    } catch (_: Exception) {
         false
     }
 
@@ -65,8 +63,7 @@ object CacheUtils {
         } else {
             false
         }
-    } catch (e: Exception) {
-        e.printStackTrace()
+    } catch (_: Exception) {
         false
     }
 }

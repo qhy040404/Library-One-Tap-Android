@@ -89,6 +89,7 @@ jobs:
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
     needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
+    continue-on-error: true
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -112,6 +113,7 @@ jobs:
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
     needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
+    continue-on-error: true
     timeout-minutes: 10
     steps:
       - name: Checkout

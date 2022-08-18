@@ -7,13 +7,13 @@ import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
+import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -48,8 +48,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         val detail = binding.yxjDetail
         val qr = binding.yxjQr
         val loading = binding.yxjLoading
-
-        val des = DesEncryptUtils()
 
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd

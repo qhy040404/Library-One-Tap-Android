@@ -11,6 +11,7 @@ import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
+import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.CancelData
@@ -23,7 +24,6 @@ import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -66,8 +66,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val tempReset = binding.detailTempReset
         val loading = binding.detailLoading
         val type = binding.detailType
-
-        val des = DesEncryptUtils()
 
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd

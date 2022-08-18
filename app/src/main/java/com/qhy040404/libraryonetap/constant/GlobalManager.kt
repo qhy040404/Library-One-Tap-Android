@@ -5,6 +5,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -15,6 +16,7 @@ object GlobalManager {
     val moshi: Moshi = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .build()
+    val des = DesEncryptUtils()
 
     val bathPermissionFullScrFragment by ResettableLazyUtils.resettableLazy(lazyMgr) {
         FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt))

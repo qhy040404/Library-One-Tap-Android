@@ -8,10 +8,10 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
-import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -52,8 +52,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.post { spinner.adapter = adapter }
         }
-
-        val des = DesEncryptUtils()
 
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd

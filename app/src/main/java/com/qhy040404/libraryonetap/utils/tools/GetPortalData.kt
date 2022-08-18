@@ -2,9 +2,9 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 object GetPortalData {
@@ -23,7 +23,6 @@ object GetPortalData {
                 .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
                 .penaltyLog().penaltyDeath().build()
         )
-        val des = DesEncryptUtils()
 
         var loginSuccess = false
         var timer = 0

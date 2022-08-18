@@ -52,12 +52,14 @@ jobs:
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v2022.2.1
         continue-on-error: true
+        env:
+          BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
         with:
           args: >
             scan,
             -l,jetbrains/qodana-jvm-android,
             --yaml-name,qodana.yaml,
-            --env,[]string{"BUGLY_APPID=${{ secrets.BUGLY_APPID }}"}
+            --env,{"BUGLY_APPID=${{ secrets.BUGLY_APPID }}"}
           use-caches: false
 
       - name: Deploy to GitHub Pages

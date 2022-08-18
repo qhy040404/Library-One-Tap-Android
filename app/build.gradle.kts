@@ -24,7 +24,7 @@ android {
         versionName = baseVersionName
 
         base.archivesName.set("Library-One-Tap_v$versionName")
-        manifestPlaceholders["CHANNEL"] = getBuildType()
+        manifestPlaceholders["CHANNEL"] = getBuildType(false)
         manifestPlaceholders["BUILD_TIME"] = getBuildTime()
         manifestPlaceholders["BUILD_HOST"] = getBuildHost()
         manifestPlaceholders["COMMIT"] = getGitCommitHash()
@@ -44,8 +44,8 @@ android {
         }
 
         all {
-            buildConfigField("String", "CHANNEL", "\"${getBuildType()}\"")
-            buildConfigField("String", "BUGLY_APPID", "\"${getBuglyAppID()}\"")
+            buildConfigField("String", "CHANNEL", getBuildType(true))
+            buildConfigField("String", "BUGLY_APPID", getBuglyAppID(true))
         }
     }
     compileOptions {
@@ -96,7 +96,10 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
-fun getBuglyAppID(): String = System.getenv("BUGLY_APPID")
+fun getBuglyAppID(isBuildConfig: Boolean): String {
+    return if (!isBuildConfig) System.getenv("BUGLY_APPID")
+    else "\"${getBuglyAppID(false)}\""
+}
 
 fun getBuildTime(): String {
     val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -104,10 +107,12 @@ fun getBuildTime(): String {
     return formatter.format(Date())
 }
 
-fun getBuildType(): String {
-    return if ("git tag -l $baseVersionName".exec().isNotEmpty()) "Release"
-    else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()) "Pre-release"
-    else "Debug"
+fun getBuildType(isBuildConfig: Boolean): String {
+    return if (!isBuildConfig) {
+        if ("git tag -l $baseVersionName".exec().isNotEmpty()) "Release"
+        else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()) "Pre-release"
+        else "Debug"
+    } else "\"${getBuildType(false)}\""
 }
 
 fun getBuildHost(): String = InetAddress.getLocalHost().hostName

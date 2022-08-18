@@ -22,7 +22,7 @@ object WindowInsetsUtils {
             InsetsParams.RIGHT -> windowInsets.getInsets(typeMask).right
             InsetsParams.TOP -> windowInsets.getInsets(typeMask).top
             InsetsParams.BOTTOM -> windowInsets.getInsets(typeMask).bottom
-            else -> throw IllegalArgumentException()
+            else -> throw IllegalArgumentException("Use InsetsParams")
         }
     } else {
         when (param) {
@@ -30,7 +30,7 @@ object WindowInsetsUtils {
             InsetsParams.RIGHT -> windowInsets.systemWindowInsetRight
             InsetsParams.TOP -> windowInsets.systemWindowInsetTop
             InsetsParams.BOTTOM -> windowInsets.systemWindowInsetBottom
-            else -> throw IllegalArgumentException()
+            else -> throw IllegalArgumentException("Use InsetsParams")
         }
     }
 }

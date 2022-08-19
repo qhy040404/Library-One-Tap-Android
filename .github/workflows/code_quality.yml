@@ -49,13 +49,6 @@ jobs:
         with:
           arguments: build
 
-      - name: Replace BUGLY_APPID into qodana.yaml
-        uses: qhy040404/replace-file-content@v1.1.4
-        with:
-          file: qodana.yaml
-          past: '< delay init >'
-          content: ${{ secrets.BUGLY_APPID }}
-
       - name: Replace AGP Version with Release but not RC
         uses: qhy040404/replace-file-content@v1.1.4
         with:
@@ -71,9 +64,11 @@ jobs:
             scan,
             -l,jetbrains/qodana-jvm-android,
             --yaml-name,qodana.yaml,
+            --env,BUGLY_APPID=${{ secrets.BUGLY_APPID }}
           use-caches: false
 
       - name: Deploy to GitHub Pages
+        if: github.ref_name == 'master'
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -81,6 +76,7 @@ jobs:
           destination_dir: ./
 
       - name: Deploy to GitHub code scanning
+        if: github.ref_name == 'master'
         uses: github/codeql-action/upload-sarif@v2.1.18
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json

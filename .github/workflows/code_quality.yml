@@ -50,14 +50,14 @@ jobs:
           arguments: build
 
       - name: Replace BUGLY_APPID into qodana.yaml
-        uses: qhy040404/replace-file-content@v1.0.0
+        uses: qhy040404/replace-file-content@v1.1.4
         with:
           file: qodana.yaml
           past: '< delay init >'
           content: ${{ secrets.BUGLY_APPID }}
 
       - name: Replace AGP Version with Release but not RC
-        uses: qhy040404/replace-file-content@v1.1.0
+        uses: qhy040404/replace-file-content@v1.1.4
         with:
           file: build.gradle.kts
           past: '7.3.0-rc01'

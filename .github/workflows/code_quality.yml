@@ -49,13 +49,6 @@ jobs:
         with:
           arguments: build
 
-      - name: Replace BUGLY_APPID into qodana.yaml
-        uses: qhy040404/replace-file-content@v1.1.4
-        with:
-          file: qodana.yaml
-          past: '< delay init >'
-          content: ${{ secrets.BUGLY_APPID }}
-
       - name: Replace AGP Version with Release but not RC
         uses: qhy040404/replace-file-content@v1.1.4
         with:
@@ -71,6 +64,7 @@ jobs:
             scan,
             -l,jetbrains/qodana-jvm-android,
             --yaml-name,qodana.yaml,
+            --env,BUGLY_APPID=${{ secrets.BUGLY_APPID }}
           use-caches: false
 
       - name: Deploy to GitHub Pages

@@ -97,7 +97,7 @@ dependencies {
 }
 
 fun getBuglyAppID(isBuildConfig: Boolean): String {
-    return if (!isBuildConfig) System.getenv("BUGLY_APPID").orEmpty()
+    return if (!isBuildConfig) System.getenv("BUGLY_APPID")
     else "\"${getBuglyAppID(false)}\""
 }
 

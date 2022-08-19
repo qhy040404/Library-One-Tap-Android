@@ -75,12 +75,12 @@ jobs:
           java-version: 17
 
       - name: Check_debug
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: lintAnalyzeDebug --warning-mode all --scan
 
       - name: Check_release
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: lintAnalyzeRelease --warning-mode all --scan
 
@@ -103,7 +103,7 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: assembleDebug
 
@@ -143,7 +143,7 @@ jobs:
           java-version: 17
 
       - name: Test_Debug
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: testDebugUnitTest --warning-mode all --scan
 
@@ -166,7 +166,7 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: assembleRelease
 
@@ -211,7 +211,7 @@ jobs:
           java-version: 17
 
       - name: Test_Release
-        uses: gradle/gradle-build-action@v2.2.4
+        uses: gradle/gradle-build-action@v2.2.5
         with:
           arguments: testReleaseUnitTest --warning-mode all --scan
 

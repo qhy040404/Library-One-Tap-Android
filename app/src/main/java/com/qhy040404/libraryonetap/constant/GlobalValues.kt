@@ -27,6 +27,7 @@ object GlobalValues {
 
     // Settings
     var themeInit = false
+    var isMD3Changed = false
 
     // MediaType
     val ctJson = Constants.CONTENT_TYPE_JSON.toMediaType()

@@ -47,9 +47,10 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-        if (GlobalValues.themeInit) {
+        if (GlobalValues.themeInit && GlobalValues.isMD3Changed) {
             if (GlobalValues.md3) setCustomThemeVisibility(false)
             else setCustomThemeVisibility(true)
+            GlobalValues.isMD3Changed = false
         } else {
             findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible =
                 !GlobalValues.md3
@@ -104,6 +105,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<SwitchPreference>(Constants.PREF_MD3)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 GlobalValues.md3 = newValue as Boolean
+                GlobalValues.isMD3Changed = true
                 activity?.recreate()
                 true
             }

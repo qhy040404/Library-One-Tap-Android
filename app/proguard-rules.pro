@@ -15,7 +15,7 @@
 # -dontoptimize
 -optimizationpasses 5
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
--repackageclasses com.absinthe.libchecker
+-repackageclasses com.qhy040404.libraryonetap
 
 -dontpreverify
 

@@ -1,9 +1,13 @@
 package com.qhy040404.libraryonetap.utils.web
 
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.*
@@ -141,6 +145,69 @@ object Requests {
         } catch (e: Exception) {
             return Constants.STRING_NULL
         }
+    }
+
+    fun loginSso(
+        sso: String,
+        mt: MediaType,
+        session: String? = null,
+        progressBar: ProgressBar? = null,
+        needCheck: Boolean = false,
+        noJsonString: String = "统一身份",
+        hasSessionJson: Boolean = false,
+    ): Boolean {
+        val id = GlobalValues.id
+        val passwd = GlobalValues.passwd
+
+        var loginSuccess = false
+        var timer = 0
+
+        while (AppUtils.checkData(id, passwd)) {
+            val ltResponse = get(sso)
+            val ltData = try {
+                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+            } catch (_: Exception) {
+                ""
+            }
+            val ltExecution = try {
+                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+            } catch (_: Exception) {
+                ""
+            }
+
+            if (ltData.isNotEmpty()) {
+                val rawData = "$id$passwd$ltData"
+                val rsa = GlobalManager.des.strEnc(rawData, "1", "2", "3")
+
+                Thread.sleep(200L)
+
+                post(
+                    sso,
+                    loginPostData(id, passwd, ltData, rsa, ltExecution),
+                    mt
+                )
+            }
+
+            if (needCheck) {
+                if (hasSessionJson) {
+                    val sessionCheck = post(session!!, "", mt)
+                    if (SessionData.isSuccess(sessionCheck)) {
+                        progressBar?.post { progressBar.visibility = View.INVISIBLE }
+                        loginSuccess = true
+                        break
+                    } else timer++
+                } else {
+                    val sessionCheck = get(session!!)
+                    if (!sessionCheck.contains(noJsonString)) {
+                        loginSuccess = true
+                        break
+                    } else timer++
+                }
+                if (timer == 2) netLazyMgr.reset()
+                if (timer >= 3) break
+            }
+        }
+        return loginSuccess
     }
 
     fun loginPostData(

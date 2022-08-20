@@ -7,18 +7,15 @@ import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
-import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.OrderListData
-import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
@@ -46,61 +43,18 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     }
 
     @SuppressLint("SetTextI18n")
-    private suspend fun yanxiujian() {
+    private fun yanxiujian() {
         val detail = binding.yxjDetail
         val qr = binding.yxjQr
         val loading = binding.yxjLoading
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
+        val loginSuccess = Requests.loginSso(URLManager.LIBRARY_SSO_URL,
+            GlobalValues.ctSso,
+            URLManager.LIBRARY_SESSION_URL,
+            loading,
+            needCheck = true,
+            hasSessionJson = true)
 
-        var loginSuccess = false
-        var timer = 0
-        var failLogin = false
-
-        while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, detail)
-            val ltData = try {
-                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-            } catch (_: Exception) {
-                ""
-            }
-            val ltExecution = try {
-                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
-            } catch (_: Exception) {
-                ""
-            }
-
-            if (ltData.isNotEmpty()) {
-                val rawData = "$id$passwd$ltData"
-                val rsa = des.strEnc(rawData, "1", "2", "3")
-
-                delay(200L)
-
-                Requests.post(
-                    URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
-                    GlobalValues.ctSso
-                )
-            }
-
-            val session = Requests.post(URLManager.LIBRARY_SESSION_URL, "", GlobalValues.ctSso)
-            if (SessionData.isSuccess(session)) {
-                loading.post { loading.visibility = View.INVISIBLE }
-                loginSuccess = true
-            } else {
-                timer++
-                if (timer == 2) Requests.netLazyMgr.reset()
-                if (timer >= 3) {
-                    detail.post {
-                        detail.text =
-                            AppUtils.getResString(R.string.fail_to_login_three_times)
-                    }
-                    failLogin = true
-                    break
-                }
-            }
-        }
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass =
             runCatching { moshi.adapter(OrderListDataClass::class.java).fromJson(list) }.getOrNull()
@@ -138,12 +92,17 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 detail.text =
                     "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
             }
-        } else if (!AppUtils.checkData(id, passwd)) {
+        } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             detail.post {
                 detail.text = AppUtils.getResString(R.string.no_userdata)
             }
             loading.post { loading.visibility = View.INVISIBLE }
-        } else if (failLogin || GlobalValues.netError) {
+        } else if (!loginSuccess) {
+            detail.post {
+                detail.text =
+                    AppUtils.getResString(R.string.fail_to_login_three_times)
+            }
+        } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
             detail.post {

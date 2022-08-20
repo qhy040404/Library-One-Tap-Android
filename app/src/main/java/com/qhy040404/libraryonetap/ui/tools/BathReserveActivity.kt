@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
-import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
@@ -53,31 +52,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             spinner.post { spinner.adapter = adapter }
         }
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
-
         val time = BathUtils.getBathTime()
 
-        val ltResponse = Requests.get(URLManager.BATH_SSO_URL)
-        val ltData = try {
-            "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-        } catch (_: Exception) {
-            ""
-        }
-        val ltExecution = try {
-            ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
-        } catch (_: Exception) {
-            ""
-        }
-
-        val rawData = "$id$passwd$ltData"
-        val rsa = des.strEnc(rawData, "1", "2", "3")
-
-        Requests.post(
-            URLManager.BATH_SSO_URL,
-            Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
-            GlobalValues.ctSso
-        )
+        Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso)
 
         text.post { text.text = getString(R.string.loaded) }
 

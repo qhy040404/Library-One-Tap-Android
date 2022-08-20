@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -24,40 +23,10 @@ object GetPortalData {
                 .penaltyLog().penaltyDeath().build()
         )
 
-        var loginSuccess = false
-        var timer = 0
-
-        while (!loginSuccess) {
-            val ltResponse = Requests.get(URLManager.PORTAL_SSO_URL)
-            val ltData = try {
-                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-            } catch (_: Exception) {
-                ""
-            }
-            val ltExecution = try {
-                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
-            } catch (_: Exception) {
-                ""
-            }
-
-            if (ltData.isNotEmpty()) {
-                val rawData = "$id$passwd$ltData"
-                val rsa = des.strEnc(rawData, "1", "2", "3")
-
-                Requests.post(
-                    URLManager.PORTAL_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
-                    GlobalValues.ctSso
-                )
-            }
-
-            val session = Requests.get(URLManager.PORTAL_SSO_URL)
-            if (!session.contains("统一身份")) {
-                loginSuccess = true
-            }
-            timer++
-            if (timer >= 3) break
-        }
+        Requests.loginSso(URLManager.PORTAL_SSO_URL,
+            GlobalValues.ctSso,
+            URLManager.PORTAL_SSO_URL,
+            needCheck = true)
 
         return when (mode) {
             0 -> Requests.post(

@@ -185,7 +185,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 requireContext().showToast(R.string.loading)
             }
 
-            val data = GetPortalData.getPortalData(id, passwd, 1)
+            val data = GetPortalData.getPortalData(1)
 
             val remainFee = NetData.getFee(data)
             val usedNet = NetData.getDynamicUsedFlow(data)
@@ -248,7 +248,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 requireContext().showToast(R.string.loading)
             }
 
-            val data = GetPortalData.getPortalData(id, passwd, 0)
+            val data = GetPortalData.getPortalData(0)
 
             @Suppress("SpellCheckingInspection", "LocalVariableName")
             val SSMC = ElectricData.getSSMC(data)

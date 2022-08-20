@@ -11,7 +11,7 @@ object GetPortalData {
      * mode 0:electric
      * mode 1:net
      */
-    fun getPortalData(id: String, passwd: String, mode: Int): String {
+    fun getPortalData(mode: Int): String {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads().detectDiskWrites().detectNetwork()

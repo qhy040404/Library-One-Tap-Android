@@ -120,6 +120,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                         Locale.forLanguageTag(newValue)
                     }
                     LocaleDelegate.defaultLocale = locale
+                    GlobalManager.lazyMgr.reset()
                     activity?.recreate()
                 }
                 true

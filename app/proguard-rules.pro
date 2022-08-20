@@ -12,9 +12,9 @@
 # Optimization is turned off by default. Dex does not like code run
 # through the ProGuard optimize and preverify steps (and performs some
 # of these optimizations on its own).
-# -dontoptimize
--optimizationpasses 5
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
+-dontoptimize
+# -optimizationpasses 5
+# -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
 -repackageclasses com.qhy040404.libraryonetap
 
 -dontpreverify
@@ -151,3 +151,9 @@
 -keep public class com.github.mikephil.charting.animation.* {
     public protected *;
 }
+
+# LOTA
+-keep public class com.qhy040404.libraryonetap.annotation.**{*;}
+-keep public class com.qhy040404.libraryonetap.base.**{*;}
+-keep public class com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment{*;}
+-keep public class com.qhy040404.libraryonetap.utils.**{*;}

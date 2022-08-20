@@ -23,14 +23,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun init()
 
-    open fun onVisibilityChanged(visible: Boolean) {
-        this.visible = visible
-    }
-
-    fun isFragmentVisible(): Boolean {
-        return visible
-    }
-
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +35,4 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View = binding.root
-
-    override fun onResume() {
-        super.onResume()
-        onVisibilityChanged(true)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        onVisibilityChanged(false)
-    }
 }

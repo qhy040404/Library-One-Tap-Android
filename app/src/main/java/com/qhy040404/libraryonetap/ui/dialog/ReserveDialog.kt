@@ -114,7 +114,7 @@ class ReserveDialog {
                 ""
             }
 
-            if (ltData != "") {
+            if (ltData.isNotEmpty()) {
                 val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
                 val rsa = des.strEnc(rawData, "1", "2", "3")
 

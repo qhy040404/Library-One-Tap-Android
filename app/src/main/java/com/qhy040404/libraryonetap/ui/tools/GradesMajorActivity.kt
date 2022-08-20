@@ -138,7 +138,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     ""
                 }
 
-                if (ltData != "") {
+                if (ltData.isNotEmpty()) {
                     val rawData = "$id$passwd$ltData"
                     val rsa = des.strEnc(rawData, "1", "2", "3")
 

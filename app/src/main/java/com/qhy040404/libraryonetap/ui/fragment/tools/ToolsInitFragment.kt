@@ -156,6 +156,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!GlobalValues.minorVisible && GradesTempValues.minorStuId != 0) {
+            lifecycleScope.launch(Dispatchers.IO) { showMinor() }
+        }
+    }
+
     private suspend fun getNet() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
@@ -382,6 +389,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     initData.split("onclick=\"myFunction(this)\" value=\"")
                 if (initList.size == 3) {
                     requireContext().showToast("检测到辅修/双学位，已添加入口")
+                    GradesTempValues.toastShowed = true
                     val aStuId = initList[1].split("\"")[0].toInt()
                     val bStuId = initList[2].split("\"")[0].toInt()
                     when {
@@ -399,11 +407,16 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 tempId
             }
             if (GradesTempValues.minorStuId != 0) {
-                withContext(Dispatchers.Main) {
-                    findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
-                    GlobalValues.minorVisible = true
-                }
+                showMinor()
+                GlobalValues.minorVisible = true
             }
+        }
+    }
+
+    private suspend fun showMinor() {
+        withContext(Dispatchers.Main) {
+            this@ToolsInitFragment.findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible =
+                true
         }
     }
 }

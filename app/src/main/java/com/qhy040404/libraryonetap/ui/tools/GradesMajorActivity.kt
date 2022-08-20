@@ -18,6 +18,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.GradesUtils
+import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
@@ -182,6 +183,9 @@ class GradesMajorActivity : SimplePageActivity() {
                         val initList =
                             initData.split("onclick=\"myFunction(this)\" value=\"")
                         if (initList.size == 3) {
+                            if (!GradesTempValues.toastShowed) {
+                                showToast("检测到辅修/双学位，已添加入口")
+                            }
                             val aStuId = initList[1].split("\"")[0].toInt()
                             val bStuId = initList[2].split("\"")[0].toInt()
                             when {

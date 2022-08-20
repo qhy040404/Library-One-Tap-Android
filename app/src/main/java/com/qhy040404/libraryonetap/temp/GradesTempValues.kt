@@ -4,6 +4,8 @@ object GradesTempValues {
     var majorStuId = 0
     var minorStuId = 0
 
+    var toastShowed = false
+
     var semesters: MutableList<Int> = mutableListOf()
     var semestersName: MutableList<String> = mutableListOf()
 

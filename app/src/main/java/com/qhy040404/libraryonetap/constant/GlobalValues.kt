@@ -51,7 +51,6 @@ object GlobalValues {
     val version by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
         AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
     }
-    var isFront = true
 
     // Grades
     var minorVisible = false

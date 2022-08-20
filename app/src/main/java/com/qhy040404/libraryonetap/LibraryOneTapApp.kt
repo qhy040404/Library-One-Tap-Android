@@ -63,13 +63,11 @@ class LibraryOneTapApp : Application() {
         AppStatusHelper.register(this, object : OnAppStatusListener {
             override fun onFront() {
                 Log.w("AppStatus", "Front")
-                GlobalValues.isFront = true
                 delayTerminateJob?.cancel()
             }
 
             override fun onBack() {
                 Log.w("AppStatus", "Back")
-                GlobalValues.isFront = false
                 delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
                     delay(30000L)
                     withContext(Dispatchers.Main) {

@@ -388,7 +388,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val initList =
                     initData.split("onclick=\"myFunction(this)\" value=\"")
                 if (initList.size == 3) {
-                    if (GlobalValues.isFront) requireContext().showToast("检测到辅修/双学位，已添加入口")
+                    runCatching { requireContext().showToast("检测到辅修/双学位，已添加入口") }
                     GradesTempValues.toastShowed = true
                     val aStuId = initList[1].split("\"")[0].toInt()
                     val bStuId = initList[2].split("\"")[0].toInt()

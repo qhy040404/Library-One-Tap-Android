@@ -37,11 +37,6 @@ class GradesMajorActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (GlobalValues.minorDetected) {
-                add(Card(
-                    "检测到辅修/双学位，已在工具箱添加入口"
-                ))
-            }
             add(Card(
                 "加权均分: ${
                     GradesUtils.calculateWeightedAverage(

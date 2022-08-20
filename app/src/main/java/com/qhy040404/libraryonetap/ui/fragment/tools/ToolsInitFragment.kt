@@ -13,6 +13,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
+import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
@@ -32,10 +33,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.tools_list, rootKey)
 
-        if (GlobalValues.minorDetected || GlobalValues.minorVisible) {
+        if (GlobalValues.minorVisible) {
             findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
-            GlobalValues.minorVisible = true
-            GlobalValues.minorDetected = false
+        } else {
+            initGrades()
         }
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
@@ -359,6 +360,47 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .setCancelable(true)
                         .create()
                         .show()
+                }
+            }
+        }
+    }
+
+    private fun initGrades() {
+        var tempId = 0
+        lifecycleScope.launch(Dispatchers.IO) {
+            Requests.loginSso(URLManager.EDU_LOGIN_SSO_URL,
+                GlobalValues.ctSso,
+                URLManager.EDU_CHECK_URL,
+                needCheck = true,
+                noJsonString = "person")
+            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
+            val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
+            GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
+                initUrl.split("/").last().toInt()
+            } else {
+                val initList =
+                    initData.split("onclick=\"myFunction(this)\" value=\"")
+                if (initList.size == 3) {
+                    val aStuId = initList[1].split("\"")[0].toInt()
+                    val bStuId = initList[2].split("\"")[0].toInt()
+                    when {
+                        aStuId > bStuId -> {
+                            GradesTempValues.minorStuId = aStuId
+                            tempId = bStuId
+                        }
+                        bStuId > aStuId -> {
+                            GradesTempValues.minorStuId = bStuId
+                            tempId = aStuId
+                        }
+                        else -> AppUtils.pass()
+                    }
+                }
+                tempId
+            }
+            if (GradesTempValues.minorStuId != 0) {
+                withContext(Dispatchers.Main) {
+                    findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
+                    GlobalValues.minorVisible = true
                 }
             }
         }

@@ -1,7 +1,8 @@
 package com.qhy040404.libraryonetap.temp
 
 object GradesTempValues {
-    var secondStuId = 0
+    var majorStuId = 0
+    var minorStuId = 0
 
     var semesters: MutableList<Int> = mutableListOf()
     var semestersName: MutableList<String> = mutableListOf()

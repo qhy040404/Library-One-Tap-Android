@@ -18,7 +18,6 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.GradesUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
@@ -174,36 +173,9 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
-                val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
-                val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-                val stuId = if (initUrl.contains("semester-index")) {
-                    initUrl.split("/").last().toInt()
-                } else {
-                    val initList =
-                        initData.split("onclick=\"myFunction(this)\" value=\"")
-                    if (initList.size == 3) {
-                        showToast("检测到辅修/双学位，已添加入口")
-                        val aStuId = initList[1].split("\"")[0].toInt()
-                        val bStuId = initList[2].split("\"")[0].toInt()
-                        when {
-                            aStuId > bStuId -> {
-                                GradesTempValues.secondStuId = aStuId
-                                if (!GlobalValues.minorVisible) GlobalValues.minorDetected = true
-                                majorStuId = bStuId
-                            }
-                            bStuId > aStuId -> {
-                                GradesTempValues.secondStuId = bStuId
-                                if (!GlobalValues.minorVisible) GlobalValues.minorDetected = true
-                                majorStuId = aStuId
-                            }
-                            else -> throw IllegalStateException("Illegal Student ID")
-                        }
-                    }
-                    majorStuId
-                }
-
                 Thread.sleep(3000L)
-                val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
+                val gradesData =
+                    Requests.get(URLManager.getEduGradeUrl(GradesTempValues.majorStuId))
 
                 val gradesJsonObject = JSONObject(gradesData)
                 val semesters = gradesJsonObject.optJSONArray("semesters")!!

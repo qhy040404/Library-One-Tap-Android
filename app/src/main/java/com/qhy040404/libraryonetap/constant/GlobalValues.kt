@@ -41,7 +41,6 @@ object GlobalValues {
 
     // Grades
     var minorVisible = false
-    var minorDetected = false
 
     // Net
     var netError = false

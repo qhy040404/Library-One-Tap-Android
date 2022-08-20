@@ -36,11 +36,6 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     IAppBarContainer {
     private val navViewBehavior by lazy { HideBottomViewOnScrollBehavior<BottomNavigationView>() }
 
-    override fun onResume() {
-        super.onResume()
-        if (GlobalValues.minorDetected) recreate()
-    }
-
     override fun init() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = AppUtils.setTitle(this)

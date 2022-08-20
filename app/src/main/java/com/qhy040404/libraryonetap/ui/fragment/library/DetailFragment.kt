@@ -72,7 +72,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
         var loginSuccess = false
         var timer = 0
-        var failLogin = false
 
         while (!loginSuccess && AppUtils.checkData(id, passwd)) {
             val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL, detail)
@@ -87,7 +86,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 ""
             }
 
-            if (ltData != "") {
+            if (ltData.isNotEmpty()) {
                 val rawData = "$id$passwd$ltData"
                 val rsa = des.strEnc(rawData, "1", "2", "3")
 
@@ -112,7 +111,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         detail.text =
                             AppUtils.getResString(R.string.fail_to_login_three_times)
                     }
-                    failLogin = true
                     break
                 }
             }
@@ -419,7 +417,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 detail.text = AppUtils.getResString(R.string.no_userdata)
             }
             loading.post { loading.visibility = View.INVISIBLE }
-        } else if (failLogin || GlobalValues.netError) {
+        } else if (!loginSuccess || GlobalValues.netError) {
             AppUtils.pass()
         } else {
             detail.post {

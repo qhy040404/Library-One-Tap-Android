@@ -173,6 +173,33 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
+                if (GradesTempValues.majorStuId == 0) {
+                    val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
+                    val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
+                    GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
+                        initUrl.split("/").last().toInt()
+                    } else {
+                        val initList =
+                            initData.split("onclick=\"myFunction(this)\" value=\"")
+                        if (initList.size == 3) {
+                            val aStuId = initList[1].split("\"")[0].toInt()
+                            val bStuId = initList[2].split("\"")[0].toInt()
+                            when {
+                                aStuId > bStuId -> {
+                                    GradesTempValues.minorStuId = aStuId
+                                    majorStuId = bStuId
+                                }
+                                bStuId > aStuId -> {
+                                    GradesTempValues.minorStuId = bStuId
+                                    majorStuId = aStuId
+                                }
+                                else -> throw IllegalStateException("Illegal Student ID")
+                            }
+                        }
+                        majorStuId
+                    }
+                }
+
                 Thread.sleep(3000L)
                 val gradesData =
                     Requests.get(URLManager.getEduGradeUrl(GradesTempValues.majorStuId))

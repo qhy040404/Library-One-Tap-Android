@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.ui.tools
 
+import android.os.Handler
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -22,6 +23,8 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
 class GradesMinorActivity : SimplePageActivity() {
+    private var currentVisible = true
+
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
             setTheme(AppUtils.getThemeID(GlobalValues.theme))
@@ -92,6 +95,16 @@ class GradesMinorActivity : SimplePageActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        currentVisible = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        currentVisible = false
+    }
+
     private inner class PrepareData : Runnable {
         override fun run() {
             Looper.prepare()
@@ -107,15 +120,18 @@ class GradesMinorActivity : SimplePageActivity() {
             )
 
             if (!AppUtils.hasNetwork()) {
-                MaterialAlertDialogBuilder(this@GradesMinorActivity)
-                    .setMessage(R.string.net_disconnected)
-                    .setTitle(R.string.grade_minor_title)
-                    .setPositiveButton(R.string.ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(true)
-                    .create()
-                    .show()
+                Handler(Looper.getMainLooper()).post {
+                    MaterialAlertDialogBuilder(this@GradesMinorActivity)
+                        .setMessage(R.string.net_disconnected)
+                        .setTitle(R.string.grade_major_title)
+                        .setPositiveButton(R.string.ok) { _, _ ->
+                            finish()
+                        }
+                        .setCancelable(true)
+                        .create().also {
+                            if (this@GradesMinorActivity.currentVisible) it.show()
+                        }
+                }
                 Looper.loop()
                 return
             }
@@ -157,20 +173,23 @@ class GradesMinorActivity : SimplePageActivity() {
                 } else {
                     timer++
                     if (timer >= 3) {
-                        MaterialAlertDialogBuilder(this@GradesMinorActivity)
-                            .setTitle(R.string.grade_minor_title)
-                            .setMessage(when (session) {
-                                Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                                Constants.NET_ERROR -> R.string.net_error
-                                Constants.NET_TIMEOUT -> R.string.net_timeout
-                                else -> R.string.fail_to_login_three_times
-                            })
-                            .setPositiveButton(R.string.ok) { _, _ ->
-                                finish()
-                            }
-                            .setCancelable(false)
-                            .create()
-                            .show()
+                        Handler(Looper.getMainLooper()).post {
+                            MaterialAlertDialogBuilder(this@GradesMinorActivity)
+                                .setTitle(R.string.grade_major_title)
+                                .setMessage(when (session) {
+                                    Constants.NET_DISCONNECTED -> R.string.net_disconnected
+                                    Constants.NET_ERROR -> R.string.net_error
+                                    Constants.NET_TIMEOUT -> R.string.net_timeout
+                                    else -> R.string.fail_to_login_three_times
+                                })
+                                .setPositiveButton(R.string.ok) { _, _ ->
+                                    finish()
+                                }
+                                .setCancelable(false)
+                                .create().also {
+                                    if (this@GradesMinorActivity.currentVisible) it.show()
+                                }
+                        }
                         Looper.loop()
                         break
                     }

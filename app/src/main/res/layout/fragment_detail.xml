@@ -9,8 +9,8 @@
     <TextView
         android:id="@+id/detail_detail"
         android:layout_width="350dp"
-        android:layout_height="145dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="90dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/loading"
         android:textSize="19sp"

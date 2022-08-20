@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
+import android.os.LocaleList
 import android.text.SpannableStringBuilder
 import android.util.Log
 import androidx.annotation.StringRes
@@ -17,7 +18,6 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
-import rikka.material.app.LocaleDelegate
 import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -33,7 +33,7 @@ object AppUtils {
     val locale: Locale by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
         val tag = GlobalValues.locale
         if (tag.isEmpty() || "system" == tag) {
-            LocaleDelegate.systemLocale
+            LocaleList.getDefault().get(0)
         }
         Locale.forLanguageTag(tag)
     }

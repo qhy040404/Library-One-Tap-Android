@@ -25,6 +25,9 @@ object GlobalValues {
 
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 
+    // Settings
+    var themeInit = false
+
     // MediaType
     val ctJson = Constants.CONTENT_TYPE_JSON.toMediaType()
     val ctSso = Constants.CONTENT_TYPE_SSO.toMediaType()

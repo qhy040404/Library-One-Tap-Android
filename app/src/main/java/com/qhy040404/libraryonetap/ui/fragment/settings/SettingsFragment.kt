@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -26,6 +27,9 @@ import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import rikka.preference.SimpleMenuPreference
@@ -43,7 +47,14 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-        findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !GlobalValues.md3
+        if (GlobalValues.themeInit) {
+            if (GlobalValues.md3) setCustomThemeVisibility(false)
+            else setCustomThemeVisibility(true)
+        } else {
+            findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible =
+                !GlobalValues.md3
+            GlobalValues.themeInit = true
+        }
 
         findPreference<EditTextPreference>(Constants.PREF_NAME)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
@@ -210,4 +221,13 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
     override fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate
     override fun isAllowRefreshing(): Boolean = true
     override fun getSuitableLayoutManager(): RecyclerView.LayoutManager? = null
+
+    private fun setCustomThemeVisibility(visible: Boolean) {
+        findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !visible
+        lifecycleScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = visible
+            }
+        }
+    }
 }

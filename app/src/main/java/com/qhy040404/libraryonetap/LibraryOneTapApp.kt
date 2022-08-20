@@ -40,7 +40,7 @@ class LibraryOneTapApp : Application() {
         )
         app = this
 
-        LocaleDelegate.defaultLocale = AppUtils.locale
+        LocaleDelegate.defaultLocale = GlobalValues.locale
         DayNightDelegate.setApplicationContext(this)
         DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(GlobalValues.darkMode))
         DynamicColors.applyToActivitiesIfAvailable(this)

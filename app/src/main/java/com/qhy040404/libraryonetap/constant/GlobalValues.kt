@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.constant
 
+import androidx.core.content.edit
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -8,6 +9,7 @@ import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import okhttp3.MediaType.Companion.toMediaType
+import java.util.*
 
 object GlobalValues {
     // SharedPreferences
@@ -21,7 +23,18 @@ object GlobalValues {
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
     var md3: Boolean by SPDelegates(Constants.PREF_MD3, true)
-    var locale: String by SPDelegates(Constants.PREF_LOCALE, Constants.DEFAULT_LOCALE)
+    var locale: Locale = Locale.getDefault()
+        get() {
+            val tag = SPUtils.sp.getString(Constants.PREF_LOCALE, null)
+            if (tag.isNullOrEmpty() || "system" == tag) {
+                return Locale.getDefault()
+            }
+            return Locale.forLanguageTag(tag)
+        }
+        set(value) {
+            field = value
+            SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
+        }
 
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 

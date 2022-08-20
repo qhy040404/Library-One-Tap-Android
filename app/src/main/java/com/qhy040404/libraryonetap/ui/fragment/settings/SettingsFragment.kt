@@ -113,15 +113,15 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<SimpleMenuPreference>(Constants.PREF_LOCALE)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
-                GlobalValues.locale = newValue as String
-                val locale: Locale = if ("system" == newValue) {
-                    LocaleDelegate.systemLocale
-                } else {
-                    Locale.forLanguageTag(newValue)
+                if (newValue is String) {
+                    val locale: Locale = if ("system" == newValue) {
+                        LocaleDelegate.systemLocale
+                    } else {
+                        Locale.forLanguageTag(newValue)
+                    }
+                    LocaleDelegate.defaultLocale = locale
+                    activity?.recreate()
                 }
-                LocaleDelegate.defaultLocale = locale
-                GlobalManager.lazyMgr.reset()
-                activity?.recreate()
                 true
             }
         }

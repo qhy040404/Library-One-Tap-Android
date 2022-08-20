@@ -12,13 +12,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
-import rikka.material.app.LocaleDelegate
-import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
 object AppUtils {
@@ -28,14 +24,6 @@ object AppUtils {
         "on" -> DayNightDelegate.MODE_NIGHT_YES
         "off" -> DayNightDelegate.MODE_NIGHT_NO
         else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-    }
-
-    val locale: Locale by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
-        val tag = GlobalValues.locale
-        if (tag.isEmpty() || "system" == tag) {
-            LocaleDelegate.systemLocale
-        }
-        Locale.forLanguageTag(tag)
     }
 
     fun setTitle(ctx: Context) =
@@ -97,7 +85,7 @@ object AppUtils {
 
     fun getResString(@StringRes resId: Int): String {
         val conf = ctx.resources.configuration.also {
-            it.setLocale(locale)
+            it.setLocale(GlobalValues.locale)
         }
         return ctx.createConfigurationContext(conf).getString(resId)
     }

@@ -8,7 +8,7 @@ import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
 
 object SPUtils {
     val spLazyMgr = ResettableLazyUtils.resettableManager()
-    private val sp: SharedPreferences by ResettableLazyUtils.resettableLazy(spLazyMgr) {
+    val sp: SharedPreferences by ResettableLazyUtils.resettableLazy(spLazyMgr) {
         LibraryOneTapApp.app.getSharedPreferences(
             SP_NAME,
             Context.MODE_PRIVATE

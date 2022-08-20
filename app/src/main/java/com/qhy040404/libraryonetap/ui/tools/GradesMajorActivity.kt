@@ -119,12 +119,14 @@ class GradesMajorActivity : SimplePageActivity() {
                 return
             }
 
+            var majorStuId = 0
+
             val id = GlobalValues.id
             val passwd = GlobalValues.passwd
 
             var loginSuccess = false
             var timer = 0
-            var majorStuId = 0
+
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
                 val ltData = try {

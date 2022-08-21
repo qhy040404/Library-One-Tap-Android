@@ -24,7 +24,6 @@ object Constants {
 
     const val DEFAULT_DARK = "system"
     const val DEFAULT_THEME = "library"
-    const val DEFAULT_LOCALE = "system"
 
     const val CONTENT_TYPE_SSO = "application/x-www-form-urlencoded; charset=utf-8"
     const val CONTENT_TYPE_JSON = "application/json;charset=UTF-8"

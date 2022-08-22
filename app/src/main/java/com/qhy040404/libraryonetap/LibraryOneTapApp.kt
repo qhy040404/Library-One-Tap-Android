@@ -15,10 +15,16 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
 import com.tencent.bugly.crashreport.CrashReport
-import kotlinx.coroutines.*
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
-import java.util.*
+import java.util.LinkedList
 import kotlin.system.exitProcess
 
 class LibraryOneTapApp : Application() {

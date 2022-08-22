@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
-import java.util.*
+import java.util.Calendar
 
 object TimeUtils {
     private val calendar: Calendar = Calendar.getInstance()

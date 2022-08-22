@@ -1,6 +1,10 @@
 package com.qhy040404.libraryonetap.utils.tools
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 
 object QRUtils {
     fun toGrayscale(bmpOriginal: Bitmap): Bitmap {

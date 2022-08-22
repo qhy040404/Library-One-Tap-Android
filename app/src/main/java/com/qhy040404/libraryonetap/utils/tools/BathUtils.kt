@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils.tools
 
-import java.util.*
+import java.util.Calendar
 
 object BathUtils {
     fun getBathTime(): Int {

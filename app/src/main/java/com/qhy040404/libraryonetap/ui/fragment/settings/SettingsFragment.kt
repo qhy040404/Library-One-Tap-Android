@@ -37,7 +37,7 @@ import rikka.recyclerview.fixEdgeEffect
 import rikka.widget.borderview.BorderRecyclerView
 import rikka.widget.borderview.BorderView
 import rikka.widget.borderview.BorderViewDelegate
-import java.util.*
+import java.util.Locale
 import kotlin.system.exitProcess
 
 class SettingsFragment : PreferenceFragmentCompat(), IListController {

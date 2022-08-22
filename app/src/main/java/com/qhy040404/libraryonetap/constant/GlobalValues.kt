@@ -9,7 +9,7 @@ import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import okhttp3.MediaType.Companion.toMediaType
-import java.util.*
+import java.util.Locale
 
 object GlobalValues {
     // SharedPreferences

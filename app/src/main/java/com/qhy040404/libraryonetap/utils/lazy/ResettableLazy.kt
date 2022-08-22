@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils.lazy
 
-import java.util.*
+import java.util.LinkedList
 import kotlin.reflect.KProperty
 
 fun <T> resettableLazy(

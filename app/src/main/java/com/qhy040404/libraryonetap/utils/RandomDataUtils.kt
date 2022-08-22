@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.utils
 
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
-import java.util.*
+import java.util.Random
 
 object RandomDataUtils {
     fun getNum(numCount: Int) = if (numCount > 0) {

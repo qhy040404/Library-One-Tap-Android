@@ -80,7 +80,6 @@ dependencies {
     implementation("com.squareup.okio:okio:3.2.0")
     implementation("com.takisoft.preferencex:preferencex:1.1.0")
     implementation("com.tencent.bugly:crashreport:4.0.4")
-    //implementation("dev.rikka.rikkax.appcompat:appcompat:1.4.1")
     implementation("dev.rikka.rikkax.appcompat:appcompat:1.5.0.1")
     implementation("dev.rikka.rikkax.material:material:2.5.1")
     implementation("dev.rikka.rikkax.material:material-preference:2.0.0")

@@ -16,6 +16,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
+        // Will be removed when rikkax.appcompat 1.5.0+ is pushed to mavenCentral
         maven {
             url = URI("https://s01.oss.sonatype.org/content/repositories/releases/")
             content {

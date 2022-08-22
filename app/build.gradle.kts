@@ -1,9 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
-import java.net.InetAddress
 import java.nio.charset.Charset
-import java.text.SimpleDateFormat
-import java.util.*
 
 plugins {
     id("com.android.application")
@@ -25,8 +22,6 @@ android {
 
         base.archivesName.set("Library-One-Tap_v$versionName")
         manifestPlaceholders["CHANNEL"] = getBuildType(false)
-        manifestPlaceholders["BUILD_TIME"] = getBuildTime()
-        manifestPlaceholders["BUILD_HOST"] = getBuildHost()
         manifestPlaceholders["COMMIT"] = getGitCommitHash()
     }
 
@@ -103,12 +98,6 @@ fun getBuglyAppID(isBuildConfig: Boolean): String {
     else "\"${getBuglyAppID(false)}\""
 }
 
-fun getBuildTime(): String {
-    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-    formatter.timeZone = TimeZone.getTimeZone("\"GMT+08:00\"")
-    return formatter.format(Date())
-}
-
 fun getBuildType(isBuildConfig: Boolean): String {
     return if (!isBuildConfig) {
         if ("git tag -l $baseVersionName".exec().isNotEmpty()) "Release"
@@ -116,8 +105,6 @@ fun getBuildType(isBuildConfig: Boolean): String {
         else "Debug"
     } else "\"${getBuildType(false)}\""
 }
-
-fun getBuildHost(): String = InetAddress.getLocalHost().hostName
 
 fun getGitCommitHash(): String = "git rev-parse HEAD".exec()
 

@@ -28,7 +28,7 @@
 
 ## 适配版本
 
-Android 10 ~ 13 Beta 4
+Android 10 ~ 13
 
 iOS 版本部分[源码][ios]在此，版本在 1.0 时期，由于申请 Apple Developer 既费时又费力还费钱，需要的自行完善代码后自签使用
 

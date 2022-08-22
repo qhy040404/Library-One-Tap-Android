@@ -7,7 +7,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
+import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import okhttp3.MediaType.Companion.toMediaType
 import java.util.*
 
@@ -48,7 +48,7 @@ object GlobalValues {
     val ctVCard = Constants.CONTENT_TYPE_VCARD.toMediaType()
 
     // App
-    val version by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
+    val version by resettableLazy(GlobalManager.lazyMgr) {
         AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
     }
 

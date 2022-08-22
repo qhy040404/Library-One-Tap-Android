@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.utils
 
 import com.qhy040404.libraryonetap.constant.GlobalManager
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
+import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import java.util.*
 
 object RandomDataUtils {
@@ -11,7 +11,7 @@ object RandomDataUtils {
         0
     }
 
-    val randomTheme by ResettableLazyUtils.resettableLazy(GlobalManager.lazyMgr) {
+    val randomTheme by resettableLazy(GlobalManager.lazyMgr) {
         when (getNum(8)) {
             0 -> "purple"
             1 -> "library"

@@ -1,6 +1,18 @@
 package com.qhy040404.libraryonetap.utils.lazy
 
+import java.util.*
 import kotlin.reflect.KProperty
+
+fun <T> resettableLazy(
+    manager: ResettableLazyManager,
+    init: () -> T,
+): ResettableLazy<T> = ResettableLazy(manager, init)
+
+fun resettableManager(): ResettableLazyManager = ResettableLazyManager()
+
+interface Resettable {
+    fun reset()
+}
 
 class ResettableLazy<T>(
     private val manager: ResettableLazyManager,
@@ -19,6 +31,23 @@ class ResettableLazy<T>(
         return lazy {
             manager.register(this)
             init()
+        }
+    }
+}
+
+class ResettableLazyManager {
+    private val managedDelegates = LinkedList<Resettable>()
+
+    fun register(managed: Resettable) {
+        synchronized(managedDelegates) {
+            managedDelegates.add(managed)
+        }
+    }
+
+    fun reset() {
+        synchronized(managedDelegates) {
+            managedDelegates.forEach { it.reset() }
+            managedDelegates.clear()
         }
     }
 }

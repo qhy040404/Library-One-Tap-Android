@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.GlobalValues.SP_NAME
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
+import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
+import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 
 object SPUtils {
-    val spLazyMgr = ResettableLazyUtils.resettableManager()
-    val sp: SharedPreferences by ResettableLazyUtils.resettableLazy(spLazyMgr) {
+    val spLazyMgr = resettableManager()
+    val sp: SharedPreferences by resettableLazy(spLazyMgr) {
         LibraryOneTapApp.app.getSharedPreferences(
             SP_NAME,
             Context.MODE_PRIVATE

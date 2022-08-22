@@ -9,7 +9,8 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.lazy.ResettableLazyUtils
+import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
+import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.net.SocketTimeoutException
@@ -18,8 +19,8 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
-    val netLazyMgr = ResettableLazyUtils.resettableManager()
-    val client by ResettableLazyUtils.resettableLazy(netLazyMgr) {
+    val netLazyMgr = resettableManager()
+    val client by resettableLazy(netLazyMgr) {
         OkHttpClient.Builder()
             .connectTimeout(25, TimeUnit.SECONDS)
             .readTimeout(50, TimeUnit.SECONDS)

@@ -182,19 +182,19 @@
       ]
     },
     {
-      "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
+      "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8f5c89a50a5e4408bc45e116ba074ce3/transformed/lifecycle-process-2.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8f5c89a50a5e4408bc45e116ba074ce3/transformed/lifecycle-process-2.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8f5c89a50a5e4408bc45e116ba074ce3/transformed/lifecycle-process-2.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac438e83276fe24b313395511dfd2b2d/transformed/lifecycle-process-2.4.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac438e83276fe24b313395511dfd2b2d/transformed/lifecycle-process-2.4.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ac438e83276fe24b313395511dfd2b2d/transformed/lifecycle-process-2.4.1/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
+      "name": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6f09c08a8adb2b300e6ef300c92454c0/transformed/startup-runtime-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6f09c08a8adb2b300e6ef300c92454c0/transformed/startup-runtime-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6f09c08a8adb2b300e6ef300c92454c0/transformed/startup-runtime-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2827ef41ea5e411cebe26ccf6bcdd572/transformed/startup-runtime-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2827ef41ea5e411cebe26ccf6bcdd572/transformed/startup-runtime-1.1.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2827ef41ea5e411cebe26ccf6bcdd572/transformed/startup-runtime-1.1.1/AndroidManifest.xml"
       ]
     },
     {
@@ -583,11 +583,11 @@
       ]
     },
     {
-      "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.4.1@aar",
+      "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bff8ceaccf0ac56e71d8fe712c6a280f/transformed/appcompat-1.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bff8ceaccf0ac56e71d8fe712c6a280f/transformed/appcompat-1.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bff8ceaccf0ac56e71d8fe712c6a280f/transformed/appcompat-1.4.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c8db024610e3f3d238c869c27d169ce6/transformed/appcompat-1.5.0.1-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c8db024610e3f3d238c869c27d169ce6/transformed/appcompat-1.5.0.1-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c8db024610e3f3d238c869c27d169ce6/transformed/appcompat-1.5.0.1-debug/AndroidManifest.xml"
       ]
     },
     {
@@ -752,14 +752,6 @@
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca3cc84bfe09161ccdaee3b8479018a4/transformed/transition-1.2.0/jars/classes.jar!/",
         "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca3cc84bfe09161ccdaee3b8479018a4/transformed/transition-1.2.0/res",
         "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca3cc84bfe09161ccdaee3b8479018a4/transformed/transition-1.2.0/AndroidManifest.xml"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.appcompat:appcompat-resources:1.4.1@aar",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8d8d864aa0f996ef02de925b3469d5af/transformed/appcompat-resources-1.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8d8d864aa0f996ef02de925b3469d5af/transformed/appcompat-resources-1.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8d8d864aa0f996ef02de925b3469d5af/transformed/appcompat-resources-1.4.1/AndroidManifest.xml"
       ]
     },
     {

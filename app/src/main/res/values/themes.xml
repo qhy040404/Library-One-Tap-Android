@@ -1,8 +1,12 @@
 <resources>
     <!-- Default application theme. -->
-    <style name="Platform.V23.Theme.Library" parent="Theme.Material3.Light.Library" />
-
-    <style name="Platform.Theme.Library" parent="Platform.V23.Theme.Library" />
+    <style name="Platform.Theme.Library" parent="Theme.Material3.Light.Library">
+        <item name="android:windowSplashscreenContent">@drawable/splash_drawable</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+    </style>
 
     <style name="Base.AppTheme" parent="Platform.Theme.Library">
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.Rikka.Material3</item>

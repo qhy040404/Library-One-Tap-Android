@@ -1,3 +1,5 @@
+import java.net.URI
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,6 +16,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
+        maven {
+            url = URI("https://s01.oss.sonatype.org/content/repositories/releases/")
+            content {
+                includeGroupByRegex("dev.rikka.*")
+            }
+        }
     }
 }
 rootProject.name = "Library-One-Tap"

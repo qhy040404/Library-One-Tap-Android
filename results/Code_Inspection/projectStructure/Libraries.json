@@ -110,6 +110,12 @@
       ]
     },
     {
+      "name": "Gradle: org.mozilla:rhino:1.7.14",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.mozilla/rhino/1.7.14/24d091b80d513846293c00350f46d85f71797aff/rhino-1.7.14.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: androidx.databinding:viewbinding:7.2.2@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5214189e5892bd20b2587550cf84763e/transformed/viewbinding-7.2.2/jars/classes.jar!/",

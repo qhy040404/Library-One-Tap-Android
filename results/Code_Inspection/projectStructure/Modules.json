@@ -195,6 +195,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: androidx.databinding:viewbinding:7.2.2@aar",
           "type": "Library"
         },
@@ -609,6 +613,10 @@
         },
         {
           "name": "Gradle: com.squareup.okhttp3:okhttp:4.10.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
           "type": "Library"
         },
         {
@@ -1054,6 +1062,10 @@
         },
         {
           "name": "Gradle: com.squareup.okhttp3:okhttp:4.10.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
           "type": "Library"
         },
         {

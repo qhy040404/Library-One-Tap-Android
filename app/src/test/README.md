@@ -1,4 +1,4 @@
 # Unit Test
 
-This is used to test if system has the environment value `BUGLY_APPID`.
+This is used to test if function works properly and `env` has been set properly.
 

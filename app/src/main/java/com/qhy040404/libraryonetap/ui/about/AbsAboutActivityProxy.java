@@ -112,7 +112,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
             int insetLeft, insetRight, insetTop;
 
             Insets navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-            boolean isGestureNavigation = navigationBarsInsets.bottom <= 20 * getResources().getDisplayMetrics().density;
+            boolean isGestureNavigation = navigationBarsInsets.bottom <= 24 * getResources().getDisplayMetrics().density;
 
             if (!isGestureNavigation) {
                 ViewCompat.onApplyWindowInsets(decorView, windowInsets);

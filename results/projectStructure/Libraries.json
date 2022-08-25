@@ -548,11 +548,11 @@
       ]
     },
     {
-      "name": "Gradle: com.drakeet.about:about:2.5.1@aar",
+      "name": "Gradle: com.drakeet.about:about:2.5.2@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/32b5dc98ed01277c1cc37d6fac28a384/transformed/about-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/32b5dc98ed01277c1cc37d6fac28a384/transformed/about-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/32b5dc98ed01277c1cc37d6fac28a384/transformed/about-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5e47e9540fad352285dda83266f9f65c/transformed/about-2.5.2/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5e47e9540fad352285dda83266f9f65c/transformed/about-2.5.2/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5e47e9540fad352285dda83266f9f65c/transformed/about-2.5.2/AndroidManifest.xml"
       ]
     },
     {

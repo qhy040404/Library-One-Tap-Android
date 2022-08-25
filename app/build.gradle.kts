@@ -71,7 +71,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.1")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.1")
     implementation("androidx.preference:preference:1.2.0")
-    implementation("com.drakeet.about:about:2.5.1")
+    implementation("com.drakeet.about:about:2.5.2")
     implementation("com.drakeet.multitype:multitype:4.3.0")
     implementation("com.github.zhaobozhen.libraries:utils:1.1.1")
     implementation("com.google.android.material:material:1.6.1")

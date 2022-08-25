@@ -33,9 +33,9 @@ object TimeUtils {
         "0$sTime"
     }
 
-    private fun now(): Array<Int> {
+    private fun now(): IntArray {
         val hour = calendar[Calendar.HOUR_OF_DAY]
         val minute = calendar[Calendar.MINUTE]
-        return arrayOf(hour, minute)
+        return intArrayOf(hour, minute)
     }
 }

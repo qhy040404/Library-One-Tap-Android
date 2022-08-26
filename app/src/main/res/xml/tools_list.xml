@@ -35,4 +35,8 @@
         app:isPreferenceVisible="false"
         app:key="minor"
         app:title="@string/grade_minor_title" />
+
+    <Preference
+        app:key="exams"
+        app:title="@string/exams_title" />
 </PreferenceScreen>

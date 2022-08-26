@@ -21,6 +21,10 @@
         android:theme="@style/AppTheme"
         tools:targetApi="33">
         <activity
+            android:name=".ui.tools.ExamsActivity"
+            android:exported="false"
+            android:label="@string/exams_title" />
+        <activity
             android:name=".ui.tools.GradesMinorActivity"
             android:exported="false"
             android:label="@string/grade_minor_title" />

@@ -47,6 +47,9 @@ object URLManager {
     fun getEduGradeUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="
 
+    fun getEduExamsUrl(stuId: Int) =
+        "http://jxgl.dlut.edu.cn/student/for-std/exam-arrange/info/$stuId"
+
     fun constructAvailableUrl(date: String, room: String) =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
 

@@ -46,6 +46,7 @@ object Constants {
     const val TOOLS_VOLUNTEER = "volunteer"
     const val TOOLS_GRADES_MAJOR = "major"
     const val TOOLS_GRADES_MINOR = "minor"
+    const val TOOLS_EXAMS = "exams"
 
     const val RESERVE_VALID = "\"seat_type\":\"1\""
     const val RESERVE_HAS_PERSON = "\"seat_type\":3"

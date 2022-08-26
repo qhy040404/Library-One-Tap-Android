@@ -13,6 +13,7 @@
     <string name="volunteer_title">Volunteer hours</string>
     <string name="grade_major_title">Grades (Major)</string>
     <string name="grade_minor_title">Grades (Minor)</string>
+    <string name="exams_title">Exams</string>
 
     <!-- INIT -->
     <string name="welcome">Welcome</string>

@@ -170,6 +170,16 @@ jobs:
         with:
           arguments: assembleRelease
 
+      - name: Upload mapping to Bugly
+        uses: qhy040404@Bugly-mapping-upload@v1.0.0
+        with:
+          appid: ${{ secrets.BUGLY_APPID }}
+          appkey: ${{ secrets.BUGLY_APPKEY }}
+          bundleid: 'com.qhy040404.libraryonetap'
+          version: ${{ github.ref_name }}
+          platform: 'Android'
+          inputMapping: 'app/build/outputs/mapping/release'
+
       - name: Rename unsigned apk
         run: |
           sudo apt-get install rename -y

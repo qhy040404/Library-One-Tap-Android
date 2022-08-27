@@ -171,7 +171,7 @@ jobs:
           arguments: assembleRelease
 
       - name: Upload mapping to Bugly
-        uses: qhy040404@Bugly-mapping-upload@v1.0.0
+        uses: qhy040404/Bugly-mapping-upload@v1.0.0
         with:
           appid: ${{ secrets.BUGLY_APPID }}
           appkey: ${{ secrets.BUGLY_APPKEY }}

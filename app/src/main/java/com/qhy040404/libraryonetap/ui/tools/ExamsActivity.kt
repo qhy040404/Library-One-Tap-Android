@@ -13,6 +13,7 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
+import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.ExamsTempValues
 import com.qhy040404.libraryonetap.temp.GradesTempValues
@@ -37,6 +38,11 @@ class ExamsActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
+            if (ExamsTempValues.courseName.isEmpty()) {
+                add(Card(
+                    "暂无考试"
+                ))
+            }
             for (name in ExamsTempValues.courseName) {
                 val i = ExamsTempValues.courseName.indexOf(name)
                 val desc = """

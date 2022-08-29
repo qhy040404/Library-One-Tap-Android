@@ -26,6 +26,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,6 +60,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<EditTextPreference>(Constants.PREF_NAME)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString()
+                        .isDuplicateGV(GlobalValues.name)
+                ) return@setOnPreferenceChangeListener true
                 GlobalValues.name = newValue.toString()
                 Requests.netLazyMgr.reset()
                 activity?.recreate()
@@ -68,6 +72,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<EditTextPreference>(Constants.PREF_ID)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString()
+                        .isDuplicateGV(GlobalValues.id)
+                ) return@setOnPreferenceChangeListener true
                 GlobalValues.id = newValue.toString()
                 Requests.netLazyMgr.reset()
                 activity?.recreate()
@@ -77,6 +84,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<EditTextPreference>(Constants.PREF_PASSWD)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString()
+                        .isDuplicateGV(GlobalValues.passwd)
+                ) return@setOnPreferenceChangeListener true
                 GlobalValues.passwd = newValue.toString()
                 Requests.netLazyMgr.reset()
                 activity?.recreate()
@@ -86,6 +96,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<SimpleMenuPreference>(Constants.PREF_DARK)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString()
+                        .isDuplicateGV(GlobalValues.darkMode)
+                ) return@setOnPreferenceChangeListener true
                 GlobalValues.darkMode = newValue.toString()
                 DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(newValue.toString()))
                 activity?.recreate()
@@ -95,6 +108,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString()
+                        .isDuplicateGV(GlobalValues.theme, true)
+                ) return@setOnPreferenceChangeListener true
                 GlobalValues.theme = newValue.toString()
                 GlobalManager.lazyMgr.reset()
                 activity?.recreate()
@@ -119,6 +135,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     } else {
                         Locale.forLanguageTag(newValue)
                     }
+                    if (locale == LocaleDelegate.defaultLocale) return@setOnPreferenceChangeListener true
                     LocaleDelegate.defaultLocale = locale
                     GlobalManager.lazyMgr.reset()
                     activity?.recreate()

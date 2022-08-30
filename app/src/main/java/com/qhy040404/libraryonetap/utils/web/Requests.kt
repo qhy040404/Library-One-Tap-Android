@@ -27,7 +27,7 @@ object Requests {
             .connectTimeout(25, TimeUnit.SECONDS)
             .readTimeout(50, TimeUnit.SECONDS)
             .writeTimeout(50, TimeUnit.SECONDS)
-            .cookieJar(CookieJarImpl.mCookieJar)
+            .cookieJar(CookieJarImpl.OkCookieJar)
             .build()
     }
 

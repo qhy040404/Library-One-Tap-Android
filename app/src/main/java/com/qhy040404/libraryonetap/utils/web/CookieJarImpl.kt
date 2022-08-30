@@ -7,7 +7,7 @@ import okhttp3.HttpUrl
 object CookieJarImpl {
     private val cookieStore = mutableListOf<Cookie>()
 
-    object mCookieJar : CookieJar {
+    object OkCookieJar : CookieJar {
         override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
             cookieStore.addAll(cookies)
         }

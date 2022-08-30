@@ -59,6 +59,7 @@ class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
         cookieManager.flush()
     }
 
+    @Suppress("unused") // Remove when use open()
     companion object {
         fun open(ctx: Context, url: String, body: String? = null) {
             val intent = Intent(ctx, WebViewActivity::class.java)

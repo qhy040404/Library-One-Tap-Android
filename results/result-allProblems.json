@@ -1,1 +1,57 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Class naming convention",
+  "severity": "Moderate",
+  "comment": "Class name 'mCookieJar' should start with an uppercase letter",
+  "detailsInfo": "Reports class names that do not follow the recommended naming conventions.\n\n\nConsistent naming allows for easier code reading and understanding.\nAccording to the [Kotlin official style guide](https://kotlinlang.org/docs/coding-conventions.html#naming-rules),\nclass names should start with an uppercase letter and use camel case.\n\nIt is possible to introduce other naming rules by changing the \"Pattern\" regular expression.\n\n**Example:**\n\n\n      class user(val name: String)\n\nA quick-fix renames the class according to the Kotlin naming conventions:\n\n\n      class User(val name: String)\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/web/CookieJarImpl.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 12,
+      "length": 10,
+      "code": {
+        "startLine": 8,
+        "length": 10,
+        "offset": 66,
+        "surroundingCode": "    private val cookieStore = mutableListOf<Cookie>()\n\n    object mCookieJar : CookieJar {\n        override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {\n            cookieStore.addAll(cookies)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "ClassName"
+  },
+  "hash": "a12584e0b34ece1ea0d3e81ccf42f70598353329faa82ac9f8182b43f68afcc5"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"open\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/WebViewActivity.kt",
+      "language": "kotlin",
+      "line": 63,
+      "offset": 13,
+      "length": 4,
+      "code": {
+        "startLine": 61,
+        "length": 4,
+        "offset": 36,
+        "surroundingCode": "\n    companion object {\n        fun open(ctx: Context, url: String, body: String? = null) {\n            val intent = Intent(ctx, WebViewActivity::class.java)\n            intent.putExtras(Bundle().apply {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "248c0dd9eef80e48c984d3b5150ec8704678dfe9509a2a8c7fe99ce187a0c2f8"
+}]}

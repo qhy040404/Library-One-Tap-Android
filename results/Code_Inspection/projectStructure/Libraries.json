@@ -116,6 +116,12 @@
       ]
     },
     {
+      "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.13",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.13/853b96d3afbb7bf8cc303fe27ee96836a10c1834/httpcore-4.4.13.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: androidx.databinding:viewbinding:7.2.2@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5214189e5892bd20b2587550cf84763e/transformed/viewbinding-7.2.2/jars/classes.jar!/",

@@ -157,3 +157,5 @@
 -keep public class com.qhy040404.libraryonetap.base.**{*;}
 -keep public class com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment{*;}
 -keep public class com.qhy040404.libraryonetap.utils.**{*;}
+-keep public class com.qhy040404.libraryonetap.constant.GlobalManager{*;}
+-keep public class com.qhy040404.libraryonetap.data.**{*;}

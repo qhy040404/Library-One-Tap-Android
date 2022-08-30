@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.GradesUtils
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
@@ -165,6 +166,10 @@ class GradesMinorActivity : SimplePageActivity() {
                     loginSuccess = true
                 } else {
                     timer++
+                    if (timer == 2) {
+                        Requests.netLazyMgr.reset()
+                        CookieJarImpl.reset()
+                    }
                     if (timer >= 3) {
                         Handler(Looper.getMainLooper()).post {
                             MaterialAlertDialogBuilder(this@GradesMinorActivity)

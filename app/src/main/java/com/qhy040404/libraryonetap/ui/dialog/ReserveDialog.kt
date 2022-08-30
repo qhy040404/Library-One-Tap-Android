@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.utils.RoomUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.Toasty
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
@@ -131,6 +132,10 @@ class ReserveDialog {
             } else {
                 timer++
                 ctx.showToast(R.string.fail_to_login)
+                if (timer == 2) {
+                    Requests.netLazyMgr.reset()
+                    CookieJarImpl.reset()
+                }
                 if (timer >= 3) {
                     Toasty.toast?.cancel()
                     MaterialAlertDialogBuilder(ctx)

@@ -103,14 +103,7 @@ class GradesMajorActivity : SimplePageActivity() {
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(
-                StrictMode.ThreadPolicy.Builder()
-                    .detectDiskReads().detectDiskWrites().detectNetwork()
-                    .penaltyLog().build()
-            )
-            StrictMode.setVmPolicy(
-                StrictMode.VmPolicy.Builder()
-                    .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                    .penaltyLog().penaltyDeath().build()
+                StrictMode.ThreadPolicy.Builder().permitAll().build()
             )
 
             if (!AppUtils.hasNetwork()) {

@@ -13,14 +13,7 @@ object GetPortalData {
      */
     fun getPortalData(mode: Int): String {
         StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder()
-                .detectDiskReads().detectDiskWrites().detectNetwork()
-                .penaltyLog().build()
-        )
-        StrictMode.setVmPolicy(
-            StrictMode.VmPolicy.Builder()
-                .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                .penaltyLog().penaltyDeath().build()
+            StrictMode.ThreadPolicy.Builder().permitAll().build()
         )
 
         Requests.loginSso(URLManager.PORTAL_SSO_URL,

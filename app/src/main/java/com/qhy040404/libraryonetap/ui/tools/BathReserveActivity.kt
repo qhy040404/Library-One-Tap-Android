@@ -62,14 +62,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         reserve.post {
             reserve.setOnClickListener {
                 StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder()
-                        .detectDiskReads().detectDiskWrites().detectNetwork()
-                        .penaltyLog().build()
-                )
-                StrictMode.setVmPolicy(
-                    StrictMode.VmPolicy.Builder()
-                        .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                        .penaltyLog().penaltyDeath().build()
+                    StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
                 @Suppress("SpellCheckingInspection")
                 val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"

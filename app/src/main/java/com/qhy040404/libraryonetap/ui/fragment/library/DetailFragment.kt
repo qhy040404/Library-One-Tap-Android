@@ -186,14 +186,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             cancel.post {
                 cancel.setOnClickListener {
                     StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
+                        StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.cancel_confirm)
@@ -228,14 +221,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             reset.post {
                 reset.setOnClickListener {
                     StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
+                        StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.reserve_reset_confirm)
@@ -299,14 +285,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             tempReset.post {
                 tempReset.setOnClickListener {
                     StrictMode.setThreadPolicy(
-                        StrictMode.ThreadPolicy.Builder()
-                            .detectDiskReads().detectDiskWrites().detectNetwork()
-                            .penaltyLog().build()
-                    )
-                    StrictMode.setVmPolicy(
-                        StrictMode.VmPolicy.Builder()
-                            .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
-                            .penaltyLog().penaltyDeath().build()
+                        StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(R.string.reserve_reset_confirm)

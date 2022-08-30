@@ -1,6 +1,9 @@
 package com.qhy040404.libraryonetap.ui.global
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
@@ -54,5 +57,16 @@ class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
             cookieManager.setCookie(url, cookie)
         }
         cookieManager.flush()
+    }
+
+    companion object {
+        fun open(ctx: Context, url: String, body: String? = null) {
+            val intent = Intent(ctx, WebViewActivity::class.java)
+            intent.putExtras(Bundle().apply {
+                putString("url", url)
+                if (body != null) putString("body", body)
+            })
+            ctx.startActivity(intent)
+        }
     }
 }

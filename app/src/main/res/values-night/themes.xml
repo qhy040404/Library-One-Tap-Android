@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<style name="Platform.Theme.Library" parent="Theme.Material3.Dark.Library" />
+    <style name="Platform.Theme.Library" parent="Theme.Material3.Dark.Library" />
 
     <style name="Theme.MaterialComponents.DayNight.NoActionBar.Library" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/black</item>

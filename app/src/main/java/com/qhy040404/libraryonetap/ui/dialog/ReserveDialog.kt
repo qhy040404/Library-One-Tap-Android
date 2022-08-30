@@ -155,7 +155,7 @@ class ReserveDialog {
         )
         val addCode = ReserveData.getAddCode(addCodeOrigin)
         Requests.post(
-            URLManager.LIBRART_RESERVE_FINAL_URL,
+            URLManager.LIBRARY_RESERVE_FINAL_URL,
             ReserveUtils.constructParaForFinalReserve(addCode),
             GlobalValues.ctVCard
         )

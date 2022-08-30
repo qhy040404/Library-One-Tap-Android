@@ -233,7 +233,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
-                                    URLManager.constructAvailableUrl(
+                                    URLManager.getSeatAvailableUrl(
                                         TimeUtils.getToday("/", false),
                                         roomCode
                                     ),
@@ -270,7 +270,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             )
                             val addCode = ReserveData.getAddCode(addCodeOrigin)
                             Requests.post(
-                                URLManager.LIBRART_RESERVE_FINAL_URL,
+                                URLManager.LIBRARY_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard
                             )
@@ -297,7 +297,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                             val availableMap = ReserveUtils.formatAvailableMap(
                                 Requests.get(
-                                    URLManager.constructAvailableUrl(
+                                    URLManager.getSeatAvailableUrl(
                                         TimeUtils.getToday("/", false),
                                         roomCode
                                     ), detail
@@ -333,7 +333,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             )
                             val addCode = ReserveData.getAddCode(addCodeOrigin)
                             Requests.post(
-                                URLManager.LIBRART_RESERVE_FINAL_URL,
+                                URLManager.LIBRARY_RESERVE_FINAL_URL,
                                 ReserveUtils.constructParaForFinalReserve(addCode),
                                 GlobalValues.ctVCard
                             )

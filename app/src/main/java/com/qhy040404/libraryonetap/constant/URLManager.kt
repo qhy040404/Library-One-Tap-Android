@@ -18,7 +18,7 @@ object URLManager {
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=randomRoomSeatChoose"
     const val LIBRARY_RESERVE_ADDCODE_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=seatChoose"
-    const val LIBRART_RESERVE_FINAL_URL =
+    const val LIBRARY_RESERVE_FINAL_URL =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=addSeatOrder"
 
     const val PORTAL_SSO_URL =
@@ -50,7 +50,7 @@ object URLManager {
     fun getEduExamsUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/exam-arrange/info/$stuId"
 
-    fun constructAvailableUrl(date: String, room: String) =
+    fun getSeatAvailableUrl(date: String, room: String) =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"
 
     fun getQRUrl(method: String, id: String) =

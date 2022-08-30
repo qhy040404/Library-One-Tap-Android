@@ -21,6 +21,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="33">
         <activity
+            android:name=".ui.global.WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.tools.ExamsActivity"
             android:exported="false"
             android:label="@string/exams_title" />

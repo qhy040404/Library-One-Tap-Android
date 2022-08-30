@@ -195,11 +195,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.mozilla:rhino:1.7.14",
+          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.15",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.13",
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
           "type": "Library"
         },
         {
@@ -620,11 +620,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.mozilla:rhino:1.7.14",
+          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.15",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.13",
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
           "type": "Library"
         },
         {
@@ -1073,11 +1073,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.mozilla:rhino:1.7.14",
+          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.15",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.apache.httpcomponents:httpcore:4.4.13",
+          "name": "Gradle: org.mozilla:rhino:1.7.14",
           "type": "Library"
         },
         {

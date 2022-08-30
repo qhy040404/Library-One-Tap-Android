@@ -44,7 +44,7 @@ object AppUtils {
     }
 
     fun checkData(id: String, passwd: String): Boolean {
-        return id != "Error" && passwd != "Error"
+        return id != "Error" && passwd != "Error" && id.isNotEmpty() && passwd.isNotEmpty()
     }
 
     fun checkDataAndDialog(
@@ -54,7 +54,7 @@ object AppUtils {
         titleResId: Int,
         messageResId: Int,
     ): Boolean {
-        return if (id == "Error" || passwd == "Error") {
+        return if (id == "Error" || passwd == "Error" || id.isEmpty() || passwd.isEmpty()) {
             MaterialAlertDialogBuilder(ctx)
                 .setTitle(titleResId)
                 .setMessage(messageResId)

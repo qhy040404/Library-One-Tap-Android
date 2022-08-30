@@ -88,9 +88,9 @@ dependencies {
     implementation("dev.rikka.rikkax.widget:borderview:1.1.0")
     implementation("io.coil-kt:coil:2.2.0")
     implementation("me.zhanghai.android.appiconloader:appiconloader:1.4.0")
+    implementation("org.apache.httpcomponents:httpcore:4.4.15")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.mozilla:rhino:1.7.14")
-    implementation("org.apache.httpcomponents:httpcore:4.4.15")
 
     testImplementation("junit:junit:4.13.2")
 }

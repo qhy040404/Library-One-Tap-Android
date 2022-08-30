@@ -14,6 +14,7 @@ import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +32,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         binding.yxjDetail.visibility = View.VISIBLE
         binding.yxjRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
+            CookieJarImpl.reset()
             GlobalValues.netError = false
             GlobalValues.initBasic()
             activity?.recreate()

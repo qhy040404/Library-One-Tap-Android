@@ -22,6 +22,7 @@ import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +40,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         binding.detailDetail.visibility = View.VISIBLE
         binding.detailRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
+            CookieJarImpl.reset()
             GlobalValues.netError = false
             GlobalValues.initBasic()
             activity?.recreate()

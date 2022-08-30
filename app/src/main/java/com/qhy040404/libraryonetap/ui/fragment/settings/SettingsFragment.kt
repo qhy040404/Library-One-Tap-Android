@@ -27,6 +27,7 @@ import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -65,6 +66,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 ) return@setOnPreferenceChangeListener true
                 GlobalValues.name = newValue.toString()
                 Requests.netLazyMgr.reset()
+                CookieJarImpl.reset()
                 activity?.recreate()
                 true
             }
@@ -77,6 +79,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 ) return@setOnPreferenceChangeListener true
                 GlobalValues.id = newValue.toString()
                 Requests.netLazyMgr.reset()
+                CookieJarImpl.reset()
                 activity?.recreate()
                 true
             }
@@ -89,6 +92,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 ) return@setOnPreferenceChangeListener true
                 GlobalValues.passwd = newValue.toString()
                 Requests.netLazyMgr.reset()
+                CookieJarImpl.reset()
                 activity?.recreate()
                 true
             }

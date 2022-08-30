@@ -139,7 +139,6 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     } else {
                         Locale.forLanguageTag(newValue)
                     }
-                    if (locale == LocaleDelegate.defaultLocale) return@setOnPreferenceChangeListener true
                     LocaleDelegate.defaultLocale = locale
                     GlobalManager.lazyMgr.reset()
                     activity?.recreate()

@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add assignee and labels
-        uses: actions-cool/issues-helper@v3.2.0
+        uses: actions-cool/issues-helper@v3.2.1
         with:
           actions: 'add-assignees, add-labels'
           token: ${{ secrets.GITHUB_TOKEN }}

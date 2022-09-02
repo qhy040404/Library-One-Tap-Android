@@ -227,13 +227,13 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
-      "gradleName": "androidx.constraintlayout:constraintlayout:2.1.4@aar",
+      "ideaName": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
+      "gradleName": "androidx.activity:activity-ktx:1.5.1@aar",
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.core:core-ktx:1.8.0@aar",
-      "gradleName": "androidx.core:core-ktx:1.8.0@aar",
+      "ideaName": "Gradle: androidx.activity:activity:1.5.1@aar",
+      "gradleName": "androidx.activity:activity:1.5.1@aar",
       "unresolved": false
     },
     {
@@ -252,38 +252,13 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-      "gradleName": "androidx.core:core-splashscreen:1.0.0@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
-      "gradleName": "androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
-      "gradleName": "androidx.navigation:navigation-fragment:2.5.1@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.fragment:fragment-ktx:1.5.1@aar",
-      "gradleName": "androidx.fragment:fragment-ktx:1.5.1@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
-      "gradleName": "androidx.activity:activity-ktx:1.5.1@aar",
-      "unresolved": false
-    },
-    {
-      "ideaName": "Gradle: androidx.activity:activity:1.5.1@aar",
-      "gradleName": "androidx.activity:activity:1.5.1@aar",
-      "unresolved": false
-    },
-    {
       "ideaName": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
       "gradleName": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+      "gradleName": "androidx.core:core-ktx:1.8.0@aar",
       "unresolved": false
     },
     {
@@ -302,8 +277,23 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: androidx.fragment:fragment:1.5.1@aar",
-      "gradleName": "androidx.fragment:fragment:1.5.1@aar",
+      "ideaName": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+      "gradleName": "androidx.constraintlayout:constraintlayout:2.1.4@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+      "gradleName": "androidx.core:core-splashscreen:1.0.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.fragment:fragment-ktx:1.5.2@aar",
+      "gradleName": "androidx.fragment:fragment-ktx:1.5.2@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.fragment:fragment:1.5.2@aar",
+      "gradleName": "androidx.fragment:fragment:1.5.2@aar",
       "unresolved": false
     },
     {
@@ -324,6 +314,16 @@
     {
       "ideaName": "Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
       "gradleName": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+      "gradleName": "androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
+      "gradleName": "androidx.navigation:navigation-fragment:2.5.1@aar",
       "unresolved": false
     },
     {
@@ -424,6 +424,11 @@
     {
       "ideaName": "Gradle: androidx.viewpager2:viewpager2:1.0.0@aar",
       "gradleName": "androidx.viewpager2:viewpager2:1.0.0@aar",
+      "unresolved": false
+    },
+    {
+      "ideaName": "Gradle: androidx.preference:preference-ktx:1.2.0@aar",
+      "gradleName": "androidx.preference:preference-ktx:1.2.0@aar",
       "unresolved": false
     },
     {

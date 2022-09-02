@@ -255,11 +255,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
           "type": "Library"
         },
         {
@@ -275,31 +275,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
           "type": "Library"
         },
         {
@@ -315,7 +295,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.fragment:fragment:1.5.1@aar",
+          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment:1.5.2@aar",
           "type": "Library"
         },
         {
@@ -332,6 +324,14 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -412,6 +412,10 @@
         },
         {
           "name": "Gradle: androidx.viewpager2:viewpager2:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.preference:preference-ktx:1.2.0@aar",
           "type": "Library"
         },
         {
@@ -688,11 +692,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
           "type": "Library"
         },
         {
@@ -708,31 +712,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
           "type": "Library"
         },
         {
@@ -748,7 +732,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.fragment:fragment:1.5.1@aar",
+          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment:1.5.2@aar",
           "type": "Library"
         },
         {
@@ -765,6 +761,14 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -845,6 +849,10 @@
         },
         {
           "name": "Gradle: androidx.viewpager2:viewpager2:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.preference:preference-ktx:1.2.0@aar",
           "type": "Library"
         },
         {
@@ -1129,11 +1137,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
           "type": "Library"
         },
         {
@@ -1149,31 +1157,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity-ktx:1.5.1@aar",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: androidx.activity:activity:1.5.1@aar",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
           "type": "Library"
         },
         {
@@ -1189,7 +1177,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.fragment:fragment:1.5.1@aar",
+          "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment-ktx:1.5.2@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.fragment:fragment:1.5.2@aar",
           "type": "Library"
         },
         {
@@ -1206,6 +1206,14 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
           "type": "Library"
         },
         {
@@ -1286,6 +1294,10 @@
         },
         {
           "name": "Gradle: androidx.viewpager2:viewpager2:1.0.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: androidx.preference:preference-ktx:1.2.0@aar",
           "type": "Library"
         },
         {

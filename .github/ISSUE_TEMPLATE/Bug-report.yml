@@ -1,0 +1,77 @@
+name: Bug report
+description: Create a report to help us improve
+labels: [ "awaiting assessment", "bug" ]
+title: "[BUG] "
+assignees: [ qhy040404 ]
+body:
+  - type: dropdown
+    id: channel
+    attributes:
+      label: Channel
+      description: Channel can be found in about page.
+      options:
+        - Debug
+        - Pre-release
+        - Release
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Version code that you are using.
+      placeholder: |
+        e.g. 3.4.0
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: What's the bug?
+      placeholder: |
+        Application crashed and reporter says there's NPE.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+      placeholder: |
+        Works fine?
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+      placeholder: |
+        Crashed.
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How to reproduce the bug.
+      placeholder: |
+        Just do your best. If you cannot reproduce, just left this blank.
+  - type: input
+    id: ui
+    attributes:
+      label: UI/OS
+      description: Your system UI or OS.
+      placeholder: MIUI / HarmonyOS / Native Android / etc.
+  - type: input
+    id: android
+    attributes:
+      label: Android Version
+      description: Your Android Version
+      placeholder: "13"
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional info
+      description: Everything else you consider worthy that we didn't ask for.

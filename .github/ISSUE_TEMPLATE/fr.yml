@@ -1,0 +1,27 @@
+name: Feature Request
+description: Suggest an idea for this project
+labels: [ "awaiting assessment", "enhancement" ]
+title: "[FR] "
+assignees: [ qhy040404 ]
+body:
+  - type: textarea
+    id: propose
+    attributes:
+      label: Enhancement propose
+      description: Propose of the enhancement.
+      placeholder: |
+        Show your idea here.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+      description: What's your solution for this enhancement?
+      placeholder: |
+        How to do it on your opinion? Or left this blank
+  - type: textarea
+    id: addition
+    attributes:
+      label: Additional info
+      description: Everything else you consider worthy that we didn't ask for.

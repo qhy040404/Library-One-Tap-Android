@@ -1,0 +1,15 @@
+name: Other Suggestions
+description: Something else? Come here
+title: "[OTHER] "
+labels: [ "awaiting assessment" ]
+assignees: [ qhy040404 ]
+body:
+  - type: textarea
+    id: other
+    attributes:
+      label: Something
+      description: Optimization? Or what
+      placeholder: |
+        I don't know how to write this placeholder. Just say anything.
+    validations:
+      required: true

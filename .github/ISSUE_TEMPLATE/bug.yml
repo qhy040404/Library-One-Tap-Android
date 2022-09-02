@@ -1,4 +1,4 @@
-name: Bug report
+name: Bug Report
 description: Create a report to help us improve
 labels: [ "awaiting assessment", "bug" ]
 title: "[BUG] "
@@ -64,12 +64,16 @@ body:
       label: UI/OS
       description: Your system UI or OS.
       placeholder: MIUI / HarmonyOS / Native Android / etc.
+    validations:
+      required: true
   - type: input
     id: android
     attributes:
       label: Android Version
       description: Your Android Version
       placeholder: "13"
+    validations:
+      required: true
   - type: textarea
     id: additional-info
     attributes:

@@ -547,8 +547,8 @@
       "unresolved": false
     },
     {
-      "ideaName": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.4.0@aar",
-      "gradleName": "me.zhanghai.android.appiconloader:appiconloader:1.4.0@aar",
+      "ideaName": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
+      "gradleName": "me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
       "unresolved": false
     },
     {
@@ -566,14 +566,6 @@
       "groupId": "org.hamcrest",
       "artifactId": "hamcrest-core",
       "version": "1.3"
-    },
-    {
-      "ideaName": "Gradle: androidx.annotation:annotation:1.3.0",
-      "gradleName": "androidx.annotation:annotation:1.3.0",
-      "unresolved": false,
-      "groupId": "androidx.annotation",
-      "artifactId": "annotation",
-      "version": "1.3.0"
     },
     {
       "ideaName": "Gradle: androidx.collection:collection:1.1.0",

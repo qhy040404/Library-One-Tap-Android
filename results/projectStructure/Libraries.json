@@ -739,17 +739,11 @@
       ]
     },
     {
-      "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.4.0@aar",
+      "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d6040d67b22b841476b22d39ba1a58de/transformed/appiconloader-1.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d6040d67b22b841476b22d39ba1a58de/transformed/appiconloader-1.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d6040d67b22b841476b22d39ba1a58de/transformed/appiconloader-1.4.0/AndroidManifest.xml"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.annotation:annotation:1.3.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8407961cbf3b8bfc8db2e51095feecf4/transformed/appiconloader-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8407961cbf3b8bfc8db2e51095feecf4/transformed/appiconloader-1.5.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8407961cbf3b8bfc8db2e51095feecf4/transformed/appiconloader-1.5.0/AndroidManifest.xml"
       ]
     },
     {

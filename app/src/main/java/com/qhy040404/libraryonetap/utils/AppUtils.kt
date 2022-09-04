@@ -90,16 +90,13 @@ object AppUtils {
         return ctx.createConfigurationContext(conf).getString(resId)
     }
 
-    @Suppress("unused")
-    fun isError(a: String): Boolean = isError(a, "")
-
-    fun isError(a: String, b: String): Boolean = isError(a, b, "")
-
-    fun isError(a: String, b: String, c: String): Boolean = isError(a, b, c, "")
-
-    fun isError(a: String, b: String, c: String, d: String): Boolean = isError(a, b, c, d, "")
-
-    fun isError(a: String, b: String, c: String, d: String, e: String): Boolean {
+    fun isError(
+        a: String,
+        b: String = Constants.STRING_NULL,
+        c: String = Constants.STRING_NULL,
+        d: String = Constants.STRING_NULL,
+        e: String = Constants.STRING_NULL,
+    ): Boolean {
         return a == Constants.GLOBAL_ERROR || b == Constants.GLOBAL_ERROR || c == Constants.GLOBAL_ERROR || d == Constants.GLOBAL_ERROR || e == Constants.GLOBAL_ERROR
     }
 

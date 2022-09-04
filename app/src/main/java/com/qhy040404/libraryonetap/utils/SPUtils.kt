@@ -16,9 +16,7 @@ object SPUtils {
         )
     }
 
-    fun <T> getValue(name: String, default: T): T = getValue(name, default, false)
-
-    fun <T> getValue(name: String, default: T, confirm: Boolean): T {
+    fun <T> getValue(name: String, default: T, confirm: Boolean = false): T {
         val value = with(sp) {
             val res: Any = when (default) {
                 is Long -> getLong(name, default)

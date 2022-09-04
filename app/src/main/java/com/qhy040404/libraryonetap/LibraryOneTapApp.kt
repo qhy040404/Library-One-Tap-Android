@@ -9,9 +9,9 @@ import coil.Coil
 import coil.ImageLoader
 import com.absinthe.libraries.utils.utils.Utility
 import com.google.android.material.color.DynamicColors
-import com.qhy040404.libraryonetap.app.AppIconFetcherFactory
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.dp
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
 import com.tencent.bugly.crashreport.CrashReport
@@ -22,6 +22,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import me.zhanghai.android.appiconloader.coil.AppIconFetcher
+import me.zhanghai.android.appiconloader.coil.AppIconKeyer
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import java.util.LinkedList
@@ -55,9 +57,10 @@ class LibraryOneTapApp : Application() {
         GlobalValues.initBasic()
 
         Coil.setImageLoader {
-            ImageLoader(this).newBuilder()
+            ImageLoader.Builder(this)
                 .components {
-                    add(AppIconFetcherFactory(this@LibraryOneTapApp))
+                    add(AppIconKeyer())
+                    add(AppIconFetcher.Factory(40.dp, false, this@LibraryOneTapApp))
                 }
                 .build()
         }

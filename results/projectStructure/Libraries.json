@@ -747,6 +747,14 @@
       ]
     },
     {
+      "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2c1558c950f87065863af63fd915e6e4/transformed/appiconloader-coil-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2c1558c950f87065863af63fd915e6e4/transformed/appiconloader-coil-1.5.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2c1558c950f87065863af63fd915e6e4/transformed/appiconloader-coil-1.5.0/AndroidManifest.xml"
+      ]
+    },
+    {
       "name": "Gradle: androidx.collection:collection:1.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar!/"

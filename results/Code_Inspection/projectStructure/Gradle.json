@@ -552,6 +552,11 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
+      "gradleName": "me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
+      "unresolved": false
+    },
+    {
       "ideaName": "Gradle: junit:junit:4.13.2",
       "gradleName": "junit:junit:4.13.2",
       "unresolved": false,

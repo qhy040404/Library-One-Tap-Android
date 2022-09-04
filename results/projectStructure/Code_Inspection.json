@@ -513,6 +513,10 @@
         {
           "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
           "type": "Library"
+        },
+        {
+          "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
+          "type": "Library"
         }
       ]
     },
@@ -949,6 +953,10 @@
         },
         {
           "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
           "type": "Library"
         }
       ]
@@ -1394,6 +1402,10 @@
         },
         {
           "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
           "type": "Library"
         }
       ]

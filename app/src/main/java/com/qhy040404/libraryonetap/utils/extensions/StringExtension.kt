@@ -12,7 +12,7 @@ object StringExtension {
     }
 
     fun String.isDuplicateGV(globalValue: String, isCustomTheme: Boolean): Boolean {
-        val a = this == globalValue || (globalValue == Constants.GLOBAL_ERROR && this == "")
+        val a = this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == ""
         return if (isCustomTheme) {
             a && this != "random"
         } else a

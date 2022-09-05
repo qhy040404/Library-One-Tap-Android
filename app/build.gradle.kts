@@ -35,9 +35,8 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro")
-            ndk {
-                abiFilters.add("arm64-v8a")
-            }
+            ndk.abiFilters.add("arm64-v8a")
+            packagingOptions.resources.excludes += "DebugProbesKt.bin"
         }
 
         all {
@@ -60,6 +59,7 @@ android {
 
 configurations.all {
     exclude("androidx.appcompat", "appcompat")
+    exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
 }
 
 dependencies {
@@ -97,6 +97,8 @@ dependencies {
     implementation("org.apache.httpcomponents:httpcore:4.4.15")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.mozilla:rhino:1.7.14")
+
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
 
     testImplementation("junit:junit:4.13.2")
 }

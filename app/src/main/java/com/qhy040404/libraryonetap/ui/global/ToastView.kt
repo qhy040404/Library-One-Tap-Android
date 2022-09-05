@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import com.absinthe.libraries.utils.view.AViewGroup
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.utils.Toasty
 
 /**
  * From Absinthe
@@ -46,5 +47,10 @@ class ToastView(context: Context) : AViewGroup(context) {
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         icon.let { it.layout(it.toHorizontalCenter(this), 0) }
         message.layout(0, icon.measuredHeight / 2)
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        Toasty.cancel(false)
     }
 }

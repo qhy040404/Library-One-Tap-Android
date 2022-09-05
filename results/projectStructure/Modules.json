@@ -163,7 +163,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "name": "Gradle: com.squareup.leakcanary:shark-android:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-graph:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-hprof:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-log:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher:2.9.1",
           "type": "Library"
         },
         {
@@ -252,6 +272,34 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.9.1@aar",
           "type": "Library"
         },
         {
@@ -596,7 +644,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "name": "Gradle: com.squareup.leakcanary:shark-android:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-graph:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-hprof:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-log:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher:2.9.1",
           "type": "Library"
         },
         {
@@ -693,6 +761,34 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.9.1@aar",
           "type": "Library"
         },
         {
@@ -1057,7 +1153,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "name": "Gradle: com.squareup.leakcanary:shark-android:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-graph:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-hprof:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:shark-log:2.9.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher:2.9.1",
           "type": "Library"
         },
         {
@@ -1142,6 +1258,34 @@
         },
         {
           "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.9.1@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.9.1@aar",
           "type": "Library"
         },
         {

@@ -30,10 +30,19 @@ object Requests {
             .cookieJar(CookieJarImpl)
             .build()
     }
+    private val toolsClient = OkHttpClient.Builder()
+        .connectTimeout(25, TimeUnit.SECONDS)
+        .readTimeout(50, TimeUnit.SECONDS)
+        .writeTimeout(50, TimeUnit.SECONDS)
+        .cookieJar(CookieJarImpl)
+        .build()
 
-    fun get(url: String, textView: TextView? = null) = get(url, textView, false)
-
-    fun get(url: String, textView: TextView? = null, getUrl: Boolean): String {
+    fun get(
+        url: String,
+        textView: TextView? = null,
+        getUrl: Boolean = false,
+        toolsInit: Boolean = false,
+    ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
             GlobalValues.netError = true
@@ -44,7 +53,7 @@ object Requests {
             .get()
             .build()
         try {
-            client.newCall(request).execute().use { response ->
+            (if (toolsInit) toolsClient else client).newCall(request).execute().use { response ->
                 if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
@@ -81,15 +90,13 @@ object Requests {
         }
     }
 
-    fun post(url: String, form: String, FORM: MediaType, textView: TextView? = null) =
-        post(url, form, FORM, textView, false)
-
     fun post(
         url: String,
         form: String,
         FORM: MediaType,
         textView: TextView? = null,
-        getUrl: Boolean,
+        getUrl: Boolean = false,
+        toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
@@ -102,7 +109,7 @@ object Requests {
             .post(body)
             .build()
         try {
-            client.newCall(request).execute().use { response ->
+            (if (toolsInit) toolsClient else client).newCall(request).execute().use { response ->
                 if (getUrl) return response.request.url.toString()
                 return response.body!!.string()
             }
@@ -148,6 +155,7 @@ object Requests {
         needCheck: Boolean = false,
         noJsonString: String = "统一身份",
         hasSessionJson: Boolean = false,
+        toolsInit: Boolean = false,
     ): Boolean {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
@@ -156,7 +164,7 @@ object Requests {
         var timer = 0
 
         while (AppUtils.checkData(id, passwd)) {
-            val ltResponse = get(sso)
+            val ltResponse = get(sso, toolsInit = toolsInit)
             val ltData = try {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
             } catch (_: Exception) {
@@ -177,20 +185,21 @@ object Requests {
                 post(
                     sso,
                     loginPostData(id, passwd, ltData, rsa, ltExecution),
-                    mt
+                    mt,
+                    toolsInit = toolsInit
                 )
             }
 
             if (needCheck) {
                 if (hasSessionJson) {
-                    val sessionCheck = post(session!!, "", mt)
+                    val sessionCheck = post(session!!, "", mt, toolsInit = toolsInit)
                     if (SessionData.isSuccess(sessionCheck)) {
                         progressBar?.post { progressBar.visibility = View.INVISIBLE }
                         loginSuccess = true
                         break
                     } else timer++
                 } else {
-                    val sessionCheck = get(session!!)
+                    val sessionCheck = get(session!!, toolsInit = toolsInit)
                     if (!sessionCheck.contains(noJsonString)) {
                         loginSuccess = true
                         break

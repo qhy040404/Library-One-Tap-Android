@@ -394,9 +394,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 GlobalValues.ctSso,
                 URLManager.EDU_CHECK_URL,
                 needCheck = true,
-                noJsonString = "person")
-            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
-            val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
+                noJsonString = "person",
+                toolsInit = true)
+            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
+            val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
             GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
                 initUrl.split("/").last().toInt()
             } else {

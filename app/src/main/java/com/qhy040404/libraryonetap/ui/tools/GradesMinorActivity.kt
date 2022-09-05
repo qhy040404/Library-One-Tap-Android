@@ -106,6 +106,11 @@ class GradesMinorActivity : SimplePageActivity() {
         currentVisible = false
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        LibraryOneTapApp.instance?.removeActivity(this)
+    }
+
     private inner class PrepareData : Runnable {
         override fun run() {
             Looper.prepare()

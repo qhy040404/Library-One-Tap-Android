@@ -138,9 +138,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             qr.post { qr.setImageBitmap(bitmap) }
+                            type.post { type.text = AppUtils.getResString(R.string.enter) }
                         }
                     })
-                    type.post { type.text = AppUtils.getResString(R.string.enter) }
                 }
             }
             leave.post {
@@ -158,9 +158,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             qr.post { qr.setImageBitmap(bitmap) }
+                            type.post { type.text = AppUtils.getResString(R.string.leave) }
                         }
                     })
-                    type.post { type.text = AppUtils.getResString(R.string.leave) }
                 }
             }
             tempLeave.post {
@@ -178,9 +178,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             val bitmap =
                                 BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
                             qr.post { qr.setImageBitmap(bitmap) }
+                            type.post { type.text = AppUtils.getResString(R.string.temp) }
                         }
                     })
-                    type.post { type.text = AppUtils.getResString(R.string.temp) }
                 }
             }
             cancel.post {

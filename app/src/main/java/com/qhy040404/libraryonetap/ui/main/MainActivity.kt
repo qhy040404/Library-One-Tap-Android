@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
 import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
@@ -153,6 +154,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         LibraryOneTapApp.instance?.dismissFragment()
+        GlobalManager.lazyMgr.reset()
         if (requestCode == 100) {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {

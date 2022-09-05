@@ -14,7 +14,9 @@ import java.lang.ref.WeakReference
 
 object Toasty {
     private val handler = Handler(Looper.getMainLooper())
-    var toast: Toast? = null
+    private var toast: Toast? = null
+
+    fun cancel() = toast?.cancel()
 
     @AnyThread
     fun showShort(context: Context, message: String) {
@@ -47,7 +49,7 @@ object Toasty {
     @Suppress("deprecation")
     @MainThread
     private fun show(context: Context, message: String, duration: Int) {
-        toast?.cancel()
+        cancel()
 
         WeakReference(context).get()?.let { ctx ->
             if (OsUtils.atLeastR() && context !is ContextThemeWrapper) {

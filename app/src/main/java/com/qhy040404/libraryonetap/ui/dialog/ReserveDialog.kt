@@ -137,7 +137,7 @@ class ReserveDialog {
                     CookieJarImpl.reset()
                 }
                 if (timer >= 3) {
-                    Toasty.toast?.cancel()
+                    Toasty.cancel()
                     MaterialAlertDialogBuilder(ctx)
                         .setTitle(R.string.library)
                         .setMessage(R.string.fail_to_login_three_times)

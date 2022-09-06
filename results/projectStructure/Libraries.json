@@ -680,12 +680,11 @@
       ]
     },
     {
-      "name": "Gradle: com.tencent.bugly:crashreport:4.0.4@aar",
+      "name": "Gradle: com.tencent.bugly:crashreport:4.1.9@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/34e0b40a5ee623e6683888343e24392e/transformed/crashreport-4.0.4/jars/classes.jar!/",
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/34e0b40a5ee623e6683888343e24392e/transformed/crashreport-4.0.4/jars/libs/bugly_crash_release.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/34e0b40a5ee623e6683888343e24392e/transformed/crashreport-4.0.4/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/34e0b40a5ee623e6683888343e24392e/transformed/crashreport-4.0.4/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b232b9d5b854d9cb2065e4848a518d09/transformed/crashreport-4.1.9/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b232b9d5b854d9cb2065e4848a518d09/transformed/crashreport-4.1.9/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b232b9d5b854d9cb2065e4848a518d09/transformed/crashreport-4.1.9/AndroidManifest.xml"
       ]
     },
     {

@@ -487,7 +487,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.tencent.bugly:crashreport:4.0.4@aar",
+          "name": "Gradle: com.tencent.bugly:crashreport:4.1.9@aar",
           "type": "Library"
         },
         {
@@ -976,7 +976,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.tencent.bugly:crashreport:4.0.4@aar",
+          "name": "Gradle: com.tencent.bugly:crashreport:4.1.9@aar",
           "type": "Library"
         },
         {
@@ -1473,7 +1473,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.tencent.bugly:crashreport:4.0.4@aar",
+          "name": "Gradle: com.tencent.bugly:crashreport:4.1.9@aar",
           "type": "Library"
         },
         {

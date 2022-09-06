@@ -1,9 +1,9 @@
 package com.qhy040404.libraryonetap.ui.fragment.library
 
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import coil.load
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
@@ -85,9 +85,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 override fun onFailure(call: Call, e: IOException) {}
 
                 override fun onResponse(call: Call, response: Response) {
-                    val picture_bt = response.body!!.bytes()
-                    val bitmap = BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                    qr.post { qr.setImageBitmap(bitmap) }
+                    qr.load(response.body!!.bytes())
                 }
             })
             detail.post {

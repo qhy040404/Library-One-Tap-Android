@@ -1,10 +1,10 @@
 package com.qhy040404.libraryonetap.ui.fragment.library
 
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
 import android.os.StrictMode
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
@@ -134,10 +134,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            qr.post { qr.setImageBitmap(bitmap) }
+                            qr.load(response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.enter) }
                         }
                     })
@@ -154,10 +151,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            qr.post { qr.setImageBitmap(bitmap) }
+                            qr.load(response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.leave) }
                         }
                     })
@@ -174,10 +168,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            val picture_bt = response.body!!.bytes()
-                            val bitmap =
-                                BitmapFactory.decodeByteArray(picture_bt, 0, picture_bt.size)
-                            qr.post { qr.setImageBitmap(bitmap) }
+                            qr.load(response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.temp) }
                         }
                     })

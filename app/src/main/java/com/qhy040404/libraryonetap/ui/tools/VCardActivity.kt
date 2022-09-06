@@ -6,6 +6,7 @@ import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -110,7 +111,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         val qr = Base64.decode(qrBase64, Base64.DEFAULT)
         val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
         loading.post { loading.visibility = View.INVISIBLE }
-        qrView.post { qrView.setImageBitmap(QRUtils.toGrayscale(bitmap)) }
+        qrView.load(QRUtils.toGrayscale(bitmap))
         balance.post { balance.text = qrInformation }
         refresh.post {
             refresh.setOnClickListener {
@@ -126,7 +127,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                     .split("\">")[0]
                 val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
                 val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                qrView.post { qrView.setImageBitmap(QRUtils.toGrayscale(newBitmap)) }
+                qrView.load(QRUtils.toGrayscale(newBitmap))
                 balance.text = newQrInformation
             }
         }

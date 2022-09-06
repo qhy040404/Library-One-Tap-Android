@@ -21,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
     override fun init() = initView()
 
@@ -104,7 +105,6 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             .split("<p class=\"bdb\">")[1]
             .split("</p>")[0]
 
-        @Suppress("SpellCheckingInspection")
         val qrBase64 = qrPage
             .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
             .split("\">")[0]
@@ -121,7 +121,6 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 val newQrPage = Requests.getVCard(qrUrl)
                 val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
 
-                @Suppress("SpellCheckingInspection")
                 val newQrBase64 = newQrPage
                     .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
                     .split("\">")[0]

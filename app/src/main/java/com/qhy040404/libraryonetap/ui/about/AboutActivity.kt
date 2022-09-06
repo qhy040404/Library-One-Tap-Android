@@ -30,6 +30,11 @@ class AboutActivity : AbsAboutActivityProxy() {
         initView()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        LibraryOneTapApp.instance?.removeActivity(this)
+    }
+
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
         icon.load(R.drawable.ic_about_foreground)
         slogan.text = getString(R.string.about_slogan)

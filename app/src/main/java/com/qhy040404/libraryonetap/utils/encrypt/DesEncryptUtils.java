@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.utils.des;
+package com.qhy040404.libraryonetap.utils.encrypt;
 
 public class DesEncryptUtils {
     private byte[][] generateKeys(byte[] keyByte) {

@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap
 
-import com.qhy040404.libraryonetap.utils.des.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

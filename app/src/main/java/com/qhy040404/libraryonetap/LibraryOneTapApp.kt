@@ -11,6 +11,7 @@ import com.absinthe.libraries.utils.utils.Utility
 import com.google.android.material.color.DynamicColors
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.dp
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
@@ -57,6 +58,7 @@ class LibraryOneTapApp : Application() {
         Utility.init(this)
         Once.initialise(this)
         GlobalValues.initBasic()
+        AESEncryptUtils.init()
 
         Coil.setImageLoader {
             ImageLoader.Builder(this)

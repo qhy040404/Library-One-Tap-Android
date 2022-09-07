@@ -16,6 +16,7 @@ object JsRunner {
             synchronized(_lock) {
                 if (_rhino == null) {
                     _rhino = Context.enter()
+                    _rhino!!.languageVersion = Context.VERSION_ES6
                     _rhino!!.optimizationLevel = -1
                     _scope = _rhino?.initStandardObjects()
                 }
@@ -23,17 +24,12 @@ object JsRunner {
         }
     }
 
-    fun initScript(js: String?): Boolean {
+    fun initScript(js: String?) {
         init()
-        return runCatching {
-            _rhino!!.evaluateString(_scope, js, null, 1, null)
-            true
-        }.getOrDefault(false)
+        _rhino!!.evaluateString(_scope, js, null, 1, null)
     }
 
     fun callFunc(funcName: String?, vararg funcParams: Any?): Any? {
-        return runCatching {
-            (_scope!![funcName, _scope] as Function).call(_rhino, _scope, _scope, funcParams)
-        }.getOrNull()
+        return (_scope!![funcName, _scope] as Function).call(_rhino, _scope, _scope, funcParams)
     }
 }

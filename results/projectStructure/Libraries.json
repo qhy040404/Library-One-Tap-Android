@@ -672,6 +672,14 @@
       ]
     },
     {
+      "name": "Gradle: com.jonathanfinerty.once:once:1.3.1@aar",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3831818a1efeb6b7a032e91fc95018dc/transformed/once-1.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3831818a1efeb6b7a032e91fc95018dc/transformed/once-1.3.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3831818a1efeb6b7a032e91fc95018dc/transformed/once-1.3.1/AndroidManifest.xml"
+      ]
+    },
+    {
       "name": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/92e27b9e0f3d34bb386636433d07d61b/transformed/preferencex-1.1.0/jars/classes.jar!/",

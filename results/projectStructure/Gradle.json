@@ -527,6 +527,11 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: com.jonathanfinerty.once:once:1.3.1@aar",
+      "gradleName": "com.jonathanfinerty.once:once:1.3.1@aar",
+      "unresolved": false
+    },
+    {
       "ideaName": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
       "gradleName": "com.takisoft.preferencex:preferencex:1.1.0@aar",
       "unresolved": false

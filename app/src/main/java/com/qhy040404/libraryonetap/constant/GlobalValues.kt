@@ -5,6 +5,7 @@ import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
+import com.qhy040404.libraryonetap.utils.PasswordDelegates
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
@@ -18,7 +19,8 @@ object GlobalValues {
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
     var id: String by SPDelegates(Constants.PREF_ID, Constants.GLOBAL_ERROR)
-    var passwd: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
+    var passwdEnc: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
+    var passwd: String by PasswordDelegates(passwdEnc)
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)

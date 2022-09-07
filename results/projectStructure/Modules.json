@@ -311,11 +311,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core:1.8.0@aar",
+          "name": "Gradle: androidx.core:core:1.9.0@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.annotation:annotation-experimental:1.1.0@aar",
+          "name": "Gradle: androidx.annotation:annotation-experimental:1.3.0@aar",
           "type": "Library"
         },
         {
@@ -327,7 +327,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.core:core-ktx:1.9.0@aar",
           "type": "Library"
         },
         {
@@ -375,19 +375,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common:2.5.2@aar",
           "type": "Library"
         },
         {
@@ -395,19 +395,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui:2.5.2@aar",
           "type": "Library"
         },
         {
@@ -804,11 +804,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core:1.8.0@aar",
+          "name": "Gradle: androidx.core:core:1.9.0@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.annotation:annotation-experimental:1.1.0@aar",
+          "name": "Gradle: androidx.annotation:annotation-experimental:1.3.0@aar",
           "type": "Library"
         },
         {
@@ -820,7 +820,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.core:core-ktx:1.9.0@aar",
           "type": "Library"
         },
         {
@@ -868,19 +868,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common:2.5.2@aar",
           "type": "Library"
         },
         {
@@ -888,19 +888,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui:2.5.2@aar",
           "type": "Library"
         },
         {
@@ -1305,11 +1305,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core:1.8.0@aar",
+          "name": "Gradle: androidx.core:core:1.9.0@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.annotation:annotation-experimental:1.1.0@aar",
+          "name": "Gradle: androidx.annotation:annotation-experimental:1.3.0@aar",
           "type": "Library"
         },
         {
@@ -1321,7 +1321,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.core:core-ktx:1.8.0@aar",
+          "name": "Gradle: androidx.core:core-ktx:1.9.0@aar",
           "type": "Library"
         },
         {
@@ -1369,19 +1369,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-fragment:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common:2.5.2@aar",
           "type": "Library"
         },
         {
@@ -1389,19 +1389,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.2@aar",
           "type": "Library"
         },
         {
-          "name": "Gradle: androidx.navigation:navigation-ui:2.5.1@aar",
+          "name": "Gradle: androidx.navigation:navigation-ui:2.5.2@aar",
           "type": "Library"
         },
         {

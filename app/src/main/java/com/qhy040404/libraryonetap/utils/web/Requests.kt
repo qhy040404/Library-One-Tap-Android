@@ -9,6 +9,7 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import okhttp3.Cookie
@@ -221,6 +222,8 @@ object Requests {
                 if (timer == 2) {
                     netLazyMgr.reset()
                     CookieJarImpl.reset()
+                    SPUtils.spLazyMgr.reset()
+                    GlobalValues.initBasic()
                 }
                 if (timer >= 3) break
             }

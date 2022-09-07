@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.ReserveUtils
+import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -41,6 +42,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         binding.detailRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             CookieJarImpl.reset()
+            SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
             GlobalValues.initBasic()
             activity?.recreate()

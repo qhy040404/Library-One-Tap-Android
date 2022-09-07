@@ -13,8 +13,7 @@ public class DesEncryptUtils {
             }
         }
 
-        int i;
-        for (i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++) {
             byte tempLeft;
             byte tempRight;
             for (int j = 0; j < loop[i]; j++) {
@@ -131,58 +130,42 @@ public class DesEncryptUtils {
     }
 
     private String getBoxBinary(int i) {
-        String binary = "";
         switch (i) {
             case 0:
-                binary = "0000";
-                break;
+                return "0000";
             case 1:
-                binary = "0001";
-                break;
+                return "0001";
             case 2:
-                binary = "0010";
-                break;
+                return "0010";
             case 3:
-                binary = "0011";
-                break;
+                return "0011";
             case 4:
-                binary = "0100";
-                break;
+                return "0100";
             case 5:
-                binary = "0101";
-                break;
+                return "0101";
             case 6:
-                binary = "0110";
-                break;
+                return "0110";
             case 7:
-                binary = "0111";
-                break;
+                return "0111";
             case 8:
-                binary = "1000";
-                break;
+                return "1000";
             case 9:
-                binary = "1001";
-                break;
+                return "1001";
             case 10:
-                binary = "1010";
-                break;
+                return "1010";
             case 11:
-                binary = "1011";
-                break;
+                return "1011";
             case 12:
-                binary = "1100";
-                break;
+                return "1100";
             case 13:
-                binary = "1101";
-                break;
+                return "1101";
             case 14:
-                binary = "1110";
-                break;
+                return "1110";
             case 15:
-                binary = "1111";
-                break;
+                return "1111";
+            default:
+                return "";
         }
-        return binary;
     }
 
     private byte[] initPermute(byte[] originalData) {
@@ -199,20 +182,14 @@ public class DesEncryptUtils {
     private byte[] expandPermute(byte[] rightData) {
         byte[] epByte = new byte[48];
         for (int i = 0; i < 8; i++) {
-            if (i == 0) {
-                epByte[i * 6] = rightData[31];
-            } else {
-                epByte[i * 6] = rightData[i * 4 - 1];
-            }
+            if (i == 0) epByte[i * 6] = rightData[31];
+            else epByte[i * 6] = rightData[i * 4 - 1];
             epByte[i * 6 + 1] = rightData[i * 4];
             epByte[i * 6 + 2] = rightData[i * 4 + 1];
             epByte[i * 6 + 3] = rightData[i * 4 + 2];
             epByte[i * 6 + 4] = rightData[i * 4 + 3];
-            if (i == 7) {
-                epByte[i * 6 + 5] = rightData[0];
-            } else {
-                epByte[i * 6 + 5] = rightData[i * 4 + 4];
-            }
+            if (i == 7) epByte[i * 6 + 5] = rightData[0];
+            else epByte[i * 6 + 5] = rightData[i * 4 + 4];
         }
         return epByte;
     }
@@ -317,10 +294,10 @@ public class DesEncryptUtils {
                     binary = getBoxBinary(s8[i][j]);
                     break;
             }
-            sBoxByte[m * 4] = (byte) Integer.parseInt(binary.substring(0, 1));
-            sBoxByte[m * 4 + 1] = (byte) Integer.parseInt(binary.substring(1, 2));
-            sBoxByte[m * 4 + 2] = (byte) Integer.parseInt(binary.substring(2, 3));
-            sBoxByte[m * 4 + 3] = (byte) Integer.parseInt(binary.substring(3, 4));
+            sBoxByte[m * 4] = Byte.parseByte(binary.substring(0, 1));
+            sBoxByte[m * 4 + 1] = Byte.parseByte(binary.substring(1, 2));
+            sBoxByte[m * 4 + 2] = Byte.parseByte(binary.substring(2, 3));
+            sBoxByte[m * 4 + 3] = Byte.parseByte(binary.substring(3, 4));
         }
         return sBoxByte;
     }
@@ -435,10 +412,9 @@ public class DesEncryptUtils {
         int length = str.length();
         byte[] bt = new byte[64];
         if (length < 4) {
-            int i, j, p, q;
-            for (i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 char k = str.charAt(i);
-                for (j = 0; j < 16; j++) {
+                for (int j = 0; j < 16; j++) {
                     int pow = 1, m;
                     for (m = 15; m > j; m--) {
                         pow *= 2;
@@ -446,8 +422,8 @@ public class DesEncryptUtils {
                     bt[16 * i + j] = (byte) ((k / pow) % 2);
                 }
             }
-            for (p = length; p < 4; p++) {
-                for (q = 0; q < 16; q++) {
+            for (int p = length; p < 4; p++) {
+                for (int q = 0; q < 16; q++) {
                     bt[16 * p + q] = (byte) (0);
                 }
             }
@@ -466,59 +442,98 @@ public class DesEncryptUtils {
         return bt;
     }
 
+    private String byteToString(byte[] byteData) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            int count = 0;
+            for (int j = 0; j < 16; j++) {
+                int pow = 1;
+                for (int m = 15; m > j; m--) {
+                    pow *= 2;
+                }
+                count += byteData[16 * i + j] * pow;
+            }
+            if (count != 0) str.append((char) count);
+        }
+        return str.toString();
+    }
+
     private String bt4ToHex(String binary) {
-        String hex = "";
         switch (binary) {
             case "0000":
-                hex = "0";
-                break;
+                return "0";
             case "0001":
-                hex = "1";
-                break;
+                return "1";
             case "0010":
-                hex = "2";
-                break;
+                return "2";
             case "0011":
-                hex = "3";
-                break;
+                return "3";
             case "0100":
-                hex = "4";
-                break;
+                return "4";
             case "0101":
-                hex = "5";
-                break;
+                return "5";
             case "0110":
-                hex = "6";
-                break;
+                return "6";
             case "0111":
-                hex = "7";
-                break;
+                return "7";
             case "1000":
-                hex = "8";
-                break;
+                return "8";
             case "1001":
-                hex = "9";
-                break;
+                return "9";
             case "1010":
-                hex = "A";
-                break;
+                return "A";
             case "1011":
-                hex = "B";
-                break;
+                return "B";
             case "1100":
-                hex = "C";
-                break;
+                return "C";
             case "1101":
-                hex = "D";
-                break;
+                return "D";
             case "1110":
-                hex = "E";
-                break;
+                return "E";
             case "1111":
-                hex = "F";
-                break;
+                return "F";
+            default:
+                return "";
         }
-        return hex;
+    }
+
+    private String hexToBt4(String hex) {
+        switch (hex) {
+            case "0":
+                return "0000";
+            case "1":
+                return "0001";
+            case "2":
+                return "0010";
+            case "3":
+                return "0011";
+            case "4":
+                return "0100";
+            case "5":
+                return "0101";
+            case "6":
+                return "0110";
+            case "7":
+                return "0111";
+            case "8":
+                return "1000";
+            case "9":
+                return "1001";
+            case "A":
+                return "1010";
+            case "B":
+                return "1011";
+            case "C":
+                return "1100";
+            case "D":
+                return "1101";
+            case "E":
+                return "1110";
+            case "F":
+                return "1111";
+            default:
+                return "";
+        }
     }
 
     private String bt64ToHex(byte[] byteData) {
@@ -533,18 +548,23 @@ public class DesEncryptUtils {
         return hex.toString();
     }
 
+    private String hexToBt64(String hex) {
+        StringBuilder binary = new StringBuilder();
+        for (int i = 0; i < 16; i++) {
+            binary.append(hexToBt4(hex.substring(i, i + 1)));
+        }
+        return binary.toString();
+    }
+
     private byte[][] getKeyBytes(String key) {
         int length = key.length();
         int iterator = length / 4;
         byte[][] keyBytes = new byte[iterator + 1][];
         int remainder = length % 4;
-        int i;
-        for (i = 0; i < iterator; i++) {
+        for (int i = 0; i < iterator; i++) {
             keyBytes[i] = strToBt(key.substring(i * 4, i * 4 + 4));
         }
-        if (remainder > 0) {
-            keyBytes[i] = strToBt(key.substring(i * 4, length));
-        }
+        if (remainder > 0) keyBytes[iterator] = strToBt(key.substring(iterator * 4, length));
         return keyBytes;
     }
 
@@ -554,27 +574,50 @@ public class DesEncryptUtils {
         byte[] ipLeft = new byte[32];
         byte[] ipRight = new byte[32];
         byte[] tempLeft = new byte[32];
-        int i, j, k, m, n;
-        for (k = 0; k < 32; k++) {
+        for (int k = 0; k < 32; k++) {
             ipLeft[k] = ipByte[k];
             ipRight[k] = ipByte[32 + k];
         }
-        for (i = 0; i < 16; i++) {
-            for (j = 0; j < 32; j++) {
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 32; j++) {
                 tempLeft[j] = ipLeft[j];
                 ipLeft[j] = ipRight[j];
             }
             byte[] key = new byte[48];
-            for (m = 0; m < 48; m++) {
-                key[m] = keys[i][m];
-            }
+            System.arraycopy(keys[i], 0, key, 0, 48);
             byte[] tempRight = xor(pPermute(sBoxPermute(xor(expandPermute(ipRight), key))), tempLeft);
-            for (n = 0; n < 32; n++) {
-                ipRight[n] = tempRight[n];
-            }
+            System.arraycopy(tempRight, 0, ipRight, 0, 32);
         }
         byte[] finalData = new byte[64];
-        for (i = 0; i < 32; i++) {
+        for (int i = 0; i < 32; i++) {
+            finalData[i] = ipRight[i];
+            finalData[32 + i] = ipLeft[i];
+        }
+        return finallyPermute(finalData);
+    }
+
+    private byte[] dec(byte[] dataByte, byte[] keyByte) {
+        byte[][] keys = generateKeys(keyByte);
+        byte[] ipByte = initPermute(dataByte);
+        byte[] ipLeft = new byte[32];
+        byte[] ipRight = new byte[32];
+        byte[] tempLeft = new byte[32];
+        for (int k = 0; k < 32; k++) {
+            ipLeft[k] = ipByte[k];
+            ipRight[k] = ipByte[32 + k];
+        }
+        for (int i = 15; i > -1; i--) {
+            for (int j = 0; j < 32; j++) {
+                tempLeft[j] = ipLeft[j];
+                ipLeft[j] = ipRight[j];
+            }
+            byte[] key = new byte[48];
+            System.arraycopy(keys[i], 0, key, 0, 48);
+            byte[] tempRight = xor(pPermute(sBoxPermute(xor(expandPermute(ipRight), key))), tempLeft);
+            System.arraycopy(tempRight, 0, ipRight, 0, 32);
+        }
+        byte[] finalData = new byte[64];
+        for (int i = 0; i < 32; i++) {
             finalData[i] = ipRight[i];
             finalData[32 + i] = ipLeft[i];
         }
@@ -599,145 +642,178 @@ public class DesEncryptUtils {
             thirdLength = thirdKeyBt.length;
         }
 
+        boolean b = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty() && thirdKey != null && !thirdKey.isEmpty();
+        boolean b1 = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty();
+
         if (length > 0) {
-            boolean b = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty() && thirdKey != null && !thirdKey.isEmpty();
-            boolean b1 = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty();
             if (length < 4) {
                 byte[] bt = strToBt(data);
-                byte[] encByte = new byte[0];
+                byte[] encByte;
                 if (b) {
-                    byte[] tempBt;
-                    int x, y, z;
-                    tempBt = bt;
-                    for (x = 0; x < firstLength; x++) {
+                    byte[] tempBt = bt;
+                    for (int x = 0; x < firstLength; x++) {
                         tempBt = enc(tempBt, firstKeyBt[x]);
                     }
-                    for (y = 0; y < secondLength; y++) {
+                    for (int y = 0; y < secondLength; y++) {
                         tempBt = enc(tempBt, secondKeyBt[y]);
                     }
-                    for (z = 0; z < thirdLength; z++) {
+                    for (int z = 0; z < thirdLength; z++) {
                         tempBt = enc(tempBt, thirdKeyBt[z]);
                     }
                     encByte = tempBt;
-                } else {
-                    if (b1) {
-                        byte[] tempBt;
-                        int x, y;
-                        tempBt = bt;
-                        for (x = 0; x < firstLength; x++) {
-                            tempBt = enc(tempBt, firstKeyBt[x]);
-                        }
-                        for (y = 0; y < secondLength; y++) {
-                            tempBt = enc(tempBt, secondKeyBt[y]);
-                        }
-                        encByte = tempBt;
-                    } else {
-                        if (firstKey != null && !firstKey.isEmpty()) {
-                            byte[] tempBt;
-                            int x;
-                            tempBt = bt;
-                            for (x = 0; x < firstLength; x++) {
-                                tempBt = enc(tempBt, firstKeyBt[x]);
-                            }
-                            encByte = tempBt;
-                        }
+                } else if (b1) {
+                    byte[] tempBt = bt;
+                    for (int x = 0; x < firstLength; x++) {
+                        tempBt = enc(tempBt, firstKeyBt[x]);
                     }
+                    for (int y = 0; y < secondLength; y++) {
+                        tempBt = enc(tempBt, secondKeyBt[y]);
+                    }
+                    encByte = tempBt;
+                } else {
+                    byte[] tempBt = bt;
+                    for (int x = 0; x < firstLength; x++) {
+                        tempBt = enc(tempBt, firstKeyBt[x]);
+                    }
+                    encByte = tempBt;
                 }
                 encData = new StringBuilder(bt64ToHex(encByte));
             } else {
                 int iterator = length / 4;
                 int remainder = length % 4;
-                int i;
-                for (i = 0; i < iterator; i++) {
+                for (int i = 0; i < iterator; i++) {
                     String tempData = data.substring(i * 4, i * 4 + 4);
                     byte[] tempByte = strToBt(tempData);
-                    byte[] encByte = new byte[0];
+                    byte[] encByte;
                     if (b) {
-                        byte[] tempBt;
-                        int x, y, z;
-                        tempBt = tempByte;
-                        for (x = 0; x < firstLength; x++) {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
                             tempBt = enc(tempBt, firstKeyBt[x]);
                         }
-                        for (y = 0; y < secondLength; y++) {
+                        for (int y = 0; y < secondLength; y++) {
                             tempBt = enc(tempBt, secondKeyBt[y]);
                         }
-                        for (z = 0; z < thirdLength; z++) {
+                        for (int z = 0; z < thirdLength; z++) {
                             tempBt = enc(tempBt, thirdKeyBt[z]);
                         }
                         encByte = tempBt;
-                    } else {
-                        if (b1) {
-                            byte[] tempBt;
-                            int x, y;
-                            tempBt = tempByte;
-                            for (x = 0; x < firstLength; x++) {
-                                tempBt = enc(tempBt, firstKeyBt[x]);
-                            }
-                            for (y = 0; y < secondLength; y++) {
-                                tempBt = enc(tempBt, secondKeyBt[y]);
-                            }
-                            encByte = tempBt;
-                        } else {
-                            if (firstKey != null && !firstKey.isEmpty()) {
-                                byte[] tempBt;
-                                int x;
-                                tempBt = tempByte;
-                                for (x = 0; x < firstLength; x++) {
-                                    tempBt = enc(tempBt, firstKeyBt[x]);
-                                }
-                                encByte = tempBt;
-                            }
+                    } else if (b1) {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
+                            tempBt = enc(tempBt, firstKeyBt[x]);
                         }
+                        for (int y = 0; y < secondLength; y++) {
+                            tempBt = enc(tempBt, secondKeyBt[y]);
+                        }
+                        encByte = tempBt;
+                    } else {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
+                            tempBt = enc(tempBt, firstKeyBt[x]);
+                        }
+                        encByte = tempBt;
                     }
                     encData.append(bt64ToHex(encByte));
                 }
                 if (remainder > 0) {
                     String remainderData = data.substring(iterator * 4, length);
                     byte[] tempByte = strToBt(remainderData);
-                    byte[] encByte = new byte[0];
+                    byte[] encByte;
                     if (b) {
-                        byte[] tempBt;
-                        int x, y, z;
-                        tempBt = tempByte;
-                        for (x = 0; x < firstLength; x++) {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
                             tempBt = enc(tempBt, firstKeyBt[x]);
                         }
-                        for (y = 0; y < secondLength; y++) {
+                        for (int y = 0; y < secondLength; y++) {
                             tempBt = enc(tempBt, secondKeyBt[y]);
                         }
-                        for (z = 0; z < thirdLength; z++) {
+                        for (int z = 0; z < thirdLength; z++) {
                             tempBt = enc(tempBt, thirdKeyBt[z]);
                         }
                         encByte = tempBt;
-                    } else {
-                        if (b1) {
-                            byte[] tempBt;
-                            int x, y;
-                            tempBt = tempByte;
-                            for (x = 0; x < firstLength; x++) {
-                                tempBt = enc(tempBt, firstKeyBt[x]);
-                            }
-                            for (y = 0; y < secondLength; y++) {
-                                tempBt = enc(tempBt, secondKeyBt[y]);
-                            }
-                            encByte = tempBt;
-                        } else {
-                            if (firstKey != null && !firstKey.isEmpty()) {
-                                byte[] tempBt;
-                                int x;
-                                tempBt = tempByte;
-                                for (x = 0; x < firstLength; x++) {
-                                    tempBt = enc(tempBt, firstKeyBt[x]);
-                                }
-                                encByte = tempBt;
-                            }
+                    } else if (b1) {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
+                            tempBt = enc(tempBt, firstKeyBt[x]);
                         }
+                        for (int y = 0; y < secondLength; y++) {
+                            tempBt = enc(tempBt, secondKeyBt[y]);
+                        }
+                        encByte = tempBt;
+                    } else {
+                        byte[] tempBt = tempByte;
+                        for (int x = 0; x < firstLength; x++) {
+                            tempBt = enc(tempBt, firstKeyBt[x]);
+                        }
+                        encByte = tempBt;
                     }
                     encData.append(bt64ToHex(encByte));
                 }
             }
         }
         return encData.toString();
+    }
+
+    public String strDec(String data, String firstKey, String secondKey, String thirdKey) {
+        int length = data.length();
+        StringBuilder decStr = new StringBuilder();
+        byte[][] firstKeyBt = new byte[0][], secondKeyBt = new byte[0][], thirdKeyBt = new byte[0][];
+        int firstLength = 0, secondLength = 0, thirdLength = 0;
+        byte[] decByte;
+        if (firstKey != null && !firstKey.isEmpty()) {
+            firstKeyBt = getKeyBytes(firstKey);
+            firstLength = firstKeyBt.length;
+        }
+        if (secondKey != null && !secondKey.isEmpty()) {
+            secondKeyBt = getKeyBytes(secondKey);
+            secondLength = secondKeyBt.length;
+        }
+        if (thirdKey != null && !thirdKey.isEmpty()) {
+            thirdKeyBt = getKeyBytes(thirdKey);
+            thirdLength = thirdKeyBt.length;
+        }
+
+        boolean b = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty() && thirdKey != null && !thirdKey.isEmpty();
+        boolean b1 = firstKey != null && !firstKey.isEmpty() && secondKey != null && !secondKey.isEmpty();
+
+        int iterator = length / 16;
+        for (int i = 0; i < iterator; i++) {
+            String tempData = data.substring(i * 16, i * 16 + 16);
+            String strByte = hexToBt64(tempData);
+            byte[] intByte = new byte[64];
+            for (int j = 0; j < 64; j++) {
+                intByte[j] = Byte.parseByte(strByte.substring(j, j + 1));
+            }
+            if (b) {
+                byte[] tempBt = intByte;
+                for (int x = thirdLength - 1; x > -1; x--) {
+                    tempBt = dec(tempBt, thirdKeyBt[x]);
+                }
+                for (int y = secondLength - 1; y > -1; y--) {
+                    tempBt = dec(tempBt, secondKeyBt[y]);
+                }
+                for (int z = firstLength - 1; z > -1; z--) {
+                    tempBt = dec(tempBt, firstKeyBt[z]);
+                }
+                decByte = tempBt;
+            } else if (b1) {
+                byte[] tempBt = intByte;
+                for (int x = secondLength - 1; x > -1; x--) {
+                    tempBt = dec(tempBt, secondKeyBt[x]);
+                }
+                for (int y = firstLength - 1; y > -1; y--) {
+                    tempBt = dec(tempBt, firstKeyBt[y]);
+                }
+                decByte = tempBt;
+            } else {
+                byte[] tempBt = intByte;
+                for (int x = firstLength - 1; x > -1; x--) {
+                    tempBt = dec(tempBt, firstKeyBt[x]);
+                }
+                decByte = tempBt;
+            }
+            decStr.append(byteToString(decByte));
+        }
+        return decStr.toString();
     }
 }

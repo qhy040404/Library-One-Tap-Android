@@ -52,8 +52,8 @@
 
     <!-- TOOLS -->
     <string name="bath">预约浴室 (需连接校园网)</string>
-    <string name="cernet">校园网还剩多少啊</string>
-    <string name="electric">宿舍还有多少电啊</string>
+    <string name="cernet">校园网剩余流量</string>
+    <string name="electric">宿舍剩余电量</string>
     <string name="vcard">玉兰卡虚拟卡</string>
     <string name="volunteer">志愿总时长</string>
 

@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
 import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
 import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
@@ -29,6 +30,7 @@ import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
+import jonathanfinerty.once.Once
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -184,9 +186,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     }
 
     private fun showWelcomeDialog() {
-        if (GlobalValues.initialized) {
-            return
-        } else {
+        if (!Once.beenDone(Once.THIS_APP_INSTALL, OnceTag.FIRST_DATA_INPUT)) {
             MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.welcome)
                 .setMessage(R.string.welcome_message)
@@ -197,7 +197,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                 .setCancelable(false)
                 .create()
                 .show()
-            GlobalValues.initialized = true
+            Once.markDone(OnceTag.FIRST_DATA_INPUT)
         }
     }
 }

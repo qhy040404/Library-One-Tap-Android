@@ -29,6 +29,8 @@ import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.qhy040404.libraryonetap.view.PasswordPreference
+import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -85,7 +87,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             }
         }
 
-        findPreference<EditTextPreference>(Constants.PREF_PASSWD)?.apply {
+        findPreference<PasswordPreference>(Constants.PREF_PASSWD)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()
                         .isDuplicateGV(GlobalValues.passwd)
@@ -159,6 +161,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                             .setTitle(R.string.settings_title)
                             .setPositiveButton(R.string.ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
+                                Once.clearAll()
                                 AppUtils.clearAppData(LibraryOneTapApp.app)
                                 exitProcess(0)
                             }

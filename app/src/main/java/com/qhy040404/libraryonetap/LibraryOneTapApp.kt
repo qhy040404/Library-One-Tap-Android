@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.dp
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
 import com.tencent.bugly.crashreport.CrashReport
+import jonathanfinerty.once.Once
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -54,6 +55,7 @@ class LibraryOneTapApp : Application() {
         DynamicColors.applyToActivitiesIfAvailable(this)
 
         Utility.init(this)
+        Once.initialise(this)
         GlobalValues.initBasic()
 
         Coil.setImageLoader {

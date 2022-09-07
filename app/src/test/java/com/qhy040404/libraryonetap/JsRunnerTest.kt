@@ -9,9 +9,9 @@ class JsRunnerTest {
     @Test
     fun testJs() {
         var js = "function aa(){return 'testA';}"
-        assertTrue(JsRunner.initScript(js))
+        JsRunner.initScript(js)
         js = "function bb(){return 'testB';}"
-        assertTrue(JsRunner.initScript(js))
+        JsRunner.initScript(js)
 
         assertEquals("testA", JsRunner.callFunc("aa"))
         assertEquals("testB", JsRunner.callFunc("bb"))

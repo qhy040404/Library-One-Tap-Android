@@ -5,6 +5,7 @@ import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.takisoft.preferencex.EditTextPreference
 import androidx.preference.EditTextPreference as AEditTextPreference
 
@@ -27,6 +28,17 @@ class PasswordPreference : EditTextPreference {
         if (summaryProvider is AEditTextPreference.SimpleSummaryProvider) {
             summaryProvider = SimpleSummaryProvider
         }
+    }
+
+    override fun setText(text: String?) {
+        return if (text?.length!! > 16) super.setText(text)
+        else super.setText(GlobalManager.des.strEnc(text, "q", "h", "y"))
+    }
+
+    override fun getText(): String? {
+        val currentText = super.getText()
+        return if (currentText == null) null
+        else GlobalManager.des.strDec(currentText, "q", "h", "y")
     }
 
     object SimpleSummaryProvider : SummaryProvider<EditTextPreference> {

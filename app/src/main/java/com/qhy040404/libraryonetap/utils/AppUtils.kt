@@ -16,7 +16,6 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
 
-@Suppress("MemberVisibilityCanBePrivate")
 object AppUtils {
     private val ctx = LibraryOneTapApp.app
 

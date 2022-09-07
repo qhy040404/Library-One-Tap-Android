@@ -1,1 +1,57 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Object \"WebVPNUtils\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/web/WebVPNUtils.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 8,
+      "length": 11,
+      "code": {
+        "startLine": 4,
+        "length": 11,
+        "offset": 59,
+        "surroundingCode": "import com.qhy040404.libraryonetap.runner.JsRunner\n\nobject WebVPNUtils {\n    private const val institution = \"https://webvpn.dlut.edu.cn\"\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "c5b1f45886be113aba35f39a77232077278d6aaee6d752edba6c766e2c90b868"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"encrypt\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/web/WebVPNUtils.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 9,
+      "length": 7,
+      "code": {
+        "startLine": 8,
+        "length": 7,
+        "offset": 50,
+        "surroundingCode": "\n    @Suppress(\"SpellCheckingInspection\")\n    fun encrypt(url: String, @HttpProtocols protocol: String): String {\n        return institution + JsRunner.callFunc(\"encrypUrl\", protocol, url).toString()\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "5b801a656310e154d4d936b78ee420408448cdc4a35492d2d9946b74896009a9"
+}]}

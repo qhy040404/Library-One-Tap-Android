@@ -195,11 +195,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.14.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi:1.14.0",
           "type": "Library"
         },
         {
@@ -207,7 +207,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
           "type": "Library"
         },
         {
@@ -680,11 +680,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.14.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi:1.14.0",
           "type": "Library"
         },
         {
@@ -692,7 +692,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
           "type": "Library"
         },
         {
@@ -1193,11 +1193,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.14.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+          "name": "Gradle: com.squareup.moshi:moshi:1.14.0",
           "type": "Library"
         },
         {
@@ -1205,7 +1205,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
           "type": "Library"
         },
         {

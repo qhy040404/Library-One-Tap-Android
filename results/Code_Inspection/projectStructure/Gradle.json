@@ -146,20 +146,20 @@
       "version": "1.1.0"
     },
     {
-      "ideaName": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
-      "gradleName": "com.squareup.moshi:moshi-kotlin:1.13.0",
+      "ideaName": "Gradle: com.squareup.moshi:moshi-kotlin:1.14.0",
+      "gradleName": "com.squareup.moshi:moshi-kotlin:1.14.0",
       "unresolved": false,
       "groupId": "com.squareup.moshi",
       "artifactId": "moshi-kotlin",
-      "version": "1.13.0"
+      "version": "1.14.0"
     },
     {
-      "ideaName": "Gradle: com.squareup.moshi:moshi:1.13.0",
-      "gradleName": "com.squareup.moshi:moshi:1.13.0",
+      "ideaName": "Gradle: com.squareup.moshi:moshi:1.14.0",
+      "gradleName": "com.squareup.moshi:moshi:1.14.0",
       "unresolved": false,
       "groupId": "com.squareup.moshi",
       "artifactId": "moshi",
-      "version": "1.13.0"
+      "version": "1.14.0"
     },
     {
       "ideaName": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
@@ -170,12 +170,12 @@
       "version": "3.2.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
-      "gradleName": "org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
+      "gradleName": "org.jetbrains.kotlin:kotlin-reflect:1.7.0",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-reflect",
-      "version": "1.6.0"
+      "version": "1.7.0"
     },
     {
       "ideaName": "Gradle: com.squareup.okhttp3:okhttp:4.10.0",

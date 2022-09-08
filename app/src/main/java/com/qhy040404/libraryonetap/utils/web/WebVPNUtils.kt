@@ -14,7 +14,7 @@ object WebVPNUtils {
         if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) return
         val apiPostData =
             "schoolcode=dlut&username=${GlobalValues.id}&password=${GlobalValues.passwd}&ssokey="
-        Requests.post(URLManager.WEBVPN_INIT_URL, apiPostData, GlobalValues.ctVCard, webVpn = true)
+        Requests.post(URLManager.WEBVPN_INIT_URL, apiPostData, GlobalValues.ctVCard)
     }
 
     @Suppress("SpellCheckingInspection")

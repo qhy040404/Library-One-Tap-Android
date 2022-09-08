@@ -27,7 +27,6 @@ import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
-import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -41,8 +40,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         } else {
             initGrades()
         }
-
-        WebVPNUtils.init()
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             setOnPreferenceClickListener {

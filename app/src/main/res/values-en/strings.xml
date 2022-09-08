@@ -51,7 +51,7 @@
     <string name="not_in_valid_time">Cannot reserve NOW</string>
 
     <!-- TOOLS -->
-    <string name="bath">I need a bath NOW (Needs campus network)</string>
+    <string name="bath">Reserve Bathroom NOW</string>
     <string name="cernet">Remaining campus network</string>
     <string name="electric">Remaining electric charge</string>
     <string name="vcard">Virtual Yulan card</string>

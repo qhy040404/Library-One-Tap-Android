@@ -50,12 +50,29 @@ object Requests {
             }
         })
         .build()
+    private val webVpnClient = OkHttpClient.Builder()
+        .connectTimeout(25, TimeUnit.SECONDS)
+        .readTimeout(50, TimeUnit.SECONDS)
+        .writeTimeout(50, TimeUnit.SECONDS)
+        .cookieJar(object : CookieJar {
+            private val cookieStore = mutableListOf<Cookie>()
+
+            override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+                cookieStore.addAll(cookies)
+            }
+
+            override fun loadForRequest(url: HttpUrl): List<Cookie> {
+                return cookieStore
+            }
+        })
+        .build()
 
     fun get(
         url: String,
         textView: TextView? = null,
         getUrl: Boolean = false,
         toolsInit: Boolean = false,
+        webVpn: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
@@ -67,10 +84,11 @@ object Requests {
             .get()
             .build()
         try {
-            (if (toolsInit) toolsClient else client).newCall(request).execute().use { response ->
-                if (getUrl) return response.request.url.toString()
-                return response.body!!.string()
-            }
+            (if (toolsInit) toolsClient else if (webVpn) webVpnClient else client).newCall(request)
+                .execute().use { response ->
+                    if (getUrl) return response.request.url.toString()
+                    return response.body!!.string()
+                }
         } catch (socket: SocketTimeoutException) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
             GlobalValues.netError = true
@@ -111,6 +129,7 @@ object Requests {
         textView: TextView? = null,
         getUrl: Boolean = false,
         toolsInit: Boolean = false,
+        webVpn: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
@@ -123,10 +142,11 @@ object Requests {
             .post(body)
             .build()
         try {
-            (if (toolsInit) toolsClient else client).newCall(request).execute().use { response ->
-                if (getUrl) return response.request.url.toString()
-                return response.body!!.string()
-            }
+            (if (toolsInit) toolsClient else if (webVpn) webVpnClient else client).newCall(request)
+                .execute().use { response ->
+                    if (getUrl) return response.request.url.toString()
+                    return response.body!!.string()
+                }
         } catch (socket: SocketTimeoutException) {
             textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
             GlobalValues.netError = true

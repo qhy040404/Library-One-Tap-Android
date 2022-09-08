@@ -28,6 +28,7 @@ object URLManager {
 
     const val BATH_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2F202.118.74.5%3A8193%2FopenHomeRJPage"
+    const val BATH_DIRECT_URL = "http://202.118.74.5:8193/openHomeRJPage"
     const val BATH_SAVE_CART_URL = "http://202.118.74.5:8193/goods/saveGoodsShopcar"
     const val BATH_UPDATE_CART_URL = "http://202.118.74.5:8193/goods/updateGoodsShopcar"
     const val BATH_MAIN_FUNC_URL = "http://202.118.74.5:8193/goods/queryNoChoiceTimeInfo"
@@ -43,6 +44,8 @@ object URLManager {
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2Fjxgl.dlut.edu.cn%2Fstudent%2Fucas-sso%2Flogin"
     const val EDU_CHECK_URL = "http://jxgl.dlut.edu.cn/student/ws/student/home-page/students"
     const val EDU_GRADE_INIT_URL = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
+
+    const val WEBVPN_INIT_URL = "https://webvpn.dlut.edu.cn/login?filter=app"
 
     fun getEduGradeUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="

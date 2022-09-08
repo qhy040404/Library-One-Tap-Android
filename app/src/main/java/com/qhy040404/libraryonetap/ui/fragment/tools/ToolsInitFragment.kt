@@ -7,6 +7,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.annotation.NetworkStates
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -26,6 +27,7 @@ import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -40,6 +42,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             initGrades()
         }
 
+        WebVPNUtils.init()
+
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             setOnPreferenceClickListener {
                 if (AppUtils.checkDataAndDialog(requireContext(),
@@ -49,9 +53,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.no_userdata)
                 ) {
                     val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
-                        "WIFI" -> NetworkStateUtils.getSSID(requireContext())
-                        "Cellular" -> "Cellular"
-                        else -> "Error"
+                        NetworkStates.WIFI -> NetworkStateUtils.getSSID(requireContext())
+                        NetworkStates.CELLULAR -> NetworkStates.CELLULAR
+                        else -> Constants.GLOBAL_ERROR
                     }
 
                     val permission: Array<String> =
@@ -65,16 +69,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         ) {
                             requireContext().showToast(R.string.error)
                         }
-                    } else if (netName == "DLUT-LingShui") {
-                        startActivity(Intent(requireContext(), BathReserveActivity::class.java))
                     } else {
-                        MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.network_env_limit)
-                            .setTitle(R.string.bath_title)
-                            .setPositiveButton(R.string.ok, null)
-                            .setCancelable(true)
-                            .create()
-                            .show()
+                        startActivity(Intent(requireContext(), BathReserveActivity::class.java))
                     }
                 }
                 true

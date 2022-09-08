@@ -7,13 +7,17 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.annotation.HttpProtocols
+import com.qhy040404.libraryonetap.annotation.NetworkStates
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
+import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -55,7 +59,13 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         val time = BathUtils.getBathTime()
 
-        Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso)
+        if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
+                this) == "DLUT-LingShui"
+        ) {
+            Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso)
+        } else {
+            Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
+        }
 
         text.post { text.text = getString(R.string.loaded) }
 
@@ -76,10 +86,16 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 @Suppress("SpellCheckingInspection")
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                Requests.post(URLManager.BATH_SAVE_CART_URL, savePostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_UPDATE_CART_URL, cartPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_MAIN_FUNC_URL, mainPostData, GlobalValues.ctSso)
-                Requests.post(URLManager.BATH_PAY_URL, payPostData, GlobalValues.ctSso)
+                Requests.post(generateUrl(URLManager.BATH_SAVE_CART_URL),
+                    savePostData,
+                    GlobalValues.ctSso)
+                Requests.post(generateUrl(URLManager.BATH_UPDATE_CART_URL),
+                    cartPostData,
+                    GlobalValues.ctSso)
+                Requests.post(generateUrl(URLManager.BATH_MAIN_FUNC_URL),
+                    mainPostData,
+                    GlobalValues.ctSso)
+                Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
                 text.post { text.text = getString(R.string.request_sent) }
             }
         }
@@ -99,5 +115,12 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
         }
+    }
+
+    private fun generateUrl(original: String): String {
+        if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI) {
+            if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") return original
+        }
+        return WebVPNUtils.encrypt(original, HttpProtocols.HTTP)
     }
 }

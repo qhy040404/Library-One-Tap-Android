@@ -14,6 +14,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -36,6 +37,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         binding.bathText.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
+            AESEncryptUtils.init()
             bathReserve()
         }.also {
             it.start()

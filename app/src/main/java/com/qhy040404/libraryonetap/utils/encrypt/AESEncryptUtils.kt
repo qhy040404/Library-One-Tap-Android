@@ -7,9 +7,12 @@ import com.qhy040404.libraryonetap.runner.JsRunner
 import org.apache.http.util.EncodingUtils
 
 object AESEncryptUtils {
+    var initialized = false
+
     fun init() {
         initRaw(R.raw.aes)
         initRaw(R.raw.aesencoder)
+        initialized = true
     }
 
     private fun initRaw(@RawRes id: Int) {

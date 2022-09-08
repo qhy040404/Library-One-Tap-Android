@@ -5,6 +5,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.runner.JsRunner
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 
 object WebVPNUtils {
     private const val institution = "https://webvpn.dlut.edu.cn"
@@ -18,6 +19,7 @@ object WebVPNUtils {
 
     @Suppress("SpellCheckingInspection")
     fun encrypt(url: String, @HttpProtocols protocol: String): String {
+        if (!AESEncryptUtils.initialized) throw IllegalStateException("Call AES init() first!")
         return institution + JsRunner.callFunc("encrypUrl", protocol, url).toString()
     }
 }

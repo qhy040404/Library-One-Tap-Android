@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.runner
 
+import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Function
 import org.mozilla.javascript.Scriptable
@@ -12,6 +13,7 @@ object JsRunner {
     private var _scope: Scriptable? = null
 
     private fun init() {
+        if (Context.getCurrentContext() == null) reset()
         if (_rhino == null) {
             synchronized(_lock) {
                 if (_rhino == null) {
@@ -31,5 +33,11 @@ object JsRunner {
 
     fun callFunc(funcName: String?, vararg funcParams: Any?): Any? {
         return (_scope!![funcName, _scope] as Function).call(_rhino, _scope, _scope, funcParams)
+    }
+
+    fun reset() {
+        _rhino = null
+        _scope = null
+        AESEncryptUtils.initialized = false
     }
 }

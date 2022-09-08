@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.HttpProtocols
-import com.qhy040404.libraryonetap.annotation.NetworkStates
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils

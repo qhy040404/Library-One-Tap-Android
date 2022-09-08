@@ -5,8 +5,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
 import androidx.core.content.ContextCompat
-import com.qhy040404.libraryonetap.annotation.NetworkStates
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.NetworkStates
 
 @Suppress("DEPRECATION")
 object NetworkStateUtils {

@@ -11,7 +11,6 @@ object AESEncryptUtils {
 
     fun init() {
         initRaw(R.raw.aes)
-        initRaw(R.raw.aesencoder)
         initialized = true
     }
 

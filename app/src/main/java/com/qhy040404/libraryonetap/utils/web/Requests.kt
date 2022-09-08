@@ -223,7 +223,6 @@ object Requests {
                 }
                 if (timer == 2) {
                     netLazyMgr.reset()
-                    CookieJarImpl.reset()
                     SPUtils.spLazyMgr.reset()
                     GlobalValues.initBasic()
                 }

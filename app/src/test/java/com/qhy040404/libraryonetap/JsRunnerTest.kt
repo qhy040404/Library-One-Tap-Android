@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap
 
 import com.qhy040404.libraryonetap.runner.JsRunner
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class JsRunnerTest {

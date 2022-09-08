@@ -61,6 +61,8 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         val time = BathUtils.getBathTime()
 
+        WebVPNUtils.init()
+
         if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
                 this) == "DLUT-LingShui"
         ) {
@@ -69,7 +71,15 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
         }
 
-        text.post { text.text = getString(R.string.loaded) }
+        val online = "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_CHECK_URL)
+
+        text.post {
+            text.text =
+                AppUtils.getResString(
+                    if (online) R.string.loaded
+                    else R.string.fail_to_login_no_retry
+                )
+        }
 
         reserve.post {
             reserve.setOnClickListener {

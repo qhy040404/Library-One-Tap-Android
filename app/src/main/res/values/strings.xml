@@ -89,6 +89,7 @@
 
     <string name="loading">加载中....</string>
     <string name="loaded">登录成功</string>
+    <string name="fail_to_login_no_retry">登录失败，请重试</string>
     <string name="fail_to_login">登录失败，正在重试</string>
     <string name="fail_to_login_three_times">连续失败3次\n请检查用户名和密码</string>
     <string name="login_timeout">登录失效，请重新加载</string>

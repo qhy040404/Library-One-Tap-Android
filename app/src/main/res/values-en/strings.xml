@@ -88,6 +88,7 @@
 
     <string name="loading">Loading....</string>
     <string name="loaded">Logged in</string>
+    <string name="fail_to_login_no_retry">Login failed, please retry.</string>
     <string name="fail_to_login">Login failed, retrying....</string>
     <string name="fail_to_login_three_times">Failed 3 times....\nCheck your id and password</string>
     <string name="login_timeout">Session timeout, please refresh</string>

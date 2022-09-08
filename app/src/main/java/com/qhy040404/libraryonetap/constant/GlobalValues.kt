@@ -73,10 +73,10 @@ object GlobalValues {
         ) {
             id = SPUtils.getValue(Constants.PREF_ID, Constants.GLOBAL_ERROR)
         }
-        if (passwd != SPUtils.getValue(Constants.PREF_PASSWD,
-                Constants.GLOBAL_ERROR) && passwd != Constants.GLOBAL_ERROR
+        if (passwdEnc != SPUtils.getValue(Constants.PREF_PASSWD,
+                Constants.GLOBAL_ERROR) && passwdEnc != Constants.GLOBAL_ERROR
         ) {
-            passwd = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
+            passwdEnc = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
         }
     }
 }

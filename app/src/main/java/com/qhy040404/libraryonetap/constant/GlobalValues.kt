@@ -18,7 +18,7 @@ object GlobalValues {
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
     var id: String by SPDelegates(Constants.PREF_ID, Constants.GLOBAL_ERROR)
-    var passwdEnc: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
+    private var passwdEnc: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
     var passwd: String
         get() = GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
         set(value) {

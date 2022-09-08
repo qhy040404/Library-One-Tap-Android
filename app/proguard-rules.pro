@@ -155,6 +155,9 @@
     public protected *;
 }
 
+# Rhino
+-keep class org.mozilla.javascript.** { *; }
+
 # LOTA
 -keep public class com.qhy040404.libraryonetap.annotation.**{*;}
 -keep public class com.qhy040404.libraryonetap.base.**{*;}

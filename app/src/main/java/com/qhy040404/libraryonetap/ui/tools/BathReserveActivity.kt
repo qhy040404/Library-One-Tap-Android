@@ -71,7 +71,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
         }
 
-        val online = "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_CHECK_URL)
+        val online = "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_INSTITUTION_URL)
 
         text.post {
             text.text =

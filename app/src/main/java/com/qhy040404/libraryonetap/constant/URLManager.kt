@@ -47,7 +47,7 @@ object URLManager {
 
     const val WEBVPN_INIT_URL =
         "https://api.m.dlut.edu.cn/login?client_id=87b91a9e463df720&redirect_uri=http://webvpn.dlut.edu.cn/login?filter=app&response_type=code&state=11&scope=base_api"
-    const val WEBVPN_CHECK_URL = "http://webvpn.dlut.edu.cn/"
+    const val WEBVPN_INSTITUTION_URL = "https://webvpn.dlut.edu.cn"
 
     fun getEduGradeUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="

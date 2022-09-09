@@ -36,7 +36,6 @@ object JsRunner {
     }
 
     fun reset() {
-        Context.exit()
         _rhino = null
         _scope = null
         AESEncryptUtils.initialized = false

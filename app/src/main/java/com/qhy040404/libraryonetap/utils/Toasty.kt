@@ -14,13 +14,13 @@ import java.lang.ref.WeakReference
 
 object Toasty {
     private val handler = Handler(Looper.getMainLooper())
-    private var toast: WeakReference<Toast>? = null
+    private var toastRef: WeakReference<Toast>? = null
 
-    fun cancel() = toast?.get()?.cancel()
+    fun cancel() = toastRef?.get()?.cancel()
 
     @AnyThread
     fun showShort(context: Context, message: String) {
-        if (Looper.getMainLooper().thread === Thread.currentThread()) {
+        if (Looper.getMainLooper() == Looper.myLooper()) {
             //noinspection WrongThread
             show(context, message, Toast.LENGTH_SHORT)
         } else {
@@ -34,7 +34,7 @@ object Toasty {
 
     @AnyThread
     fun showLong(context: Context, message: String) {
-        if (Looper.getMainLooper().thread === Thread.currentThread()) {
+        if (Looper.getMainLooper() == Looper.myLooper()) {
             //noinspection WrongThread
             show(context, message, Toast.LENGTH_LONG)
         } else {
@@ -51,24 +51,22 @@ object Toasty {
     private fun show(context: Context, message: String, duration: Int) {
         cancel()
 
-        WeakReference(context).get()?.let { ctx ->
-            if (OsUtils.atLeastR() && context !is ContextThemeWrapper) {
-                Toast(ctx).also {
-                    it.duration = duration
-                    it.setText(message)
-                    toast = WeakReference(it)
-                }.show()
-            } else {
-                val view = ToastView(ctx).also {
-                    it.message.text = message
-                }
-                Toast(ctx).also {
-                    it.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM, 0, 200)
-                    it.duration = duration
-                    it.view = view
-                    toast = WeakReference(it)
-                }.show()
+        val toast = if (OsUtils.atLeastR() && context !is ContextThemeWrapper) {
+            Toast(context).also {
+                it.duration = duration
+                it.setText(message)
+            }
+        } else {
+            val view = ToastView(context).also {
+                it.message.text = message
+            }
+            Toast(context).also {
+                it.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM, 0, 200)
+                it.duration = duration
+                it.view = view
             }
         }
+        toastRef = WeakReference(toast)
+        toast.show()
     }
 }

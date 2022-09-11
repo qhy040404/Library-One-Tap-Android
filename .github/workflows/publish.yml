@@ -45,6 +45,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Skip duplicate actions
+        uses: fkirc/skip-duplicate-actions@v4.0.0
+        with:
+          cancel_others: true
+
       - name: Set up java
         uses: actions/setup-java@v3.5.0
         with:
@@ -103,7 +108,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2.3.0
         with:
-          arguments: assembleDebug
+          arguments: assembleDebug --scan
 
       - name: Sign apk release
         id: signStep
@@ -143,7 +148,7 @@ jobs:
       - name: Test_Debug
         uses: gradle/gradle-build-action@v2.3.0
         with:
-          arguments: testDebugUnitTest --warning-mode all --scan
+          arguments: testDebugUnitTest --warning-mode all
 
   build_release:
     name: Build_Release
@@ -166,7 +171,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2.3.0
         with:
-          arguments: assembleRelease
+          arguments: assembleRelease --scan
 
       - name: Upload mapping to Bugly
         uses: qhy040404/Bugly-mapping-upload@v1.0.0
@@ -221,7 +226,7 @@ jobs:
       - name: Test_Release
         uses: gradle/gradle-build-action@v2.3.0
         with:
-          arguments: testReleaseUnitTest --warning-mode all --scan
+          arguments: testReleaseUnitTest --warning-mode all
 
   pre-release:
     name: Pre-release

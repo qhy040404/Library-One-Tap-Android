@@ -20,6 +20,7 @@ import java.util.List;
 class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private final @NonNull
     MultiTypeAdapter adapter;
+
     private final Class<?>[] dividerClasses = {License.class, Recommendation.class};
 
     /**

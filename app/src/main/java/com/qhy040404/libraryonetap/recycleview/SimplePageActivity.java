@@ -54,8 +54,10 @@ public abstract class SimplePageActivity extends MaterialActivity {
     private MultiTypeAdapter adapter;
     private RecyclerView recyclerView;
     private boolean initialized = false;
+
     private @Nullable
     OnClickableItemClickedListener onClickableItemClickedListener;
+
     private boolean givenInsetsToDecorView = false;
 
     private final Thread mThread = new Thread(new Runnable() {

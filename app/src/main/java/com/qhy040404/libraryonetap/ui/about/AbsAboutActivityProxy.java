@@ -57,8 +57,10 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     private MultiTypeAdapter adapter;
     private TextView slogan, version;
     private RecyclerView recyclerView;
+
     private @Nullable
     OnContributorClickedListener onContributorClickedListener;
+
     private boolean givenInsetsToDecorView = false;
 
     protected abstract void onCreateHeader(@NonNull ImageView icon, @NonNull TextView slogan, @NonNull TextView version);

@@ -9,10 +9,13 @@ import androidx.annotation.Nullable;
 public class Category {
     public @NonNull
     final String title;
+
     public @Nullable
     final Drawable actionIcon;
+
     public @Nullable
     final String actionIconContentDescription;
+
     private @Nullable
     View.OnClickListener onActionClickListener;
 
@@ -35,6 +38,7 @@ public class Category {
         return onActionClickListener;
     }
 
+    @SuppressWarnings("unused")
     public void setOnActionClickListener(@Nullable View.OnClickListener onActionClickListener) {
         this.onActionClickListener = onActionClickListener;
     }

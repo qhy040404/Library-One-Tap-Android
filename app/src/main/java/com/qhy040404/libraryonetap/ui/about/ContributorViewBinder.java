@@ -53,8 +53,10 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
         public final ImageView avatar;
         public final TextView name;
         public final TextView desc;
+
         protected @NonNull
         final AbsAboutActivityProxy activity;
+
         public Contributor data;
 
         public CBViewHolder(View itemView, @NonNull AbsAboutActivityProxy activity) {

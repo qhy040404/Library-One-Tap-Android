@@ -6,8 +6,10 @@ import androidx.annotation.Nullable;
 public class ClickableItem {
     public @NonNull
     final String name;
+
     public @NonNull
     final String desc;
+
     public @Nullable
     final String url;
 

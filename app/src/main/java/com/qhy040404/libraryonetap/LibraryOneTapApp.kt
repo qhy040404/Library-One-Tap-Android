@@ -27,19 +27,19 @@ import me.zhanghai.android.appiconloader.coil.AppIconFetcher
 import me.zhanghai.android.appiconloader.coil.AppIconKeyer
 import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
-import java.util.LinkedList
 import kotlin.system.exitProcess
 
 class LibraryOneTapApp : Application() {
-    private val activityList: MutableList<Activity> = LinkedList()
-    private val fragmentList: MutableList<DialogFragment> = LinkedList()
+    private val activityList = mutableListOf<Activity>()
+    private val fragmentList = mutableListOf<DialogFragment>()
     private var delayTerminateJob: Job? = null
 
     override fun onCreate() {
         super.onCreate()
 
-        val strategy = CrashReport.UserStrategy(applicationContext)
-        strategy.appChannel = BuildConfig.CHANNEL
+        val strategy = CrashReport.UserStrategy(applicationContext).apply {
+            appChannel = BuildConfig.CHANNEL
+        }
 
         CrashReport.initCrashReport(
             applicationContext,
@@ -73,12 +73,12 @@ class LibraryOneTapApp : Application() {
         super.attachBaseContext(base)
         AppStatusHelper.register(this, object : OnAppStatusListener {
             override fun onFront() {
-                Log.w("AppStatus", "Front")
+                Log.i("AppStatus", "Front")
                 delayTerminateJob?.cancel()
             }
 
             override fun onBack() {
-                Log.w("AppStatus", "Back")
+                Log.i("AppStatus", "Back")
                 delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
                     delay(30000L)
                     withContext(Dispatchers.Main) {
@@ -105,15 +105,15 @@ class LibraryOneTapApp : Application() {
     }
 
     fun dismissFragment() {
-        for (fragment in fragmentList) {
-            fragment.dismiss()
+        fragmentList.forEach {
+            it.dismiss()
         }
         fragmentList.clear()
     }
 
     fun exit() {
-        for (activity in activityList) {
-            activity.finish()
+        activityList.forEach {
+            it.finish()
         }
         activityList.clear()
     }

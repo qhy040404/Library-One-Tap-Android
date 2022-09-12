@@ -91,8 +91,16 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 }
             })
             detail.post {
-                detail.text =
-                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$order_date\n$full_time\n\n$all_users"
+                detail.text = """
+                    order_id: $order_id
+
+                    $order_process
+
+                    $space_name
+                    $order_date
+                    $full_time
+                    $all_users
+                """.trimIndent()
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             detail.post {

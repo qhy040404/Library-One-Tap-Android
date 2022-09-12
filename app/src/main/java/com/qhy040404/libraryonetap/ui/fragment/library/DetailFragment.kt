@@ -243,8 +243,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                             amList[amList.indexOf(element) - 1].replace(
                                                 "\"seat_id\":",
                                                 ""
-                                            )
-                                                .replace("\"", "")
+                                            ).replace("\"", "")
                                         break
                                     }
                                 }
@@ -306,8 +305,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                                             amList[amList.indexOf(element) - 1].replace(
                                                 "\"seat_id\":",
                                                 ""
-                                            )
-                                                .replace("\"", "")
+                                            ).replace("\"", "")
                                         break
                                     }
                                 }

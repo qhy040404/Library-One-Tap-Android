@@ -339,8 +339,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
             }
             detail.post {
-                detail.text =
-                    "order_id: $order_id\n\n$order_process\n\n$space_name\n$seat_label\n$order_date\n$back_time"
+                detail.text = """
+                    order_id: $order_id
+
+                    $order_process
+
+                    $space_name
+                    $seat_label
+                    $order_date
+                    $back_time
+                """.trimIndent()
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             detail.post {

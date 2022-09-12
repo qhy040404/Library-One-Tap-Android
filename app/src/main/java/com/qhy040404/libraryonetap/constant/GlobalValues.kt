@@ -20,9 +20,13 @@ object GlobalValues {
     var id: String by SPDelegates(Constants.PREF_ID, Constants.GLOBAL_ERROR)
     private var passwdEnc: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
     var passwd: String
-        get() = GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
+        get() {
+            return if (passwdEnc.length > 16) GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
+            else passwdEnc.apply { passwd = this }
+        }
         set(value) {
-            passwdEnc = value
+            passwdEnc = if (value.length > 16) value
+            else GlobalManager.des.strEnc(value, "q", "h", "y")
         }
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)

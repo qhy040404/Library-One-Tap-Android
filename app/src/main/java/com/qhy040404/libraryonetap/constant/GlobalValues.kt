@@ -81,5 +81,7 @@ object GlobalValues {
         ) {
             passwdEnc = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
         }
+        // Will enable when 3.6.0 and remove when 3.7.0
+        // SPUtils.sp.edit { remove("initialized") }
     }
 }

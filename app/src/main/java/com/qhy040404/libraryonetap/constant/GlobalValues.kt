@@ -45,7 +45,7 @@ object GlobalValues {
             SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
         }
 
-    // Will remove when 3.6.0
+    @Deprecated("Will remove when 3.6.0")
     var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
 
     // Settings

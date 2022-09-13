@@ -1,7 +1,9 @@
 package com.qhy040404.libraryonetap.ui.fragment.settings
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -43,6 +45,7 @@ import rikka.widget.borderview.BorderView
 import rikka.widget.borderview.BorderViewDelegate
 import java.util.Locale
 import kotlin.system.exitProcess
+
 
 class SettingsFragment : PreferenceFragmentCompat(), IListController {
     private lateinit var borderViewDelegate: BorderViewDelegate
@@ -88,6 +91,11 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         }
 
         findPreference<PasswordPreference>(Constants.PREF_PASSWD)?.apply {
+            setOnBindEditTextListener {
+                it.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                it.typeface = Typeface.DEFAULT
+            }
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()
                         .isDuplicateGV(GlobalValues.passwd)

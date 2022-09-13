@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap.view
 
 import android.content.Context
+import android.graphics.Typeface
+import android.text.InputType
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
@@ -27,6 +29,11 @@ class PasswordPreference : EditTextPreference {
     init {
         if (summaryProvider is AEditTextPreference.SimpleSummaryProvider) {
             summaryProvider = SimpleSummaryProvider
+        }
+        setOnBindEditTextListener {
+            it.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            it.typeface = Typeface.DEFAULT
         }
     }
 

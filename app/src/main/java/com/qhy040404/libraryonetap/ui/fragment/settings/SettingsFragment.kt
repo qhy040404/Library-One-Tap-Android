@@ -66,7 +66,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<EditTextPreference>(Constants.PREF_NAME)?.apply {
             setOnBindEditTextListener { editText ->
                 editText.inputType = InputType.TYPE_CLASS_TEXT
-                text?.let { it -> editText.setSelection(it.length) }
+                text?.let { editText.setSelection(it.length) }
             }
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()
@@ -83,7 +83,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<EditTextPreference>(Constants.PREF_ID)?.apply {
             setOnBindEditTextListener { editText ->
                 editText.inputType = InputType.TYPE_CLASS_NUMBER
-                text?.let { it -> editText.setSelection(it.length) }
+                text?.let { editText.setSelection(it.length) }
             }
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()

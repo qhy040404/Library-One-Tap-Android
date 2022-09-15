@@ -34,7 +34,7 @@ class PasswordPreference : EditTextPreference {
             editText.inputType =
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             editText.typeface = Typeface.DEFAULT
-            text?.let { it -> editText.setSelection(it.length) }
+            text?.let { editText.setSelection(it.length) }
         }
     }
 

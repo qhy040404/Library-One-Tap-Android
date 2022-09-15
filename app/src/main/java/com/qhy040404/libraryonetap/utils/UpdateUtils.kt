@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.core.content.FileProvider
 import java.io.File
 
+@Suppress("unused") // Will remove when 3.6.0
 object UpdateUtils {
     fun checkUpdate() {
     }

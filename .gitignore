@@ -91,3 +91,4 @@ app/.settings/org.eclipse.buildship.core.prefs
 .DS_Store
 
 resources/
+DEPRECATED.txt

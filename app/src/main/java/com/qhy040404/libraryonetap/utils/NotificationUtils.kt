@@ -8,6 +8,7 @@ import android.os.Process
 import androidx.core.app.NotificationCompat
 import com.qhy040404.libraryonetap.R
 
+@Suppress("unused") // Will remove when call showNotification()
 class NotificationUtils(
     private val ctx: Context,
     private val channelId: String,

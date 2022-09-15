@@ -1,1 +1,85 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Object \"UpdateUtils\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/UpdateUtils.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 8,
+      "length": 11,
+      "code": {
+        "startLine": 6,
+        "length": 11,
+        "offset": 28,
+        "surroundingCode": "import java.io.File\n\nobject UpdateUtils {\n    fun checkUpdate() {\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "bcd6c8071f7d81ed173b40f98bd2d675ae2a6cffda4e3b966150a9f8157cc59a"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"installApk\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/UpdateUtils.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 9,
+      "length": 10,
+      "code": {
+        "startLine": 10,
+        "length": 10,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun installApk(ctx: Context) {\n        val intent = Intent(Intent.ACTION_VIEW)\n        intent.addCategory(Intent.CATEGORY_DEFAULT)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "bbe6d8e7b55279f69927e56e9053b0e78044fd3dc26d6a4acd91a3ecd5f70a0e"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"checkUpdate\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/UpdateUtils.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 9,
+      "length": 11,
+      "code": {
+        "startLine": 7,
+        "length": 11,
+        "offset": 30,
+        "surroundingCode": "\nobject UpdateUtils {\n    fun checkUpdate() {\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "ef7e7175a710f69a781192534709c7fbfaf98d93739e5c8000c2e9830ac92ea7"
+}]}

@@ -13,6 +13,7 @@ import okio.source
 import java.io.File
 import java.io.IOException
 
+@Suppress("unused")// Will remove when using download()
 object DownloadUtils {
     private val client by lazy {
         OkHttpClient.Builder()

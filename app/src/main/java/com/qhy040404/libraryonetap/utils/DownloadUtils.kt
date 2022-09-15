@@ -12,6 +12,7 @@ import okio.sink
 import okio.source
 import java.io.File
 import java.io.IOException
+import java.lang.ref.WeakReference
 
 @Suppress("unused")// Will remove when using download()
 object DownloadUtils {
@@ -25,7 +26,7 @@ object DownloadUtils {
             }).build()
     }
     private const val GH_PROXY = "https://ghproxy.com/"
-    private var onDownloadListener: OnDownloadListener? = null
+    private var onDownloadListener: WeakReference<OnDownloadListener>? = null
 
     /**
      * @param url      Download URL
@@ -39,14 +40,14 @@ object DownloadUtils {
         listener: OnDownloadListener,
         github: Boolean = false,
     ) {
-        onDownloadListener = listener
+        onDownloadListener = WeakReference(listener)
         val request: Request = Request.Builder()
             .url(if (github) GH_PROXY + url else url)
             .build()
         Toasty.showShort(ctx, R.string.download_start)
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                onDownloadListener?.onDownloadFailed()
+                onDownloadListener?.get()?.onDownloadFailed()
             }
 
             @Throws(IOException::class)
@@ -58,14 +59,14 @@ object DownloadUtils {
                         body.byteStream().source().buffer().use { source ->
                             file.sink().buffer().use { output ->
                                 output.writeAll(source)
-                                onDownloadListener?.onDownloadSuccess()
+                                onDownloadListener?.get()?.onDownloadSuccess()
                             }
                         }
                     } ?: run {
-                        onDownloadListener?.onDownloadFailed()
+                        onDownloadListener?.get()?.onDownloadFailed()
                     }
                 }.onFailure {
-                    onDownloadListener?.onDownloadFailed()
+                    onDownloadListener?.get()?.onDownloadFailed()
                 }
             }
         })
@@ -101,8 +102,9 @@ object DownloadUtils {
                 override fun read(sink: Buffer, byteCount: Long): Long {
                     val bytesRead = super.read(sink, byteCount)
                     totalBytesRead += if (bytesRead != -1L) bytesRead else 0
-                    onDownloadListener?.onDownloading((totalBytesRead * 100 / responseBody.contentLength()).toInt(),
-                        bytesRead == -1L)
+                    onDownloadListener?.get()
+                        ?.onDownloading((totalBytesRead * 100 / responseBody.contentLength()).toInt(),
+                            bytesRead == -1L)
                     return bytesRead
                 }
             }

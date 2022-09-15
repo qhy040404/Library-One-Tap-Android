@@ -48,14 +48,6 @@ jobs:
         with:
           arguments: build
 
-      - name: Replace AGP Version with Release but not RC
-        uses: qhy040404/replace-file-content@v1.1.4
-        with:
-          file: build.gradle.kts
-          past: '7.3.0-rc01'
-          content: '7.2.2'
-          count: '2'
-
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v2022.2.1
         with:

@@ -4,8 +4,6 @@ version: 1.0
 profile:
   name: qodana.recommended
 exclude:
-  # Disable Unknown Attributes check when target API is 33 before AGP 7.3 release
-  - name: AndroidUnknownAttribute
   # Disable Gradle Kotlin DSL check
   - name: UnstableApiUsage
     paths:

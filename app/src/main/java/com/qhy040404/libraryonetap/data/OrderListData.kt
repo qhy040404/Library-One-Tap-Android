@@ -17,11 +17,9 @@ object OrderListData {
      * get total order count
      * @return total order count String
      */
-    fun getTotal() = try {
+    fun getTotal() = runCatching {
         mClass?.total!!
-    } catch (_: Exception) {
-        "0"
-    }
+    }.getOrDefault("0")
 
     /**
      * get current order id

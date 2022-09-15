@@ -33,17 +33,15 @@ object CacheUtils {
         trimExternalCache()
     }
 
-    private fun trimCache() = try {
+    private fun trimCache() = runCatching {
         if (cache != null && cache.isDirectory && cache.listFiles()!!.isNotEmpty()) {
             FileUtils.delete(cache)
         } else {
             false
         }
-    } catch (_: Exception) {
-        false
-    }
+    }.getOrDefault(false)
 
-    private fun trimCodeCache() = try {
+    private fun trimCodeCache() = runCatching {
         if (codeCache != null && codeCache.isDirectory && codeCache.listFiles()!!
                 .isNotEmpty()
         ) {
@@ -51,11 +49,9 @@ object CacheUtils {
         } else {
             false
         }
-    } catch (_: Exception) {
-        false
-    }
+    }.getOrDefault(false)
 
-    private fun trimExternalCache() = try {
+    private fun trimExternalCache() = runCatching {
         if (externalCache != null && externalCache.isDirectory && externalCache.listFiles()!!
                 .isNotEmpty()
         ) {
@@ -63,7 +59,5 @@ object CacheUtils {
         } else {
             false
         }
-    } catch (_: Exception) {
-        false
-    }
+    }.getOrDefault(false)
 }

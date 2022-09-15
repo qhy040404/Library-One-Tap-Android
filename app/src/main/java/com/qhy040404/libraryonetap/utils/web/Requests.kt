@@ -181,16 +181,12 @@ object Requests {
 
         while (AppUtils.checkData(id, passwd)) {
             val ltResponse = get(sso, toolsInit = toolsInit)
-            val ltData = try {
+            val ltData = runCatching {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-            } catch (_: Exception) {
-                ""
-            }
-            val ltExecution = try {
+            }.getOrDefault(Constants.STRING_NULL)
+            val ltExecution = runCatching {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
-            } catch (_: Exception) {
-                ""
-            }
+            }.getOrDefault(Constants.STRING_NULL)
 
             if (ltData.isNotEmpty()) {
                 val rawData = "$id$passwd$ltData"

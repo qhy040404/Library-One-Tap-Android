@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -97,16 +98,12 @@ class ReserveDialog {
         var loginSuccess = false
         while (!loginSuccess) {
             val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData = try {
+            val ltData = runCatching {
                 "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
-            } catch (_: Exception) {
-                ""
-            }
-            val ltExecution = try {
+            }.getOrDefault(Constants.STRING_NULL)
+            val ltExecution = runCatching {
                 ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
-            } catch (_: Exception) {
-                ""
-            }
+            }.getOrDefault(Constants.STRING_NULL)
 
             if (ltData.isNotEmpty()) {
                 val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"

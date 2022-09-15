@@ -5,9 +5,7 @@ import org.intellij.lang.annotations.Language
 
 object JsonUtils {
     @Language("JSON")
-    inline fun <reified T> toJson(value: T?): String? = try {
+    inline fun <reified T> toJson(value: T?): String? = runCatching {
         moshi.adapter(T::class.java).toJson(value)
-    } catch (_: Exception) {
-        null
-    }
+    }.getOrNull()
 }

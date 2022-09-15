@@ -5,21 +5,15 @@ import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.data.model.NetDataClass
 
 object NetData {
-    fun getFee(data: String) = try {
+    fun getFee(data: String) = runCatching {
         moshi.adapter(NetDataClass::class.java).fromJson(data)?.fee!!
-    } catch (_: Exception) {
-        Constants.GLOBAL_ERROR
-    }
+    }.getOrDefault(Constants.GLOBAL_ERROR)
 
-    fun getDynamicUsedFlow(data: String) = try {
+    fun getDynamicUsedFlow(data: String) = runCatching {
         moshi.adapter(NetDataClass::class.java).fromJson(data)?.dynamicUsedFlow!!
-    } catch (_: Exception) {
-        Constants.GLOBAL_ERROR
-    }
+    }.getOrDefault(Constants.GLOBAL_ERROR)
 
-    fun getDynamicRemainFlow(data: String) = try {
+    fun getDynamicRemainFlow(data: String) = runCatching {
         moshi.adapter(NetDataClass::class.java).fromJson(data)?.dynamicRemainFlow!!
-    } catch (_: Exception) {
-        Constants.GLOBAL_ERROR
-    }
+    }.getOrDefault(Constants.GLOBAL_ERROR)
 }

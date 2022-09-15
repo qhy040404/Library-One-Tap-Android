@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.drakeet.about.Contributor;
@@ -75,11 +76,16 @@ public class ContributorViewBinder extends ItemViewBinder<Contributor, Contribut
                 return;
             }
             if (data.url != null) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(parse(data.url));
                 try {
-                    v.getContext().startActivity(intent);
-                } catch (ActivityNotFoundException ignored) {
+                    new CustomTabsIntent.Builder().build()
+                        .launchUrl(v.getContext(), parse(data.url));
+                } catch (ActivityNotFoundException ignored1) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(parse(data.url));
+                    try {
+                        v.getContext().startActivity(intent);
+                    } catch (ActivityNotFoundException ignored2) {
+                    }
                 }
             }
         }

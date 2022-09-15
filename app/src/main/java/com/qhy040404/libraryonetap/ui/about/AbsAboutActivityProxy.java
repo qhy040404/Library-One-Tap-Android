@@ -30,7 +30,6 @@ import com.drakeet.about.Category;
 import com.drakeet.about.CategoryViewBinder;
 import com.drakeet.about.Contributor;
 import com.drakeet.about.License;
-import com.drakeet.about.LicenseViewBinder;
 import com.drakeet.about.OnContributorClickedListener;
 import com.drakeet.about.R;
 import com.drakeet.multitype.MultiTypeAdapter;

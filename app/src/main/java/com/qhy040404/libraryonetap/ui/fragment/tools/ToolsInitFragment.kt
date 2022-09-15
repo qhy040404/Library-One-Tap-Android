@@ -218,7 +218,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
                     Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.net_disconnected)
                     Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.net_timeout)
-                    else -> AppUtils.getResString(R.string.fail_to_login_three_times)
+                    else -> {
+                        if (data.contains("异常")) AppUtils.getResString(R.string.net_api_error)
+                        else AppUtils.getResString(R.string.fail_to_login_three_times)
+                    }
                 }
             }
 

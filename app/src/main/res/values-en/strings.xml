@@ -98,6 +98,8 @@
     <string name="net_disconnected">Network Disconnected</string>
     <string name="net_timeout">Network Timeout</string>
 
+    <string name="net_api_error">API Error. Temporarily unavailable.</string>
+
     <string name="download_start">Download start</string>
 
     <!-- UNIT -->

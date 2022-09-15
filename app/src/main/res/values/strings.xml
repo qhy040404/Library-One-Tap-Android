@@ -99,6 +99,8 @@
     <string name="net_disconnected">无网络</string>
     <string name="net_timeout">网络超时</string>
 
+    <string name="net_api_error">接口异常，暂无法使用</string>
+
     <string name="download_start">下载开始</string>
 
     <!-- UNIT -->

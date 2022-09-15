@@ -10,9 +10,9 @@ object CacheUtils {
     private val df = DecimalFormat("#.00")
 
     fun getCacheSize() = formatFileSize(
-        FileUtils.getFileSize(externalCache!!) +
-            FileUtils.getFileSize(cache) +
-            FileUtils.getFileSize(codeCache)
+        FileUtils.getFolderSize(externalCache!!) +
+            FileUtils.getFolderSize(cache) +
+            FileUtils.getFolderSize(codeCache)
     )
 
     private fun formatFileSize(fileSize: Long) = if (fileSize == 0L) {
@@ -22,9 +22,9 @@ object CacheUtils {
     } else if (fileSize < 1024 * 1024) {
         df.format(fileSize.toDouble() / 1024) + " K"
     } else if (fileSize < 1024 * 1024 * 1024) {
-        df.format(fileSize.toDouble() / 1024 * 1024) + " M"
+        df.format(fileSize.toDouble() / (1024 * 1024)) + " M"
     } else {
-        df.format(fileSize.toDouble() / 1024 * 1024 * 1024) + " G"
+        df.format(fileSize.toDouble() / (1024 * 1024 * 1024)) + " G"
     }
 
     fun trimCaches() {

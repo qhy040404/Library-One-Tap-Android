@@ -1,8 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.Paths
 
 object FileUtils {
     fun delete(file: File?): Boolean {
@@ -33,9 +31,20 @@ object FileUtils {
         return file != null && (!file.exists() || file.isFile && file.delete())
     }
 
-    fun getFileSize(file: File) = getFileSize(file.path)
-
-    private fun getFileSize(path: String) = runCatching {
-        Files.size(Paths.get(path))
-    }.getOrDefault(0L)
+    fun getFolderSize(file: File): Long {
+        var size = 0L
+        runCatching {
+            val fileList = file.listFiles()
+            if (fileList != null) {
+                for (i in fileList.indices) {
+                    size += if (fileList[i].isDirectory) {
+                        getFolderSize(fileList[i])
+                    } else {
+                        fileList[i].length()
+                    }
+                }
+            }
+        }
+        return size
+    }
 }

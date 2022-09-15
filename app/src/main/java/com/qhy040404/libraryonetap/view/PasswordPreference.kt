@@ -30,10 +30,11 @@ class PasswordPreference : EditTextPreference {
         if (summaryProvider is AEditTextPreference.SimpleSummaryProvider) {
             summaryProvider = SimpleSummaryProvider
         }
-        setOnBindEditTextListener {
-            it.inputType =
+        setOnBindEditTextListener { editText ->
+            editText.inputType =
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            it.typeface = Typeface.DEFAULT
+            editText.typeface = Typeface.DEFAULT
+            text?.let { it -> editText.setSelection(it.length) }
         }
     }
 

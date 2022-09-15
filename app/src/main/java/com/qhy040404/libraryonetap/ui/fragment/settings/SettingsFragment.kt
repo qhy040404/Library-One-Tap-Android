@@ -2,6 +2,7 @@ package com.qhy040404.libraryonetap.ui.fragment.settings
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -63,6 +64,10 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         }
 
         findPreference<EditTextPreference>(Constants.PREF_NAME)?.apply {
+            setOnBindEditTextListener { editText ->
+                editText.inputType = InputType.TYPE_CLASS_TEXT
+                text?.let { it -> editText.setSelection(it.length) }
+            }
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()
                         .isDuplicateGV(GlobalValues.name)
@@ -76,6 +81,10 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         }
 
         findPreference<EditTextPreference>(Constants.PREF_ID)?.apply {
+            setOnBindEditTextListener { editText ->
+                editText.inputType = InputType.TYPE_CLASS_NUMBER
+                text?.let { it -> editText.setSelection(it.length) }
+            }
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString()
                         .isDuplicateGV(GlobalValues.id)

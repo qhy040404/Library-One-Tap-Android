@@ -535,6 +535,11 @@
       "unresolved": false
     },
     {
+      "ideaName": "Gradle: com.github.qhy040404:EasyChangelog:1.0.1@aar",
+      "gradleName": "com.github.qhy040404:EasyChangelog:1.0.1@aar",
+      "unresolved": false
+    },
+    {
       "ideaName": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.2@aar",
       "gradleName": "com.github.zhaobozhen.libraries:utils:1.1.2@aar",
       "unresolved": false

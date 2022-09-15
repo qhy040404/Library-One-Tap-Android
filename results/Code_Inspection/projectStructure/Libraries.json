@@ -678,6 +678,14 @@
       ]
     },
     {
+      "name": "Gradle: com.github.qhy040404:EasyChangelog:1.0.1@aar",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6c466c05b26a288c24719e0aca01aa82/transformed/EasyChangelog-1.0.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6c466c05b26a288c24719e0aca01aa82/transformed/EasyChangelog-1.0.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6c466c05b26a288c24719e0aca01aa82/transformed/EasyChangelog-1.0.1/AndroidManifest.xml"
+      ]
+    },
+    {
       "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.2@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/db4be16106888c794254911c961b7634/transformed/utils-1.1.2/jars/classes.jar!/",

@@ -1,1 +1,57 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Object \"DownloadUtils\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/DownloadUtils.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 8,
+      "length": 13,
+      "code": {
+        "startLine": 14,
+        "length": 13,
+        "offset": 35,
+        "surroundingCode": "import java.io.IOException\n\nobject DownloadUtils {\n    private val client by lazy { OkHttpClient() }\n    private const val GH_PROXY = \"https://ghproxy.com/\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "bc7bdd9f0cd4371da4826e9d42d3dcfd7f5b2f12e65a6ae763e6727a941e86cf"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"download\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/DownloadUtils.kt",
+      "language": "kotlin",
+      "line": 25,
+      "offset": 9,
+      "length": 8,
+      "code": {
+        "startLine": 23,
+        "length": 8,
+        "offset": 57,
+        "surroundingCode": "     * @param listener Download callback\n     */\n    fun download(\n        ctx: Context,\n        url: String,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "7352915f2edb1e4473690f69f74f344653c2fa3cb766df7387ae4ff318bd131e"
+}]}

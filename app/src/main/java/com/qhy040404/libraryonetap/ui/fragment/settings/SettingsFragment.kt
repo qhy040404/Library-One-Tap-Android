@@ -191,7 +191,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             setOnPreferenceClickListener {
                 CacheUtils.trimCaches()
                 requireContext().showToast(R.string.cache_cleared)
-                summary = "0.00 K"
+                summary = CacheUtils.getCacheSize()
                 true
             }
         }
@@ -212,6 +212,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             "SettingsFragment onResume"
         )
         (activity as? IAppBarContainer)?.setLiftOnScrollTargetView(prefRecyclerView)
+        findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
     }
 
     override fun onCreateRecyclerView(

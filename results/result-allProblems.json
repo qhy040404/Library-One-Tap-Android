@@ -31,34 +31,6 @@
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Function \"installApk\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/UpdateUtils.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 9,
-      "length": 10,
-      "code": {
-        "startLine": 10,
-        "length": 10,
-        "offset": 15,
-        "surroundingCode": "    }\n\n    fun installApk(ctx: Context) {\n        val intent = Intent(Intent.ACTION_VIEW)\n        intent.addCategory(Intent.CATEGORY_DEFAULT)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "Library-One-Tap.app.main",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "bbe6d8e7b55279f69927e56e9053b0e78044fd3dc26d6a4acd91a3ecd5f70a0e"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
   "comment": "Function \"checkUpdate\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
@@ -82,4 +54,32 @@
     "inspectionName": "UnusedSymbol"
   },
   "hash": "ef7e7175a710f69a781192534709c7fbfaf98d93739e5c8000c2e9830ac92ea7"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"installApk\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/UpdateUtils.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 9,
+      "length": 10,
+      "code": {
+        "startLine": 10,
+        "length": 10,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun installApk(ctx: Context) {\n        val intent = Intent(Intent.ACTION_VIEW)\n        intent.addCategory(Intent.CATEGORY_DEFAULT)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "bbe6d8e7b55279f69927e56e9053b0e78044fd3dc26d6a4acd91a3ecd5f70a0e"
 }]}

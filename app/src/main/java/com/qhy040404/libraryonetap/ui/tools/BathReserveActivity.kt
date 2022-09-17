@@ -76,8 +76,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         text.post {
             text.text =
                 AppUtils.getResString(
-                    if (online) R.string.loaded
-                    else R.string.fail_to_login_no_retry
+                    if (online) {
+                        R.string.loaded
+                    } else {
+                        R.string.fail_to_login_no_retry
+                    }
                 )
         }
 
@@ -131,7 +134,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
     private fun generateUrl(original: String): String {
         if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI) {
-            if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") return original
+            if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") {
+                return original
+            }
         }
         return WebVPNUtils.encrypt(original, HttpProtocols.HTTP)
     }

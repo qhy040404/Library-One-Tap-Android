@@ -13,7 +13,9 @@ object JsRunner {
     private var _scope: Scriptable? = null
 
     private fun init() {
-        if (Context.getCurrentContext() == null) reset()
+        if (Context.getCurrentContext() == null) {
+            reset()
+        }
         if (_rhino == null) {
             synchronized(_lock) {
                 if (_rhino == null) {

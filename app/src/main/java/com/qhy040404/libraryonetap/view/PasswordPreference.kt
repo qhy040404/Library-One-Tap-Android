@@ -39,14 +39,20 @@ class PasswordPreference : EditTextPreference {
     }
 
     override fun setText(text: String?) {
-        return if (text?.length!! > 16) super.setText(text)
-        else super.setText(GlobalManager.des.strEnc(text, "q", "h", "y"))
+        return if (text?.length!! > 16) {
+            super.setText(text)
+        } else {
+            super.setText(GlobalManager.des.strEnc(text, "q", "h", "y"))
+        }
     }
 
     override fun getText(): String? {
         val currentText = super.getText()
-        return if (currentText == null) null
-        else GlobalManager.des.strDec(currentText, "q", "h", "y")
+        return if (currentText == null) {
+            null
+        } else {
+            GlobalManager.des.strDec(currentText, "q", "h", "y")
+        }
     }
 
     object SimpleSummaryProvider : SummaryProvider<EditTextPreference> {

@@ -44,8 +44,11 @@ class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
         val webSettings = binding.webview.settings
         webSettings.javaScriptEnabled = true
 
-        if (body == null) binding.webview.loadUrl(url)
-        else binding.webview.postUrl(url, EncodingUtils.getBytes(body, "utf-8"))
+        if (body == null) {
+            binding.webview.loadUrl(url)
+        } else {
+            binding.webview.postUrl(url, EncodingUtils.getBytes(body, "utf-8"))
+        }
     }
 
     private fun setCookie(url: String) {
@@ -65,7 +68,9 @@ class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
             val intent = Intent(ctx, WebViewActivity::class.java)
             intent.putExtras(Bundle().apply {
                 putString("url", url)
-                if (body != null) putString("body", body)
+                if (body != null) {
+                    putString("body", body)
+                }
             })
             ctx.startActivity(intent)
         }

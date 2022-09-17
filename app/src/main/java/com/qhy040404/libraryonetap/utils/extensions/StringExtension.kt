@@ -11,6 +11,8 @@ object StringExtension {
         val a = this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == ""
         return if (isCustomTheme) {
             a && this != "random"
-        } else a
+        } else {
+            a
+        }
     }
 }

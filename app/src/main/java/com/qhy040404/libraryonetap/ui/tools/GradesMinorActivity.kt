@@ -128,7 +128,9 @@ class GradesMinorActivity : SimplePageActivity() {
                         }
                         .setCancelable(true)
                         .create().also {
-                            if (this@GradesMinorActivity.currentVisible) it.show()
+                            if (this@GradesMinorActivity.currentVisible) {
+                                it.show()
+                            }
                         }
                 }
                 Looper.loop()
@@ -186,7 +188,9 @@ class GradesMinorActivity : SimplePageActivity() {
                                 }
                                 .setCancelable(false)
                                 .create().also {
-                                    if (this@GradesMinorActivity.currentVisible) it.show()
+                                    if (this@GradesMinorActivity.currentVisible) {
+                                        it.show()
+                                    }
                                 }
                         }
                         Looper.loop()

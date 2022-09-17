@@ -22,8 +22,12 @@ object TimeUtils {
 
     fun isValidReserveTime(): Boolean {
         val now = now()
-        if (now[0] in 7..22) return true
-        if (now[0] == 6 && now[1] > 30) return true
+        if (now[0] in 7..22) {
+            return true
+        }
+        if (now[0] == 6 && now[1] > 30) {
+            return true
+        }
         return false
     }
 

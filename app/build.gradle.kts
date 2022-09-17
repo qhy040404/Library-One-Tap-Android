@@ -107,16 +107,25 @@ dependencies {
 }
 
 fun getBuglyAppID(isBuildConfig: Boolean): String {
-    return if (!isBuildConfig) System.getenv("BUGLY_APPID")
-    else "\"${getBuglyAppID(false)}\""
+    return if (!isBuildConfig) {
+        System.getenv("BUGLY_APPID")
+    } else {
+        "\"${getBuglyAppID(false)}\""
+    }
 }
 
 fun getBuildType(isBuildConfig: Boolean): String {
     return if (!isBuildConfig) {
-        if ("git tag -l $baseVersionName".exec().isNotEmpty()) "Release"
-        else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()) "Pre-release"
-        else "Debug"
-    } else "\"${getBuildType(false)}\""
+        if ("git tag -l $baseVersionName".exec().isNotEmpty()) {
+            "Release"
+        } else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()) {
+            "Pre-release"
+        } else {
+            "Debug"
+        }
+    } else {
+        "\"${getBuildType(false)}\""
+    }
 }
 
 fun getGitCommitHash(): String = "git rev-parse HEAD".exec()

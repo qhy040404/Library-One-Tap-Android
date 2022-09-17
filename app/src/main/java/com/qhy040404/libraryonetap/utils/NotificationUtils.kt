@@ -26,12 +26,16 @@ class NotificationUtils(
         .setSilent(true)
         .setOngoing(true)
         .setAutoCancel(false).apply {
-            if (!OsUtils.atLeastS()) color = ctx.getColor(R.color.colorPrimary)
+            if (!OsUtils.atLeastS()) {
+                color = ctx.getColor(R.color.colorPrimary)
+            }
         }
 
     fun showNotification(content: String, progressBar: Boolean) {
         builder.setContentText(content).apply {
-            if (progressBar) setProgress(100, 0, false)
+            if (progressBar) {
+                setProgress(100, 0, false)
+            }
         }
         notificationManager.apply {
             val name = channelName

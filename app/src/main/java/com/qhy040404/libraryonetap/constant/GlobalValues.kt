@@ -21,12 +21,18 @@ object GlobalValues {
     private var passwdEnc: String by SPDelegates(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
     var passwd: String
         get() {
-            return if (passwdEnc.length > 16) GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
-            else passwdEnc.apply { passwd = this }
+            return if (passwdEnc.length > 16) {
+                GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
+            } else {
+                passwdEnc.apply { passwd = this }
+            }
         }
         set(value) {
-            passwdEnc = if (value.length > 16) value
-            else GlobalManager.des.strEnc(value, "q", "h", "y")
+            passwdEnc = if (value.length > 16) {
+                value
+            } else {
+                GlobalManager.des.strEnc(value, "q", "h", "y")
+            }
         }
 
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)

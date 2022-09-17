@@ -42,7 +42,9 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     override fun init() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = AppUtils.setTitle(this)
-        if (!GlobalValues.md3) binding.toolbar.setTitleTextColor(getColor(R.color.white))
+        if (!GlobalValues.md3) {
+            binding.toolbar.setTitleTextColor(getColor(R.color.white))
+        }
 
         binding.apply {
             root.bringChildToFront(binding.appbar)

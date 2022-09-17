@@ -54,8 +54,11 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
         if (GlobalValues.themeInit && GlobalValues.isMD3Changed) {
-            if (GlobalValues.md3) setCustomThemeVisibility(false)
-            else setCustomThemeVisibility(true)
+            if (GlobalValues.md3) {
+                setCustomThemeVisibility(false)
+            } else {
+                setCustomThemeVisibility(true)
+            }
             GlobalValues.isMD3Changed = false
         } else {
             findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible =
@@ -69,9 +72,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 text?.let { editText.setSelection(it.length) }
             }
             setOnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString()
-                        .isDuplicateGV(GlobalValues.name)
-                ) return@setOnPreferenceChangeListener true
+                if (newValue.toString().isDuplicateGV(GlobalValues.name)) {
+                    return@setOnPreferenceChangeListener true
+                }
                 GlobalValues.name = newValue.toString()
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
@@ -86,9 +89,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 text?.let { editText.setSelection(it.length) }
             }
             setOnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString()
-                        .isDuplicateGV(GlobalValues.id)
-                ) return@setOnPreferenceChangeListener true
+                if (newValue.toString().isDuplicateGV(GlobalValues.id)) {
+                    return@setOnPreferenceChangeListener true
+                }
                 GlobalValues.id = newValue.toString()
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
@@ -99,9 +102,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<PasswordPreference>(Constants.PREF_PASSWD)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString()
-                        .isDuplicateGV(GlobalValues.passwd)
-                ) return@setOnPreferenceChangeListener true
+                if (newValue.toString().isDuplicateGV(GlobalValues.passwd)) {
+                    return@setOnPreferenceChangeListener true
+                }
                 GlobalValues.passwd = newValue.toString()
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
@@ -112,9 +115,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<SimpleMenuPreference>(Constants.PREF_DARK)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString()
-                        .isDuplicateGV(GlobalValues.darkMode)
-                ) return@setOnPreferenceChangeListener true
+                if (newValue.toString().isDuplicateGV(GlobalValues.darkMode)) {
+                    return@setOnPreferenceChangeListener true
+                }
                 GlobalValues.darkMode = newValue.toString()
                 DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(newValue.toString()))
                 activity?.recreate()
@@ -124,9 +127,9 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString()
-                        .isDuplicateGV(GlobalValues.theme, true)
-                ) return@setOnPreferenceChangeListener true
+                if (newValue.toString().isDuplicateGV(GlobalValues.theme, true)) {
+                    return@setOnPreferenceChangeListener true
+                }
                 GlobalValues.theme = newValue.toString()
                 GlobalManager.lazyMgr.reset()
                 activity?.recreate()

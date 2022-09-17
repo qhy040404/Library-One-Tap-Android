@@ -122,7 +122,9 @@ class GradesMajorActivity : SimplePageActivity() {
                         }
                         .setCancelable(true)
                         .create().also {
-                            if (this@GradesMajorActivity.currentVisible) it.show()
+                            if (this@GradesMajorActivity.currentVisible) {
+                                it.show()
+                            }
                         }
                 }
                 Looper.loop()
@@ -183,7 +185,9 @@ class GradesMajorActivity : SimplePageActivity() {
                                 }
                                 .setCancelable(false)
                                 .create().also {
-                                    if (this@GradesMajorActivity.currentVisible) it.show()
+                                    if (this@GradesMajorActivity.currentVisible) {
+                                        it.show()
+                                    }
                                 }
                         }
                         Looper.loop()

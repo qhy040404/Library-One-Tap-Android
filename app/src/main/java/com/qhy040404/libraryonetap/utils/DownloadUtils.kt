@@ -42,7 +42,11 @@ object DownloadUtils {
     ) {
         onDownloadListener = WeakReference(listener)
         val request: Request = Request.Builder()
-            .url(if (github) GH_PROXY + url else url)
+            .url(if (github) {
+                GH_PROXY + url
+            } else {
+                url
+            })
             .build()
         Toasty.showShort(ctx, R.string.download_start)
         client.newCall(request).enqueue(object : Callback {
@@ -52,7 +56,9 @@ object DownloadUtils {
 
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                if (file.exists()) file.delete()
+                if (file.exists()) {
+                    file.delete()
+                }
                 file.createNewFile()
                 runCatching {
                     response.body?.let { body ->
@@ -101,7 +107,11 @@ object DownloadUtils {
                 var totalBytesRead = 0L
                 override fun read(sink: Buffer, byteCount: Long): Long {
                     val bytesRead = super.read(sink, byteCount)
-                    totalBytesRead += if (bytesRead != -1L) bytesRead else 0
+                    totalBytesRead += if (bytesRead != -1L) {
+                        bytesRead
+                    } else {
+                        0
+                    }
                     onDownloadListener?.get()
                         ?.onDownloading((totalBytesRead * 100 / responseBody.contentLength()).toInt(),
                             bytesRead == -1L)

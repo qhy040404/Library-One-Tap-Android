@@ -182,14 +182,20 @@ public class DesEncryptUtils {
     private byte[] expandPermute(byte[] rightData) {
         byte[] epByte = new byte[48];
         for (int i = 0; i < 8; i++) {
-            if (i == 0) epByte[i * 6] = rightData[31];
-            else epByte[i * 6] = rightData[i * 4 - 1];
+            if (i == 0) {
+                epByte[i * 6] = rightData[31];
+            } else {
+                epByte[i * 6] = rightData[i * 4 - 1];
+            }
             epByte[i * 6 + 1] = rightData[i * 4];
             epByte[i * 6 + 2] = rightData[i * 4 + 1];
             epByte[i * 6 + 3] = rightData[i * 4 + 2];
             epByte[i * 6 + 4] = rightData[i * 4 + 3];
-            if (i == 7) epByte[i * 6 + 5] = rightData[0];
-            else epByte[i * 6 + 5] = rightData[i * 4 + 4];
+            if (i == 7) {
+                epByte[i * 6 + 5] = rightData[0];
+            } else {
+                epByte[i * 6 + 5] = rightData[i * 4 + 4];
+            }
         }
         return epByte;
     }
@@ -453,7 +459,9 @@ public class DesEncryptUtils {
                 }
                 count += byteData[16 * i + j] * pow;
             }
-            if (count != 0) str.append((char) count);
+            if (count != 0) {
+                str.append((char) count);
+            }
         }
         return str.toString();
     }
@@ -564,7 +572,9 @@ public class DesEncryptUtils {
         for (int i = 0; i < iterator; i++) {
             keyBytes[i] = strToBt(key.substring(i * 4, i * 4 + 4));
         }
-        if (remainder > 0) keyBytes[iterator] = strToBt(key.substring(iterator * 4, length));
+        if (remainder > 0) {
+            keyBytes[iterator] = strToBt(key.substring(iterator * 4, length));
+        }
         return keyBytes;
     }
 

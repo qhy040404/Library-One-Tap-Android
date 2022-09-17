@@ -67,9 +67,15 @@ object Requests {
             .get()
             .build()
         try {
-            (if (toolsInit) toolsClient else client).newCall(request)
+            (if (toolsInit) {
+                toolsClient
+            } else {
+                client
+            }).newCall(request)
                 .execute().use { response ->
-                    if (getUrl) return response.request.url.toString()
+                    if (getUrl) {
+                        return response.request.url.toString()
+                    }
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
@@ -86,7 +92,9 @@ object Requests {
     }
 
     fun getVCard(url: String): String {
-        if (!AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+        if (!AppUtils.hasNetwork()) {
+            return Constants.NET_DISCONNECTED
+        }
         val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")
@@ -124,9 +132,15 @@ object Requests {
             .post(body)
             .build()
         try {
-            (if (toolsInit) toolsClient else client).newCall(request)
+            (if (toolsInit) {
+                toolsClient
+            } else {
+                client
+            }).newCall(request)
                 .execute().use { response ->
-                    if (getUrl) return response.request.url.toString()
+                    if (getUrl) {
+                        return response.request.url.toString()
+                    }
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
@@ -143,7 +157,9 @@ object Requests {
     }
 
     fun postVCard(url: String, form: String, FORM: MediaType): String {
-        if (!AppUtils.hasNetwork()) return Constants.NET_DISCONNECTED
+        if (!AppUtils.hasNetwork()) {
+            return Constants.NET_DISCONNECTED
+        }
         val body = form.toRequestBody(FORM)
         val request = Request.Builder()
             .url(url)
@@ -209,20 +225,26 @@ object Requests {
                         progressBar?.post { progressBar.visibility = View.INVISIBLE }
                         loginSuccess = true
                         break
-                    } else timer++
+                    } else {
+                        timer++
+                    }
                 } else {
                     val sessionCheck = get(session!!, toolsInit = toolsInit)
                     if (!sessionCheck.contains(noJsonString)) {
                         loginSuccess = true
                         break
-                    } else timer++
+                    } else {
+                        timer++
+                    }
                 }
                 if (timer == 2) {
                     netLazyMgr.reset()
                     SPUtils.spLazyMgr.reset()
                     GlobalValues.initBasic()
                 }
-                if (timer >= 3) break
+                if (timer >= 3) {
+                    break
+                }
             }
         }
         return loginSuccess

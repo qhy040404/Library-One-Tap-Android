@@ -102,7 +102,9 @@ class ExamsActivity : SimplePageActivity() {
                         }
                         .setCancelable(true)
                         .create().also {
-                            if (this@ExamsActivity.currentVisible) it.show()
+                            if (this@ExamsActivity.currentVisible) {
+                                it.show()
+                            }
                         }
                 }
                 Looper.loop()
@@ -163,7 +165,9 @@ class ExamsActivity : SimplePageActivity() {
                                 }
                                 .setCancelable(false)
                                 .create().also {
-                                    if (this@ExamsActivity.currentVisible) it.show()
+                                    if (this@ExamsActivity.currentVisible) {
+                                        it.show()
+                                    }
                                 }
                         }
                         Looper.loop()
@@ -206,10 +210,12 @@ class ExamsActivity : SimplePageActivity() {
                     Requests.get(URLManager.getEduExamsUrl(GradesTempValues.majorStuId))
                         .split("var studentExamInfoVms = ")[1]
                         .split("];")[0] + "]"
-                if (GradesTempValues.minorStuId != 0) examsMinorData =
-                    Requests.get(URLManager.getEduExamsUrl(GradesTempValues.minorStuId))
-                        .split("var studentExamInfoVms = ")[1]
-                        .split("];")[0] + "]"
+                if (GradesTempValues.minorStuId != 0) {
+                    examsMinorData =
+                        Requests.get(URLManager.getEduExamsUrl(GradesTempValues.minorStuId))
+                            .split("var studentExamInfoVms = ")[1]
+                            .split("];")[0] + "]"
+                }
 
                 val majorArray = JSONArray(examsMajorData)
                 for (i in 0 until majorArray.length()) {

@@ -1,5 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
+import java.net.InetAddress
 import java.nio.charset.Charset
 
 plugins {
@@ -21,6 +22,7 @@ android {
         versionName = baseVersionName
 
         base.archivesName.set("Library-One-Tap_v$versionName")
+        manifestPlaceholders["BUILD_HOST"] = getBuildHost()
         manifestPlaceholders["CHANNEL"] = getBuildType(false)
         manifestPlaceholders["COMMIT"] = getGitCommitHash()
     }
@@ -36,7 +38,13 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro")
             ndk.abiFilters.add("arm64-v8a")
-            packagingOptions.resources.excludes += "DebugProbesKt.bin"
+            packagingOptions.resources.excludes += setOf(
+                "DebugProbesKt.bin",
+                "META-INF/*.version",
+                "META-INF/*.kotlin_module",
+                "kotlin/**"
+            )
+            dependenciesInfo.includeInApk = false
         }
 
         all {
@@ -127,6 +135,8 @@ fun getBuildType(isBuildConfig: Boolean): String {
         "\"${getBuildType(false)}\""
     }
 }
+
+fun getBuildHost() = InetAddress.getLocalHost().hostName
 
 fun getGitCommitHash(): String = "git rev-parse HEAD".exec()
 

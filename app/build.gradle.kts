@@ -40,9 +40,7 @@ android {
             ndk.abiFilters.add("arm64-v8a")
             packagingOptions.resources.excludes += setOf(
                 "DebugProbesKt.bin",
-                "META-INF/*.version",
-                "META-INF/*.kotlin_module",
-                "kotlin/**"
+                "META-INF/*.version"
             )
             dependenciesInfo.includeInApk = false
         }

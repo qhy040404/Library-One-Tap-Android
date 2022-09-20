@@ -62,20 +62,19 @@ class AboutActivity : AbsAboutActivityProxy() {
                 }
                 else -> runCatching {
                     CustomTabsIntent.Builder().build()
-                        .launchUrl(this, "bilibili://video/170001".toUri())
+                        .launchUrl(this, URLManager.SURPRISE_BILI.toUri())
                 }.onFailure {
                     runCatching {
                         val intent1 = Intent(Intent.ACTION_VIEW)
-                        intent1.data = "bilibili://video/36695997".toUri()
+                        intent1.data = URLManager.SURPRISE_BILI.toUri()
                         startActivity(intent1)
                     }.onFailure {
                         runCatching {
                             CustomTabsIntent.Builder().build()
-                                .launchUrl(this,
-                                    "https://www.bilibili.com/video/av170001".toUri())
+                                .launchUrl(this, URLManager.SURPRISE_HTTP.toUri())
                         }.onFailure {
                             val intent2 = Intent(Intent.ACTION_VIEW)
-                            intent2.data = "https://www.bilibili.com/video/av170001".toUri()
+                            intent2.data = URLManager.SURPRISE_HTTP.toUri()
                             runCatching {
                                 startActivity(intent2)
                             }

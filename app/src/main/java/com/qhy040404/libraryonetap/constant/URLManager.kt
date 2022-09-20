@@ -5,6 +5,9 @@ object URLManager {
     const val GITHUB_PAGE = "https://github.com/qhy040404"
     const val GITHUB_REPO = "https://github.com/qhy040404/Library-One-Tap-Android"
 
+    const val SURPRISE_HTTP = "https://www.bilibili.com/video/av170001"
+    const val SURPRISE_BILI = "bilibili://video/170001"
+
     const val LIBRARY_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http://seat.lib.dlut.edu.cn/yanxiujian/client/login.php?redirect=index.php"
     const val LIBRARY_SESSION_URL =

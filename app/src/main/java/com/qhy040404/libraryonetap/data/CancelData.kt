@@ -5,5 +5,5 @@ import com.qhy040404.libraryonetap.data.model.CancelDataClass
 
 object CancelData {
     fun getMessage(returnData: String) =
-        moshi.adapter(CancelDataClass::class.java).fromJson(returnData)?.message!!
+        moshi.adapter(CancelDataClass::class.java).fromJson(returnData.trim())?.message!!
 }

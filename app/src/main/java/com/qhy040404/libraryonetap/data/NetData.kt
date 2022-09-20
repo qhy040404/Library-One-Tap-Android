@@ -6,14 +6,14 @@ import com.qhy040404.libraryonetap.data.model.NetDataClass
 
 object NetData {
     fun getFee(data: String) = runCatching {
-        moshi.adapter(NetDataClass::class.java).fromJson(data)?.fee!!
+        moshi.adapter(NetDataClass::class.java).fromJson(data.trim())?.fee!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 
     fun getDynamicUsedFlow(data: String) = runCatching {
-        moshi.adapter(NetDataClass::class.java).fromJson(data)?.dynamicUsedFlow!!
+        moshi.adapter(NetDataClass::class.java).fromJson(data.trim())?.dynamicUsedFlow!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 
     fun getDynamicRemainFlow(data: String) = runCatching {
-        moshi.adapter(NetDataClass::class.java).fromJson(data)?.dynamicRemainFlow!!
+        moshi.adapter(NetDataClass::class.java).fromJson(data.trim())?.dynamicRemainFlow!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 }

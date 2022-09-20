@@ -8,11 +8,11 @@ import com.qhy040404.libraryonetap.data.model.ElectricDataClass
 object ElectricData {
     fun getSSMC(data: String) = runCatching {
         moshi.adapter(ElectricDataClass::class.java)
-            .fromJson(data)?.dormitoryInfo_list!![0].SSMC!!
+            .fromJson(data.trim())?.dormitoryInfo_list!![0].SSMC!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 
     fun getResele(data: String) = runCatching {
         moshi.adapter(ElectricDataClass::class.java)
-            .fromJson(data)?.dormitoryInfo_list!![0].resele!!
+            .fromJson(data.trim())?.dormitoryInfo_list!![0].resele!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 }

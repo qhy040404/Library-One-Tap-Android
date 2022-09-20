@@ -65,7 +65,9 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass =
-            runCatching { moshi.adapter(OrderListDataClass::class.java).fromJson(list) }.getOrNull()
+            runCatching {
+                moshi.adapter(OrderListDataClass::class.java).fromJson(list.trim())
+            }.getOrNull()
         val total = OrderListData.getTotal()
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(OrderModes.YANXIUJIAN)

@@ -5,6 +5,6 @@ import com.qhy040404.libraryonetap.data.model.SessionDataClass
 
 object SessionData {
     fun isSuccess(returnData: String) = runCatching {
-        moshi.adapter(SessionDataClass::class.java).fromJson(returnData)?.success!!
+        moshi.adapter(SessionDataClass::class.java).fromJson(returnData.trim())?.success!!
     }.getOrDefault(false)
 }

@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import coil.load
 import com.drakeet.about.Category
 import com.drakeet.about.Contributor
@@ -14,7 +16,6 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.LicenseExtTypes
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.ui.secret.SecretActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
@@ -59,7 +60,28 @@ class AboutActivity : AbsAboutActivityProxy() {
                     slogan.text = SECRET
                     showToast("你有本事继续点")
                 }
-                else -> startActivity(Intent(this, SecretActivity::class.java))
+                else -> runCatching {
+                    CustomTabsIntent.Builder().build()
+                        .launchUrl(this, "bilibili://video/170001".toUri())
+                }.onFailure {
+                    runCatching {
+                        val intent1 = Intent(Intent.ACTION_VIEW)
+                        intent1.data = "bilibili://video/36695997".toUri()
+                        startActivity(intent1)
+                    }.onFailure {
+                        runCatching {
+                            CustomTabsIntent.Builder().build()
+                                .launchUrl(this,
+                                    "https://www.bilibili.com/video/av170001".toUri())
+                        }.onFailure {
+                            val intent2 = Intent(Intent.ACTION_VIEW)
+                            intent2.data = "https://www.bilibili.com/video/av170001".toUri()
+                            runCatching {
+                                startActivity(intent2)
+                            }
+                        }
+                    }
+                }
             }
         }
     }

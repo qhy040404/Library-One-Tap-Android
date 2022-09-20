@@ -43,10 +43,6 @@
             android:label="@string/about_title"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Library" />
         <activity
-            android:name=".ui.secret.SecretActivity"
-            android:exported="false"
-            android:label="@string/secret_title" />
-        <activity
             android:name=".ui.tools.VCardActivity"
             android:exported="false"
             android:label="@string/vcard_title" />

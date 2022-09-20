@@ -1,9 +1,8 @@
 package com.qhy040404.libraryonetap.ui.about;
 
-import static android.net.Uri.parse;
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -24,10 +23,10 @@ public class ClickableViewHolder extends RecyclerView.ViewHolder {
             if (url != null) {
                 try {
                     new CustomTabsIntent.Builder().build()
-                        .launchUrl(v.getContext(), parse(url));
+                        .launchUrl(v.getContext(), Uri.parse(url));
                 } catch (ActivityNotFoundException ignored1) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(parse(url));
+                    intent.setData(Uri.parse(url));
                     try {
                         v.getContext().startActivity(intent);
                     } catch (ActivityNotFoundException ignored2) {

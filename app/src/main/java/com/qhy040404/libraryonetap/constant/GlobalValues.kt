@@ -23,6 +23,8 @@ object GlobalValues {
         get() {
             return if (passwdEnc.length > 16) {
                 GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
+            } else if (passwdEnc == Constants.GLOBAL_ERROR) {
+                Constants.STRING_NULL
             } else {
                 passwdEnc.apply { passwd = this }
             }

@@ -35,9 +35,7 @@ import java.io.IOException
 
 @Suppress("LocalVariableName")
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
-    override fun init() = initView()
-
-    private fun initView() {
+    override fun init() {
         binding.detailDetail.visibility = View.VISIBLE
         binding.detailRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()

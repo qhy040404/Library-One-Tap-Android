@@ -23,9 +23,7 @@ import kotlinx.coroutines.withContext
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
-    override fun init() = initView()
-
-    private fun initView() {
+    override fun init() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

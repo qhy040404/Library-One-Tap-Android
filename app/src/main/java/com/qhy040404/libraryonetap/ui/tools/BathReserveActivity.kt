@@ -23,9 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
-    override fun init() = initView()
-
-    private fun initView() {
+    override fun init() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

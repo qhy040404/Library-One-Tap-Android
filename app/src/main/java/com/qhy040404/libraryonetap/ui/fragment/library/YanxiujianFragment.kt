@@ -27,9 +27,7 @@ import java.io.IOException
 
 @Suppress("LocalVariableName")
 class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
-    override fun init() = initView()
-
-    private fun initView() {
+    override fun init() {
         binding.yxjDetail.visibility = View.VISIBLE
         binding.yxjRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()

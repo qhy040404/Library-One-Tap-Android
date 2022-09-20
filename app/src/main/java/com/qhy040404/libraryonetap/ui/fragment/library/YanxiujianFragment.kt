@@ -36,6 +36,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             CookieJarImpl.reset()
             SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
+            GlobalValues.librarySessionReady = null
             GlobalValues.initBasic()
             activity?.recreate()
         }
@@ -52,12 +53,17 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         val qr = binding.yxjQr
         val loading = binding.yxjLoading
 
-        val loginSuccess = Requests.loginSso(URLManager.LIBRARY_SSO_URL,
-            GlobalValues.ctSso,
-            URLManager.LIBRARY_SESSION_URL,
-            loading,
-            needCheck = true,
-            hasSessionJson = true)
+        val loginSuccess: Boolean
+
+        while (true) {
+            if (GlobalValues.librarySessionReady != null) {
+                loginSuccess = GlobalValues.librarySessionReady!!
+                loading.post {
+                    loading.visibility = View.INVISIBLE
+                }
+                break
+            }
+        }
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass =

@@ -70,6 +70,9 @@ object GlobalValues {
         AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
     }
 
+    // Library
+    var librarySessionReady: Boolean? = null
+
     // Grades
     var minorVisible = false
 

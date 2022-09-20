@@ -44,6 +44,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             CookieJarImpl.reset()
             SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
+            GlobalValues.librarySessionReady = null
             GlobalValues.initBasic()
             activity?.recreate()
         }
@@ -74,6 +75,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             loading,
             needCheck = true,
             hasSessionJson = true)
+        GlobalValues.librarySessionReady = loginSuccess
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass =

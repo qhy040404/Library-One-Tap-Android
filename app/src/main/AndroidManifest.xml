@@ -73,6 +73,9 @@
         </provider>
 
         <meta-data
+            android:name="Build Host"
+            android:value="${BUILD_HOST}" />
+        <meta-data
             android:name="Channel"
             android:value="${CHANNEL}" />
         <meta-data

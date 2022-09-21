@@ -4,7 +4,7 @@ import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.toJson
 
 object VolunteerUtils {
     fun createVolunteerPostData(name: String, id: String) =
-        VolunteerDataClass(name, id).toJson().toString()
+        VolunteerDataClass(name, id).toJson()!!
 
     data class VolunteerDataClass(
         val name: String? = null,

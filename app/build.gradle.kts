@@ -85,7 +85,6 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.drakeet.about:about:2.5.2")
     implementation("com.drakeet.multitype:multitype:4.3.0")
-    implementation("com.github.qhy040404:EasyChangelog:1.0.1")
     implementation("com.github.zhaobozhen.libraries:utils:1.1.2")
     implementation("com.google.android.material:material:1.6.1")
     implementation("com.jonathanfinerty.once:once:1.3.1")

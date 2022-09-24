@@ -228,14 +228,6 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "https://github.com/mozilla/rhino"
                 )
             )
-            add(
-                License(
-                    "HttpCore",
-                    "Apache",
-                    License.APACHE_2,
-                    "https://hc.apache.org/httpcomponents-core-4.4.x/"
-                )
-            )
         }
     }
 

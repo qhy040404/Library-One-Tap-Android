@@ -87,6 +87,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
+                AESEncryptUtils.init()
                 @Suppress("SpellCheckingInspection")
                 val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
 

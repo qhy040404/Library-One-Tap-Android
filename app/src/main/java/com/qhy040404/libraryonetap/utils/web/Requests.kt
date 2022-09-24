@@ -7,6 +7,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
@@ -258,4 +259,11 @@ object Requests {
         execution: String,
     ) =
         "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=$execution&_eventId=submit"
+
+    fun init() {
+        loginSso(URLManager.PORTAL_SSO_URL,
+            GlobalValues.ctSso,
+            URLManager.PORTAL_SSO_URL,
+            needCheck = true)
+    }
 }

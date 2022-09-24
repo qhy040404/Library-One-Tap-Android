@@ -16,11 +16,6 @@ object GetPortalData {
             StrictMode.ThreadPolicy.Builder().permitAll().build()
         )
 
-        Requests.loginSso(URLManager.PORTAL_SSO_URL,
-            GlobalValues.ctSso,
-            URLManager.PORTAL_SSO_URL,
-            needCheck = true)
-
         return when (mode) {
             0 -> Requests.post(
                 URLManager.PORTAL_ELEC_URL,

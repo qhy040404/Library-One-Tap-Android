@@ -14,6 +14,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.dp
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
+import com.qhy040404.libraryonetap.utils.web.Requests
 import com.tencent.bugly.crashreport.CrashReport
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -57,6 +58,8 @@ class LibraryOneTapApp : Application() {
         Utility.init(this)
         Once.initialise(this)
         GlobalValues.initBasic()
+
+        Requests.init()
 
         Coil.setImageLoader {
             ImageLoader.Builder(this)

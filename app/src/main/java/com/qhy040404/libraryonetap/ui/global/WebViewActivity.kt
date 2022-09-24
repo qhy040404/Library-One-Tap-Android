@@ -5,23 +5,27 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
-import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
-import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.databinding.ActivityWebviewBinding
-import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
-import org.apache.http.util.EncodingUtils
+import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 
 class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun init() {
         val url = intent.extras?.getString("url")!!
         val body = intent.extras?.getString("body")
+        val mediaType = intent.extras?.getString("mediaType")?.toMediaType()
 
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
@@ -32,44 +36,55 @@ class WebViewActivity : BaseActivity<ActivityWebviewBinding>() {
         }
 
         binding.webview.webViewClient = object : WebViewClient() {
-            override fun shouldInterceptRequest(
+            override fun shouldOverrideUrlLoading(
                 view: WebView?,
                 request: WebResourceRequest?,
-            ): WebResourceResponse? {
-                setCookie(request?.url.toString())
-                return super.shouldInterceptRequest(view, request)
+            ): Boolean {
+                lifecycleScope.launch { view?.loadRequest(request?.url.toString()) }
+                return true
             }
         }
 
         val webSettings = binding.webview.settings
         webSettings.javaScriptEnabled = true
 
-        if (body == null) {
-            binding.webview.loadUrl(url)
-        } else {
-            binding.webview.postUrl(url, EncodingUtils.getBytes(body, "utf-8"))
+        lifecycleScope.launch {
+            if (body == null) {
+                binding.webview.loadRequest(url)
+            } else {
+                binding.webview.postRequest(url, body, mediaType!!)
+            }
         }
     }
 
-    private fun setCookie(url: String) {
-        CookieManager.allowFileSchemeCookies()
-        val cookieManager = CookieManager.getInstance()
-        cookieManager.setAcceptCookie(true)
-        CookieJarImpl.getCookies().forEach {
-            val cookie = it.name + "=" + it.value + ";domain=" + it.domain + ";path=/"
-            cookieManager.setCookie(url, cookie)
+    private suspend fun WebView.loadRequest(url: String) {
+        val html = withContext(Dispatchers.IO) {
+            Requests.get(url)
         }
-        cookieManager.flush()
+        clearCache(true)
+        loadDataWithBaseURL(url, html, "text/html", "utf-8", null)
+    }
+
+    private suspend fun WebView.postRequest(url: String, postData: String, mediaType: MediaType) {
+        val html = withContext(Dispatchers.IO) {
+            Requests.post(url, postData, mediaType)
+        }
+        clearCache(true)
+        loadDataWithBaseURL(url, html, "text/html", "utf-8", null)
     }
 
     @Suppress("unused") // Remove when use open()
     companion object {
-        fun open(ctx: Context, url: String, body: String? = null) {
+        fun open(ctx: Context, url: String, body: String? = null, mediaType: String? = null) {
             val intent = Intent(ctx, WebViewActivity::class.java)
             intent.putExtras(Bundle().apply {
                 putString("url", url)
                 if (body != null) {
                     putString("body", body)
+                    if (mediaType == null) {
+                        throw IllegalArgumentException("You must define mediaType when you defined body.")
+                    }
+                    putString("mediaType", mediaType)
                 }
             })
             ctx.startActivity(intent)

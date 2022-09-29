@@ -68,6 +68,6 @@ jobs:
 
       - name: Deploy to GitHub code scanning
         if: github.ref_name == 'master'
-        uses: github/codeql-action/upload-sarif@v2.1.25
+        uses: github/codeql-action/upload-sarif@v2.1.26
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json

@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
 
       - name: Initialize Gradle Project
-        uses: gradle/gradle-build-action@v2.3.1
+        uses: gradle/gradle-build-action@v2.3.2
         with:
           arguments: build
 

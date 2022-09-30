@@ -21,6 +21,7 @@ object Constants {
     const val PREF_INIT = "initialized"
 
     const val PREF_CACHE = "cache"
+    const val PREF_UPDATE = "update"
     const val PREF_ABOUT = "about"
 
     const val DEFAULT_DARK = "system"

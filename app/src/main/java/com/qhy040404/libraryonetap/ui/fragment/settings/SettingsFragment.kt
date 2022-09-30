@@ -26,6 +26,7 @@ import com.qhy040404.libraryonetap.ui.interfaces.IListController
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -195,6 +196,16 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 CacheUtils.trimCaches()
                 requireContext().showToast(R.string.cache_cleared)
                 summary = CacheUtils.getCacheSize()
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
+            setOnPreferenceClickListener {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    UpdateUtils.checkUpdate(requireContext(),
+                        true)
+                }
                 true
             }
         }

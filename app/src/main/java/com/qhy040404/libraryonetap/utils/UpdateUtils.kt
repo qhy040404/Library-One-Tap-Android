@@ -25,13 +25,16 @@ import kotlin.concurrent.thread
 object UpdateUtils {
     private val client = OkHttpClient()
 
-    suspend fun checkUpdate(ctx: Context) {
+    suspend fun checkUpdate(ctx: Context, fromSettings: Boolean = false) {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder().permitAll().build()
         )
         val notification = NotificationUtils(ctx, "update", "Update")
 
         if (!checkConnection()) {
+            if (fromSettings) {
+                ctx.showToast(R.string.net_disconnected)
+            }
             return
         }
         val request = Request.Builder()
@@ -46,6 +49,9 @@ object UpdateUtils {
         val localVersionCode = BuildConfig.VERSION_NAME.split(".").joinToString("")
 
         if (remoteVersionCode <= localVersionCode) {
+            if (fromSettings) {
+                ctx.showToast(R.string.current_is_latest_version)
+            }
             return
         }
 

@@ -17,9 +17,6 @@ object Constants {
     const val PREF_LOCALE = "locale"
     const val PREF_RESET = "reset"
 
-    @Deprecated("Will remove when 3.6.0")
-    const val PREF_INIT = "initialized"
-
     const val PREF_CACHE = "cache"
     const val PREF_UPDATE = "update"
     const val PREF_ABOUT = "about"

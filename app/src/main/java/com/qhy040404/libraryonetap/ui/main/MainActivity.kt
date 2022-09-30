@@ -193,11 +193,6 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
 
     private fun showWelcomeDialog() {
         if (!Once.beenDone(Once.THIS_APP_INSTALL, OnceTag.FIRST_DATA_INPUT)) {
-            // Will remove when 3.6.0
-            if (GlobalValues.initialized) {
-                Once.markDone(OnceTag.FIRST_DATA_INPUT)
-                return
-            }
             MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.welcome)
                 .setMessage(R.string.welcome_message)

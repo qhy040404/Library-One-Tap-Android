@@ -53,9 +53,6 @@ object GlobalValues {
             SPUtils.sp.edit { putString(Constants.PREF_LOCALE, value.toLanguageTag()) }
         }
 
-    @Deprecated("Will remove when 3.6.0")
-    var initialized: Boolean by SPDelegates(Constants.PREF_INIT, false)
-
     // Settings
     var themeInit = false
     var isMD3Changed = false
@@ -96,7 +93,7 @@ object GlobalValues {
         ) {
             passwdEnc = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
         }
-        // Will enable when 3.6.0 and remove when 3.7.0
-        // SPUtils.sp.edit { remove("initialized") }
+        // Will remove when 3.7.0
+        SPUtils.sp.edit { remove("initialized") }
     }
 }

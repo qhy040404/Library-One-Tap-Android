@@ -1,7 +1,6 @@
 package com.qhy040404.libraryonetap.utils.extensions
 
 import com.qhy040404.libraryonetap.constant.Constants
-import java.nio.charset.Charset
 
 object StringExtension {
     fun String.isValid(): Boolean {
@@ -16,7 +15,4 @@ object StringExtension {
             a
         }
     }
-
-    fun String.exec(): String = Runtime.getRuntime().exec(this).inputStream.readBytes()
-        .toString(Charset.defaultCharset()).trim()
 }

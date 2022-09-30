@@ -2,6 +2,10 @@ name: Gradle tasks
 
 on:
   workflow_dispatch:
+    inputs:
+      task:
+        description: 'Task'
+        required: true
 
 jobs:
   tasks:
@@ -24,4 +28,4 @@ jobs:
       - name: Show Gradle tasks
         uses: gradle/gradle-build-action@v2.3.2
         with:
-          arguments: tasks --all
+          arguments: ${{ inputs.task }}

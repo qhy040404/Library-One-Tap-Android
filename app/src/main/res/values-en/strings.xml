@@ -86,11 +86,11 @@
 
     <string name="unknown_error">Unknown Error</string>
 
-    <string name="loading">Loading....</string>
+    <string name="loading">Loading…</string>
     <string name="loaded">Logged in</string>
     <string name="fail_to_login_no_retry">Login failed, please retry.</string>
-    <string name="fail_to_login">Login failed, retrying....</string>
-    <string name="fail_to_login_three_times">Failed 3 times....\nCheck your id and password</string>
+    <string name="fail_to_login">Login failed, retrying…</string>
+    <string name="fail_to_login_three_times">Failed 3 times…\nCheck your id and password</string>
     <string name="login_timeout">Session timeout, please refresh</string>
     <string name="no_userdata">Please input your information in the Settings page first.</string>
 
@@ -101,6 +101,15 @@
     <string name="net_api_error">API Error. Temporarily unavailable.</string>
 
     <string name="download_start">Download start</string>
+    <string name="download_failed">Download Failed</string>
+    <string name="downloading">Downloading…</string>
+    <string name="downloaded">Download finished</string>
+
+    <!-- UPDATE -->
+    <string name="update_detected">Update detected</string>
+    <string name="update_question">Update now?</string>
+    <string name="update_confirm">Update</string>
+    <string name="update_dismiss">Dismiss</string>
 
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>
@@ -118,7 +127,7 @@
 
     <!-- SETTINGS PROMPT -->
     <string name="data_reset_confirm">Please confirm to clear appdata.</string>
-    <string name="data_reset_completed">AppData has been cleared, Exiting....</string>
+    <string name="data_reset_completed">AppData has been cleared, Exiting…</string>
     <string name="cache_cleared">Cache has been cleared</string>
     <string name="custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
 

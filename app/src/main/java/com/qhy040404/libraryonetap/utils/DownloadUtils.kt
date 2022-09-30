@@ -14,7 +14,6 @@ import java.io.File
 import java.io.IOException
 import java.lang.ref.WeakReference
 
-@Suppress("unused")// Will remove when using download()
 object DownloadUtils {
     private val client by lazy {
         OkHttpClient.Builder()
@@ -37,7 +36,7 @@ object DownloadUtils {
         ctx: Context,
         url: String,
         file: File,
-        listener: OnDownloadListener,
+        listener: OnDownloadListener?,
         github: Boolean = false,
     ) {
         onDownloadListener = WeakReference(listener)

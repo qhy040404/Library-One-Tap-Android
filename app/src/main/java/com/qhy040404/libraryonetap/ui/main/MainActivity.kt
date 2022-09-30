@@ -29,8 +29,10 @@ import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
 import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
 import jonathanfinerty.once.Once
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -113,6 +115,8 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         }
         handleIntentFromShortcuts(intent)
         showWelcomeDialog()
+
+        lifecycleScope.launch(Dispatchers.IO) { UpdateUtils.checkUpdate(this@MainActivity) }
     }
 
     override fun onNewIntent(intent: Intent) {

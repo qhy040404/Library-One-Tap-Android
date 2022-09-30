@@ -15,4 +15,12 @@ object StringExtension {
             a
         }
     }
+
+    fun String.replaceAll(old: String, new: String): String {
+        var temp = this
+        while (temp.contains(old)) {
+            temp = this.replace(old, new)
+        }
+        return temp
+    }
 }

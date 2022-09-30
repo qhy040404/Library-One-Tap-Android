@@ -8,7 +8,6 @@ import android.os.Process
 import androidx.core.app.NotificationCompat
 import com.qhy040404.libraryonetap.R
 
-@Suppress("unused") // Will remove when call showNotification()
 class NotificationUtils(
     private val ctx: Context,
     private val channelId: String,
@@ -24,7 +23,7 @@ class NotificationUtils(
         .setPriority(NotificationCompat.PRIORITY_LOW)
         .setProgress(0, 0, true)
         .setSilent(true)
-        .setOngoing(true)
+        .setOngoing(false)
         .setAutoCancel(false).apply {
             if (!OsUtils.atLeastS()) {
                 color = ctx.getColor(R.color.colorPrimary)
@@ -32,6 +31,7 @@ class NotificationUtils(
         }
 
     fun showNotification(content: String, progressBar: Boolean) {
+        notificationManager.cancelAll()
         builder.setContentText(content).apply {
             if (progressBar) {
                 setProgress(100, 0, false)

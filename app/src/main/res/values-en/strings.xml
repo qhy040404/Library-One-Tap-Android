@@ -108,7 +108,6 @@
 
     <!-- UPDATE -->
     <string name="update_detected">Update detected</string>
-    <string name="update_question">Update now?</string>
     <string name="update_confirm">Update</string>
     <string name="update_dismiss">Dismiss</string>
 

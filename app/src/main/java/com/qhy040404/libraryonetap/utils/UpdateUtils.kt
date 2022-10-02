@@ -74,9 +74,15 @@ object UpdateUtils {
             .append(versionName)
             .append("</h2>")
         changelog.forEach {
-            dialogBody.append(it.replaceAll("\n", "<br>"))
+            dialogBody.append("\t")
+            dialogBody.append(
+                when (it) {
+                    changelog.first() -> it.trimStart().replaceAll("\n", "<br>")
+                    changelog.last() -> it.trim()
+                    else -> it.replaceAll("\n", "<br>")
+                }
+            )
         }
-        dialogBody.append(AppUtils.getResString(R.string.update_question))
 
         withContext(Dispatchers.Main) {
             MaterialAlertDialogBuilder(ctx)

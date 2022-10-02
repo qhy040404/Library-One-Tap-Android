@@ -94,6 +94,6 @@ object GlobalValues {
             passwdEnc = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
         }
         // Will remove when 3.7.0
-        SPUtils.sp.edit { remove("initialized") }
+        runCatching { SPUtils.sp.edit { remove("initialized") } }
     }
 }

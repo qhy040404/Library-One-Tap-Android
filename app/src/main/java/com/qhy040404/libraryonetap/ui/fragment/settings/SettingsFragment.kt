@@ -203,8 +203,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    UpdateUtils.checkUpdate(requireContext(),
-                        true)
+                    UpdateUtils.checkUpdate(requireContext(), true)
                 }
                 true
             }

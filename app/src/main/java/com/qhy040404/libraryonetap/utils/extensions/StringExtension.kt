@@ -19,7 +19,7 @@ object StringExtension {
     fun String.replaceAll(old: String, new: String): String {
         var temp = this
         while (temp.contains(old)) {
-            temp = this.replace(old, new)
+            temp = temp.replace(old, new)
         }
         return temp
     }

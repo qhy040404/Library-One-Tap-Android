@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.base
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
@@ -31,6 +33,12 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity(), IBinding<VB>
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
+    }
+
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onResume() {
+        super.onResume()
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     override fun onDestroy() {

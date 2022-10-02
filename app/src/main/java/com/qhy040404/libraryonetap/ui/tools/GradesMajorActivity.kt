@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.ui.tools
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Handler
 import android.os.Looper
 import android.os.StrictMode
@@ -90,8 +92,10 @@ class GradesMajorActivity : SimplePageActivity() {
         }
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onResume() {
         super.onResume()
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         currentVisible = true
     }
 

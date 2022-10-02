@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap.ui.about
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageView
@@ -29,6 +31,12 @@ class AboutActivity : AbsAboutActivityProxy() {
 
         super.onCreate(savedInstanceState)
         initView()
+    }
+
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onResume() {
+        super.onResume()
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     override fun onDestroy() {

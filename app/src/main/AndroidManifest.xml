@@ -65,9 +65,6 @@
             android:exported="false"
             android:label="@string/about_title"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Library" />
-        <activity
-            android:name=".ui.global.WebViewActivity"
-            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

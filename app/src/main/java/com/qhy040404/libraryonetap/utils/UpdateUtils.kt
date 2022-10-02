@@ -20,6 +20,7 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
+import java.net.SocketTimeoutException
 import kotlin.concurrent.thread
 
 object UpdateUtils {
@@ -48,7 +49,15 @@ object UpdateUtils {
             .addHeader("Accept", "application/vnd.github+json")
             .get()
             .build()
-        val latestOrig = client.newCall(request).execute().body!!.string()
+        val latestOrig = try {
+            client.newCall(request).execute().body!!.string()
+        } catch (socket: SocketTimeoutException) {
+            ctx.showToast(R.string.net_timeout)
+            return
+        } catch (_: Exception) {
+            ctx.showToast(R.string.failed_to_connect_github_api)
+            return
+        }
         val latestClazz = moshi.adapter(GHAPIDataClass::class.java).fromJson(latestOrig)!!
 
         val remoteVersionCode = latestClazz.tag_name.split(".").joinToString("")
@@ -93,7 +102,7 @@ object UpdateUtils {
                 ))
                 .setPositiveButton(R.string.update_confirm) { _, _ ->
                     ctx.showToast(R.string.download_start)
-                    notification.showNotification(versionName + AppUtils.getResString(R.string.downloading),
+                    notification.showNotification("$versionName ${AppUtils.getResString(R.string.downloading)}",
                         true)
                     thread {
                         StrictMode.setThreadPolicy(

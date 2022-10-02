@@ -15,10 +15,6 @@ object CookieJarImpl : CookieJar {
         return cookieStore
     }
 
-    fun getCookies(): List<Cookie> {
-        return cookieStore
-    }
-
     fun reset() {
         cookieStore.clear()
     }

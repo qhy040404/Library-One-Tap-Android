@@ -133,6 +133,7 @@
     <string name="custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
 
     <string name="current_is_latest_version">You have the latest app.</string>
+    <string name="failed_to_connect_github_api">Failed to connect to GitHub.</string>
 
     <!-- ARRAY -->
     <!-- SETTINGS -->

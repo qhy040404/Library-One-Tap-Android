@@ -135,6 +135,7 @@
     <string name="custom_deprecated">数个版本后MD3主题将会强制全局启用</string>
 
     <string name="current_is_latest_version">当前已是最新版本</string>
+    <string name="failed_to_connect_github_api">无法连接到更新服务器</string>
 
     <!-- ABOUT -->
     <string name="about_slogan" translatable="false">Library One Tap</string>

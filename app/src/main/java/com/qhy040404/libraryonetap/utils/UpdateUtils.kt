@@ -31,9 +31,15 @@ object UpdateUtils {
         )
         val notification = NotificationUtils(ctx, "update", "Update")
 
-        if (!checkConnection()) {
+        if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
                 ctx.showToast(R.string.net_disconnected)
+            }
+            return
+        }
+        if (!checkConnection()) {
+            if (fromSettings) {
+                ctx.showToast(R.string.failed_to_connect_github_api)
             }
             return
         }

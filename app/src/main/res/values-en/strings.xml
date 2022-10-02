@@ -111,6 +111,8 @@
     <string name="update_confirm">Update</string>
     <string name="update_dismiss">Dismiss</string>
 
+    <string name="summary_update_available">"Update available: "</string>
+
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>
     <string name="degree">" degree"</string>

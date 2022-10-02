@@ -66,6 +66,7 @@ object GlobalValues {
     val version by resettableLazy(GlobalManager.lazyMgr) {
         AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
     }
+    var newVersion: String? = null
 
     // Library
     var librarySessionReady: Boolean? = null

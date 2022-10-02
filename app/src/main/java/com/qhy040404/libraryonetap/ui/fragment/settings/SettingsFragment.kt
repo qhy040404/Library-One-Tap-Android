@@ -201,6 +201,10 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         }
 
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
+            if (GlobalValues.newVersion != null) {
+                summary =
+                    AppUtils.getResString(R.string.summary_update_available) + GlobalValues.newVersion
+            }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
                     UpdateUtils.checkUpdate(requireContext(), true)

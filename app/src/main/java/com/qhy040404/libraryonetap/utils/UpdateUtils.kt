@@ -10,6 +10,7 @@ import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.model.GHAPIDataClass
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
@@ -77,6 +78,8 @@ object UpdateUtils {
         latestClazz.body.split("---")[0].split("* ").apply {
             changelog = this.subList(1, this.size)
         }
+
+        GlobalValues.newVersion = versionName
 
         val dialogBody = StringBuilder()
         dialogBody.append("<h2>")

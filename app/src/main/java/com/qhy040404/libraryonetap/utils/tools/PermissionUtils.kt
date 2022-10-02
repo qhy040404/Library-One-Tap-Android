@@ -4,8 +4,9 @@ import android.app.Activity
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
-import com.qhy040404.libraryonetap.constant.GlobalManager
+import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
+import com.qhy040404.libraryonetap.utils.AppUtils
 
 object PermissionUtils {
     fun checkPermission(
@@ -20,7 +21,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    GlobalManager.bathPermissionFullScrFragment)
+                    FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt)))
             }
         }
         return hasPermission

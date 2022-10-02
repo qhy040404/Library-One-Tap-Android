@@ -74,7 +74,7 @@
     <string name="general">通用</string>
     <string name="dark_mode">深色模式</string>
     <string name="main_theme">主题</string>
-    <string name="md3" translatable="false">Material Design 3 (Preview)</string>
+    <string name="md3" translatable="false">Material Design 3</string>
     <string name="language">语言</string>
     <string name="reset_data">重置应用数据</string>
     <string name="other">其他</string>

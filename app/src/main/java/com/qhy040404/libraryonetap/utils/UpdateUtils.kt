@@ -14,7 +14,6 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.model.GHAPIDataClass
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.replaceAll
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -74,10 +73,8 @@ object UpdateUtils {
         val versionName = latestClazz.name
         val packageName = latestClazz.assets[0].name
         val packageUrl = latestClazz.assets[0].browser_download_url
-        var changelog: List<String>
-        latestClazz.body.split("---")[0].split("* ").apply {
-            changelog = this.subList(1, this.size)
-        }
+        val changelog: List<String> =
+            latestClazz.body.split("---")[0].split("Changelog")[1].trim().split("\n")
 
         GlobalValues.newVersion = versionName
 
@@ -87,13 +84,15 @@ object UpdateUtils {
             .append("</h2>")
         changelog.forEach {
             dialogBody.append("\t")
-            dialogBody.append(
-                when (it) {
-                    changelog.first() -> it.trimStart().replaceAll("\n", "<br>")
-                    changelog.last() -> it.trim()
-                    else -> it.replaceAll("\n", "<br>")
-                }
-            )
+            if (it.startsWith("* ")) {
+                dialogBody.append(it.substring(2))
+            } else if (it.startsWith("> ")) {
+                dialogBody.append("// ")
+                dialogBody.append(it.substring(2))
+            }
+            if (it != changelog.last()) {
+                dialogBody.append("<br>")
+            }
         }
 
         withContext(Dispatchers.Main) {

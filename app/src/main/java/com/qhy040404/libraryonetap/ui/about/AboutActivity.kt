@@ -95,7 +95,14 @@ class AboutActivity : AbsAboutActivityProxy() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            add(Contributor(R.mipmap.dcmt, "别卷了，行不行", "去下面给我点个Star"))
+            add(
+                Contributor(
+                    R.mipmap.dcmt,
+                    "别卷了，行不行",
+                    "给我点个Star吧秋梨膏",
+                    URLManager.GITHUB_REPO
+                )
+            )
 
             add(Category("Developer"))
             add(

@@ -215,6 +215,7 @@ class ExamsActivity : SimplePageActivity() {
                         .split("var studentExamInfoVms = ")[1]
                         .split("];")[0] + "]"
                 if (GradesTempValues.minorStuId != 0) {
+                    Thread.sleep(3000L)
                     examsMinorData =
                         Requests.get(URLManager.getEduExamsUrl(GradesTempValues.minorStuId))
                             .split("var studentExamInfoVms = ")[1]

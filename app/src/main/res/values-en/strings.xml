@@ -123,6 +123,7 @@
     <string name="used_net">"Used network: "</string>
     <string name="remain_net">"Remain network: "</string>
     <string name="remain_electric">"Remain electric: "</string>
+    <string name="vol_update_time">"Updated: "</string>
     <string name="invalid_id_or_name">Wrong name and ID</string>
     <string name="find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="reserved">Reserve request has been sent</string>

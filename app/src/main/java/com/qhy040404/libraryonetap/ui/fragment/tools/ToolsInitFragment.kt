@@ -30,6 +30,7 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -330,6 +331,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val postData =
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
+            val latestDate =
+                AppUtils.getResString(R.string.vol_update_time) + JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString(
+                    "lastDate")
 
             val sameID = VolunteerData.getSameID(data)
             val sameName = VolunteerData.getSameName(data)
@@ -372,11 +376,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             } else {
                 val totalHours = VolunteerData.getTotalHours(data).toString() +
                     AppUtils.getResString(R.string.hours)
+                val title = AppUtils.getResString(R.string.volunteer_title) + "\n" + latestDate
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)
-                        .setTitle(R.string.volunteer_title)
+                        .setTitle(title)
                         .setPositiveButton(R.string.ok, null)
                         .setCancelable(true)
                         .create()

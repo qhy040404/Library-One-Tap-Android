@@ -44,6 +44,7 @@ object URLManager {
     const val VCARD_OPENID_URL = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"
 
     const val VOLTIME_POST_URL = "https://www.dutbit.com/apivue/voltime/"
+    const val VOLTIME_LATEST_URL = "https://www.dutbit.com/apivue/voltime/last-date"
 
     const val EDU_LOGIN_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2Fjxgl.dlut.edu.cn%2Fstudent%2Fucas-sso%2Flogin"

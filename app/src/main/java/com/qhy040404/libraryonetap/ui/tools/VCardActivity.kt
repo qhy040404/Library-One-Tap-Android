@@ -11,6 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
@@ -20,9 +21,12 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.concurrent.thread
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
+    var isActivityVisible = false
+
     override fun init() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
@@ -32,6 +36,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
+        isActivityVisible = true
 
         binding.vcardBalance.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
@@ -39,6 +44,16 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         }.also {
             it.start()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isActivityVisible = true
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isActivityVisible = false
     }
 
     private suspend fun vCard() {
@@ -98,16 +113,20 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
 
         val qrUrl = URLManager.getVCardQRUrl(openid)
 
-        val qrPage = Requests.getVCard(qrUrl)
-        val qrInformation = qrPage
+        var qrPage = Requests.getVCard(qrUrl)
+        var qrInformation = qrPage
             .split("<p class=\"bdb\">")[1]
             .split("</p>")[0]
 
-        val qrBase64 = qrPage
+        var qrBase64 = qrPage
             .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
             .split("\">")[0]
-        val qr = Base64.decode(qrBase64, Base64.DEFAULT)
-        val bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
+        var payCode = qrPage
+            .split("<input id=\"code\" value=\"")[1]
+            .split("\" type=\"hidden\">")[0]
+
+        var qr = Base64.decode(qrBase64, Base64.DEFAULT)
+        var bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
         loading.post { loading.visibility = View.INVISIBLE }
         qrView.load(QRUtils.toGrayscale(bitmap))
         balance.post { balance.text = qrInformation }
@@ -116,17 +135,48 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
-                val newQrPage = Requests.getVCard(qrUrl)
-                val newQrInformation = newQrPage.split("<p class=\"bdb\">")[1].split("</p>")[0]
+                qrPage = Requests.getVCard(qrUrl)
+                qrInformation = qrPage
+                    .split("<p class=\"bdb\">")[1]
+                    .split("</p>")[0]
 
-                val newQrBase64 = newQrPage
+                qrBase64 = qrPage
                     .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
                     .split("\">")[0]
-                val newQr = Base64.decode(newQrBase64, Base64.DEFAULT)
-                val newBitmap = BitmapFactory.decodeByteArray(newQr, 0, newQr.size)
-                qrView.load(QRUtils.toGrayscale(newBitmap))
-                balance.text = newQrInformation
+                payCode = qrPage
+                    .split("<input id=\"code\" value=\"")[1]
+                    .split("\" type=\"hidden\">")[0]
+
+                qr = Base64.decode(qrBase64, Base64.DEFAULT)
+                bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
+                qrView.load(QRUtils.toGrayscale(bitmap))
+                balance.text = qrInformation
+            }
+        }
+        thread {
+            StrictMode.setThreadPolicy(
+                StrictMode.ThreadPolicy.Builder().permitAll().build()
+            )
+            while (isActivityVisible) {
+                Thread.sleep(3000L)
+                val statusOrig = Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode))
+                val status = moshi.adapter(VCardStatus::class.java).fromJson(statusOrig)!!
+                if (status.resultData.status != "5") {
+                    refresh.post { refresh.performClick() }
+                }
             }
         }
     }
+
+    data class VCardStatus(
+        val message: String,
+        val resultData: ResultData,
+        val success: Boolean,
+    )
+
+    data class ResultData(
+        val message: String,
+        val paytime: String,
+        val status: String,
+    )
 }

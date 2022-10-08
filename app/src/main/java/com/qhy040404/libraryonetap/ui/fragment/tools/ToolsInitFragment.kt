@@ -332,8 +332,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
             val latestDate =
-                AppUtils.getResString(R.string.vol_update_time) + JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString(
-                    "lastDate")
+                AppUtils.getResString(R.string.vol_update_time) +
+                    JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString("lastDate")
 
             val sameID = VolunteerData.getSameID(data)
             val sameName = VolunteerData.getSameName(data)

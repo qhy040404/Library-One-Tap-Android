@@ -38,7 +38,7 @@
     <string name="not_start">未开始</string>
 
     <string name="no_valid_order">没有找到有效的order</string>
-    <string name="temp_end_time">暂离截止: </string>
+    <string name="temp_end_time">"暂离截止: "</string>
 
     <string name="cancel_confirm">确认取消吗</string>
     <string name="cancel_confirm_yes">开摆</string>

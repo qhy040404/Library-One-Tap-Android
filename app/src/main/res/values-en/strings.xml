@@ -38,7 +38,7 @@
     <string name="not_start">Has not started</string>
 
     <string name="no_valid_order">No valid order found</string>
-    <string name="temp_end_time">Temporary leave deadline: </string>
+    <string name="temp_end_time">"Temporary leave deadline: "</string>
 
     <string name="cancel_confirm">Confirm cancellation</string>
     <string name="cancel_confirm_yes">Yes</string>

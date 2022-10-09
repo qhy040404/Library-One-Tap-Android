@@ -70,7 +70,7 @@ object UpdateUtils {
             if (fromSettings) {
                 ctx.showToast(R.string.current_is_latest_version)
             }
-            //return
+            return
         }
 
         val versionName = latestClazz.name

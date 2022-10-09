@@ -1,6 +1,8 @@
 package com.qhy040404.libraryonetap.ui.tools
 
 import android.graphics.BitmapFactory
+import android.os.Handler
+import android.os.Looper
 import android.os.StrictMode
 import android.util.Base64
 import android.view.View
@@ -14,6 +16,7 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.data.model.VCardStatusClass
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.tools.QRUtils
@@ -159,24 +162,15 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             )
             while (isActivityVisible) {
                 Thread.sleep(3000L)
-                val statusOrig = Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode))
-                val status = moshi.adapter(VCardStatus::class.java).fromJson(statusOrig)!!
+                val statusOrig =
+                    Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
+                val status = moshi.adapter(VCardStatusClass::class.java).fromJson(statusOrig)!!
                 if (status.resultData.status != "5") {
-                    refresh.post { refresh.performClick() }
+                    Handler(Looper.getMainLooper()).post {
+                        refresh.performClick()
+                    }
                 }
             }
         }
     }
-
-    data class VCardStatus(
-        val message: String,
-        val resultData: ResultData,
-        val success: Boolean,
-    )
-
-    data class ResultData(
-        val message: String,
-        val paytime: String,
-        val status: String,
-    )
 }

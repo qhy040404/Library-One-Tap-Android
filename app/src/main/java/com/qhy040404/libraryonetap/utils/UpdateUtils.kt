@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.utils
 import android.content.Context
 import android.content.Intent
 import android.os.StrictMode
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.core.text.HtmlCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -20,11 +21,13 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
+import java.lang.ref.WeakReference
 import java.net.SocketTimeoutException
 import kotlin.concurrent.thread
 
 object UpdateUtils {
     private val client = OkHttpClient()
+    private var dialog: WeakReference<AlertDialog>? = null
 
     suspend fun checkUpdate(ctx: Context, fromSettings: Boolean = false) {
         StrictMode.setThreadPolicy(
@@ -67,7 +70,7 @@ object UpdateUtils {
             if (fromSettings) {
                 ctx.showToast(R.string.current_is_latest_version)
             }
-            return
+            //return
         }
 
         val versionName = latestClazz.name
@@ -134,7 +137,16 @@ object UpdateUtils {
                 }
                 .setNegativeButton(R.string.update_dismiss, null)
                 .setCancelable(true)
-                .create().show()
+                .setOnDismissListener {
+                    if (dialog?.get() == it) {
+                        dialog = null
+                    }
+                }
+                .create().also {
+                    dialog?.get()?.dismiss()
+                    dialog = WeakReference(it)
+                    it.show()
+                }
         }
     }
 

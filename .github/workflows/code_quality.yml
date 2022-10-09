@@ -22,7 +22,6 @@ env:
 jobs:
   qodana:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
     steps:
       - uses: actions/checkout@v3.1.0
         with:

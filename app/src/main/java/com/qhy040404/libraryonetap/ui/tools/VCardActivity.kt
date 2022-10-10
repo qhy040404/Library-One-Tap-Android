@@ -165,7 +165,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 val statusOrig =
                     Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
                 val status = moshi.adapter(VCardStatusClass::class.java).fromJson(statusOrig)!!
-                if (status.resultData.status != "5") {
+                if (status.resultData.status != "5" && isActivityVisible) {
                     Handler(Looper.getMainLooper()).post {
                         refresh.performClick()
                     }

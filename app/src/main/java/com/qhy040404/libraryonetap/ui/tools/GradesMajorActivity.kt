@@ -214,17 +214,8 @@ class GradesMajorActivity : SimplePageActivity() {
                             }
                             val aStuId = initList[1].split("\"")[0].toInt()
                             val bStuId = initList[2].split("\"")[0].toInt()
-                            when {
-                                aStuId > bStuId -> {
-                                    GradesTempValues.minorStuId = aStuId
-                                    majorStuId = bStuId
-                                }
-                                bStuId > aStuId -> {
-                                    GradesTempValues.minorStuId = bStuId
-                                    majorStuId = aStuId
-                                }
-                                else -> throw IllegalStateException("Illegal Student ID")
-                            }
+                            GradesTempValues.minorStuId = aStuId.coerceAtLeast(bStuId)
+                            majorStuId = aStuId.coerceAtMost(bStuId)
                         }
                         majorStuId
                     }

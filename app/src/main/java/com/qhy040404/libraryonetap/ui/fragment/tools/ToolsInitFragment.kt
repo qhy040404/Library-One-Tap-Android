@@ -412,17 +412,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     GradesTempValues.toastShowed = true
                     val aStuId = initList[1].split("\"")[0].toInt()
                     val bStuId = initList[2].split("\"")[0].toInt()
-                    when {
-                        aStuId > bStuId -> {
-                            GradesTempValues.minorStuId = aStuId
-                            tempId = bStuId
-                        }
-                        bStuId > aStuId -> {
-                            GradesTempValues.minorStuId = bStuId
-                            tempId = aStuId
-                        }
-                        else -> AppUtils.pass()
-                    }
+                    GradesTempValues.minorStuId = aStuId.coerceAtLeast(bStuId)
+                    tempId = aStuId.coerceAtMost(bStuId)
                 }
                 tempId
             }

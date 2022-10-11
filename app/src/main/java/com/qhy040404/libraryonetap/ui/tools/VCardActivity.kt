@@ -28,7 +28,7 @@ import kotlin.concurrent.thread
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
-    var isActivityVisible = false
+    private var isActivityVisible = false
 
     override fun init() {
         setSupportActionBar(binding.toolbar)

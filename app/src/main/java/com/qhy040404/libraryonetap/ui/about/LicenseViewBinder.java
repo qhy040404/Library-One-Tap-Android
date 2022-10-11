@@ -37,8 +37,8 @@ public class LicenseViewBinder extends ItemViewBinder<License, LicenseViewBinder
     }
 
     public static class LViewHolder extends ClickableViewHolder {
-        public TextView content;
-        public TextView hint;
+        public final TextView content;
+        public final TextView hint;
 
         public LViewHolder(View itemView) {
             super(itemView);

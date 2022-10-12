@@ -1,7 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
-import com.qhy040404.libraryonetap.R
 import okhttp3.*
 import okio.Buffer
 import okio.BufferedSource
@@ -47,7 +46,6 @@ object DownloadUtils {
                 url
             })
             .build()
-        Toasty.showShort(ctx, R.string.download_start)
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 onDownloadListener?.get()?.onDownloadFailed()

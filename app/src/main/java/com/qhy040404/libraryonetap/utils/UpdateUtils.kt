@@ -86,15 +86,17 @@ object UpdateUtils {
             .append(versionName)
             .append("</h2>")
         changelog.forEach {
-            dialogBody.append("\t")
-            if (it.startsWith("* ")) {
-                dialogBody.append(it.substring(2))
-            } else if (it.startsWith("> ")) {
-                dialogBody.append("// ")
-                dialogBody.append(it.substring(2))
-            }
-            if (it != changelog.last()) {
-                dialogBody.append("<br>")
+            if (it.isNotEmpty()) {
+                dialogBody.append("\t")
+                if (it.startsWith("* ")) {
+                    dialogBody.append(it.substring(2))
+                } else if (it.startsWith("> ")) {
+                    dialogBody.append("// ")
+                    dialogBody.append(it.substring(2))
+                }
+                if (it != changelog.last()) {
+                    dialogBody.append("<br>")
+                }
             }
         }
 

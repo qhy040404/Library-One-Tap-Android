@@ -21,6 +21,14 @@ android {
         versionCode = commitsCount
         versionName = baseVersionName
 
+        resourceConfigurations.addAll(
+            setOf(
+                "zh",
+                "en",
+                "zh-rCN"
+            )
+        )
+
         base.archivesName.set("Library-One-Tap_v$versionName")
         manifestPlaceholders["BUILD_HOST"] = getBuildHost()
         manifestPlaceholders["CHANNEL"] = getBuildType(false)

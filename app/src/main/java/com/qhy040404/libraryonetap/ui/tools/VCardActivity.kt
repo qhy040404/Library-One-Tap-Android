@@ -1,8 +1,6 @@
 package com.qhy040404.libraryonetap.ui.tools
 
 import android.graphics.BitmapFactory
-import android.os.Handler
-import android.os.Looper
 import android.os.StrictMode
 import android.util.Base64
 import android.view.View
@@ -166,7 +164,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                     Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
                 val status = moshi.adapter(VCardStatusClass::class.java).fromJson(statusOrig)!!
                 if (status.resultData.status != "5" && isActivityVisible) {
-                    Handler(Looper.getMainLooper()).post {
+                    runOnUiThread {
                         refresh.performClick()
                     }
                 }

@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.utils
 
-import android.content.Context
 import okhttp3.*
 import okio.Buffer
 import okio.BufferedSource
@@ -32,7 +31,6 @@ object DownloadUtils {
      * @param listener Download callback
      */
     fun download(
-        ctx: Context,
         url: String,
         file: File,
         listener: OnDownloadListener?,

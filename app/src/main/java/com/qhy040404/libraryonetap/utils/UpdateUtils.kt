@@ -116,7 +116,6 @@ object UpdateUtils {
                             StrictMode.ThreadPolicy.Builder().permitAll().build()
                         )
                         DownloadUtils.download(
-                            ctx,
                             packageUrl,
                             File(ctx.cacheDir, packageName),
                             object : DownloadUtils.OnDownloadListener {

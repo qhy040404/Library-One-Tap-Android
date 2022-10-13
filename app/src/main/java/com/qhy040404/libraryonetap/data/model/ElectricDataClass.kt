@@ -4,3 +4,8 @@ package com.qhy040404.libraryonetap.data.model
 data class ElectricDataClass(
     val dormitoryInfo_list: List<ElectricInnerDataClass>? = null,
 )
+
+data class ElectricInnerDataClass(
+    val SSMC: String? = null,
+    val resele: String? = null,
+)

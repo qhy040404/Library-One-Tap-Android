@@ -29,6 +29,7 @@ import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
 import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
 import jonathanfinerty.once.Once
@@ -46,6 +47,11 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         supportActionBar?.title = AppUtils.setTitle(this)
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
+        }
+
+        if (!Once.beenDone(Once.THIS_APP_VERSION, OnceTag.CLEAN_AFTER_UPDATE)) {
+            CacheUtils.trimCaches()
+            Once.markDone(OnceTag.CLEAN_AFTER_UPDATE)
         }
 
         binding.apply {

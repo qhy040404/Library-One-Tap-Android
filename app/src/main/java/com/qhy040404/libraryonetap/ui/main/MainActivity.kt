@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -49,9 +50,11 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
         }
 
-        if (!Once.beenDone(Once.THIS_APP_VERSION, OnceTag.CLEAN_AFTER_UPDATE)) {
-            CacheUtils.trimCaches()
-            Once.markDone(OnceTag.CLEAN_AFTER_UPDATE)
+        if (!Once.beenDone(Once.THIS_APP_VERSION, OnceTag.CLEAR_AFTER_UPDATE)) {
+            if (!BuildConfig.DEBUG) {
+                CacheUtils.trimCaches()
+            }
+            Once.markDone(OnceTag.CLEAR_AFTER_UPDATE)
         }
 
         binding.apply {

@@ -63,8 +63,8 @@ object UpdateUtils {
         }
         val latestClazz = moshi.adapter(GHAPIDataClass::class.java).fromJson(latestOrig)!!
 
-        val remoteVersionCode = latestClazz.tag_name.split(".").joinToString("")
-        val localVersionCode = BuildConfig.VERSION_NAME.split(".").joinToString("")
+        val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)
+        val localVersionCode = getVersionCode(BuildConfig.VERSION_NAME, false)
 
         if (remoteVersionCode <= localVersionCode) {
             if (fromSettings) {
@@ -125,6 +125,7 @@ object UpdateUtils {
 
                                 override fun onDownloadSuccess() {
                                     notification.finishProgress(AppUtils.getResString(R.string.downloaded))
+                                    GlobalValues.latestApkName = packageName
                                     installApk(ctx, packageName)
                                 }
 
@@ -148,6 +149,18 @@ object UpdateUtils {
                     dialog = WeakReference(it)
                     it.show()
                 }
+        }
+    }
+
+    fun getVersionCode(str: String?, fromPackage: Boolean): Int {
+        return if (str == null) {
+            0
+        } else {
+            (if (fromPackage) {
+                str.substringAfter("_v").substringBefore("-release")
+            } else {
+                str
+            }).split(".").joinToString("").toInt()
         }
     }
 

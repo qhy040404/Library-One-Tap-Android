@@ -188,7 +188,7 @@ jobs:
         id: signStep
         uses: ilharp/sign-android-release@nightly
         with:
-          releaseDir: app/build/outputs/apk/debug
+          releaseDir: app/build/outputs/apk/release
           signingKey: ${{ secrets.SIGNING_KEY }}
           keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_PASS }}

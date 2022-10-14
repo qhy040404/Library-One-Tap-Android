@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap.ui.fragment.library
 import android.annotation.SuppressLint
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import coil.load
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
 import com.qhy040404.libraryonetap.base.BaseFragment
@@ -15,6 +14,7 @@ import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -93,7 +93,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 override fun onFailure(call: Call, e: IOException) {}
 
                 override fun onResponse(call: Call, response: Response) {
-                    qr.load(response.body!!.bytes())
+                    qr.mLoad(requireContext(), response.body!!.bytes())
                 }
             })
             detail.post {

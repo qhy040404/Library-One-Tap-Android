@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.StrictMode
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
@@ -23,6 +22,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.ReserveUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -138,7 +138,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.load(response.body!!.bytes())
+                            qr.mLoad(requireContext(), response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.enter) }
                         }
                     })
@@ -155,7 +155,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.load(response.body!!.bytes())
+                            qr.mLoad(requireContext(), response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.leave) }
                         }
                     })
@@ -172,7 +172,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.load(response.body!!.bytes())
+                            qr.mLoad(requireContext(), response.body!!.bytes())
                             type.post { type.text = AppUtils.getResString(R.string.temp) }
                         }
                     })

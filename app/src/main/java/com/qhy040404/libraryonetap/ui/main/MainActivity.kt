@@ -57,8 +57,11 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                 CacheUtils.trimCaches()
             }
             if (
-                UpdateUtils.getVersionCode(GlobalValues.latestApkName,
-                    true) <= UpdateUtils.getVersionCode(BuildConfig.VERSION_NAME, false)
+                UpdateUtils.getVersionCode(
+                    GlobalValues.latestApkName, true
+                ) <= UpdateUtils.getVersionCode(
+                    BuildConfig.VERSION_NAME, false
+                )
             ) {
                 SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
             }

@@ -108,6 +108,10 @@ object UpdateUtils {
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 ))
                 .setPositiveButton(R.string.update_confirm) { _, _ ->
+                    if (File(ctx.cacheDir, packageName).exists()) {
+                        installApk(ctx, packageName)
+                        return@setPositiveButton
+                    }
                     ctx.showToast(R.string.download_start)
                     notification.showNotification("$versionName ${AppUtils.getResString(R.string.downloading)}",
                         true)

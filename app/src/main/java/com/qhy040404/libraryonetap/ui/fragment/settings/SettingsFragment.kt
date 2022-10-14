@@ -230,6 +230,10 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         )
         (activity as? IAppBarContainer)?.setLiftOnScrollTargetView(prefRecyclerView)
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
+        if (GlobalValues.newVersion != null) {
+            findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
+                AppUtils.getResString(R.string.summary_update_available) + GlobalValues.newVersion
+        }
     }
 
     override fun onCreateRecyclerView(

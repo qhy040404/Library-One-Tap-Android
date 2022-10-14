@@ -156,8 +156,8 @@ object UpdateUtils {
         }
     }
 
-    fun getVersionCode(str: String?, fromPackage: Boolean): Int {
-        return if (str == null) {
+    fun getVersionCode(str: String, fromPackage: Boolean): Int {
+        return if (str.isEmpty()) {
             0
         } else {
             (if (fromPackage) {

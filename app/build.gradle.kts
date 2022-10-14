@@ -129,9 +129,13 @@ fun getBuglyAppID(isBuildConfig: Boolean): String {
 
 fun getBuildType(isBuildConfig: Boolean): String {
     return if (!isBuildConfig) {
-        if ("git tag -l $baseVersionName".exec().isNotEmpty()) {
+        if ("git tag -l $baseVersionName".exec().isNotEmpty()
+            && getStartParameters().contains("Release")
+        ) {
             "Release"
-        } else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()) {
+        } else if ("git tag -l $baseVersionName-Pre".exec().isNotEmpty()
+            && getStartParameters().contains("Release")
+        ) {
             "Pre-release"
         } else {
             "Debug"
@@ -144,6 +148,9 @@ fun getBuildType(isBuildConfig: Boolean): String {
 fun getBuildHost() = InetAddress.getLocalHost().hostName
 
 fun getGitCommitHash(): String = "git rev-parse HEAD".exec()
+
+fun getStartParameters(): String =
+    gradle.startParameter.taskRequests[0].args.getOrElse(0) { "test" }
 
 fun String.exec(): String = Runtime.getRuntime().exec(this).inputStream.readBytes()
     .toString(Charset.defaultCharset()).trim()

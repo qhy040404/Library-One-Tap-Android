@@ -50,7 +50,7 @@ object ViewExtensions {
 
     fun ImageView.mLoad(ctx: Context, origByteArray: ByteArray) {
         val qrCode = BitmapFactory.decodeByteArray(origByteArray, 0, origByteArray.size)
-        this.load(
+        load(
             if (AppUtils.currentIsNightMode(ctx)) {
                 QRUtils.createWhiteBorderBitmap(qrCode, 2)
             } else {

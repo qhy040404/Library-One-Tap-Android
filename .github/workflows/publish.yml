@@ -110,21 +110,20 @@ jobs:
 
       - name: Sign apk release
         id: signStep
-        uses: r0adkll/sign-android-release@v1.0.4
-        env:
-          BUILD_TOOLS_VERSION: "32.0.0"
+        uses: ilharp/sign-android-release@v1.0.2
         with:
-          releaseDirectory: app/build/outputs/apk/debug
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
+          releaseDir: app/build/outputs/apk/debug
+          signingKey: ${{ secrets.SIGNING_KEY }}
+          keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_PASS }}
           keyPassword: ${{ secrets.KEY_PASS }}
+          buildToolsVersion: 33.0.0
 
       - name: Upload signed apk
         uses: actions/upload-artifact@v3.1.0
         with:
           name: signed_debug_apk
-          path: ${{ steps.signStep.outputs.signedReleaseFile }}
+          path: ${{ steps.signStep.outputs.signedFile }}
 
   test_debug:
     name: Test_Debug
@@ -187,21 +186,20 @@ jobs:
 
       - name: Sign apk release
         id: signStep
-        uses: r0adkll/sign-android-release@v1.0.4
-        env:
-          BUILD_TOOLS_VERSION: "32.0.0"
+        uses: ilharp/sign-android-release@v1.0.2
         with:
-          releaseDirectory: app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
+          releaseDir: app/build/outputs/apk/debug
+          signingKey: ${{ secrets.SIGNING_KEY }}
+          keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_PASS }}
           keyPassword: ${{ secrets.KEY_PASS }}
+          buildToolsVersion: 33.0.0
 
       - name: Upload signed apk
         uses: actions/upload-artifact@v3.1.0
         with:
           name: signed_release_apk
-          path: ${{ steps.signStep.outputs.signedReleaseFile }}
+          path: ${{ steps.signStep.outputs.signedFile }}
 
   test_release:
     name: Test_Release

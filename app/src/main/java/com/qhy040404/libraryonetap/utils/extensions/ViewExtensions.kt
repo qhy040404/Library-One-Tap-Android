@@ -3,9 +3,15 @@ package com.qhy040404.libraryonetap.utils.extensions
 import android.animation.Animator
 import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.res.Resources
+import android.graphics.BitmapFactory
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import androidx.viewpager2.widget.ViewPager2
+import coil.load
+import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.tools.QRUtils
 
 object ViewExtensions {
     val Number.dp: Int get() = (toInt() * Resources.getSystem().displayMetrics.density).toInt()
@@ -40,5 +46,16 @@ object ViewExtensions {
         animator.interpolator = interpolator
         animator.duration = duration
         animator.start()
+    }
+
+    fun ImageView.mLoad(ctx: Context, origByteArray: ByteArray) {
+        val qrCode = BitmapFactory.decodeByteArray(origByteArray, 0, origByteArray.size)
+        this.load(
+            if (AppUtils.currentIsNightMode(ctx)) {
+                QRUtils.createWhiteBorderBitmap(qrCode, 2)
+            } else {
+                qrCode
+            }
+        )
     }
 }

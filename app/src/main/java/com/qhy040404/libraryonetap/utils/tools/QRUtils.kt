@@ -41,25 +41,22 @@ object QRUtils {
         return createWhiteBorderBitmap(bmp)
     }
 
-    private fun createWhiteBorderBitmap(bmp: Bitmap): Bitmap {
-        val whiteBorderWidth = 10
-        val whiteBorderRadius = 5.toFloat()
-
+    fun createWhiteBorderBitmap(bmp: Bitmap, width: Int = 10, radius: Float = 5F): Bitmap {
         val outBmp = Bitmap.createBitmap(
-            bmp.width + whiteBorderWidth * 2,
-            bmp.height + whiteBorderWidth * 2,
+            bmp.width + width * 2,
+            bmp.height + width * 2,
             Bitmap.Config.ARGB_8888
         )
         val canvas = Canvas(outBmp)
 
-        val rectF = RectF(0.toFloat(), 0.toFloat(), outBmp.width.toFloat(), outBmp.height.toFloat())
+        val rectF = RectF(0F, 0F, outBmp.width.toFloat(), outBmp.height.toFloat())
 
         val paint = Paint()
         paint.isAntiAlias = true
         paint.color = Color.WHITE
 
-        canvas.drawRoundRect(rectF, whiteBorderRadius, whiteBorderRadius, paint)
-        canvas.drawBitmap(bmp, whiteBorderWidth.toFloat(), whiteBorderWidth.toFloat(), paint)
+        canvas.drawRoundRect(rectF, radius, radius, paint)
+        canvas.drawBitmap(bmp, width.toFloat(), width.toFloat(), paint)
 
         return outBmp
     }

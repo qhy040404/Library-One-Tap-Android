@@ -110,7 +110,7 @@ jobs:
 
       - name: Sign apk release
         id: signStep
-        uses: ilharp/sign-android-release@v1.0.2
+        uses: ilharp/sign-android-release@nightly
         with:
           releaseDir: app/build/outputs/apk/debug
           signingKey: ${{ secrets.SIGNING_KEY }}
@@ -186,7 +186,7 @@ jobs:
 
       - name: Sign apk release
         id: signStep
-        uses: ilharp/sign-android-release@v1.0.2
+        uses: ilharp/sign-android-release@nightly
         with:
           releaseDir: app/build/outputs/apk/debug
           signingKey: ${{ secrets.SIGNING_KEY }}

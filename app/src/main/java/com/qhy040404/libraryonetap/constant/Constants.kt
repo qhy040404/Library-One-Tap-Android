@@ -21,6 +21,8 @@ object Constants {
     const val PREF_UPDATE = "update"
     const val PREF_ABOUT = "about"
 
+    const val LATEST_APK_NAME = "latestApkName"
+
     const val DEFAULT_DARK = "system"
     const val DEFAULT_THEME = "library"
 

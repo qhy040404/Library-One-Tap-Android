@@ -67,6 +67,7 @@ object GlobalValues {
         AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
     }
     var newVersion: String? = null
+    var latestApkName: String? by SPDelegates(Constants.LATEST_APK_NAME, null)
 
     // Library
     var librarySessionReady: Boolean? = null

@@ -6,6 +6,7 @@ import android.net.Uri
 import android.provider.Settings
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -31,6 +32,7 @@ import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
+import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
 import jonathanfinerty.once.Once
@@ -53,6 +55,12 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         if (!Once.beenDone(Once.THIS_APP_VERSION, OnceTag.CLEAR_AFTER_UPDATE)) {
             if (!BuildConfig.DEBUG) {
                 CacheUtils.trimCaches()
+            }
+            if (
+                UpdateUtils.getVersionCode(GlobalValues.latestApkName,
+                    true) <= UpdateUtils.getVersionCode(BuildConfig.VERSION_NAME, false)
+            ) {
+                SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
             }
             Once.markDone(OnceTag.CLEAR_AFTER_UPDATE)
         }

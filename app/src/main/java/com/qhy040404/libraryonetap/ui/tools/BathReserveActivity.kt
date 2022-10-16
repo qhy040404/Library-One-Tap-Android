@@ -62,11 +62,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         WebVPNUtils.init()
 
-        val isCellular =
+        val isCampus =
             NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
                 this) == "DLUT-LingShui"
 
-        val online = if (isCellular) {
+        val online = if (isCampus) {
             Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
             "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_INSTITUTION_URL)
         } else {

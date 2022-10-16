@@ -246,6 +246,8 @@ object Requests {
                 if (timer >= 3) {
                     break
                 }
+            } else {
+                break
             }
         }
         return loginSuccess

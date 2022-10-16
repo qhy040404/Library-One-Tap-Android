@@ -80,7 +80,9 @@ object AppUtils {
         }
     }
 
-    fun pass() = Log.i("Pass", "Slack off")
+    fun pass() {
+        Log.i("Pass", "Slack off")
+    }
 
     fun getResString(@StringRes resId: Int): String {
         val conf = ctx.resources.configuration.also {

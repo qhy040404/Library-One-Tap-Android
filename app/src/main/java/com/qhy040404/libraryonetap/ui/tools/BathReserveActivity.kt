@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -65,15 +66,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
                 this) == "DLUT-LingShui"
 
-        if (isCellular) {
-            Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso)
-        } else {
-            Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
-        }
-
         val online = if (isCellular) {
+            Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
             "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_INSTITUTION_URL)
         } else {
+            Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
             true
         }
 

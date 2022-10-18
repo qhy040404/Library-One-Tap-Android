@@ -80,6 +80,7 @@
     <string name="other">其他</string>
     <string name="cache">清理缓存</string>
     <string name="check_update">检查更新</string>
+    <string name="latest_changelog">查看最近一次更新的日志</string>
 
     <!-- GLOBAL PROMPT -->
     <string name="error">错误</string>
@@ -113,6 +114,8 @@
     <string name="update_dismiss">以后再说</string>
 
     <string name="summary_update_available">"发现新版本: "</string>
+
+    <string name="latest_changelog_title">最近一次的更新日志</string>
 
     <!-- UNIT -->
     <string name="rmb">" 元"</string>

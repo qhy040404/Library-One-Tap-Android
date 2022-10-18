@@ -19,6 +19,7 @@ object Constants {
 
     const val PREF_CACHE = "cache"
     const val PREF_UPDATE = "update"
+    const val PREF_CHANGELOG = "changelog"
     const val PREF_ABOUT = "about"
 
     const val LATEST_APK_NAME = "latestApkName"
@@ -51,4 +52,7 @@ object Constants {
 
     const val RESERVE_VALID = "\"seat_type\":\"1\""
     const val RESERVE_HAS_PERSON = "\"seat_type\":3"
+
+    const val CHANGELOG_INACTIVE = "changelog_html_inactive"
+    const val CHANGELOG_ACTIVE = "changelog_html_active"
 }

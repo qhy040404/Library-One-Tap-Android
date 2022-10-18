@@ -130,6 +130,13 @@ object UpdateUtils {
                                 override fun onDownloadSuccess() {
                                     notification.finishProgress(AppUtils.getResString(R.string.downloaded))
                                     GlobalValues.latestApkName = packageName
+                                    File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
+                                        if (exists()) {
+                                            delete()
+                                        }
+                                        createNewFile()
+                                        writeText(dialogBody.toString())
+                                    }
                                     installApk(ctx, packageName)
                                 }
 

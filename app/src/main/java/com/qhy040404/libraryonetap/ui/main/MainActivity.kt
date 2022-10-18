@@ -39,6 +39,7 @@ import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.File
 
 class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     INavViewContainer,
@@ -64,6 +65,10 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                 )
             ) {
                 SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
+                val file = File(dataDir, Constants.CHANGELOG_INACTIVE)
+                if (file.exists()) {
+                    file.renameTo(File(dataDir, Constants.CHANGELOG_ACTIVE))
+                }
             }
             Once.markDone(OnceTag.CLEAR_AFTER_UPDATE)
         }

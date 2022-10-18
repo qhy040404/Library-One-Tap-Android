@@ -70,6 +70,10 @@
             app:key="update"
             app:title="@string/check_update" />
         <Preference
+            app:icon="@drawable/ic_changelog"
+            app:key="changelog"
+            app:title="@string/latest_changelog" />
+        <Preference
             app:icon="@drawable/ic_about"
             app:key="about"
             app:title="@string/about_title" />

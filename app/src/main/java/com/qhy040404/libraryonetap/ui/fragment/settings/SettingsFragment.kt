@@ -6,6 +6,7 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
@@ -43,6 +44,7 @@ import rikka.recyclerview.fixEdgeEffect
 import rikka.widget.borderview.BorderRecyclerView
 import rikka.widget.borderview.BorderView
 import rikka.widget.borderview.BorderViewDelegate
+import java.io.File
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -209,6 +211,26 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                 lifecycleScope.launch(Dispatchers.IO) {
                     UpdateUtils.checkUpdate(requireContext(), true)
                 }
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.PREF_CHANGELOG)?.apply {
+            val file = File(requireContext().dataDir, Constants.CHANGELOG_ACTIVE)
+            if (!file.exists()) {
+                isVisible = false
+            }
+            setOnPreferenceClickListener {
+                val body = file.readText()
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.latest_changelog_title)
+                    .setMessage(HtmlCompat.fromHtml(
+                        body,
+                        HtmlCompat.FROM_HTML_MODE_LEGACY
+                    ))
+                    .setPositiveButton(R.string.ok, null)
+                    .setCancelable(true)
+                    .create().show()
                 true
             }
         }

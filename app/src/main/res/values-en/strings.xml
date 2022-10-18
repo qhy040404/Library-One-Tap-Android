@@ -79,6 +79,7 @@
     <string name="other">Others</string>
     <string name="cache">Clear Cache</string>
     <string name="check_update">Check Update</string>
+    <string name="latest_changelog">Show Latest Changelog</string>
 
     <!-- GLOBAL PROMPT -->
     <string name="error">Error</string>
@@ -112,6 +113,8 @@
     <string name="update_dismiss">Dismiss</string>
 
     <string name="summary_update_available">"Update available: "</string>
+
+    <string name="latest_changelog_title">Latest Changelog</string>
 
     <!-- UNIT -->
     <string name="rmb">" Yuan"</string>

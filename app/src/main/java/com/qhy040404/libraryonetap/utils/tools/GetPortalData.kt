@@ -16,6 +16,12 @@ object GetPortalData {
             StrictMode.ThreadPolicy.Builder().permitAll().build()
         )
 
+        if (!GlobalValues.mainSessionReady) {
+            Requests.init()
+        }
+
+        Requests.get(URLManager.PORTAL_DIRECT_URL)
+
         return when (mode) {
             0 -> Requests.post(
                 URLManager.PORTAL_ELEC_URL,

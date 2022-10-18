@@ -189,6 +189,7 @@ object Requests {
         noJsonString: String = "统一身份",
         hasSessionJson: Boolean = false,
         toolsInit: Boolean = false,
+        syncToGlobalValues: Boolean = false,
     ): Boolean {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
@@ -250,6 +251,9 @@ object Requests {
                 break
             }
         }
+        if (syncToGlobalValues) {
+            GlobalValues.mainSessionReady = loginSuccess
+        }
         return loginSuccess
     }
 
@@ -266,6 +270,7 @@ object Requests {
         loginSso(URLManager.PORTAL_SSO_URL,
             GlobalValues.ctSso,
             URLManager.PORTAL_SSO_URL,
-            needCheck = true)
+            needCheck = true,
+            syncToGlobalValues = true)
     }
 }

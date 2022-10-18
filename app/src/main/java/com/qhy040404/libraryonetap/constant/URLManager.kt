@@ -28,6 +28,7 @@ object URLManager {
 
     const val PORTAL_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=https%3A%2F%2Fportal.dlut.edu.cn%2Ftp%2Fview%3Fm%3Dup#act=portal/viewhome"
+    const val PORTAL_DIRECT_URL = "https://portal.dlut.edu.cn/tp/view?m=up#act=portal/viewhome"
     const val PORTAL_ELEC_URL = "https://portal.dlut.edu.cn/tp/up/subgroup/getElectricCharge"
     const val PORTAL_NET_URL = "https://portal.dlut.edu.cn/tp/up/subgroup/getWlzzList"
 

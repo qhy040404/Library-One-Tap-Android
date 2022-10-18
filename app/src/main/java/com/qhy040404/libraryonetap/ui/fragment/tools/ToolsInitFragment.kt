@@ -186,18 +186,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             return
         }
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
-
-        val checked = withContext(Dispatchers.Main) {
-            AppUtils.checkDataAndDialog(requireContext(),
-                id,
-                passwd,
-                R.string.tools,
-                R.string.no_userdata)
-        }
-
-        if (checked) {
+        if (checkIdPass()) {
             withContext(Dispatchers.Main) {
                 requireContext().showToast(R.string.loading)
             }
@@ -255,18 +244,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             return
         }
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
-
-        val checked = withContext(Dispatchers.Main) {
-            AppUtils.checkDataAndDialog(requireContext(),
-                id,
-                passwd,
-                R.string.tools,
-                R.string.no_userdata)
-        }
-
-        if (checked) {
+        if (checkIdPass()) {
             withContext(Dispatchers.Main) {
                 requireContext().showToast(R.string.loading)
             }
@@ -315,15 +293,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             return
         }
 
-        val checked = withContext(Dispatchers.Main) {
-            AppUtils.checkDataAndDialog(requireContext(),
-                GlobalValues.name,
-                GlobalValues.id,
-                R.string.tools,
-                R.string.no_userdata)
-        }
-
-        if (checked) {
+        if (checkIdPass(true)) {
             withContext(Dispatchers.Main) {
                 requireContext().showToast(R.string.loading)
             }
@@ -428,6 +398,20 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         withContext(Dispatchers.Main) {
             this@ToolsInitFragment.findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible =
                 true
+        }
+    }
+
+    private suspend fun checkIdPass(isVolunteer: Boolean = false): Boolean {
+        return withContext(Dispatchers.Main) {
+            AppUtils.checkDataAndDialog(requireContext(),
+                GlobalValues.id,
+                if (!isVolunteer) {
+                    GlobalValues.passwd
+                } else {
+                    GlobalValues.name
+                },
+                R.string.tools,
+                R.string.no_userdata)
         }
     }
 }

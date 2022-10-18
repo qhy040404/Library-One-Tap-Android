@@ -89,4 +89,37 @@ object BathUtils {
             else -> throw IndexOutOfBoundsException("Invalid hour")
         }
     }
+
+    fun isBathTimeValid(): Boolean {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        return when (hour) {
+            in 9..20 -> true
+            21 -> when (minute) {
+                in 0..39 -> true
+                else -> false
+            }
+            else -> false
+        }
+    }
+
+    fun isTimeNearValidTime(): Boolean {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        return when (hour) {
+            8 -> when (minute) {
+                in 55..59 -> true
+                else -> false
+            }
+            21 -> when (minute) {
+                in 35..39 -> true
+                else -> false
+            }
+            else -> false
+        }
+    }
 }

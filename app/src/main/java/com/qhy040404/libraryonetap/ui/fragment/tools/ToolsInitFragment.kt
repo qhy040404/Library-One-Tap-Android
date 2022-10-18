@@ -22,6 +22,7 @@ import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
@@ -43,6 +44,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
+            if (!BathUtils.isBathTimeValid()) {
+                isVisible = false
+            }
             setOnPreferenceClickListener {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
@@ -167,6 +171,20 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
     override fun onResume() {
         super.onResume()
+        if (BathUtils.isTimeNearValidTime()) {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val current = BathUtils.isBathTimeValid()
+                while (isVisible) {
+                    if (BathUtils.isBathTimeValid() != current) {
+                        withContext(Dispatchers.Main) {
+                            findPreference<Preference>(Constants.TOOLS_BATH)?.isVisible =
+                                BathUtils.isBathTimeValid()
+                        }
+                        break
+                    }
+                }
+            }
+        }
         if (!GlobalValues.minorVisible && GradesTempValues.minorStuId != 0) {
             lifecycleScope.launch(Dispatchers.IO) { showMinor() }
         }

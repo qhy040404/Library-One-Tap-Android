@@ -93,7 +93,11 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 override fun onFailure(call: Call, e: IOException) {}
 
                 override fun onResponse(call: Call, response: Response) {
-                    qr.mLoad(requireContext(), response.body!!.bytes())
+                    try {
+                        qr.mLoad(requireContext(), response.body!!.bytes())
+                    } catch (e: IllegalStateException) {
+                        return
+                    }
                 }
             })
             detail.post {

@@ -67,7 +67,11 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                 SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
                 val file = File(dataDir, Constants.CHANGELOG_INACTIVE)
                 if (file.exists()) {
-                    file.renameTo(File(dataDir, Constants.CHANGELOG_ACTIVE))
+                    val newFile = File(dataDir, Constants.CHANGELOG_ACTIVE)
+                    if (newFile.exists()) {
+                        newFile.delete()
+                    }
+                    file.renameTo(newFile)
                 }
             }
             Once.markDone(OnceTag.CLEAR_AFTER_UPDATE)

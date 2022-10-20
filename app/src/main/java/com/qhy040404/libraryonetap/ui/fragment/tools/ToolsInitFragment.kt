@@ -21,11 +21,11 @@ import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.NetworkStateUtils
+import com.qhy040404.libraryonetap.utils.PermissionUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
-import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.tools.PermissionUtils
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers

@@ -16,8 +16,8 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.model.VCardStatusClass
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
+import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
-import com.qhy040404.libraryonetap.utils.tools.QRUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

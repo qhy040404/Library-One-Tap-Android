@@ -13,7 +13,6 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import rikka.material.app.DayNightDelegate
 
 object AppUtils {

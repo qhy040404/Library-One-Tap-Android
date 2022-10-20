@@ -14,10 +14,10 @@ import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
-import com.qhy040404.libraryonetap.utils.tools.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
 import kotlinx.coroutines.Dispatchers

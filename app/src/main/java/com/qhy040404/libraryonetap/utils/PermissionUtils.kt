@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.utils.tools
+package com.qhy040404.libraryonetap.utils
 
 import android.app.Activity
 import android.content.pm.PackageManager
@@ -6,7 +6,6 @@ import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
-import com.qhy040404.libraryonetap.utils.AppUtils
 
 object PermissionUtils {
     fun checkPermission(

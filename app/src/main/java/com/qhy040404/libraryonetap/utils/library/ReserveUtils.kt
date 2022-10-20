@@ -1,4 +1,6 @@
-package com.qhy040404.libraryonetap.utils
+package com.qhy040404.libraryonetap.utils.library
+
+import com.qhy040404.libraryonetap.utils.TimeUtils
 
 object ReserveUtils {
     fun getResetRoomCode(space_name: String): Int {

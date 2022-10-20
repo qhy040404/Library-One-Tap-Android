@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.utils.tools
+package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

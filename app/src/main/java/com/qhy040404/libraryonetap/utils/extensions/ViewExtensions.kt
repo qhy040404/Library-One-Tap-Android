@@ -11,7 +11,7 @@ import android.widget.ImageView
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.tools.QRUtils
+import com.qhy040404.libraryonetap.utils.QRUtils
 
 object ViewExtensions {
     val Number.dp: Int get() = (toInt() * Resources.getSystem().displayMetrics.density).toInt()

@@ -14,6 +14,9 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.QRUtils
 
 object ViewExtensions {
+    /**
+     * Get dp length according to density
+     */
     val Number.dp: Int get() = (toInt() * Resources.getSystem().displayMetrics.density).toInt()
 
     fun ViewPager2.setCurrentItem(
@@ -48,6 +51,12 @@ object ViewExtensions {
         animator.start()
     }
 
+    /**
+     * Auto detect night mode to generate a nicer QR code for ImageView
+     *
+     * @param ctx Context
+     * @param origByteArray Original QR code byte array
+     */
     fun ImageView.mLoad(ctx: Context, origByteArray: ByteArray) {
         val qrCode = BitmapFactory.decodeByteArray(origByteArray, 0, origByteArray.size)
         load(

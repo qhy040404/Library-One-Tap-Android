@@ -2,9 +2,9 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import android.app.Activity
 import android.content.pm.PackageManager
+import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
-import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
 import com.qhy040404.libraryonetap.utils.AppUtils
 
@@ -13,6 +13,7 @@ object PermissionUtils {
         activity: Activity,
         permission: Array<String>,
         childFragmentMgr: FragmentManager,
+        @StringRes strResId: Int,
     ): Boolean {
         var hasPermission = true
         for (s in permission) {
@@ -21,7 +22,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    FullScreenDialogFragment(AppUtils.getResString(R.string.bath_permission_prompt)))
+                    FullScreenDialogFragment(AppUtils.getResString(strResId)))
             }
         }
         return hasPermission

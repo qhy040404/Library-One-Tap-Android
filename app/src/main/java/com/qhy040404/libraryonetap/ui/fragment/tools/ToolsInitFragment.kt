@@ -67,7 +67,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     if (netName == "<unknown ssid>") {
                         if (PermissionUtils.checkPermission(requireActivity(),
                                 permission,
-                                childFragmentManager)
+                                childFragmentManager,
+                                R.string.bath_permission_prompt)
                         ) {
                             requireContext().showToast(R.string.error)
                         }

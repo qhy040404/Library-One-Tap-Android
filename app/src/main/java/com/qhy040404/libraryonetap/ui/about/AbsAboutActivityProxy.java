@@ -36,7 +36,7 @@ import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.qhy040404.libraryonetap.annotation.InsetsParams;
-import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
+import com.qhy040404.libraryonetap.compat.WICompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,9 +130,9 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
                 );
             }
 
-            insetLeft = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
-            insetRight = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
-            insetTop = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
+            insetLeft = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.LEFT);
+            insetRight = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
+            insetTop = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.TOP);
 
             decorView.setPadding(insetLeft, decorView.getPaddingTop(), insetRight, decorView.getPaddingBottom());
             appBarLayout.setPadding(appBarLayout.getPaddingLeft(), insetTop, appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());

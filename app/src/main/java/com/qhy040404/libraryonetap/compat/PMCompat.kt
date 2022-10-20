@@ -7,7 +7,10 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.utils.OsUtils
 
 @Suppress("DEPRECATION")
-object PackageManagerCompat {
+/**
+ * Modified Package Manager implementations
+ */
+object PMCompat {
     fun getPackageInfo(packageName: String, flags: Int): PackageInfo {
         return if (OsUtils.atLeastT()) {
             GlobalManager.packageManager.getPackageInfo(

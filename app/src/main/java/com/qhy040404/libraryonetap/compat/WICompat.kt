@@ -1,11 +1,15 @@
-package com.qhy040404.libraryonetap.utils
+package com.qhy040404.libraryonetap.compat
 
 import android.view.WindowInsets
 import androidx.core.view.WindowInsetsCompat
 import com.qhy040404.libraryonetap.annotation.InsetsParams
+import com.qhy040404.libraryonetap.utils.OsUtils
 
 @Suppress("DEPRECATION")
-object WindowInsetsUtils {
+/**
+ * Modified Window Insets implementations
+ */
+object WICompat {
     fun getSystemBars() = if (OsUtils.atLeastR()) {
         WindowInsets.Type.systemBars()
     } else {

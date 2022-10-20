@@ -4,13 +4,13 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import com.qhy040404.libraryonetap.LibraryOneTapApp
-import com.qhy040404.libraryonetap.compat.PackageManagerCompat
+import com.qhy040404.libraryonetap.compat.PMCompat
 
 
 object PackageUtils {
     private val packInfo: PackageInfo =
-        PackageManagerCompat.getPackageInfo(LibraryOneTapApp.app.packageName, 0)
-    private val appInfo: ApplicationInfo = PackageManagerCompat.getApplicationInfo(
+        PMCompat.getPackageInfo(LibraryOneTapApp.app.packageName, 0)
+    private val appInfo: ApplicationInfo = PMCompat.getApplicationInfo(
         LibraryOneTapApp.app.packageName,
         PackageManager.GET_META_DATA
     )

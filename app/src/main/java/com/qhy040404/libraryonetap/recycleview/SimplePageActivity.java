@@ -24,6 +24,7 @@ import com.drakeet.multitype.MultiTypeAdapter;
 import com.google.android.material.appbar.AppBarLayout;
 import com.qhy040404.libraryonetap.R;
 import com.qhy040404.libraryonetap.annotation.InsetsParams;
+import com.qhy040404.libraryonetap.compat.WICompat;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category;
@@ -31,7 +32,6 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.OnClickableItemClickedListener;
-import com.qhy040404.libraryonetap.utils.WindowInsetsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,9 +144,9 @@ public abstract class SimplePageActivity extends MaterialActivity {
                 );
             }
 
-            insetLeft = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.LEFT);
-            insetRight = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
-            insetTop = WindowInsetsUtils.INSTANCE.getInsetsParam(windowInsets, WindowInsetsUtils.INSTANCE.getSystemBars(), InsetsParams.TOP);
+            insetLeft = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.LEFT);
+            insetRight = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.RIGHT);
+            insetTop = WICompat.INSTANCE.getInsetsParam(windowInsets, WICompat.INSTANCE.getSystemBars(), InsetsParams.TOP);
 
             decorView.setPadding(insetLeft, decorView.getPaddingTop(), insetRight, decorView.getPaddingBottom());
             appBarLayout.setPadding(appBarLayout.getPaddingLeft(), insetTop, appBarLayout.getPaddingRight(), appBarLayout.getPaddingBottom());

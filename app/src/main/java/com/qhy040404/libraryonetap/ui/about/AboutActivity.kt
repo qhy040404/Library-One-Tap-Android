@@ -243,6 +243,14 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "https://github.com/mozilla/rhino"
                 )
             )
+            add(
+                License(
+                    "Once",
+                    "jonfinerty",
+                    License.APACHE_2,
+                    "https://github.com/jonfinerty/Once"
+                )
+            )
         }
     }
 

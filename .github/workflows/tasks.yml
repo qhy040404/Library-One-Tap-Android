@@ -29,6 +29,6 @@ jobs:
         uses: gradle/wrapper-validation-action@v1.0.4
 
       - name: Show Gradle tasks
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: ${{ inputs.task }}

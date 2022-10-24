@@ -2,7 +2,9 @@ package com.qhy040404.libraryonetap.utils
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Process
 import androidx.core.app.NotificationCompat
@@ -14,14 +16,27 @@ class NotificationUtils(
     private val channelName: String,
 ) {
     private val notificationId = Process.myPid()
+    private val notificationIdNext = notificationId + 1
     private val notificationManager =
         ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-    val builder = NotificationCompat.Builder(ctx, channelId)
+    private val builder = NotificationCompat.Builder(ctx, channelId)
         .setContentTitle(AppUtils.getResString(R.string.app_name))
         .setSmallIcon(R.drawable.ic_about_foreground)
         .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
         .setPriority(NotificationCompat.PRIORITY_LOW)
         .setProgress(0, 0, true)
+        .setSilent(true)
+        .setOngoing(false)
+        .setAutoCancel(false).apply {
+            if (!OsUtils.atLeastS()) {
+                color = ctx.getColor(R.color.colorPrimary)
+            }
+        }
+    private val builderFinished = NotificationCompat.Builder(ctx, channelId)
+        .setContentTitle(AppUtils.getResString(R.string.app_name))
+        .setSmallIcon(R.drawable.ic_about_foreground)
+        .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
+        .setPriority(NotificationCompat.PRIORITY_LOW)
         .setSilent(true)
         .setOngoing(false)
         .setAutoCancel(false).apply {
@@ -51,9 +66,12 @@ class NotificationUtils(
         notificationManager.notify(notificationId, builder.build())
     }
 
-    fun finishProgress(content: String) {
-        builder.setProgress(0, 0, false)
-            .setContentText(content)
-        notificationManager.notify(notificationId, builder.build())
+    fun finishProgress(content: String, intent: Intent) {
+        builderFinished.setContentText(content)
+            .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, 0))
+        notificationManager.apply {
+            cancelAll()
+            notify(notificationIdNext, builderFinished.build())
+        }
     }
 }

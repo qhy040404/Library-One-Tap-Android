@@ -100,6 +100,8 @@ object UpdateUtils {
             }
         }
 
+        val installIntent = generateInstallIntent(ctx, packageName)
+
         withContext(Dispatchers.Main) {
             MaterialAlertDialogBuilder(ctx)
                 .setTitle(R.string.update_detected)
@@ -109,7 +111,7 @@ object UpdateUtils {
                 ))
                 .setPositiveButton(R.string.update_confirm) { _, _ ->
                     if (File(ctx.cacheDir, packageName).exists()) {
-                        installApk(ctx, packageName)
+                        ctx.startActivity(installIntent)
                         return@setPositiveButton
                     }
                     ctx.showToast(R.string.download_start)
@@ -128,7 +130,8 @@ object UpdateUtils {
                                 }
 
                                 override fun onDownloadSuccess() {
-                                    notification.finishProgress(AppUtils.getResString(R.string.downloaded))
+                                    notification.finishProgress(AppUtils.getResString(R.string.downloaded),
+                                        installIntent)
                                     GlobalValues.latestApkName = packageName
                                     File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
                                         if (exists()) {
@@ -137,7 +140,7 @@ object UpdateUtils {
                                         createNewFile()
                                         writeText(dialogBody.toString())
                                     }
-                                    installApk(ctx, packageName)
+                                    ctx.startActivity(installIntent)
                                 }
 
                                 override fun onDownloading(progress: Int, done: Boolean) {
@@ -175,17 +178,17 @@ object UpdateUtils {
         }
     }
 
-    private fun installApk(ctx: Context, name: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.addCategory(Intent.CATEGORY_DEFAULT)
-        intent.setDataAndType(
-            FileProvider.getUriForFile(ctx,
-                "com.qhy040404.libraryonetap.fileprovider",
-                File(ctx.cacheDir, name)),
-            "application/vnd.android.package-archive")
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        ctx.startActivity(intent)
+    private fun generateInstallIntent(ctx: Context, name: String): Intent {
+        return Intent(Intent.ACTION_VIEW).apply {
+            addCategory(Intent.CATEGORY_DEFAULT)
+            setDataAndType(
+                FileProvider.getUriForFile(ctx,
+                    "com.qhy040404.libraryonetap.fileprovider",
+                    File(ctx.cacheDir, name)),
+                "application/vnd.android.package-archive")
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
     }
 
     private fun checkConnection(): Boolean {

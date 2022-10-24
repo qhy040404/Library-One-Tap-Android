@@ -78,17 +78,17 @@ configurations.all {
 }
 
 dependencies {
-    implementation("androidx.activity:activity-ktx:1.6.0")
+    implementation("androidx.activity:activity-ktx:1.6.1")
     implementation("androidx.annotation:annotation:1.5.0")
     implementation("androidx.appcompat:appcompat:1.6.0-rc01")
     implementation("androidx.browser:browser:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.core:core-splashscreen:1.0.0")
-    implementation("androidx.fragment:fragment-ktx:1.5.3")
+    implementation("androidx.fragment:fragment-ktx:1.5.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.viewpager2:viewpager2:1.0.0")

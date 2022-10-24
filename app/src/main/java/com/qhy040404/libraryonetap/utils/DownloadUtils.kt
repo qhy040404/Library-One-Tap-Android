@@ -60,7 +60,6 @@ object DownloadUtils {
                         body.byteStream().source().buffer().use { source ->
                             file.sink().buffer().use { output ->
                                 output.writeAll(source)
-                                onDownloadListener?.get()?.onDownloadSuccess()
                             }
                         }
                     } ?: run {
@@ -75,7 +74,12 @@ object DownloadUtils {
 
     interface OnDownloadListener {
         fun onDownloadSuccess()
-        fun onDownloading(progress: Int, done: Boolean)
+        fun onDownloading(progress: Int, done: Boolean) {
+            if (done) {
+                onDownloadSuccess()
+            }
+        }
+
         fun onDownloadFailed()
     }
 

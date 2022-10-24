@@ -17,7 +17,7 @@
 
     <!-- INIT -->
     <string name="welcome">欢迎</string>
-    <string name="welcome_message">欢迎使用此程序，首次使用先设置相关信息哦\n点击好跳转到设置</string>
+    <string name="welcome_message">欢迎使用此程序，首次使用先设置相关信息\n点击好跳转到设置</string>
 
     <!-- MENU -->
     <string name="detail">单人座</string>
@@ -62,7 +62,7 @@
     <string name="network_env_limit">请在校园网环境下使用此功能</string>
     <string name="request_sent">已发送预约请求</string>
 
-    <string name="bath_permission_prompt">需要获取此权限来获得WIFI的SSID，从而检测是否在校园网环境中</string>
+    <string name="bath_permission_prompt">需要获取此权限来获得 WIFI 的 SSID，从而检测是否在校园网环境中</string>
     <string name="permission_got">已成功获取权限，请重新点击按钮</string>
     <string name="permission_fail">获取权限失败，请到设置中手动开启</string>
 
@@ -129,15 +129,15 @@
     <string name="remain_net">"剩余流量: "</string>
     <string name="remain_electric">"剩余电量: "</string>
     <string name="vol_update_time">"数据更新至: "</string>
-    <string name="invalid_id_or_name">姓名或ID错误</string>
-    <string name="find_same_data">有相同ID或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
+    <string name="invalid_id_or_name">姓名或 ID 错误</string>
+    <string name="find_same_data">有相同 ID 或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
     <string name="reserved">预约请求已发送</string>
 
     <!-- SETTINGS PROMPT -->
     <string name="data_reset_confirm">请确认重置应用数据</string>
     <string name="data_reset_completed">数据已被重置，程序即将退出…</string>
     <string name="cache_cleared">缓存清理完毕</string>
-    <string name="custom_deprecated">数个版本后MD3主题将会强制全局启用</string>
+    <string name="custom_deprecated">数个版本后 MD3 主题将会强制全局启用</string>
 
     <string name="current_is_latest_version">当前已是最新版本</string>
     <string name="failed_to_connect_github_api">无法连接到更新服务器</string>

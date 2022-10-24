@@ -209,7 +209,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    UpdateUtils.checkUpdate(requireContext(), true)
+                    UpdateUtils.checkUpdate(requireActivity(), true)
                 }
                 true
             }

@@ -58,7 +58,7 @@
             android:label="@string/exams_title" />
         <activity
             android:name=".ui.tools.VCardActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/vcard_title" />
         <activity
             android:name=".ui.about.AboutActivity"

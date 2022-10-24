@@ -7,7 +7,7 @@
     <string name="vcard_title">虚拟卡</string>
     <string name="net_title">剩余流量</string>
     <string name="electric_title">剩余电量</string>
-    <string name="bath_title">澡堂预约</string>
+    <string name="bath_title">浴室预约</string>
     <string name="secret_title">你 被 骗 了</string>
     <string name="about_title">关于</string>
     <string name="volunteer_title">志愿时长</string>
@@ -17,7 +17,7 @@
 
     <!-- INIT -->
     <string name="welcome">欢迎</string>
-    <string name="welcome_message">欢迎使用此程序，首次使用先设置相关信息\n点击好跳转到设置</string>
+    <string name="welcome_message">首次启动请先设置相关信息\n点击好跳转到设置</string>
 
     <!-- MENU -->
     <string name="detail">单人座</string>
@@ -37,7 +37,7 @@
     <string name="outside">暂离</string>
     <string name="not_start">未开始</string>
 
-    <string name="no_valid_order">没有找到有效的order</string>
+    <string name="no_valid_order">未找到有效的order</string>
     <string name="temp_end_time">"暂离截止: "</string>
 
     <string name="cancel_confirm">确认取消吗</string>
@@ -51,7 +51,7 @@
     <string name="not_in_valid_time">现在不能预约</string>
 
     <!-- TOOLS -->
-    <string name="bath">预约浴室</string>
+    <string name="bath">浴室预约</string>
     <string name="cernet">校园网剩余流量</string>
     <string name="electric">宿舍剩余电量</string>
     <string name="vcard">玉兰卡虚拟卡</string>
@@ -59,12 +59,11 @@
 
     <!-- BATH RESERVE ACTIVITY -->
     <string name="bath_reserve">预约最近时间段</string>
-    <string name="network_env_limit">请在校园网环境下使用此功能</string>
     <string name="request_sent">已发送预约请求</string>
 
-    <string name="bath_permission_prompt">需要获取此权限来获得 WIFI 的 SSID，从而检测是否在校园网环境中</string>
-    <string name="permission_got">已成功获取权限，请重新点击按钮</string>
-    <string name="permission_fail">获取权限失败，请到设置中手动开启</string>
+    <string name="bath_permission_prompt">我们需要此权限来获得 WIFI 的 SSID, 从而检测是否在校园网环境中</string>
+    <string name="permission_got">已成功获取权限, 请重新点击按钮</string>
+    <string name="permission_fail">获取权限失败, 请到设置中手动开启</string>
 
     <!-- SETTING -->
     <string name="basic_information">基本信息</string>
@@ -91,17 +90,17 @@
 
     <string name="loading">加载中…</string>
     <string name="loaded">登录成功</string>
-    <string name="fail_to_login_no_retry">登录失败，请重试</string>
-    <string name="fail_to_login">登录失败，正在重试</string>
+    <string name="fail_to_login_no_retry">登录失败, 请重试</string>
+    <string name="fail_to_login">登录失败, 正在重试</string>
     <string name="fail_to_login_three_times">连续失败3次\n请检查用户名和密码</string>
-    <string name="login_timeout">登录失效，请重新加载</string>
+    <string name="login_timeout">登录失效, 请重新加载</string>
     <string name="no_userdata">请先到设置输入基本信息</string>
 
     <string name="net_error">网络错误</string>
     <string name="net_disconnected">无网络</string>
     <string name="net_timeout">网络超时</string>
 
-    <string name="net_api_error">接口异常，暂无法使用</string>
+    <string name="net_api_error">接口异常, 暂无法使用</string>
 
     <string name="download_start">下载开始</string>
     <string name="download_failed">下载失败</string>
@@ -130,12 +129,12 @@
     <string name="remain_electric">"剩余电量: "</string>
     <string name="vol_update_time">"数据更新至: "</string>
     <string name="invalid_id_or_name">姓名或 ID 错误</string>
-    <string name="find_same_data">有相同 ID 或姓名出现，请检查\n如果检查后还是出错，请前往公众号查询</string>
+    <string name="find_same_data">有相同 ID 或姓名出现, 请检查\n如果检查后还是出错, 请前往公众号查询</string>
     <string name="reserved">预约请求已发送</string>
 
     <!-- SETTINGS PROMPT -->
     <string name="data_reset_confirm">请确认重置应用数据</string>
-    <string name="data_reset_completed">数据已被重置，程序即将退出…</string>
+    <string name="data_reset_completed">数据已被重置, 程序即将退出…</string>
     <string name="cache_cleared">缓存清理完毕</string>
     <string name="custom_deprecated">数个版本后 MD3 主题将会强制全局启用</string>
 

@@ -49,8 +49,8 @@ object AppUtils {
         ctx: Context,
         id: String,
         passwd: String,
-        titleResId: Int,
-        messageResId: Int,
+        @StringRes titleResId: Int,
+        @StringRes messageResId: Int,
     ): Boolean {
         return if (id == "Error" || passwd == "Error" || id.isEmpty() || passwd.isEmpty()) {
             MaterialAlertDialogBuilder(ctx)

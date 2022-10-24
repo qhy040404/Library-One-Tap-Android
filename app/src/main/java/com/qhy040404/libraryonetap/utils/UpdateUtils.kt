@@ -142,6 +142,7 @@ object UpdateUtils {
 
                                 override fun onDownloading(progress: Int, done: Boolean) {
                                     notification.updateProgress(progress)
+                                    super.onDownloading(progress, done)
                                 }
                             },
                             true

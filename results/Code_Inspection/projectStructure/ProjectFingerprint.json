@@ -3,11 +3,10 @@
     "XML",
     "Kotlin",
     "Java",
-    "Plain text",
     ".gitignore (GitIgnore)",
-    "Shrinker Config",
+    "Groovy",
+    "Plain text",
     "Properties",
-    "JSON",
-    "EditorConfig"
+    "JSON"
   ]
 }

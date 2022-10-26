@@ -1,23 +1,11 @@
 {
   "modules": [
     {
-      "name": "Library-One-Tap",
+      "name": "图书馆",
       "languageLevel": 11
     },
     {
-      "name": "Library-One-Tap.app",
-      "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.main",
-      "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.unitTest",
-      "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.androidTest",
+      "name": "图书馆.app",
       "languageLevel": 11
     }
   ]

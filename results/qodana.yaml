@@ -1,14 +1,2 @@
-# Qodana configuration:
-# https://www.jetbrains.com/help/qodana/qodana-yaml.html
-version: 1.0
-profile:
-  name: qodana.recommended
-exclude:
-  # Disable Unknown Attributes check when target API is 33 before AGP 7.3 release
-  - name: AndroidUnknownAttribute
-  # Disable Gradle Kotlin DSL check
-  - name: UnstableApiUsage
-    paths:
-      - app/build.gradle.kts
-      - build.gradle.kts
-      - settings.gradle.kts
+version: "1.0"
+linter: jetbrains/qodana-jvm-community:2022.2

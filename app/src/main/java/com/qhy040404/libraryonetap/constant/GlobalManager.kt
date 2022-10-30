@@ -13,5 +13,5 @@ object GlobalManager {
     val moshi: Moshi = Moshi.Builder()
         .addLast(KotlinJsonAdapterFactory())
         .build()
-    val des = DesEncryptUtils()
+    val des by lazy { DesEncryptUtils() }
 }

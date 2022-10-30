@@ -81,21 +81,22 @@ object UpdateUtils {
 
         GlobalValues.newVersion = versionName
 
-        val dialogBody = StringBuilder()
-        dialogBody.append("<h2>")
-            .append(versionName)
-            .append("</h2>")
-        changelog.forEach {
-            if (it.isNotEmpty()) {
-                dialogBody.append("\t")
-                if (it.startsWith("* ")) {
-                    dialogBody.append(it.substring(2))
-                } else if (it.startsWith("> ")) {
-                    dialogBody.append("// ")
-                    dialogBody.append(it.substring(2))
-                }
-                if (it != changelog.last()) {
-                    dialogBody.append("<br>")
+        val dialogBody = buildString {
+            append("<h2>")
+            append(versionName)
+            append("</h2>")
+            changelog.forEach {
+                if (it.isNotEmpty()) {
+                    append("\t")
+                    if (it.startsWith("* ")) {
+                        append(it.substring(2))
+                    } else if (it.startsWith("> ")) {
+                        append("// ")
+                        append(it.substring(2))
+                    }
+                    if (it != changelog.last()) {
+                        append("<br>")
+                    }
                 }
             }
         }
@@ -104,7 +105,7 @@ object UpdateUtils {
             MaterialAlertDialogBuilder(ctx)
                 .setTitle(R.string.update_detected)
                 .setMessage(HtmlCompat.fromHtml(
-                    dialogBody.toString(),
+                    dialogBody,
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 ))
                 .setPositiveButton(R.string.update_confirm) { _, _ ->
@@ -135,7 +136,7 @@ object UpdateUtils {
                                             delete()
                                         }
                                         createNewFile()
-                                        writeText(dialogBody.toString())
+                                        writeText(dialogBody)
                                     }
                                     installApk(ctx, packageName)
                                 }

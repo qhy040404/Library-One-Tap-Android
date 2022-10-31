@@ -19,4 +19,4 @@ exclude:
       - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
   - name: All
     paths:
-      - app/src/main/res/**
+      - app/src/main/res

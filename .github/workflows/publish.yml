@@ -15,6 +15,8 @@ on:
       - '.github/workflows/code_quality.yml'
       - '.github/workflows/nightly-merge.yml'
       - 'source/**'
+      - 'qodana.yaml'
+
   pull_request:
     paths-ignore:
       - '.idea/**'
@@ -29,7 +31,7 @@ on:
       - '.github/workflows/code_quality.yml'
       - '.github/workflows/nightly-merge.yml'
       - 'source/**'
-
+      - 'qodana.yaml'
 env:
   BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
 

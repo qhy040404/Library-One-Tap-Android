@@ -12,3 +12,11 @@ exclude:
       - app/build.gradle.kts
       - build.gradle.kts
       - settings.gradle.kts
+  - name: AndroidLintAppBundleLocaleChanges
+  - name: PropertyName
+    paths:
+      - app/src/main/java/com/qhy040404/libraryonetap/data/model
+      - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
+  - name: All
+    paths:
+      - app/src/main/res

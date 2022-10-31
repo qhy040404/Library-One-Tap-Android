@@ -48,7 +48,7 @@ jobs:
           arguments: build
 
       - name: 'Run Qodana'
-        uses: JetBrains/qodana-action@v2022.2.2
+        uses: JetBrains/qodana-action@v2022.2.3
         with:
           args: >
             -l,jetbrains/qodana-jvm-android,

@@ -117,7 +117,7 @@ object Requests {
     fun post(
         url: String,
         form: String,
-        FORM: MediaType,
+        mediaType: MediaType,
         textView: TextView? = null,
         getUrl: Boolean = false,
         toolsInit: Boolean = false,
@@ -127,7 +127,7 @@ object Requests {
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
-        val body = form.toRequestBody(FORM)
+        val body = form.toRequestBody(mediaType)
         val request = Request.Builder()
             .url(url)
             .post(body)
@@ -157,11 +157,11 @@ object Requests {
         }
     }
 
-    fun postVCard(url: String, form: String, FORM: MediaType): String {
+    fun postVCard(url: String, form: String, mediaType: MediaType): String {
         if (!AppUtils.hasNetwork()) {
             return Constants.NET_DISCONNECTED
         }
-        val body = form.toRequestBody(FORM)
+        val body = form.toRequestBody(mediaType)
         val request = Request.Builder()
             .url(url)
             .removeHeader("User-Agent")

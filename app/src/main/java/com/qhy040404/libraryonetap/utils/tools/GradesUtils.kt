@@ -15,11 +15,11 @@ object GradesUtils {
         return (totalWeightedSum / totalCredits).to2Decimal()
     }
 
-    fun calculateAverageGP(GP: MutableList<Double>, credits: MutableList<Double>): Double {
+    fun calculateAverageGP(gp: MutableList<Double>, credits: MutableList<Double>): Double {
         var totalWeightedGP = 0.0
         val totalCredits = credits.sum()
-        for (i in 0 until GP.size) {
-            totalWeightedGP += GP[i] * credits[i]
+        for (i in 0 until gp.size) {
+            totalWeightedGP += gp[i] * credits[i]
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }

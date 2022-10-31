@@ -1,2 +1,14 @@
-version: "1.0"
-linter: jetbrains/qodana-jvm-community:2022.2
+# Qodana configuration:
+# https://www.jetbrains.com/help/qodana/qodana-yaml.html
+version: 1.0
+# Manually set linter before 2022.3 released
+linter: jetbrains/qodana-jvm-android:2022.3-eap
+profile:
+  name: qodana.recommended
+exclude:
+  # Disable Gradle Kotlin DSL check
+  - name: UnstableApiUsage
+    paths:
+      - app/build.gradle.kts
+      - build.gradle.kts
+      - settings.gradle.kts

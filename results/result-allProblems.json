@@ -2,7 +2,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Long vector paths",
-  "severity": "Info",
+  "severity": "High",
   "comment": "Very long vector path (1661 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.",
   "detailsInfo": "Long vector paths  \n\nUsing long vector paths is bad for performance. There are several ways to make the `pathData` shorter:  \n\\* Using less precision  \n\\* Removing some minor details  \n\\* Using the Android Studio vector conversion tool  \n\\* Rasterizing the image (converting to PNG)  \n\nIssue id: VectorPath",
   "sources": [
@@ -30,7 +30,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Long vector paths",
-  "severity": "Info",
+  "severity": "High",
   "comment": "Very long vector path (1833 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.",
   "detailsInfo": "Long vector paths  \n\nUsing long vector paths is bad for performance. There are several ways to make the `pathData` shorter:  \n\\* Using less precision  \n\\* Removing some minor details  \n\\* Using the Android Studio vector conversion tool  \n\\* Rasterizing the image (converting to PNG)  \n\nIssue id: VectorPath",
   "sources": [
@@ -58,7 +58,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Long vector paths",
-  "severity": "Info",
+  "severity": "High",
   "comment": "Very long vector path (910 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.",
   "detailsInfo": "Long vector paths  \n\nUsing long vector paths is bad for performance. There are several ways to make the `pathData` shorter:  \n\\* Using less precision  \n\\* Removing some minor details  \n\\* Using the Android Studio vector conversion tool  \n\\* Rasterizing the image (converting to PNG)  \n\nIssue id: VectorPath",
   "sources": [
@@ -86,7 +86,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Long vector paths",
-  "severity": "Info",
+  "severity": "High",
   "comment": "Very long vector path (1457 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.",
   "detailsInfo": "Long vector paths  \n\nUsing long vector paths is bad for performance. There are several ways to make the `pathData` shorter:  \n\\* Using less precision  \n\\* Removing some minor details  \n\\* Using the Android Studio vector conversion tool  \n\\* Rasterizing the image (converting to PNG)  \n\nIssue id: VectorPath",
   "sources": [
@@ -338,7 +338,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Overdraw: Painting regions more than once",
-  "severity": "Info",
+  "severity": "High",
   "comment": "Possible overdraw: Root element paints background '@color/simple_page_background' with a theme that also paints a background (inferred theme is '@style/AppTheme')",
   "detailsInfo": "Overdraw: Painting regions more than once  \n\nIf you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called \"overdraw\".  \n\nNOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it's currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.  \n\nIf you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.  \n\nOf course it's possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.  \n\nIssue id: Overdraw",
   "sources": [
@@ -366,7 +366,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.drawable.bg_fs_dialog' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -394,7 +394,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.drawable.bg_fs_dialog' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -422,7 +422,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.layout.fragment_detail' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -450,7 +450,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.layout.fragment_fullscreen_dialog' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -478,7 +478,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.layout.fragment_yanxiujian' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -506,7 +506,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.fullscreen_text' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -534,7 +534,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.translucent' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -562,7 +562,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.ic_launcher_foreground' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -590,7 +590,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorPrimaryMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -618,7 +618,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.aboutHeader' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -646,7 +646,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.textNormal' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -674,7 +674,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.textSecondary' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -702,7 +702,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.background_gray' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -730,7 +730,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.lib_icon_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -758,7 +758,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.feature_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -786,7 +786,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.feature_ripple' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -814,7 +814,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.app_color_dark' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -842,7 +842,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.highlight_component' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -870,7 +870,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -898,7 +898,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_activated' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -926,7 +926,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -954,7 +954,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_activated_md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -982,7 +982,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.common_transparent_20' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1010,7 +1010,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.dimen.simple_page_header_height' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1038,7 +1038,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.dimen.simple_page_avatar_size' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1066,7 +1066,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.dimen.simple_page_license_text_size' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1094,7 +1094,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.dimen.simple_page_recommendation_icon_size' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1122,7 +1122,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.dimen.simple_page_bottom_sheet_item_height' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1150,7 +1150,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.md_theme_Library_light_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1178,7 +1178,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.md_theme_Library_dark_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1206,7 +1206,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.secret_title' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1234,7 +1234,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.cancel' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1262,7 +1262,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.reserve' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1290,7 +1290,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.reset' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1318,7 +1318,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.CustomBottomSheetDialog_Md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1346,7 +1346,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.CustomBottomSheet_Md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1374,7 +1374,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.GeneralProgressIndicator' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1402,7 +1402,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.TextView_SansSerif' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1430,7 +1430,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.TextView_SansSerifBlack' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1458,7 +1458,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.TextView_SansSerifCondensed' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1486,7 +1486,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.TextView_SansSerifCondensedMedium' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1514,7 +1514,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.TextView_MonoSpace' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1542,7 +1542,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.AppListMaterialCard' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1570,7 +1570,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.AlbumMaterialCard' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1598,7 +1598,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.App_Material3_CardView' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1626,7 +1626,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Transparent' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1654,7 +1654,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Main_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1682,7 +1682,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Main_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1710,7 +1710,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Purple_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1738,7 +1738,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Purple_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1766,7 +1766,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Blue_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1794,7 +1794,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Blue_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1822,7 +1822,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Pink_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1850,7 +1850,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Pink_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1878,7 +1878,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Green_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1906,7 +1906,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Green_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1934,7 +1934,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Orange_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1962,7 +1962,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Orange_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -1990,7 +1990,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Red_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2018,7 +2018,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Red_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2046,7 +2046,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Simple_AppBarOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2074,7 +2074,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.Theme_Simple_PopupOverlay' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2102,7 +2102,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.CustomProgressDialog' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2130,7 +2130,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.ThemeOverlay_Black' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2158,7 +2158,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.secret_title' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2186,7 +2186,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.cancel' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2214,7 +2214,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.reserve' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2242,7 +2242,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.string.reset' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2270,7 +2270,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.fullscreen_text' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2298,7 +2298,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorPrimaryMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2326,7 +2326,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.aboutHeader' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2354,7 +2354,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.textNormal' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2382,7 +2382,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.textSecondary' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2410,7 +2410,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.background_gray' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2438,7 +2438,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.lib_icon_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2466,7 +2466,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.feature_background' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2494,7 +2494,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.feature_ripple' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2522,7 +2522,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.highlight_component' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2550,7 +2550,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2578,7 +2578,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_activated' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2606,7 +2606,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2634,7 +2634,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.bottom_sheet_header_handler_activated_md3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2662,7 +2662,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.ic_launcher_foreground' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2690,7 +2690,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.style.CustomProgressDialog' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2718,7 +2718,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorPrimaryMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2746,7 +2746,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorSurfaceMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2774,7 +2774,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorActivatedMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2802,7 +2802,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorPrimaryMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2830,7 +2830,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorSurfaceMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2858,7 +2858,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.colorActivatedMd3' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [
@@ -2886,7 +2886,7 @@
   "tool": "Code Inspection",
   "category": "Android Lint: Performance",
   "type": "Unused resources",
-  "severity": "Info",
+  "severity": "High",
   "comment": "The resource 'R.color.ic_launcher_foreground' appears to be unused",
   "detailsInfo": "Unused resources  \n\nUnused resources make applications larger and slow down builds.  \n\n<br />\n\nThe unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.  \n\nYou can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.  \n,  \n\nIssue id: UnusedResources",
   "sources": [

@@ -171,34 +171,6 @@
   "category": "Naming conventions",
   "type": "Local variable naming convention",
   "severity": "Moderate",
-  "comment": "Local variable name 'space_name' should not contain underscores",
-  "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/library/ReserveUtils.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 26,
-      "length": 10,
-      "code": {
-        "startLine": 4,
-        "length": 10,
-        "offset": 48,
-        "surroundingCode": "\nobject ReserveUtils {\n    fun getResetRoomCode(space_name: String): Int {\n        val area = space_name.split(\"图书馆\")[0]\n        val room = space_name.split(\"图书馆\")[1].split(\"阅\")[0]"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "Library-One-Tap.app.main",
-    "inspectionName": "LocalVariableName"
-  },
-  "hash": "2df87b1dffb444696dc042504196ed75287ba388ebe8787972a2c583e9385c60"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Local variable naming convention",
-  "severity": "Moderate",
   "comment": "Local variable name 'seat_id' should not contain underscores",
   "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
   "sources": [
@@ -227,21 +199,21 @@
   "category": "Naming conventions",
   "type": "Local variable naming convention",
   "severity": "Moderate",
-  "comment": "Local variable name 'FORM' should start with a lowercase letter",
+  "comment": "Local variable name 'space_name' should not contain underscores",
   "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
   "sources": [
     {
       "type": "file",
-      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/web/Requests.kt",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/library/ReserveUtils.kt",
       "language": "kotlin",
-      "line": 120,
-      "offset": 9,
-      "length": 4,
+      "line": 6,
+      "offset": 26,
+      "length": 10,
       "code": {
-        "startLine": 118,
-        "length": 4,
-        "offset": 51,
-        "surroundingCode": "        url: String,\n        form: String,\n        FORM: MediaType,\n        textView: TextView? = null,\n        getUrl: Boolean = false,"
+        "startLine": 4,
+        "length": 10,
+        "offset": 48,
+        "surroundingCode": "\nobject ReserveUtils {\n    fun getResetRoomCode(space_name: String): Int {\n        val area = space_name.split(\"图书馆\")[0]\n        val room = space_name.split(\"图书馆\")[1].split(\"阅\")[0]"
       }
     }
   ],
@@ -249,7 +221,7 @@
     "module": "Library-One-Tap.app.main",
     "inspectionName": "LocalVariableName"
   },
-  "hash": "05a205bfe13a14e60f06e6d32cf8f83b3c4894ec91aad764924dbb71d012b029"
+  "hash": "2df87b1dffb444696dc042504196ed75287ba388ebe8787972a2c583e9385c60"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
@@ -283,6 +255,34 @@
   "category": "Naming conventions",
   "type": "Local variable naming convention",
   "severity": "Moderate",
+  "comment": "Local variable name 'FORM' should start with a lowercase letter",
+  "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/web/Requests.kt",
+      "language": "kotlin",
+      "line": 120,
+      "offset": 9,
+      "length": 4,
+      "code": {
+        "startLine": 118,
+        "length": 4,
+        "offset": 51,
+        "surroundingCode": "        url: String,\n        form: String,\n        FORM: MediaType,\n        textView: TextView? = null,\n        getUrl: Boolean = false,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "LocalVariableName"
+  },
+  "hash": "05a205bfe13a14e60f06e6d32cf8f83b3c4894ec91aad764924dbb71d012b029"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Local variable naming convention",
+  "severity": "Moderate",
   "comment": "Local variable name 'GP' should start with a lowercase letter",
   "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
   "sources": [
@@ -306,6 +306,62 @@
     "inspectionName": "LocalVariableName"
   },
   "hash": "2152a5dc9b13e48eef3f35e30b1413e026e026c0ce1336d5c4468f19f631277c"
+},{
+  "tool": "Code Inspection",
+  "category": "Android Lint: Usability",
+  "type": "Monochrome icon is not defined",
+  "severity": "Info",
+  "comment": "The application adaptive icon is missing a monochrome tag",
+  "detailsInfo": "Monochrome icon is not defined  \n\nIf `android:roundIcon` and `android:icon` are both in your manifest, you must either remove the reference to `android:roundIcon` if it is not needed; or, supply the monochrome icon in the drawable defined by the `android:roundIcon` and `android:icon` attribute.  \n\nFor example, if `android:roundIcon` and `android:icon` are both in the manifest, a launcher might choose to use `android:roundIcon` over `android:icon` to display the adaptive app icon. Therefore, your themed application iconwill not show if your monochrome attribute is not also specified in `android:roundIcon`.  \n\nIssue id: MonochromeLauncherIcon",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "language": "XML",
+      "line": 2,
+      "offset": 1,
+      "length": 230,
+      "code": {
+        "startLine": 1,
+        "length": 230,
+        "offset": 39,
+        "surroundingCode": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <background android:drawable=\"@color/ic_launcher_background\" />\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\n</adaptive-icon>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "AndroidLintMonochromeLauncherIcon"
+  },
+  "hash": "e34504d9c4bb304740044b320e2991a6c2a4a7e5df97c957074c8faba39b92cc"
+},{
+  "tool": "Code Inspection",
+  "category": "Android Lint: Usability",
+  "type": "Monochrome icon is not defined",
+  "severity": "Info",
+  "comment": "The application adaptive roundIcon is missing a monochrome tag",
+  "detailsInfo": "Monochrome icon is not defined  \n\nIf `android:roundIcon` and `android:icon` are both in your manifest, you must either remove the reference to `android:roundIcon` if it is not needed; or, supply the monochrome icon in the drawable defined by the `android:roundIcon` and `android:icon` attribute.  \n\nFor example, if `android:roundIcon` and `android:icon` are both in the manifest, a launcher might choose to use `android:roundIcon` over `android:icon` to display the adaptive app icon. Therefore, your themed application iconwill not show if your monochrome attribute is not also specified in `android:roundIcon`.  \n\nIssue id: MonochromeLauncherIcon",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "language": "XML",
+      "line": 2,
+      "offset": 1,
+      "length": 230,
+      "code": {
+        "startLine": 1,
+        "length": 230,
+        "offset": 39,
+        "surroundingCode": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\n    <background android:drawable=\"@color/ic_launcher_background\" />\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\n</adaptive-icon>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "AndroidLintMonochromeLauncherIcon"
+  },
+  "hash": "53ed4cef1f44a33768a43c4d5289f780e0eab7b8549d71a76901ed6f75ffe023"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",

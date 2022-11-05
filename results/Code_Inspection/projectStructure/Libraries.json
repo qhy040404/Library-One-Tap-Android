@@ -655,11 +655,11 @@
       ]
     },
     {
-      "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.2@aar",
+      "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d4aa412563ac6aa1fea9c3894daac327/transformed/utils-1.1.2/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d4aa412563ac6aa1fea9c3894daac327/transformed/utils-1.1.2/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d4aa412563ac6aa1fea9c3894daac327/transformed/utils-1.1.2/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c1c458f2c997b6e90598f6a7ae500e90/transformed/utils-1.1.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c1c458f2c997b6e90598f6a7ae500e90/transformed/utils-1.1.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c1c458f2c997b6e90598f6a7ae500e90/transformed/utils-1.1.3/AndroidManifest.xml"
       ]
     },
     {

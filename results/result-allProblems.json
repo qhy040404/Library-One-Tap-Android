@@ -171,34 +171,6 @@
   "category": "Naming conventions",
   "type": "Local variable naming convention",
   "severity": "Moderate",
-  "comment": "Local variable name 'seat_id' should not contain underscores",
-  "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/library/ReserveUtils.kt",
-      "language": "kotlin",
-      "line": 14,
-      "offset": 33,
-      "length": 7,
-      "code": {
-        "startLine": 12,
-        "length": 7,
-        "offset": 129,
-        "surroundingCode": "    fun constructPara(room: Int) = \"room_id=$room&order_date=${TimeUtils.getToday(\"/\", false)}\"\n\n    fun constructParaForAddCode(seat_id: String) =\n        \"seat_id=$seat_id&order_date=${TimeUtils.getToday(\"/\", false)}\"\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "Library-One-Tap.app.main",
-    "inspectionName": "LocalVariableName"
-  },
-  "hash": "f7bf9f01b098be1ff115319125f2f0db5a894467a7decf280d57d86ee14d736a"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Local variable naming convention",
-  "severity": "Moderate",
   "comment": "Local variable name 'space_name' should not contain underscores",
   "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
   "sources": [
@@ -222,6 +194,34 @@
     "inspectionName": "LocalVariableName"
   },
   "hash": "2df87b1dffb444696dc042504196ed75287ba388ebe8787972a2c583e9385c60"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Local variable naming convention",
+  "severity": "Moderate",
+  "comment": "Local variable name 'seat_id' should not contain underscores",
+  "detailsInfo": "Reports local variables that do not follow the naming conventions.\n\nYou can specify the required pattern in the inspection options.\n\n[Recommended naming conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names): it has to start with a lowercase letter, use camel case and no underscores.\n\n**Example:**\n\n\n      fun fibonacciNumber(index: Int): Long = when(index) {\n          0 -> 0\n          else -> {\n              // does not follow naming conventions: contains underscore symbol (`_`)\n              var number_one: Long = 0\n              // does not follow naming conventions: starts with an uppercase letter\n              var NUMBER_TWO: Long = 1\n              // follow naming conventions: starts with a lowercase letter, use camel case and no underscores.\n              var numberThree: Long = number_one + NUMBER_TWO\n\n              for(currentIndex in 2..index) {\n                  numberThree = number_one + NUMBER_TWO\n                  number_one = NUMBER_TWO\n                  NUMBER_TWO = numberThree\n              }\n              numberThree\n          }\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/library/ReserveUtils.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 33,
+      "length": 7,
+      "code": {
+        "startLine": 12,
+        "length": 7,
+        "offset": 129,
+        "surroundingCode": "    fun constructPara(room: Int) = \"room_id=$room&order_date=${TimeUtils.getToday(\"/\", false)}\"\n\n    fun constructParaForAddCode(seat_id: String) =\n        \"seat_id=$seat_id&order_date=${TimeUtils.getToday(\"/\", false)}\"\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "LocalVariableName"
+  },
+  "hash": "f7bf9f01b098be1ff115319125f2f0db5a894467a7decf280d57d86ee14d736a"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",

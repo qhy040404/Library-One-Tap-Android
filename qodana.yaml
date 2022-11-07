@@ -17,6 +17,8 @@ exclude:
     paths:
       - app/src/main/java/com/qhy040404/libraryonetap/data/model
       - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
-  - name: All
-    paths:
-      - app/src/main/res
+  - name: AndroidLintUnusedResources
+  - name: AndroidLintVectorPath
+  - name: AndroidLintOverdraw
+  - name: AndroidLintObsoleteSdkInt
+  - name: AndroidLintMonochromeLauncherIcon

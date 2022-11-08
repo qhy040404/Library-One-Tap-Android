@@ -117,11 +117,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
           "type": "Library"
         },
         {
@@ -149,7 +149,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
           "type": "Library"
         },
         {
@@ -606,11 +606,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
           "type": "Library"
         },
         {
@@ -638,7 +638,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
           "type": "Library"
         },
         {
@@ -1123,11 +1123,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
           "type": "Library"
         },
         {
@@ -1155,7 +1155,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
           "type": "Library"
         },
         {

@@ -22,3 +22,4 @@ exclude:
   - name: AndroidLintOverdraw
   - name: AndroidLintObsoleteSdkInt
   - name: AndroidLintMonochromeLauncherIcon
+  - name: AndroidLintGradleDependency

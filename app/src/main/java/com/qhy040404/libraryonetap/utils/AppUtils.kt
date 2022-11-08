@@ -79,8 +79,8 @@ object AppUtils {
         }
     }
 
-    fun pass() {
-        Log.i("Pass", "Slack off")
+    fun pass(vararg a: Any?) {
+        Log.i("Pass", "Slack off. $a")
     }
 
     fun getResString(@StringRes resId: Int): String {

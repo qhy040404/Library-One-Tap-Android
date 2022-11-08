@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap.utils.extensions
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.JsonUtils
 
-@Suppress("unused")
 object AnyExtensions {
     /**
      * Convert any data class to json string
@@ -18,5 +17,5 @@ object AnyExtensions {
      * To ensure a val can get the expected data.
      * @return Unit
      */
-    fun Any?.throwData() = AppUtils.pass()
+    fun Any?.throwData() = AppUtils.pass(this)
 }

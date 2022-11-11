@@ -114,7 +114,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.mozilla:rhino:1.7.14")
 
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
 
     testImplementation("junit:junit:4.13.2")
 }

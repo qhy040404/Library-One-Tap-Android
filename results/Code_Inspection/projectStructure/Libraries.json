@@ -62,39 +62,39 @@
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:shark-android:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:shark-android:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-android/2.9.1/c4b06cf2ee48838b19a41371d4fe141d066cf4c0/shark-android-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-android/2.10/919cd08c15dbaff469a1837f1efa22a5b16232cc/shark-android-2.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:shark:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:shark:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark/2.9.1/4cb99ca9c9321f061e69eb212637be55ca053c4a/shark-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark/2.10/e92cb86c514562f1f591622c47c51f3f2a7d2489/shark-2.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:shark-graph:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:shark-graph:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-graph/2.9.1/c8f7bec5646aa1ef7110cee11688f657c9c61a4a/shark-graph-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-graph/2.10/e9e78df8ce773a85adc90b35582aa62163f2d6a8/shark-graph-2.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:shark-hprof:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:shark-hprof:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-hprof/2.9.1/c78054d84488aab120935412c95bb722f7b57572/shark-hprof-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-hprof/2.10/d0c58306d9dc3c8caf44256ddee29918c524bd1a/shark-hprof-2.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:shark-log:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:shark-log:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-log/2.9.1/a81e795f69c84082904b408cfd0b72f7065a5fab/shark-log-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-log/2.10/91b34759b85e0bb6922607f306dfa0cd50fac5a1/shark-log-2.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher:2.9.1",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher:2.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher/2.9.1/5e7421956e02a470e95adaa2a232309b1ee08664/leakcanary-object-watcher-2.9.1.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher/2.10/5d91af6785d9d15f51cd08f7c5e52874b2ddea3f/leakcanary-object-watcher-2.10.jar!/"
       ]
     },
     {
@@ -253,55 +253,55 @@
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/cc5caa7b424f8ef5e208861dbf70f6b5/transformed/leakcanary-android-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/cc5caa7b424f8ef5e208861dbf70f6b5/transformed/leakcanary-android-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/13a7c5e52de392145ea3947500605ab2/transformed/leakcanary-android-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/13a7c5e52de392145ea3947500605ab2/transformed/leakcanary-android-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4007e18d9865fc2d2d3d039a879c9c6d/transformed/leakcanary-android-core-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4007e18d9865fc2d2d3d039a879c9c6d/transformed/leakcanary-android-core-2.9.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4007e18d9865fc2d2d3d039a879c9c6d/transformed/leakcanary-android-core-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/91e169aaab720dac8c638faa31a0ed48/transformed/leakcanary-android-core-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/91e169aaab720dac8c638faa31a0ed48/transformed/leakcanary-android-core-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/91e169aaab720dac8c638faa31a0ed48/transformed/leakcanary-android-core-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2cbc7cb17631ca32f91c1cdfd4b332c7/transformed/leakcanary-object-watcher-android-core-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2cbc7cb17631ca32f91c1cdfd4b332c7/transformed/leakcanary-object-watcher-android-core-2.9.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2cbc7cb17631ca32f91c1cdfd4b332c7/transformed/leakcanary-object-watcher-android-core-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/871de57d335dfd6e9adc5ff2b3cd9d5f/transformed/leakcanary-object-watcher-android-core-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/871de57d335dfd6e9adc5ff2b3cd9d5f/transformed/leakcanary-object-watcher-android-core-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/871de57d335dfd6e9adc5ff2b3cd9d5f/transformed/leakcanary-object-watcher-android-core-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/56c673604ae35488326f2810f7063898/transformed/leakcanary-android-utils-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/56c673604ae35488326f2810f7063898/transformed/leakcanary-android-utils-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/914c874f09a6001ff2d175eeaebe177c/transformed/leakcanary-android-utils-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/914c874f09a6001ff2d175eeaebe177c/transformed/leakcanary-android-utils-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ef58fac9798dc9813c6dee3b891ec19e/transformed/leakcanary-object-watcher-android-androidx-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ef58fac9798dc9813c6dee3b891ec19e/transformed/leakcanary-object-watcher-android-androidx-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/92033557daa27a37a3708ffa8ab24bc2/transformed/leakcanary-object-watcher-android-androidx-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/92033557daa27a37a3708ffa8ab24bc2/transformed/leakcanary-object-watcher-android-androidx-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/46fc925daf1018660396b9b725afe422/transformed/leakcanary-object-watcher-android-support-fragments-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/46fc925daf1018660396b9b725afe422/transformed/leakcanary-object-watcher-android-support-fragments-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/348138af381720266e32debc27fd134d/transformed/leakcanary-object-watcher-android-support-fragments-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/348138af381720266e32debc27fd134d/transformed/leakcanary-object-watcher-android-support-fragments-2.10/AndroidManifest.xml"
       ]
     },
     {
-      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.9.1@aar",
+      "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1c1f9322c2128112ad76a8addcb62545/transformed/leakcanary-object-watcher-android-2.9.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1c1f9322c2128112ad76a8addcb62545/transformed/leakcanary-object-watcher-android-2.9.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1c1f9322c2128112ad76a8addcb62545/transformed/leakcanary-object-watcher-android-2.9.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/869a5a5ce92bb19d83d23e28fe91a453/transformed/leakcanary-object-watcher-android-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/869a5a5ce92bb19d83d23e28fe91a453/transformed/leakcanary-object-watcher-android-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/869a5a5ce92bb19d83d23e28fe91a453/transformed/leakcanary-object-watcher-android-2.10/AndroidManifest.xml"
       ]
     },
     {

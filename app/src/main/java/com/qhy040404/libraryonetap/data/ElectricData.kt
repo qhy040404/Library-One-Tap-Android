@@ -14,5 +14,16 @@ object ElectricData {
     fun getResele(data: String) = runCatching {
         moshi.adapter(ElectricDataClass::class.java)
             .fromJson(data.trim())?.dormitoryInfo_list!![0].resele!!
+    }.getOrElse {
+        if (getFlag(data) == "exception") {
+            return@getOrElse Constants.API_ERROR
+        } else {
+            return@getOrElse Constants.GLOBAL_ERROR
+        }
+    }
+
+    private fun getFlag(data: String) = runCatching {
+        moshi.adapter(ElectricDataClass::class.java)
+            .fromJson(data.trim())?.dormitoryInfo_list!![0].flag
     }.getOrDefault(Constants.GLOBAL_ERROR)
 }

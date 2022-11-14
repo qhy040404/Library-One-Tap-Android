@@ -7,5 +7,6 @@ data class ElectricDataClass(
 
 data class ElectricInnerDataClass(
     val SSMC: String? = null,
+    val flag: String,
     val resele: String? = null,
 )

@@ -275,8 +275,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val remainElectric = ElectricData.getResele(data)
             val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
                 SSMC + "\n" +
-                    AppUtils.getResString(R.string.remain_electric) + remainElectric +
-                    AppUtils.getResString(R.string.degree)
+                    if (remainElectric != Constants.API_ERROR) {
+                        AppUtils.getResString(R.string.remain_electric) + remainElectric +
+                            AppUtils.getResString(R.string.degree)
+                    } else {
+                        AppUtils.getResString(R.string.net_api_error)
+                    }
             } else {
                 when (data) {
                     Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)

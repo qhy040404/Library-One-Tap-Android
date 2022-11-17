@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.ui.tools
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
-import android.os.Handler
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -123,7 +122,7 @@ class GradesMinorActivity : SimplePageActivity() {
             )
 
             if (!AppUtils.hasNetwork()) {
-                Handler(Looper.getMainLooper()).post {
+                runOnUiThread {
                     MaterialAlertDialogBuilder(this@GradesMinorActivity)
                         .setMessage(R.string.net_disconnected)
                         .setTitle(R.string.grade_major_title)
@@ -178,7 +177,7 @@ class GradesMinorActivity : SimplePageActivity() {
                         CookieJarImpl.reset()
                     }
                     if (timer >= 3) {
-                        Handler(Looper.getMainLooper()).post {
+                        runOnUiThread {
                             MaterialAlertDialogBuilder(this@GradesMinorActivity)
                                 .setTitle(R.string.grade_major_title)
                                 .setMessage(when (session) {

@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.ui.tools
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
-import android.os.Handler
 import android.os.Looper
 import android.os.StrictMode
 import android.view.View
@@ -97,7 +96,7 @@ class ExamsActivity : SimplePageActivity() {
             )
 
             if (!AppUtils.hasNetwork()) {
-                Handler(Looper.getMainLooper()).post {
+                runOnUiThread {
                     MaterialAlertDialogBuilder(this@ExamsActivity)
                         .setMessage(R.string.net_disconnected)
                         .setTitle(R.string.exams_title)
@@ -155,7 +154,7 @@ class ExamsActivity : SimplePageActivity() {
                         CookieJarImpl.reset()
                     }
                     if (timer >= 3) {
-                        Handler(Looper.getMainLooper()).post {
+                        runOnUiThread {
                             MaterialAlertDialogBuilder(this@ExamsActivity)
                                 .setTitle(R.string.exams_title)
                                 .setMessage(when (session) {

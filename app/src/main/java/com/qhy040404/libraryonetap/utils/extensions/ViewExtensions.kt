@@ -13,6 +13,7 @@ import coil.load
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.QRUtils
 
+@Suppress("unused")
 object ViewExtensions {
     /**
      * Get dp length according to density

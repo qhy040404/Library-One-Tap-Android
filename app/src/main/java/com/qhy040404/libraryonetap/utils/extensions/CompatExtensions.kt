@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
+@Suppress("unused")
 object CompatExtensions {
     @Suppress("UNCHECKED_CAST")
     fun <T : ViewBinding> LifecycleOwner.inflateBinding(inflater: LayoutInflater): T =

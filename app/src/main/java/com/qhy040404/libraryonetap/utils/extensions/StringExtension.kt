@@ -2,6 +2,7 @@ package com.qhy040404.libraryonetap.utils.extensions
 
 import com.qhy040404.libraryonetap.constant.Constants
 
+@Suppress("unused")
 object StringExtension {
     /**
      * Check if a string is equals to ERROR message
@@ -26,5 +27,25 @@ object StringExtension {
         } else {
             a
         }
+    }
+
+    /**
+     * Replace all in a string
+     *
+     * @param oldVal value to be replaced
+     * @param newVal value to replace
+     * @param times times to replace. 0 to infinite
+     * @return replaced string
+     */
+    fun String.replaceAll(oldVal: String, newVal: String, times: Int = 0): String {
+        var temp = this
+        if (times <= 0) {
+            temp = temp.split(oldVal).joinToString(separator = newVal)
+        } else {
+            for (i in 0 until times) {
+                temp = temp.replace(oldVal, newVal)
+            }
+        }
+        return temp
     }
 }

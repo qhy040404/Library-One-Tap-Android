@@ -127,6 +127,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
             }
 
+            if (space_name.contains("临时")) {
+                reset.post {
+                    reset.visibility = View.INVISIBLE
+                    reset.isClickable = false
+                }
+                tempLeave.post {
+                    tempLeave.isClickable = false
+                }
+            }
+
             enter.post {
                 enter.setOnClickListener {
                     val request =

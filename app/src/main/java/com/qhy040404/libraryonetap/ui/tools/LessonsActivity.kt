@@ -48,9 +48,7 @@ class LessonsActivity : SimplePageActivity() {
                 "共 ${LessonsTempValues.lessonId.count()} 门课\n总学分: ${LessonsTempValues.lessonCredit.sum()}"
             ))
             for (i in LessonsTempValues.lessonId.indices) {
-                val head = """
-                    ${LessonsTempValues.lessonType[i]}  ${LessonsTempValues.lessonName[i]}
-                """.trimIndent()
+                val head = "${LessonsTempValues.lessonType[i]}  ${LessonsTempValues.lessonName[i]}"
                 val desc =
                     "教师: ${LessonsTempValues.lessonTeacher[i]}\n教学班: ${LessonsTempValues.lessonCode[i]}\n学分: ${LessonsTempValues.lessonCredit[i]}\n类型: ${LessonsTempValues.lessonCompulsory[i]}\n考核方式: ${LessonsTempValues.lessonExamMode[i]}\n开课学院: ${LessonsTempValues.lessonOpenDepart[i]}"
                 add(ClickableItem(
@@ -90,6 +88,7 @@ class LessonsActivity : SimplePageActivity() {
     }
 
     private inner class PrepareData : Runnable {
+        @Suppress("SpellCheckingInspection")
         override fun run() {
             Looper.prepare()
             StrictMode.setThreadPolicy(

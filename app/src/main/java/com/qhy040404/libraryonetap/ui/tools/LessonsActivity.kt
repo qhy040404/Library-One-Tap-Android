@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.LessonsTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.replaceAll
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
@@ -44,20 +45,14 @@ class LessonsActivity : SimplePageActivity() {
                 LessonsTempValues.semesterName
             ))
             add(Card(
-                "总学分: ${LessonsTempValues.lessonCredit.sum()}"
+                "共 ${LessonsTempValues.lessonId.count()} 门课\n总学分: ${LessonsTempValues.lessonCredit.sum()}"
             ))
             for (i in LessonsTempValues.lessonId.indices) {
                 val head = """
                     ${LessonsTempValues.lessonType[i]}  ${LessonsTempValues.lessonName[i]}
                 """.trimIndent()
-                val desc = """
-                    教师: ${LessonsTempValues.lessonTeacher[i]}
-                    教学班: ${LessonsTempValues.lessonCode[i]}
-                    学分: ${LessonsTempValues.lessonCredit[i]}
-                    类型: ${LessonsTempValues.lessonCompulsory[i]}
-                    考核方式: ${LessonsTempValues.lessonExamMode[i]}
-                    开课学院: ${LessonsTempValues.lessonOpenDepart[i]}
-                """.trimIndent()
+                val desc =
+                    "教师: ${LessonsTempValues.lessonTeacher[i]}\n教学班: ${LessonsTempValues.lessonCode[i]}\n学分: ${LessonsTempValues.lessonCredit[i]}\n类型: ${LessonsTempValues.lessonCompulsory[i]}\n考核方式: ${LessonsTempValues.lessonExamMode[i]}\n开课学院: ${LessonsTempValues.lessonOpenDepart[i]}"
                 add(ClickableItem(
                     head,
                     desc
@@ -221,7 +216,7 @@ class LessonsActivity : SimplePageActivity() {
                         lesson.optJSONObject("openDepartment")!!.optString("nameZh")
                     )
                     LessonsTempValues.lessonTeacher.add(
-                        lesson.optString("teacherAssignmentStr")
+                        lesson.optString("teacherAssignmentStr").replaceAll(",", "\n\t\t\t\t\t")
                     )
                     LessonsTempValues.lessonType.add(
                         cultivateType.optJSONObject(lessonId.toString())!!.optString("nameZh")

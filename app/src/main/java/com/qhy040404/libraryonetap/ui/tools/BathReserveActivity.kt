@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.HttpProtocols
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -47,6 +48,20 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         val spinner = binding.bathSpinner
         val reserve = binding.bathReserve
         val text = binding.bathText
+
+        if (!AppUtils.hasNetwork()) {
+            runOnUiThread {
+                MaterialAlertDialogBuilder(this@BathReserveActivity)
+                    .setMessage(R.string.net_disconnected)
+                    .setTitle(R.string.bath_title)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        finish()
+                    }
+                    .setCancelable(true)
+                    .create().show()
+            }
+            return
+        }
 
         var targetRoom = 20
         ArrayAdapter.createFromResource(

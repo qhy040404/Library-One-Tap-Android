@@ -67,6 +67,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val loading = binding.detailLoading
         val type = binding.detailType
 
+        if (!AppUtils.hasNetwork()) {
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.net_disconnected)
+                loading.visibility = View.INVISIBLE
+            }
+            return
+        }
+
         val loginSuccess = Requests.loginSso(URLManager.LIBRARY_SSO_URL,
             GlobalValues.ctSso,
             URLManager.LIBRARY_SESSION_URL,

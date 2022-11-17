@@ -51,6 +51,14 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         val qr = binding.yxjQr
         val loading = binding.yxjLoading
 
+        if (!AppUtils.hasNetwork()) {
+            detail.post {
+                detail.text = AppUtils.getResString(R.string.net_disconnected)
+                loading.visibility = View.INVISIBLE
+            }
+            return
+        }
+
         val loginSuccess: Boolean
 
         while (true) {

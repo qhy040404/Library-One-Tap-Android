@@ -53,6 +53,10 @@
             android:exported="false"
             android:label="@string/grade_minor_title" />
         <activity
+            android:name=".ui.tools.LessonsActivity"
+            android:exported="false"
+            android:label="@string/lessons_title" />
+        <activity
             android:name=".ui.tools.ExamsActivity"
             android:exported="false"
             android:label="@string/exams_title" />

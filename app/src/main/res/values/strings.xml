@@ -13,6 +13,7 @@
     <string name="volunteer_title">志愿时长</string>
     <string name="grade_major_title">成绩 (主修)</string>
     <string name="grade_minor_title">成绩 (辅修/双学位)</string>
+    <string name="lessons_title">已选课程</string>
     <string name="exams_title">考试</string>
 
     <!-- INIT -->

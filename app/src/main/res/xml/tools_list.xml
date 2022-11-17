@@ -37,6 +37,10 @@
         app:title="@string/grade_minor_title" />
 
     <Preference
+        app:key="lessons"
+        app:title="@string/lessons_title" />
+
+    <Preference
         app:icon="@drawable/ic_exams"
         app:key="exams"
         app:title="@string/exams_title" />

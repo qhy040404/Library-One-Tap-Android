@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
+import com.qhy040404.libraryonetap.ui.tools.LessonsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
@@ -150,6 +151,20 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
+                }
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.TOOLS_LESSONS)?.apply {
+            setOnPreferenceClickListener {
+                if (AppUtils.checkDataAndDialog(requireContext(),
+                        GlobalValues.id,
+                        GlobalValues.passwd,
+                        R.string.tools,
+                        R.string.no_userdata)
+                ) {
+                    startActivity(Intent(requireContext(), LessonsActivity::class.java))
                 }
                 true
             }

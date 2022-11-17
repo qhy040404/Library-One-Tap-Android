@@ -51,6 +51,7 @@ object URLManager {
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2Fjxgl.dlut.edu.cn%2Fstudent%2Fucas-sso%2Flogin"
     const val EDU_CHECK_URL = "http://jxgl.dlut.edu.cn/student/ws/student/home-page/students"
     const val EDU_GRADE_INIT_URL = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
+    const val EDU_COURSE_TABLE_URL = "http://jxgl.dlut.edu.cn/student/for-std/course-table"
 
     const val WEBVPN_INIT_URL =
         "https://api.m.dlut.edu.cn/login?client_id=87b91a9e463df720&redirect_uri=http://webvpn.dlut.edu.cn/login?filter=app&response_type=code&state=11&scope=base_api"
@@ -61,6 +62,9 @@ object URLManager {
 
     fun getEduExamsUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/exam-arrange/info/$stuId"
+
+    fun getEduCourseUrl(semesterId: Int) =
+        "http://jxgl.dlut.edu.cn/student/for-std/course-table/get-data?bizTypeId=2&semesterId=$semesterId"
 
     fun getSeatAvailableUrl(date: String, room: String) =
         "http://seat.lib.dlut.edu.cn/yanxiujian/client/orderRoomAction.php?action=querySeatMap&order_date=$date&room_id=$room"

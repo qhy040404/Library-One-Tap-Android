@@ -132,9 +132,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     reset.visibility = View.INVISIBLE
                     reset.isClickable = false
                 }
-                tempLeave.post {
-                    tempLeave.isClickable = false
-                }
             }
 
             enter.post {

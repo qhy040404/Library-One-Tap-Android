@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.drakeet.multitype.MultiTypeAdapter;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
@@ -30,8 +31,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         boolean should = false;
         for (int i = 0; !should && i < dividerClasses.length; i++) {
             should = position + 1 < items.size()
-                && items.get(position).getClass().isAssignableFrom(dividerClasses[i])
-                && items.get(position + 1).getClass().isAssignableFrom(dividerClasses[i]);
+                && Arrays.asList(dividerClasses).contains(items.get(position).getClass())
+                && Arrays.asList(dividerClasses).contains(items.get(position).getClass());
         }
         if (should) {
             outRect.set(0, 0, 0, 1);

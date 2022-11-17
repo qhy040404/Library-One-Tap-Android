@@ -16,8 +16,9 @@ object ReserveUtils {
 
     fun constructParaForFinalReserve(addCode: String) = "addCode=$addCode&method=addSeat"
 
-    fun formatAvailableMap(am: String) = am.replace("\r\n\r\n[[", "")
-        .replace("]]\r\n\r\n\r\n\r\n", "")
+    fun formatAvailableMap(am: String) = am.trim()
+        .replace("[[", "")
+        .replace("]]", "")
         .replace("{", "")
         .replace("}", "")
 }

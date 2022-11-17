@@ -31,6 +31,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category;
 import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem;
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder;
+import com.qhy040404.libraryonetap.recycleview.simplepage.DividerItemDecoration;
 import com.qhy040404.libraryonetap.recycleview.simplepage.OnClickableItemClickedListener;
 
 import java.util.ArrayList;
@@ -164,6 +165,7 @@ public abstract class SimplePageActivity extends MaterialActivity {
         onItemsCreated(items);
         adapter.setItems(items);
         adapter.setHasStableIds(true);
+        recyclerView.post(() -> recyclerView.addItemDecoration(new DividerItemDecoration(adapter)));
         recyclerView.post(() -> recyclerView.setAdapter(adapter));
         initialized = true;
     }

@@ -70,7 +70,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.post { spinner.adapter = adapter }
+            runOnUiThread { spinner.adapter = adapter }
         }
 
         val time = BathUtils.getBathTime()
@@ -89,7 +89,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_INSTITUTION_URL)
         }
 
-        text.post {
+        runOnUiThread {
             text.text =
                 AppUtils.getResString(
                     if (online) {
@@ -100,7 +100,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 )
         }
 
-        reserve.post {
+        runOnUiThread {
             reserve.setOnClickListener {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -128,11 +128,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                     mainPostData,
                     GlobalValues.ctSso)
                 Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
-                text.post { text.text = getString(R.string.request_sent) }
+                runOnUiThread { text.text = getString(R.string.request_sent) }
             }
         }
 
-        spinner.post {
+        runOnUiThread {
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     when (spinner.selectedItem.toString()) {

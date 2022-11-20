@@ -128,10 +128,10 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
 
         var qr = Base64.decode(qrBase64, Base64.DEFAULT)
         var bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-        loading.post { loading.visibility = View.INVISIBLE }
+        runOnUiThread { loading.visibility = View.INVISIBLE }
         qrView.load(QRUtils.toGrayscale(bitmap))
-        balance.post { balance.text = qrInformation }
-        refresh.post {
+        runOnUiThread { balance.text = qrInformation }
+        runOnUiThread {
             refresh.setOnClickListener {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()

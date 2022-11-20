@@ -52,10 +52,10 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         val loading = binding.yxjLoading
 
         if (!AppUtils.hasNetwork()) {
-            detail.post {
-                detail.text = AppUtils.getResString(R.string.net_disconnected)
-                loading.visibility = View.INVISIBLE
-            }
+           runOnUiThread {
+               detail.text = AppUtils.getResString(R.string.net_disconnected)
+               loading.visibility = View.INVISIBLE
+           }
             return
         }
 
@@ -64,9 +64,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         while (true) {
             if (GlobalValues.librarySessionReady != null) {
                 loginSuccess = GlobalValues.librarySessionReady!!
-                loading.post {
-                    loading.visibility = View.INVISIBLE
-                }
+                runOnUiThread { loading.visibility = View.INVISIBLE }
                 break
             }
         }
@@ -108,7 +106,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                     }
                 }
             })
-            detail.post {
+            runOnUiThread {
                 detail.text = """
                     order_id: $order_id
 
@@ -121,19 +119,19 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 """.trimIndent()
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
-            detail.post {
+            runOnUiThread {
                 detail.text = AppUtils.getResString(R.string.no_userdata)
             }
-            loading.post { loading.visibility = View.INVISIBLE }
+            runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
-            detail.post {
+            runOnUiThread {
                 detail.text =
                     AppUtils.getResString(R.string.fail_to_login_three_times)
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
-            detail.post {
+            runOnUiThread {
                 detail.text = AppUtils.getResString(R.string.login_timeout)
             }
         }

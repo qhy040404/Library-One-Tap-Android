@@ -68,7 +68,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val type = binding.detailType
 
         if (!AppUtils.hasNetwork()) {
-            detail.post {
+            runOnUiThread {
                 detail.text = AppUtils.getResString(R.string.net_disconnected)
                 loading.visibility = View.INVISIBLE
             }
@@ -99,7 +99,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             if (order_id == "oid") {
                 order_id = AppUtils.getResString(R.string.no_valid_order)
-                reserve.post {
+                runOnUiThread {
                     reserve.visibility = View.VISIBLE
                     reserve.isClickable = true
                 }
@@ -108,19 +108,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             if (order_process == "审核通过") {
                 order_process = AppUtils.getResString(R.string.not_start)
 
-                cancel.post {
+                runOnUiThread {
                     cancel.visibility = View.VISIBLE
                     cancel.isClickable = true
                 }
 
                 val today = TimeUtils.getToday("-", true)
                 if (order_date != today) {
-                    reserve.post {
+                    runOnUiThread {
                         reserve.visibility = View.VISIBLE
                         reserve.isClickable = true
                     }
                 } else {
-                    reset.post {
+                    runOnUiThread {
                         reset.visibility = View.VISIBLE
                         reset.isClickable = true
                     }
@@ -129,20 +129,20 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 order_process = AppUtils.getResString(R.string.inside)
             } else if (order_process == "暂离") {
                 order_process = AppUtils.getResString(R.string.outside)
-                tempReset.post {
+                runOnUiThread {
                     tempReset.visibility = View.VISIBLE
                     tempReset.isClickable = true
                 }
             }
 
             if (space_name.contains("临时")) {
-                reset.post {
+                runOnUiThread {
                     reset.visibility = View.INVISIBLE
                     reset.isClickable = false
                 }
             }
 
-            enter.post {
+            runOnUiThread {
                 enter.setOnClickListener {
                     val request =
                         Request.Builder()
@@ -154,12 +154,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             qr.mLoad(requireContext(), response.body!!.bytes())
-                            type.post { type.text = AppUtils.getResString(R.string.enter) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.enter) }
                         }
                     })
                 }
             }
-            leave.post {
+            runOnUiThread {
                 leave.setOnClickListener {
                     val request =
                         Request.Builder()
@@ -171,12 +171,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             qr.mLoad(requireContext(), response.body!!.bytes())
-                            type.post { type.text = AppUtils.getResString(R.string.leave) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.leave) }
                         }
                     })
                 }
             }
-            tempLeave.post {
+            runOnUiThread {
                 tempLeave.setOnClickListener {
                     val request =
                         Request.Builder()
@@ -188,12 +188,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             qr.mLoad(requireContext(), response.body!!.bytes())
-                            type.post { type.text = AppUtils.getResString(R.string.temp) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.temp) }
                         }
                     })
                 }
             }
-            cancel.post {
+            runOnUiThread {
                 cancel.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -223,12 +223,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         .show()
                 }
             }
-            reserve.post {
+            runOnUiThread {
                 reserve.setOnClickListener {
                     ReserveDialog().showAlertDialog(requireActivity())
                 }
             }
-            reset.post {
+            runOnUiThread {
                 reset.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -291,7 +291,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         .show()
                 }
             }
-            tempReset.post {
+            runOnUiThread {
                 tempReset.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -353,7 +353,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         .show()
                 }
             }
-            detail.post {
+            runOnUiThread {
                 detail.text = """
                     order_id: $order_id
 
@@ -366,19 +366,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 """.trimIndent()
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
-            detail.post {
+            runOnUiThread {
                 detail.text = AppUtils.getResString(R.string.no_userdata)
             }
-            loading.post { loading.visibility = View.INVISIBLE }
+            runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
-            detail.post {
+            runOnUiThread {
                 detail.text =
                     AppUtils.getResString(R.string.fail_to_login_three_times)
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
-            detail.post {
+            runOnUiThread {
                 detail.text = AppUtils.getResString(R.string.login_timeout)
             }
         }

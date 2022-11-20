@@ -46,7 +46,7 @@ object Toasty {
     fun showLong(context: Context, @StringRes res: Int) =
         showLong(context, context.getString(res))
 
-    @Suppress("deprecation")
+    @Suppress("DEPRECATION")
     @MainThread
     private fun show(context: Context, message: String, duration: Int) {
         cancel()

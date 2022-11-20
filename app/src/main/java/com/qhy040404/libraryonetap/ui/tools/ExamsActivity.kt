@@ -7,6 +7,8 @@ import android.os.StrictMode
 import android.view.View
 import android.widget.ProgressBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.qhy040404.datetime.Datetime
+import com.qhy040404.datetime.Datetime.Companion.toDateTime
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -15,6 +17,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
+import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.ExamsTempValues
 import com.qhy040404.libraryonetap.temp.GradesTempValues
@@ -45,8 +48,25 @@ class ExamsActivity : SimplePageActivity() {
                     "暂无考试"
                 ))
             }
-            for (name in ExamsTempValues.courseName) {
-                val i = ExamsTempValues.courseName.indexOf(name)
+            val finishedList: MutableList<List<String>> = mutableListOf()
+            for (i in ExamsTempValues.courseName.indices) {
+                val examTime = ExamsTempValues.examTime[i].split("~").first().toDateTime()
+                val now = Datetime.now()
+                if (examTime.isBefore(now)) {
+                    finishedList.add(
+                        listOf(
+                            ExamsTempValues.courseName[i],
+                            """
+                                时间：${ExamsTempValues.examTime[i]}
+                                楼宇：${ExamsTempValues.building[i]}
+                                教室：${ExamsTempValues.room[i]}
+                            """.trimIndent()
+                        )
+                    )
+                    continue
+                }
+
+                val name = ExamsTempValues.courseName[i]
                 val desc = """
                     时间：${ExamsTempValues.examTime[i]}
                     楼宇：${ExamsTempValues.building[i]}
@@ -56,6 +76,15 @@ class ExamsActivity : SimplePageActivity() {
                     name,
                     desc
                 ))
+            }
+            if (finishedList.size != 0) {
+                add(Category("已完成"))
+                finishedList.forEach {
+                    add(ClickableItem(
+                        it.first(),
+                        it.last()
+                    ))
+                }
             }
         }
     }

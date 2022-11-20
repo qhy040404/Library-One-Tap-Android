@@ -1,7 +1,5 @@
 package com.qhy040404.libraryonetap.recycleview.simplepage;
 
-import android.annotation.SuppressLint;
-
 import androidx.annotation.NonNull;
 
 public class Card {
@@ -10,7 +8,6 @@ public class Card {
 
     public final int lineSpacingExtra;
 
-    @SuppressLint("NewApi")
     public Card(@NonNull CharSequence content) {
         this(content, 0);
     }

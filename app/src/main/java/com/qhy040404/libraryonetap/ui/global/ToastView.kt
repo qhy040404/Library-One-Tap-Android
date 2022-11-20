@@ -11,8 +11,8 @@ import com.qhy040404.libraryonetap.R
 
 /**
  * From Absinthe
+ * @author Absinthe, qhy040404
  */
-
 class ToastView(context: Context) : AViewGroup(context) {
     val message = AppCompatTextView(context).apply {
         layoutParams =

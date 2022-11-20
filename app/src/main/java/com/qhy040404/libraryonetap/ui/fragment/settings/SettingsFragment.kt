@@ -48,7 +48,6 @@ import java.io.File
 import java.util.Locale
 import kotlin.system.exitProcess
 
-
 class SettingsFragment : PreferenceFragmentCompat(), IListController {
     private lateinit var borderViewDelegate: BorderViewDelegate
     private lateinit var prefRecyclerView: RecyclerView

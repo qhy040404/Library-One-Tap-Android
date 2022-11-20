@@ -15,7 +15,7 @@ exclude:
   - name: AndroidLintAppBundleLocaleChanges
   - name: PropertyName
     paths:
-      - app/src/main/java/com/qhy040404/libraryonetap/data/model
+      - app/src/main/java/com/qhy040404/libraryonetap/data
       - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
   - name: AndroidLintUnusedResources
   - name: AndroidLintVectorPath

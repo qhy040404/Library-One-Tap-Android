@@ -14,7 +14,7 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.model.VCardStatusClass
+import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
@@ -162,7 +162,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 Thread.sleep(3000L)
                 val statusOrig =
                     Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
-                val status = moshi.adapter(VCardStatusClass::class.java).fromJson(statusOrig)!!
+                val status = moshi.adapter(VCardStatusDTO::class.java).fromJson(statusOrig)!!
                 if (status.resultData.status != "5" && isActivityVisible) {
                     runOnUiThread {
                         refresh.performClick()

@@ -1,6 +1,7 @@
-package com.qhy040404.libraryonetap.data.model
+package com.qhy040404.libraryonetap.data
 
-data class GHAPIDataClass(
+@Suppress("SpellCheckingInspection")
+data class GithubAPIDTO(
     val assets: List<Asset>,
     val assets_url: String,
     val author: Author,

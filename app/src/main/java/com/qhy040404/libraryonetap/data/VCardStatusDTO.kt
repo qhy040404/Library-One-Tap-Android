@@ -1,11 +1,12 @@
-package com.qhy040404.libraryonetap.data.model
+package com.qhy040404.libraryonetap.data
 
-data class VCardStatusClass(
+data class VCardStatusDTO(
     val message: String,
     val resultData: ResultData,
     val success: Boolean,
 )
 
+@Suppress("SpellCheckingInspection")
 data class ResultData(
     val message: String,
     val paytime: String,

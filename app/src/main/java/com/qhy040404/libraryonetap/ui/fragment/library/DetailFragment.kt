@@ -13,9 +13,9 @@ import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.CancelData
+import com.qhy040404.libraryonetap.data.OrderListDTO
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.ReserveData
-import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -86,7 +86,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass =
             runCatching {
-                moshi.adapter(OrderListDataClass::class.java).fromJson(list.trim())
+                moshi.adapter(OrderListDTO::class.java).fromJson(list.trim())
             }.getOrNull()
         val total = OrderListData.getTotal()
         if (total != "0") {

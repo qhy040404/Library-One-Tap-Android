@@ -2,13 +2,12 @@ package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
-import com.qhy040404.libraryonetap.data.model.OrderListDataClass
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 
 @Suppress("FunctionName", "LocalVariableName", "PropertyName")
 object OrderListData {
-    var mClass: OrderListDataClass? = null
+    var mClass: OrderListDTO? = null
 
     private val today = TimeUtils.getToday("-", true)
     private val orderProcesses = arrayOf("进行中", "暂离", "审核通过")
@@ -173,3 +172,26 @@ object OrderListData {
         return process in orderProcesses && type == typeValidator && date == today
     }
 }
+
+data class OrderListDTO(
+    val total: String? = null,
+    val rows: List<OrderListInnerDTO>? = null,
+)
+
+data class OrderListInnerDTO(
+    val all_users: String? = null,
+    val area_id: String? = null,
+    val back_time: String? = null,
+    val order_admin_user: String? = null,
+    val order_date: String? = null,
+    val order_end_time: String? = null,
+    val order_id: String? = null,
+    val order_process: String? = null,
+    val order_start_time: String? = null,
+    val order_type: String? = null,
+    val order_time: String? = null,
+    val order_users: String? = null,
+    val punish_status: String? = null,
+    val seat_label: String? = null,
+    val space_name: String? = null,
+)

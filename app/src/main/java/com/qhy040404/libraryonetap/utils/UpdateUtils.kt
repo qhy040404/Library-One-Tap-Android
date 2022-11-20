@@ -13,7 +13,7 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.model.GHAPIDataClass
+import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -61,7 +61,7 @@ object UpdateUtils {
             ctx.showToast(R.string.failed_to_connect_github_api)
             return
         }
-        val latestClazz = moshi.adapter(GHAPIDataClass::class.java).fromJson(latestOrig)!!
+        val latestClazz = moshi.adapter(GithubAPIDTO::class.java).fromJson(latestOrig)!!
 
         val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)
         val localVersionCode = getVersionCode(BuildConfig.VERSION_NAME, false)

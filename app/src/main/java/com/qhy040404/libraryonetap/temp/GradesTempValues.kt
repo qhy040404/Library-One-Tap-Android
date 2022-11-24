@@ -6,32 +6,32 @@ object GradesTempValues {
 
     var toastShowed = false
 
-    var semesters: MutableList<Int> = mutableListOf()
-    var semestersName: MutableList<String> = mutableListOf()
+    val semesters: MutableList<Int> = mutableListOf()
+    val semestersName: MutableList<String> = mutableListOf()
 
-    var courseName: MutableList<String> = mutableListOf()
-    var courseCode: MutableList<String> = mutableListOf()
-    var courseCredits: MutableList<Double> = mutableListOf()
-    var courseGrade: MutableList<String> = mutableListOf()
-    var courseGP: MutableList<Double> = mutableListOf()
-    var courseStudyType: MutableList<String> = mutableListOf()
+    val courseName: MutableList<String> = mutableListOf()
+    val courseCode: MutableList<String> = mutableListOf()
+    val courseCredits: MutableList<Double> = mutableListOf()
+    val courseGrade: MutableList<String> = mutableListOf()
+    val courseGP: MutableList<Double> = mutableListOf()
+    val courseStudyType: MutableList<String> = mutableListOf()
 
-    var courseCountList: MutableList<Int> = mutableListOf()
+    val courseCountList: MutableList<Int> = mutableListOf()
 
     var startCount = 0
     var endCount = 0
 
-    var secondSemesters: MutableList<Int> = mutableListOf()
-    var secondSemestersName: MutableList<String> = mutableListOf()
+    val secondSemesters: MutableList<Int> = mutableListOf()
+    val secondSemestersName: MutableList<String> = mutableListOf()
 
-    var secondCourseName: MutableList<String> = mutableListOf()
-    var secondCourseCode: MutableList<String> = mutableListOf()
-    var secondCourseCredits: MutableList<Double> = mutableListOf()
-    var secondCourseGrade: MutableList<String> = mutableListOf()
-    var secondCourseGP: MutableList<Double> = mutableListOf()
-    var secondCourseStudyType: MutableList<String> = mutableListOf()
+    val secondCourseName: MutableList<String> = mutableListOf()
+    val secondCourseCode: MutableList<String> = mutableListOf()
+    val secondCourseCredits: MutableList<Double> = mutableListOf()
+    val secondCourseGrade: MutableList<String> = mutableListOf()
+    val secondCourseGP: MutableList<Double> = mutableListOf()
+    val secondCourseStudyType: MutableList<String> = mutableListOf()
 
-    var secondCourseCountList: MutableList<Int> = mutableListOf()
+    val secondCourseCountList: MutableList<Int> = mutableListOf()
 
     var secondStartCount = 0
     var secondEndCount = 0

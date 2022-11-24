@@ -1,10 +1,10 @@
 package com.qhy040404.libraryonetap.temp
 
 object ExamsTempValues {
-    var courseName: MutableList<String> = mutableListOf()
-    var examTime: MutableList<String> = mutableListOf()
-    var building: MutableList<String> = mutableListOf()
-    var room: MutableList<String> = mutableListOf()
+    val courseName: MutableList<String> = mutableListOf()
+    val examTime: MutableList<String> = mutableListOf()
+    val building: MutableList<String> = mutableListOf()
+    val room: MutableList<String> = mutableListOf()
 
     fun clear() {
         courseName.clear()

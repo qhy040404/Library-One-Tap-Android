@@ -1,7 +1,9 @@
 package com.qhy040404.libraryonetap.temp
 
+import com.qhy040404.libraryonetap.constant.Constants
+
 object LessonsTempValues {
-    var semesterName = ""
+    var semesterName = Constants.STRING_NULL
     val lessonId: MutableList<Int> = mutableListOf()
     val lessonCode: MutableList<String> = mutableListOf()
     val lessonCompulsory: MutableList<String> = mutableListOf()
@@ -13,7 +15,7 @@ object LessonsTempValues {
     val lessonType: MutableList<String> = mutableListOf()
 
     fun clear() {
-        semesterName = ""
+        semesterName = Constants.STRING_NULL
         lessonId.clear()
         lessonCode.clear()
         lessonCompulsory.clear()

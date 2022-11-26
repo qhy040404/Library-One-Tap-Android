@@ -26,6 +26,7 @@ import org.json.JSONObject
 
 class GradesMinorActivity : SimplePageActivity() {
     private var currentVisible = true
+    private val tempValues = GradesTempValues()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -35,13 +36,12 @@ class GradesMinorActivity : SimplePageActivity() {
 
     override fun initializeView() {
         initView()
-        GradesTempValues.clear()
         innerThread = Thread(PrepareData())
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (GradesTempValues.secondSemestersName.isEmpty() || GradesTempValues.secondCourseCredits.isEmpty()) {
+            if (tempValues.secondSemestersName.isEmpty() || tempValues.secondCourseCredits.isEmpty()) {
                 add(Card(
                     "无数据"
                 ))
@@ -49,39 +49,39 @@ class GradesMinorActivity : SimplePageActivity() {
                 add(Card(
                     "加权均分: ${
                         GradesUtils.calculateWeightedAverage(
-                            GradesTempValues.secondCourseGrade,
-                            GradesTempValues.secondCourseCredits
+                            tempValues.secondCourseGrade,
+                            tempValues.secondCourseCredits
                         )
                     }  平均绩点: ${
                         GradesUtils.calculateAverageGP(
-                            GradesTempValues.secondCourseGP,
-                            GradesTempValues.secondCourseCredits
+                            tempValues.secondCourseGP,
+                            tempValues.secondCourseCredits
                         )
                     }"
                 ))
             }
-            for (semester in GradesTempValues.secondSemestersName) {
+            for (semester in tempValues.secondSemestersName) {
                 add(Category(semester))
                 val count =
-                    GradesTempValues.secondCourseCountList[GradesTempValues.secondSemestersName
+                    tempValues.secondCourseCountList[tempValues.secondSemestersName
                         .indexOf(semester)]
-                GradesTempValues.secondEndCount += count
-                for (i in GradesTempValues.secondStartCount until GradesTempValues.secondEndCount) {
+                tempValues.secondEndCount += count
+                for (i in tempValues.secondStartCount until tempValues.secondEndCount) {
                     val head = """
-                            ${GradesTempValues.secondCourseName[i]} : ${GradesTempValues.secondCourseStudyType[i]}
+                            ${tempValues.secondCourseName[i]} : ${tempValues.secondCourseStudyType[i]}
                         """.trimIndent()
                     val desc = """
-                            ${GradesTempValues.secondCourseCode[i]}
-                            分数: ${GradesTempValues.secondCourseGrade[i]}
-                            学分: ${GradesTempValues.secondCourseCredits[i]}
-                            绩点: ${GradesTempValues.secondCourseGP[i]}
+                            ${tempValues.secondCourseCode[i]}
+                            分数: ${tempValues.secondCourseGrade[i]}
+                            学分: ${tempValues.secondCourseCredits[i]}
+                            绩点: ${tempValues.secondCourseGP[i]}
                         """.trimIndent()
                     add(ClickableItem(
                         head,
                         desc
                     ))
                 }
-                GradesTempValues.secondStartCount = count
+                tempValues.secondStartCount = count
             }
         }
     }
@@ -210,35 +210,35 @@ class GradesMinorActivity : SimplePageActivity() {
                 val semesters = gradesJsonObject.optJSONArray("semesters")!!
                 val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
                 for (i in 0 until semesters.length()) {
-                    GradesTempValues.secondSemesters.add(
+                    tempValues.secondSemesters.add(
                         semesters.optJSONObject(i).optInt("id")
                     )
-                    GradesTempValues.secondSemestersName.add(
+                    tempValues.secondSemestersName.add(
                         semesters.optJSONObject(i).optString("name")
                     )
                 }
-                for (semester in GradesTempValues.secondSemesters) {
+                for (semester in tempValues.secondSemesters) {
                     val currentSemesterData = grades.optJSONArray(semester.toString())!!
                     val courseCount = currentSemesterData.length()
-                    GradesTempValues.secondCourseCountList.add(courseCount)
+                    tempValues.secondCourseCountList.add(courseCount)
                     for (j in 0 until courseCount) {
                         val currentCourse = currentSemesterData.optJSONObject(j)!!
-                        GradesTempValues.secondCourseName.add(
+                        tempValues.secondCourseName.add(
                             currentCourse.optJSONObject("course")!!.optString("nameZh")
                         )
-                        GradesTempValues.secondCourseCode.add(
+                        tempValues.secondCourseCode.add(
                             currentCourse.optJSONObject("course")!!.optString("code")
                         )
-                        GradesTempValues.secondCourseCredits.add(
+                        tempValues.secondCourseCredits.add(
                             currentCourse.optJSONObject("course")!!.optDouble("credits")
                         )
-                        GradesTempValues.secondCourseGrade.add(
+                        tempValues.secondCourseGrade.add(
                             currentCourse.optString("gaGrade")
                         )
-                        GradesTempValues.secondCourseGP.add(
+                        tempValues.secondCourseGP.add(
                             currentCourse.optDouble("gp")
                         )
-                        GradesTempValues.secondCourseStudyType.add(
+                        tempValues.secondCourseStudyType.add(
                             currentCourse.optJSONObject("studyType")!!.optString("text")
                         )
                     }

@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.temp
 
-object GradesTempValues {
+class GradesTempValues {
     val semesters: MutableList<Int> = mutableListOf()
     val semestersName: MutableList<String> = mutableListOf()
 

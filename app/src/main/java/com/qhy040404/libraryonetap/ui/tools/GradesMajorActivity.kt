@@ -27,6 +27,7 @@ import org.json.JSONObject
 
 class GradesMajorActivity : SimplePageActivity() {
     private var currentVisible = true
+    private val tempValues = GradesTempValues()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -36,7 +37,6 @@ class GradesMajorActivity : SimplePageActivity() {
 
     override fun initializeView() {
         initView()
-        GradesTempValues.clear()
         innerThread = Thread(PrepareData())
     }
 
@@ -45,37 +45,37 @@ class GradesMajorActivity : SimplePageActivity() {
             add(Card(
                 "加权均分: ${
                     GradesUtils.calculateWeightedAverage(
-                        GradesTempValues.courseGrade,
-                        GradesTempValues.courseCredits
+                        tempValues.courseGrade,
+                        tempValues.courseCredits
                     )
                 }  平均绩点: ${
                     GradesUtils.calculateAverageGP(
-                        GradesTempValues.courseGP,
-                        GradesTempValues.courseCredits
+                        tempValues.courseGP,
+                        tempValues.courseCredits
                     )
                 }"
             ))
-            for (semester in GradesTempValues.semestersName) {
+            for (semester in tempValues.semestersName) {
                 add(Category(semester))
                 val count =
-                    GradesTempValues.courseCountList[GradesTempValues.semestersName.indexOf(semester)]
-                GradesTempValues.endCount += count
-                for (i in GradesTempValues.startCount until GradesTempValues.endCount) {
+                    tempValues.courseCountList[tempValues.semestersName.indexOf(semester)]
+                tempValues.endCount += count
+                for (i in tempValues.startCount until tempValues.endCount) {
                     val head = """
-                            ${GradesTempValues.courseName[i]} : ${GradesTempValues.courseStudyType[i]}
+                            ${tempValues.courseName[i]} : ${tempValues.courseStudyType[i]}
                         """.trimIndent()
                     val desc = """
-                            ${GradesTempValues.courseCode[i]}
-                            分数: ${GradesTempValues.courseGrade[i]}
-                            学分: ${GradesTempValues.courseCredits[i]}
-                            绩点: ${GradesTempValues.courseGP[i]}
+                            ${tempValues.courseCode[i]}
+                            分数: ${tempValues.courseGrade[i]}
+                            学分: ${tempValues.courseCredits[i]}
+                            绩点: ${tempValues.courseGP[i]}
                         """.trimIndent()
                     add(ClickableItem(
                         head,
                         desc
                     ))
                 }
-                GradesTempValues.startCount = count
+                tempValues.startCount = count
             }
         }
     }
@@ -228,35 +228,35 @@ class GradesMajorActivity : SimplePageActivity() {
                 val semesters = gradesJsonObject.optJSONArray("semesters")!!
                 val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
                 for (i in 0 until semesters.length()) {
-                    GradesTempValues.semesters.add(
+                    tempValues.semesters.add(
                         semesters.optJSONObject(i).optInt("id")
                     )
-                    GradesTempValues.semestersName.add(
+                    tempValues.semestersName.add(
                         semesters.optJSONObject(i).optString("name")
                     )
                 }
-                for (semester in GradesTempValues.semesters) {
+                for (semester in tempValues.semesters) {
                     val currentSemesterData = grades.optJSONArray(semester.toString())!!
                     val courseCount = currentSemesterData.length()
-                    GradesTempValues.courseCountList.add(courseCount)
+                    tempValues.courseCountList.add(courseCount)
                     for (j in 0 until courseCount) {
                         val currentCourse = currentSemesterData.optJSONObject(j)!!
-                        GradesTempValues.courseName.add(
+                        tempValues.courseName.add(
                             currentCourse.optJSONObject("course")!!.optString("nameZh")
                         )
-                        GradesTempValues.courseCode.add(
+                        tempValues.courseCode.add(
                             currentCourse.optJSONObject("course")!!.optString("code")
                         )
-                        GradesTempValues.courseCredits.add(
+                        tempValues.courseCredits.add(
                             currentCourse.optJSONObject("course")!!.optDouble("credits")
                         )
-                        GradesTempValues.courseGrade.add(
+                        tempValues.courseGrade.add(
                             currentCourse.optString("gaGrade")
                         )
-                        GradesTempValues.courseGP.add(
+                        tempValues.courseGP.add(
                             currentCourse.optDouble("gp")
                         )
-                        GradesTempValues.courseStudyType.add(
+                        tempValues.courseStudyType.add(
                             currentCourse.optJSONObject("studyType")!!.optString("text")
                         )
                     }

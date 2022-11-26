@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.temp
 
 import com.qhy040404.libraryonetap.constant.Constants
 
-object LessonsTempValues {
+class LessonsTempValues {
     var semesterName = Constants.STRING_NULL
     val lessonId: MutableList<Int> = mutableListOf()
     val lessonCode: MutableList<String> = mutableListOf()

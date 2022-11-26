@@ -26,6 +26,7 @@ import org.json.JSONObject
 
 class LessonsActivity : SimplePageActivity() {
     private var currentVisible = true
+    private val tempValues = LessonsTempValues()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -35,22 +36,21 @@ class LessonsActivity : SimplePageActivity() {
 
     override fun initializeView() {
         initView()
-        LessonsTempValues.clear()
         innerThread = Thread(PrepareData())
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             add(Category(
-                LessonsTempValues.semesterName
+                tempValues.semesterName
             ))
             add(Card(
-                "共 ${LessonsTempValues.lessonId.count()} 门课\n总学分: ${LessonsTempValues.lessonCredit.sum()}"
+                "共 ${tempValues.lessonId.count()} 门课\n总学分: ${tempValues.lessonCredit.sum()}"
             ))
-            for (i in LessonsTempValues.lessonId.indices) {
-                val head = "${LessonsTempValues.lessonType[i]}  ${LessonsTempValues.lessonName[i]}"
+            for (i in tempValues.lessonId.indices) {
+                val head = "${tempValues.lessonType[i]}  ${tempValues.lessonName[i]}"
                 val desc =
-                    "教师: ${LessonsTempValues.lessonTeacher[i]}\n教学班: ${LessonsTempValues.lessonCode[i]}\n学分: ${LessonsTempValues.lessonCredit[i]}\n类型: ${LessonsTempValues.lessonCompulsory[i]}\n考核方式: ${LessonsTempValues.lessonExamMode[i]}\n开课学院: ${LessonsTempValues.lessonOpenDepart[i]}"
+                    "教师: ${tempValues.lessonTeacher[i]}\n教学班: ${tempValues.lessonCode[i]}\n学分: ${tempValues.lessonCredit[i]}\n类型: ${tempValues.lessonCompulsory[i]}\n考核方式: ${tempValues.lessonExamMode[i]}\n开课学院: ${tempValues.lessonOpenDepart[i]}"
                 add(ClickableItem(
                     head,
                     desc
@@ -182,7 +182,7 @@ class LessonsActivity : SimplePageActivity() {
                     .substringBefore(">")
                     .trim()
                     .split("\"")[1].toInt()
-                LessonsTempValues.semesterName = source.substringAfter("selected=\"selected\"")
+                tempValues.semesterName = source.substringAfter("selected=\"selected\"")
                     .substringBefore("</option>")
                     .trim()
                     .split(">").last()
@@ -195,29 +195,29 @@ class LessonsActivity : SimplePageActivity() {
                 for (i in 0 until lessons.length()) {
                     val lesson = lessons.optJSONObject(i)
                     val lessonId = lesson.optInt("id")
-                    LessonsTempValues.lessonId.add(lessonId)
-                    LessonsTempValues.lessonCode.add(
+                    tempValues.lessonId.add(lessonId)
+                    tempValues.lessonCode.add(
                         lesson.optString("code")
                     )
-                    LessonsTempValues.lessonCompulsory.add(
+                    tempValues.lessonCompulsory.add(
                         lesson.optString("compulsorysStr")
                     )
-                    LessonsTempValues.lessonName.add(
+                    tempValues.lessonName.add(
                         lesson.optJSONObject("course")!!.optString("nameZh")
                     )
-                    LessonsTempValues.lessonCredit.add(
+                    tempValues.lessonCredit.add(
                         lesson.optJSONObject("course")!!.optDouble("credits")
                     )
-                    LessonsTempValues.lessonExamMode.add(
+                    tempValues.lessonExamMode.add(
                         lesson.optJSONObject("examMode")!!.optString("nameZh")
                     )
-                    LessonsTempValues.lessonOpenDepart.add(
+                    tempValues.lessonOpenDepart.add(
                         lesson.optJSONObject("openDepartment")!!.optString("nameZh")
                     )
-                    LessonsTempValues.lessonTeacher.add(
+                    tempValues.lessonTeacher.add(
                         lesson.optString("teacherAssignmentStr").replaceAll(",", "\n\t\t\t\t\t")
                     )
-                    LessonsTempValues.lessonType.add(
+                    tempValues.lessonType.add(
                         cultivateType.optJSONObject(lessonId.toString())!!.optString("nameZh")
                     )
                 }

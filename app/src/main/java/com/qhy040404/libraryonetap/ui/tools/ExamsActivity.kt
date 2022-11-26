@@ -27,6 +27,7 @@ import org.json.JSONArray
 
 class ExamsActivity : SimplePageActivity() {
     private var currentVisible = true
+    private val tempValues = ExamsTempValues()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -36,40 +37,39 @@ class ExamsActivity : SimplePageActivity() {
 
     override fun initializeView() {
         initView()
-        ExamsTempValues.clear()
         innerThread = Thread(PrepareData())
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (ExamsTempValues.courseName.isEmpty()) {
+            if (tempValues.courseName.isEmpty()) {
                 add(Card(
                     "暂无考试"
                 ))
             }
             val finishedList: MutableList<List<String>> = mutableListOf()
-            for (i in ExamsTempValues.courseName.indices) {
-                val examTime = ExamsTempValues.examTime[i].split("~").first().toDateTime()
+            for (i in tempValues.courseName.indices) {
+                val examTime = tempValues.examTime[i].split("~").first().toDateTime()
                 val now = Datetime.now()
                 if (examTime.isBefore(now)) {
                     finishedList.add(
                         listOf(
-                            ExamsTempValues.courseName[i],
+                            tempValues.courseName[i],
                             """
-                                时间：${ExamsTempValues.examTime[i]}
-                                楼宇：${ExamsTempValues.building[i]}
-                                教室：${ExamsTempValues.room[i]}
+                                时间：${tempValues.examTime[i]}
+                                楼宇：${tempValues.building[i]}
+                                教室：${tempValues.room[i]}
                             """.trimIndent()
                         )
                     )
                     continue
                 }
 
-                val name = ExamsTempValues.courseName[i]
+                val name = tempValues.courseName[i]
                 val desc = """
-                    时间：${ExamsTempValues.examTime[i]}
-                    楼宇：${ExamsTempValues.building[i]}
-                    教室：${ExamsTempValues.room[i]}
+                    时间：${tempValues.examTime[i]}
+                    楼宇：${tempValues.building[i]}
+                    教室：${tempValues.room[i]}
                 """.trimIndent()
                 add(ClickableItem(
                     name,
@@ -252,16 +252,16 @@ class ExamsActivity : SimplePageActivity() {
                 val majorArray = JSONArray(examsMajorData)
                 for (i in 0 until majorArray.length()) {
                     val all = majorArray.optJSONObject(i).optJSONObject("examPlace") ?: break
-                    ExamsTempValues.courseName.add(
+                    tempValues.courseName.add(
                         all.optString("courseNameStr")
                     )
-                    ExamsTempValues.examTime.add(
+                    tempValues.examTime.add(
                         all.optJSONObject("examTime")!!.optString("dateTimeString")
                     )
-                    ExamsTempValues.building.add(
+                    tempValues.building.add(
                         all.optJSONObject("room")!!.optJSONObject("building")!!.optString("nameZh")
                     )
-                    ExamsTempValues.room.add(
+                    tempValues.room.add(
                         all.optJSONObject("room")!!.optString("nameZh")
                     )
                 }
@@ -270,17 +270,17 @@ class ExamsActivity : SimplePageActivity() {
                     val minorArray = JSONArray(examsMinorData)
                     for (i in 0 until minorArray.length()) {
                         val all = minorArray.optJSONObject(i).optJSONObject("examPlace") ?: break
-                        ExamsTempValues.courseName.add(
+                        tempValues.courseName.add(
                             all.optString("courseNameStr") + "辅修"
                         )
-                        ExamsTempValues.examTime.add(
+                        tempValues.examTime.add(
                             all.optJSONObject("examTime")!!.optString("dateTimeString")
                         )
-                        ExamsTempValues.building.add(
+                        tempValues.building.add(
                             all.optJSONObject("room")!!.optJSONObject("building")!!
                                 .optString("nameZh")
                         )
-                        ExamsTempValues.room.add(
+                        tempValues.room.add(
                             all.optJSONObject("room")!!.optString("nameZh")
                         )
                     }

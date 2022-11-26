@@ -13,17 +13,4 @@ class LessonsTempValues {
     val lessonOpenDepart: MutableList<String> = mutableListOf()
     val lessonTeacher: MutableList<String> = mutableListOf()
     val lessonType: MutableList<String> = mutableListOf()
-
-    fun clear() {
-        semesterName = Constants.STRING_NULL
-        lessonId.clear()
-        lessonCode.clear()
-        lessonCompulsory.clear()
-        lessonName.clear()
-        lessonCredit.clear()
-        lessonExamMode.clear()
-        lessonOpenDepart.clear()
-        lessonTeacher.clear()
-        lessonType.clear()
-    }
 }

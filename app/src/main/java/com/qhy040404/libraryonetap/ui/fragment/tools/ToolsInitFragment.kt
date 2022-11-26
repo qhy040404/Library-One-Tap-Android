@@ -14,7 +14,6 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
-import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
@@ -201,7 +200,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 }
             }
         }
-        if (!GlobalValues.minorVisible && GradesTempValues.minorStuId != 0) {
+        if (!GlobalValues.minorVisible && GlobalValues.minorStuId != 0) {
             lifecycleScope.launch(Dispatchers.IO) { showMinor() }
         }
     }
@@ -410,22 +409,22 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 toolsInit = true)
             val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
             val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
-            GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
+            GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
                 initUrl.split("/").last().toInt()
             } else {
                 val initList =
                     initData.split("onclick=\"myFunction(this)\" value=\"")
                 if (initList.size == 3) {
                     runCatching { requireContext().showToast("检测到辅修/双学位，已添加入口") }
-                    GradesTempValues.toastShowed = true
+                    GlobalValues.toastShowed = true
                     val aStuId = initList[1].split("\"")[0].toInt()
                     val bStuId = initList[2].split("\"")[0].toInt()
-                    GradesTempValues.minorStuId = aStuId.coerceAtLeast(bStuId)
+                    GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
                     tempId = aStuId.coerceAtMost(bStuId)
                 }
                 tempId
             }
-            if (GradesTempValues.minorStuId != 0) {
+            if (GlobalValues.minorStuId != 0) {
                 showMinor()
                 GlobalValues.minorVisible = true
             }

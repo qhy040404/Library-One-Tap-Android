@@ -1,11 +1,6 @@
 package com.qhy040404.libraryonetap.temp
 
 object GradesTempValues {
-    var majorStuId = 0
-    var minorStuId = 0
-
-    var toastShowed = false
-
     val semesters: MutableList<Int> = mutableListOf()
     val semestersName: MutableList<String> = mutableListOf()
 

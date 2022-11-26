@@ -204,7 +204,7 @@ class GradesMinorActivity : SimplePageActivity() {
             if (loginSuccess) {
                 Thread.sleep(1000L)
                 val gradesData =
-                    Requests.get(URLManager.getEduGradeUrl(GradesTempValues.minorStuId))
+                    Requests.get(URLManager.getEduGradeUrl(GlobalValues.minorStuId))
 
                 val gradesJsonObject = JSONObject(gradesData)
                 val semesters = gradesJsonObject.optJSONArray("semesters")!!

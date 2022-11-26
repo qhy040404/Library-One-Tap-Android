@@ -199,21 +199,21 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
-                if (GradesTempValues.majorStuId == 0) {
+                if (GlobalValues.majorStuId == 0) {
                     val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                     val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-                    GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
+                    GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
                         initUrl.split("/").last().toInt()
                     } else {
                         val initList =
                             initData.split("onclick=\"myFunction(this)\" value=\"")
                         if (initList.size == 3) {
-                            if (!GradesTempValues.toastShowed) {
+                            if (!GlobalValues.toastShowed) {
                                 showToast("检测到辅修/双学位，已添加入口")
                             }
                             val aStuId = initList[1].split("\"")[0].toInt()
                             val bStuId = initList[2].split("\"")[0].toInt()
-                            GradesTempValues.minorStuId = aStuId.coerceAtLeast(bStuId)
+                            GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
                             majorStuId = aStuId.coerceAtMost(bStuId)
                         }
                         majorStuId
@@ -222,7 +222,7 @@ class GradesMajorActivity : SimplePageActivity() {
 
                 Thread.sleep(3000L)
                 val gradesData =
-                    Requests.get(URLManager.getEduGradeUrl(GradesTempValues.majorStuId))
+                    Requests.get(URLManager.getEduGradeUrl(GlobalValues.majorStuId))
 
                 val gradesJsonObject = JSONObject(gradesData)
                 val semesters = gradesJsonObject.optJSONArray("semesters")!!

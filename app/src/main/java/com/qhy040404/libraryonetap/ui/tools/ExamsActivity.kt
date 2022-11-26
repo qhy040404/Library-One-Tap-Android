@@ -20,7 +20,6 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.ExamsTempValues
-import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -208,10 +207,10 @@ class ExamsActivity : SimplePageActivity() {
                 }
             }
             if (loginSuccess) {
-                if (GradesTempValues.majorStuId == 0) {
+                if (GlobalValues.majorStuId == 0) {
                     val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                     val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-                    GradesTempValues.majorStuId = if (initUrl.contains("semester-index")) {
+                    GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
                         initUrl.split("/").last().toInt()
                     } else {
                         val initList =
@@ -221,11 +220,11 @@ class ExamsActivity : SimplePageActivity() {
                             val bStuId = initList[2].split("\"")[0].toInt()
                             when {
                                 aStuId > bStuId -> {
-                                    GradesTempValues.minorStuId = aStuId
+                                    GlobalValues.minorStuId = aStuId
                                     majorStuId = bStuId
                                 }
                                 bStuId > aStuId -> {
-                                    GradesTempValues.minorStuId = bStuId
+                                    GlobalValues.minorStuId = bStuId
                                     majorStuId = aStuId
                                 }
                                 else -> throw IllegalStateException("Illegal Student ID")
@@ -239,13 +238,13 @@ class ExamsActivity : SimplePageActivity() {
                 var examsMinorData: String? = null
 
                 val examsMajorData =
-                    Requests.get(URLManager.getEduExamsUrl(GradesTempValues.majorStuId))
+                    Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
                         .split("var studentExamInfoVms = ")[1]
                         .split("];")[0] + "]"
-                if (GradesTempValues.minorStuId != 0) {
+                if (GlobalValues.minorStuId != 0) {
                     Thread.sleep(3000L)
                     examsMinorData =
-                        Requests.get(URLManager.getEduExamsUrl(GradesTempValues.minorStuId))
+                        Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))
                             .split("var studentExamInfoVms = ")[1]
                             .split("];")[0] + "]"
                 }

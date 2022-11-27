@@ -115,6 +115,16 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             }
         }
 
+        findPreference<SimpleMenuPreference>(Constants.PREF_GP)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                if (newValue.toString().isDuplicateGV(GlobalValues.gpOption)) {
+                    return@setOnPreferenceChangeListener true
+                }
+                GlobalValues.gpOption = newValue.toString()
+                true
+            }
+        }
+
         findPreference<SimpleMenuPreference>(Constants.PREF_DARK)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 if (newValue.toString().isDuplicateGV(GlobalValues.darkMode)) {

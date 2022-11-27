@@ -54,7 +54,9 @@ class GradesMinorActivity : SimplePageActivity() {
                         )
                     }  平均绩点: ${
                         GradesUtils.calculateAverageGP(
+                            this@GradesMinorActivity,
                             tempValues.secondCourseGP,
+                            tempValues.secondCourseGrade,
                             tempValues.secondCourseCredits
                         )
                     }"

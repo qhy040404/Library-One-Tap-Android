@@ -71,6 +71,7 @@
     <string name="name">Name</string>
     <string name="user_id">ID</string>
     <string name="passwd">Password</string>
+    <string name="gp_algorithm">GPA algorithm</string>
     <string name="general">General</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="main_theme">Theme</string>
@@ -141,6 +142,14 @@
     <string name="failed_to_connect_github_api">Failed to connect to GitHub.</string>
 
     <!-- ARRAY -->
+    <!-- TOOLS -->
+    <string-array name="gp">
+        <item>DLUT algorithm</item>
+        <item>Standard quintile algorithm</item>
+        <item>Standard quarter algorithm</item>
+        <item>Peking University quarter algorithm</item>
+    </string-array>
+
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>Random</item>

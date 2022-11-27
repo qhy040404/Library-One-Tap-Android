@@ -50,7 +50,9 @@ class GradesMajorActivity : SimplePageActivity() {
                     )
                 }  平均绩点: ${
                     GradesUtils.calculateAverageGP(
+                        this@GradesMajorActivity,
                         tempValues.courseGP,
+                        tempValues.courseGrade,
                         tempValues.courseCredits
                     )
                 }"

@@ -37,6 +37,8 @@ object GlobalValues {
             }
         }
 
+    var gpOption: String by SPDelegates(Constants.PREF_GP, Constants.DEFAULT_GP)
+
     var darkMode: String by SPDelegates(Constants.PREF_DARK, Constants.DEFAULT_DARK)
     var theme: String by SPDelegates(Constants.PREF_THEME, Constants.DEFAULT_THEME)
     var md3: Boolean by SPDelegates(Constants.PREF_MD3, true)

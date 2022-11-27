@@ -71,6 +71,7 @@
     <string name="name">姓名</string>
     <string name="user_id">学号</string>
     <string name="passwd">密码</string>
+    <string name="gp_algorithm">平均绩点算法</string>
     <string name="general">通用</string>
     <string name="dark_mode">深色模式</string>
     <string name="main_theme">主题</string>
@@ -146,6 +147,21 @@
     <string name="about_slogan" translatable="false">Library One Tap</string>
 
     <!-- ARRAYS -->
+    <!-- TOOLS -->
+    <string-array name="gp">
+        <item>大工算法</item>
+        <item>标准5分</item>
+        <item>标准4分</item>
+        <item>北大4分</item>
+    </string-array>
+
+    <string-array name="gp_values" translatable="false">
+        <item>dlut</item>
+        <item>std5</item>
+        <item>std4</item>
+        <item>peking4</item>
+    </string-array>
+
     <!-- SETTINGS -->
     <string-array name="themes">
         <item>随机主题</item>

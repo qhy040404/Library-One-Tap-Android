@@ -1,6 +1,13 @@
 package com.qhy040404.libraryonetap.utils.tools
 
+import android.content.Context
+import com.absinthe.libraries.utils.extensions.getStringArray
+import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.annotation.Parentheses
+import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.addParentheses
 
 object GradesUtils {
     fun calculateWeightedAverage(
@@ -15,12 +22,37 @@ object GradesUtils {
         return (totalWeightedSum / totalCredits).to2Decimal()
     }
 
-    fun calculateAverageGP(gp: MutableList<Double>, credits: MutableList<Double>): Double {
-        var totalWeightedGP = 0.0
-        val totalCredits = credits.sum()
-        for (i in 0 until gp.size) {
-            totalWeightedGP += gp[i] * credits[i]
+    fun calculateAverageGP(
+        ctx: Context,
+        gp: MutableList<Double>,
+        scores: MutableList<String>,
+        credits: MutableList<Double>,
+    ): String {
+        return when (GlobalValues.gpOption) {
+            Constants.GP_DLUT -> {
+                GPAUtils.calculateGPAByDlut(gp, credits)
+                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+            }
+            Constants.GP_STANDARD5 -> {
+                GPAUtils.calculateGPAByStandard5(scores, credits)
+                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+            }
+            Constants.GP_STANDARD4 -> {
+                GPAUtils.calculateGPAByStandard4(scores, credits)
+                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+            }
+            Constants.GP_PEKING4 -> {
+                GPAUtils.calculateGPAByPeking4(scores, credits)
+                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+            }
+            else -> {
+                GPAUtils.calculateGPAByDlut(gp, credits)
+                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+            }
         }
-        return (totalWeightedGP / totalCredits).to2Decimal()
     }
+
+    private fun getCurrentGPAAlgorithm(ctx: Context): String =
+        ctx.getStringArray(R.array.gp)[ctx.getStringArray(R.array.gp_values)
+            .indexOf(GlobalValues.gpOption)]
 }

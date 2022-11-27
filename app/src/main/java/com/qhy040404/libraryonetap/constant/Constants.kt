@@ -12,6 +12,8 @@ object Constants {
     const val PREF_ID = "userid"
     const val PREF_PASSWD = "passwd"
 
+    const val PREF_GP = "gp_option"
+
     const val PREF_DARK = "dark"
     const val PREF_THEME = "theme"
     const val PREF_MD3 = "md3"
@@ -25,6 +27,7 @@ object Constants {
 
     const val LATEST_APK_NAME = "latestApkName"
 
+    const val DEFAULT_GP = "dlut"
     const val DEFAULT_DARK = "system"
     const val DEFAULT_THEME = "library"
 
@@ -39,6 +42,11 @@ object Constants {
     const val LIBRARY_METHOD_IN = "in"
     const val LIBRARY_METHOD_OUT = "out"
     const val LIBRARY_METHOD_TEMP = "temp"
+
+    const val GP_DLUT = "dlut"
+    const val GP_STANDARD5 = "std5"
+    const val GP_STANDARD4 = "std4"
+    const val GP_PEKING4 = "peking4"
 
     const val PORTAL_DEFAULT_POST = "{}"
 

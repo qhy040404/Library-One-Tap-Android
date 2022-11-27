@@ -20,6 +20,18 @@
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
     <PreferenceCategory
+        app:key="tools"
+        app:title="@string/tools">
+        <rikka.preference.SimpleMenuPreference
+            app:defaultValue="dlut"
+            app:entries="@array/gp"
+            app:entryValues="@array/gp_values"
+            app:icon="@drawable/ic_gpa"
+            app:key="gp_option"
+            app:summary="%s"
+            app:title="@string/gp_algorithm" />
+    </PreferenceCategory>
+    <PreferenceCategory
         app:key="general"
         app:title="@string/general">
         <rikka.preference.SimpleMenuPreference

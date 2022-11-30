@@ -7,15 +7,15 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.22",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.21/1a2eaf898a0dda83037034b10a42053cf8a7caf8/kotlin-stdlib-1.7.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.22/9fb43bccb6cf8cfaaf3776c75f5df4f052f09b72/kotlin-stdlib-1.7.22.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.21/cb02257de8e13e8498f8e2f69f742f2d438e794d/kotlin-stdlib-common-1.7.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.22/5dd2c9dcf64c94b46cf4bdb6fa4035b9bb726e2e/kotlin-stdlib-common-1.7.22.jar!/"
       ],
       "properties": {}
     },
@@ -56,9 +56,9 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.21/5407c3593c58860cec5ee3f66c468396b42f4c2b/kotlin-stdlib-jdk8-1.7.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.22/b75c999616784d452613d670fec56a527f2bd3d1/kotlin-stdlib-jdk8-1.7.22.jar!/"
       ]
     },
     {
@@ -154,685 +154,685 @@
     {
       "name": "Gradle: androidx.databinding:viewbinding:7.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e3d962eba69c1c90bd0e3317b5263d14/transformed/viewbinding-7.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e3d962eba69c1c90bd0e3317b5263d14/transformed/viewbinding-7.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6f33fcbf8fa227cc97ba43279e95bd9c/transformed/viewbinding-7.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6f33fcbf8fa227cc97ba43279e95bd9c/transformed/viewbinding-7.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.databinding:databinding-runtime:7.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/11f8819c9a4490392db57c9aee068472/transformed/databinding-runtime-7.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/11f8819c9a4490392db57c9aee068472/transformed/databinding-runtime-7.3.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/11f8819c9a4490392db57c9aee068472/transformed/databinding-runtime-7.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/032209769995bc9d348ba4ee966e46b4/transformed/databinding-runtime-7.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/032209769995bc9d348ba4ee966e46b4/transformed/databinding-runtime-7.3.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/032209769995bc9d348ba4ee966e46b4/transformed/databinding-runtime-7.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-runtime:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ef6719ad488fcfb73b4d6833c7a11ef3/transformed/lifecycle-runtime-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ef6719ad488fcfb73b4d6833c7a11ef3/transformed/lifecycle-runtime-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ef6719ad488fcfb73b4d6833c7a11ef3/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/95749a55080adb175abcfd1c562b23d0/transformed/lifecycle-runtime-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/95749a55080adb175abcfd1c562b23d0/transformed/lifecycle-runtime-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/95749a55080adb175abcfd1c562b23d0/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.databinding:databinding-adapters:7.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/54177c63522bd041e9ecbf92b14f5ce8/transformed/databinding-adapters-7.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/54177c63522bd041e9ecbf92b14f5ce8/transformed/databinding-adapters-7.3.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/54177c63522bd041e9ecbf92b14f5ce8/transformed/databinding-adapters-7.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4a2bb3213c39bb7a1222c46692035a28/transformed/databinding-adapters-7.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4a2bb3213c39bb7a1222c46692035a28/transformed/databinding-adapters-7.3.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4a2bb3213c39bb7a1222c46692035a28/transformed/databinding-adapters-7.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.databinding:databinding-ktx:7.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/70a1896b5f39a96ef962402c30f98863/transformed/databinding-ktx-7.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/70a1896b5f39a96ef962402c30f98863/transformed/databinding-ktx-7.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/88deccb135b81ac534030142a55450fb/transformed/databinding-ktx-7.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/88deccb135b81ac534030142a55450fb/transformed/databinding-ktx-7.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e79933e47e4d63195ac055dec5465842/transformed/lifecycle-runtime-ktx-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e79933e47e4d63195ac055dec5465842/transformed/lifecycle-runtime-ktx-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e79933e47e4d63195ac055dec5465842/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/55af58424a15629ec4c69d17791d021e/transformed/lifecycle-runtime-ktx-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/55af58424a15629ec4c69d17791d021e/transformed/lifecycle-runtime-ktx-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/55af58424a15629ec4c69d17791d021e/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-livedata:2.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/be06572255ebbced479360fafa574603/transformed/lifecycle-livedata-2.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/be06572255ebbced479360fafa574603/transformed/lifecycle-livedata-2.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/be06572255ebbced479360fafa574603/transformed/lifecycle-livedata-2.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8a06ef992d0917392308df62940e81c8/transformed/lifecycle-livedata-2.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8a06ef992d0917392308df62940e81c8/transformed/lifecycle-livedata-2.4.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8a06ef992d0917392308df62940e81c8/transformed/lifecycle-livedata-2.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.arch.core:core-runtime:2.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ad7cc9f56518b194b5868e33505083f9/transformed/core-runtime-2.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ad7cc9f56518b194b5868e33505083f9/transformed/core-runtime-2.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7f4d18d3258cedcd48506d50cf008017/transformed/core-runtime-2.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7f4d18d3258cedcd48506d50cf008017/transformed/core-runtime-2.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f3e938ea12c4da43ac8aa4be645d0b17/transformed/lifecycle-livedata-core-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f3e938ea12c4da43ac8aa4be645d0b17/transformed/lifecycle-livedata-core-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f3e938ea12c4da43ac8aa4be645d0b17/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d32b7e5f1c43beafdee3a7fc1a40f7aa/transformed/lifecycle-livedata-core-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d32b7e5f1c43beafdee3a7fc1a40f7aa/transformed/lifecycle-livedata-core-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d32b7e5f1c43beafdee3a7fc1a40f7aa/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/598759672a6a36904adecb74c4d34a72/transformed/lifecycle-process-2.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/598759672a6a36904adecb74c4d34a72/transformed/lifecycle-process-2.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/598759672a6a36904adecb74c4d34a72/transformed/lifecycle-process-2.4.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7533bf0cda67a52e1a38a9bc8a79bcb4/transformed/lifecycle-process-2.4.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7533bf0cda67a52e1a38a9bc8a79bcb4/transformed/lifecycle-process-2.4.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7533bf0cda67a52e1a38a9bc8a79bcb4/transformed/lifecycle-process-2.4.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.startup:startup-runtime:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193840f2350b37bcfd1e93b7519b7856/transformed/startup-runtime-1.1.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193840f2350b37bcfd1e93b7519b7856/transformed/startup-runtime-1.1.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/193840f2350b37bcfd1e93b7519b7856/transformed/startup-runtime-1.1.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/718e520bc51969514589cab5a8811593/transformed/startup-runtime-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/718e520bc51969514589cab5a8811593/transformed/startup-runtime-1.1.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/718e520bc51969514589cab5a8811593/transformed/startup-runtime-1.1.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-service:2.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bfbf578de5d4cdfd29b3556ce9df04f4/transformed/lifecycle-service-2.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bfbf578de5d4cdfd29b3556ce9df04f4/transformed/lifecycle-service-2.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bfbf578de5d4cdfd29b3556ce9df04f4/transformed/lifecycle-service-2.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/665190b4766d9d1101166df251792a22/transformed/lifecycle-service-2.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/665190b4766d9d1101166df251792a22/transformed/lifecycle-service-2.4.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/665190b4766d9d1101166df251792a22/transformed/lifecycle-service-2.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5a97fa6244d27d30657526938ee7a53d/transformed/lifecycle-viewmodel-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5a97fa6244d27d30657526938ee7a53d/transformed/lifecycle-viewmodel-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5a97fa6244d27d30657526938ee7a53d/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a83d262d5958d6299a42f9f1c0f94df4/transformed/lifecycle-viewmodel-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a83d262d5958d6299a42f9f1c0f94df4/transformed/lifecycle-viewmodel-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a83d262d5958d6299a42f9f1c0f94df4/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-android:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ba2dadae8a19144bbe1fb7ddcce310b3/transformed/leakcanary-android-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ba2dadae8a19144bbe1fb7ddcce310b3/transformed/leakcanary-android-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b850386d1ead9f9f6f497cb48c89f297/transformed/leakcanary-android-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b850386d1ead9f9f6f497cb48c89f297/transformed/leakcanary-android-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-android-core:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/44aa1e43575730795fd777b2f41b1b72/transformed/leakcanary-android-core-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/44aa1e43575730795fd777b2f41b1b72/transformed/leakcanary-android-core-2.10/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/44aa1e43575730795fd777b2f41b1b72/transformed/leakcanary-android-core-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b686b1e283c42b62aa7542909838da9c/transformed/leakcanary-android-core-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b686b1e283c42b62aa7542909838da9c/transformed/leakcanary-android-core-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b686b1e283c42b62aa7542909838da9c/transformed/leakcanary-android-core-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-core:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d1605a7381e7ee1cfaf9ca46f26bc6b0/transformed/leakcanary-object-watcher-android-core-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d1605a7381e7ee1cfaf9ca46f26bc6b0/transformed/leakcanary-object-watcher-android-core-2.10/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d1605a7381e7ee1cfaf9ca46f26bc6b0/transformed/leakcanary-object-watcher-android-core-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/10ee4752c271adca8571f526ec53451d/transformed/leakcanary-object-watcher-android-core-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/10ee4752c271adca8571f526ec53451d/transformed/leakcanary-object-watcher-android-core-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/10ee4752c271adca8571f526ec53451d/transformed/leakcanary-object-watcher-android-core-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9e4e7094d636908627ad8e0d8a451b49/transformed/leakcanary-android-utils-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9e4e7094d636908627ad8e0d8a451b49/transformed/leakcanary-android-utils-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dec8ed9d292196f200fff0dcc52f561c/transformed/leakcanary-android-utils-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dec8ed9d292196f200fff0dcc52f561c/transformed/leakcanary-android-utils-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3402ce6ecacc9f60d39994d571bcd738/transformed/leakcanary-object-watcher-android-androidx-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3402ce6ecacc9f60d39994d571bcd738/transformed/leakcanary-object-watcher-android-androidx-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a1e3e4714a6405272ab78992a145a50c/transformed/leakcanary-object-watcher-android-androidx-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a1e3e4714a6405272ab78992a145a50c/transformed/leakcanary-object-watcher-android-androidx-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1ef8bdbed44929b2feb865aed3f57a6d/transformed/leakcanary-object-watcher-android-support-fragments-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1ef8bdbed44929b2feb865aed3f57a6d/transformed/leakcanary-object-watcher-android-support-fragments-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0a6377c3bc8d30316d150d08d77af84c/transformed/leakcanary-object-watcher-android-support-fragments-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0a6377c3bc8d30316d150d08d77af84c/transformed/leakcanary-object-watcher-android-support-fragments-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android:2.10@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3983363e6533b0104a5cf1c1c99f6263/transformed/leakcanary-object-watcher-android-2.10/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3983363e6533b0104a5cf1c1c99f6263/transformed/leakcanary-object-watcher-android-2.10/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3983363e6533b0104a5cf1c1c99f6263/transformed/leakcanary-object-watcher-android-2.10/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/602fc0ad393fe983e54d38814bbff659/transformed/leakcanary-object-watcher-android-2.10/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/602fc0ad393fe983e54d38814bbff659/transformed/leakcanary-object-watcher-android-2.10/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/602fc0ad393fe983e54d38814bbff659/transformed/leakcanary-object-watcher-android-2.10/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.activity:activity-ktx:1.6.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e38e2d9a277d4c1534702cc29511beec/transformed/activity-ktx-1.6.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e38e2d9a277d4c1534702cc29511beec/transformed/activity-ktx-1.6.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e38e2d9a277d4c1534702cc29511beec/transformed/activity-ktx-1.6.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/619cea4c1b9c17ce637a976846201c70/transformed/activity-ktx-1.6.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/619cea4c1b9c17ce637a976846201c70/transformed/activity-ktx-1.6.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/619cea4c1b9c17ce637a976846201c70/transformed/activity-ktx-1.6.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.activity:activity:1.6.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5f2fbe6fc3acf77be7376c86359fc1c/transformed/activity-1.6.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5f2fbe6fc3acf77be7376c86359fc1c/transformed/activity-1.6.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5f2fbe6fc3acf77be7376c86359fc1c/transformed/activity-1.6.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0b14e8016a50173b34da0856b26789fa/transformed/activity-1.6.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0b14e8016a50173b34da0856b26789fa/transformed/activity-1.6.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0b14e8016a50173b34da0856b26789fa/transformed/activity-1.6.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.core:core:1.9.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20e6a46610957cfe8d9f5a5f1e92deb0/transformed/core-1.9.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20e6a46610957cfe8d9f5a5f1e92deb0/transformed/core-1.9.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20e6a46610957cfe8d9f5a5f1e92deb0/transformed/core-1.9.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/686d9bcd252b748d23a9397d3ff65dc3/transformed/core-1.9.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/686d9bcd252b748d23a9397d3ff65dc3/transformed/core-1.9.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/686d9bcd252b748d23a9397d3ff65dc3/transformed/core-1.9.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.annotation:annotation-experimental:1.3.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bcdb400524ec5c0f52abf5c5754d6e89/transformed/annotation-experimental-1.3.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bcdb400524ec5c0f52abf5c5754d6e89/transformed/annotation-experimental-1.3.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bcdb400524ec5c0f52abf5c5754d6e89/transformed/annotation-experimental-1.3.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c93b40935e75a9ea36d5c91057986c7d/transformed/annotation-experimental-1.3.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c93b40935e75a9ea36d5c91057986c7d/transformed/annotation-experimental-1.3.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c93b40935e75a9ea36d5c91057986c7d/transformed/annotation-experimental-1.3.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5cf5e0a3977f13c8fb413757baf67ebd/transformed/versionedparcelable-1.1.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5cf5e0a3977f13c8fb413757baf67ebd/transformed/versionedparcelable-1.1.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/797af4e4b795ace577351b15ce026076/transformed/versionedparcelable-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/797af4e4b795ace577351b15ce026076/transformed/versionedparcelable-1.1.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/28a33e7baabbd2dcf48b0e9d1b9fa953/transformed/lifecycle-viewmodel-savedstate-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/28a33e7baabbd2dcf48b0e9d1b9fa953/transformed/lifecycle-viewmodel-savedstate-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/28a33e7baabbd2dcf48b0e9d1b9fa953/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/102bd44f2510031aa1d32f924dc1e554/transformed/lifecycle-viewmodel-savedstate-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/102bd44f2510031aa1d32f924dc1e554/transformed/lifecycle-viewmodel-savedstate-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/102bd44f2510031aa1d32f924dc1e554/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.core:core-ktx:1.9.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/87d64db2d23c322c6fa2a59c0550712a/transformed/core-ktx-1.9.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/87d64db2d23c322c6fa2a59c0550712a/transformed/core-ktx-1.9.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/87d64db2d23c322c6fa2a59c0550712a/transformed/core-ktx-1.9.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c22327edad804521813c6ed2c56a7bbd/transformed/core-ktx-1.9.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c22327edad804521813c6ed2c56a7bbd/transformed/core-ktx-1.9.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c22327edad804521813c6ed2c56a7bbd/transformed/core-ktx-1.9.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.savedstate:savedstate:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5fbaee224c197032c0a25d1a4110bbb8/transformed/savedstate-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5fbaee224c197032c0a25d1a4110bbb8/transformed/savedstate-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5fbaee224c197032c0a25d1a4110bbb8/transformed/savedstate-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b6922033357fa69edbff39b604cf3533/transformed/savedstate-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b6922033357fa69edbff39b604cf3533/transformed/savedstate-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b6922033357fa69edbff39b604cf3533/transformed/savedstate-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc5057888a7b4b514cd5ab9dc3fa255/transformed/lifecycle-viewmodel-ktx-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc5057888a7b4b514cd5ab9dc3fa255/transformed/lifecycle-viewmodel-ktx-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc5057888a7b4b514cd5ab9dc3fa255/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a459b61b81f326a90fc2e0b9aaf42b7d/transformed/lifecycle-viewmodel-ktx-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a459b61b81f326a90fc2e0b9aaf42b7d/transformed/lifecycle-viewmodel-ktx-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a459b61b81f326a90fc2e0b9aaf42b7d/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.savedstate:savedstate-ktx:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b399d25962d794ef64630159fccf1fc2/transformed/savedstate-ktx-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b399d25962d794ef64630159fccf1fc2/transformed/savedstate-ktx-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b399d25962d794ef64630159fccf1fc2/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f95fb7ddfd55028be9e2c08ff8e9211d/transformed/savedstate-ktx-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f95fb7ddfd55028be9e2c08ff8e9211d/transformed/savedstate-ktx-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f95fb7ddfd55028be9e2c08ff8e9211d/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.browser:browser:1.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/00262d70d57614052e257a76f864371e/transformed/browser-1.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/00262d70d57614052e257a76f864371e/transformed/browser-1.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/00262d70d57614052e257a76f864371e/transformed/browser-1.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e91ddee1e8175c897c1d96e3b8b1b877/transformed/browser-1.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e91ddee1e8175c897c1d96e3b8b1b877/transformed/browser-1.4.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e91ddee1e8175c897c1d96e3b8b1b877/transformed/browser-1.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc8db6a5df94f4c32d6cd19356d7aaf/transformed/constraintlayout-2.1.4/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc8db6a5df94f4c32d6cd19356d7aaf/transformed/constraintlayout-2.1.4/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7bc8db6a5df94f4c32d6cd19356d7aaf/transformed/constraintlayout-2.1.4/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0f1608c21664aa946657107b221631c2/transformed/constraintlayout-2.1.4/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0f1608c21664aa946657107b221631c2/transformed/constraintlayout-2.1.4/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/0f1608c21664aa946657107b221631c2/transformed/constraintlayout-2.1.4/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.core:core-splashscreen:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3ecf280353f9799292eb0d07e2f921b1/transformed/core-splashscreen-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3ecf280353f9799292eb0d07e2f921b1/transformed/core-splashscreen-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3ecf280353f9799292eb0d07e2f921b1/transformed/core-splashscreen-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/768285ee8202ea6ba1350bf4c31fbdc0/transformed/core-splashscreen-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/768285ee8202ea6ba1350bf4c31fbdc0/transformed/core-splashscreen-1.0.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/768285ee8202ea6ba1350bf4c31fbdc0/transformed/core-splashscreen-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.fragment:fragment-ktx:1.5.4@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f073ede2607a39973d2199ce133a5588/transformed/fragment-ktx-1.5.4/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f073ede2607a39973d2199ce133a5588/transformed/fragment-ktx-1.5.4/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f073ede2607a39973d2199ce133a5588/transformed/fragment-ktx-1.5.4/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5cc56227049d9635e8126c8a3618c94/transformed/fragment-ktx-1.5.4/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5cc56227049d9635e8126c8a3618c94/transformed/fragment-ktx-1.5.4/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e5cc56227049d9635e8126c8a3618c94/transformed/fragment-ktx-1.5.4/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.fragment:fragment:1.5.4@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/157fe829879716282b77e4044c2a8c9c/transformed/fragment-1.5.4/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/157fe829879716282b77e4044c2a8c9c/transformed/fragment-1.5.4/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/157fe829879716282b77e4044c2a8c9c/transformed/fragment-1.5.4/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2fd4fcfdbba5d7f50bb0a44fe4816fb/transformed/fragment-1.5.4/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2fd4fcfdbba5d7f50bb0a44fe4816fb/transformed/fragment-1.5.4/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2fd4fcfdbba5d7f50bb0a44fe4816fb/transformed/fragment-1.5.4/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.loader:loader:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/032a1b815ce6797668d435e62cc97301/transformed/loader-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/032a1b815ce6797668d435e62cc97301/transformed/loader-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9edf4643ba7cbd17156a29f30535b202/transformed/loader-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9edf4643ba7cbd17156a29f30535b202/transformed/loader-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.viewpager:viewpager:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7a904996291262db893ac898d81eb758/transformed/viewpager-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7a904996291262db893ac898d81eb758/transformed/viewpager-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/141b3f25c1d63317c447de5bd706e46e/transformed/viewpager-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/141b3f25c1d63317c447de5bd706e46e/transformed/viewpager-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.customview:customview:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/16e82bb58354607e98c2ff12e6196491/transformed/customview-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/16e82bb58354607e98c2ff12e6196491/transformed/customview-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/183ac485c83f353e845758e948b662c7/transformed/customview-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/183ac485c83f353e845758e948b662c7/transformed/customview-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/61b770fb7167126909c76e1b6596a9c9/transformed/lifecycle-livedata-core-ktx-2.5.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/61b770fb7167126909c76e1b6596a9c9/transformed/lifecycle-livedata-core-ktx-2.5.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/61b770fb7167126909c76e1b6596a9c9/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d102520c6b6e37650cbb1383710a768a/transformed/lifecycle-livedata-core-ktx-2.5.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d102520c6b6e37650cbb1383710a768a/transformed/lifecycle-livedata-core-ktx-2.5.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d102520c6b6e37650cbb1383710a768a/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-fragment-ktx:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f79e96393c8e528ab24f1fef9084a8ef/transformed/navigation-fragment-ktx-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f79e96393c8e528ab24f1fef9084a8ef/transformed/navigation-fragment-ktx-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f79e96393c8e528ab24f1fef9084a8ef/transformed/navigation-fragment-ktx-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a434432095c8e95a57a39f3f74aa3af4/transformed/navigation-fragment-ktx-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a434432095c8e95a57a39f3f74aa3af4/transformed/navigation-fragment-ktx-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a434432095c8e95a57a39f3f74aa3af4/transformed/navigation-fragment-ktx-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-fragment:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/909543ee546bf4eece6d1ddaf048eccc/transformed/navigation-fragment-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/909543ee546bf4eece6d1ddaf048eccc/transformed/navigation-fragment-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/909543ee546bf4eece6d1ddaf048eccc/transformed/navigation-fragment-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e3159a760ef8c63e0fdf91c0212c1e23/transformed/navigation-fragment-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e3159a760ef8c63e0fdf91c0212c1e23/transformed/navigation-fragment-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e3159a760ef8c63e0fdf91c0212c1e23/transformed/navigation-fragment-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-runtime:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/72865561531dd0e96eec28a5d2917ec0/transformed/navigation-runtime-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/72865561531dd0e96eec28a5d2917ec0/transformed/navigation-runtime-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/72865561531dd0e96eec28a5d2917ec0/transformed/navigation-runtime-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48385e6c8358a9d10555518bab602de9/transformed/navigation-runtime-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48385e6c8358a9d10555518bab602de9/transformed/navigation-runtime-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48385e6c8358a9d10555518bab602de9/transformed/navigation-runtime-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-common:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/cfae766711b27e444c2747e36015b8a8/transformed/navigation-common-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/cfae766711b27e444c2747e36015b8a8/transformed/navigation-common-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/cfae766711b27e444c2747e36015b8a8/transformed/navigation-common-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f0780a043c8ef3a1be976e26793ab29b/transformed/navigation-common-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f0780a043c8ef3a1be976e26793ab29b/transformed/navigation-common-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f0780a043c8ef3a1be976e26793ab29b/transformed/navigation-common-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3e6bdf2d0623b8e73da5e55bc1b261cb/transformed/slidingpanelayout-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3e6bdf2d0623b8e73da5e55bc1b261cb/transformed/slidingpanelayout-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/3e6bdf2d0623b8e73da5e55bc1b261cb/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7253494ccb3753cb0c2f2fa5871c86cf/transformed/slidingpanelayout-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7253494ccb3753cb0c2f2fa5871c86cf/transformed/slidingpanelayout-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7253494ccb3753cb0c2f2fa5871c86cf/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-runtime-ktx:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f9e9a2d139b16b70d7b6af81f0aeba72/transformed/navigation-runtime-ktx-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f9e9a2d139b16b70d7b6af81f0aeba72/transformed/navigation-runtime-ktx-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f9e9a2d139b16b70d7b6af81f0aeba72/transformed/navigation-runtime-ktx-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85170f0456591af752c56b566404312f/transformed/navigation-runtime-ktx-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85170f0456591af752c56b566404312f/transformed/navigation-runtime-ktx-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85170f0456591af752c56b566404312f/transformed/navigation-runtime-ktx-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-common-ktx:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ab38f4533219e0f28dec4b857d05521e/transformed/navigation-common-ktx-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ab38f4533219e0f28dec4b857d05521e/transformed/navigation-common-ktx-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ab38f4533219e0f28dec4b857d05521e/transformed/navigation-common-ktx-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d321be51a7ef75ec3888f3eaf068c0e0/transformed/navigation-common-ktx-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d321be51a7ef75ec3888f3eaf068c0e0/transformed/navigation-common-ktx-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d321be51a7ef75ec3888f3eaf068c0e0/transformed/navigation-common-ktx-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-ui-ktx:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a9c1e0fd18d00e30a647c91b31fdbf80/transformed/navigation-ui-ktx-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a9c1e0fd18d00e30a647c91b31fdbf80/transformed/navigation-ui-ktx-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a9c1e0fd18d00e30a647c91b31fdbf80/transformed/navigation-ui-ktx-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96c975e047b2a8fc89e8e46c1a46d097/transformed/navigation-ui-ktx-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96c975e047b2a8fc89e8e46c1a46d097/transformed/navigation-ui-ktx-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96c975e047b2a8fc89e8e46c1a46d097/transformed/navigation-ui-ktx-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.navigation:navigation-ui:2.5.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7927595967c9c2a3dc6d840bd9a0edbe/transformed/navigation-ui-2.5.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7927595967c9c2a3dc6d840bd9a0edbe/transformed/navigation-ui-2.5.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7927595967c9c2a3dc6d840bd9a0edbe/transformed/navigation-ui-2.5.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20823681015da67a35be815fd2d04fb7/transformed/navigation-ui-2.5.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20823681015da67a35be815fd2d04fb7/transformed/navigation-ui-2.5.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/20823681015da67a35be815fd2d04fb7/transformed/navigation-ui-2.5.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5be710436a47c7b9e78aa0f1b19b9912/transformed/drawerlayout-1.1.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5be710436a47c7b9e78aa0f1b19b9912/transformed/drawerlayout-1.1.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5be710436a47c7b9e78aa0f1b19b9912/transformed/drawerlayout-1.1.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/eb0af26ce49b0abf4b7c56b93335e858/transformed/drawerlayout-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/eb0af26ce49b0abf4b7c56b93335e858/transformed/drawerlayout-1.1.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/eb0af26ce49b0abf4b7c56b93335e858/transformed/drawerlayout-1.1.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.google.android.material:material:1.7.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c386a38f53190b245fe4b79c8306582c/transformed/material-1.7.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c386a38f53190b245fe4b79c8306582c/transformed/material-1.7.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c386a38f53190b245fe4b79c8306582c/transformed/material-1.7.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5dc4d3d4735b7d858952a2d69a96d89/transformed/material-1.7.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5dc4d3d4735b7d858952a2d69a96d89/transformed/material-1.7.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5dc4d3d4735b7d858952a2d69a96d89/transformed/material-1.7.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.cardview:cardview:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/63ede1c0daddb27f9b6fb7efaa1d7378/transformed/cardview-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/63ede1c0daddb27f9b6fb7efaa1d7378/transformed/cardview-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/63ede1c0daddb27f9b6fb7efaa1d7378/transformed/cardview-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4df6694d28571df69a4768ab69463893/transformed/cardview-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4df6694d28571df69a4768ab69463893/transformed/cardview-1.0.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4df6694d28571df69a4768ab69463893/transformed/cardview-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/05cf7edb41cf8ed9f882a6e953cd929f/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/05cf7edb41cf8ed9f882a6e953cd929f/transformed/coordinatorlayout-1.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/05cf7edb41cf8ed9f882a6e953cd929f/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/278106b730236e10703417a0c728d7ab/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/278106b730236e10703417a0c728d7ab/transformed/coordinatorlayout-1.1.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/278106b730236e10703417a0c728d7ab/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/40570d05869d7d376c0b88098c230948/transformed/dynamicanimation-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/40570d05869d7d376c0b88098c230948/transformed/dynamicanimation-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e75ae1c6f64d5c951874f8ecbdb0d97d/transformed/dynamicanimation-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e75ae1c6f64d5c951874f8ecbdb0d97d/transformed/dynamicanimation-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/93d7c6a1edd11cfe33ab2fc52c54d4f7/transformed/legacy-support-core-utils-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/93d7c6a1edd11cfe33ab2fc52c54d4f7/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8293ce47f8302a6b5e9c0b2a8d66e0d9/transformed/legacy-support-core-utils-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8293ce47f8302a6b5e9c0b2a8d66e0d9/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.documentfile:documentfile:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6168139735b917ea68cbfac54b44be6f/transformed/documentfile-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/6168139735b917ea68cbfac54b44be6f/transformed/documentfile-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2b8b2532037795cca9557f55def1db66/transformed/documentfile-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2b8b2532037795cca9557f55def1db66/transformed/documentfile-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ce8513ede3dc7a9b9477c652f9ee0612/transformed/localbroadcastmanager-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ce8513ede3dc7a9b9477c652f9ee0612/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8c6dbd0705e68e7d411caf5bb460b386/transformed/localbroadcastmanager-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8c6dbd0705e68e7d411caf5bb460b386/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.print:print:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/615360173f5cf3c63b5d23c3edf25a80/transformed/print-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/615360173f5cf3c63b5d23c3edf25a80/transformed/print-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/01c4f01694ec63b2f2f029406d189a76/transformed/print-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/01c4f01694ec63b2f2f029406d189a76/transformed/print-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.recyclerview:recyclerview:1.2.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/66b68785e184c2ea7f14a388515d35aa/transformed/recyclerview-1.2.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/66b68785e184c2ea7f14a388515d35aa/transformed/recyclerview-1.2.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/66b68785e184c2ea7f14a388515d35aa/transformed/recyclerview-1.2.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5308ec142d586d478b88eca0c1cbe5f/transformed/recyclerview-1.2.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5308ec142d586d478b88eca0c1cbe5f/transformed/recyclerview-1.2.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f5308ec142d586d478b88eca0c1cbe5f/transformed/recyclerview-1.2.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.transition:transition:1.4.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3215a76a49db6a90ffd9b2bad7f6acb/transformed/transition-1.4.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3215a76a49db6a90ffd9b2bad7f6acb/transformed/transition-1.4.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3215a76a49db6a90ffd9b2bad7f6acb/transformed/transition-1.4.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ad07b182c63d4b89816724d968ca56a2/transformed/transition-1.4.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ad07b182c63d4b89816724d968ca56a2/transformed/transition-1.4.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ad07b182c63d4b89816724d968ca56a2/transformed/transition-1.4.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.vectordrawable:vectordrawable:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1dd4239d4a335a2ca20244f3bc4b062c/transformed/vectordrawable-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1dd4239d4a335a2ca20244f3bc4b062c/transformed/vectordrawable-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/604598399dc9bcf883a2a4f6b5cac3c0/transformed/vectordrawable-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/604598399dc9bcf883a2a4f6b5cac3c0/transformed/vectordrawable-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.viewpager2:viewpager2:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c7385514d2d9a255a7fdc0709e2f5399/transformed/viewpager2-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c7385514d2d9a255a7fdc0709e2f5399/transformed/viewpager2-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c7385514d2d9a255a7fdc0709e2f5399/transformed/viewpager2-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5da17f85bde591567e30a0082bd1acb3/transformed/viewpager2-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5da17f85bde591567e30a0082bd1acb3/transformed/viewpager2-1.0.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5da17f85bde591567e30a0082bd1acb3/transformed/viewpager2-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.preference:preference-ktx:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca501daeb16554a66f2eaf13c68ba1cc/transformed/preference-ktx-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca501daeb16554a66f2eaf13c68ba1cc/transformed/preference-ktx-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ca501daeb16554a66f2eaf13c68ba1cc/transformed/preference-ktx-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d8478147f48b07f515072629bc996def/transformed/preference-ktx-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d8478147f48b07f515072629bc996def/transformed/preference-ktx-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d8478147f48b07f515072629bc996def/transformed/preference-ktx-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.preference:preference:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/71f65d6a96f0f9769a84f7ce7ea0187d/transformed/preference-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/71f65d6a96f0f9769a84f7ce7ea0187d/transformed/preference-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/71f65d6a96f0f9769a84f7ce7ea0187d/transformed/preference-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2b13693d1d38b7f882d90a03766c76c2/transformed/preference-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2b13693d1d38b7f882d90a03766c76c2/transformed/preference-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/2b13693d1d38b7f882d90a03766c76c2/transformed/preference-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.drakeet.about:about:2.5.2@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/39705867a3413b01d2966fde67b7d358/transformed/about-2.5.2/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/39705867a3413b01d2966fde67b7d358/transformed/about-2.5.2/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/39705867a3413b01d2966fde67b7d358/transformed/about-2.5.2/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e72c305040924f6de3b35f1976176794/transformed/about-2.5.2/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e72c305040924f6de3b35f1976176794/transformed/about-2.5.2/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/e72c305040924f6de3b35f1976176794/transformed/about-2.5.2/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.drakeet.multitype:multitype:4.3.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7cbc9aed9e8fc7b0bd3653c6e52b6b58/transformed/multitype-4.3.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7cbc9aed9e8fc7b0bd3653c6e52b6b58/transformed/multitype-4.3.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7cbc9aed9e8fc7b0bd3653c6e52b6b58/transformed/multitype-4.3.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/40ffafdf823b386d19fd80c7e1665ad2/transformed/multitype-4.3.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/40ffafdf823b386d19fd80c7e1665ad2/transformed/multitype-4.3.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/40ffafdf823b386d19fd80c7e1665ad2/transformed/multitype-4.3.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.github.qhy040404:datetime:1.1.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b5c679d2ebd857dd85a7b968a20c7e60/transformed/datetime-1.1.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b5c679d2ebd857dd85a7b968a20c7e60/transformed/datetime-1.1.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/82480640a126465378d955513f069784/transformed/datetime-1.1.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/82480640a126465378d955513f069784/transformed/datetime-1.1.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.github.zhaobozhen.libraries:utils:1.1.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f30dc2e6243871cd38d836766a206ba9/transformed/utils-1.1.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f30dc2e6243871cd38d836766a206ba9/transformed/utils-1.1.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f30dc2e6243871cd38d836766a206ba9/transformed/utils-1.1.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7f201d6e034263ef9fd47912401a4b04/transformed/utils-1.1.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7f201d6e034263ef9fd47912401a4b04/transformed/utils-1.1.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/7f201d6e034263ef9fd47912401a4b04/transformed/utils-1.1.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.jonathanfinerty.once:once:1.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/06c4edab16f645f8aba91fce4953239a/transformed/once-1.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/06c4edab16f645f8aba91fce4953239a/transformed/once-1.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/977e53bdf74ed3477e3db021f76d9b8b/transformed/once-1.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/977e53bdf74ed3477e3db021f76d9b8b/transformed/once-1.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.takisoft.preferencex:preferencex:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4801667b6a73b51418d59f983d6583c1/transformed/preferencex-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4801667b6a73b51418d59f983d6583c1/transformed/preferencex-1.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4801667b6a73b51418d59f983d6583c1/transformed/preferencex-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a0c76b9756c0f8f3cc1f1876df559577/transformed/preferencex-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a0c76b9756c0f8f3cc1f1876df559577/transformed/preferencex-1.1.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a0c76b9756c0f8f3cc1f1876df559577/transformed/preferencex-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: com.tencent.bugly:crashreport:4.1.9@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/55c6a3c460bad784ccc4d000cb17680c/transformed/crashreport-4.1.9/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/55c6a3c460bad784ccc4d000cb17680c/transformed/crashreport-4.1.9/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/139d146c22c2c0576dbc4fb75321a4ad/transformed/crashreport-4.1.9/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/139d146c22c2c0576dbc4fb75321a4ad/transformed/crashreport-4.1.9/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.appcompat:appcompat:1.5.0.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1a3ab67e8e8a49235aeb489378d4da9f/transformed/appcompat-1.5.0.1-debug/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1a3ab67e8e8a49235aeb489378d4da9f/transformed/appcompat-1.5.0.1-debug/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1a3ab67e8e8a49235aeb489378d4da9f/transformed/appcompat-1.5.0.1-debug/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/edbfbc3c96d9343dd7c8fb646c27c3c5/transformed/appcompat-1.5.0.1-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/edbfbc3c96d9343dd7c8fb646c27c3c5/transformed/appcompat-1.5.0.1-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/edbfbc3c96d9343dd7c8fb646c27c3c5/transformed/appcompat-1.5.0.1-debug/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9409869a28b18f3e84dddce23c0d8e29/transformed/cursoradapter-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9409869a28b18f3e84dddce23c0d8e29/transformed/cursoradapter-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8a285a3c54f9b1aec50dbf029dd7508b/transformed/cursoradapter-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/8a285a3c54f9b1aec50dbf029dd7508b/transformed/cursoradapter-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.appcompat:appcompat-resources:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/003545b24ed588d059e6431dc72e1e7c/transformed/appcompat-resources-1.5.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/003545b24ed588d059e6431dc72e1e7c/transformed/appcompat-resources-1.5.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/003545b24ed588d059e6431dc72e1e7c/transformed/appcompat-resources-1.5.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9a7b18c895dd06885a798f2984c6943f/transformed/appcompat-resources-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9a7b18c895dd06885a798f2984c6943f/transformed/appcompat-resources-1.5.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9a7b18c895dd06885a798f2984c6943f/transformed/appcompat-resources-1.5.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d7deb947c1e338be622e2461787d42d7/transformed/vectordrawable-animated-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d7deb947c1e338be622e2461787d42d7/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9d462c306e76593e9e78d71190a4b8cc/transformed/vectordrawable-animated-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/9d462c306e76593e9e78d71190a4b8cc/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.interpolator:interpolator:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/67aa48e06863fef1134b528108cb1f38/transformed/interpolator-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/67aa48e06863fef1134b528108cb1f38/transformed/interpolator-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/97ef40bbef958bc431fcc8a09a83e593/transformed/interpolator-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/97ef40bbef958bc431fcc8a09a83e593/transformed/interpolator-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.material:material:2.5.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/293a4c7cdc0c082d9999184e65422ed6/transformed/material-2.5.1-debug/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/293a4c7cdc0c082d9999184e65422ed6/transformed/material-2.5.1-debug/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/293a4c7cdc0c082d9999184e65422ed6/transformed/material-2.5.1-debug/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b75337e385d4a16bec5b717da78f00e9/transformed/material-2.5.1-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b75337e385d4a16bec5b717da78f00e9/transformed/material-2.5.1-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b75337e385d4a16bec5b717da78f00e9/transformed/material-2.5.1-debug/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5c15f5ab1de16c531330676cc7ed3f79/transformed/swiperefreshlayout-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5c15f5ab1de16c531330676cc7ed3f79/transformed/swiperefreshlayout-1.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5c15f5ab1de16c531330676cc7ed3f79/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/21e5bd0b1ddaaca3d2998413640b76b1/transformed/swiperefreshlayout-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/21e5bd0b1ddaaca3d2998413640b76b1/transformed/swiperefreshlayout-1.1.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/21e5bd0b1ddaaca3d2998413640b76b1/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.core:core-ktx:1.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bd52e22fd6d05d09f79845ea249261b9/transformed/core-ktx-1.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bd52e22fd6d05d09f79845ea249261b9/transformed/core-ktx-1.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/aa1f86cd980995da4c2fc18d29ed3fd6/transformed/core-ktx-1.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/aa1f86cd980995da4c2fc18d29ed3fd6/transformed/core-ktx-1.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.core:core:1.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dc390db9d02a7ffb5e3e73bf4a39090d/transformed/core-1.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dc390db9d02a7ffb5e3e73bf4a39090d/transformed/core-1.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/dc390db9d02a7ffb5e3e73bf4a39090d/transformed/core-1.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/42a52c32469481f81e6bdbaf6058722f/transformed/core-1.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/42a52c32469481f81e6bdbaf6058722f/transformed/core-1.4.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/42a52c32469481f81e6bdbaf6058722f/transformed/core-1.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.layoutinflater:layoutinflater:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a62f7b05d91c15075a67d28698dfc763/transformed/layoutinflater-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a62f7b05d91c15075a67d28698dfc763/transformed/layoutinflater-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/027c9fddbe748786baf9939ceed3d683/transformed/layoutinflater-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/027c9fddbe748786baf9939ceed3d683/transformed/layoutinflater-1.2.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.insets:insets:1.3.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bee61b80fca5979b3381660222de5a9c/transformed/insets-1.3.0-debug/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bee61b80fca5979b3381660222de5a9c/transformed/insets-1.3.0-debug/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/bee61b80fca5979b3381660222de5a9c/transformed/insets-1.3.0-debug/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2c58f8eb2ec8936371e901d2591a3c4/transformed/insets-1.3.0-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2c58f8eb2ec8936371e901d2591a3c4/transformed/insets-1.3.0-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d2c58f8eb2ec8936371e901d2591a3c4/transformed/insets-1.3.0-debug/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.material:material-preference:2.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48ca989f9bd8518ba46a2142d87bc828/transformed/material-preference-2.0.0-debug/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48ca989f9bd8518ba46a2142d87bc828/transformed/material-preference-2.0.0-debug/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/48ca989f9bd8518ba46a2142d87bc828/transformed/material-preference-2.0.0-debug/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96714414387ad1f7da63830e7ff53d40/transformed/material-preference-2.0.0-debug/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96714414387ad1f7da63830e7ff53d40/transformed/material-preference-2.0.0-debug/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/96714414387ad1f7da63830e7ff53d40/transformed/material-preference-2.0.0-debug/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.preference:simplemenu-preference:1.0.3@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b2f87ad278823cc0b1c8279f9e90d1fc/transformed/simplemenu-preference-1.0.3/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b2f87ad278823cc0b1c8279f9e90d1fc/transformed/simplemenu-preference-1.0.3/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b2f87ad278823cc0b1c8279f9e90d1fc/transformed/simplemenu-preference-1.0.3/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5d3d35df3523c2770ad7ded3099727c2/transformed/simplemenu-preference-1.0.3/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5d3d35df3523c2770ad7ded3099727c2/transformed/simplemenu-preference-1.0.3/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/5d3d35df3523c2770ad7ded3099727c2/transformed/simplemenu-preference-1.0.3/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.recyclerview:recyclerview-ktx:1.3.1@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/249338d20e8a4621e87a514dc9ed2dad/transformed/recyclerview-ktx-1.3.1/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/249338d20e8a4621e87a514dc9ed2dad/transformed/recyclerview-ktx-1.3.1/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/249338d20e8a4621e87a514dc9ed2dad/transformed/recyclerview-ktx-1.3.1/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/62953dfab8f5fe0cdbea22e32bf78aad/transformed/recyclerview-ktx-1.3.1/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/62953dfab8f5fe0cdbea22e32bf78aad/transformed/recyclerview-ktx-1.3.1/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/62953dfab8f5fe0cdbea22e32bf78aad/transformed/recyclerview-ktx-1.3.1/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: dev.rikka.rikkax.widget:borderview:1.1.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85a7d92bb5848fa10e5dfa9c2c5b9e63/transformed/borderview-1.1.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85a7d92bb5848fa10e5dfa9c2c5b9e63/transformed/borderview-1.1.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/85a7d92bb5848fa10e5dfa9c2c5b9e63/transformed/borderview-1.1.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/290e34269d3ea414e2916f5d06b816a6/transformed/borderview-1.1.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/290e34269d3ea414e2916f5d06b816a6/transformed/borderview-1.1.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/290e34269d3ea414e2916f5d06b816a6/transformed/borderview-1.1.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: io.coil-kt:coil:2.2.2@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ba1a7ca4e67eab4d2e8bee319dc10d74/transformed/coil-2.2.2/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/ba1a7ca4e67eab4d2e8bee319dc10d74/transformed/coil-2.2.2/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/349beb3b7f5d24800e2cc28088ae41f8/transformed/coil-2.2.2/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/349beb3b7f5d24800e2cc28088ae41f8/transformed/coil-2.2.2/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: io.coil-kt:coil-base:2.2.2@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d143d0ddd6260e619e2195e229a4067e/transformed/coil-base-2.2.2/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d143d0ddd6260e619e2195e229a4067e/transformed/coil-base-2.2.2/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d143d0ddd6260e619e2195e229a4067e/transformed/coil-base-2.2.2/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3ba871f099779b44d21ed2dba8bdcc9/transformed/coil-base-2.2.2/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3ba871f099779b44d21ed2dba8bdcc9/transformed/coil-base-2.2.2/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3ba871f099779b44d21ed2dba8bdcc9/transformed/coil-base-2.2.2/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/38ef30052ba9e9bfdaf8f0613d1ca884/transformed/appiconloader-1.5.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/38ef30052ba9e9bfdaf8f0613d1ca884/transformed/appiconloader-1.5.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d0956cee9b4a63b814dc34b283f1b5b0/transformed/appiconloader-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/d0956cee9b4a63b814dc34b283f1b5b0/transformed/appiconloader-1.5.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/63465a4c18d4fef52d402792d71462c1/transformed/appiconloader-coil-1.5.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/63465a4c18d4fef52d402792d71462c1/transformed/appiconloader-coil-1.5.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1a8925eae23407b941e0aca3c159ae25/transformed/appiconloader-coil-1.5.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1a8925eae23407b941e0aca3c159ae25/transformed/appiconloader-coil-1.5.0/AndroidManifest.xml"
       ]
     },
     {
@@ -844,25 +844,25 @@
     {
       "name": "Gradle: androidx.lifecycle:lifecycle-process:2.4.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c4c2b41b24a6efa1932f723f443bdfff/transformed/lifecycle-process-2.4.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c4c2b41b24a6efa1932f723f443bdfff/transformed/lifecycle-process-2.4.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/c4c2b41b24a6efa1932f723f443bdfff/transformed/lifecycle-process-2.4.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/395bc32acdf98f9ef3d1ed861c959ac3/transformed/lifecycle-process-2.4.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/395bc32acdf98f9ef3d1ed861c959ac3/transformed/lifecycle-process-2.4.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/395bc32acdf98f9ef3d1ed861c959ac3/transformed/lifecycle-process-2.4.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.startup:startup-runtime:1.0.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4d45faba7e0f7b397f5d26c8daae6a5c/transformed/startup-runtime-1.0.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4d45faba7e0f7b397f5d26c8daae6a5c/transformed/startup-runtime-1.0.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/4d45faba7e0f7b397f5d26c8daae6a5c/transformed/startup-runtime-1.0.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/df67fd7c5087ee1a4a48e04988a310b5/transformed/startup-runtime-1.0.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/df67fd7c5087ee1a4a48e04988a310b5/transformed/startup-runtime-1.0.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/df67fd7c5087ee1a4a48e04988a310b5/transformed/startup-runtime-1.0.0/AndroidManifest.xml"
       ]
     },
     {
       "name": "Gradle: androidx.transition:transition:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3bca86313c841c69d6c189d41c90a32/transformed/transition-1.2.0/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3bca86313c841c69d6c189d41c90a32/transformed/transition-1.2.0/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/a3bca86313c841c69d6c189d41c90a32/transformed/transition-1.2.0/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/23359c4a6d032460dbe4139070cbbee3/transformed/transition-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/23359c4a6d032460dbe4139070cbbee3/transformed/transition-1.2.0/res",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/23359c4a6d032460dbe4139070cbbee3/transformed/transition-1.2.0/AndroidManifest.xml"
       ]
     },
     {

@@ -10,20 +10,20 @@
       "version": "1.5.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.22",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib:1.7.22",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib",
-      "version": "1.7.21"
+      "version": "1.7.22"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.21",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.22",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-common",
-      "version": "1.7.21"
+      "version": "1.7.22"
     },
     {
       "ideaName": "Gradle: org.jetbrains:annotations:13.0",
@@ -74,12 +74,12 @@
       "version": "1.6.4"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.21",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-jdk8",
-      "version": "1.7.21"
+      "version": "1.7.22"
     },
     {
       "ideaName": "Gradle: com.squareup.leakcanary:shark-android:2.10",

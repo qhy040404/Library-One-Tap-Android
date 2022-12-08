@@ -7,18 +7,6 @@
     {
       "name": "Library-One-Tap.app",
       "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.main",
-      "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.unitTest",
-      "languageLevel": 11
-    },
-    {
-      "name": "Library-One-Tap.app.androidTest",
-      "languageLevel": 11
     }
   ]
 }

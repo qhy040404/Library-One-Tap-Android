@@ -3,14 +3,10 @@
     "XML",
     "Kotlin",
     "Java",
-    "textmate",
-    ".gitignore (GitIgnore)",
-    "Shrinker Config",
     "Plain text",
+    ".gitignore (GitIgnore)",
     "Properties",
-    "YAML",
     "JSON",
-    "Shell Script",
     "EditorConfig"
   ]
 }

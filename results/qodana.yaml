@@ -1,25 +1,21 @@
-# Qodana configuration:
-# https://www.jetbrains.com/help/qodana/qodana-yaml.html
-version: 1.0
-# Manually set linter before 2022.3 released
-linter: jetbrains/qodana-jvm-android:2022.3-eap
+version: "1.0"
+linter: jetbrains/qodana-jvm-community:2022.3
 profile:
   name: qodana.recommended
 exclude:
-  # Disable Gradle Kotlin DSL check
+  - name: AndroidLintAppBundleLocaleChanges
+  - name: AndroidLintGradleDependency
+  - name: AndroidLintMonochromeLauncherIcon
+  - name: AndroidLintObsoleteSdkInt
+  - name: AndroidLintOverdraw
+  - name: AndroidLintUnusedResources
+  - name: AndroidLintVectorPath
+  - name: PropertyName
+    paths:
+      - app/src/main/java/com/qhy040404/libraryonetap/data
+      - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
   - name: UnstableApiUsage
     paths:
       - app/build.gradle.kts
       - build.gradle.kts
       - settings.gradle.kts
-  - name: AndroidLintAppBundleLocaleChanges
-  - name: PropertyName
-    paths:
-      - app/src/main/java/com/qhy040404/libraryonetap/data
-      - app/src/main/java/com/qhy040404/libraryonetap/utils/tools/VolunteerUtils.kt
-  - name: AndroidLintUnusedResources
-  - name: AndroidLintVectorPath
-  - name: AndroidLintOverdraw
-  - name: AndroidLintObsoleteSdkInt
-  - name: AndroidLintMonochromeLauncherIcon
-  - name: AndroidLintGradleDependency

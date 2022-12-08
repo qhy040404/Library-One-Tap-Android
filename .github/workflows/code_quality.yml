@@ -45,7 +45,7 @@ jobs:
       - name: Initialize Gradle Project
         uses: gradle/gradle-build-action@v2.3.3
         with:
-          arguments: assemble
+          arguments: build
 
       - name: 'Run Qodana'
         uses: JetBrains/qodana-action@v2022.3.0

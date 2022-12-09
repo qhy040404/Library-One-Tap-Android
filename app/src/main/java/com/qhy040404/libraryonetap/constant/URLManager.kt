@@ -6,6 +6,8 @@ object URLManager {
     const val GITHUB_REPO = "https://github.com/qhy040404/Library-One-Tap-Android"
     const val GITHUB_API_UPDATE =
         "https://api.github.com/repos/qhy040404/Library-One-Tap-Android/releases/latest"
+    const val GITHUB_ISSUE_URL =
+        "https://github.com/qhy040404/Library-One-Tap-Android/issues"
 
     const val SURPRISE_HTTP = "https://www.bilibili.com/video/av170001"
     const val SURPRISE_BILI = "bilibili://video/170001"

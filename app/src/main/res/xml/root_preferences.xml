@@ -86,6 +86,10 @@
             app:key="changelog"
             app:title="@string/latest_changelog" />
         <Preference
+            app:key="issue"
+            app:title="@string/submit_issue"
+            app:summary="@string/issue_desc" />
+        <Preference
             app:icon="@drawable/ic_about"
             app:key="about"
             app:title="@string/about_title" />

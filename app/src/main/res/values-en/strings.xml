@@ -81,6 +81,7 @@
     <string name="cache">Clear Cache</string>
     <string name="check_update">Check Update</string>
     <string name="latest_changelog">Show Latest Changelog</string>
+    <string name="submit_issue">Submit an issue</string>
 
     <!-- GLOBAL PROMPT -->
     <string name="error">Error</string>
@@ -137,6 +138,7 @@
     <string name="data_reset_completed">AppData has been cleared, Exiting…</string>
     <string name="cache_cleared">Cache has been cleared</string>
     <string name="custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
+    <string name="issue_desc">Bug Report/Feature Request (Need VPN)</string>
 
     <string name="current_is_latest_version">You have the latest app.</string>
     <string name="failed_to_connect_github_api">Failed to connect to GitHub.</string>

@@ -6,6 +6,8 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
@@ -21,6 +23,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
 import com.qhy040404.libraryonetap.ui.interfaces.IListController
@@ -240,6 +243,22 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     .setPositiveButton(R.string.ok, null)
                     .setCancelable(true)
                     .create().show()
+                true
+            }
+        }
+
+        findPreference<Preference>(Constants.PREF_ISSUE)?.apply {
+            setOnPreferenceClickListener {
+                runCatching {
+                    CustomTabsIntent.Builder().build()
+                        .launchUrl(requireContext(), URLManager.GITHUB_ISSUE_URL.toUri())
+                }.onFailure {
+                    val intent2 = Intent(Intent.ACTION_VIEW)
+                    intent2.data = URLManager.GITHUB_ISSUE_URL.toUri()
+                    runCatching {
+                        startActivity(intent2)
+                    }
+                }
                 true
             }
         }

@@ -82,6 +82,7 @@
     <string name="cache">清理缓存</string>
     <string name="check_update">检查更新</string>
     <string name="latest_changelog">查看最近一次更新的日志</string>
+    <string name="submit_issue">提交反馈</string>
 
     <!-- GLOBAL PROMPT -->
     <string name="error">错误</string>
@@ -139,6 +140,7 @@
     <string name="data_reset_completed">数据已被重置, 程序即将退出…</string>
     <string name="cache_cleared">缓存清理完毕</string>
     <string name="custom_deprecated">数个版本后 MD3 主题将会强制全局启用</string>
+    <string name="issue_desc">Bug 反馈/新功能建议 (需要魔法)</string>
 
     <string name="current_is_latest_version">当前已是最新版本</string>
     <string name="failed_to_connect_github_api">无法连接到更新服务器</string>

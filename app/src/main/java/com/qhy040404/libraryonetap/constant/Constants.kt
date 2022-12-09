@@ -23,6 +23,7 @@ object Constants {
     const val PREF_CACHE = "cache"
     const val PREF_UPDATE = "update"
     const val PREF_CHANGELOG = "changelog"
+    const val PREF_ISSUE = "issue"
     const val PREF_ABOUT = "about"
 
     const val LATEST_APK_NAME = "latestApkName"

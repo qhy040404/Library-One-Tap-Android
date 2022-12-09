@@ -57,8 +57,7 @@ class ExamsActivity : SimplePageActivity() {
                             tempValues.courseName[i],
                             """
                                 时间：${tempValues.examTime[i]}
-                                楼宇：${tempValues.building[i]}
-                                教室：${tempValues.room[i]}
+                                考场：${tempValues.room[i]}
                             """.trimIndent()
                         )
                     )
@@ -68,8 +67,7 @@ class ExamsActivity : SimplePageActivity() {
                 val name = tempValues.courseName[i]
                 val desc = """
                     时间：${tempValues.examTime[i]}
-                    楼宇：${tempValues.building[i]}
-                    教室：${tempValues.room[i]}
+                    考场：${tempValues.room[i]}
                 """.trimIndent()
                 add(ClickableItem(
                     name,
@@ -251,37 +249,40 @@ class ExamsActivity : SimplePageActivity() {
 
                 val majorArray = JSONArray(examsMajorData)
                 for (i in 0 until majorArray.length()) {
-                    val all = majorArray.optJSONObject(i).optJSONObject("examPlace") ?: break
+                    val course = majorArray.optJSONObject(i)!!
                     tempValues.courseName.add(
-                        all.optString("courseNameStr")
+                        course.optJSONObject("course")!!.optString("nameZh")
                     )
                     tempValues.examTime.add(
-                        all.optJSONObject("examTime")!!.optString("dateTimeString")
-                    )
-                    tempValues.building.add(
-                        all.optJSONObject("room")!!.optJSONObject("building")!!.optString("nameZh")
+                        course.optString("examTime")
                     )
                     tempValues.room.add(
-                        all.optJSONObject("room")!!.optString("nameZh")
+                        if (!course.isNull("examPlace")) {
+                            course.optJSONObject("examPlace")!!.optJSONObject("room")!!
+                                .optString("nameZh")
+                        } else {
+                            "暂未安排考场"
+                        }
                     )
                 }
 
                 if (examsMinorData != null) {
                     val minorArray = JSONArray(examsMinorData)
                     for (i in 0 until minorArray.length()) {
-                        val all = minorArray.optJSONObject(i).optJSONObject("examPlace") ?: break
+                        val course = minorArray.optJSONObject(i)!!
                         tempValues.courseName.add(
-                            all.optString("courseNameStr") + "辅修"
+                            course.optJSONObject("course")!!.optString("nameZh") + "辅修"
                         )
                         tempValues.examTime.add(
-                            all.optJSONObject("examTime")!!.optString("dateTimeString")
-                        )
-                        tempValues.building.add(
-                            all.optJSONObject("room")!!.optJSONObject("building")!!
-                                .optString("nameZh")
+                            course.optString("examTime")
                         )
                         tempValues.room.add(
-                            all.optJSONObject("room")!!.optString("nameZh")
+                            if (!course.isNull("examPlace")) {
+                                course.optJSONObject("examPlace")!!.optJSONObject("room")!!
+                                    .optString("nameZh")
+                            } else {
+                                "暂未安排考场"
+                            }
                         )
                     }
                 }

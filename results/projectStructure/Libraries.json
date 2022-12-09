@@ -655,10 +655,10 @@
       ]
     },
     {
-      "name": "Gradle: com.github.qhy040404:datetime:1.1.2@aar",
+      "name": "Gradle: com.github.qhy040404:datetime:1.2.0@aar",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b5312ce8e72b139dd83d974704c56241/transformed/datetime-1.1.2/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/b5312ce8e72b139dd83d974704c56241/transformed/datetime-1.1.2/AndroidManifest.xml"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1ad82c557ae11abdbf53110bc561bfd2/transformed/datetime-1.2.0/jars/classes.jar!/",
+        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/1ad82c557ae11abdbf53110bc561bfd2/transformed/datetime-1.2.0/AndroidManifest.xml"
       ]
     },
     {

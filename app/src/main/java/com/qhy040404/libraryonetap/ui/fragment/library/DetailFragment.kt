@@ -153,7 +153,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.mLoad(requireContext(), response.body!!.bytes())
+                            runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
                             runOnUiThread { type.text = AppUtils.getResString(R.string.enter) }
                         }
                     })
@@ -170,7 +170,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.mLoad(requireContext(), response.body!!.bytes())
+                            runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
                             runOnUiThread { type.text = AppUtils.getResString(R.string.leave) }
                         }
                     })
@@ -187,7 +187,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         override fun onFailure(call: Call, e: IOException) {}
 
                         override fun onResponse(call: Call, response: Response) {
-                            qr.mLoad(requireContext(), response.body!!.bytes())
+                            runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
                             runOnUiThread { type.text = AppUtils.getResString(R.string.temp) }
                         }
                     })

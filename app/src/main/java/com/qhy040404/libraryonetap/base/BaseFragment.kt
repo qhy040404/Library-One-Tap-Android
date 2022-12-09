@@ -37,5 +37,5 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment(), IBinding<VB> {
     /**
      * @see android.app.Activity.runOnUiThread
      */
-    fun runOnUiThread(action: () -> Unit) = requireActivity().runOnUiThread(action)
+    fun runOnUiThread(action: () -> Unit) = runCatching { requireActivity().runOnUiThread(action) }
 }

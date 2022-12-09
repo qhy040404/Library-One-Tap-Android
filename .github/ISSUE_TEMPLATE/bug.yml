@@ -10,9 +10,9 @@ body:
       label: Channel
       description: Channel can be found in about page.
       options:
-        - Debug
-        - Pre-release
         - Release
+        - Pre-release
+        - Debug
     validations:
       required: true
   - type: input

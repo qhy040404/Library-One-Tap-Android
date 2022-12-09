@@ -3,6 +3,7 @@
 version: 1.0
 profile:
   name: qodana.recommended
+projectJDK: corretto-11
 exclude:
   # Disable Gradle Kotlin DSL check
   - name: UnstableApiUsage

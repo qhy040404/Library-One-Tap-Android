@@ -14,27 +14,39 @@ object GPAUtils {
 
     fun calculateGPAByStandard5(scores: MutableList<String>, credits: MutableList<Double>): Double {
         var totalWeightedGP = 0.0
-        val totalCredits = credits.sum()
+        var totalCredits = credits.sum()
         for (i in scores.indices) {
-            totalWeightedGP += getGpByStandard5(scores[i].toInt()) * credits[i]
+            runCatching {
+                totalWeightedGP += getGpByStandard5(scores[i].toInt()) * credits[i]
+            }.onFailure {
+                totalCredits -= credits[i]
+            }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }
 
     fun calculateGPAByStandard4(scores: MutableList<String>, credits: MutableList<Double>): Double {
         var totalWeightedGP = 0.0
-        val totalCredits = credits.sum()
+        var totalCredits = credits.sum()
         for (i in scores.indices) {
-            totalWeightedGP += getGpByStandard4(scores[i].toInt()) * credits[i]
+            runCatching {
+                totalWeightedGP += getGpByStandard4(scores[i].toInt()) * credits[i]
+            }.onFailure {
+                totalCredits -= credits[i]
+            }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }
 
     fun calculateGPAByPeking4(scores: MutableList<String>, credits: MutableList<Double>): Double {
         var totalWeightedGP = 0.0
-        val totalCredits = credits.sum()
+        var totalCredits = credits.sum()
         for (i in scores.indices) {
-            totalWeightedGP += getGpByPeking4(scores[i].toInt()) * credits[i]
+            runCatching {
+                totalWeightedGP += getGpByPeking4(scores[i].toInt()) * credits[i]
+            }.onFailure {
+                totalCredits -= credits[i]
+            }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }

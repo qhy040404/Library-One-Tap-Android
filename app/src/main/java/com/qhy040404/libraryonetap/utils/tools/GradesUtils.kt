@@ -15,9 +15,13 @@ object GradesUtils {
         credits: MutableList<Double>,
     ): Double {
         var totalWeightedSum = 0.0
-        val totalCredits = credits.sum()
+        var totalCredits = credits.sum()
         for (i in 0 until grades.size) {
-            totalWeightedSum += grades[i].toDouble() * credits[i]
+            runCatching {
+                totalWeightedSum += grades[i].toDouble() * credits[i]
+            }.onFailure {
+                totalCredits -= credits[i]
+            }
         }
         return (totalWeightedSum / totalCredits).to2Decimal()
     }

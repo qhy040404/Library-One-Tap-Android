@@ -69,11 +69,27 @@ object StringExtension {
     /**
      * Substring between two delimiter.
      *
-     * @param frontStr  front delimiter
-     * @param behindStr behind delimiter
+     * @param frontDelimiter    front delimiter
+     * @param behindDelimiter   behind delimiter
+     * @param includeDelimiter  return string with delimiter, default false
+     * @param reverse           First substringBefore and then after, default false
      * @return string
      */
-    fun String.substringBetween(frontStr: String, behindStr: String): String {
-        return this.substringAfter(frontStr).substringBefore(behindStr)
+    fun String.substringBetween(
+        frontDelimiter: String,
+        behindDelimiter: String,
+        includeDelimiter: Boolean = false,
+        reverse: Boolean = false,
+    ): String {
+        val subStr = if (!reverse) {
+            this.substringAfter(frontDelimiter).substringBefore(behindDelimiter)
+        } else {
+            this.substringBefore(behindDelimiter).substringAfter(frontDelimiter)
+        }
+        return if (includeDelimiter) {
+            frontDelimiter + subStr + behindDelimiter
+        } else {
+            subStr
+        }
     }
 }

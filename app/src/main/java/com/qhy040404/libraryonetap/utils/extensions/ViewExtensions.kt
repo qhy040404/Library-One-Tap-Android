@@ -55,7 +55,7 @@ object ViewExtensions {
     /**
      * Auto detect night mode to generate a nicer QR code for ImageView
      *
-     * @param ctx Context
+     * @param ctx           Context
      * @param origByteArray Original QR code byte array
      */
     fun ImageView.mLoad(ctx: Context, origByteArray: ByteArray) {

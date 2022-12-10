@@ -31,26 +31,6 @@ object StringExtension {
     }
 
     /**
-     * Replace all in a string
-     *
-     * @param oldVal    value to be replaced
-     * @param newVal    value to replace
-     * @param times     times to replace. 0 to infinite
-     * @return replaced string
-     */
-    fun String.replaceAll(oldVal: String, newVal: String, times: Int = 0): String {
-        var temp = this
-        if (times <= 0) {
-            temp = temp.split(oldVal).joinToString(separator = newVal)
-        } else {
-            for (i in 0 until times) {
-                temp = temp.replace(oldVal, newVal)
-            }
-        }
-        return temp
-    }
-
-    /**
      * Add parentheses for a string () [] {}
      *
      * @param size size of parentheses, Use Parentheses annotation class

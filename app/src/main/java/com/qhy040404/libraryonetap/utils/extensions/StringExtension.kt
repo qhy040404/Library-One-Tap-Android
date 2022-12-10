@@ -17,7 +17,7 @@ object StringExtension {
     /**
      * Check if new value is same as previous one
      *
-     * @param globalValue Current value
+     * @param globalValue   Current value
      * @param isCustomTheme If the setting is custom theme
      * @return true if they are same
      */
@@ -33,9 +33,9 @@ object StringExtension {
     /**
      * Replace all in a string
      *
-     * @param oldVal value to be replaced
-     * @param newVal value to replace
-     * @param times times to replace. 0 to infinite
+     * @param oldVal    value to be replaced
+     * @param newVal    value to replace
+     * @param times     times to replace. 0 to infinite
      * @return replaced string
      */
     fun String.replaceAll(oldVal: String, newVal: String, times: Int = 0): String {
@@ -64,5 +64,16 @@ object StringExtension {
             Parentheses.LARGE -> "{${this.trim()}}"
             else -> throw IllegalArgumentException("Illegal size")
         }
+    }
+
+    /**
+     * Substring between two delimiter.
+     *
+     * @param frontStr  front delimiter
+     * @param behindStr behind delimiter
+     * @return string
+     */
+    fun String.substringBetween(frontStr: String, behindStr: String): String {
+        return this.substringAfter(frontStr).substringBefore(behindStr)
     }
 }

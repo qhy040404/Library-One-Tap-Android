@@ -20,6 +20,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -147,10 +148,10 @@ class GradesMajorActivity : SimplePageActivity() {
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
                 val ltData = runCatching {
-                    "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                    ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
                 }.getOrDefault(Constants.STRING_NULL)
                 val ltExecution = runCatching {
-                    ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+                    ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
                 }.getOrDefault(Constants.STRING_NULL)
 
                 if (ltData.isNotEmpty()) {
@@ -205,7 +206,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                     val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
                     GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                        initUrl.split("/").last().toInt()
+                        initUrl.substringAfter("/").toInt()
                     } else {
                         val initList =
                             initData.split("onclick=\"myFunction(this)\" value=\"")
@@ -213,8 +214,8 @@ class GradesMajorActivity : SimplePageActivity() {
                             if (!GlobalValues.toastShowed) {
                                 showToast("检测到辅修/双学位，已添加入口")
                             }
-                            val aStuId = initList[1].split("\"")[0].toInt()
-                            val bStuId = initList[2].split("\"")[0].toInt()
+                            val aStuId = initList[1].substringBefore("\"").toInt()
+                            val bStuId = initList[2].substringBefore("\"").toInt()
                             GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
                             majorStuId = aStuId.coerceAtMost(bStuId)
                         }

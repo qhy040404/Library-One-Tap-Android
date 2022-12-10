@@ -18,6 +18,7 @@ import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -93,9 +94,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         }
 
         val openid = try {
-            openidOrigin
-                .split("<input id=\"openid\" value=\"")[1]
-                .split("\" type=\"hidden\">")[0]
+            openidOrigin.substringBetween("<input id=\"openid\" value=\"", "\" type=\"hidden\">")
         } catch (_: Exception) {
             withContext(Dispatchers.Main)
             {
@@ -115,16 +114,13 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         val qrUrl = URLManager.getVCardQRUrl(openid)
 
         var qrPage = Requests.getVCard(qrUrl)
-        var qrInformation = qrPage
-            .split("<p class=\"bdb\">")[1]
-            .split("</p>")[0]
+        var qrInformation = qrPage.substringBetween("<p class=\"bdb\">", "</p>")
 
-        var qrBase64 = qrPage
-            .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
-            .split("\">")[0]
-        var payCode = qrPage
-            .split("<input id=\"code\" value=\"")[1]
-            .split("\" type=\"hidden\">")[0]
+        var qrBase64 = qrPage.substringBetween(
+            "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
+            "\">"
+        )
+        var payCode = qrPage.substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
 
         var qr = Base64.decode(qrBase64, Base64.DEFAULT)
         var bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
@@ -137,16 +133,14 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
                 qrPage = Requests.getVCard(qrUrl)
-                qrInformation = qrPage
-                    .split("<p class=\"bdb\">")[1]
-                    .split("</p>")[0]
+                qrInformation = qrPage.substringBetween("<p class=\"bdb\">", "</p>")
 
-                qrBase64 = qrPage
-                    .split("<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,")[1]
-                    .split("\">")[0]
+                qrBase64 = qrPage.substringBetween(
+                    "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
+                    "\">"
+                )
                 payCode = qrPage
-                    .split("<input id=\"code\" value=\"")[1]
-                    .split("\" type=\"hidden\">")[0]
+                    .substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
 
                 qr = Base64.decode(qrBase64, Base64.DEFAULT)
                 bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)

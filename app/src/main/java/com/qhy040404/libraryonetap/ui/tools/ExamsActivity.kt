@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.ExamsTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONArray
@@ -49,7 +50,7 @@ class ExamsActivity : SimplePageActivity() {
             }
             val finishedList: MutableList<List<String>> = mutableListOf()
             for (i in tempValues.courseName.indices) {
-                val examTime = tempValues.examTime[i].split("~").first().toDateTime()
+                val examTime = tempValues.examTime[i].substringBefore("~").toDateTime()
                 val now = Datetime.now()
                 if (examTime.isBefore(now)) {
                     finishedList.add(
@@ -151,10 +152,10 @@ class ExamsActivity : SimplePageActivity() {
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
                 val ltData = runCatching {
-                    "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                    ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
                 }.getOrDefault(Constants.STRING_NULL)
                 val ltExecution = runCatching {
-                    ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+                    ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
                 }.getOrDefault(Constants.STRING_NULL)
 
                 if (ltData.isNotEmpty()) {
@@ -209,13 +210,13 @@ class ExamsActivity : SimplePageActivity() {
                     val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                     val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
                     GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                        initUrl.split("/").last().toInt()
+                        initUrl.substringAfter("/").toInt()
                     } else {
                         val initList =
                             initData.split("onclick=\"myFunction(this)\" value=\"")
                         if (initList.size == 3) {
-                            val aStuId = initList[1].split("\"")[0].toInt()
-                            val bStuId = initList[2].split("\"")[0].toInt()
+                            val aStuId = initList[1].substringBefore("\"").toInt()
+                            val bStuId = initList[2].substringBefore("\"").toInt()
                             when {
                                 aStuId > bStuId -> {
                                     GlobalValues.minorStuId = aStuId
@@ -237,14 +238,12 @@ class ExamsActivity : SimplePageActivity() {
 
                 val examsMajorData =
                     Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
-                        .split("var studentExamInfoVms = ")[1]
-                        .split("];")[0] + "]"
+                        .substringBetween("var studentExamInfoVms = ", "];") + "]"
                 if (GlobalValues.minorStuId != 0) {
                     Thread.sleep(3000L)
                     examsMinorData =
                         Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))
-                            .split("var studentExamInfoVms = ")[1]
-                            .split("];")[0] + "]"
+                            .substringBetween("var studentExamInfoVms = ", "];") + "]"
                 }
 
                 val majorArray = JSONArray(examsMajorData)

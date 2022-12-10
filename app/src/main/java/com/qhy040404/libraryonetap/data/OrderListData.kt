@@ -152,8 +152,8 @@ object OrderListData {
     fun getFull_time(): String {
         for (list in mClass?.rows!!) {
             if (orderIsValid(list.order_process, list.order_type, OrderModes.YANXIUJIAN)) {
-                return list.order_start_time!!.split(" ")[1] + "-" +
-                    list.order_end_time!!.split(" ")[1]
+                return list.order_start_time!!.substringAfter(" ") + "-" +
+                    list.order_end_time!!.substringAfter(" ")
             }
         }
         return ""

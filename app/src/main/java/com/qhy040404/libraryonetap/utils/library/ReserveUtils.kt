@@ -1,11 +1,12 @@
 package com.qhy040404.libraryonetap.utils.library
 
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 
 object ReserveUtils {
     fun getResetRoomCode(space: String): Int {
-        val area = space.split("图书馆")[0]
-        val room = space.split("图书馆")[1].split("阅")[0]
+        val area = space.substringBefore("图书馆")
+        val room = space.substringBetween("图书馆", "阅")
         return RoomUtils.getRoomCode(area, room)
     }
 

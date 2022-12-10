@@ -11,6 +11,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import okhttp3.Cookie
@@ -200,10 +201,10 @@ object Requests {
         while (AppUtils.checkData(id, passwd)) {
             val ltResponse = get(sso, toolsInit = toolsInit)
             val ltData = runCatching {
-                "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
             }.getOrDefault(Constants.STRING_NULL)
             val ltExecution = runCatching {
-                ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+                ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
             }.getOrDefault(Constants.STRING_NULL)
 
             if (ltData.isNotEmpty()) {

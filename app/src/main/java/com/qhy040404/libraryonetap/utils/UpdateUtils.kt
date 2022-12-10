@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -77,7 +78,7 @@ object UpdateUtils {
         val packageName = latestClazz.assets[0].name
         val packageUrl = latestClazz.assets[0].browser_download_url
         val changelog: List<String> =
-            latestClazz.body.split("---")[0].split("Changelog")[1].trim().split("\n")
+            latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim().split("\n")
 
         GlobalValues.newVersion = versionName
 
@@ -170,7 +171,7 @@ object UpdateUtils {
             0
         } else {
             (if (fromPackage) {
-                str.substringAfter("_v").substringBefore("-release")
+                str.substringBetween("_v", "-release")
             } else {
                 str
             }).split(".").joinToString("").toInt()

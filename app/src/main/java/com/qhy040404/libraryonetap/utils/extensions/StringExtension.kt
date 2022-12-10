@@ -69,8 +69,8 @@ object StringExtension {
     /**
      * Substring between two delimiter.
      *
-     * @param frontDelimiter    front delimiter
-     * @param behindDelimiter   behind delimiter
+     * @param frontDelimiter    front delimiter, substringAfter
+     * @param behindDelimiter   behind delimiter, substringBefore
      * @param includeDelimiter  return string with delimiter, default false
      * @param reverse           First substringBefore and then after, default false
      * @return string

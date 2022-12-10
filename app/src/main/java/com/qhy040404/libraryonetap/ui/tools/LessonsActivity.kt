@@ -19,7 +19,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.LessonsTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.replaceAll
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
@@ -50,7 +50,7 @@ class LessonsActivity : SimplePageActivity() {
             for (i in tempValues.lessonId.indices) {
                 val head = "${tempValues.lessonType[i]}  ${tempValues.lessonName[i]}"
                 val desc =
-                    "教师: ${tempValues.lessonTeacher[i]}\n教学班: ${tempValues.lessonCode[i]}\n学分: ${tempValues.lessonCredit[i]}\n类型: ${tempValues.lessonCompulsory[i]}\n考核方式: ${tempValues.lessonExamMode[i]}\n开课学院: ${tempValues.lessonOpenDepart[i]}"
+                    "教师: ${tempValues.lessonTeacher[i]}\n教学班: ${tempValues.lessonCode[i]}\n学分: ${tempValues.lessonCredit[i]}\n类型: ${tempValues.lessonCompulsory[i]}"
                 add(ClickableItem(
                     head,
                     desc
@@ -123,10 +123,10 @@ class LessonsActivity : SimplePageActivity() {
             while (!loginSuccess && AppUtils.checkData(id, passwd)) {
                 val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
                 val ltData = runCatching {
-                    "LT" + ltResponse.split("LT")[1].split("cas")[0] + "cas"
+                    ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
                 }.getOrDefault(Constants.STRING_NULL)
                 val ltExecution = runCatching {
-                    ltResponse.split("name=\"execution\" value=\"")[1].split("\"")[0]
+                    ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
                 }.getOrDefault(Constants.STRING_NULL)
 
                 if (ltData.isNotEmpty()) {
@@ -178,14 +178,13 @@ class LessonsActivity : SimplePageActivity() {
             }
             if (loginSuccess) {
                 val source = Requests.get(URLManager.EDU_COURSE_TABLE_URL)
-                val semesterId = source.substringAfter("selected=\"selected\"")
-                    .substringBefore(">")
+                val semesterId = source.substringBetween("selected=\"selected\"", ">")
                     .trim()
-                    .split("\"")[1].toInt()
-                tempValues.semesterName = source.substringAfter("selected=\"selected\"")
-                    .substringBefore("</option>")
+                    .substringAfter("=").trim('"').toInt()
+                tempValues.semesterName = source
+                    .substringBetween("selected=\"selected\"", "</option>")
                     .trim()
-                    .split(">").last()
+                    .substringAfter(">")
                 val courseData = Requests.get(URLManager.getEduCourseUrl(semesterId))
 
                 val courseJsonObject = JSONObject(courseData)
@@ -200,7 +199,11 @@ class LessonsActivity : SimplePageActivity() {
                         lesson.optString("code")
                     )
                     tempValues.lessonCompulsory.add(
-                        lesson.optString("compulsorysStr")
+                        when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
+                            "COMPULSORY" -> "必修"
+                            "ELECTIVE" -> "选修"
+                            else -> throw IllegalStateException("Illegal compulsory state")
+                        }
                     )
                     tempValues.lessonName.add(
                         lesson.optJSONObject("course")!!.optString("nameZh")
@@ -208,15 +211,18 @@ class LessonsActivity : SimplePageActivity() {
                     tempValues.lessonCredit.add(
                         lesson.optJSONObject("course")!!.optDouble("credits")
                     )
-                    tempValues.lessonExamMode.add(
-                        lesson.optJSONObject("examMode")!!.optString("nameZh")
-                    )
-                    tempValues.lessonOpenDepart.add(
-                        lesson.optJSONObject("openDepartment")!!.optString("nameZh")
-                    )
-                    tempValues.lessonTeacher.add(
-                        lesson.optString("teacherAssignmentStr").replaceAll(",", "\n\t\t\t\t\t")
-                    )
+                    lesson.optJSONArray("teacherAssignmentList")!!.apply {
+                        val teachers = StringBuilder()
+                        for (t in 0 until length()) {
+                            teachers
+                                .append(optJSONObject(t)!!.optJSONObject("person")!!
+                                    .optString("nameZh"))
+                                .append(",")
+                        }
+                        tempValues.lessonTeacher.add(
+                            teachers.toString().trim(',')
+                        )
+                    }
                     tempValues.lessonType.add(
                         cultivateType.optJSONObject(lessonId.toString())!!.optString("nameZh")
                     )

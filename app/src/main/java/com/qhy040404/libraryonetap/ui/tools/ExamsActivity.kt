@@ -233,14 +233,14 @@ class ExamsActivity : SimplePageActivity() {
                     }
                 }
 
-                Thread.sleep(3000L)
+                Thread.sleep(2500L)
                 var examsMinorData: String? = null
 
                 val examsMajorData =
                     Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
                         .substringBetween("var studentExamInfoVms = ", "];") + "]"
                 if (GlobalValues.minorStuId != 0) {
-                    Thread.sleep(3000L)
+                    Thread.sleep(2500L)
                     examsMinorData =
                         Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))
                             .substringBetween("var studentExamInfoVms = ", "];") + "]"

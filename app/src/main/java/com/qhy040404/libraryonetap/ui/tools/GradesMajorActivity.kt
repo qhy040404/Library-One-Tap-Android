@@ -223,7 +223,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     }
                 }
 
-                Thread.sleep(3000L)
+                Thread.sleep(2500L)
                 val gradesData =
                     Requests.get(URLManager.getEduGradeUrl(GlobalValues.majorStuId))
 

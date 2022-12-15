@@ -415,8 +415,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val initList =
                     initData.split("onclick=\"myFunction(this)\" value=\"")
                 if (initList.size == 3) {
-                    runCatching { requireContext().showToast("检测到辅修/双学位，已添加入口") }
-                    GlobalValues.toastShowed = true
+                    if (!GlobalValues.toastShowed) {
+                        runCatching { requireContext().showToast("检测到辅修/双学位，已添加入口") }
+                        GlobalValues.toastShowed = true
+                    }
                     val aStuId = initList[1].substringBefore("\"").toInt()
                     val bStuId = initList[2].substringBefore("\"").toInt()
                     GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)

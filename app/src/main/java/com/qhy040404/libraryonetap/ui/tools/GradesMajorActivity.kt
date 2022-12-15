@@ -213,6 +213,7 @@ class GradesMajorActivity : SimplePageActivity() {
                         if (initList.size == 3) {
                             if (!GlobalValues.toastShowed) {
                                 showToast("检测到辅修/双学位，已添加入口")
+                                GlobalValues.toastShowed = true
                             }
                             val aStuId = initList[1].substringBefore("\"").toInt()
                             val bStuId = initList[2].substringBefore("\"").toInt()

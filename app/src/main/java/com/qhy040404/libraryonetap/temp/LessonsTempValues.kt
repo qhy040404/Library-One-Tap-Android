@@ -9,8 +9,6 @@ class LessonsTempValues {
     val lessonCompulsory: MutableList<String> = mutableListOf()
     val lessonName: MutableList<String> = mutableListOf()
     val lessonCredit: MutableList<Double> = mutableListOf()
-    val lessonExamMode: MutableList<String> = mutableListOf()
-    val lessonOpenDepart: MutableList<String> = mutableListOf()
     val lessonTeacher: MutableList<String> = mutableListOf()
     val lessonType: MutableList<String> = mutableListOf()
 }

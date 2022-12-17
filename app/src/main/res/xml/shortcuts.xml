@@ -2,6 +2,17 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
+        android:icon="@drawable/ic_sc_exams"
+        android:shortcutId="start_exams"
+        android:shortcutShortLabel="@string/exams_title">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.EXAMS"
+            android:targetClass="com.qhy040404.libraryonetap.ui.tools.ExamsActivity"
+            android:targetPackage="com.qhy040404.libraryonetap" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
         android:icon="@drawable/ic_sc_vcard"
         android:shortcutId="start_vcard"
         android:shortcutShortLabel="@string/vcard_title">

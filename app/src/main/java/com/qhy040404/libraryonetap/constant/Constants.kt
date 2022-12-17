@@ -39,6 +39,7 @@ object Constants {
     const val SHORTCUT_DETAIL = "com.qhy040404.libraryonetap.intent.action.DETAIL"
     const val SHORTCUT_TOOLS = "com.qhy040404.libraryonetap.intent.action.TOOLS"
     const val SHORTCUT_VCARD = "com.qhy040404.libraryonetap.intent.action.VCARD"
+    const val SHORTCUT_EXAMS = "com.qhy040404.libraryonetap.intent.action.EXAMS"
 
     const val LIBRARY_METHOD_IN = "in"
     const val LIBRARY_METHOD_OUT = "out"

@@ -30,6 +30,7 @@ import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
 import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
+import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
@@ -183,6 +184,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
             Constants.SHORTCUT_DETAIL -> binding.viewpager.setCurrentItem(0, false)
             Constants.SHORTCUT_TOOLS -> binding.viewpager.setCurrentItem(2, false)
             Constants.SHORTCUT_VCARD -> startActivity(Intent(this, VCardActivity::class.java))
+            Constants.SHORTCUT_EXAMS -> startActivity(Intent(this, ExamsActivity::class.java))
             Intent.ACTION_APPLICATION_PREFERENCES -> binding.viewpager.setCurrentItem(3, false)
         }
     }

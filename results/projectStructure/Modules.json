@@ -100,7 +100,13 @@
         },
         {
           "path": "file://$PROJECT_DIR$/app/src/debug",
-          "sourceFolders": []
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/src/debug/res",
+              "type": "Resource",
+              "packagePrefix": ""
+            }
+          ]
         }
       ],
       "orderEntries": [

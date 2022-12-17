@@ -74,7 +74,7 @@ class ReserveDialog {
             .setView(view)
             .setPositiveButton(R.string.ok) { _, _ -> reserveSeat(ctx, targetRoom) }
             .setNegativeButton(R.string.no) { _, _ -> }
-            .setCancelable(false)
+            .setCancelable(true)
             .create()
             .show()
     }

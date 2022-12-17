@@ -183,6 +183,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
             Constants.SHORTCUT_DETAIL -> binding.viewpager.setCurrentItem(0, false)
             Constants.SHORTCUT_TOOLS -> binding.viewpager.setCurrentItem(2, false)
             Constants.SHORTCUT_VCARD -> startActivity(Intent(this, VCardActivity::class.java))
+            Intent.ACTION_APPLICATION_PREFERENCES -> binding.viewpager.setCurrentItem(3, false)
         }
     }
 

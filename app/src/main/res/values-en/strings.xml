@@ -142,6 +142,7 @@
 
     <string name="current_is_latest_version">You have the latest app.</string>
     <string name="failed_to_connect_github_api">Failed to connect to GitHub.</string>
+    <string name="github_api_rate_limit">GitHub API rate limit, try later.</string>
 
     <string name="notification_permission_prompt">We need notification permissions to show the download progress.</string>
 

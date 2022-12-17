@@ -61,6 +61,14 @@ object UpdateUtils {
             ctx.showToast(R.string.failed_to_connect_github_api)
             return
         }
+
+        if (latestOrig.contains("API rate limit")) {
+            if (fromSettings) {
+                ctx.showToast(R.string.github_api_rate_limit)
+            }
+            return
+        }
+
         val latestClazz = moshi.adapter(GithubAPIDTO::class.java).fromJson(latestOrig)!!
 
         val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)

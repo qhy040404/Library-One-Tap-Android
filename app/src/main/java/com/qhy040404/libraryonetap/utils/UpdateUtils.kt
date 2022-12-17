@@ -34,7 +34,6 @@ object UpdateUtils {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder().permitAll().build()
         )
-        val notification = NotificationUtils(ctx, "update", "Update")
 
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
@@ -114,6 +113,7 @@ object UpdateUtils {
                         installApk(ctx, packageName)
                         return@setPositiveButton
                     }
+                    val notification = NotificationUtils(ctx, "update", "Update")
                     ctx.showToast(R.string.download_start)
                     notification.showNotification("$versionName ${AppUtils.getResString(R.string.downloading)}",
                         true)

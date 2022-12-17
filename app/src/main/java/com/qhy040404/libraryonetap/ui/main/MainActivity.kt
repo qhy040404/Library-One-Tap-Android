@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.ui.main
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -186,7 +187,8 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<String>,
+        requestCode: Int,
+        permissions: Array<String>,
         grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -194,27 +196,29 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         GlobalManager.lazyMgr.reset()
         if (requestCode == 100) {
             for (i in permissions.indices) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    MaterialAlertDialogBuilder(this)
-                        .setMessage(R.string.permission_got)
-                        .setTitle(R.string.bath_title)
-                        .setPositiveButton(R.string.ok, null)
-                        .setCancelable(true)
-                        .create()
-                        .show()
-                } else {
-                    MaterialAlertDialogBuilder(this)
-                        .setMessage(R.string.permission_fail)
-                        .setTitle(R.string.error)
-                        .setPositiveButton(R.string.ok) { _, _ ->
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            val uri = Uri.fromParts("package", packageName, null)
-                            intent.data = uri
-                            startActivity(intent)
-                        }
-                        .setCancelable(false)
-                        .create()
-                        .show()
+                if (permissions[i] == Manifest.permission.ACCESS_FINE_LOCATION) {
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        MaterialAlertDialogBuilder(this)
+                            .setMessage(R.string.permission_got)
+                            .setTitle(R.string.bath_title)
+                            .setPositiveButton(R.string.ok, null)
+                            .setCancelable(true)
+                            .create()
+                            .show()
+                    } else {
+                        MaterialAlertDialogBuilder(this)
+                            .setMessage(R.string.permission_fail)
+                            .setTitle(R.string.error)
+                            .setPositiveButton(R.string.ok) { _, _ ->
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                val uri = Uri.fromParts("package", packageName, null)
+                                intent.data = uri
+                                startActivity(intent)
+                            }
+                            .setCancelable(false)
+                            .create()
+                            .show()
+                    }
                 }
             }
         }

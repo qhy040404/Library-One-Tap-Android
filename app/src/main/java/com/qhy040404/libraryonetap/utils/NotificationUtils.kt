@@ -1,18 +1,22 @@
 package com.qhy040404.libraryonetap.utils
 
+import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Process
 import androidx.core.app.NotificationCompat
+import com.absinthe.libraries.utils.extensions.activity
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseActivity
 
 class NotificationUtils(
     private val ctx: Context,
     private val channelId: String,
     private val channelName: String,
 ) {
+    private var notificationPermission: Boolean = false
     private val notificationId = Process.myPid()
     private val notificationIdNext = notificationId + 1
     private val notificationManager =
@@ -43,7 +47,14 @@ class NotificationUtils(
             }
         }
 
+    init {
+        notificationPermission = checkPermission()
+    }
+
     fun showNotification(content: String, progressBar: Boolean) {
+        if (!notificationPermission) {
+            return
+        }
         notificationManager.cancelAll()
         builder.setContentText(content).apply {
             if (progressBar) {
@@ -60,15 +71,37 @@ class NotificationUtils(
     }
 
     fun updateProgress(progress: Int) {
+        if (!notificationPermission) {
+            return
+        }
         builder.setProgress(100, progress, false)
         notificationManager.notify(notificationId, builder.build())
     }
 
     fun finishProgress(content: String) {
+        if (!notificationPermission) {
+            return
+        }
         builderFinished.setContentText(content)
         notificationManager.apply {
             cancelAll()
             notify(notificationIdNext, builderFinished.build())
+        }
+    }
+
+    private fun checkPermission(): Boolean {
+        return if (OsUtils.atLeastT()) {
+            ctx.activity?.let {
+                it as BaseActivity<*>
+                PermissionUtils.checkPermission(
+                    it,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    it.supportFragmentManager,
+                    R.string.notification_permission_prompt
+                )
+            } ?: false
+        } else {
+            true
         }
     }
 }

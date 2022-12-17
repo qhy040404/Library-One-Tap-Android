@@ -183,7 +183,7 @@ object UpdateUtils {
         intent.addCategory(Intent.CATEGORY_DEFAULT)
         intent.setDataAndType(
             FileProvider.getUriForFile(ctx,
-                "com.qhy040404.libraryonetap.fileprovider",
+                ctx.packageName + ".fileprovider",
                 File(ctx.cacheDir, name)),
             "application/vnd.android.package-archive")
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

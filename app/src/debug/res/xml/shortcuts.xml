@@ -1,0 +1,46 @@
+<?xml version ="1.0" encoding="utf-8"?><!--suppress AndroidDomInspection -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_sc_exams"
+        android:shortcutId="start_exams"
+        android:shortcutShortLabel="@string/exams_title">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.EXAMS"
+            android:targetClass="com.qhy040404.libraryonetap.ui.tools.ExamsActivity"
+            android:targetPackage="com.qhy040404.libraryonetap.debug" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_sc_vcard"
+        android:shortcutId="start_vcard"
+        android:shortcutShortLabel="@string/vcard_title">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.VCARD"
+            android:targetClass="com.qhy040404.libraryonetap.ui.tools.VCardActivity"
+            android:targetPackage="com.qhy040404.libraryonetap.debug" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_sc_tool"
+        android:shortcutId="start_tools"
+        android:shortcutShortLabel="@string/tools">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.TOOLS"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"
+            android:targetPackage="com.qhy040404.libraryonetap.debug" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_sc_qr"
+        android:shortcutId="start_detail"
+        android:shortcutShortLabel="@string/detail">
+        <intent
+            android:action="com.qhy040404.libraryonetap.intent.action.DETAIL"
+            android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"
+            android:targetPackage="com.qhy040404.libraryonetap.debug" />
+    </shortcut>
+</shortcuts>

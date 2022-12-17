@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.ui.fragment.tools
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -61,7 +62,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     }
 
                     val permission: Array<String> =
-                        arrayOf("android.permission.ACCESS_FINE_LOCATION")
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
 
                     @Suppress("SpellCheckingInspection")
                     if (netName == "<unknown ssid>") {

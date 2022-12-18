@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.FileExtensions.sha512
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -81,6 +82,16 @@ object UpdateUtils {
             return
         }
 
+        val validateName = latestClazz.assets[1].name
+        val validateUrl = latestClazz.assets[1].browser_download_url
+        val validateFile = File(ctx.cacheDir, validateName)
+        DownloadUtils.download(
+            validateUrl,
+            validateFile,
+            null,
+            true
+        )
+
         val versionName = latestClazz.name
         val packageName = latestClazz.assets[0].name
         val packageUrl = latestClazz.assets[0].browser_download_url
@@ -117,9 +128,12 @@ object UpdateUtils {
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 ))
                 .setPositiveButton(R.string.update_confirm) { _, _ ->
-                    if (File(ctx.cacheDir, packageName).exists()) {
-                        installApk(ctx, packageName)
-                        return@setPositiveButton
+                    val validation = validateFile.readText().substringBefore("Library").trim()
+                    File(ctx.cacheDir, packageName).let {
+                        if (it.exists() && it.sha512() == validation) {
+                            installApk(ctx, packageName)
+                            return@setPositiveButton
+                        }
                     }
                     val notification = NotificationUtils(ctx, "update", "Update")
                     ctx.showToast(R.string.download_start)

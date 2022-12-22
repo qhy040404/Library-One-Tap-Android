@@ -1,1 +1,1241 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: AViewGroup",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 37,
+      "length": 10,
+      "code": {
+        "startLine": 14,
+        "length": 10,
+        "offset": 71,
+        "surroundingCode": " * @author Absinthe, qhy040404\n */\nclass ToastView(context: Context) : AViewGroup(context) {\n    val message = AppCompatTextView(context).apply {\n        layoutParams ="
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "e5a29dc751718ac4b4963818b11684ad9dfb5d6574f75b235171d996a5d0ab26"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "'onLayout' overrides nothing",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 46,
+      "offset": 5,
+      "length": 8,
+      "code": {
+        "startLine": 44,
+        "length": 8,
+        "offset": 11,
+        "surroundingCode": "    }\n\n    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "5c6b3fed7a9b8dcab222103889d09e7766357a50052dc70c368f54f721391eaa"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: toHorizontalCenter",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 33,
+      "length": 18,
+      "code": {
+        "startLine": 45,
+        "length": 18,
+        "offset": 111,
+        "surroundingCode": "\n    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "308801d834b696ef104a44c404966b47f5132b54f88a924bc83796aee4808576"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "No value passed for parameter 'b'",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 59,
+      "length": 1,
+      "code": {
+        "startLine": 45,
+        "length": 1,
+        "offset": 137,
+        "surroundingCode": "\n    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "39d2a28f73f426cf6c28ee2cfb5936d9bac975ad0da5b71cc254731085fcf22e"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "No value passed for parameter 'r'",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 59,
+      "length": 1,
+      "code": {
+        "startLine": 45,
+        "length": 1,
+        "offset": 137,
+        "surroundingCode": "\n    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "efe2d97778143bec57dfc05de1f909207c8c61fff54d3fc3a9852fddc1ac5edd"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "No value passed for parameter 'b'",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 48,
+      "offset": 27,
+      "length": 4,
+      "code": {
+        "startLine": 46,
+        "length": 4,
+        "offset": 167,
+        "surroundingCode": "    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)\n    }\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "eb51d6760806869de004423364a7c8ae43c26c0a66f6dc552e86d0822796fc20"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "No value passed for parameter 'r'",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 48,
+      "offset": 27,
+      "length": 4,
+      "code": {
+        "startLine": 46,
+        "length": 4,
+        "offset": 167,
+        "surroundingCode": "    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {\n        icon.let { it.layout(it.toHorizontalCenter(this), 0) }\n        message.layout(0, icon.measuredHeight / 2)\n    }\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "14de01b10625981aa060adce03a3cadb9789555b1b1e40a8575de90b02324741"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "'onMeasure' overrides nothing",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 36,
+      "offset": 5,
+      "length": 8,
+      "code": {
+        "startLine": 34,
+        "length": 8,
+        "offset": 11,
+        "surroundingCode": "    }\n\n    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {\n        super.onMeasure(widthMeasureSpec, heightMeasureSpec)\n        message.autoMeasure()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "213a6748c67ef8e0cf628517a54deac9e932efb2a341389f337d93570bef2564"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: onMeasure",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 37,
+      "offset": 15,
+      "length": 9,
+      "code": {
+        "startLine": 35,
+        "length": 9,
+        "offset": 91,
+        "surroundingCode": "\n    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {\n        super.onMeasure(widthMeasureSpec, heightMeasureSpec)\n        message.autoMeasure()\n        icon.autoMeasure()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "32375a72dacedf48e4b1813ef4b5d3e7fb9fe6be5f292d8d691c86c2c52b3fe7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: autoMeasure",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 38,
+      "offset": 17,
+      "length": 11,
+      "code": {
+        "startLine": 36,
+        "length": 11,
+        "offset": 153,
+        "surroundingCode": "    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {\n        super.onMeasure(widthMeasureSpec, heightMeasureSpec)\n        message.autoMeasure()\n        icon.autoMeasure()\n        setMeasuredDimension("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "58fd3bca17048aaec561e1b6c8e5a26e81c42b85a033e58ff873ae3d9f5511e6"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: autoMeasure",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 14,
+      "length": 11,
+      "code": {
+        "startLine": 37,
+        "length": 11,
+        "offset": 104,
+        "surroundingCode": "        super.onMeasure(widthMeasureSpec, heightMeasureSpec)\n        message.autoMeasure()\n        icon.autoMeasure()\n        setMeasuredDimension(\n            message.measuredWidth,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "db9734747954c3d5f7f2b3d341a09b6d11809fabdbd56f6ec7b6d8e828bc2f79"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: setMeasuredDimension",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 40,
+      "offset": 9,
+      "length": 20,
+      "code": {
+        "startLine": 38,
+        "length": 20,
+        "offset": 65,
+        "surroundingCode": "        message.autoMeasure()\n        icon.autoMeasure()\n        setMeasuredDimension(\n            message.measuredWidth,\n            message.measuredHeight + icon.measuredHeight / 2"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "1d0f84fff1007a0c9b80dade8088f7d035fb036c0d1096927e063bfa55b8ca90"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 7,
+        "length": 8,
+        "offset": 114,
+        "surroundingCode": "import androidx.appcompat.widget.AppCompatImageView\nimport androidx.appcompat.widget.AppCompatTextView\nimport com.absinthe.libraries.utils.view.AViewGroup\nimport com.qhy040404.libraryonetap.R\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "ddd8cb49e7bda95a33647b8909e1665afa07fbfd8f6f38f7e55ac877badbaa4d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: LayoutParams",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 24,
+      "length": 12,
+      "code": {
+        "startLine": 29,
+        "length": 12,
+        "offset": 83,
+        "surroundingCode": "\n    private val icon = AppCompatImageView(context).apply {\n        layoutParams = LayoutParams(24.dp, 24.dp)\n        setImageResource(R.drawable.pic_splash)\n        addView(this)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "1e6046174594e59e65d29f5d16c425170c8a7475ce23bda55a3f2ce9e4e23102"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: dp",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 40,
+      "length": 2,
+      "code": {
+        "startLine": 29,
+        "length": 2,
+        "offset": 99,
+        "surroundingCode": "\n    private val icon = AppCompatImageView(context).apply {\n        layoutParams = LayoutParams(24.dp, 24.dp)\n        setImageResource(R.drawable.pic_splash)\n        addView(this)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "568df90650c54e32019c74fb8a4c908011ce2a5babe0b0bdd9f6237bece5283e"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: dp",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 47,
+      "length": 2,
+      "code": {
+        "startLine": 29,
+        "length": 2,
+        "offset": 106,
+        "surroundingCode": "\n    private val icon = AppCompatImageView(context).apply {\n        layoutParams = LayoutParams(24.dp, 24.dp)\n        setImageResource(R.drawable.pic_splash)\n        addView(this)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "886670574a1e88bad6fda8d399cdaa682011af54ccc65ef469c9e3c4ad73808a"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: addView",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 33,
+      "offset": 9,
+      "length": 7,
+      "code": {
+        "startLine": 31,
+        "length": 7,
+        "offset": 106,
+        "surroundingCode": "        layoutParams = LayoutParams(24.dp, 24.dp)\n        setImageResource(R.drawable.pic_splash)\n        addView(this)\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "c1cf2be47960809c9c1064566460138cf397eb66886f45750e335a686b4385dd"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: LayoutParams",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 19,
+      "offset": 13,
+      "length": 12,
+      "code": {
+        "startLine": 17,
+        "length": 12,
+        "offset": 88,
+        "surroundingCode": "    val message = AppCompatTextView(context).apply {\n        layoutParams =\n            LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)\n        maxWidth = 300.dp\n        gravity = Gravity.CENTER"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "03e7a18f0f2e302080952ec35c06be417d17a9902be91128f75a4bbb5cec7f6d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: dp",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 20,
+      "offset": 24,
+      "length": 2,
+      "code": {
+        "startLine": 18,
+        "length": 2,
+        "offset": 145,
+        "surroundingCode": "        layoutParams =\n            LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)\n        maxWidth = 300.dp\n        gravity = Gravity.CENTER\n        setTextAppearance(android.R.style.TextAppearance_Material_Body2)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "870e9b428b65eb338c59ebf5cf669e7f6963806bc1a2426f755d1f3f2db658c9"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: dp",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 24,
+      "offset": 26,
+      "length": 2,
+      "code": {
+        "startLine": 22,
+        "length": 2,
+        "offset": 132,
+        "surroundingCode": "        setTextAppearance(android.R.style.TextAppearance_Material_Body2)\n        setTextColor(Color.BLACK)\n        val padding = 12.dp\n        setPadding(padding, padding, padding, padding)\n        setBackgroundResource(R.drawable.bg_toast)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "5256e1ba5fae79ee54861efab2db4378111414162855fc16eee30ce41debc6a4"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: addView",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/global/ToastView.kt",
+      "language": "kotlin",
+      "line": 27,
+      "offset": 9,
+      "length": 7,
+      "code": {
+        "startLine": 25,
+        "length": 7,
+        "offset": 114,
+        "surroundingCode": "        setPadding(padding, padding, padding, padding)\n        setBackgroundResource(R.drawable.bg_toast)\n        addView(this)\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "9f6a1a74ffa3badd74d8eeb7c6f9bba629d4cbcb6a2dd629b8ba7a6686692a72"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: getStringArray",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/tools/GradesUtils.kt",
+      "language": "kotlin",
+      "line": 60,
+      "offset": 13,
+      "length": 14,
+      "code": {
+        "startLine": 58,
+        "length": 14,
+        "offset": 76,
+        "surroundingCode": "\n    private fun getCurrentGPAAlgorithm(ctx: Context): String =\n        ctx.getStringArray(R.array.gp)[ctx.getStringArray(R.array.gp_values)\n            .indexOf(GlobalValues.gpOption)]\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "2e98e84a80a11f03ec5b3d9253bb8b00445591f766a918aba2e7c88f48cff826"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: getStringArray",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/tools/GradesUtils.kt",
+      "language": "kotlin",
+      "line": 60,
+      "offset": 44,
+      "length": 14,
+      "code": {
+        "startLine": 58,
+        "length": 14,
+        "offset": 107,
+        "surroundingCode": "\n    private fun getCurrentGPAAlgorithm(ctx: Context): String =\n        ctx.getStringArray(R.array.gp)[ctx.getStringArray(R.array.gp_values)\n            .indexOf(GlobalValues.gpOption)]\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "6e03ecfc74aed54792972b8e183337a48515202db807d1b0ac253baf60c6f6f3"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/tools/GradesUtils.kt",
+      "language": "kotlin",
+      "line": 4,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 2,
+        "length": 8,
+        "offset": 43,
+        "surroundingCode": "\nimport android.content.Context\nimport com.absinthe.libraries.utils.extensions.getStringArray\nimport com.qhy040404.libraryonetap.R\nimport com.qhy040404.libraryonetap.annotation.Parentheses"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "64ee2e627634454735be2aba2d02f813a307ebeb7f447fa244a13f3e92dc8820"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: activity",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/NotificationUtils.kt",
+      "language": "kotlin",
+      "line": 94,
+      "offset": 17,
+      "length": 8,
+      "code": {
+        "startLine": 92,
+        "length": 8,
+        "offset": 102,
+        "surroundingCode": "    private fun checkPermission(): Boolean {\n        return if (OsUtils.atLeastT()) {\n            ctx.activity?.let {\n                it as BaseActivity<*>\n                PermissionUtils.checkPermission("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "ad92e92fd5e96dc9c1f9ef5141af5a9742cf0980e261a28c1f95f110be9cd8d8"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Expression expected, but a package name found",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/NotificationUtils.kt",
+      "language": "kotlin",
+      "line": 95,
+      "offset": 17,
+      "length": 2,
+      "code": {
+        "startLine": 93,
+        "length": 2,
+        "offset": 89,
+        "surroundingCode": "        return if (OsUtils.atLeastT()) {\n            ctx.activity?.let {\n                it as BaseActivity<*>\n                PermissionUtils.checkPermission(\n                    it,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "93c2a856d7411e21ffcfe8348b2b60f22cd00857caf6c09e5e68e798b0d444c8"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Expression expected, but a package name found",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/NotificationUtils.kt",
+      "language": "kotlin",
+      "line": 97,
+      "offset": 21,
+      "length": 2,
+      "code": {
+        "startLine": 95,
+        "length": 2,
+        "offset": 107,
+        "surroundingCode": "                it as BaseActivity<*>\n                PermissionUtils.checkPermission(\n                    it,\n                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),\n                    it.supportFragmentManager,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "4718824a90458a930d72642d0104be81cc88eaf0db1d0d1920205a995702a0e7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: supportFragmentManager",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/NotificationUtils.kt",
+      "language": "kotlin",
+      "line": 99,
+      "offset": 24,
+      "length": 22,
+      "code": {
+        "startLine": 97,
+        "length": 22,
+        "offset": 116,
+        "surroundingCode": "                    it,\n                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),\n                    it.supportFragmentManager,\n                    R.string.notification_permission_prompt\n                )"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "1f5a777f7f9e3520c7ee3048d60f517d5458febf69b612ce7bfbff54358abac3"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/NotificationUtils.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 8,
+        "length": 8,
+        "offset": 81,
+        "surroundingCode": "import android.os.Process\nimport androidx.core.app.NotificationCompat\nimport com.absinthe.libraries.utils.extensions.activity\nimport com.qhy040404.libraryonetap.R\nimport com.qhy040404.libraryonetap.base.BaseActivity"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "72607a549208de017442eb00a7899c78bd1d83ee4a5cc479c094e8d0d3b1deb0"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: Utility",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/LibraryOneTapApp.kt",
+      "language": "kotlin",
+      "line": 58,
+      "offset": 9,
+      "length": 7,
+      "code": {
+        "startLine": 56,
+        "length": 7,
+        "offset": 66,
+        "surroundingCode": "        DynamicColors.applyToActivitiesIfAvailable(this)\n\n        Utility.init(this)\n        Once.initialise(this)\n        GlobalValues.initBasic()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "7a57d1995b596b3e25399d60840fd00c8a2cc44e26b4b1a59d05e8119f861e26"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/LibraryOneTapApp.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 8,
+        "length": 8,
+        "offset": 52,
+        "surroundingCode": "import coil.Coil\nimport coil.ImageLoader\nimport com.absinthe.libraries.utils.utils.Utility\nimport com.google.android.material.color.DynamicColors\nimport com.qhy040404.libraryonetap.constant.GlobalValues"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "d5ce81c286b9cc8e1c60051b92b9fb25a7b03af50b644905745cd52e7005cf28"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: addPaddingTop",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/settings/SettingsFragment.kt",
+      "language": "kotlin",
+      "line": 298,
+      "offset": 22,
+      "length": 13,
+      "code": {
+        "startLine": 296,
+        "length": 13,
+        "offset": 102,
+        "surroundingCode": "        recyclerView.id = android.R.id.list\n        recyclerView.fixEdgeEffect()\n        recyclerView.addPaddingTop(UiUtils.getStatusBarHeight())\n        recyclerView.overScrollMode = RecyclerView.OVER_SCROLL_NEVER\n        recyclerView.isVerticalScrollBarEnabled = false"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "6bedc2a49dda4359b0eec9539ea038b33e42d7dc73d3e9bced861e3a605f18be"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: UiUtils",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/settings/SettingsFragment.kt",
+      "language": "kotlin",
+      "line": 298,
+      "offset": 36,
+      "length": 7,
+      "code": {
+        "startLine": 296,
+        "length": 7,
+        "offset": 116,
+        "surroundingCode": "        recyclerView.id = android.R.id.list\n        recyclerView.fixEdgeEffect()\n        recyclerView.addPaddingTop(UiUtils.getStatusBarHeight())\n        recyclerView.overScrollMode = RecyclerView.OVER_SCROLL_NEVER\n        recyclerView.isVerticalScrollBarEnabled = false"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "6345ffaa9d5feb77c480e9d1a542169e168c5d0a7a00944cc4eb1207a6ccaf97"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/settings/SettingsFragment.kt",
+      "language": "kotlin",
+      "line": 18,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 16,
+        "length": 8,
+        "offset": 104,
+        "surroundingCode": "import androidx.preference.SwitchPreference\nimport androidx.recyclerview.widget.RecyclerView\nimport com.absinthe.libraries.utils.extensions.addPaddingTop\nimport com.absinthe.libraries.utils.utils.UiUtils\nimport com.google.android.material.dialog.MaterialAlertDialogBuilder"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "bb95bd110dc71b21d89fde95ecb9e1ded5804183a57423eca20c586c00b5c118"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: absinthe",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/fragment/settings/SettingsFragment.kt",
+      "language": "kotlin",
+      "line": 19,
+      "offset": 12,
+      "length": 8,
+      "code": {
+        "startLine": 17,
+        "length": 8,
+        "offset": 121,
+        "surroundingCode": "import androidx.recyclerview.widget.RecyclerView\nimport com.absinthe.libraries.utils.extensions.addPaddingTop\nimport com.absinthe.libraries.utils.utils.UiUtils\nimport com.google.android.material.dialog.MaterialAlertDialogBuilder\nimport com.qhy040404.libraryonetap.LibraryOneTapApp"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "5fce1b12c820b0d05248a9b95518827f89a457deca8aaaf4b79ab8e75d8302b1"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: datetime",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/tools/ExamsActivity.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 22,
+      "length": 8,
+      "code": {
+        "startLine": 8,
+        "length": 8,
+        "offset": 124,
+        "surroundingCode": "import android.widget.ProgressBar\nimport com.google.android.material.dialog.MaterialAlertDialogBuilder\nimport com.qhy040404.datetime.Datetime\nimport com.qhy040404.datetime.Datetime.Companion.toDateTime\nimport com.qhy040404.libraryonetap.LibraryOneTapApp"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "e4301eb8b4284e6258ac2897752a218da382083716ff750286e9c8a7eb0bc522"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: datetime",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/tools/ExamsActivity.kt",
+      "language": "kotlin",
+      "line": 11,
+      "offset": 22,
+      "length": 8,
+      "code": {
+        "startLine": 9,
+        "length": 8,
+        "offset": 129,
+        "surroundingCode": "import com.google.android.material.dialog.MaterialAlertDialogBuilder\nimport com.qhy040404.datetime.Datetime\nimport com.qhy040404.datetime.Datetime.Companion.toDateTime\nimport com.qhy040404.libraryonetap.LibraryOneTapApp\nimport com.qhy040404.libraryonetap.R"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "c6c7774ed676be5348abaa4735c198b7c34e386d1814f1be0e480fb31bd7c85d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: toDateTime",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/tools/ExamsActivity.kt",
+      "language": "kotlin",
+      "line": 53,
+      "offset": 76,
+      "length": 10,
+      "code": {
+        "startLine": 51,
+        "length": 10,
+        "offset": 204,
+        "surroundingCode": "            val finishedList: MutableList<List<String>> = mutableListOf()\n            for (i in tempValues.courseName.indices) {\n                val examTime = tempValues.examTime[i].substringBefore(\"~\").toDateTime()\n                val now = Datetime.now()\n                if (examTime.isBefore(now)) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "8db2c7261f064140a8f76a84b6a7b8783d79ac54a7343fc979016bd86eade037"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: Datetime",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/ui/tools/ExamsActivity.kt",
+      "language": "kotlin",
+      "line": 54,
+      "offset": 27,
+      "length": 8,
+      "code": {
+        "startLine": 52,
+        "length": 8,
+        "offset": 169,
+        "surroundingCode": "            for (i in tempValues.courseName.indices) {\n                val examTime = tempValues.examTime[i].substringBefore(\"~\").toDateTime()\n                val now = Datetime.now()\n                if (examTime.isBefore(now)) {\n                    finishedList.add("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "074288a02fbf8ee89f04ed0932ffd729e914ea26de18c712c241611fe0b2377c"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Critical",
+  "comment": "Type mismatch: inferred type is ToastView but View? was expected",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "app/src/main/java/com/qhy040404/libraryonetap/utils/Toasty.kt",
+      "language": "kotlin",
+      "line": 66,
+      "offset": 27,
+      "length": 4,
+      "code": {
+        "startLine": 64,
+        "length": 4,
+        "offset": 148,
+        "surroundingCode": "                it.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM, 0, 200)\n                it.duration = duration\n                it.view = view\n            }\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "Library-One-Tap.app.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "babbe5008c1fa411fd97eec98dafbb3b959682f67efadb58c167ca1a84d0b22e"
+}]}

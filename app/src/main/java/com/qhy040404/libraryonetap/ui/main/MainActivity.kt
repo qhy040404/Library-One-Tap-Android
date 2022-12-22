@@ -6,7 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
 import android.view.View
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
@@ -147,14 +147,9 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         }
         handleIntentFromShortcuts(intent)
         showWelcomeDialog()
-        onBackPressedDispatcher.addCallback(
-            this,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    finish()
-                }
-            }
-        )
+        onBackPressedDispatcher.addCallback(this, true) {
+            finish()
+        }
 
         lifecycleScope.launch(Dispatchers.IO) { UpdateUtils.checkUpdate(this@MainActivity) }
     }

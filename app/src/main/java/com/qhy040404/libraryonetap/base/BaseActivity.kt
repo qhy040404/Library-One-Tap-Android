@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.addCallback
 import androidx.viewbinding.ViewBinding
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
@@ -33,6 +34,9 @@ abstract class BaseActivity<VB : ViewBinding> : MaterialActivity(), IBinding<VB>
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         init()
+        onBackPressedDispatcher.addCallback(this, true) {
+            finish()
+        }
     }
 
     @SuppressLint("SourceLockedOrientationActivity")

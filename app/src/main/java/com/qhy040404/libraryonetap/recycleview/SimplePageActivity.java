@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ProgressBar;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -109,6 +110,12 @@ public abstract class SimplePageActivity extends MaterialActivity {
         recyclerView = findViewById(R.id.simple_list);
         applyEdgeToEdge();
         initializeView();
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        });
 
         mThread.start();
     }

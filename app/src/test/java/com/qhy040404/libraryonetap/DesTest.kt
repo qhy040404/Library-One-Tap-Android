@@ -7,14 +7,23 @@ import org.junit.Test
 class DesTest {
     @Test
     fun testEncAndDec() {
-        val des = DesEncryptUtils()
         val testStringA = "ThisIsATest"
         val testStringB = "AnotherKeyTest"
         val testStringC = "LongKeyTest"
-        assertEquals(testStringA, des.strDec(des.strEnc(testStringA, "1", "2", "3"), "1", "2", "3"))
+        assertEquals(testStringA,
+            DesEncryptUtils.strDec(DesEncryptUtils.strEnc(testStringA, "1", "2", "3"),
+                "1",
+                "2",
+                "3"))
         assertEquals(testStringB,
-            des.strDec(des.strEnc(testStringB, "a", "b", "cc"), "a", "b", "cc"))
+            DesEncryptUtils.strDec(DesEncryptUtils.strEnc(testStringB, "a", "b", "cc"),
+                "a",
+                "b",
+                "cc"))
         assertEquals(testStringC,
-            des.strDec(des.strEnc(testStringC, "a", "little", "longer"), "a", "little", "longer"))
+            DesEncryptUtils.strDec(DesEncryptUtils.strEnc(testStringC, "a", "little", "longer"),
+                "a",
+                "little",
+                "longer"))
     }
 }

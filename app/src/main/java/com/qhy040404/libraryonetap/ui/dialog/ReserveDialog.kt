@@ -10,13 +10,13 @@ import android.widget.Spinner
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ReserveData
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.Toasty
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
@@ -108,7 +108,7 @@ class ReserveDialog {
 
             if (ltData.isNotEmpty()) {
                 val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
-                val rsa = des.strEnc(rawData, "1", "2", "3")
+                val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,

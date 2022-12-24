@@ -7,6 +7,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import okhttp3.MediaType.Companion.toMediaType
 import java.util.Locale
@@ -22,7 +23,7 @@ object GlobalValues {
     var passwd: String
         get() {
             return if (passwdEnc.length > 16) {
-                GlobalManager.des.strDec(passwdEnc, "q", "h", "y")
+                DesEncryptUtils.strDec(passwdEnc, "q", "h", "y")
             } else if (passwdEnc == Constants.GLOBAL_ERROR) {
                 Constants.STRING_NULL
             } else {
@@ -33,7 +34,7 @@ object GlobalValues {
             passwdEnc = if (value.length > 16) {
                 value
             } else {
-                GlobalManager.des.strEnc(value, "q", "h", "y")
+                DesEncryptUtils.strEnc(value, "q", "h", "y")
             }
         }
 

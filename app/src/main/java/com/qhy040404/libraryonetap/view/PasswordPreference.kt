@@ -7,7 +7,7 @@ import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import com.qhy040404.libraryonetap.constant.GlobalManager
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.takisoft.preferencex.EditTextPreference
 import androidx.preference.EditTextPreference as AEditTextPreference
 
@@ -42,7 +42,7 @@ class PasswordPreference : EditTextPreference {
         return if (text?.length!! > 16) {
             super.setText(text)
         } else {
-            super.setText(GlobalManager.des.strEnc(text, "q", "h", "y"))
+            super.setText(DesEncryptUtils.strEnc(text, "q", "h", "y"))
         }
     }
 
@@ -51,7 +51,7 @@ class PasswordPreference : EditTextPreference {
         return if (currentText == null) {
             null
         } else {
-            GlobalManager.des.strDec(currentText, "q", "h", "y")
+            DesEncryptUtils.strDec(currentText, "q", "h", "y")
         }
     }
 

@@ -5,12 +5,12 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
@@ -209,7 +209,7 @@ object Requests {
 
             if (ltData.isNotEmpty()) {
                 val rawData = "$id$passwd$ltData"
-                val rsa = GlobalManager.des.strEnc(rawData, "1", "2", "3")
+                val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
 
                 Thread.sleep(200L)
 

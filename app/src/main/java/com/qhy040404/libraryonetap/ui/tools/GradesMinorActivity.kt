@@ -10,7 +10,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.des
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
@@ -19,6 +18,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -159,7 +159,7 @@ class GradesMinorActivity : SimplePageActivity() {
 
                 if (ltData.isNotEmpty()) {
                     val rawData = "$id$passwd$ltData"
-                    val rsa = des.strEnc(rawData, "1", "2", "3")
+                    val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
 
                     Thread.sleep(200L)
 

@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils.encrypt;
 
-public class DesEncryptUtils {
+public final class DesEncryptUtils {
     private DesEncryptUtils() {
     }
 

@@ -66,8 +66,13 @@ class GradesMinorActivity : SimplePageActivity() {
             for (semester in tempValues.semestersName) {
                 add(Category(semester))
                 val count =
-                    tempValues.courseCountList[tempValues.semestersName
-                        .indexOf(semester)]
+                    tempValues.courseCountList[tempValues.semestersName.indexOf(semester)]
+                if (count == 0) {
+                    add(Card(
+                        "请先评教"
+                    ))
+                    continue
+                }
                 tempValues.endCount += count
                 for (i in tempValues.startCount until tempValues.endCount) {
                     val head = """

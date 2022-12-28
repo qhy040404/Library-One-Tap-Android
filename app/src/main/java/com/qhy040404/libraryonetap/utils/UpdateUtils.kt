@@ -88,8 +88,9 @@ object UpdateUtils {
         DownloadUtils.download(
             validateUrl,
             validateFile,
-            null,
-            true
+            listener = null,
+            github = true,
+            async = false
         )
 
         val versionName = latestClazz.name
@@ -169,7 +170,8 @@ object UpdateUtils {
                                     super.onDownloading(progress, done)
                                 }
                             },
-                            true
+                            github = true,
+                            async = true
                         )
                     }
                 }

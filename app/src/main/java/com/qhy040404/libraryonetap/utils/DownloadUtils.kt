@@ -29,12 +29,15 @@ object DownloadUtils {
      * @param url      Download URL
      * @param file     File
      * @param listener Download callback
+     * @param github   If download from GitHub
+     * @param async    Use async or sync
      */
     fun download(
         url: String,
         file: File,
         listener: OnDownloadListener?,
         github: Boolean = false,
+        async: Boolean = true,
     ) {
         onDownloadListener = WeakReference(listener)
         val request: Request = Request.Builder()
@@ -44,32 +47,57 @@ object DownloadUtils {
                 url
             })
             .build()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                onDownloadListener?.get()?.onDownloadFailed()
-            }
-
-            @Throws(IOException::class)
-            override fun onResponse(call: Call, response: Response) {
-                if (file.exists()) {
-                    file.delete()
-                }
-                file.createNewFile()
-                runCatching {
-                    response.body?.let { body ->
-                        body.byteStream().source().buffer().use { source ->
-                            file.sink().buffer().use { output ->
-                                output.writeAll(source)
-                            }
-                        }
-                    } ?: run {
-                        onDownloadListener?.get()?.onDownloadFailed()
-                    }
-                }.onFailure {
+        if (async) {
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
                     onDownloadListener?.get()?.onDownloadFailed()
                 }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (file.exists()) {
+                        file.delete()
+                    }
+                    file.createNewFile()
+                    runCatching {
+                        response.body?.let { body ->
+                            body.byteStream().source().buffer().use { source ->
+                                file.sink().buffer().use { output ->
+                                    output.writeAll(source)
+                                }
+                            }
+                        } ?: run {
+                            onDownloadListener?.get()?.onDownloadFailed()
+                        }
+                    }.onFailure {
+                        onDownloadListener?.get()?.onDownloadFailed()
+                    }
+                }
+            })
+        } else {
+            runCatching {
+                client.newCall(request).execute().use {
+                    if (file.exists()) {
+                        file.delete()
+                    }
+                    file.createNewFile()
+                    runCatching {
+                        it.body?.let { body ->
+                            body.byteStream().source().buffer().use { source ->
+                                file.sink().buffer().use { output ->
+                                    output.writeAll(source)
+                                }
+                            }
+                        } ?: run {
+                            onDownloadListener?.get()?.onDownloadFailed()
+                        }
+                    }.onFailure {
+                        onDownloadListener?.get()?.onDownloadFailed()
+                    }
+                }
+            }.onFailure {
+                onDownloadListener?.get()?.onDownloadFailed()
             }
-        })
+        }
     }
 
     interface OnDownloadListener {

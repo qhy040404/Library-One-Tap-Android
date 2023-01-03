@@ -12,30 +12,25 @@ class DatetimeTest {
     private val now = Datetime.now()
 
     @Test
-    fun testEqual() {
-        Assert.assertTrue(before1.equals(before2))
-    }
-
-    @Test
-    fun testBefore() {
-        Assert.assertTrue(before1.isBefore(now))
-    }
-
-    @Test
-    fun testAfter() {
-        Assert.assertTrue(now.isAfter(before1))
+    fun testCompareTo() {
+        Assert.assertTrue(before1 < now)
+        Assert.assertTrue(now > before1)
+        Assert.assertTrue(before2 < now)
+        Assert.assertTrue(now > before2)
+        Assert.assertTrue(before2 == before1)
+        Assert.assertTrue(before1 == before2)
     }
 
     @Test
     fun testConvert() {
-        Assert.assertTrue(before1.equals(Datetime.fromInstant(before1.toInstant())))
-        Assert.assertTrue(before1.equals(Datetime.fromTimestamp(before1.toTimestamp())))
-        Assert.assertTrue(before1.equals(before1.toString().toDateTime()))
+        Assert.assertTrue(before1 == Datetime.fromInstant(before1.toInstant()))
+        Assert.assertTrue(before1 == Datetime.fromTimestamp(before1.toTimestamp()))
+        Assert.assertTrue(before1 == before1.toString().toDateTime())
 
         val beforeAddYear = "2023-01-01T08:00:00".toDateTime()
-        Assert.assertTrue(beforeAddYear.equals(before1.plus(1, DatetimePart.YEAR)))
+        Assert.assertTrue(beforeAddYear == before1.plus(1, DatetimePart.YEAR))
 
         val beforeMinusYear = "2021-01-01T08:00:00".toDateTime()
-        Assert.assertTrue(beforeMinusYear.equals(before1.minus(1, DatetimePart.YEAR)))
+        Assert.assertTrue(beforeMinusYear == before1.minus(1, DatetimePart.YEAR))
     }
 }

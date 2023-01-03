@@ -14,11 +14,11 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.data.tools.Exam
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
-import com.qhy040404.libraryonetap.temp.ExamsTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
@@ -28,7 +28,8 @@ import org.json.JSONArray
 
 class ExamsActivity : SimplePageActivity() {
     private var currentVisible = true
-    private val tempValues = ExamsTempValues()
+    private val exams = mutableListOf<Exam>()
+    private val now = Datetime.now()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -43,45 +44,38 @@ class ExamsActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (tempValues.courseName.isEmpty()) {
+            if (exams.isEmpty()) {
                 add(Card(
                     "暂无考试"
                 ))
             }
-            val finishedList: MutableList<List<String>> = mutableListOf()
-            for (i in tempValues.courseName.indices) {
-                val examTime = tempValues.examTime[i].substringBefore("~").toDateTime()
-                val now = Datetime.now()
-                if (examTime.isBefore(now)) {
-                    finishedList.add(
-                        listOf(
-                            tempValues.courseName[i],
-                            """
-                                时间：${tempValues.examTime[i]}
-                                考场：${tempValues.room[i]}
-                            """.trimIndent()
-                        )
-                    )
-                    continue
-                }
 
-                val name = tempValues.courseName[i]
+            exams.filter { it.startTime > now }.forEach { pending ->
+                val name = pending.name
                 val desc = """
-                    时间：${tempValues.examTime[i]}
-                    考场：${tempValues.room[i]}
+                    时间：${pending.time}
+                    考场：${pending.room}
                 """.trimIndent()
                 add(ClickableItem(
                     name,
                     desc
                 ))
             }
-            if (finishedList.size != 0) {
-                add(Category("已完成"))
-                finishedList.forEach {
-                    add(ClickableItem(
-                        it.first(),
-                        it.last()
-                    ))
+
+            exams.filter { it.startTime < now }.let { finished ->
+                if (finished.isNotEmpty()) {
+                    add(Category("已完成"))
+                    finished.forEach { finish ->
+                        val name = finish.name
+                        val desc = """
+                            时间：${finish.time}
+                            考场：${finish.room}
+                        """.trimIndent()
+                        add(ClickableItem(
+                            name,
+                            desc
+                        ))
+                    }
                 }
             }
         }
@@ -249,33 +243,14 @@ class ExamsActivity : SimplePageActivity() {
                 val majorArray = JSONArray(examsMajorData)
                 for (i in 0 until majorArray.length()) {
                     val course = majorArray.optJSONObject(i)!!
-                    tempValues.courseName.add(
-                        course.optJSONObject("course")!!.optString("nameZh")
-                    )
-                    tempValues.examTime.add(
-                        course.optString("examTime")
-                    )
-                    tempValues.room.add(
-                        if (!course.isNull("examPlace")) {
-                            course.optJSONObject("examPlace")!!.optJSONObject("room")!!
-                                .optString("nameZh")
-                        } else {
-                            "暂未安排考场"
-                        }
-                    )
-                }
-
-                if (examsMinorData != null) {
-                    val minorArray = JSONArray(examsMinorData)
-                    for (i in 0 until minorArray.length()) {
-                        val course = minorArray.optJSONObject(i)!!
-                        tempValues.courseName.add(
-                            course.optJSONObject("course")!!.optString("nameZh") + "辅修"
-                        )
-                        tempValues.examTime.add(
-                            course.optString("examTime")
-                        )
-                        tempValues.room.add(
+                    val time = course.optString("examTime")
+                    val datetime = time.split(" ")
+                    exams.add(
+                        Exam(
+                            course.optJSONObject("course")!!.optString("nameZh"),
+                            time,
+                            "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
+                            "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
                             if (!course.isNull("examPlace")) {
                                 course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                     .optString("nameZh")
@@ -283,9 +258,33 @@ class ExamsActivity : SimplePageActivity() {
                                 "暂未安排考场"
                             }
                         )
+                    )
+                }
+
+                if (examsMinorData != null) {
+                    val minorArray = JSONArray(examsMinorData)
+                    for (i in 0 until minorArray.length()) {
+                        val course = minorArray.optJSONObject(i)!!
+                        val time = course.optString("examTime")
+                        val datetime = time.split(" ")
+                        exams.add(
+                            Exam(
+                                course.optJSONObject("course")!!.optString("nameZh") + "辅修",
+                                time,
+                                "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
+                                "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
+                                if (!course.isNull("examPlace")) {
+                                    course.optJSONObject("examPlace")!!.optJSONObject("room")!!
+                                        .optString("nameZh")
+                                } else {
+                                    "暂未安排考场"
+                                }
+                            )
+                        )
                     }
                 }
             }
+            exams.sortBy { it.startTime }
             syncRecycleView()
             findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.INVISIBLE
         }

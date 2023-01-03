@@ -1,51 +1,52 @@
 package com.qhy040404.libraryonetap.utils.tools
 
+import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
 
 object GPAUtils {
-    fun calculateGPAByDlut(gp: MutableList<Double>, credits: MutableList<Double>): Double {
+    fun calculateGPAByDlut(grades: List<Grade>): Double {
         var totalWeightedGP = 0.0
-        val totalCredits = credits.sum()
-        for (i in gp.indices) {
-            totalWeightedGP += gp[i] * credits[i]
+        val totalCredits = grades.sumOf { it.credit }
+        grades.forEach {
+            totalWeightedGP += it.gp * it.credit
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }
 
-    fun calculateGPAByStandard5(scores: MutableList<String>, credits: MutableList<Double>): Double {
+    fun calculateGPAByStandard5(grades: List<Grade>): Double {
         var totalWeightedGP = 0.0
-        var totalCredits = credits.sum()
-        for (i in scores.indices) {
+        var totalCredits = grades.sumOf { it.credit }
+        grades.forEach {
             runCatching {
-                totalWeightedGP += getGpByStandard5(scores[i].toInt()) * credits[i]
-            }.onFailure {
-                totalCredits -= credits[i]
+                totalWeightedGP += getGpByStandard5(it.grade.toInt()) * it.credit
+            }.onFailure { _ ->
+                totalCredits -= it.credit
             }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }
 
-    fun calculateGPAByStandard4(scores: MutableList<String>, credits: MutableList<Double>): Double {
+    fun calculateGPAByStandard4(grades: List<Grade>): Double {
         var totalWeightedGP = 0.0
-        var totalCredits = credits.sum()
-        for (i in scores.indices) {
+        var totalCredits = grades.sumOf { it.credit }
+        grades.forEach {
             runCatching {
-                totalWeightedGP += getGpByStandard4(scores[i].toInt()) * credits[i]
-            }.onFailure {
-                totalCredits -= credits[i]
+                totalWeightedGP += getGpByStandard4(it.grade.toInt()) * it.credit
+            }.onFailure { _ ->
+                totalCredits -= it.credit
             }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()
     }
 
-    fun calculateGPAByPeking4(scores: MutableList<String>, credits: MutableList<Double>): Double {
+    fun calculateGPAByPeking4(grades: List<Grade>): Double {
         var totalWeightedGP = 0.0
-        var totalCredits = credits.sum()
-        for (i in scores.indices) {
+        var totalCredits = grades.sumOf { it.credit }
+        grades.forEach {
             runCatching {
-                totalWeightedGP += getGpByPeking4(scores[i].toInt()) * credits[i]
-            }.onFailure {
-                totalCredits -= credits[i]
+                totalWeightedGP += getGpByPeking4(it.grade.toInt()) * it.credit
+            }.onFailure { _ ->
+                totalCredits -= it.credit
             }
         }
         return (totalWeightedGP / totalCredits).to2Decimal()

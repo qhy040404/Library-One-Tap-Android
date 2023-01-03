@@ -6,21 +6,21 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.Parentheses
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.addParentheses
 
 object GradesUtils {
     fun calculateWeightedAverage(
-        grades: MutableList<String>,
-        credits: MutableList<Double>,
+        grades: List<Grade>,
     ): Double {
         var totalWeightedSum = 0.0
-        var totalCredits = credits.sum()
-        for (i in 0 until grades.size) {
+        var totalCredits = grades.sumOf { it.credit }
+        grades.forEach {
             runCatching {
-                totalWeightedSum += grades[i].toDouble() * credits[i]
-            }.onFailure {
-                totalCredits -= credits[i]
+                totalWeightedSum += it.grade.toDouble() * it.credit
+            }.onFailure { _ ->
+                totalCredits -= it.credit
             }
         }
         return (totalWeightedSum / totalCredits).to2Decimal()
@@ -28,29 +28,27 @@ object GradesUtils {
 
     fun calculateAverageGP(
         ctx: Context,
-        gp: MutableList<Double>,
-        scores: MutableList<String>,
-        credits: MutableList<Double>,
+        grades: List<Grade>,
     ): String {
         return when (GlobalValues.gpOption) {
             Constants.GP_DLUT -> {
-                GPAUtils.calculateGPAByDlut(gp, credits)
+                GPAUtils.calculateGPAByDlut(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GP_STANDARD5 -> {
-                GPAUtils.calculateGPAByStandard5(scores, credits)
+                GPAUtils.calculateGPAByStandard5(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GP_STANDARD4 -> {
-                GPAUtils.calculateGPAByStandard4(scores, credits)
+                GPAUtils.calculateGPAByStandard4(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GP_PEKING4 -> {
-                GPAUtils.calculateGPAByPeking4(scores, credits)
+                GPAUtils.calculateGPAByPeking4(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             else -> {
-                GPAUtils.calculateGPAByDlut(gp, credits)
+                GPAUtils.calculateGPAByDlut(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
         }

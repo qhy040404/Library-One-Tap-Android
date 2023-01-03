@@ -12,11 +12,11 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.data.tools.Lesson
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
-import com.qhy040404.libraryonetap.temp.LessonsTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
@@ -26,7 +26,8 @@ import org.json.JSONObject
 
 class LessonsActivity : SimplePageActivity() {
     private var currentVisible = true
-    private val tempValues = LessonsTempValues()
+    private var semester: String = Constants.STRING_NULL
+    private val lessons = mutableListOf<Lesson>()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -42,15 +43,15 @@ class LessonsActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             add(Category(
-                tempValues.semesterName
+                semester
             ))
             add(Card(
-                "共 ${tempValues.lessonId.count()} 门课\n总学分: ${tempValues.lessonCredit.sum()}"
+                "共 ${lessons.count()} 门课\n总学分: ${lessons.sumOf { it.credit }}"
             ))
-            for (i in tempValues.lessonId.indices) {
-                val head = "${tempValues.lessonType[i]}  ${tempValues.lessonName[i]}"
+            lessons.forEach {
+                val head = "${it.type}  ${it.name}"
                 val desc =
-                    "教师: ${tempValues.lessonTeacher[i]}\n教学班: ${tempValues.lessonCode[i]}\n学分: ${tempValues.lessonCredit[i]}\n类型: ${tempValues.lessonCompulsory[i]}"
+                    "教师: ${it.teacher}\n教学班: ${it.code}\n学分: ${it.credit}\n类型: ${it.compulsory}"
                 add(ClickableItem(
                     head,
                     desc
@@ -181,7 +182,7 @@ class LessonsActivity : SimplePageActivity() {
                 val semesterId = source.substringBetween("selected=\"selected\"", ">")
                     .trim()
                     .substringAfter("=").trim('"').toInt()
-                tempValues.semesterName = source
+                semester = source
                     .substringBetween("selected=\"selected\"", "</option>")
                     .trim()
                     .substringAfter(">")
@@ -190,41 +191,32 @@ class LessonsActivity : SimplePageActivity() {
                 val courseJsonObject = JSONObject(courseData)
 
                 val cultivateType = courseJsonObject.optJSONObject("lesson2CultivateTypeMap")!!
-                val lessons = courseJsonObject.optJSONArray("lessons")!!
-                for (i in 0 until lessons.length()) {
-                    val lesson = lessons.optJSONObject(i)
+                val lessonArray = courseJsonObject.optJSONArray("lessons")!!
+                for (i in 0 until lessonArray.length()) {
+                    val lesson = lessonArray.optJSONObject(i)
                     val lessonId = lesson.optInt("id")
-                    tempValues.lessonId.add(lessonId)
-                    tempValues.lessonCode.add(
-                        lesson.optString("code")
-                    )
-                    tempValues.lessonCompulsory.add(
-                        when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
-                            "COMPULSORY" -> "必修"
-                            "ELECTIVE" -> "选修"
-                            else -> throw IllegalStateException("Illegal compulsory state")
-                        }
-                    )
-                    tempValues.lessonName.add(
-                        lesson.optJSONObject("course")!!.optString("nameZh")
-                    )
-                    tempValues.lessonCredit.add(
-                        lesson.optJSONObject("course")!!.optDouble("credits")
-                    )
-                    lesson.optJSONArray("teacherAssignmentList")!!.apply {
-                        val teachers = StringBuilder()
-                        for (t in 0 until length()) {
-                            teachers
-                                .append(optJSONObject(t)!!.optJSONObject("person")!!
-                                    .optString("nameZh"))
-                                .append(",")
-                        }
-                        tempValues.lessonTeacher.add(
-                            teachers.toString().trim(',')
+                    lessons.add(
+                        Lesson(
+                            lessonId,
+                            lesson.optString("code"),
+                            when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
+                                "COMPULSORY" -> "必修"
+                                "ELECTIVE" -> "选修"
+                                else -> throw IllegalStateException("Illegal compulsory state")
+                            },
+                            lesson.optJSONObject("course")!!.optString("nameZh"),
+                            lesson.optJSONObject("course")!!.optDouble("credits"),
+                            lesson.optJSONArray("teacherAssignmentList")!!.let {
+                                buildString {
+                                    for (t in 0 until it.length()) {
+                                        append(it.optJSONObject(t)!!.optJSONObject("person")!!
+                                            .optString("nameZh"))
+                                        append(",")
+                                    }
+                                }.trim(',')
+                            },
+                            cultivateType.optJSONObject(lessonId.toString())!!.optString("nameZh")
                         )
-                    }
-                    tempValues.lessonType.add(
-                        cultivateType.optJSONObject(lessonId.toString())!!.optString("nameZh")
                     )
                 }
             }

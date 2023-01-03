@@ -12,11 +12,12 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.data.tools.Grade
+import com.qhy040404.libraryonetap.data.tools.Semester
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
-import com.qhy040404.libraryonetap.temp.GradesTempValues
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
@@ -27,7 +28,7 @@ import org.json.JSONObject
 
 class GradesMinorActivity : SimplePageActivity() {
     private var currentVisible = true
-    private val tempValues = GradesTempValues()
+    private val semesters = mutableListOf<Semester>()
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -42,7 +43,7 @@ class GradesMinorActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
-            if (tempValues.semestersName.isEmpty() || tempValues.courseCredits.isEmpty()) {
+            if (semesters.isEmpty()) {
                 add(Card(
                     "无数据"
                 ))
@@ -50,46 +51,45 @@ class GradesMinorActivity : SimplePageActivity() {
                 add(Card(
                     "加权均分: ${
                         GradesUtils.calculateWeightedAverage(
-                            tempValues.courseGrade,
-                            tempValues.courseCredits
+                            buildList {
+                                semesters.forEach {
+                                    addAll(it.courses)
+                                }
+                            }
                         )
                     }  平均绩点: ${
                         GradesUtils.calculateAverageGP(
                             this@GradesMinorActivity,
-                            tempValues.courseGP,
-                            tempValues.courseGrade,
-                            tempValues.courseCredits
+                            buildList {
+                                semesters.forEach {
+                                    addAll(it.courses)
+                                }
+                            }
                         )
                     }"
                 ))
             }
-            for (semester in tempValues.semestersName) {
-                add(Category(semester))
-                val count =
-                    tempValues.courseCountList[tempValues.semestersName.indexOf(semester)]
-                if (count == 0) {
-                    add(Card(
-                        "请先评教"
-                    ))
-                    continue
+            semesters.forEach { semester ->
+                add(Category(semester.name))
+                if (semester.courses.isEmpty()) {
+                    add(Card("请先评教"))
+                    return@forEach
                 }
-                tempValues.endCount += count
-                for (i in tempValues.startCount until tempValues.endCount) {
+                semester.courses.forEach {
                     val head = """
-                            ${tempValues.courseName[i]} : ${tempValues.courseStudyType[i]}
+                            ${it.name} : ${it.type}
                         """.trimIndent()
                     val desc = """
-                            ${tempValues.courseCode[i]}
-                            分数: ${tempValues.courseGrade[i]}
-                            学分: ${tempValues.courseCredits[i]}
-                            绩点: ${tempValues.courseGP[i]}
+                            ${it.code}
+                            分数: ${it.grade}
+                            学分: ${it.credit}
+                            绩点: ${it.gp}
                         """.trimIndent()
                     add(ClickableItem(
                         head,
                         desc
                     ))
                 }
-                tempValues.startCount = count
             }
         }
     }
@@ -215,41 +215,38 @@ class GradesMinorActivity : SimplePageActivity() {
                     Requests.get(URLManager.getEduGradeUrl(GlobalValues.minorStuId))
 
                 val gradesJsonObject = JSONObject(gradesData)
-                val semesters = gradesJsonObject.optJSONArray("semesters")!!
+                val semesterArray = gradesJsonObject.optJSONArray("semesters")!!
                 val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
-                for (i in 0 until semesters.length()) {
-                    tempValues.semesters.add(
-                        semesters.optJSONObject(i).optInt("id")
+                for (i in 0 until semesterArray.length()) {
+                    val semesterId = semesterArray.optJSONObject(i).optInt("id")
+                    semesters.add(
+                        Semester(
+                            semesterId,
+                            semesterArray.optJSONObject(i).optString("name"),
+                            grades.optJSONArray(semesterId.toString())!!.let { currentSemester ->
+                                val count = currentSemester.length()
+                                buildList {
+                                    for (j in 0 until count) {
+                                        val currentCourse = currentSemester.optJSONObject(j)!!
+                                        add(
+                                            Grade(
+                                                currentCourse.optJSONObject("course")!!
+                                                    .optString("nameZh"),
+                                                currentCourse.optJSONObject("course")!!
+                                                    .optString("code"),
+                                                currentCourse.optJSONObject("course")!!
+                                                    .optDouble("credits"),
+                                                currentCourse.optString("gaGrade"),
+                                                currentCourse.optDouble("gp"),
+                                                currentCourse.optJSONObject("studyType")!!
+                                                    .optString("text")
+                                            )
+                                        )
+                                    }
+                                }
+                            }
+                        )
                     )
-                    tempValues.semestersName.add(
-                        semesters.optJSONObject(i).optString("name")
-                    )
-                }
-                for (semester in tempValues.semesters) {
-                    val currentSemesterData = grades.optJSONArray(semester.toString())!!
-                    val courseCount = currentSemesterData.length()
-                    tempValues.courseCountList.add(courseCount)
-                    for (j in 0 until courseCount) {
-                        val currentCourse = currentSemesterData.optJSONObject(j)!!
-                        tempValues.courseName.add(
-                            currentCourse.optJSONObject("course")!!.optString("nameZh")
-                        )
-                        tempValues.courseCode.add(
-                            currentCourse.optJSONObject("course")!!.optString("code")
-                        )
-                        tempValues.courseCredits.add(
-                            currentCourse.optJSONObject("course")!!.optDouble("credits")
-                        )
-                        tempValues.courseGrade.add(
-                            currentCourse.optString("gaGrade")
-                        )
-                        tempValues.courseGP.add(
-                            currentCourse.optDouble("gp")
-                        )
-                        tempValues.courseStudyType.add(
-                            currentCourse.optJSONObject("studyType")!!.optString("text")
-                        )
-                    }
                 }
             }
             syncRecycleView()

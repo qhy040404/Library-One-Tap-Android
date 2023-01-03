@@ -52,10 +52,10 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         val loading = binding.yxjLoading
 
         if (!AppUtils.hasNetwork()) {
-           runOnUiThread {
-               detail.text = AppUtils.getResString(R.string.net_disconnected)
-               loading.visibility = View.INVISIBLE
-           }
+            runOnUiThread {
+                detail.text = AppUtils.getResString(R.string.net_disconnected)
+                loading.visibility = View.INVISIBLE
+            }
             return
         }
 

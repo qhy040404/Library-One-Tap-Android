@@ -122,7 +122,7 @@ jobs:
           buildToolsVersion: 33.0.0
 
       - name: Upload signed apk
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: signed_debug_apk
           path: ${{ steps.signStep.outputs.signedFile }}
@@ -198,7 +198,7 @@ jobs:
           buildToolsVersion: 33.0.0
 
       - name: Upload signed apk
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: signed_release_apk
           path: ${{ steps.signStep.outputs.signedFile }}
@@ -259,7 +259,7 @@ jobs:
 
       - name: Upload SHA512SUMS
         continue-on-error: true
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: SHA512SUMS
           path: upload/SHA512SUMS
@@ -336,7 +336,7 @@ jobs:
 
       - name: Upload SHA512SUMS
         continue-on-error: true
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: SHA512SUMS
           path: upload/SHA512SUMS

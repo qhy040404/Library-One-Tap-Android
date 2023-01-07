@@ -1188,16 +1188,16 @@
           "description": "Manifest Resource References  \n\nElements in the manifest can reference resources, but those resources cannot vary across configurations (except as a special case, by version, and except for a few specific package attributes such as the application title and icon).  \n\nIssue id: ManifestResource"
         },
         {
-          "shortName": "AndroidLintSlices",
-          "displayName": "Slices",
-          "enabled": true,
-          "description": "Slices  \n\nThis check analyzes usages of the Slices API and offers suggestions based on best practices.  \n\nIssue id: Slices"
-        },
-        {
           "shortName": "AndroidLintNamespaceTypo",
           "displayName": "Misspelled namespace declaration",
           "enabled": true,
           "description": "Misspelled namespace declaration  \n\nAccidental misspellings in namespace declarations can lead to some very obscure error messages. This check looks for potential misspellings to help track these down.  \n\nIssue id: NamespaceTypo"
+        },
+        {
+          "shortName": "AndroidLintSlices",
+          "displayName": "Slices",
+          "enabled": true,
+          "description": "Slices  \n\nThis check analyzes usages of the Slices API and offers suggestions based on best practices.  \n\nIssue id: Slices"
         },
         {
           "shortName": "AndroidLintShowToast",
@@ -1926,16 +1926,16 @@
           "description": "Invalid Wake Lock Tag  \n\nWake Lock tags must follow the naming conventions defined in the\\`PowerManager\\` documentation.  \n\nIssue id: InvalidWakeLockTag  \n\n<https://developer.android.com/reference/android/os/PowerManager.html>"
         },
         {
-          "shortName": "AndroidLintGradlePluginVersion",
-          "displayName": "Incompatible Android Gradle Plugin",
-          "enabled": true,
-          "description": "Incompatible Android Gradle Plugin  \n\nNot all versions of the Android Gradle plugin are compatible with all versions of the SDK. If you update your tools, or if you are trying to open a project that was built with an old version of the tools, you may need to update your plugin version number.  \n\nIssue id: GradlePluginVersion"
-        },
-        {
           "shortName": "AndroidLintExifInterface",
           "displayName": "Using android.media.ExifInterface",
           "enabled": true,
           "description": "Using `android.media.ExifInterface`  \n\nThe `android.media.ExifInterface` implementation has some known security bugs in older versions of Android. There is a new implementation available of this library in the support library, which is preferable.  \n\nIssue id: ExifInterface"
+        },
+        {
+          "shortName": "AndroidLintGradlePluginVersion",
+          "displayName": "Incompatible Android Gradle Plugin",
+          "enabled": true,
+          "description": "Incompatible Android Gradle Plugin  \n\nNot all versions of the Android Gradle plugin are compatible with all versions of the SDK. If you update your tools, or if you are trying to open a project that was built with an old version of the tools, you may need to update your plugin version number.  \n\nIssue id: GradlePluginVersion"
         },
         {
           "shortName": "AndroidLintMissingOnPlayFromSearch",
@@ -2070,16 +2070,16 @@
           "description": "Notifications Without Permission  \n\nWhen targeting Android 13 and higher, posting permissions requires holding the runtime permission `android.permission.POST_NOTIFICATIONS`.  \n\nIssue id: NotificationPermission"
         },
         {
-          "shortName": "AndroidLintUnusedTranslation",
-          "displayName": "Unused Translation",
-          "enabled": true,
-          "description": "Unused Translation  \n\nIf an application defines a translation for a language which is not included in the app's `localeConfig` file (when declared in the manifest), that language will be \"unused\"; it will not be presented to the user. Usually this means you have forgotten to include it in the locale config file.  \n\nIssue id: UnusedTranslation  \n\n<https://developer.android.com/about/versions/13/features/app-languages>"
-        },
-        {
           "shortName": "AndroidLintGradleIdeError",
           "displayName": "Gradle IDE Support Issues",
           "enabled": true,
           "description": "Gradle IDE Support Issues  \n\nGradle is highly flexible, and there are things you can do in Gradle files which can make it hard or impossible for IDEs to properly handle the project. This lint check looks for constructs that potentially break IDE support.  \n\nIssue id: GradleIdeError"
+        },
+        {
+          "shortName": "AndroidLintUnusedTranslation",
+          "displayName": "Unused Translation",
+          "enabled": true,
+          "description": "Unused Translation  \n\nIf an application defines a translation for a language which is not included in the app's `localeConfig` file (when declared in the manifest), that language will be \"unused\"; it will not be presented to the user. Usually this means you have forgotten to include it in the locale config file.  \n\nIssue id: UnusedTranslation  \n\n<https://developer.android.com/about/versions/13/features/app-languages>"
         },
         {
           "shortName": "AndroidLintWifiManagerLeak",
@@ -2226,6 +2226,12 @@
           "description": "Usage of Android Wear BIND_LISTENER is deprecated  \n\nBIND_LISTENER receives all Android Wear events whether the application needs them or not. This can be inefficient and cause applications to wake up unnecessarily. With Google Play Services 8.2.0 or later it is recommended to use a more efficient combination of manifest listeners and api-based live listeners filtered by action, path and/or path prefix.  \n\nIssue id: WearableBindListener  \n\n<https://android-developers.googleblog.com/2016/04/deprecation-of-bindlistener.html>"
         },
         {
+          "shortName": "AndroidLintMissingIntentFilterForMediaSearch",
+          "displayName": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter",
+          "enabled": true,
+          "description": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter  \n\nTo support voice searches on Android Auto, you should also register an `intent-filter` for the action `android.media.action.MEDIA_PLAY_FROM_SEARCH`.  \n\nTo do this, add\n\n```\n`<intent-filter>`\n    `<action android:name=\"android.media.action.MEDIA_PLAY_FROM_SEARCH\" />`\n`</intent-filter>`\n```\n\nto your `<activity>` or `<service>`.  \n\nIssue id: MissingIntentFilterForMediaSearch  \n\n<https://developer.android.com/training/auto/audio/index.html#support_voice>"
+        },
+        {
           "shortName": "AndroidLintResourceName",
           "displayName": "Resource with Wrong Prefix",
           "enabled": true,
@@ -2236,12 +2242,6 @@
           "displayName": "Incompatible screenOrientation manifest value",
           "enabled": true,
           "description": "Incompatible screenOrientation value  \n\nThe `<activity>` element should not be locked to any orientation so that users can take advantage of the multi-window environments and larger screens available on Android. To fix the issue, consider declaring the corresponding activity element with \\`screenOrientation=\"unspecified\"`or `\"fullSensor\"\\` attribute.  \n\nIssue id: LockedOrientationActivity  \n\n<https://developer.android.com/topic/arc/window-management>"
-        },
-        {
-          "shortName": "AndroidLintMissingIntentFilterForMediaSearch",
-          "displayName": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter",
-          "enabled": true,
-          "description": "Missing MEDIA_PLAY_FROM_SEARCH intent-filter  \n\nTo support voice searches on Android Auto, you should also register an `intent-filter` for the action `android.media.action.MEDIA_PLAY_FROM_SEARCH`.  \n\nTo do this, add\n\n```\n`<intent-filter>`\n    `<action android:name=\"android.media.action.MEDIA_PLAY_FROM_SEARCH\" />`\n`</intent-filter>`\n```\n\nto your `<activity>` or `<service>`.  \n\nIssue id: MissingIntentFilterForMediaSearch  \n\n<https://developer.android.com/training/auto/audio/index.html#support_voice>"
         },
         {
           "shortName": "AndroidLintImpliedTouchscreenHardware",
@@ -2274,16 +2274,16 @@
           "description": "Cannot use `ACCESS_FINE_LOCATION` without `ACCESS_COARSE_LOCATION`  \n\nIf your app requires access to FINE location, on Android 12 and higher you must now request both FINE and COARSE. Users will have the option to grant only COARSE location. Ensure your app can work with just COARSE location.  \n\nIssue id: CoarseFineLocation"
         },
         {
-          "shortName": "AndroidLintPinSetExpiry",
-          "displayName": "Validate <pin-set> expiration attribute",
-          "enabled": true,
-          "description": "Validate `<pin-set>` expiration attribute  \n\nEnsures that the `expiration` attribute of the `<pin-set>` element is valid and has not already expired or is expiring soon  \n\nIssue id: PinSetExpiry  \n\n<https://developer.android.com/preview/features/security-config.html>"
-        },
-        {
           "shortName": "AndroidLintLeanbackUsesWifi",
           "displayName": "android.hardware.wifi on TV device",
           "enabled": true,
           "description": "Using android.hardware.wifi on TV  \n\nWiFi is not required for Android TV and many devices connect to the internet via alternative methods e.g. Ethernet.  \n\nIf your app is not focused specifically on WiFi functionality and only wishes to connect to the internet, please modify your Manifest to contain: `<uses-feature android:name=\"android.hardware.wifi\" android:required=\"false\" />`  \n\nUn-metered or non-roaming connections can be detected in software using `NetworkCapabilities#NET_CAPABILITY_NOT_METERED` and `NetworkCapabilities#NET_CAPABILITY_NOT_ROAMING.`  \n\nIssue id: LeanbackUsesWifi"
+        },
+        {
+          "shortName": "AndroidLintPinSetExpiry",
+          "displayName": "Validate <pin-set> expiration attribute",
+          "enabled": true,
+          "description": "Validate `<pin-set>` expiration attribute  \n\nEnsures that the `expiration` attribute of the `<pin-set>` element is valid and has not already expired or is expiring soon  \n\nIssue id: PinSetExpiry  \n\n<https://developer.android.com/preview/features/security-config.html>"
         },
         {
           "shortName": "AndroidLintAppCompatMethod",
@@ -2436,16 +2436,16 @@
           "description": "Using `dp` instead of `sp` for text sizes  \n\nWhen setting text sizes, you should normally use `sp`, or \"scale-independent pixels\". This is like the `dp` unit, but it is also scaled by the user's font size preference. It is recommend you use this unit when specifying font sizes, so they will be adjusted for both the screen density and the user's preference.  \n\nThere **are** cases where you might need to use `dp`; typically this happens when the text is in a container with a specific dp-size. This will prevent the text from spilling outside the container. Note however that this means that the user's font size settings are not respected, so consider adjusting the layout itself to be more flexible.  \n\nIssue id: SpUsage  \n\n<https://developer.android.com/training/multiscreen/screendensities.html>"
         },
         {
-          "shortName": "AndroidLintStringEscaping",
-          "displayName": "Invalid string escapes",
-          "enabled": true,
-          "description": "Invalid string escapes  \n\nApostrophes (') must always be escaped (with a \\\\\\\\), unless they appear in a string which is itself escaped in double quotes (\").  \n\nIssue id: StringEscaping"
-        },
-        {
           "shortName": "AndroidLintValidFragment",
           "displayName": "Fragment not instantiatable",
           "enabled": true,
           "description": "Fragment not instantiatable  \n\nFrom the Fragment documentation:  \n**Every** fragment must have an empty constructor, so it can be instantiated when restoring its activity's state. It is strongly recommended that subclasses do not have other constructors with parameters, since these constructors will not be called when the fragment is re-instantiated; instead, arguments can be supplied by the caller with `setArguments(Bundle)` and later retrieved by the Fragment with `getArguments()`.  \n\nNote that this is no longer true when you are using `androidx.fragment.app.Fragment`; with the `FragmentFactory` you can supply any arguments you want (as of version androidx version 1.1).  \n\nIssue id: ValidFragment  \n\n<https://developer.android.com/reference/android/app/Fragment.html#Fragment()>"
+        },
+        {
+          "shortName": "AndroidLintStringEscaping",
+          "displayName": "Invalid string escapes",
+          "enabled": true,
+          "description": "Invalid string escapes  \n\nApostrophes (') must always be escaped (with a \\\\\\\\), unless they appear in a string which is itself escaped in double quotes (\").  \n\nIssue id: StringEscaping"
         },
         {
           "shortName": "AndroidLintSdCardPath",
@@ -4427,16 +4427,16 @@
           "description": "Reports annotations used on record components that have no effect.\n\nThis can happen in two cases:\n\n* The reported annotation has the METHOD target, but the corresponding accessor is explicitly defined.\n* The reported annotation has the PARAMETER target, but the canonical constructor is explicitly defined.\n\nExample:\n\n\n    @Target(ElementType.METHOD)\n    @interface A { }\n      \n    // The annotation will not appear in bytecode at all,\n    // as it should be propagated to the accessor but accessor is explicitly defined \n    record R(@A int x) {\n      public int x() { return x; }\n    }\n\nNew in 2021.1"
         },
         {
-          "shortName": "SuspiciousDateFormat",
-          "displayName": "Suspicious date format pattern",
-          "enabled": true,
-          "description": "Reports date format patterns that are likely used by mistake.\n\nThe following patterns are reported:\n\n* Uppercase \"Y\", unless \"w\" appears nearby. It stands for \"Week year\" that is almost always the same as normal \"Year\" (lowercase \"y\" pattern), but may point to the next year at the end of December.\n* Uppercase \"M\" (month) close to \"H\", \"K\", \"h\", or \"k\" (hour). It's likely that a lowercase \"m\" (minute) was intended.\n* Lowercase \"m\" (minute) close to \"y\" (year) or \"d\" (day in month). It's likely that an uppercase \"M\" (month) was intended.\n* Uppercase \"D\" (day in year) close to \"M\", or \"L\" (month). It's likely that a lowercase \"d\" (day in month) was intended.\n* Uppercase \"S\" (milliseconds) close to \"m\" (minutes). It's likely that a lowercase \"s\" (seconds) was intended.\n\n\nExamples:  \n\n`new SimpleDateFormat(\"YYYY-MM-dd\")`: likely `\"yyyy-MM-dd\"` was intended.  \n\n`new SimpleDateFormat(\"yyyy-MM-DD\")`: likely `\"yyyy-MM-dd\"` was intended.  \n\n`new SimpleDateFormat(\"HH:MM\")`: likely `\"HH:mm\"` was intended.\n\nNew in 2020.1"
-        },
-        {
           "shortName": "MagicConstant",
           "displayName": "Magic Constant",
           "enabled": true,
           "description": "Reports expressions that can be replaced with \"magic\" constants.\n\nExample 1:\n\n\n      // Bare literal \"2\" is used, warning:\n      Font font = new Font(\"Arial\", 2)\n\nExample 2:\n\n\n      // Predefined constant is used, good:\n      Font font = new Font(\"Arial\", Font.ITALIC)\n\n\nWhen possible, the quick-fix inserts an appropriate predefined constant.\n\n\nThe behavior of this inspection is controlled by `org.intellij.lang.annotations.MagicConstant` annotation.\nSome standard Java library methods are pre-annotated, but you can use this annotation in your code as well."
+        },
+        {
+          "shortName": "SuspiciousDateFormat",
+          "displayName": "Suspicious date format pattern",
+          "enabled": true,
+          "description": "Reports date format patterns that are likely used by mistake.\n\nThe following patterns are reported:\n\n* Uppercase \"Y\", unless \"w\" appears nearby. It stands for \"Week year\" that is almost always the same as normal \"Year\" (lowercase \"y\" pattern), but may point to the next year at the end of December.\n* Uppercase \"M\" (month) close to \"H\", \"K\", \"h\", or \"k\" (hour). It's likely that a lowercase \"m\" (minute) was intended.\n* Lowercase \"m\" (minute) close to \"y\" (year) or \"d\" (day in month). It's likely that an uppercase \"M\" (month) was intended.\n* Uppercase \"D\" (day in year) close to \"M\", or \"L\" (month). It's likely that a lowercase \"d\" (day in month) was intended.\n* Uppercase \"S\" (milliseconds) close to \"m\" (minutes). It's likely that a lowercase \"s\" (seconds) was intended.\n\n\nExamples:  \n\n`new SimpleDateFormat(\"YYYY-MM-dd\")`: likely `\"yyyy-MM-dd\"` was intended.  \n\n`new SimpleDateFormat(\"yyyy-MM-DD\")`: likely `\"yyyy-MM-dd\"` was intended.  \n\n`new SimpleDateFormat(\"HH:MM\")`: likely `\"HH:mm\"` was intended.\n\nNew in 2020.1"
         },
         {
           "shortName": "MismatchedCollectionQueryUpdate",
@@ -4475,16 +4475,16 @@
           "description": "Reports expressions and conditions that always produce the same result, like true, false, null, or zero. Such expressions could be replaced with the corresponding constant value. Very often though they signal about a bug in the code.\n\nExamples:\n\n      // always true\n      // root cause: || is used instead of &&\n      if (x > 0 || x < 10) {}\n\n      System.out.println(str.trim());\n      // always false\n      // root cause: variable was dereferenced before null-check\n      if (str == null) {}\n\n\nThe inspection behavior may be controlled by a number of annotations, such as\n[nullability](https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html) annotations,\n[@Contract](https://www.jetbrains.com/help/idea/contract-annotations.html) annotation,\n`@Range` annotation and so on.\n\nConfigure the inspection:\n\n* Use the **Don't report assertions with condition statically proven to be always true** option to avoid reporting assertions that were statically proven to be always true. This also includes conditions like `if (alwaysFalseCondition) throw new IllegalArgumentException();`.\n* Use the **Ignore assert statements** option to control how the inspection treats `assert` statements. By default, the option is disabled, which means that the assertions are assumed to be executed (-ea mode). If the option is enabled, the assertions will be completely ignored (-da mode).\n* Use the **Warn when constant is stored in variable** option to display warnings when variable is used, whose value is known to be a constant.\n\n\nBefore IntelliJ IDEA 2022.3, this inspection was part of \"Constant Conditions \\& Exceptions\" inspection. Now, it split into two inspections:\n\"Constant Values\" and \"Nullability and data flow problems\"."
         },
         {
-          "shortName": "IteratorHasNextCallsIteratorNext",
-          "displayName": "'Iterator.hasNext()' which calls 'next()'",
-          "enabled": false,
-          "description": "Reports implementations of `Iterator.hasNext()` or `ListIterator.hasPrevious()` that call `Iterator.next()` or `ListIterator.previous()` on the iterator instance. Such calls are almost certainly an error, as methods like `hasNext()` should not modify the iterators state, while `next()` should.\n\n**Example:**\n\n\n      class MyIterator implements Iterator<Integer> {\n        public boolean hasNext() {\n          return next() != null;\n        }\n      }\n"
-        },
-        {
           "shortName": "EqualsAndHashcode",
           "displayName": "'equals()' and 'hashCode()' not paired",
           "enabled": false,
           "description": "Reports classes that override the `equals()` method but do not override the `hashCode()` method or vice versa, which can potentially lead to problems when the class is added to a `Collection` or a `HashMap`.\n\nThe quick-fix generates the default implementation for an absent method.\n\nExample:\n\n\n    class StringHolder {\n      String s;\n\n      @Override public int hashCode() {\n        return s != null ? s.hashCode() : 0;\n      }\n    }\n\nAfter the quick-fix is applied:\n\n\n    class StringHolder {\n      String s;\n\n      @Override public int hashCode() {\n        return s != null ? s.hashCode() : 0;\n      }\n\n      @Override\n      public boolean equals(Object o) {\n        if (this == o) return true;\n        if (!(o instanceof StringHolder)) return false;\n\n        StringHolder holder = (StringHolder)o;\n\n        if (s != null ? !s.equals(holder.s) : holder.s != null) return false;\n\n        return true;\n      }\n    }\n"
+        },
+        {
+          "shortName": "IteratorHasNextCallsIteratorNext",
+          "displayName": "'Iterator.hasNext()' which calls 'next()'",
+          "enabled": false,
+          "description": "Reports implementations of `Iterator.hasNext()` or `ListIterator.hasPrevious()` that call `Iterator.next()` or `ListIterator.previous()` on the iterator instance. Such calls are almost certainly an error, as methods like `hasNext()` should not modify the iterators state, while `next()` should.\n\n**Example:**\n\n\n      class MyIterator implements Iterator<Integer> {\n        public boolean hasNext() {\n          return next() != null;\n        }\n      }\n"
         },
         {
           "shortName": "SuspiciousArrayMethodCall",
@@ -5154,149 +5154,6 @@
       ]
     },
     {
-      "name": "Serialization issues",
-      "inspections": [
-        {
-          "shortName": "ComparatorNotSerializable",
-          "displayName": "'Comparator' class not declared 'Serializable'",
-          "enabled": false,
-          "description": "Reports classes that implement `java.lang.Comparator`, but do not implement `java.io.Serializable`.\n\n\nIf a non-serializable comparator is used to construct an ordered collection such\nas a `java.util.TreeMap` or `java.util.TreeSet`, then the\ncollection will also be non-serializable. This can result in unexpected and\ndifficult-to-diagnose bugs.\n\n\nSince subclasses of `java.lang.Comparator` are often stateless,\nsimply marking them serializable is a small cost to avoid such issues.\n\n**Example:**\n\n\n      class Foo implements Comparator { // warning\n          @Override\n          public int compare(Object o1, Object o2) {\n              /* ... */\n          }\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Foo implements Comparator, Serializable { // no warning here\n          @Override\n          public int compare(Object o1, Object o2) {\n              /* ... */\n          }\n      }\n"
-        },
-        {
-          "shortName": "SerializableStoresNonSerializable",
-          "displayName": "'Serializable' object implicitly stores non-'Serializable' object",
-          "enabled": false,
-          "description": "Reports any references to local non-`Serializable` variables outside `Serializable` lambdas, local and anonymous classes.\n\n\nWhen a local variable is referenced from an anonymous class, its value\nis stored in an implicit field of that class. The same happens\nfor local classes and lambdas. If the variable is of a\nnon-`Serializable` type, serialization will fail.\n\n**Example:**\n\n\n      interface A extends Serializable {\n          abstract void foo();\n      }\n      class B {}\n      class C {\n          void foo() {\n              B b = new B();\n              A a = new A() {\n                  @Override\n                  public void foo() {\n                      System.out.println(b); // warning\n                  }\n              };\n          }\n      }\n"
-        },
-        {
-          "shortName": "ExternalizableWithSerializationMethods",
-          "displayName": "Externalizable class with 'readObject()' or 'writeObject()'",
-          "enabled": false,
-          "description": "Reports `Externalizable` classes that define `readObject()` or `writeObject()` methods. These methods are not called for serialization of `Externalizable` objects.\n\n**Example:**\n\n\n      abstract class Crucial implements Externalizable {\n        int value;\n        private void readObject(ObjectInputStream in) {\n          value = in.readInt();\n        }\n      }\n"
-        },
-        {
-          "shortName": "NonSerializableFieldInSerializableClass",
-          "displayName": "Non-serializable field in a 'Serializable' class",
-          "enabled": false,
-          "description": "Reports non-serializable fields in classes that implement `java.io.Serializable`. Such fields will result in runtime exceptions if the object is serialized.\n\n\nFields declared\n`transient` or `static`\nare not reported, nor are fields of classes that have a `writeObject` method defined.\n\n\nThis inspection assumes fields of the types\n`java.util.Collection` and\n`java.util.Map` to be\n`Serializable`, unless the types\nthey are declared in are non-`Serializable`.\n\n**Example:**\n\n\n      class NonSerializableClass {}\n\n      public class SerializableClass implements Serializable {\n          NonSerializableClass clazz; // warning: Non-serializable field 'clazz' in a Serializable class\n          static NonSerializableClass staticClazz; // no warnings\n      }\n      \n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* List annotations that will make the inspection ignore the annotated fields.\n* Whether to ignore fields initialized with an anonymous class."
-        },
-        {
-          "shortName": "TransientFieldNotInitialized",
-          "displayName": "Transient field is not initialized on deserialization",
-          "enabled": false,
-          "description": "Reports `transient` fields that are initialized during normal object construction, but whose class does not have a `readObject` method.\n\n\nAs `transient` fields are not serialized they need\nto be initialized separately in a `readObject()` method\nduring deserialization.\n\n\nAny `transient` fields that\nare not initialized during normal object construction are considered to use the default\ninitialization and are not reported by this inspection.\n\n**Example:**\n\n\n      class Person implements Serializable {\n        transient String name = \"Default\"; //warning, can actually be a null after deserialization\n        transient String surname; //null is considered the default value and not reported\n      }\n"
-        },
-        {
-          "shortName": "ReadObjectAndWriteObjectPrivate",
-          "displayName": "'readObject()' or 'writeObject()' not declared 'private'",
-          "enabled": false,
-          "description": "Reports `Serializable` classes where the `readObject` or `writeObject` methods are not declared private. There is no reason these methods should ever have a higher visibility than `private`.\n\n\nA quick-fix is suggested to make the corresponding method `private`.\n\n**Example:**\n\n\n      public class Test implements Serializable {\n        public void readObject(ObjectInputStream stream) {\n          /* ... */\n        }\n      }\n\nAfter the quick-fix is applied:\n\n\n      public class Test implements Serializable {\n        private void readObject(ObjectInputStream stream) {\n          /* ... */\n        }\n      }\n"
-        },
-        {
-          "shortName": "SerializableWithUnconstructableAncestor",
-          "displayName": "Serializable class with unconstructable ancestor",
-          "enabled": false,
-          "description": "Reports `Serializable` classes whose closest non-serializable ancestor doesn't have a no-argument constructor. Such classes cannot be deserialized and will fail with an `InvalidClassException`.\n\n**Example:**\n\n\n      class Ancestor {\n        private String name;\n        Ancestor(String name) {\n          this.name = name;\n        }\n      }\n\n      // warning on this class because the superclass is not\n      // serializable, and its constructor takes arguments\n      class Descendant extends Ancestor implements Serializable {\n        Descendant() {\n          super(\"Bob\");\n        }\n      }\n"
-        },
-        {
-          "shortName": "SerialVersionUIDNotStaticFinal",
-          "displayName": "'serialVersionUID' field not declared 'private static final long'",
-          "enabled": false,
-          "description": "Reports `Serializable` classes whose `serialVersionUID` field is not declared `private static final long`.\n\n**Example:**\n\n\n      class SampleClass implements Serializable {\n        private long serialVersionUID = 1; // field of a Serializable class is not declared 'private static final long'\n\n        public SampleClass() {\n            System.out.println(serialVersionUID);\n        }\n      }\n"
-        },
-        {
-          "shortName": "SerializableInnerClassWithNonSerializableOuterClass",
-          "displayName": "Serializable non-'static' inner class with non-Serializable outer class",
-          "enabled": false,
-          "description": "Reports non-static inner classes that implement `Serializable` and are declared inside a class that doesn't implement `Serializable`.\n\n\nSuch classes are unlikely to serialize correctly due to implicit references to the outer class.\n\n**Example:**\n\n\n      class A {\n        class Main implements Serializable {\n        }\n      }\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` anonymous classes."
-        },
-        {
-          "shortName": "SerializableInnerClassHasSerialVersionUIDField",
-          "displayName": "Serializable non-static inner class without 'serialVersionUID'",
-          "enabled": false,
-          "description": "Reports non-static inner classes that implement `java.io.Serializable`, but do not define a `serialVersionUID` field.\n\n\nWithout a `serialVersionUID` field, any change to the class will make previously\nserialized versions unreadable. It is strongly recommended that `Serializable`\nnon-static inner classes have a `serialVersionUID` field, otherwise the default\nserialization algorithm may result in serialized versions being incompatible between\ncompilers due to differences in synthetic accessor methods.\n\n\nA quick-fix is suggested to add the missing `serialVersionUID` field.\n\n**Example:**\n\n\n      class Outer {\n          class Inner implements Serializable {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Outer {\n          class Inner implements Serializable {\n              private static final long serialVersionUID = -7004458730436243902L;\n          }\n      }\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` anonymous classes."
-        },
-        {
-          "shortName": "ReadResolveAndWriteReplaceProtected",
-          "displayName": "'readResolve()' or 'writeReplace()' not declared 'protected'",
-          "enabled": false,
-          "description": "Reports classes that implement `java.io.Serializable` where the `readResolve()` or `writeReplace()` methods are not declared `protected`.\n\n\nDeclaring `readResolve()` and `writeReplace()` methods `private`\ncan force subclasses to silently ignore them, while declaring them\n`public` allows them to be invoked by untrusted code.\n\n\nIf the containing class is declared `final`, these methods can be declared `private`.\n\n**Example:**\n\n\n      class ClassWithSerialization implements Serializable {\n        public Object writeReplace() { // warning: 'writeReplace()' not declared protected\n            ...\n        }\n      }\n      \n"
-        },
-        {
-          "shortName": "ExternalizableWithoutPublicNoArgConstructor",
-          "displayName": "'Externalizable' class without 'public' no-arg constructor",
-          "enabled": true,
-          "description": "Reports `Externalizable` classes without a public no-argument constructor.\n\nWhen an `Externalizable` object is reconstructed, an instance is created using the public\nno-arg constructor before the `readExternal` method called. If a public\nno-arg constructor is not available, a `java.io.InvalidClassException` will be\nthrown at runtime."
-        },
-        {
-          "shortName": "MissingSerialAnnotation",
-          "displayName": "'@Serial' annotation could be used",
-          "enabled": true,
-          "description": "Reports methods and fields in the `Serializable` and `Externalizable` classes that are suitable to be annotated with the `java.io.Serial` annotation. The quick-fix adds the annotation.\n\n**Example:**\n\n\n    class Main implements Serializable {\n      private static final long serialVersionUID = 7874493593505141603L;\n\n      private void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\nAfter the quick-fix is applied:\n\n\n      class Main implements Serializable {\n        @Serial\n        private static final long serialVersionUID = 7874493593505141603L;\n\n        @Serial\n        private void writeObject(ObjectOutputStream out) throws IOException {\n        }\n    }\n\n**Example:**\n\n\n      class Main implements Externalizable {\n        protected Object readResolve() throws ObjectStreamException {\n          return \"SomeObject\";\n        }\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Main implements Externalizable {\n        @Serial\n        protected Object readResolve() throws ObjectStreamException {\n            return \"SomeObject\";\n        }\n      }\n\nFor more information about all possible cases, refer the documentation for `java.io.Serial`.\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
-        },
-        {
-          "shortName": "SerialPersistentFieldsWithWrongSignature",
-          "displayName": "'serialPersistentFields' field not declared 'private static final ObjectStreamField[]'",
-          "enabled": false,
-          "description": "Reports `Serializable` classes whose `serialPersistentFields` field is not declared as `private static final ObjectStreamField[]`.\n\n\nIf a `serialPersistentFields` field is not declared with those modifiers,\nthe serialization behavior will be as if the field was not declared at all.\n\n**Example:**\n\n\n      class List implements Serializable {\n        private List next;\n\n        ObjectStreamField[] serialPersistentFields = {new ObjectStreamField(\"next\", List.class)};\n\n      }\n"
-        },
-        {
-          "shortName": "NonSerializableObjectBoundToHttpSession",
-          "displayName": "Non-serializable object bound to 'HttpSession'",
-          "enabled": false,
-          "description": "Reports objects of classes not implementing `java.io.Serializable` used as arguments to `javax.servlet.http.HttpSession.setAttribute()` or `javax.servlet.http.HttpSession.putValue()`.\n\n\nSuch objects will not be serialized if the `HttpSession` is passivated or migrated,\nand may result in difficult-to-diagnose bugs.\n\n\nThis inspection assumes objects of the types `java.util.Collection` and\n`java.util.Map` to be `Serializable`,\nunless type parameters are non-`Serializable`.\n\n**Example:**\n\n\n      void foo(HttpSession session) {\n          session.setAttribute(\"foo\", new NonSerializable());\n      }\n      static class NonSerializable {}\n"
-        },
-        {
-          "shortName": "SerializableRecordContainsIgnoredMembers",
-          "displayName": "'record' contains ignored members",
-          "enabled": true,
-          "description": "Reports serialization methods or fields defined in a `record` class. Serialization methods include `writeObject()`, `readObject()`, `readObjectNoData()`, `writeExternal()`, and `readExternal()` and the field `serialPersistentFields`. These members are not used for the serialization or deserialization of records and therefore unnecessary.\n\n**Examples:**\n\n\n      record R1() implements Serializable {\n        // The field is ignored during record serialization\n        @Serial\n        private static final ObjectStreamField[] serialPersistentFields = new ObjectStreamField[0];\n\n        // The method is ignored during record serialization\n        @Serial\n        private void writeObject(ObjectOutputStream out) throws IOException {\n        }\n      }\n\n\n      record R2() implements Externalizable {\n        // The method is ignored during record serialization\n        @Override\n        public void writeExternal(ObjectOutput out) throws IOException {\n        }\n\n        // The method is ignored during record serialization\n        @Override\n        public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {\n        }\n      }\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
-        },
-        {
-          "shortName": "ReadObjectInitialization",
-          "displayName": "Instance field may not be initialized by 'readObject()'",
-          "enabled": false,
-          "description": "Reports fields that are not guaranteed to be initialized after the object is deserialized by the `readObject()` method.\n\nThe inspection doesn't report transient fields.\n\n\nNote: This inspection uses a very conservative control flow algorithm, and may incorrectly report fields\nas uninitialized.\n\n**Example:**\n\n\n    class DataObject implements Serializable {\n      String s; // s is not initialized in readObject\n      int i;\n\n      private void readObject(ObjectInputStream stream) throws IOException {\n        i = stream.readInt();\n      }\n    }\n"
-        },
-        {
-          "shortName": "SerializableHasSerializationMethods",
-          "displayName": "Serializable class without 'readObject()' and 'writeObject()'",
-          "enabled": false,
-          "description": "Reports `Serializable` classes that do not implement `readObject()` and `writeObject()` methods.\n\n\nIf `readObject()` and `writeObject()` methods are not implemented,\nthe default serialization algorithms are used,\nwhich may be sub-optimal for performance and compatibility in many environments.\n\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` classes without non-static fields.\n* Whether to ignore `Serializable` anonymous classes."
-        },
-        {
-          "shortName": "NonSerializableWithSerialVersionUIDField",
-          "displayName": "Non-serializable class with 'serialVersionUID'",
-          "enabled": false,
-          "description": "Reports non-`Serializable` classes that define a `serialVersionUID` field. A `serialVersionUID` field in that context normally indicates an error because the field will be ignored and the class will not be serialized.\n\n**Example:**\n\n\n      public class IWantToSerializeThis {\n        private static final long serialVersionUID = 2669293150219020249L;\n      }\n"
-        },
-        {
-          "shortName": "TransientFieldInNonSerializableClass",
-          "displayName": "Transient field in non-serializable class",
-          "enabled": false,
-          "description": "Reports `transient` fields in classes that do not implement `java.io.Serializable`.\n\n**Example:**\n\n\n      public class NonSerializableClass {\n        private transient String password;\n      }\n\nAfter the quick-fix is applied:\n\n\n      public class NonSerializableClass {\n        private String password;\n      }\n"
-        },
-        {
-          "shortName": "SerialAnnotationUsedOnWrongMember",
-          "displayName": "'@Serial' annotation used on wrong member",
-          "enabled": true,
-          "description": "Reports methods and fields in the `Serializable` and `Externalizable` classes that are not suitable to be annotated with the `java.io.Serial` annotation.\n\n**Examples:**\n\n\n    class Test implements Serializable {\n      @Serial // The annotated field is not a part of serialization mechanism because it's not final\n      private static long serialVersionUID = 7874493593505141603L;\n\n      @Serial // The annotated method is not a part of the serialization mechanism because it's not private\n      void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\n\n    class Test implements Externalizable {\n      @Serial // The annotated method is not a part of the serialization mechanism as it's inside Externalizable class\n      private void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\nFor information about all valid cases, refer the documentation for `java.io.Serial`.\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
-        },
-        {
-          "shortName": "NonSerializableWithSerializationMethods",
-          "displayName": "Non-serializable class with 'readObject()' or 'writeObject()'",
-          "enabled": false,
-          "description": "Reports non-`Serializable` classes that define `readObject()` or `writeObject()` methods. Such methods in that context normally indicate an error.\n\n**Example:**\n\n\n      public class SampleClass {\n        private void readObject(ObjectInputStream str) {}\n        private void writeObject(ObjectOutputStream str) {}\n      }\n"
-        },
-        {
-          "shortName": "NonSerializableObjectPassedToObjectStream",
-          "displayName": "Non-serializable object passed to 'ObjectOutputStream'",
-          "enabled": false,
-          "description": "Reports non-`Serializable` objects used as arguments to `java.io.ObjectOutputStream.write()`. Such calls will result in runtime exceptions.\n\n\nThis inspection assumes objects of the types `java.util.Collection` and\n`java.util.Map` to be `Serializable`, unless the types\nthey are declared in are non-`Serializable`.\n\n**Example:**\n\n\n      public class IWantToSerializeThis {\n        public static void main(String[] args) throws IOException {\n          try(var stream = new ObjectOutputStream(Files.newOutputStream(Paths.get(\"output\")))) {\n            // Warning -- will fail with NotSerializableException\n            stream.writeObject(new IWantToSerializeThis());\n          }\n        }\n      }\n"
-        }
-      ]
-    },
-    {
       "name": "Class structure",
       "inspections": [
         {
@@ -5484,6 +5341,149 @@
           "displayName": "Constant declared in interface",
           "enabled": false,
           "description": "Reports constants (`public static final` fields) declared in interfaces.\n\nSome coding standards require declaring constants in abstract classes instead."
+        }
+      ]
+    },
+    {
+      "name": "Serialization issues",
+      "inspections": [
+        {
+          "shortName": "ComparatorNotSerializable",
+          "displayName": "'Comparator' class not declared 'Serializable'",
+          "enabled": false,
+          "description": "Reports classes that implement `java.lang.Comparator`, but do not implement `java.io.Serializable`.\n\n\nIf a non-serializable comparator is used to construct an ordered collection such\nas a `java.util.TreeMap` or `java.util.TreeSet`, then the\ncollection will also be non-serializable. This can result in unexpected and\ndifficult-to-diagnose bugs.\n\n\nSince subclasses of `java.lang.Comparator` are often stateless,\nsimply marking them serializable is a small cost to avoid such issues.\n\n**Example:**\n\n\n      class Foo implements Comparator { // warning\n          @Override\n          public int compare(Object o1, Object o2) {\n              /* ... */\n          }\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Foo implements Comparator, Serializable { // no warning here\n          @Override\n          public int compare(Object o1, Object o2) {\n              /* ... */\n          }\n      }\n"
+        },
+        {
+          "shortName": "SerializableStoresNonSerializable",
+          "displayName": "'Serializable' object implicitly stores non-'Serializable' object",
+          "enabled": false,
+          "description": "Reports any references to local non-`Serializable` variables outside `Serializable` lambdas, local and anonymous classes.\n\n\nWhen a local variable is referenced from an anonymous class, its value\nis stored in an implicit field of that class. The same happens\nfor local classes and lambdas. If the variable is of a\nnon-`Serializable` type, serialization will fail.\n\n**Example:**\n\n\n      interface A extends Serializable {\n          abstract void foo();\n      }\n      class B {}\n      class C {\n          void foo() {\n              B b = new B();\n              A a = new A() {\n                  @Override\n                  public void foo() {\n                      System.out.println(b); // warning\n                  }\n              };\n          }\n      }\n"
+        },
+        {
+          "shortName": "ExternalizableWithSerializationMethods",
+          "displayName": "Externalizable class with 'readObject()' or 'writeObject()'",
+          "enabled": false,
+          "description": "Reports `Externalizable` classes that define `readObject()` or `writeObject()` methods. These methods are not called for serialization of `Externalizable` objects.\n\n**Example:**\n\n\n      abstract class Crucial implements Externalizable {\n        int value;\n        private void readObject(ObjectInputStream in) {\n          value = in.readInt();\n        }\n      }\n"
+        },
+        {
+          "shortName": "NonSerializableFieldInSerializableClass",
+          "displayName": "Non-serializable field in a 'Serializable' class",
+          "enabled": false,
+          "description": "Reports non-serializable fields in classes that implement `java.io.Serializable`. Such fields will result in runtime exceptions if the object is serialized.\n\n\nFields declared\n`transient` or `static`\nare not reported, nor are fields of classes that have a `writeObject` method defined.\n\n\nThis inspection assumes fields of the types\n`java.util.Collection` and\n`java.util.Map` to be\n`Serializable`, unless the types\nthey are declared in are non-`Serializable`.\n\n**Example:**\n\n\n      class NonSerializableClass {}\n\n      public class SerializableClass implements Serializable {\n          NonSerializableClass clazz; // warning: Non-serializable field 'clazz' in a Serializable class\n          static NonSerializableClass staticClazz; // no warnings\n      }\n      \n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* List annotations that will make the inspection ignore the annotated fields.\n* Whether to ignore fields initialized with an anonymous class."
+        },
+        {
+          "shortName": "TransientFieldNotInitialized",
+          "displayName": "Transient field is not initialized on deserialization",
+          "enabled": false,
+          "description": "Reports `transient` fields that are initialized during normal object construction, but whose class does not have a `readObject` method.\n\n\nAs `transient` fields are not serialized they need\nto be initialized separately in a `readObject()` method\nduring deserialization.\n\n\nAny `transient` fields that\nare not initialized during normal object construction are considered to use the default\ninitialization and are not reported by this inspection.\n\n**Example:**\n\n\n      class Person implements Serializable {\n        transient String name = \"Default\"; //warning, can actually be a null after deserialization\n        transient String surname; //null is considered the default value and not reported\n      }\n"
+        },
+        {
+          "shortName": "ReadObjectAndWriteObjectPrivate",
+          "displayName": "'readObject()' or 'writeObject()' not declared 'private'",
+          "enabled": false,
+          "description": "Reports `Serializable` classes where the `readObject` or `writeObject` methods are not declared private. There is no reason these methods should ever have a higher visibility than `private`.\n\n\nA quick-fix is suggested to make the corresponding method `private`.\n\n**Example:**\n\n\n      public class Test implements Serializable {\n        public void readObject(ObjectInputStream stream) {\n          /* ... */\n        }\n      }\n\nAfter the quick-fix is applied:\n\n\n      public class Test implements Serializable {\n        private void readObject(ObjectInputStream stream) {\n          /* ... */\n        }\n      }\n"
+        },
+        {
+          "shortName": "SerializableWithUnconstructableAncestor",
+          "displayName": "Serializable class with unconstructable ancestor",
+          "enabled": false,
+          "description": "Reports `Serializable` classes whose closest non-serializable ancestor doesn't have a no-argument constructor. Such classes cannot be deserialized and will fail with an `InvalidClassException`.\n\n**Example:**\n\n\n      class Ancestor {\n        private String name;\n        Ancestor(String name) {\n          this.name = name;\n        }\n      }\n\n      // warning on this class because the superclass is not\n      // serializable, and its constructor takes arguments\n      class Descendant extends Ancestor implements Serializable {\n        Descendant() {\n          super(\"Bob\");\n        }\n      }\n"
+        },
+        {
+          "shortName": "SerialVersionUIDNotStaticFinal",
+          "displayName": "'serialVersionUID' field not declared 'private static final long'",
+          "enabled": false,
+          "description": "Reports `Serializable` classes whose `serialVersionUID` field is not declared `private static final long`.\n\n**Example:**\n\n\n      class SampleClass implements Serializable {\n        private long serialVersionUID = 1; // field of a Serializable class is not declared 'private static final long'\n\n        public SampleClass() {\n            System.out.println(serialVersionUID);\n        }\n      }\n"
+        },
+        {
+          "shortName": "SerializableInnerClassWithNonSerializableOuterClass",
+          "displayName": "Serializable non-'static' inner class with non-Serializable outer class",
+          "enabled": false,
+          "description": "Reports non-static inner classes that implement `Serializable` and are declared inside a class that doesn't implement `Serializable`.\n\n\nSuch classes are unlikely to serialize correctly due to implicit references to the outer class.\n\n**Example:**\n\n\n      class A {\n        class Main implements Serializable {\n        }\n      }\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` anonymous classes."
+        },
+        {
+          "shortName": "SerializableInnerClassHasSerialVersionUIDField",
+          "displayName": "Serializable non-static inner class without 'serialVersionUID'",
+          "enabled": false,
+          "description": "Reports non-static inner classes that implement `java.io.Serializable`, but do not define a `serialVersionUID` field.\n\n\nWithout a `serialVersionUID` field, any change to the class will make previously\nserialized versions unreadable. It is strongly recommended that `Serializable`\nnon-static inner classes have a `serialVersionUID` field, otherwise the default\nserialization algorithm may result in serialized versions being incompatible between\ncompilers due to differences in synthetic accessor methods.\n\n\nA quick-fix is suggested to add the missing `serialVersionUID` field.\n\n**Example:**\n\n\n      class Outer {\n          class Inner implements Serializable {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Outer {\n          class Inner implements Serializable {\n              private static final long serialVersionUID = -7004458730436243902L;\n          }\n      }\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` anonymous classes."
+        },
+        {
+          "shortName": "ReadResolveAndWriteReplaceProtected",
+          "displayName": "'readResolve()' or 'writeReplace()' not declared 'protected'",
+          "enabled": false,
+          "description": "Reports classes that implement `java.io.Serializable` where the `readResolve()` or `writeReplace()` methods are not declared `protected`.\n\n\nDeclaring `readResolve()` and `writeReplace()` methods `private`\ncan force subclasses to silently ignore them, while declaring them\n`public` allows them to be invoked by untrusted code.\n\n\nIf the containing class is declared `final`, these methods can be declared `private`.\n\n**Example:**\n\n\n      class ClassWithSerialization implements Serializable {\n        public Object writeReplace() { // warning: 'writeReplace()' not declared protected\n            ...\n        }\n      }\n      \n"
+        },
+        {
+          "shortName": "ExternalizableWithoutPublicNoArgConstructor",
+          "displayName": "'Externalizable' class without 'public' no-arg constructor",
+          "enabled": true,
+          "description": "Reports `Externalizable` classes without a public no-argument constructor.\n\nWhen an `Externalizable` object is reconstructed, an instance is created using the public\nno-arg constructor before the `readExternal` method called. If a public\nno-arg constructor is not available, a `java.io.InvalidClassException` will be\nthrown at runtime."
+        },
+        {
+          "shortName": "MissingSerialAnnotation",
+          "displayName": "'@Serial' annotation could be used",
+          "enabled": true,
+          "description": "Reports methods and fields in the `Serializable` and `Externalizable` classes that are suitable to be annotated with the `java.io.Serial` annotation. The quick-fix adds the annotation.\n\n**Example:**\n\n\n    class Main implements Serializable {\n      private static final long serialVersionUID = 7874493593505141603L;\n\n      private void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\nAfter the quick-fix is applied:\n\n\n      class Main implements Serializable {\n        @Serial\n        private static final long serialVersionUID = 7874493593505141603L;\n\n        @Serial\n        private void writeObject(ObjectOutputStream out) throws IOException {\n        }\n    }\n\n**Example:**\n\n\n      class Main implements Externalizable {\n        protected Object readResolve() throws ObjectStreamException {\n          return \"SomeObject\";\n        }\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Main implements Externalizable {\n        @Serial\n        protected Object readResolve() throws ObjectStreamException {\n            return \"SomeObject\";\n        }\n      }\n\nFor more information about all possible cases, refer the documentation for `java.io.Serial`.\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
+        },
+        {
+          "shortName": "SerialPersistentFieldsWithWrongSignature",
+          "displayName": "'serialPersistentFields' field not declared 'private static final ObjectStreamField[]'",
+          "enabled": false,
+          "description": "Reports `Serializable` classes whose `serialPersistentFields` field is not declared as `private static final ObjectStreamField[]`.\n\n\nIf a `serialPersistentFields` field is not declared with those modifiers,\nthe serialization behavior will be as if the field was not declared at all.\n\n**Example:**\n\n\n      class List implements Serializable {\n        private List next;\n\n        ObjectStreamField[] serialPersistentFields = {new ObjectStreamField(\"next\", List.class)};\n\n      }\n"
+        },
+        {
+          "shortName": "NonSerializableObjectBoundToHttpSession",
+          "displayName": "Non-serializable object bound to 'HttpSession'",
+          "enabled": false,
+          "description": "Reports objects of classes not implementing `java.io.Serializable` used as arguments to `javax.servlet.http.HttpSession.setAttribute()` or `javax.servlet.http.HttpSession.putValue()`.\n\n\nSuch objects will not be serialized if the `HttpSession` is passivated or migrated,\nand may result in difficult-to-diagnose bugs.\n\n\nThis inspection assumes objects of the types `java.util.Collection` and\n`java.util.Map` to be `Serializable`,\nunless type parameters are non-`Serializable`.\n\n**Example:**\n\n\n      void foo(HttpSession session) {\n          session.setAttribute(\"foo\", new NonSerializable());\n      }\n      static class NonSerializable {}\n"
+        },
+        {
+          "shortName": "SerializableRecordContainsIgnoredMembers",
+          "displayName": "'record' contains ignored members",
+          "enabled": true,
+          "description": "Reports serialization methods or fields defined in a `record` class. Serialization methods include `writeObject()`, `readObject()`, `readObjectNoData()`, `writeExternal()`, and `readExternal()` and the field `serialPersistentFields`. These members are not used for the serialization or deserialization of records and therefore unnecessary.\n\n**Examples:**\n\n\n      record R1() implements Serializable {\n        // The field is ignored during record serialization\n        @Serial\n        private static final ObjectStreamField[] serialPersistentFields = new ObjectStreamField[0];\n\n        // The method is ignored during record serialization\n        @Serial\n        private void writeObject(ObjectOutputStream out) throws IOException {\n        }\n      }\n\n\n      record R2() implements Externalizable {\n        // The method is ignored during record serialization\n        @Override\n        public void writeExternal(ObjectOutput out) throws IOException {\n        }\n\n        // The method is ignored during record serialization\n        @Override\n        public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {\n        }\n      }\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
+        },
+        {
+          "shortName": "ReadObjectInitialization",
+          "displayName": "Instance field may not be initialized by 'readObject()'",
+          "enabled": false,
+          "description": "Reports fields that are not guaranteed to be initialized after the object is deserialized by the `readObject()` method.\n\nThe inspection doesn't report transient fields.\n\n\nNote: This inspection uses a very conservative control flow algorithm, and may incorrectly report fields\nas uninitialized.\n\n**Example:**\n\n\n    class DataObject implements Serializable {\n      String s; // s is not initialized in readObject\n      int i;\n\n      private void readObject(ObjectInputStream stream) throws IOException {\n        i = stream.readInt();\n      }\n    }\n"
+        },
+        {
+          "shortName": "SerializableHasSerializationMethods",
+          "displayName": "Serializable class without 'readObject()' and 'writeObject()'",
+          "enabled": false,
+          "description": "Reports `Serializable` classes that do not implement `readObject()` and `writeObject()` methods.\n\n\nIf `readObject()` and `writeObject()` methods are not implemented,\nthe default serialization algorithms are used,\nwhich may be sub-optimal for performance and compatibility in many environments.\n\n\nUse the following options to configure the inspection:\n\n* List classes whose inheritors should not be reported by this inspection. This is meant for classes that inherit `Serializable` from a superclass but are not intended for serialization.\n* Whether to ignore `Serializable` classes without non-static fields.\n* Whether to ignore `Serializable` anonymous classes."
+        },
+        {
+          "shortName": "NonSerializableWithSerialVersionUIDField",
+          "displayName": "Non-serializable class with 'serialVersionUID'",
+          "enabled": false,
+          "description": "Reports non-`Serializable` classes that define a `serialVersionUID` field. A `serialVersionUID` field in that context normally indicates an error because the field will be ignored and the class will not be serialized.\n\n**Example:**\n\n\n      public class IWantToSerializeThis {\n        private static final long serialVersionUID = 2669293150219020249L;\n      }\n"
+        },
+        {
+          "shortName": "TransientFieldInNonSerializableClass",
+          "displayName": "Transient field in non-serializable class",
+          "enabled": false,
+          "description": "Reports `transient` fields in classes that do not implement `java.io.Serializable`.\n\n**Example:**\n\n\n      public class NonSerializableClass {\n        private transient String password;\n      }\n\nAfter the quick-fix is applied:\n\n\n      public class NonSerializableClass {\n        private String password;\n      }\n"
+        },
+        {
+          "shortName": "SerialAnnotationUsedOnWrongMember",
+          "displayName": "'@Serial' annotation used on wrong member",
+          "enabled": true,
+          "description": "Reports methods and fields in the `Serializable` and `Externalizable` classes that are not suitable to be annotated with the `java.io.Serial` annotation.\n\n**Examples:**\n\n\n    class Test implements Serializable {\n      @Serial // The annotated field is not a part of serialization mechanism because it's not final\n      private static long serialVersionUID = 7874493593505141603L;\n\n      @Serial // The annotated method is not a part of the serialization mechanism because it's not private\n      void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\n\n    class Test implements Externalizable {\n      @Serial // The annotated method is not a part of the serialization mechanism as it's inside Externalizable class\n      private void writeObject(ObjectOutputStream out) throws IOException {\n      }\n    }\n\nFor information about all valid cases, refer the documentation for `java.io.Serial`.\n\nThis inspection only reports if the language level of the project or module is 14 or higher.\n\nNew in 2020.3"
+        },
+        {
+          "shortName": "NonSerializableWithSerializationMethods",
+          "displayName": "Non-serializable class with 'readObject()' or 'writeObject()'",
+          "enabled": false,
+          "description": "Reports non-`Serializable` classes that define `readObject()` or `writeObject()` methods. Such methods in that context normally indicate an error.\n\n**Example:**\n\n\n      public class SampleClass {\n        private void readObject(ObjectInputStream str) {}\n        private void writeObject(ObjectOutputStream str) {}\n      }\n"
+        },
+        {
+          "shortName": "NonSerializableObjectPassedToObjectStream",
+          "displayName": "Non-serializable object passed to 'ObjectOutputStream'",
+          "enabled": false,
+          "description": "Reports non-`Serializable` objects used as arguments to `java.io.ObjectOutputStream.write()`. Such calls will result in runtime exceptions.\n\n\nThis inspection assumes objects of the types `java.util.Collection` and\n`java.util.Map` to be `Serializable`, unless the types\nthey are declared in are non-`Serializable`.\n\n**Example:**\n\n\n      public class IWantToSerializeThis {\n        public static void main(String[] args) throws IOException {\n          try(var stream = new ObjectOutputStream(Files.newOutputStream(Paths.get(\"output\")))) {\n            // Warning -- will fail with NotSerializableException\n            stream.writeObject(new IWantToSerializeThis());\n          }\n        }\n      }\n"
         }
       ]
     },
@@ -6033,16 +6033,16 @@
           "description": "Reports equality expressions which are negated by a prefix expression.\n\nSuch expressions can be simplified using the `!=` operator.\n\nExample:\n\n\n      !(i == 1)\n\nAfter the quick-fix is applied:\n\n\n      i != 1\n"
         },
         {
-          "shortName": "AssertionCanBeIf",
-          "displayName": "Assertion can be replaced with 'if' statement",
-          "enabled": true,
-          "description": "Reports `assert` statements and suggests replacing them with `if` statements that throw `java.lang.AssertionError`.\n\nExample:\n\n\n      assert param != null;\n\nAfter the quick-fix is applied:\n\n\n      if (param == null) throw new AssertionError();\n"
-        },
-        {
           "shortName": "DoubleNegation",
           "displayName": "Double negation",
           "enabled": true,
           "description": "Reports double negations that can be simplified.\n\nExample:\n\n\n      if (!!functionCall()) {}\n\nAfter the quick-fix is applied:\n\n\n      if (functionCall()) {}\n\nExample:\n\n\n      if (!(a != b)) {}\n\nAfter the quick-fix is applied:\n\n\n      if (a == b) {}\n"
+        },
+        {
+          "shortName": "AssertionCanBeIf",
+          "displayName": "Assertion can be replaced with 'if' statement",
+          "enabled": true,
+          "description": "Reports `assert` statements and suggests replacing them with `if` statements that throw `java.lang.AssertionError`.\n\nExample:\n\n\n      assert param != null;\n\nAfter the quick-fix is applied:\n\n\n      if (param == null) throw new AssertionError();\n"
         },
         {
           "shortName": "BreakStatement",
@@ -9309,53 +9309,6 @@
       ]
     },
     {
-      "name": "JavaFX",
-      "inspections": [
-        {
-          "shortName": "JavaFxEventHandler",
-          "displayName": "Event handler method signature problems",
-          "enabled": true,
-          "description": "Reports event handler issues, including incompatible argument types, ambiguous event handler methods, and incorrect return types."
-        },
-        {
-          "shortName": "JavaFxRedundantPropertyValue",
-          "displayName": "JavaFX redundant property values",
-          "enabled": true,
-          "description": "Reports properties in .fxml files (both attributes and tags) that have the default values and therefore are redundant."
-        },
-        {
-          "shortName": "JavaFxUnresolvedFxIdReference",
-          "displayName": "Unresolved fx:id attribute reference",
-          "enabled": true,
-          "description": "Reports unresolved fx:id references. The quick-fix creates the corresponding fields."
-        },
-        {
-          "shortName": "JavaFxUnusedImports",
-          "displayName": "JavaFX unused imports",
-          "enabled": true,
-          "description": "Reports unused imports in .fxml files."
-        },
-        {
-          "shortName": "JavaFxDefaultTag",
-          "displayName": "Unnecessary default tag",
-          "enabled": true,
-          "description": "Reports redundant tags in .fxml files. These tags correspond to a class property which is declared in the @DefaultProperty class annotation, that is why they can be omitted."
-        },
-        {
-          "shortName": "JavaFxColorRgb",
-          "displayName": "Color component is out of range",
-          "enabled": true,
-          "description": "Reports RGB color components that are out of the valid range."
-        },
-        {
-          "shortName": "JavaFxResourcePropertyValue",
-          "displayName": "The value from properties file is incompatible with the attribute type",
-          "enabled": true,
-          "description": "Reports attribute values defined in a .properties file that do not match the type of the attribute."
-        }
-      ]
-    },
-    {
       "name": "TestNG",
       "inspections": [
         {
@@ -9417,6 +9370,53 @@
           "displayName": "Duplicated data provider names",
           "enabled": true,
           "description": "Reports `TestNG` data providers with equal names if `org.testng.TestNGException` has occurred.\n\nExample:\n\n\n      public class DuplicatedDataProviders {\n        @DataProvider\n        public Object[][] intTestData() { // duplicate 1\n          return new Integer[][]{\n            new Integer[]{1, 1},\n          };\n        }\n\n        @DataProvider(name = \"intTestData\")\n        public Object[][] someTestData() { // duplicate 2\n          return new Integer[][]{\n            new Integer[]{1, 1},\n          };\n        }\n\n        @Test(dataProvider = \"intTestData\")\n        public void testIsOK(Integer key, Integer value) {\n          assertEquals(key, value);\n        }\n      }\n"
+        }
+      ]
+    },
+    {
+      "name": "JavaFX",
+      "inspections": [
+        {
+          "shortName": "JavaFxEventHandler",
+          "displayName": "Event handler method signature problems",
+          "enabled": true,
+          "description": "Reports event handler issues, including incompatible argument types, ambiguous event handler methods, and incorrect return types."
+        },
+        {
+          "shortName": "JavaFxRedundantPropertyValue",
+          "displayName": "JavaFX redundant property values",
+          "enabled": true,
+          "description": "Reports properties in .fxml files (both attributes and tags) that have the default values and therefore are redundant."
+        },
+        {
+          "shortName": "JavaFxUnresolvedFxIdReference",
+          "displayName": "Unresolved fx:id attribute reference",
+          "enabled": true,
+          "description": "Reports unresolved fx:id references. The quick-fix creates the corresponding fields."
+        },
+        {
+          "shortName": "JavaFxUnusedImports",
+          "displayName": "JavaFX unused imports",
+          "enabled": true,
+          "description": "Reports unused imports in .fxml files."
+        },
+        {
+          "shortName": "JavaFxDefaultTag",
+          "displayName": "Unnecessary default tag",
+          "enabled": true,
+          "description": "Reports redundant tags in .fxml files. These tags correspond to a class property which is declared in the @DefaultProperty class annotation, that is why they can be omitted."
+        },
+        {
+          "shortName": "JavaFxColorRgb",
+          "displayName": "Color component is out of range",
+          "enabled": true,
+          "description": "Reports RGB color components that are out of the valid range."
+        },
+        {
+          "shortName": "JavaFxResourcePropertyValue",
+          "displayName": "The value from properties file is incompatible with the attribute type",
+          "enabled": true,
+          "description": "Reports attribute values defined in a .properties file that do not match the type of the attribute."
         }
       ]
     },

@@ -26,6 +26,7 @@ import org.json.JSONObject
 
 class LessonsActivity : SimplePageActivity() {
     private var currentVisible = true
+    private var courseTableAvailable = true
     private var semester: String = Constants.STRING_NULL
     private val lessons = mutableListOf<Lesson>()
 
@@ -42,6 +43,10 @@ class LessonsActivity : SimplePageActivity() {
 
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
+            if (!courseTableAvailable) {
+                add(Card("目前教务课表不可用，请稍后再试"))
+                return
+            }
             add(Category(
                 semester
             ))
@@ -179,6 +184,15 @@ class LessonsActivity : SimplePageActivity() {
             }
             if (loginSuccess) {
                 val source = Requests.get(URLManager.EDU_COURSE_TABLE_URL)
+                runCatching {
+                    JSONObject(source).let {
+                        if (it.optString("exception") == "org.apache.shiro.authz.UnauthorizedException") {
+                            courseTableAvailable = false
+                        }
+                    }
+                }.onSuccess {
+                    return
+                }
                 val semesterId = source.substringBetween("selected=\"selected\"", ">")
                     .trim()
                     .substringAfter("=").trim('"').toInt()

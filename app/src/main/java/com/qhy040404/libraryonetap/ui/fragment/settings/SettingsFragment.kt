@@ -180,14 +180,14 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_RESET)?.apply {
             setOnPreferenceClickListener {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.data_reset_confirm)
+                    .setMessage(R.string.stp_data_reset_confirm)
                     .setTitle(R.string.settings_title)
-                    .setPositiveButton(R.string.ok) { _, _ ->
+                    .setPositiveButton(R.string.glb_ok) { _, _ ->
                         SPUtils.resetAll()
                         MaterialAlertDialogBuilder(requireContext())
-                            .setMessage(R.string.data_reset_completed)
+                            .setMessage(R.string.stp_data_reset_completed)
                             .setTitle(R.string.settings_title)
-                            .setPositiveButton(R.string.ok) { _, _ ->
+                            .setPositiveButton(R.string.glb_ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
                                 Once.clearAll()
                                 AppUtils.clearAppData(LibraryOneTapApp.app)
@@ -197,7 +197,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                             .create()
                             .show()
                     }
-                    .setNegativeButton(R.string.no) { _, _ -> }
+                    .setNegativeButton(R.string.glb_no) { _, _ -> }
                     .create()
                     .show()
                 true
@@ -208,7 +208,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             summary = CacheUtils.getCacheSize()
             setOnPreferenceClickListener {
                 CacheUtils.trimCaches()
-                requireContext().showToast(R.string.cache_cleared)
+                requireContext().showToast(R.string.stp_cache_cleared)
                 summary = CacheUtils.getCacheSize()
                 true
             }
@@ -217,7 +217,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
             if (GlobalValues.newVersion != null) {
                 summary =
-                    AppUtils.getResString(R.string.summary_update_available) + GlobalValues.newVersion
+                    AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -235,12 +235,12 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
             setOnPreferenceClickListener {
                 val body = file.readText()
                 MaterialAlertDialogBuilder(requireContext())
-                    .setTitle(R.string.latest_changelog_title)
+                    .setTitle(R.string.upd_latest_changelog)
                     .setMessage(HtmlCompat.fromHtml(
                         body,
                         HtmlCompat.FROM_HTML_MODE_LEGACY
                     ))
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create().show()
                 true
@@ -282,7 +282,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
         if (GlobalValues.newVersion != null) {
             findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
-                AppUtils.getResString(R.string.summary_update_available) + GlobalValues.newVersion
+                AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
         }
     }
 

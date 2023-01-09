@@ -45,12 +45,12 @@ class GradesMinorActivity : SimplePageActivity() {
         items.apply {
             if (semesters.isEmpty()) {
                 add(Card(
-                    AppUtils.getResString(R.string.no_grades)
+                    AppUtils.getResString(R.string.gr_empty)
                 ))
             } else {
                 add(Card(
                     String.format(
-                        AppUtils.getResString(R.string.grade_stat),
+                        AppUtils.getResString(R.string.gr_stat),
                         GradesUtils.calculateWeightedAverage(
                             buildList {
                                 semesters.forEach {
@@ -72,13 +72,13 @@ class GradesMinorActivity : SimplePageActivity() {
             semesters.forEach { semester ->
                 add(Category(semester.name))
                 if (semester.courses.isEmpty()) {
-                    add(Card(AppUtils.getResString(R.string.eval_first)))
+                    add(Card(AppUtils.getResString(R.string.gr_eval_first)))
                     return@forEach
                 }
                 semester.courses.forEach {
                     val head = "${it.name} : ${it.type}"
                     val desc = String.format(
-                        AppUtils.getResString(R.string.grade_template),
+                        AppUtils.getResString(R.string.gr_template),
                         it.code,
                         it.grade,
                         it.credit,
@@ -131,9 +131,9 @@ class GradesMinorActivity : SimplePageActivity() {
             if (!AppUtils.hasNetwork()) {
                 runOnUiThread {
                     MaterialAlertDialogBuilder(this@GradesMinorActivity)
-                        .setMessage(R.string.net_disconnected)
+                        .setMessage(R.string.glb_net_disconnected)
                         .setTitle(R.string.grade_major_title)
-                        .setPositiveButton(R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.glb_ok) { _, _ ->
                             finish()
                         }
                         .setCancelable(true)
@@ -188,12 +188,12 @@ class GradesMinorActivity : SimplePageActivity() {
                             MaterialAlertDialogBuilder(this@GradesMinorActivity)
                                 .setTitle(R.string.grade_major_title)
                                 .setMessage(when (session) {
-                                    Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                                    Constants.NET_ERROR -> R.string.net_error
-                                    Constants.NET_TIMEOUT -> R.string.net_timeout
-                                    else -> R.string.fail_to_login_three_times
+                                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                                    Constants.NET_ERROR -> R.string.glb_net_error
+                                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                                    else -> R.string.glb_fail_to_login_three_times
                                 })
-                                .setPositiveButton(R.string.ok) { _, _ ->
+                                .setPositiveButton(R.string.glb_ok) { _, _ ->
                                     finish()
                                 }
                                 .setCancelable(false)

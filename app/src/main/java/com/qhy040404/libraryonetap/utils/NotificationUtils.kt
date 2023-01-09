@@ -97,7 +97,7 @@ class NotificationUtils(
                     it,
                     arrayOf(Manifest.permission.POST_NOTIFICATIONS),
                     it.supportFragmentManager,
-                    R.string.notification_permission_prompt
+                    R.string.stp_notification_permission_prompt
                 )
             } ?: false
         } else {

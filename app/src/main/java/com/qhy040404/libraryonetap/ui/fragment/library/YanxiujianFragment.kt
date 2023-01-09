@@ -53,7 +53,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.net_disconnected)
+                detail.text = AppUtils.getResString(R.string.glb_net_disconnected)
                 loading.visibility = View.INVISIBLE
             }
             return
@@ -84,13 +84,13 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             val full_time = OrderListData.getFull_time()
 
             if (order_id == "oid") {
-                order_id = AppUtils.getResString(R.string.no_valid_order)
+                order_id = AppUtils.getResString(R.string.df_no_valid_order)
             }
 
             when (order_process) {
-                "审核通过" -> order_process = AppUtils.getResString(R.string.not_start)
-                "进行中" -> order_process = AppUtils.getResString(R.string.inside)
-                "暂离" -> order_process = AppUtils.getResString(R.string.outside)
+                "审核通过" -> order_process = AppUtils.getResString(R.string.df_not_start)
+                "进行中" -> order_process = AppUtils.getResString(R.string.df_inside)
+                "暂离" -> order_process = AppUtils.getResString(R.string.df_outside)
             }
 
             val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
@@ -120,19 +120,19 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.no_userdata)
+                detail.text = AppUtils.getResString(R.string.glb_no_userdata)
             }
             runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =
-                    AppUtils.getResString(R.string.fail_to_login_three_times)
+                    AppUtils.getResString(R.string.glb_fail_to_login_three_times)
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.login_timeout)
+                detail.text = AppUtils.getResString(R.string.glb_login_timeout)
             }
         }
     }

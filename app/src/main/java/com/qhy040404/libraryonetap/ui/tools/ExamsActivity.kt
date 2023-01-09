@@ -46,14 +46,14 @@ class ExamsActivity : SimplePageActivity() {
         items.apply {
             if (exams.isEmpty()) {
                 add(Card(
-                    AppUtils.getResString(R.string.no_exams)
+                    AppUtils.getResString(R.string.ex_empty)
                 ))
             }
 
             exams.filter { it.startTime > now }.forEach { pending ->
                 val name = pending.name
                 val desc = String.format(
-                    AppUtils.getResString(R.string.exam_template),
+                    AppUtils.getResString(R.string.ex_template),
                     pending.time,
                     pending.room
                 )
@@ -65,11 +65,11 @@ class ExamsActivity : SimplePageActivity() {
 
             exams.filter { it.startTime < now }.let { finished ->
                 if (finished.isNotEmpty()) {
-                    add(Category(AppUtils.getResString(R.string.finished_list)))
+                    add(Category(AppUtils.getResString(R.string.ex_finished_list)))
                     finished.forEach { finish ->
                         val name = finish.name
                         val desc = String.format(
-                            AppUtils.getResString(R.string.exam_template),
+                            AppUtils.getResString(R.string.ex_template),
                             finish.time,
                             finish.room
                         )
@@ -121,9 +121,9 @@ class ExamsActivity : SimplePageActivity() {
             if (!AppUtils.hasNetwork()) {
                 runOnUiThread {
                     MaterialAlertDialogBuilder(this@ExamsActivity)
-                        .setMessage(R.string.net_disconnected)
+                        .setMessage(R.string.glb_net_disconnected)
                         .setTitle(R.string.exams_title)
-                        .setPositiveButton(R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.glb_ok) { _, _ ->
                             finish()
                         }
                         .setCancelable(true)
@@ -181,12 +181,12 @@ class ExamsActivity : SimplePageActivity() {
                             MaterialAlertDialogBuilder(this@ExamsActivity)
                                 .setTitle(R.string.exams_title)
                                 .setMessage(when (session) {
-                                    Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                                    Constants.NET_ERROR -> R.string.net_error
-                                    Constants.NET_TIMEOUT -> R.string.net_timeout
-                                    else -> R.string.fail_to_login_three_times
+                                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                                    Constants.NET_ERROR -> R.string.glb_net_error
+                                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                                    else -> R.string.glb_fail_to_login_three_times
                                 })
-                                .setPositiveButton(R.string.ok) { _, _ ->
+                                .setPositiveButton(R.string.glb_ok) { _, _ ->
                                     finish()
                                 }
                                 .setCancelable(false)
@@ -257,7 +257,7 @@ class ExamsActivity : SimplePageActivity() {
                                 course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                     .optString("nameZh")
                             } else {
-                                AppUtils.getResString(R.string.empty_exam_place)
+                                AppUtils.getResString(R.string.ex_empty_room)
                             }
                         )
                     )
@@ -272,7 +272,7 @@ class ExamsActivity : SimplePageActivity() {
                         exams.add(
                             Exam(
                                 course.optJSONObject("course")!!
-                                    .optString("nameZh") + AppUtils.getResString(R.string.minor),
+                                    .optString("nameZh") + AppUtils.getResString(R.string.ex_minor),
                                 time,
                                 "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
                                 "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
@@ -280,7 +280,7 @@ class ExamsActivity : SimplePageActivity() {
                                     course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                         .optString("nameZh")
                                 } else {
-                                    AppUtils.getResString(R.string.empty_exam_place)
+                                    AppUtils.getResString(R.string.ex_empty_room)
                                 }
                             )
                         )

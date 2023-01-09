@@ -72,8 +72,8 @@ class ReserveDialog {
         MaterialAlertDialogBuilder(ctx)
             .setTitle(R.string.library)
             .setView(view)
-            .setPositiveButton(R.string.ok) { _, _ -> reserveSeat(ctx, targetRoom) }
-            .setNegativeButton(R.string.no) { _, _ -> }
+            .setPositiveButton(R.string.glb_ok) { _, _ -> reserveSeat(ctx, targetRoom) }
+            .setNegativeButton(R.string.glb_no) { _, _ -> }
             .setCancelable(true)
             .create()
             .show()
@@ -83,8 +83,8 @@ class ReserveDialog {
         if (!TimeUtils.isValidReserveTime()) {
             MaterialAlertDialogBuilder(ctx)
                 .setTitle(R.string.library)
-                .setMessage(R.string.not_in_valid_time)
-                .setPositiveButton(R.string.ok, null)
+                .setMessage(R.string.df_not_in_valid_time)
+                .setPositiveButton(R.string.glb_ok, null)
                 .setCancelable(true)
                 .create()
                 .show()
@@ -129,7 +129,7 @@ class ReserveDialog {
                 loginSuccess = true
             } else {
                 timer++
-                ctx.showToast(R.string.fail_to_login)
+                ctx.showToast(R.string.glb_fail_to_login)
                 if (timer == 2) {
                     Requests.netLazyMgr.reset()
                     CookieJarImpl.reset()
@@ -138,8 +138,8 @@ class ReserveDialog {
                     Toasty.cancel()
                     MaterialAlertDialogBuilder(ctx)
                         .setTitle(R.string.library)
-                        .setMessage(R.string.fail_to_login_three_times)
-                        .setPositiveButton(R.string.ok, null)
+                        .setMessage(R.string.glb_fail_to_login_three_times)
+                        .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -159,8 +159,8 @@ class ReserveDialog {
         )
         MaterialAlertDialogBuilder(ctx)
             .setTitle(R.string.library)
-            .setMessage(R.string.reserved)
-            .setPositiveButton(R.string.ok) { _, _ -> ctx.recreate() }
+            .setMessage(R.string.tlp_reserved)
+            .setPositiveButton(R.string.glb_ok) { _, _ -> ctx.recreate() }
             .setCancelable(false)
             .create()
             .show()

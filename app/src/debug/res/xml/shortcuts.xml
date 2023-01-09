@@ -26,7 +26,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_sc_tool"
         android:shortcutId="start_tools"
-        android:shortcutShortLabel="@string/tools">
+        android:shortcutShortLabel="@string/mn_tools">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.TOOLS"
             android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"
@@ -37,7 +37,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_sc_qr"
         android:shortcutId="start_detail"
-        android:shortcutShortLabel="@string/detail">
+        android:shortcutShortLabel="@string/mn_detail">
         <intent
             android:action="com.qhy040404.libraryonetap.intent.action.DETAIL"
             android:targetClass="com.qhy040404.libraryonetap.ui.main.MainActivity"

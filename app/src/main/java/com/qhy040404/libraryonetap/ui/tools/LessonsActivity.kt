@@ -44,7 +44,7 @@ class LessonsActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (!courseTableAvailable) {
-                add(Card(AppUtils.getResString(R.string.course_table_unavailable)))
+                add(Card(AppUtils.getResString(R.string.ls_unavailable)))
                 return
             }
             add(Category(
@@ -52,7 +52,7 @@ class LessonsActivity : SimplePageActivity() {
             ))
             add(Card(
                 String.format(
-                    AppUtils.getResString(R.string.lesson_stat),
+                    AppUtils.getResString(R.string.ls_stat),
                     lessons.count(),
                     lessons.sumOf { it.credit }
                 )
@@ -60,7 +60,7 @@ class LessonsActivity : SimplePageActivity() {
             lessons.forEach {
                 val head = "${it.type}  ${it.name}"
                 val desc = String.format(
-                    AppUtils.getResString(R.string.lesson_template),
+                    AppUtils.getResString(R.string.ls_template),
                     it.teacher,
                     it.code,
                     it.credit,
@@ -113,9 +113,9 @@ class LessonsActivity : SimplePageActivity() {
             if (!AppUtils.hasNetwork()) {
                 runOnUiThread {
                     MaterialAlertDialogBuilder(this@LessonsActivity)
-                        .setMessage(R.string.net_disconnected)
+                        .setMessage(R.string.glb_net_disconnected)
                         .setTitle(R.string.lessons_title)
-                        .setPositiveButton(R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.glb_ok) { _, _ ->
                             finish()
                         }
                         .setCancelable(true)
@@ -171,12 +171,12 @@ class LessonsActivity : SimplePageActivity() {
                             MaterialAlertDialogBuilder(this@LessonsActivity)
                                 .setTitle(R.string.lessons_title)
                                 .setMessage(when (session) {
-                                    Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                                    Constants.NET_ERROR -> R.string.net_error
-                                    Constants.NET_TIMEOUT -> R.string.net_timeout
-                                    else -> R.string.fail_to_login_three_times
+                                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                                    Constants.NET_ERROR -> R.string.glb_net_error
+                                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                                    else -> R.string.glb_fail_to_login_three_times
                                 })
-                                .setPositiveButton(R.string.ok) { _, _ ->
+                                .setPositiveButton(R.string.glb_ok) { _, _ ->
                                     finish()
                                 }
                                 .setCancelable(false)
@@ -223,8 +223,8 @@ class LessonsActivity : SimplePageActivity() {
                             lessonId,
                             lesson.optString("code"),
                             when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
-                                "COMPULSORY" -> AppUtils.getResString(R.string.compulsory)
-                                "ELECTIVE" -> AppUtils.getResString(R.string.elective)
+                                "COMPULSORY" -> AppUtils.getResString(R.string.ls_compulsory)
+                                "ELECTIVE" -> AppUtils.getResString(R.string.ls_elective)
                                 else -> throw IllegalStateException("Illegal compulsory state")
                             },
                             lesson.optJSONObject("course")!!.optString("nameZh"),

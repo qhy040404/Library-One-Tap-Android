@@ -124,7 +124,7 @@ object OrderListData {
         for (list in mClass?.rows!!) {
             if (list.order_process == "暂离" && list.order_type == mode) {
                 if (list.back_time != "00:00:00") {
-                    return AppUtils.getResString(R.string.temp_end_time) + list.back_time
+                    return AppUtils.getResString(R.string.df_temp_end_time) + list.back_time
                 }
                 break
             }

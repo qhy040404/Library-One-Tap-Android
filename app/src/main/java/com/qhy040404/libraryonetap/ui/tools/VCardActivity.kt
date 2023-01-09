@@ -78,12 +78,12 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 MaterialAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
                     .setMessage(when (openidOrigin) {
-                        Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                        Constants.NET_ERROR -> R.string.net_error
-                        Constants.NET_TIMEOUT -> R.string.net_timeout
-                        else -> R.string.unknown_error
+                        Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                        Constants.NET_ERROR -> R.string.glb_net_error
+                        Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                        else -> R.string.glb_unknown_error
                     })
-                    .setPositiveButton(R.string.ok) { _, _ ->
+                    .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }
                     .setCancelable(false)
@@ -100,8 +100,8 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             {
                 MaterialAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
-                    .setMessage(R.string.fail_to_login_three_times)
-                    .setPositiveButton(R.string.ok) { _, _ ->
+                    .setMessage(R.string.glb_fail_to_login_three_times)
+                    .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }
                     .setCancelable(false)

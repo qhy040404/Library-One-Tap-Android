@@ -2,26 +2,26 @@
 
     <PreferenceCategory
         app:key="basic"
-        app:title="@string/basic_information">
+        app:title="@string/st_basic_information">
         <EditTextPreference
             app:icon="@drawable/ic_userid"
             app:key="name"
-            app:title="@string/name"
+            app:title="@string/st_name"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
             app:icon="@drawable/ic_card"
             app:key="userid"
-            app:title="@string/user_id"
+            app:title="@string/st_user_id"
             app:useSimpleSummaryProvider="true" />
         <com.qhy040404.libraryonetap.view.PasswordPreference
             app:icon="@drawable/ic_passwd"
             app:key="passwd"
-            app:title="@string/passwd"
+            app:title="@string/st_passwd"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
     <PreferenceCategory
         app:key="tools"
-        app:title="@string/tools">
+        app:title="@string/mn_tools">
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="dlut"
             app:entries="@array/gp"
@@ -29,11 +29,11 @@
             app:icon="@drawable/ic_gpa"
             app:key="gp_option"
             app:summary="%s"
-            app:title="@string/gp_algorithm" />
+            app:title="@string/st_gp_algorithm" />
     </PreferenceCategory>
     <PreferenceCategory
         app:key="general"
-        app:title="@string/general">
+        app:title="@string/st_general">
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/dark_mode"
@@ -41,13 +41,13 @@
             app:icon="@drawable/ic_dark_mode"
             app:key="dark"
             app:summary="%s"
-            app:title="@string/dark_mode" />
+            app:title="@string/st_dark_mode" />
         <SwitchPreference
             app:defaultValue="true"
             app:icon="@drawable/ic_material"
             app:key="md3"
-            app:summaryOff="@string/custom_deprecated"
-            app:title="@string/md3" />
+            app:summaryOff="@string/stp_custom_deprecated"
+            app:title="@string/st_md3" />
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="library"
             app:entries="@array/themes"
@@ -56,7 +56,7 @@
             app:isPreferenceVisible="false"
             app:key="theme"
             app:summary="%s"
-            app:title="@string/main_theme" />
+            app:title="@string/st_main_theme" />
         <rikka.preference.SimpleMenuPreference
             app:defaultValue="system"
             app:entries="@array/language_name"
@@ -64,32 +64,32 @@
             app:icon="@drawable/ic_language"
             app:key="locale"
             app:summary="%s"
-            app:title="@string/language" />
+            app:title="@string/st_language" />
         <Preference
             app:icon="@drawable/ic_refresh"
             app:key="reset"
-            app:title="@string/reset_data" />
+            app:title="@string/st_reset_data" />
     </PreferenceCategory>
     <PreferenceCategory
         app:key="other"
-        app:title="@string/other">
+        app:title="@string/st_other">
         <Preference
             app:icon="@drawable/ic_cache"
             app:key="cache"
-            app:title="@string/cache" />
+            app:title="@string/st_cache" />
         <Preference
             app:icon="@drawable/ic_update"
             app:key="update"
-            app:title="@string/check_update" />
+            app:title="@string/st_check_update" />
         <Preference
             app:icon="@drawable/ic_changelog"
             app:key="changelog"
-            app:title="@string/latest_changelog" />
+            app:title="@string/st_latest_changelog" />
         <Preference
             app:icon="@drawable/ic_issue"
             app:key="issue"
-            app:title="@string/submit_issue"
-            app:summary="@string/issue_desc" />
+            app:title="@string/st_submit_issue"
+            app:summary="@string/stp_issue_desc" />
         <Preference
             app:icon="@drawable/ic_about"
             app:key="about"

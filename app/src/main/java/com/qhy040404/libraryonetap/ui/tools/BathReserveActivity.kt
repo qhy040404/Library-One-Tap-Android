@@ -52,9 +52,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@BathReserveActivity)
-                    .setMessage(R.string.net_disconnected)
+                    .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.bath_title)
-                    .setPositiveButton(R.string.ok) { _, _ ->
+                    .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }
                     .setCancelable(true)
@@ -93,9 +93,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             text.text =
                 AppUtils.getResString(
                     if (online) {
-                        R.string.loaded
+                        R.string.glb_loaded
                     } else {
-                        R.string.fail_to_login_no_retry
+                        R.string.glb_fail_to_login_no_retry
                     }
                 )
         }
@@ -128,7 +128,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                     mainPostData,
                     GlobalValues.ctSso)
                 Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
-                runOnUiThread { text.text = getString(R.string.request_sent) }
+                runOnUiThread { text.text = getString(R.string.br_request_sent) }
             }
         }
 

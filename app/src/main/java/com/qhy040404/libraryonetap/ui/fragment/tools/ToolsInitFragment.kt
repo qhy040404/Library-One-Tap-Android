@@ -52,8 +52,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
                         NetworkStates.WIFI -> NetworkStateUtils.getSSID(requireContext())
@@ -69,9 +69,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         if (PermissionUtils.checkPermission(requireActivity(),
                                 permission,
                                 childFragmentManager,
-                                R.string.bath_permission_prompt)
+                                R.string.br_permission_prompt)
                         ) {
-                            requireContext().showToast(R.string.error)
+                            requireContext().showToast(R.string.glb_error)
                         }
                     } else {
                         startActivity(Intent(requireContext(), BathReserveActivity::class.java))
@@ -108,8 +108,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), VCardActivity::class.java))
                 }
@@ -133,8 +133,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), GradesMajorActivity::class.java))
                 }
@@ -147,8 +147,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
                 }
@@ -161,8 +161,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), LessonsActivity::class.java))
                 }
@@ -175,8 +175,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
                         GlobalValues.passwd,
-                        R.string.tools,
-                        R.string.no_userdata)
+                        R.string.mn_tools,
+                        R.string.glb_no_userdata)
                 ) {
                     startActivity(Intent(requireContext(), ExamsActivity::class.java))
                 }
@@ -210,9 +210,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.net_disconnected)
+                    .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.net_title)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -222,7 +222,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checkIdPass()) {
             withContext(Dispatchers.Main) {
-                requireContext().showToast(R.string.loading)
+                requireContext().showToast(R.string.glb_loading)
             }
 
             val data = GetPortalData.getPortalData(1)
@@ -231,22 +231,22 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
             val netMessage = if (!AppUtils.isError(remainFee, usedNet, remainNet)) {
-                AppUtils.getResString(R.string.remain_net_fee) + remainFee +
+                AppUtils.getResString(R.string.tlp_remain_net_fee) + remainFee +
                     AppUtils.getResString(R.string.rmb) + "\n" +
-                    AppUtils.getResString(R.string.used_net) + usedNet +
+                    AppUtils.getResString(R.string.tlp_used_net) + usedNet +
                     AppUtils.getResString(R.string.gigabyte) + "\n" +
-                    AppUtils.getResString(R.string.remain_net) + remainNet +
+                    AppUtils.getResString(R.string.tlp_remain_net) + remainNet +
                     AppUtils.getResString(R.string.gigabyte)
             } else {
                 when (data) {
-                    Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
-                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.net_disconnected)
-                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.net_timeout)
+                    Constants.NET_ERROR -> AppUtils.getResString(R.string.glb_net_error)
+                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.glb_net_disconnected)
+                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.glb_net_timeout)
                     else -> {
                         if (data.contains("异常")) {
-                            AppUtils.getResString(R.string.net_api_error)
+                            AppUtils.getResString(R.string.glb_net_api_error)
                         } else {
-                            AppUtils.getResString(R.string.fail_to_login_three_times)
+                            AppUtils.getResString(R.string.glb_fail_to_login_three_times)
                         }
                     }
                 }
@@ -256,7 +256,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(netMessage)
                     .setTitle(R.string.net_title)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -268,9 +268,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.net_disconnected)
+                    .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.electric_title)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -280,7 +280,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checkIdPass()) {
             withContext(Dispatchers.Main) {
-                requireContext().showToast(R.string.loading)
+                requireContext().showToast(R.string.glb_loading)
             }
 
             val data = GetPortalData.getPortalData(0)
@@ -291,17 +291,17 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
                 SSMC + "\n" +
                     if (remainElectric != Constants.API_ERROR) {
-                        AppUtils.getResString(R.string.remain_electric) + remainElectric +
+                        AppUtils.getResString(R.string.tlp_remain_electric) + remainElectric +
                             AppUtils.getResString(R.string.degree)
                     } else {
-                        AppUtils.getResString(R.string.net_api_error)
+                        AppUtils.getResString(R.string.glb_net_api_error)
                     }
             } else {
                 when (data) {
-                    Constants.NET_ERROR -> AppUtils.getResString(R.string.net_error)
-                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.net_disconnected)
-                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.net_timeout)
-                    else -> AppUtils.getResString(R.string.fail_to_login_three_times)
+                    Constants.NET_ERROR -> AppUtils.getResString(R.string.glb_net_error)
+                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.glb_net_disconnected)
+                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.glb_net_timeout)
+                    else -> AppUtils.getResString(R.string.glb_fail_to_login_three_times)
                 }
             }
 
@@ -309,7 +309,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 MaterialAlertDialogBuilder(requireContext())
                     .setMessage(electricMessage)
                     .setTitle(R.string.electric_title)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -321,9 +321,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
                 MaterialAlertDialogBuilder(requireContext())
-                    .setMessage(R.string.net_disconnected)
+                    .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.volunteer_title)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create()
                     .show()
@@ -333,14 +333,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         if (checkIdPass(true)) {
             withContext(Dispatchers.Main) {
-                requireContext().showToast(R.string.loading)
+                requireContext().showToast(R.string.glb_loading)
             }
 
             val postData =
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
             val latestDate =
-                AppUtils.getResString(R.string.vol_update_time) +
+                AppUtils.getResString(R.string.tlp_vol_update_time) +
                     JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString("lastDate")
 
             val sameID = VolunteerData.getSameID(data)
@@ -350,13 +350,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(when (data) {
-                            Constants.NET_DISCONNECTED -> R.string.net_disconnected
-                            Constants.NET_ERROR -> R.string.net_error
-                            Constants.NET_TIMEOUT -> R.string.net_timeout
-                            else -> R.string.unknown_error
+                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                            Constants.NET_ERROR -> R.string.glb_net_error
+                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                            else -> R.string.glb_unknown_error
                         })
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok, null)
+                        .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -364,9 +364,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             } else if (sameID == 0 || sameName == 0) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.invalid_id_or_name)
+                        .setMessage(R.string.tlp_invalid_id_or_name)
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok, null)
+                        .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -374,9 +374,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             } else if (sameID != 1 || sameName != 1) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.find_same_data)
+                        .setMessage(R.string.tlp_find_same_data)
                         .setTitle(R.string.volunteer_title)
-                        .setPositiveButton(R.string.ok, null)
+                        .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -390,7 +390,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)
                         .setTitle(title)
-                        .setPositiveButton(R.string.ok, null)
+                        .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
                         .create()
                         .show()
@@ -417,7 +417,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     initData.split("onclick=\"myFunction(this)\" value=\"")
                 if (initList.size == 3) {
                     if (!GlobalValues.toastShowed) {
-                        runCatching { requireContext().showToast(R.string.minor_detected) }
+                        runCatching { requireContext().showToast(R.string.tlp_minor_detected) }
                         GlobalValues.toastShowed = true
                     }
                     val aStuId = initList[1].substringBefore("\"").toInt()
@@ -450,8 +450,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 } else {
                     GlobalValues.name
                 },
-                R.string.tools,
-                R.string.no_userdata)
+                R.string.mn_tools,
+                R.string.glb_no_userdata)
         }
     }
 }

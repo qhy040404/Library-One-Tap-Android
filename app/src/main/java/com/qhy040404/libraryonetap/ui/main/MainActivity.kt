@@ -202,17 +202,17 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                 if (permissions[i] == Manifest.permission.ACCESS_FINE_LOCATION) {
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                         MaterialAlertDialogBuilder(this)
-                            .setMessage(R.string.permission_got)
+                            .setMessage(R.string.br_permission_got)
                             .setTitle(R.string.bath_title)
-                            .setPositiveButton(R.string.ok, null)
+                            .setPositiveButton(R.string.glb_ok, null)
                             .setCancelable(true)
                             .create()
                             .show()
                     } else {
                         MaterialAlertDialogBuilder(this)
-                            .setMessage(R.string.permission_fail)
-                            .setTitle(R.string.error)
-                            .setPositiveButton(R.string.ok) { _, _ ->
+                            .setMessage(R.string.br_permission_fail)
+                            .setTitle(R.string.glb_error)
+                            .setPositiveButton(R.string.glb_ok) { _, _ ->
                                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                                 val uri = Uri.fromParts("package", packageName, null)
                                 intent.data = uri
@@ -230,12 +230,12 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     private fun showWelcomeDialog() {
         if (!Once.beenDone(Once.THIS_APP_INSTALL, OnceTag.FIRST_DATA_INPUT)) {
             MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.welcome)
-                .setMessage(R.string.welcome_message)
-                .setPositiveButton(R.string.ok) { _, _ ->
+                .setTitle(R.string.in_welcome)
+                .setMessage(R.string.in_message)
+                .setPositiveButton(R.string.glb_ok) { _, _ ->
                     this.binding.viewpager.setCurrentItem(3, true)
                 }
-                .setNegativeButton(R.string.no) { _, _ -> }
+                .setNegativeButton(R.string.glb_no) { _, _ -> }
                 .setCancelable(false)
                 .create()
                 .show()

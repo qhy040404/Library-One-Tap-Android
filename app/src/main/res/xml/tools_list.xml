@@ -3,27 +3,27 @@
     <Preference
         app:icon="@drawable/ic_bath"
         app:key="bath"
-        app:title="@string/bath" />
+        app:title="@string/tl_bath" />
 
     <Preference
         app:icon="@drawable/ic_language"
         app:key="net"
-        app:title="@string/cernet" />
+        app:title="@string/tl_cernet" />
 
     <Preference
         app:icon="@drawable/ic_elec"
         app:key="electric"
-        app:title="@string/electric" />
+        app:title="@string/tl_electric" />
 
     <Preference
         app:icon="@drawable/ic_card"
         app:key="vcard"
-        app:title="@string/vcard" />
+        app:title="@string/tl_vcard" />
 
     <Preference
         app:icon="@drawable/ic_volunteer"
         app:key="volunteer"
-        app:title="@string/volunteer" />
+        app:title="@string/tl_volunteer" />
 
     <Preference
         app:icon="@drawable/ic_grades"

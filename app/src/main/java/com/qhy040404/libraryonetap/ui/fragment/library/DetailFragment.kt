@@ -69,7 +69,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.net_disconnected)
+                detail.text = AppUtils.getResString(R.string.glb_net_disconnected)
                 loading.visibility = View.INVISIBLE
             }
             return
@@ -98,7 +98,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             val back_time = OrderListData.getBack_time(OrderModes.DETAIL)
 
             if (order_id == "oid") {
-                order_id = AppUtils.getResString(R.string.no_valid_order)
+                order_id = AppUtils.getResString(R.string.df_no_valid_order)
                 runOnUiThread {
                     reserve.visibility = View.VISIBLE
                     reserve.isClickable = true
@@ -106,7 +106,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
 
             if (order_process == "审核通过") {
-                order_process = AppUtils.getResString(R.string.not_start)
+                order_process = AppUtils.getResString(R.string.df_not_start)
 
                 runOnUiThread {
                     cancel.visibility = View.VISIBLE
@@ -126,9 +126,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     }
                 }
             } else if (order_process == "进行中") {
-                order_process = AppUtils.getResString(R.string.inside)
+                order_process = AppUtils.getResString(R.string.df_inside)
             } else if (order_process == "暂离") {
-                order_process = AppUtils.getResString(R.string.outside)
+                order_process = AppUtils.getResString(R.string.df_outside)
                 runOnUiThread {
                     tempReset.visibility = View.VISIBLE
                     tempReset.isClickable = true
@@ -154,7 +154,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.enter) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_enter) }
                         }
                     })
                 }
@@ -171,7 +171,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.leave) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_leave) }
                         }
                     })
                 }
@@ -188,7 +188,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.temp) }
+                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_temp) }
                         }
                     })
                 }
@@ -199,9 +199,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.cancel_confirm)
+                        .setMessage(R.string.df_cancel_confirm)
                         .setTitle(R.string.library)
-                        .setPositiveButton(R.string.cancel_confirm_yes) { _, _ ->
+                        .setPositiveButton(R.string.df_cancel_confirm_yes) { _, _ ->
                             val message = CancelData.getMessage(
                                 Requests.post(
                                     URLManager.LIBRARY_ORDER_OPERATION_URL,
@@ -212,12 +212,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             MaterialAlertDialogBuilder(requireContext())
                                 .setMessage(message)
                                 .setTitle(R.string.library)
-                                .setPositiveButton(R.string.ok) { _, _ -> activity?.recreate() }
+                                .setPositiveButton(R.string.glb_ok) { _, _ -> activity?.recreate() }
                                 .setCancelable(true)
                                 .create()
                                 .show()
                         }
-                        .setNegativeButton(R.string.cancel_confirm_no) { _, _ -> }
+                        .setNegativeButton(R.string.df_cancel_confirm_no) { _, _ -> }
                         .setCancelable(true)
                         .create()
                         .show()
@@ -234,9 +234,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.reserve_reset_confirm)
+                        .setMessage(R.string.df_reserve_reset_confirm)
                         .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.glb_ok) { _, _ ->
                             val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
                             val targetSeat = "\"seat_label\":\"$seat_label\""
                             var seat_id = ""
@@ -285,7 +285,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             )
                             activity?.recreate()
                         }
-                        .setNegativeButton(R.string.no) { _, _ -> }
+                        .setNegativeButton(R.string.glb_no) { _, _ -> }
                         .setCancelable(false)
                         .create()
                         .show()
@@ -297,9 +297,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(R.string.reserve_reset_confirm)
+                        .setMessage(R.string.df_reserve_reset_confirm)
                         .setTitle(R.string.library)
-                        .setPositiveButton(R.string.ok) { _, _ ->
+                        .setPositiveButton(R.string.glb_ok) { _, _ ->
                             val roomCode = ReserveUtils.getResetRoomCode(space_name).toString()
                             val targetSeat = "\"seat_label\":\"$seat_label\""
                             var seat_id = ""
@@ -347,7 +347,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                             )
                             activity?.recreate()
                         }
-                        .setNegativeButton(R.string.no) { _, _ -> }
+                        .setNegativeButton(R.string.glb_no) { _, _ -> }
                         .setCancelable(false)
                         .create()
                         .show()
@@ -367,19 +367,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.no_userdata)
+                detail.text = AppUtils.getResString(R.string.glb_no_userdata)
             }
             runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =
-                    AppUtils.getResString(R.string.fail_to_login_three_times)
+                    AppUtils.getResString(R.string.glb_fail_to_login_three_times)
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.login_timeout)
+                detail.text = AppUtils.getResString(R.string.glb_login_timeout)
             }
         }
     }

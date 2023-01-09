@@ -60,7 +60,7 @@ object Requests {
         toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_disconnected) }
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
@@ -81,11 +81,11 @@ object Requests {
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_timeout) }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (host: UnknownHostException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_error) }
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
@@ -124,7 +124,7 @@ object Requests {
         toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_disconnected) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_disconnected) }
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
@@ -146,11 +146,11 @@ object Requests {
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_timeout) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_timeout) }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (host: UnknownHostException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.net_error) }
+            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_error) }
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {

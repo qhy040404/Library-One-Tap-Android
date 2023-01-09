@@ -38,13 +38,13 @@ object UpdateUtils {
 
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
-                ctx.showToast(R.string.net_disconnected)
+                ctx.showToast(R.string.glb_net_disconnected)
             }
             return
         }
         if (!checkConnection()) {
             if (fromSettings) {
-                ctx.showToast(R.string.failed_to_connect_github_api)
+                ctx.showToast(R.string.stp_failed_to_connect_github_api)
             }
             return
         }
@@ -56,16 +56,16 @@ object UpdateUtils {
         val latestOrig = try {
             client.newCall(request).execute().body!!.string()
         } catch (socket: SocketTimeoutException) {
-            ctx.showToast(R.string.net_timeout)
+            ctx.showToast(R.string.glb_net_timeout)
             return
         } catch (_: Exception) {
-            ctx.showToast(R.string.failed_to_connect_github_api)
+            ctx.showToast(R.string.stp_failed_to_connect_github_api)
             return
         }
 
         if (latestOrig.contains("API rate limit")) {
             if (fromSettings) {
-                ctx.showToast(R.string.github_api_rate_limit)
+                ctx.showToast(R.string.stp_github_api_rate_limit)
             }
             return
         }
@@ -77,7 +77,7 @@ object UpdateUtils {
 
         if (remoteVersionCode <= localVersionCode) {
             if (fromSettings) {
-                ctx.showToast(R.string.current_is_latest_version)
+                ctx.showToast(R.string.stp_current_is_latest_version)
             }
             return
         }
@@ -123,12 +123,12 @@ object UpdateUtils {
 
         withContext(Dispatchers.Main) {
             MaterialAlertDialogBuilder(ctx)
-                .setTitle(R.string.update_detected)
+                .setTitle(R.string.upd_detected)
                 .setMessage(HtmlCompat.fromHtml(
                     dialogBody,
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 ))
-                .setPositiveButton(R.string.update_confirm) { _, _ ->
+                .setPositiveButton(R.string.upd_confirm) { _, _ ->
                     val validation = validateFile.readText().substringBefore("Library").trim()
                     File(ctx.cacheDir, packageName).let {
                         if (it.exists() && it.sha512() == validation) {
@@ -137,8 +137,8 @@ object UpdateUtils {
                         }
                     }
                     val notification = NotificationUtils(ctx, "update", "Update")
-                    ctx.showToast(R.string.download_start)
-                    notification.showNotification("$versionName ${AppUtils.getResString(R.string.downloading)}",
+                    ctx.showToast(R.string.glb_download_start)
+                    notification.showNotification("$versionName ${AppUtils.getResString(R.string.glb_downloading)}",
                         true)
                     thread {
                         StrictMode.setThreadPolicy(
@@ -149,11 +149,11 @@ object UpdateUtils {
                             File(ctx.cacheDir, packageName),
                             object : DownloadUtils.OnDownloadListener {
                                 override fun onDownloadFailed() {
-                                    ctx.showToast(R.string.download_failed)
+                                    ctx.showToast(R.string.glb_download_failed)
                                 }
 
                                 override fun onDownloadSuccess() {
-                                    notification.finishProgress(AppUtils.getResString(R.string.downloaded))
+                                    notification.finishProgress(AppUtils.getResString(R.string.glb_downloaded))
                                     GlobalValues.latestApkName = packageName
                                     File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
                                         if (exists()) {
@@ -175,7 +175,7 @@ object UpdateUtils {
                         )
                     }
                 }
-                .setNegativeButton(R.string.update_dismiss, null)
+                .setNegativeButton(R.string.upd_dismiss, null)
                 .setCancelable(true)
                 .setOnDismissListener {
                     if (dialog?.get() == it) {

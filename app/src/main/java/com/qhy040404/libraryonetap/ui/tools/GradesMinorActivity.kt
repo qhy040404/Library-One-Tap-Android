@@ -45,19 +45,19 @@ class GradesMinorActivity : SimplePageActivity() {
         items.apply {
             if (semesters.isEmpty()) {
                 add(Card(
-                    "无数据"
+                    AppUtils.getResString(R.string.no_grades)
                 ))
             } else {
                 add(Card(
-                    "加权均分: ${
+                    String.format(
+                        AppUtils.getResString(R.string.grade_stat),
                         GradesUtils.calculateWeightedAverage(
                             buildList {
                                 semesters.forEach {
                                     addAll(it.courses)
                                 }
                             }
-                        )
-                    }  平均绩点: ${
+                        ),
                         GradesUtils.calculateAverageGP(
                             this@GradesMinorActivity,
                             buildList {
@@ -66,25 +66,24 @@ class GradesMinorActivity : SimplePageActivity() {
                                 }
                             }
                         )
-                    }"
+                    )
                 ))
             }
             semesters.forEach { semester ->
                 add(Category(semester.name))
                 if (semester.courses.isEmpty()) {
-                    add(Card("请先评教"))
+                    add(Card(AppUtils.getResString(R.string.eval_first)))
                     return@forEach
                 }
                 semester.courses.forEach {
-                    val head = """
-                            ${it.name} : ${it.type}
-                        """.trimIndent()
-                    val desc = """
-                            ${it.code}
-                            分数: ${it.grade}
-                            学分: ${it.credit}
-                            绩点: ${it.gp}
-                        """.trimIndent()
+                    val head = "${it.name} : ${it.type}"
+                    val desc = String.format(
+                        AppUtils.getResString(R.string.grade_template),
+                        it.code,
+                        it.grade,
+                        it.credit,
+                        it.gp
+                    )
                     add(ClickableItem(
                         head,
                         desc

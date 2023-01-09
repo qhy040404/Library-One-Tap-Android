@@ -58,13 +58,33 @@
     <string name="vcard">玉兰卡虚拟卡</string>
     <string name="volunteer">志愿总时长</string>
 
-    <!-- BATH RESERVE ACTIVITY -->
+    <!-- BATH RESERVE -->
     <string name="bath_reserve">预约最近时间段</string>
     <string name="request_sent">已发送预约请求</string>
 
     <string name="bath_permission_prompt">我们需要此权限来获得 WIFI 的 SSID, 从而检测是否在校园网环境中</string>
     <string name="permission_got">已成功获取权限, 请重新点击按钮</string>
     <string name="permission_fail">获取权限失败, 请到设置中手动开启</string>
+
+    <!-- GRADES -->
+    <string name="no_grades">暂无分数</string>
+    <string name="grade_stat">加权均分: %1$.2f  平均绩点: %2$s</string>
+    <string name="eval_first">请先评教</string>
+    <string name="grade_template">%1$s\n分数: %2$s\n学分: %3$.1f\n绩点: %4$.1f</string>
+
+    <!-- EXAMS -->
+    <string name="no_exams">暂无考试</string>
+    <string name="finished_list">已完成</string>
+    <string name="empty_exam_place">暂未安排考场</string>
+    <string name="exam_template">时间: %1$s\n考场: %2$s</string>
+    <string name="minor">辅修</string>
+
+    <!-- LESSONS -->
+    <string name="course_table_unavailable">目前教务课表不可用，请稍后再试</string>
+    <string name="lesson_stat">共 %1$d 门课\n总学分: %2$.1f</string>
+    <string name="lesson_template">教师: %1$s\n教学班: %2$s\n学分: %3$.1f\n类型: %4$s</string>
+    <string name="compulsory">必修</string>
+    <string name="elective">选修</string>
 
     <!-- SETTING -->
     <string name="basic_information">基本信息</string>
@@ -134,6 +154,7 @@
     <string name="invalid_id_or_name">姓名或 ID 错误</string>
     <string name="find_same_data">有相同 ID 或姓名出现, 请检查\n如果检查后还是出错, 请前往公众号查询</string>
     <string name="reserved">预约请求已发送</string>
+    <string name="minor_detected">检测到辅修/双学位，已添加入口</string>
 
     <!-- SETTINGS PROMPT -->
     <string name="data_reset_confirm">请确认重置应用数据</string>

@@ -58,13 +58,33 @@
     <string name="vcard">Virtual Yulan card</string>
     <string name="volunteer">Total Volunteer Hours</string>
 
-    <!-- BATH RESERVE ACTIVITY -->
+    <!-- BATH RESERVE -->
     <string name="bath_reserve">Reserve bathroom right now</string>
     <string name="request_sent">Appointment request has been sent</string>
 
     <string name="bath_permission_prompt">We need this permission to get SSID of WIFI, so as to detect whether it is in the campus network environment</string>
     <string name="permission_got">Permission successfully obtained, please click the button again</string>
     <string name="permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
+
+    <!-- GRADES -->
+    <string name="no_grades">There is no score.</string>
+    <string name="grade_stat">Weighted average score: %1$.2f  GPA: %2$s</string>
+    <string name="eval_first">Evaluate first</string>
+    <string name="grade_template">%1$s\nScore: %2$s\nCredit: %3$.1f\nGP: %4$.1f</string>
+
+    <!-- EXAMS -->
+    <string name="no_exams">There is no exam.</string>
+    <string name="finished_list">Finished</string>
+    <string name="empty_exam_place">Undefined</string>
+    <string name="exam_template">Time: %1$s\nRoom: %2$s</string>
+    <string name="minor">Minor</string>
+
+    <!-- LESSONS -->
+    <string name="course_table_unavailable">The course table is not available at the moment, please try again later.</string>
+    <string name="lesson_stat">Count: %1$d\nTotal Credits: %2$.1f</string>
+    <string name="lesson_template">Teacher: %1$s\nClass code: %2$s\nCredit: %3$.1f\nType: %4$s</string>
+    <string name="compulsory">Compulsory</string>
+    <string name="elective">Elective</string>
 
     <!-- SETTING -->
     <string name="basic_information">Basic information</string>
@@ -132,6 +152,7 @@
     <string name="invalid_id_or_name">Wrong name and ID</string>
     <string name="find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
     <string name="reserved">Reserve request has been sent</string>
+    <string name="minor_detected">Minor detected. Entry has been added.</string>
 
     <!-- SETTINGS PROMPT -->
     <string name="data_reset_confirm">Please confirm to clear appdata.</string>

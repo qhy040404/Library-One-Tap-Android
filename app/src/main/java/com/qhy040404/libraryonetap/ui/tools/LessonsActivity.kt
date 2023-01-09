@@ -44,19 +44,28 @@ class LessonsActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (!courseTableAvailable) {
-                add(Card("目前教务课表不可用，请稍后再试"))
+                add(Card(AppUtils.getResString(R.string.course_table_unavailable)))
                 return
             }
             add(Category(
                 semester
             ))
             add(Card(
-                "共 ${lessons.count()} 门课\n总学分: ${lessons.sumOf { it.credit }}"
+                String.format(
+                    AppUtils.getResString(R.string.lesson_stat),
+                    lessons.count(),
+                    lessons.sumOf { it.credit }
+                )
             ))
             lessons.forEach {
                 val head = "${it.type}  ${it.name}"
-                val desc =
-                    "教师: ${it.teacher}\n教学班: ${it.code}\n学分: ${it.credit}\n类型: ${it.compulsory}"
+                val desc = String.format(
+                    AppUtils.getResString(R.string.lesson_template),
+                    it.teacher,
+                    it.code,
+                    it.credit,
+                    it.compulsory
+                )
                 add(ClickableItem(
                     head,
                     desc
@@ -214,8 +223,8 @@ class LessonsActivity : SimplePageActivity() {
                             lessonId,
                             lesson.optString("code"),
                             when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
-                                "COMPULSORY" -> "必修"
-                                "ELECTIVE" -> "选修"
+                                "COMPULSORY" -> AppUtils.getResString(R.string.compulsory)
+                                "ELECTIVE" -> AppUtils.getResString(R.string.elective)
                                 else -> throw IllegalStateException("Illegal compulsory state")
                             },
                             lesson.optJSONObject("course")!!.optString("nameZh"),

@@ -46,16 +46,17 @@ class ExamsActivity : SimplePageActivity() {
         items.apply {
             if (exams.isEmpty()) {
                 add(Card(
-                    "暂无考试"
+                    AppUtils.getResString(R.string.no_exams)
                 ))
             }
 
             exams.filter { it.startTime > now }.forEach { pending ->
                 val name = pending.name
-                val desc = """
-                    时间：${pending.time}
-                    考场：${pending.room}
-                """.trimIndent()
+                val desc = String.format(
+                    AppUtils.getResString(R.string.exam_template),
+                    pending.time,
+                    pending.room
+                )
                 add(ClickableItem(
                     name,
                     desc
@@ -64,13 +65,14 @@ class ExamsActivity : SimplePageActivity() {
 
             exams.filter { it.startTime < now }.let { finished ->
                 if (finished.isNotEmpty()) {
-                    add(Category("已完成"))
+                    add(Category(AppUtils.getResString(R.string.finished_list)))
                     finished.forEach { finish ->
                         val name = finish.name
-                        val desc = """
-                            时间：${finish.time}
-                            考场：${finish.room}
-                        """.trimIndent()
+                        val desc = String.format(
+                            AppUtils.getResString(R.string.exam_template),
+                            finish.time,
+                            finish.room
+                        )
                         add(ClickableItem(
                             name,
                             desc
@@ -255,7 +257,7 @@ class ExamsActivity : SimplePageActivity() {
                                 course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                     .optString("nameZh")
                             } else {
-                                "暂未安排考场"
+                                AppUtils.getResString(R.string.empty_exam_place)
                             }
                         )
                     )
@@ -269,7 +271,8 @@ class ExamsActivity : SimplePageActivity() {
                         val datetime = time.split(" ")
                         exams.add(
                             Exam(
-                                course.optJSONObject("course")!!.optString("nameZh") + "辅修",
+                                course.optJSONObject("course")!!
+                                    .optString("nameZh") + AppUtils.getResString(R.string.minor),
                                 time,
                                 "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
                                 "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
@@ -277,7 +280,7 @@ class ExamsActivity : SimplePageActivity() {
                                     course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                         .optString("nameZh")
                                 } else {
-                                    "暂未安排考场"
+                                    AppUtils.getResString(R.string.empty_exam_place)
                                 }
                             )
                         )

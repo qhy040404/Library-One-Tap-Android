@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.FileExtensions.sha512
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.surroundingWith
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -112,7 +113,19 @@ object UpdateUtils {
                         append(it.substring(2))
                     } else if (it.startsWith("> ")) {
                         append("// ")
-                        append(it.substring(2))
+                        it.substring(2).let { content ->
+                            if (content.surroundingWith("_")) {
+                                append("<i>")
+                                append(content.removeSurrounding("_"))
+                                append("</i>")
+                            } else if (content.surroundingWith("**")) {
+                                append("<b>")
+                                append(content.removeSurrounding("**"))
+                                append("</b>")
+                            } else {
+                                append(content)
+                            }
+                        }
                     }
                     if (it != changelog.last()) {
                         append("<br>")

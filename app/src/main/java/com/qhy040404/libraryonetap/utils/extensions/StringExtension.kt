@@ -72,4 +72,23 @@ object StringExtension {
             subStr
         }
     }
+
+    /**
+     * Returns true if this string is surrounded with the specified delimiter.
+     *
+     * @param delimiter Delimiter
+     */
+    fun String.surroundingWith(delimiter: String): Boolean {
+        return this.startsWith(delimiter) && this.endsWith(delimiter)
+    }
+
+    /**
+     * Returns true if this string is surrounded with the specified prefix and suffix.
+     *
+     * @param prefix Prefix
+     * @param suffix Suffix
+     */
+    fun String.surroundingWith(prefix: String, suffix: String): Boolean {
+        return this.startsWith(prefix) && this.endsWith(suffix)
+    }
 }

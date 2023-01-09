@@ -31,19 +31,19 @@ object GradesUtils {
         grades: List<Grade>,
     ): String {
         return when (GlobalValues.gpOption) {
-            Constants.GP_DLUT -> {
+            Constants.GPA_DLUT -> {
                 GPAUtils.calculateGPAByDlut(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_STANDARD5 -> {
+            Constants.GPA_STANDARD5 -> {
                 GPAUtils.calculateGPAByStandard5(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_STANDARD4 -> {
+            Constants.GPA_STANDARD4 -> {
                 GPAUtils.calculateGPAByStandard4(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_PEKING4 -> {
+            Constants.GPA_PEKING4 -> {
                 GPAUtils.calculateGPAByPeking4(grades)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }

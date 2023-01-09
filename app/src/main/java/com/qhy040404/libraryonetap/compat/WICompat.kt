@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.compat
 
 import android.view.WindowInsets
 import androidx.core.view.WindowInsetsCompat
-import com.qhy040404.libraryonetap.annotation.InsetsParams
+import com.qhy040404.libraryonetap.constant.enums.InsetsParams
 import com.qhy040404.libraryonetap.utils.OsUtils
 
 @Suppress("DEPRECATION")
@@ -19,14 +19,13 @@ object WICompat {
     fun getInsetsParam(
         windowInsets: WindowInsetsCompat,
         typeMask: Int,
-        @InsetsParams param: Int,
+        param: InsetsParams,
     ) = if (OsUtils.atLeastR()) {
         when (param) {
             InsetsParams.LEFT -> windowInsets.getInsets(typeMask).left
             InsetsParams.RIGHT -> windowInsets.getInsets(typeMask).right
             InsetsParams.TOP -> windowInsets.getInsets(typeMask).top
             InsetsParams.BOTTOM -> windowInsets.getInsets(typeMask).bottom
-            else -> throw IllegalArgumentException("Use InsetsParams")
         }
     } else {
         when (param) {
@@ -34,7 +33,6 @@ object WICompat {
             InsetsParams.RIGHT -> windowInsets.systemWindowInsetRight
             InsetsParams.TOP -> windowInsets.systemWindowInsetTop
             InsetsParams.BOTTOM -> windowInsets.systemWindowInsetBottom
-            else -> throw IllegalArgumentException("Use InsetsParams")
         }
     }
 }

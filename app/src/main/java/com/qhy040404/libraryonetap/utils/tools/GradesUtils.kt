@@ -3,9 +3,9 @@ package com.qhy040404.libraryonetap.utils.tools
 import android.content.Context
 import com.absinthe.libraries.utils.extensions.getStringArray
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.annotation.Parentheses
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.enums.Parentheses
 import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.addParentheses

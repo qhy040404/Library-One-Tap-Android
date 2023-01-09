@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.utils.extensions
 
-import com.qhy040404.libraryonetap.annotation.Parentheses
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.enums.Parentheses
 
 @Suppress("unused")
 object StringExtension {
@@ -37,12 +37,11 @@ object StringExtension {
      * @throws IllegalArgumentException
      * @return string with parentheses
      */
-    fun String.addParentheses(@Parentheses size: Int): String {
+    fun String.addParentheses(size: Parentheses): String {
         return when (size) {
             Parentheses.SMALL -> "(${this.trim()})"
             Parentheses.MEDIUM -> "[${this.trim()}]"
             Parentheses.LARGE -> "{${this.trim()}}"
-            else -> throw IllegalArgumentException("Illegal size")
         }
     }
 

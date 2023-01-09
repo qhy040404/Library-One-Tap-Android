@@ -33,7 +33,7 @@ object StringExtension {
     /**
      * Add parentheses for a string () [] {}
      *
-     * @param size size of parentheses, Use Parentheses annotation class
+     * @param size size of parentheses, Use Parentheses enum
      * @throws IllegalArgumentException
      * @return string with parentheses
      */

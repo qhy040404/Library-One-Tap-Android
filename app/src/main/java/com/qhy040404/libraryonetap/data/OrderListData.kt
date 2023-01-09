@@ -22,7 +22,7 @@ object OrderListData {
 
     /**
      * get current order id
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return id String
      */
     fun getOrder_id(mode: OrderModes): String {
@@ -45,7 +45,7 @@ object OrderListData {
 
     /**
      * get current order process
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return process String
      */
     fun getOrder_process(mode: OrderModes): String {
@@ -68,7 +68,7 @@ object OrderListData {
 
     /**
      * get current order's space
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return space String
      */
     fun getSpace_name(mode: OrderModes): String {
@@ -91,7 +91,7 @@ object OrderListData {
 
     /**
      * get current order's seat label
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return seat label String
      */
     fun getSeat_label(mode: OrderModes): String {
@@ -114,7 +114,7 @@ object OrderListData {
 
     /**
      * get current order's date
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return date String
      */
     fun getOrder_date(mode: OrderModes): String {
@@ -137,7 +137,7 @@ object OrderListData {
 
     /**
      * get back time
-     * @param mode String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return back time String
      */
     fun getBack_time(mode: OrderModes): String {

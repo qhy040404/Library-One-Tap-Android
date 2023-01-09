@@ -8,6 +8,9 @@ import android.provider.Settings
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.edit
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -141,6 +144,12 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                         R.id.navigation_settings -> performClickNavigationItem(3)
                     }
                     true
+                }
+                ViewCompat.setOnApplyWindowInsetsListener(this) { _, windowInsets ->
+                    val naviBarsInsets = ViewCompat.getRootWindowInsets(this)!!
+                        .getInsets(WindowInsetsCompat.Type.navigationBars())
+                    this.updatePadding(bottom = naviBarsInsets.bottom)
+                    windowInsets
                 }
             }
         }

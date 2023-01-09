@@ -128,9 +128,9 @@
       ]
     },
     {
-      "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+      "name": "Gradle: com.squareup.okio:okio-jvm:3.3.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.2.0/332d1c5dc82b0241cb1d35bb0901d28470cc89ca/okio-jvm-3.2.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.3.0/2d175add2d06a67bda111ae5455e49b42d0bb287/okio-jvm-3.3.0.jar!/"
       ]
     },
     {

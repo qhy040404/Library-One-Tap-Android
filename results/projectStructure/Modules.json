@@ -203,7 +203,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+          "name": "Gradle: com.squareup.okio:okio-jvm:3.3.0",
           "type": "Library"
         },
         {
@@ -696,7 +696,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+          "name": "Gradle: com.squareup.okio:okio-jvm:3.3.0",
           "type": "Library"
         },
         {
@@ -1217,7 +1217,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+          "name": "Gradle: com.squareup.okio:okio-jvm:3.3.0",
           "type": "Library"
         },
         {

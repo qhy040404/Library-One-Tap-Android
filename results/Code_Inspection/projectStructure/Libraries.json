@@ -655,14 +655,6 @@
       ]
     },
     {
-      "name": "Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11@aar",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f7c40717a7e6b0def2fd94816feb20f7/transformed/BaseRecyclerViewAdapterHelper-3.0.11/jars/classes.jar!/",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f7c40717a7e6b0def2fd94816feb20f7/transformed/BaseRecyclerViewAdapterHelper-3.0.11/res",
-        "file://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/f7c40717a7e6b0def2fd94816feb20f7/transformed/BaseRecyclerViewAdapterHelper-3.0.11/AndroidManifest.xml"
-      ]
-    },
-    {
       "name": "Gradle: com.github.qhy040404:datetime:1.2.3@aar",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/transforms-3/651e22200fe8682351b463855c2d4a97/transformed/datetime-1.2.3/jars/classes.jar!/",

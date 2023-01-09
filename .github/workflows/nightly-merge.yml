@@ -18,7 +18,7 @@ jobs:
         uses: robotology/gh-action-nightly-merge@v1.4.0
         with:
           stable_branch: 'master'
-          development_branch: 'exams'
+          development_branch: '4.0-dev'
           allow_ff: false
           user_name: 'qhyBot'
           user_email: '104984534+qhyBot@users.noreply.github.com'

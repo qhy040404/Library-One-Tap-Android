@@ -207,11 +207,15 @@ object UpdateUtils {
         return if (str.isEmpty()) {
             0
         } else {
-            (if (fromPackage) {
-                str.substringBetween("_v", "-release")
-            } else {
-                str
-            }).split(".").joinToString("").toInt()
+            buildList {
+                (if (fromPackage) {
+                    str.substringBetween("_v", "-release")
+                } else {
+                    str
+                }).split(".").forEach {
+                    add(it.formatVersion())
+                }
+            }.joinToString("").toInt()
         }
     }
 
@@ -237,6 +241,14 @@ object UpdateUtils {
             Constants.NET_ERROR -> false
             Constants.STRING_NULL -> false
             else -> true
+        }
+    }
+
+    private fun String.formatVersion(): String {
+        return when (this.length) {
+            1 -> "0$this"
+            2 -> this
+            else -> throw IllegalArgumentException("Illegal version")
         }
     }
 }

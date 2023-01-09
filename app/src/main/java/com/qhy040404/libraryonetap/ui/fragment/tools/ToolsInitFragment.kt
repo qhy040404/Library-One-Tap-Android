@@ -25,6 +25,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
@@ -231,22 +232,22 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val usedNet = NetData.getDynamicUsedFlow(data)
             val remainNet = NetData.getDynamicRemainFlow(data)
             val netMessage = if (!AppUtils.isError(remainFee, usedNet, remainNet)) {
-                AppUtils.getResString(R.string.tlp_remain_net_fee) + remainFee +
-                    AppUtils.getResString(R.string.rmb) + "\n" +
-                    AppUtils.getResString(R.string.tlp_used_net) + usedNet +
-                    AppUtils.getResString(R.string.gigabyte) + "\n" +
-                    AppUtils.getResString(R.string.tlp_remain_net) + remainNet +
-                    AppUtils.getResString(R.string.gigabyte)
+                R.string.tlp_remain_net_fee.getString() + remainFee +
+                    R.string.rmb.getString() + "\n" +
+                    R.string.tlp_used_net.getString() + usedNet +
+                    R.string.gigabyte.getString() + "\n" +
+                    R.string.tlp_remain_net.getString() + remainNet +
+                    R.string.gigabyte.getString()
             } else {
                 when (data) {
-                    Constants.NET_ERROR -> AppUtils.getResString(R.string.glb_net_error)
-                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.glb_net_disconnected)
-                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.glb_net_timeout)
+                    Constants.NET_ERROR -> R.string.glb_net_error.getString()
+                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected.getString()
+                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout.getString()
                     else -> {
                         if (data.contains("异常")) {
-                            AppUtils.getResString(R.string.glb_net_api_error)
+                            R.string.glb_net_api_error.getString()
                         } else {
-                            AppUtils.getResString(R.string.glb_fail_to_login_three_times)
+                            R.string.glb_fail_to_login_three_times.getString()
                         }
                     }
                 }
@@ -291,17 +292,16 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
                 SSMC + "\n" +
                     if (remainElectric != Constants.API_ERROR) {
-                        AppUtils.getResString(R.string.tlp_remain_electric) + remainElectric +
-                            AppUtils.getResString(R.string.degree)
+                        R.string.tlp_remain_electric.getString() + remainElectric + R.string.degree.getString()
                     } else {
-                        AppUtils.getResString(R.string.glb_net_api_error)
+                        R.string.glb_net_api_error.getString()
                     }
             } else {
                 when (data) {
-                    Constants.NET_ERROR -> AppUtils.getResString(R.string.glb_net_error)
-                    Constants.NET_DISCONNECTED -> AppUtils.getResString(R.string.glb_net_disconnected)
-                    Constants.NET_TIMEOUT -> AppUtils.getResString(R.string.glb_net_timeout)
-                    else -> AppUtils.getResString(R.string.glb_fail_to_login_three_times)
+                    Constants.NET_ERROR -> R.string.glb_net_error.getString()
+                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected.getString()
+                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout.getString()
+                    else -> R.string.glb_fail_to_login_three_times.getString()
                 }
             }
 
@@ -340,7 +340,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
             val latestDate =
-                AppUtils.getResString(R.string.tlp_vol_update_time) +
+                R.string.tlp_vol_update_time.getString() +
                     JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString("lastDate")
 
             val sameID = VolunteerData.getSameID(data)
@@ -383,8 +383,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 }
             } else {
                 val totalHours = VolunteerData.getTotalHours(data).toString() +
-                    AppUtils.getResString(R.string.hours)
-                val title = AppUtils.getResString(R.string.volunteer_title) + "\n" + latestDate
+                    R.string.hours.getString()
+                val title = R.string.volunteer_title.getString() + "\n" + latestDate
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())

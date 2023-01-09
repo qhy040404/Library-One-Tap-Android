@@ -11,6 +11,7 @@ import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
@@ -60,7 +61,7 @@ object Requests {
         toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_disconnected) }
+            textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
@@ -81,11 +82,11 @@ object Requests {
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_timeout) }
+            textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (host: UnknownHostException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_error) }
+            textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
@@ -124,7 +125,7 @@ object Requests {
         toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_disconnected) }
+            textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
@@ -146,11 +147,11 @@ object Requests {
                     return response.body!!.string()
                 }
         } catch (socket: SocketTimeoutException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_timeout) }
+            textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (host: UnknownHostException) {
-            textView?.post { textView.text = AppUtils.getResString(R.string.glb_net_error) }
+            textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {

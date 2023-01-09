@@ -6,6 +6,7 @@ import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
 object PermissionUtils {
     fun checkPermission(
@@ -21,7 +22,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    FullScreenDialogFragment(AppUtils.getResString(strResId)))
+                    FullScreenDialogFragment(strResId.getString()))
             }
         }
         return hasPermission

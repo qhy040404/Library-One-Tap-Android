@@ -14,6 +14,7 @@ import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -53,7 +54,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_net_disconnected)
+                detail.text = R.string.glb_net_disconnected.getString()
                 loading.visibility = View.INVISIBLE
             }
             return
@@ -84,13 +85,13 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             val full_time = OrderListData.getFull_time()
 
             if (order_id == "oid") {
-                order_id = AppUtils.getResString(R.string.df_no_valid_order)
+                order_id = R.string.df_no_valid_order.getString()
             }
 
             when (order_process) {
-                "审核通过" -> order_process = AppUtils.getResString(R.string.df_not_start)
-                "进行中" -> order_process = AppUtils.getResString(R.string.df_inside)
-                "暂离" -> order_process = AppUtils.getResString(R.string.df_outside)
+                "审核通过" -> order_process = R.string.df_not_start.getString()
+                "进行中" -> order_process = R.string.df_inside.getString()
+                "暂离" -> order_process = R.string.df_outside.getString()
             }
 
             val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
@@ -120,19 +121,19 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_no_userdata)
+                detail.text = R.string.glb_no_userdata.getString()
             }
             runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =
-                    AppUtils.getResString(R.string.glb_fail_to_login_three_times)
+                    R.string.glb_fail_to_login_three_times.getString()
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_login_timeout)
+                detail.text = R.string.glb_login_timeout.getString()
             }
         }
     }

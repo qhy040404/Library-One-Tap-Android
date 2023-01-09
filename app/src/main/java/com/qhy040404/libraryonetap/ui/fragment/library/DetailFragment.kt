@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -69,7 +70,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_net_disconnected)
+                detail.text = R.string.glb_net_disconnected.getString()
                 loading.visibility = View.INVISIBLE
             }
             return
@@ -98,7 +99,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             val back_time = OrderListData.getBack_time(OrderModes.DETAIL)
 
             if (order_id == "oid") {
-                order_id = AppUtils.getResString(R.string.df_no_valid_order)
+                order_id = R.string.df_no_valid_order.getString()
                 runOnUiThread {
                     reserve.visibility = View.VISIBLE
                     reserve.isClickable = true
@@ -106,7 +107,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
 
             if (order_process == "审核通过") {
-                order_process = AppUtils.getResString(R.string.df_not_start)
+                order_process = R.string.df_not_start.getString()
 
                 runOnUiThread {
                     cancel.visibility = View.VISIBLE
@@ -126,9 +127,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     }
                 }
             } else if (order_process == "进行中") {
-                order_process = AppUtils.getResString(R.string.df_inside)
+                order_process = R.string.df_inside.getString()
             } else if (order_process == "暂离") {
-                order_process = AppUtils.getResString(R.string.df_outside)
+                order_process = R.string.df_outside.getString()
                 runOnUiThread {
                     tempReset.visibility = View.VISIBLE
                     tempReset.isClickable = true
@@ -154,7 +155,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_enter) }
+                            runOnUiThread { type.text = R.string.df_enter.getString() }
                         }
                     })
                 }
@@ -171,7 +172,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_leave) }
+                            runOnUiThread { type.text = R.string.df_leave.getString() }
                         }
                     })
                 }
@@ -188,7 +189,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
                         override fun onResponse(call: Call, response: Response) {
                             runCatching { qr.mLoad(requireContext(), response.body!!.bytes()) }
-                            runOnUiThread { type.text = AppUtils.getResString(R.string.df_temp) }
+                            runOnUiThread { type.text = R.string.df_temp.getString() }
                         }
                     })
                 }
@@ -367,19 +368,19 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_no_userdata)
+                detail.text = R.string.glb_no_userdata.getString()
             }
             runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =
-                    AppUtils.getResString(R.string.glb_fail_to_login_three_times)
+                    R.string.glb_fail_to_login_three_times.getString()
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()
         } else {
             runOnUiThread {
-                detail.text = AppUtils.getResString(R.string.glb_login_timeout)
+                detail.text = R.string.glb_login_timeout.getString()
             }
         }
     }

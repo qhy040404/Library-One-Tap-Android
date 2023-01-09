@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -46,14 +47,14 @@ class ExamsActivity : SimplePageActivity() {
         items.apply {
             if (exams.isEmpty()) {
                 add(Card(
-                    AppUtils.getResString(R.string.ex_empty)
+                    R.string.ex_empty.getString()
                 ))
             }
 
             exams.filter { it.startTime > now }.forEach { pending ->
                 val name = pending.name
                 val desc = String.format(
-                    AppUtils.getResString(R.string.ex_template),
+                    R.string.ex_template.getString(),
                     pending.time,
                     pending.room
                 )
@@ -65,11 +66,11 @@ class ExamsActivity : SimplePageActivity() {
 
             exams.filter { it.startTime < now }.let { finished ->
                 if (finished.isNotEmpty()) {
-                    add(Category(AppUtils.getResString(R.string.ex_finished_list)))
+                    add(Category(R.string.ex_finished_list.getString()))
                     finished.forEach { finish ->
                         val name = finish.name
                         val desc = String.format(
-                            AppUtils.getResString(R.string.ex_template),
+                            R.string.ex_template.getString(),
                             finish.time,
                             finish.room
                         )
@@ -257,7 +258,7 @@ class ExamsActivity : SimplePageActivity() {
                                 course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                     .optString("nameZh")
                             } else {
-                                AppUtils.getResString(R.string.ex_empty_room)
+                                R.string.ex_empty_room.getString()
                             }
                         )
                     )
@@ -272,7 +273,7 @@ class ExamsActivity : SimplePageActivity() {
                         exams.add(
                             Exam(
                                 course.optJSONObject("course")!!
-                                    .optString("nameZh") + AppUtils.getResString(R.string.ex_minor),
+                                    .optString("nameZh") + R.string.ex_minor.getString(),
                                 time,
                                 "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
                                 "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
@@ -280,7 +281,7 @@ class ExamsActivity : SimplePageActivity() {
                                     course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                         .optString("nameZh")
                                 } else {
-                                    AppUtils.getResString(R.string.ex_empty_room)
+                                    R.string.ex_empty_room.getString()
                                 }
                             )
                         )

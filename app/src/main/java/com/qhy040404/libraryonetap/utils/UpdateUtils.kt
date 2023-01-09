@@ -16,6 +16,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.FileExtensions.sha512
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.surroundingWith
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -151,7 +152,7 @@ object UpdateUtils {
                     }
                     val notification = NotificationUtils(ctx, "update", "Update")
                     ctx.showToast(R.string.glb_download_start)
-                    notification.showNotification("$versionName ${AppUtils.getResString(R.string.glb_downloading)}",
+                    notification.showNotification("$versionName ${R.string.glb_downloading.getString()}",
                         true)
                     thread {
                         StrictMode.setThreadPolicy(
@@ -166,7 +167,7 @@ object UpdateUtils {
                                 }
 
                                 override fun onDownloadSuccess() {
-                                    notification.finishProgress(AppUtils.getResString(R.string.glb_downloaded))
+                                    notification.finishProgress(R.string.glb_downloaded.getString())
                                     GlobalValues.latestApkName = packageName
                                     File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
                                         if (exists()) {

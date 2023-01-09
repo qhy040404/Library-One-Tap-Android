@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -44,7 +45,7 @@ class LessonsActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (!courseTableAvailable) {
-                add(Card(AppUtils.getResString(R.string.ls_unavailable)))
+                add(Card(R.string.ls_unavailable.getString()))
                 return
             }
             add(Category(
@@ -52,7 +53,7 @@ class LessonsActivity : SimplePageActivity() {
             ))
             add(Card(
                 String.format(
-                    AppUtils.getResString(R.string.ls_stat),
+                    R.string.ls_stat.getString(),
                     lessons.count(),
                     lessons.sumOf { it.credit }
                 )
@@ -60,7 +61,7 @@ class LessonsActivity : SimplePageActivity() {
             lessons.forEach {
                 val head = "${it.type}  ${it.name}"
                 val desc = String.format(
-                    AppUtils.getResString(R.string.ls_template),
+                    R.string.ls_template.getString(),
                     it.teacher,
                     it.code,
                     it.credit,
@@ -223,8 +224,8 @@ class LessonsActivity : SimplePageActivity() {
                             lessonId,
                             lesson.optString("code"),
                             when (lesson.optJSONArray("compulsorys")!!.optString(0)) {
-                                "COMPULSORY" -> AppUtils.getResString(R.string.ls_compulsory)
-                                "ELECTIVE" -> AppUtils.getResString(R.string.ls_elective)
+                                "COMPULSORY" -> R.string.ls_compulsory.getString()
+                                "ELECTIVE" -> R.string.ls_elective.getString()
                                 else -> throw IllegalStateException("Illegal compulsory state")
                             },
                             lesson.optJSONObject("course")!!.optString("nameZh"),

@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -46,12 +47,12 @@ class GradesMajorActivity : SimplePageActivity() {
         items.apply {
             if (semesters.isEmpty()) {
                 add(Card(
-                    AppUtils.getResString(R.string.gr_empty)
+                    R.string.gr_empty.getString()
                 ))
             } else {
                 add(Card(
                     String.format(
-                        AppUtils.getResString(R.string.gr_stat),
+                        R.string.gr_stat.getString(),
                         GradesUtils.calculateWeightedAverage(
                             buildList {
                                 semesters.forEach {
@@ -73,13 +74,13 @@ class GradesMajorActivity : SimplePageActivity() {
             semesters.forEach { semester ->
                 add(Category(semester.name))
                 if (semester.courses.isEmpty()) {
-                    add(Card(AppUtils.getResString(R.string.gr_eval_first)))
+                    add(Card(R.string.gr_eval_first.getString()))
                     return@forEach
                 }
                 semester.courses.forEach {
                     val head = "${it.name} : ${it.type}"
                     val desc = String.format(
-                        AppUtils.getResString(R.string.gr_template),
+                        R.string.gr_template.getString(),
                         it.code,
                         it.grade,
                         it.credit,
@@ -223,7 +224,7 @@ class GradesMajorActivity : SimplePageActivity() {
                             initData.split("onclick=\"myFunction(this)\" value=\"")
                         if (initList.size == 3) {
                             if (!GlobalValues.toastShowed) {
-                                showToast(AppUtils.getResString(R.string.tlp_minor_detected))
+                                showToast(R.string.tlp_minor_detected.getString())
                                 GlobalValues.toastShowed = true
                             }
                             val aStuId = initList[1].substringBefore("\"").toInt()

@@ -12,7 +12,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalValues
 import rikka.material.app.DayNightDelegate
 
 object AppUtils {
@@ -81,13 +80,6 @@ object AppUtils {
 
     fun pass(vararg a: Any?) {
         Log.i("Pass", "Slack off. $a")
-    }
-
-    fun getResString(@StringRes resId: Int): String {
-        val conf = ctx.resources.configuration.also {
-            it.setLocale(GlobalValues.locale)
-        }
-        return ctx.createConfigurationContext(conf).getString(resId)
     }
 
     fun isError(

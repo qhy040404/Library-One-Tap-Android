@@ -10,6 +10,7 @@ import androidx.core.app.NotificationCompat
 import com.absinthe.libraries.utils.extensions.activity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
 class NotificationUtils(
     private val ctx: Context,
@@ -22,7 +23,7 @@ class NotificationUtils(
     private val notificationManager =
         ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     private val builder = NotificationCompat.Builder(ctx, channelId)
-        .setContentTitle(AppUtils.getResString(R.string.app_name))
+        .setContentTitle(R.string.app_name.getString())
         .setSmallIcon(R.drawable.ic_about_foreground)
         .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
         .setPriority(NotificationCompat.PRIORITY_LOW)
@@ -35,7 +36,7 @@ class NotificationUtils(
             }
         }
     private val builderFinished = NotificationCompat.Builder(ctx, channelId)
-        .setContentTitle(AppUtils.getResString(R.string.app_name))
+        .setContentTitle(R.string.app_name.getString())
         .setSmallIcon(R.drawable.ic_about_foreground)
         .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
         .setPriority(NotificationCompat.PRIORITY_LOW)

@@ -32,6 +32,7 @@ import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -217,7 +218,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
             if (GlobalValues.newVersion != null) {
                 summary =
-                    AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
+                    R.string.upd_available.getString() + GlobalValues.newVersion
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -282,7 +283,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
         if (GlobalValues.newVersion != null) {
             findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
-                AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
+                R.string.upd_available.getString() + GlobalValues.newVersion
         }
     }
 

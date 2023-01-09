@@ -2,8 +2,8 @@ package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.annotation.OrderModes
-import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
 @Suppress("FunctionName", "LocalVariableName", "PropertyName")
 object OrderListData {
@@ -124,7 +124,7 @@ object OrderListData {
         for (list in mClass?.rows!!) {
             if (list.order_process == "暂离" && list.order_type == mode) {
                 if (list.back_time != "00:00:00") {
-                    return AppUtils.getResString(R.string.df_temp_end_time) + list.back_time
+                    return R.string.df_temp_end_time.getString() + list.back_time
                 }
                 break
             }

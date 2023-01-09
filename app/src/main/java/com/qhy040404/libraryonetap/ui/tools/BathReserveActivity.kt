@@ -18,6 +18,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
@@ -29,7 +30,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.title = AppUtils.getResString(R.string.bath_title)
+        binding.toolbar.title = R.string.bath_title.getString()
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
@@ -90,14 +91,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         }
 
         runOnUiThread {
-            text.text =
-                AppUtils.getResString(
-                    if (online) {
-                        R.string.glb_loaded
-                    } else {
-                        R.string.glb_fail_to_login_no_retry
-                    }
-                )
+            text.text = if (online) {
+                R.string.glb_loaded.getString()
+            } else {
+                R.string.glb_fail_to_login_no_retry.getString()
+            }
         }
 
         runOnUiThread {

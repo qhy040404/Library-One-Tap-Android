@@ -3,11 +3,11 @@ package com.qhy040404.libraryonetap.constant
 import androidx.core.content.edit
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import okhttp3.MediaType.Companion.toMediaType
 import java.util.Locale
@@ -67,7 +67,13 @@ object GlobalValues {
 
     // App
     val version by resettableLazy(GlobalManager.lazyMgr) {
-        AppUtils.getResString(R.string.app_name) + " ${PackageUtils.buildType} v${PackageUtils.versionName} (${PackageUtils.versionCode})"
+        String.format(
+            "%s %s v%s (%d)",
+            R.string.app_name.getString(),
+            PackageUtils.buildType,
+            PackageUtils.versionName,
+            PackageUtils.versionCode
+        )
     }
     var newVersion: String? = null
     var latestApkName: String by SPDelegates(Constants.LATEST_APK_NAME, "")

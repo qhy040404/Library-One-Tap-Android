@@ -3,6 +3,8 @@ package com.qhy040404.libraryonetap
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.DialogFragment
 import coil.Coil
@@ -34,6 +36,7 @@ class LibraryOneTapApp : Application() {
     private val activityList = mutableListOf<Activity>()
     private val fragmentList = mutableListOf<DialogFragment>()
     private var delayTerminateJob: Job? = null
+    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate() {
         super.onCreate()
@@ -93,6 +96,11 @@ class LibraryOneTapApp : Application() {
                 }
             }
         })
+        handler.post {
+            while (true) {
+                Looper.loop()
+            }
+        }
     }
 
     fun addActivity(activity: Activity) {

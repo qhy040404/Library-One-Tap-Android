@@ -479,6 +479,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11@aar",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.github.qhy040404:datetime:1.2.3@aar",
           "type": "Library"
         },
@@ -977,6 +981,10 @@
         },
         {
           "name": "Gradle: com.drakeet.multitype:multitype:4.3.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11@aar",
           "type": "Library"
         },
         {
@@ -1490,6 +1498,10 @@
         },
         {
           "name": "Gradle: com.drakeet.multitype:multitype:4.3.0@aar",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11@aar",
           "type": "Library"
         },
         {

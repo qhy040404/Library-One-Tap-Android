@@ -12,9 +12,9 @@
 # Optimization is turned off by default. Dex does not like code run
 # through the ProGuard optimize and preverify steps (and performs some
 # of these optimizations on its own).
--dontoptimize
-# -optimizationpasses 5
-# -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
+# -dontoptimize
+-optimizationpasses 5
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
 -repackageclasses com.qhy040404.libraryonetap
 
 -dontpreverify
@@ -145,16 +145,7 @@
     public protected *;
 }
 
-# Rhino
--keep class org.mozilla.javascript.** { *; }
--dontwarn java.awt.**
--dontwarn java.beans.**
--dontwarn javax.lang.model.SourceVersion
--dontwarn javax.swing.**
--dontwarn kotlin.internal.jdk7.JDK7PlatformImplementations
-
 # LOTA
--keep public class com.qhy040404.libraryonetap.annotation.**{*;}
 -keep public class com.qhy040404.libraryonetap.base.**{*;}
 -keep public class com.qhy040404.libraryonetap.constant.GlobalManager{*;}
 -keep public class com.qhy040404.libraryonetap.data.**{*;}

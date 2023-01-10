@@ -12,7 +12,6 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.constant.enums.HttpProtocols
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
@@ -150,6 +149,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 return original
             }
         }
-        return WebVPNUtils.encryptUrl(original, HttpProtocols.HTTP)
+        return WebVPNUtils.encryptUrl(original)
     }
 }

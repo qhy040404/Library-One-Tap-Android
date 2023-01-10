@@ -2,9 +2,9 @@ package com.qhy040404.libraryonetap.utils.web
 
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.constant.enums.HttpProtocols
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AesEncryptUtils
+import java.util.Locale
 
 object WebVPNUtils {
     fun init() {
@@ -16,12 +16,15 @@ object WebVPNUtils {
         Requests.post(URLManager.WEBVPN_INIT_URL, apiPostData, GlobalValues.ctVCard)
     }
 
-    fun encryptUrl(url: String, protocol: HttpProtocols): String {
+    fun encryptUrl(url: String): String {
+        val protocol: HttpProtocols
         var port = ""
 
         var mUrl = if (url.startsWith("http://")) {
+            protocol = HttpProtocols.HTTP
             url.removePrefix("http://")
         } else if (url.startsWith("https://")) {
+            protocol = HttpProtocols.HTTPS
             url.removePrefix("https://")
         } else {
             throw IllegalArgumentException("Illegal url")
@@ -59,6 +62,14 @@ object WebVPNUtils {
             "${URLManager.WEBVPN_INSTITUTION_URL}/$protocol-$port/$mUrl"
         } else {
             "${URLManager.WEBVPN_INSTITUTION_URL}/$protocol/$mUrl"
+        }
+    }
+
+    enum class HttpProtocols {
+        HTTP, HTTPS;
+
+        override fun toString(): String {
+            return super.toString().lowercase(Locale.getDefault())
         }
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="simple_page_item_category_padding_horizontal">16dp</dimen>
-
     <dimen name="toast_radius">24dp</dimen>
 </resources>

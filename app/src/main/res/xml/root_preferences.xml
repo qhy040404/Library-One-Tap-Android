@@ -1,5 +1,4 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <PreferenceCategory
         app:key="basic"
         app:title="@string/st_basic_information">
@@ -95,5 +94,4 @@
             app:key="about"
             app:title="@string/about_title" />
     </PreferenceCategory>
-
 </PreferenceScreen>

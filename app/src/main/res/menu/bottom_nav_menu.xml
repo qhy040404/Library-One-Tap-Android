@@ -20,5 +20,4 @@
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_about"
         android:title="@string/settings_title" />
-
 </menu>

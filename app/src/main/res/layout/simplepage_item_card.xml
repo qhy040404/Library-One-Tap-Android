@@ -7,5 +7,4 @@
         android:id="@+id/simple_content"
         style="@style/SimplePage.CardContent"
         tools:text="content" />
-
 </RelativeLayout>

@@ -13,5 +13,4 @@
         style="@style/SimplePage.ContributorDesc"
         android:layout_below="@id/name"
         tools:text="Developer" />
-
 </RelativeLayout>

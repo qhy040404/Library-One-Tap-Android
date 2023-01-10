@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.utils
 
+import com.qhy040404.datetime.Datetime.Companion.toDatetime
+import java.time.Instant
 import java.util.Calendar
 
 object TimeUtils {
@@ -38,8 +40,9 @@ object TimeUtils {
     }
 
     private fun now(): IntArray {
-        val hour = calendar[Calendar.HOUR_OF_DAY]
-        val minute = calendar[Calendar.MINUTE]
+        val instant = Instant.now().toDatetime()
+        val hour = instant.hour
+        val minute = instant.minute
         return intArrayOf(hour, minute)
     }
 }

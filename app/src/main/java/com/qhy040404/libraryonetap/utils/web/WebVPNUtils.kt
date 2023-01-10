@@ -65,7 +65,7 @@ object WebVPNUtils {
         }
     }
 
-    enum class HttpProtocols {
+    private enum class HttpProtocols {
         HTTP, HTTPS;
 
         override fun toString(): String {

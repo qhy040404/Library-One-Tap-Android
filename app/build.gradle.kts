@@ -113,7 +113,6 @@ dependencies {
     implementation("me.zhanghai.android.appiconloader:appiconloader:1.5.0")
     implementation("me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("org.mozilla:rhino:1.7.14")
 
     // To unify version
     implementation("androidx.collection:collection-ktx:1.2.0")

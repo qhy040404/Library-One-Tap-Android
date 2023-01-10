@@ -16,7 +16,6 @@ import com.qhy040404.libraryonetap.constant.enums.HttpProtocols
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
@@ -38,7 +37,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         binding.bathText.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
-            AESEncryptUtils.init()
             bathReserve()
         }.also {
             it.start()
@@ -103,7 +101,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
-                AESEncryptUtils.init()
                 @Suppress("SpellCheckingInspection")
                 val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
 
@@ -153,6 +150,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 return original
             }
         }
-        return WebVPNUtils.encrypt(original, HttpProtocols.HTTP)
+        return WebVPNUtils.encryptUrl(original, HttpProtocols.HTTP)
     }
 }

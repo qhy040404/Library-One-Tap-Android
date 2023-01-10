@@ -5,9 +5,8 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.DialogFragment
-import com.qhy040404.libraryonetap.ui.interfaces.IFragment
 
-abstract class BaseDialogFragment : DialogFragment(), IFragment {
+abstract class BaseDialogFragment : DialogFragment() {
     private var onDismissListener: DialogInterface.OnDismissListener? = null
     private var onCancelListener: DialogInterface.OnCancelListener? = null
 
@@ -41,7 +40,5 @@ abstract class BaseDialogFragment : DialogFragment(), IFragment {
         super.onCancel(dialog)
     }
 
-    override fun finish() {
-        activity?.finish()
-    }
+    open fun onBackPressed() = false
 }

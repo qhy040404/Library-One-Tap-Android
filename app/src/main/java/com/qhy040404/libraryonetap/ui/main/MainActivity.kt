@@ -32,7 +32,6 @@ import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
 import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
-import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.CacheUtils
@@ -47,7 +46,6 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
-    INavViewContainer,
     IAppBarContainer {
     private val navViewBehavior by lazy { HideBottomViewOnScrollBehavior<BottomNavigationView>() }
 
@@ -162,22 +160,6 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntentFromShortcuts(intent)
-    }
-
-    override fun showNavigationView() {
-        navViewBehavior.slideUp(binding.navView)
-    }
-
-    override fun hideNavigationView() {
-        navViewBehavior.slideDown(binding.navView)
-    }
-
-    override fun showProgressBar() {
-        binding.progressHorizontal.show()
-    }
-
-    override fun hideProgressBar() {
-        binding.progressHorizontal.hide()
     }
 
     override fun scheduleAppbarLiftingStatus(isLifted: Boolean, from: String) {

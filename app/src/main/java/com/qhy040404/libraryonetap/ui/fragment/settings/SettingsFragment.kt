@@ -26,7 +26,6 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
-import com.qhy040404.libraryonetap.ui.interfaces.IListController
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
@@ -52,7 +51,7 @@ import java.io.File
 import java.util.Locale
 import kotlin.system.exitProcess
 
-class SettingsFragment : PreferenceFragmentCompat(), IListController {
+class SettingsFragment : PreferenceFragmentCompat() {
     private lateinit var borderViewDelegate: BorderViewDelegate
     private lateinit var prefRecyclerView: RecyclerView
 
@@ -325,11 +324,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         (activity as? IAppBarContainer)?.scheduleAppbarLiftingStatus(isLifted, from)
     }
 
-    override fun onReturnTop() {}
-
-    override fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate
-    override fun isAllowRefreshing(): Boolean = true
-    override fun getSuitableLayoutManager(): RecyclerView.LayoutManager? = null
+    private fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate
 
     private fun setCustomThemeVisibility(visible: Boolean) {
         findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !visible

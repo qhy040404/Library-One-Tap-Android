@@ -86,7 +86,7 @@
     <string name="ls_compulsory">Compulsory</string>
     <string name="ls_elective">Elective</string>
 
-    <!-- SETTING -->
+    <!-- SETTINGS -->
     <string name="st_basic_information">Basic information</string>
     <string name="st_name">Name</string>
     <string name="st_user_id">ID</string>

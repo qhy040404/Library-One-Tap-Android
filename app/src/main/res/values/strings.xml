@@ -86,7 +86,7 @@
     <string name="ls_compulsory">必修</string>
     <string name="ls_elective">选修</string>
 
-    <!-- SETTING -->
+    <!-- SETTINGS -->
     <string name="st_basic_information">基本信息</string>
     <string name="st_name">姓名</string>
     <string name="st_user_id">学号</string>

@@ -94,7 +94,7 @@ dependencies {
     implementation("com.drakeet.about:about:2.5.2")
     implementation("com.drakeet.multitype:multitype:4.3.0")
     implementation("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11")
-    implementation("com.github.qhy040404:datetime:1.2.3")
+    implementation("com.github.qhy040404:datetime:1.2.4")
     implementation("com.github.zhaobozhen.libraries:utils:1.1.3")
     implementation("com.google.android.material:material:1.7.0")
     implementation("com.jonathanfinerty.once:once:1.3.1")

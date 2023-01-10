@@ -54,49 +54,37 @@ object DownloadUtils {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    if (file.exists()) {
-                        file.delete()
-                    }
-                    file.createNewFile()
-                    runCatching {
-                        response.body?.let { body ->
-                            body.byteStream().source().buffer().use { source ->
-                                file.sink().buffer().use { output ->
-                                    output.writeAll(source)
-                                }
-                            }
-                        } ?: run {
-                            onDownloadListener?.get()?.onDownloadFailed()
-                        }
-                    }.onFailure {
-                        onDownloadListener?.get()?.onDownloadFailed()
-                    }
+                    saveFile(file, response)
                 }
             })
         } else {
             runCatching {
                 client.newCall(request).execute().use {
-                    if (file.exists()) {
-                        file.delete()
-                    }
-                    file.createNewFile()
-                    runCatching {
-                        it.body?.let { body ->
-                            body.byteStream().source().buffer().use { source ->
-                                file.sink().buffer().use { output ->
-                                    output.writeAll(source)
-                                }
-                            }
-                        } ?: run {
-                            onDownloadListener?.get()?.onDownloadFailed()
-                        }
-                    }.onFailure {
-                        onDownloadListener?.get()?.onDownloadFailed()
-                    }
+                    saveFile(file, it)
                 }
             }.onFailure {
                 onDownloadListener?.get()?.onDownloadFailed()
             }
+        }
+    }
+
+    private fun saveFile(file: File, response: Response) {
+        if (file.exists()) {
+            file.delete()
+        }
+        file.createNewFile()
+        runCatching {
+            response.body?.let { body ->
+                body.byteStream().source().buffer().use { source ->
+                    file.sink().buffer().use { output ->
+                        output.writeAll(source)
+                    }
+                }
+            } ?: run {
+                onDownloadListener?.get()?.onDownloadFailed()
+            }
+        }.onFailure {
+            onDownloadListener?.get()?.onDownloadFailed()
         }
     }
 
@@ -139,9 +127,10 @@ object DownloadUtils {
                     } else {
                         0
                     }
-                    onDownloadListener?.get()
-                        ?.onDownloading((totalBytesRead * 100 / responseBody.contentLength()).toInt(),
-                            bytesRead == -1L)
+                    onDownloadListener?.get()?.onDownloading(
+                        (totalBytesRead * 100 / responseBody.contentLength()).toInt(),
+                        bytesRead == -1L
+                    )
                     return bytesRead
                 }
             }

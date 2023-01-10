@@ -4,10 +4,8 @@ import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
-import android.text.SpannableStringBuilder
 import android.util.Log
 import androidx.annotation.StringRes
-import androidx.core.text.toSpannable
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
@@ -22,9 +20,6 @@ object AppUtils {
         "off" -> DayNightDelegate.MODE_NIGHT_NO
         else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
     }
-
-    fun setTitle(ctx: Context) =
-        SpannableStringBuilder(ctx.getString(R.string.app_name)).toSpannable()
 
     fun getThemeID(theme: String): Int {
         return when (theme) {

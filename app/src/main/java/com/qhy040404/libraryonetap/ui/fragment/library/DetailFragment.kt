@@ -80,7 +80,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             GlobalValues.ctSso,
             URLManager.LIBRARY_SESSION_URL,
             loading,
-            needCheck = true,
             hasSessionJson = true)
         GlobalValues.librarySessionReady = loginSuccess
 

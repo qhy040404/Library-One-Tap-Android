@@ -405,7 +405,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             Requests.loginSso(URLManager.EDU_LOGIN_SSO_URL,
                 GlobalValues.ctSso,
                 URLManager.EDU_CHECK_URL,
-                needCheck = true,
                 noJsonString = "person",
                 toolsInit = true)
             val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)

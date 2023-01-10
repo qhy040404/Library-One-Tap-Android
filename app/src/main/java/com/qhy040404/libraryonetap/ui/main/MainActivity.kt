@@ -35,10 +35,10 @@ import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
 import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
-import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +53,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
 
     override fun init() {
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = AppUtils.setTitle(this)
+        supportActionBar?.title = R.string.app_name.getString()
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
         }

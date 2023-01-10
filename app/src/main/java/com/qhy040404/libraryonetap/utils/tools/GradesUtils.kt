@@ -5,6 +5,7 @@ import com.absinthe.libraries.utils.extensions.getStringArray
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.enums.GPAAlgorithm
 import com.qhy040404.libraryonetap.constant.enums.Parentheses
 import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
@@ -32,23 +33,23 @@ object GradesUtils {
     ): String {
         return when (GlobalValues.gpOption) {
             Constants.GPA_DLUT -> {
-                GPAUtils.calculateGPAByDlut(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_STANDARD5 -> {
-                GPAUtils.calculateGPAByStandard5(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.STD5)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_STANDARD4 -> {
-                GPAUtils.calculateGPAByStandard4(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.STD4)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_PEKING4 -> {
-                GPAUtils.calculateGPAByPeking4(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.PK4)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             else -> {
-                GPAUtils.calculateGPAByDlut(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
         }

@@ -1,6 +1,7 @@
 package com.qhy040404.libraryonetap.utils
 
 import com.qhy040404.libraryonetap.LibraryOneTapApp
+import java.io.File
 import java.text.DecimalFormat
 
 object CacheUtils {
@@ -28,36 +29,14 @@ object CacheUtils {
     }
 
     fun trimCaches() {
-        trimCache()
-        trimCodeCache()
-        trimExternalCache()
+        trimCache(cache)
+        trimCache(codeCache)
+        trimCache(externalCache)
     }
 
-    private fun trimCache() = runCatching {
-        if (cache != null && cache.isDirectory && cache.listFiles()!!.isNotEmpty()) {
-            FileUtils.delete(cache)
-        } else {
-            false
+    private fun trimCache(file: File?) = runCatching {
+        if (file != null && file.isDirectory && file.listFiles()!!.isNotEmpty()) {
+            FileUtils.delete(file)
         }
-    }.getOrDefault(false)
-
-    private fun trimCodeCache() = runCatching {
-        if (codeCache != null && codeCache.isDirectory && codeCache.listFiles()!!
-                .isNotEmpty()
-        ) {
-            FileUtils.delete(codeCache)
-        } else {
-            false
-        }
-    }.getOrDefault(false)
-
-    private fun trimExternalCache() = runCatching {
-        if (externalCache != null && externalCache.isDirectory && externalCache.listFiles()!!
-                .isNotEmpty()
-        ) {
-            FileUtils.delete(externalCache)
-        } else {
-            false
-        }
-    }.getOrDefault(false)
+    }
 }

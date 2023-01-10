@@ -22,31 +22,8 @@ class NotificationUtils(
     private val notificationIdNext = notificationId + 1
     private val notificationManager =
         ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-    private val builder = NotificationCompat.Builder(ctx, channelId)
-        .setContentTitle(R.string.app_name.getString())
-        .setSmallIcon(R.drawable.ic_about_foreground)
-        .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
-        .setPriority(NotificationCompat.PRIORITY_LOW)
-        .setProgress(0, 0, true)
-        .setSilent(true)
-        .setOngoing(false)
-        .setAutoCancel(false).apply {
-            if (!OsUtils.atLeastS()) {
-                color = ctx.getColor(R.color.colorPrimary)
-            }
-        }
-    private val builderFinished = NotificationCompat.Builder(ctx, channelId)
-        .setContentTitle(R.string.app_name.getString())
-        .setSmallIcon(R.drawable.ic_about_foreground)
-        .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
-        .setPriority(NotificationCompat.PRIORITY_LOW)
-        .setSilent(true)
-        .setOngoing(false)
-        .setAutoCancel(false).apply {
-            if (!OsUtils.atLeastS()) {
-                color = ctx.getColor(R.color.colorPrimary)
-            }
-        }
+    private val builder = initBuilder().setProgress(0, 0, true)
+    private val builderFinished = initBuilder()
 
     init {
         notificationPermission = checkPermission()
@@ -89,6 +66,19 @@ class NotificationUtils(
             notify(notificationIdNext, builderFinished.build())
         }
     }
+
+    private fun initBuilder() = NotificationCompat.Builder(ctx, channelId)
+        .setContentTitle(R.string.app_name.getString())
+        .setSmallIcon(R.drawable.ic_about_foreground)
+        .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
+        .setPriority(NotificationCompat.PRIORITY_LOW)
+        .setSilent(true)
+        .setOngoing(false)
+        .setAutoCancel(false).apply {
+            if (!OsUtils.atLeastS()) {
+                color = ctx.getColor(R.color.colorPrimary)
+            }
+        }
 
     private fun checkPermission(): Boolean {
         return if (OsUtils.atLeastT()) {

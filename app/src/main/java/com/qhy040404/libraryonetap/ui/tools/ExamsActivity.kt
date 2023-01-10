@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.ProgressBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.datetime.Datetime
-import com.qhy040404.datetime.Datetime.Companion.toDateTime
+import com.qhy040404.datetime.Datetime.Companion.toDatetime
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -252,8 +252,8 @@ class ExamsActivity : SimplePageActivity() {
                         Exam(
                             course.optJSONObject("course")!!.optString("nameZh"),
                             time,
-                            "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
-                            "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
+                            "${datetime[0]} ${datetime[1].substringBefore("~")}".toDatetime(),
+                            "${datetime[0]} ${datetime[1].substringAfter("~")}".toDatetime(),
                             if (!course.isNull("examPlace")) {
                                 course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                     .optString("nameZh")
@@ -275,8 +275,8 @@ class ExamsActivity : SimplePageActivity() {
                                 course.optJSONObject("course")!!
                                     .optString("nameZh") + R.string.ex_minor.getString(),
                                 time,
-                                "${datetime[0]} ${datetime[1].substringBefore("~")}".toDateTime(),
-                                "${datetime[0]} ${datetime[1].substringAfter("~")}".toDateTime(),
+                                "${datetime[0]} ${datetime[1].substringBefore("~")}".toDatetime(),
+                                "${datetime[0]} ${datetime[1].substringAfter("~")}".toDatetime(),
                                 if (!course.isNull("examPlace")) {
                                     course.optJSONObject("examPlace")!!.optJSONObject("room")!!
                                         .optString("nameZh")

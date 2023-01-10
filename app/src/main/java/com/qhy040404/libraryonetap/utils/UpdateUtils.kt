@@ -57,7 +57,7 @@ object UpdateUtils {
             .build()
         val latestOrig = try {
             client.newCall(request).execute().body!!.string()
-        } catch (socket: SocketTimeoutException) {
+        } catch (s: SocketTimeoutException) {
             ctx.showToast(R.string.glb_net_timeout)
             return
         } catch (_: Exception) {
@@ -152,8 +152,10 @@ object UpdateUtils {
                     }
                     val notification = NotificationUtils(ctx, "update", "Update")
                     ctx.showToast(R.string.glb_download_start)
-                    notification.showNotification("$versionName ${R.string.glb_downloading.getString()}",
-                        true)
+                    notification.showNotification(
+                        "$versionName ${R.string.glb_downloading.getString()}",
+                        true
+                    )
                     thread {
                         StrictMode.setThreadPolicy(
                             StrictMode.ThreadPolicy.Builder().permitAll().build()

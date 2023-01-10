@@ -74,18 +74,17 @@ object Requests {
                 toolsClient
             } else {
                 client
-            }).newCall(request)
-                .execute().use { response ->
-                    if (getUrl) {
-                        return response.request.url.toString()
-                    }
-                    return response.body!!.string()
+            }).newCall(request).execute().use { response ->
+                if (getUrl) {
+                    return response.request.url.toString()
                 }
-        } catch (socket: SocketTimeoutException) {
+                return response.body!!.string()
+            }
+        } catch (s: SocketTimeoutException) {
             textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
-        } catch (host: UnknownHostException) {
+        } catch (h: UnknownHostException) {
             textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netError = true
             return Constants.NET_ERROR
@@ -105,11 +104,12 @@ object Requests {
             .get()
             .build()
         try {
-            client.newCall(request).execute()
-                .use { response -> return response.body!!.string() }
-        } catch (socket: SocketTimeoutException) {
+            client.newCall(request).execute().use { response ->
+                return response.body!!.string()
+            }
+        } catch (s: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
-        } catch (host: UnknownHostException) {
+        } catch (h: UnknownHostException) {
             return Constants.NET_ERROR
         } catch (e: Exception) {
             return Constants.STRING_NULL
@@ -139,18 +139,17 @@ object Requests {
                 toolsClient
             } else {
                 client
-            }).newCall(request)
-                .execute().use { response ->
-                    if (getUrl) {
-                        return response.request.url.toString()
-                    }
-                    return response.body!!.string()
+            }).newCall(request).execute().use { response ->
+                if (getUrl) {
+                    return response.request.url.toString()
                 }
-        } catch (socket: SocketTimeoutException) {
+                return response.body!!.string()
+            }
+        } catch (s: SocketTimeoutException) {
             textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
-        } catch (host: UnknownHostException) {
+        } catch (h: UnknownHostException) {
             textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netError = true
             return Constants.NET_ERROR
@@ -171,11 +170,12 @@ object Requests {
             .post(body)
             .build()
         try {
-            client.newCall(request).execute()
-                .use { response -> return response.body!!.string() }
-        } catch (socket: SocketTimeoutException) {
+            client.newCall(request).execute().use { response ->
+                return response.body!!.string()
+            }
+        } catch (s: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
-        } catch (host: UnknownHostException) {
+        } catch (h: UnknownHostException) {
             return Constants.NET_ERROR
         } catch (e: Exception) {
             return Constants.STRING_NULL
@@ -187,7 +187,6 @@ object Requests {
         mt: MediaType,
         session: String? = null,
         progressBar: ProgressBar? = null,
-        needCheck: Boolean = false,
         noJsonString: String = "统一身份",
         hasSessionJson: Boolean = false,
         toolsInit: Boolean = false,
@@ -222,9 +221,9 @@ object Requests {
                 )
             }
 
-            if (needCheck) {
+            if (session != null) {
                 if (hasSessionJson) {
-                    val sessionCheck = post(session!!, "", mt, toolsInit = toolsInit)
+                    val sessionCheck = post(session, "", mt, toolsInit = toolsInit)
                     if (SessionData.isSuccess(sessionCheck)) {
                         progressBar?.post { progressBar.visibility = View.INVISIBLE }
                         loginSuccess = true
@@ -233,7 +232,7 @@ object Requests {
                         timer++
                     }
                 } else {
-                    val sessionCheck = get(session!!, toolsInit = toolsInit)
+                    val sessionCheck = get(session, toolsInit = toolsInit)
                     if (!sessionCheck.contains(noJsonString)) {
                         loginSuccess = true
                         break
@@ -272,7 +271,6 @@ object Requests {
         loginSso(URLManager.PORTAL_SSO_URL,
             GlobalValues.ctSso,
             URLManager.PORTAL_SSO_URL,
-            needCheck = true,
             syncToGlobalValues = true)
     }
 }

@@ -45,7 +45,7 @@ android {
             isCrunchPngs = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro")
-            ndk.abiFilters.add("arm64-v8a")
+            ndk.abiFilters.add("")
             packagingOptions.resources.excludes += setOf(
                 "DebugProbesKt.bin",
                 "META-INF/*.version"

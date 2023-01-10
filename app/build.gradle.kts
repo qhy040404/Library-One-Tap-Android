@@ -116,6 +116,14 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.mozilla:rhino:1.7.14")
 
+    // To unify version
+    implementation("androidx.collection:collection-ktx:1.2.0")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-process:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-service:2.5.1")
+    implementation("androidx.transition:transition:1.4.1")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
+
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
 
     testImplementation("junit:junit:4.13.2")

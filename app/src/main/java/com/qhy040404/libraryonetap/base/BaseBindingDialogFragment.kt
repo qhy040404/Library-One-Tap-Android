@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
-import com.qhy040404.libraryonetap.ui.interfaces.IBindingFragment
+import androidx.viewbinding.ViewBinding
 import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
 
-abstract class BaseBindingDialogFragment<VB : ViewDataBinding> : BaseDialogFragment(),
-    IBindingFragment<VB> {
+abstract class BaseBindingDialogFragment<VB : ViewBinding> : BaseDialogFragment(), IBinding<VB> {
     override lateinit var binding: VB
+
+    abstract fun initOnce()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,13 +24,8 @@ abstract class BaseBindingDialogFragment<VB : ViewDataBinding> : BaseDialogFragm
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
+    ): View? {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.lifecycleOwner = viewLifecycleOwner
     }
 }

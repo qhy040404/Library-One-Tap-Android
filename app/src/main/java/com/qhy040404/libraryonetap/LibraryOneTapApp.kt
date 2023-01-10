@@ -9,11 +9,11 @@ import android.util.Log
 import androidx.fragment.app.DialogFragment
 import coil.Coil
 import coil.ImageLoader
+import com.absinthe.libraries.utils.extensions.dp
 import com.absinthe.libraries.utils.utils.Utility
 import com.google.android.material.color.DynamicColors
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.dp
 import com.qhy040404.libraryonetap.utils.status.AppStatusHelper
 import com.qhy040404.libraryonetap.utils.status.OnAppStatusListener
 import com.qhy040404.libraryonetap.utils.web.Requests

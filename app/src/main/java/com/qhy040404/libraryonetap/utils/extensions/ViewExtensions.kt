@@ -4,7 +4,6 @@ import android.animation.Animator
 import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
@@ -15,11 +14,6 @@ import com.qhy040404.libraryonetap.utils.QRUtils
 
 @Suppress("unused")
 object ViewExtensions {
-    /**
-     * Get dp length according to density
-     */
-    val Number.dp: Int get() = (toInt() * Resources.getSystem().displayMetrics.density).toInt()
-
     fun ViewPager2.setCurrentItem(
         item: Int,
         duration: Long,

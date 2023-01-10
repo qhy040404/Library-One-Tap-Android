@@ -23,7 +23,6 @@ android {
 
         resourceConfigurations.addAll(
             setOf(
-                "zh",
                 "en",
                 "zh-rCN"
             )

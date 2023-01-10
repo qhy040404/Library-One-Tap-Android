@@ -167,7 +167,7 @@
 
     <string name="stp_notification_permission_prompt">We need notification permissions to show the download progress.</string>
 
-    <!-- ARRAY -->
+    <!-- ARRAYS -->
     <!-- TOOLS -->
     <string-array name="gp">
         <item>DLUT algorithm</item>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SETTING -->
+    <string name="st_md3" translatable="false">Material Design 3</string>
+
+    <!-- UNIT -->
+    <string name="gigabyte" translatable="false">" GB"</string>
+
+    <!-- ABOUT -->
+    <string name="about_slogan" translatable="false">Library One Tap</string>
+
+    <!-- ARRAYS -->
+    <!-- TOOLS -->
+    <string-array name="gp_values" translatable="false">
+        <item>dlut</item>
+        <item>std5</item>
+        <item>std4</item>
+        <item>peking4</item>
+    </string-array>
+
+    <!-- SETTINGS -->
+    <string-array name="themes_value" translatable="false">
+        <item>random</item>
+        <item>library</item>
+        <item>blue</item>
+        <item>pink</item>
+        <item>green</item>
+        <item>orange</item>
+        <item>red</item>
+        <item>purple</item>
+        <item>simple</item>
+    </string-array>
+
+    <string-array name="dark_mode_value" translatable="false">
+        <item>system</item>
+        <item>on</item>
+        <item>off</item>
+    </string-array>
+
+    <string-array name="language_value" translatable="false">
+        <item>system</item>
+        <item>zh-CN</item>
+        <item>en-US</item>
+    </string-array>
+
+    <!-- DETAIL FRAGMENT -->
+    <string-array name="LXArray" translatable="false">
+        <item>@string/df_random</item>
+        <item>301</item>
+        <item>302</item>
+        <item>401</item>
+        <item>402</item>
+        <item>501</item>
+        <item>502</item>
+        <item>601</item>
+        <item>602</item>
+    </string-array>
+
+    <string-array name="BCArray" translatable="false">
+        <item>@string/df_random</item>
+        <item>301</item>
+        <item>312</item>
+        <item>401</item>
+        <item>404</item>
+        <item>409</item>
+        <item>501</item>
+        <item>504</item>
+        <item>507</item>
+    </string-array>
+</resources>

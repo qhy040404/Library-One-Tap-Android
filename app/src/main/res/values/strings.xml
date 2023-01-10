@@ -95,7 +95,6 @@
     <string name="st_general">通用</string>
     <string name="st_dark_mode">深色模式</string>
     <string name="st_main_theme">主题</string>
-    <string name="st_md3" translatable="false">Material Design 3</string>
     <string name="st_language">语言</string>
     <string name="st_reset_data">重置应用数据</string>
     <string name="st_other">其他</string>
@@ -142,7 +141,6 @@
     <!-- UNIT -->
     <string name="rmb">" 元"</string>
     <string name="degree">" 度"</string>
-    <string name="gigabyte" translatable="false">" GB"</string>
     <string name="hours">" 小时"</string>
 
     <!-- TOOLS PROMPT -->
@@ -169,9 +167,6 @@
 
     <string name="stp_notification_permission_prompt">我们需要通知权限来显示下载进度</string>
 
-    <!-- ABOUT -->
-    <string name="about_slogan" translatable="false">Library One Tap</string>
-
     <!-- ARRAYS -->
     <!-- TOOLS -->
     <string-array name="gp">
@@ -179,13 +174,6 @@
         <item>标准5分</item>
         <item>标准4分</item>
         <item>北大4分</item>
-    </string-array>
-
-    <string-array name="gp_values" translatable="false">
-        <item>dlut</item>
-        <item>std5</item>
-        <item>std4</item>
-        <item>peking4</item>
     </string-array>
 
     <!-- SETTINGS -->
@@ -201,40 +189,16 @@
         <item>简约风</item>
     </string-array>
 
-    <string-array name="themes_value" translatable="false">
-        <item>random</item>
-        <item>library</item>
-        <item>blue</item>
-        <item>pink</item>
-        <item>green</item>
-        <item>orange</item>
-        <item>red</item>
-        <item>purple</item>
-        <item>simple</item>
-    </string-array>
-
     <string-array name="dark_mode">
         <item>跟随系统</item>
         <item>开启</item>
         <item>关闭</item>
     </string-array>
 
-    <string-array name="dark_mode_value" translatable="false">
-        <item>system</item>
-        <item>on</item>
-        <item>off</item>
-    </string-array>
-
     <string-array name="language_name">
         <item>跟随系统</item>
         <item>简体中文</item>
         <item>English</item>
-    </string-array>
-
-    <string-array name="language_value" translatable="false">
-        <item>system</item>
-        <item>zh-CN</item>
-        <item>en-US</item>
     </string-array>
 
     <!-- BATH RESERVE -->
@@ -250,29 +214,5 @@
     <string-array name="area_array">
         <item>令希</item>
         <item>伯川</item>
-    </string-array>
-
-    <string-array name="LXArray" translatable="false">
-        <item>@string/df_random</item>
-        <item>301</item>
-        <item>302</item>
-        <item>401</item>
-        <item>402</item>
-        <item>501</item>
-        <item>502</item>
-        <item>601</item>
-        <item>602</item>
-    </string-array>
-
-    <string-array name="BCArray" translatable="false">
-        <item>@string/df_random</item>
-        <item>301</item>
-        <item>312</item>
-        <item>401</item>
-        <item>404</item>
-        <item>409</item>
-        <item>501</item>
-        <item>504</item>
-        <item>507</item>
     </string-array>
 </resources>

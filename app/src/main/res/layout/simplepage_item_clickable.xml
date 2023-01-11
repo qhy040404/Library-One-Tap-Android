@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/SimplePage.Item.Clickable">
+  xmlns:tools="http://schemas.android.com/tools"
+  style="@style/SimplePage.Item.Clickable">
 
-    <TextView
-        android:id="@+id/name"
-        style="@style/SimplePage.ContributorName"
-        tools:text="qhy040404" />
+  <TextView
+    android:id="@+id/name"
+    style="@style/SimplePage.ContributorName"
+    tools:text="qhy040404" />
 
-    <TextView
-        android:id="@+id/desc"
-        style="@style/SimplePage.ContributorDesc"
-        android:layout_below="@id/name"
-        tools:text="Developer" />
+  <TextView
+    android:id="@+id/desc"
+    style="@style/SimplePage.ContributorDesc"
+    android:layout_below="@id/name"
+    tools:text="Developer" />
 </RelativeLayout>

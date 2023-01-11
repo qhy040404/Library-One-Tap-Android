@@ -1,191 +1,191 @@
 <resources>
-    <!-- Default application theme. ( Main ) -->
-    <style name="Theme.Main" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/library_500</item>
-        <item name="colorPrimaryVariant">@color/library_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Default application theme. ( Main ) -->
+  <style name="Theme.Main" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/library_500</item>
+    <item name="colorPrimaryVariant">@color/library_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/library_500</item>
-        <item name="colorSecondaryVariant">@color/library_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/library_500</item>
+    <item name="colorSecondaryVariant">@color/library_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/library_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/library_500</item>
+  </style>
 
-    <style name="Theme.Main.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Main.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Main.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Main.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Main.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Main.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Purple application theme. -->
-    <style name="Theme.Purple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Purple application theme. -->
+  <style name="Theme.Purple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/purple_500</item>
+    <item name="colorPrimaryVariant">@color/purple_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/purple_500</item>
-        <item name="colorSecondaryVariant">@color/purple_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/purple_500</item>
+    <item name="colorSecondaryVariant">@color/purple_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/purple_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/purple_500</item>
+  </style>
 
-    <style name="Theme.Purple.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Purple.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Purple.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Purple.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Purple.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Purple.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Blue application theme. -->
-    <style name="Theme.Blue" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/blue_500</item>
-        <item name="colorPrimaryVariant">@color/blue_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Blue application theme. -->
+  <style name="Theme.Blue" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/blue_500</item>
+    <item name="colorPrimaryVariant">@color/blue_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/blue_500</item>
-        <item name="colorSecondaryVariant">@color/blue_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/blue_500</item>
+    <item name="colorSecondaryVariant">@color/blue_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/blue_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/blue_500</item>
+  </style>
 
-    <style name="Theme.Blue.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Blue.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Blue.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Blue.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Blue.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Blue.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Pink application theme. -->
-    <style name="Theme.Pink" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/pink_500</item>
-        <item name="colorPrimaryVariant">@color/pink_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Pink application theme. -->
+  <style name="Theme.Pink" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/pink_500</item>
+    <item name="colorPrimaryVariant">@color/pink_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/pink_500</item>
-        <item name="colorSecondaryVariant">@color/pink_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/pink_500</item>
+    <item name="colorSecondaryVariant">@color/pink_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/pink_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/pink_500</item>
+  </style>
 
-    <style name="Theme.Pink.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Pink.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Pink.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Pink.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Pink.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Pink.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Green application theme. -->
-    <style name="Theme.Green" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/green_500</item>
-        <item name="colorPrimaryVariant">@color/green_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Green application theme. -->
+  <style name="Theme.Green" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/green_500</item>
+    <item name="colorPrimaryVariant">@color/green_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/green_500</item>
-        <item name="colorSecondaryVariant">@color/green_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/green_500</item>
+    <item name="colorSecondaryVariant">@color/green_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/green_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/green_500</item>
+  </style>
 
-    <style name="Theme.Green.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Green.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Green.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Green.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Green.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Green.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Orange application theme. -->
-    <style name="Theme.Orange" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/orange_500</item>
-        <item name="colorPrimaryVariant">@color/orange_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Orange application theme. -->
+  <style name="Theme.Orange" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/orange_500</item>
+    <item name="colorPrimaryVariant">@color/orange_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/orange_500</item>
-        <item name="colorSecondaryVariant">@color/orange_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/orange_500</item>
+    <item name="colorSecondaryVariant">@color/orange_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/orange_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/orange_500</item>
+  </style>
 
-    <style name="Theme.Orange.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Orange.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Orange.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Orange.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Orange.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Orange.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Red application theme. -->
-    <style name="Theme.Red" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/red_500</item>
-        <item name="colorPrimaryVariant">@color/red_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Red application theme. -->
+  <style name="Theme.Red" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/red_500</item>
+    <item name="colorPrimaryVariant">@color/red_700</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/red_500</item>
-        <item name="colorSecondaryVariant">@color/red_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <item name="colorSecondary">@color/red_500</item>
+    <item name="colorSecondaryVariant">@color/red_700</item>
+    <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:statusBarColor">@color/red_500</item>
-    </style>
+    <item name="android:statusBarColor">@color/red_500</item>
+  </style>
 
-    <style name="Theme.Red.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Red.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Red.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Red.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Red.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Red.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!-- Simple application theme. -->
-    <style name="Theme.Simple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/black</item>
-        <item name="colorOnPrimary">@color/white</item>
+  <!-- Simple application theme. -->
+  <style name="Theme.Simple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <item name="colorPrimary">@color/black</item>
+    <item name="colorPrimaryVariant">@color/black</item>
+    <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorSecondary">@color/black</item>
-        <item name="colorSecondaryVariant">@color/black</item>
-        <item name="colorOnSecondary">@color/white</item>
+    <item name="colorSecondary">@color/black</item>
+    <item name="colorSecondaryVariant">@color/black</item>
+    <item name="colorOnSecondary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/black</item>
-    </style>
+    <item name="android:statusBarColor">@color/black</item>
+  </style>
 
-    <style name="Theme.Simple.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
+  <style name="Theme.Simple.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+  </style>
 
-    <style name="Theme.Simple.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style name="Theme.Simple.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Simple.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="Theme.Simple.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">
-        <!--此属性控制悬浮窗背景是否变暗-->
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
+  <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">
+    <!--此属性控制悬浮窗背景是否变暗-->
+    <item name="android:backgroundDimEnabled">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+  </style>
 </resources>

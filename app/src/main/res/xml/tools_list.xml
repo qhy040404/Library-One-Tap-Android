@@ -1,47 +1,47 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-    <Preference
-        app:icon="@drawable/ic_bath"
-        app:key="bath"
-        app:title="@string/tl_bath" />
+  <Preference
+    app:icon="@drawable/ic_bath"
+    app:key="bath"
+    app:title="@string/tl_bath" />
 
-    <Preference
-        app:icon="@drawable/ic_language"
-        app:key="net"
-        app:title="@string/tl_cernet" />
+  <Preference
+    app:icon="@drawable/ic_language"
+    app:key="net"
+    app:title="@string/tl_cernet" />
 
-    <Preference
-        app:icon="@drawable/ic_elec"
-        app:key="electric"
-        app:title="@string/tl_electric" />
+  <Preference
+    app:icon="@drawable/ic_elec"
+    app:key="electric"
+    app:title="@string/tl_electric" />
 
-    <Preference
-        app:icon="@drawable/ic_card"
-        app:key="vcard"
-        app:title="@string/tl_vcard" />
+  <Preference
+    app:icon="@drawable/ic_card"
+    app:key="vcard"
+    app:title="@string/tl_vcard" />
 
-    <Preference
-        app:icon="@drawable/ic_volunteer"
-        app:key="volunteer"
-        app:title="@string/tl_volunteer" />
+  <Preference
+    app:icon="@drawable/ic_volunteer"
+    app:key="volunteer"
+    app:title="@string/tl_volunteer" />
 
-    <Preference
-        app:icon="@drawable/ic_grades"
-        app:key="major"
-        app:title="@string/grade_major_title" />
+  <Preference
+    app:icon="@drawable/ic_grades"
+    app:key="major"
+    app:title="@string/grade_major_title" />
 
-    <Preference
-        app:icon="@drawable/ic_grades"
-        app:isPreferenceVisible="false"
-        app:key="minor"
-        app:title="@string/grade_minor_title" />
+  <Preference
+    app:icon="@drawable/ic_grades"
+    app:isPreferenceVisible="false"
+    app:key="minor"
+    app:title="@string/grade_minor_title" />
 
-    <Preference
-        app:icon="@drawable/ic_lessons"
-        app:key="lessons"
-        app:title="@string/lessons_title" />
+  <Preference
+    app:icon="@drawable/ic_lessons"
+    app:key="lessons"
+    app:title="@string/lessons_title" />
 
-    <Preference
-        app:icon="@drawable/ic_exams"
-        app:key="exams"
-        app:title="@string/exams_title" />
+  <Preference
+    app:icon="@drawable/ic_exams"
+    app:key="exams"
+    app:title="@string/exams_title" />
 </PreferenceScreen>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_qr"
-        android:icon="@drawable/ic_single"
-        android:title="@string/mn_detail" />
+  <item
+    android:id="@+id/navigation_qr"
+    android:icon="@drawable/ic_single"
+    android:title="@string/mn_detail" />
 
-    <item
-        android:id="@+id/navigation_yxj"
-        android:icon="@drawable/ic_multi"
-        android:title="@string/mn_yanxiujian" />
+  <item
+    android:id="@+id/navigation_yxj"
+    android:icon="@drawable/ic_multi"
+    android:title="@string/mn_yanxiujian" />
 
-    <item
-        android:id="@+id/navigation_tools"
-        android:icon="@drawable/ic_tools"
-        android:title="@string/mn_tools" />
+  <item
+    android:id="@+id/navigation_tools"
+    android:icon="@drawable/ic_tools"
+    android:title="@string/mn_tools" />
 
-    <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_about"
-        android:title="@string/settings_title" />
+  <item
+    android:id="@+id/navigation_settings"
+    android:icon="@drawable/ic_about"
+    android:title="@string/settings_title" />
 </menu>

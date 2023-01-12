@@ -36,7 +36,6 @@ class LibraryOneTapApp : Application() {
     private val activityList = mutableListOf<Activity>()
     private val fragmentList = mutableListOf<DialogFragment>()
     private var delayTerminateJob: Job? = null
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate() {
         super.onCreate()
@@ -96,7 +95,7 @@ class LibraryOneTapApp : Application() {
                 }
             }
         })
-        handler.post {
+        Handler(Looper.getMainLooper()).post {
             while (true) {
                 Looper.loop()
             }

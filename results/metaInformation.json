@@ -7,12 +7,12 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/qhy040404/Library-One-Tap-Android",
-        "revisionId": "85ef627526626cb3e41cd348d1818c0b87f88b2b",
+        "revisionId": "6701cb2427c41309815a60f1b51fa51f458d26e0",
         "branch": "master"
       }
     },
     "deviceId": "200820300000000-45b7-a839-3b54-d1d3dcbd2726",
-    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/3873533256",
+    "jobUrl": "https://github.com/qhy040404/Library-One-Tap-Android/actions/runs/3904684237",
     "repoUrl": "https://github.com/qhy040404/Library-One-Tap-Android"
   }
 }

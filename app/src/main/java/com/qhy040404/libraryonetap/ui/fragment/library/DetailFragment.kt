@@ -8,7 +8,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.constant.enums.OrderModes
@@ -22,6 +21,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -84,10 +84,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         GlobalValues.librarySessionReady = loginSuccess
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
-        OrderListData.mClass =
-            runCatching {
-                moshi.adapter(OrderListDTO::class.java).fromJson(list.trim())
-            }.getOrNull()
+        OrderListData.mClass = runCatching {
+            list.decode<OrderListDTO>()
+        }.getOrNull()
         val total = OrderListData.getTotal()
         if (total != "0") {
             val space_name = OrderListData.getSpace_name(OrderModes.DETAIL)

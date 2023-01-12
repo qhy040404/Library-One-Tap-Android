@@ -11,12 +11,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -154,9 +154,10 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             )
             while (isActivityVisible) {
                 Thread.sleep(3000L)
-                val statusOrig =
-                    Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
-                val status = moshi.adapter(VCardStatusDTO::class.java).fromJson(statusOrig)!!
+                val status =
+                    Requests
+                        .getVCard(URLManager.getVCardCheckUrl(openid, payCode))
+                        .decode<VCardStatusDTO>()!!
                 if (status.resultData.status != "5" && isActivityVisible) {
                     runOnUiThread {
                         refresh.performClick()

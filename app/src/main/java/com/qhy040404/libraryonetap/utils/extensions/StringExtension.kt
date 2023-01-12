@@ -1,6 +1,7 @@
 package com.qhy040404.libraryonetap.utils.extensions
 
 import com.qhy040404.libraryonetap.constant.Constants
+import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.enums.Parentheses
 
 @Suppress("unused")
@@ -89,5 +90,14 @@ object StringExtension {
      */
     fun String.surroundingWith(prefix: String, suffix: String): Boolean {
         return this.startsWith(prefix) && this.endsWith(suffix)
+    }
+
+    /**
+     * Returns data class from original string
+     *
+     * @param T Data class
+     */
+    inline fun <reified T> String.decode(): T? {
+        return moshi.adapter(T::class.java).fromJson(this.trim())
     }
 }

@@ -15,7 +15,7 @@ import com.qhy040404.libraryonetap.data.CancelData
 import com.qhy040404.libraryonetap.data.OrderListDTO
 import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.data.ReserveData
-import com.qhy040404.libraryonetap.databinding.FragmentDetailBinding
+import com.qhy040404.libraryonetap.databinding.FragmentSingleBinding
 import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
@@ -35,7 +35,7 @@ import okhttp3.Response
 import java.io.IOException
 
 @Suppress("LocalVariableName")
-class DetailFragment : BaseFragment<FragmentDetailBinding>() {
+class SingleFragment : BaseFragment<FragmentSingleBinding>() {
     override fun init() {
         binding.detailDetail.visibility = View.VISIBLE
         binding.detailRefresh.setOnClickListener {

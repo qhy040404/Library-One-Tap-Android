@@ -27,7 +27,7 @@ import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
-import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
+import com.qhy040404.libraryonetap.ui.fragment.library.SingleFragment
 import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
 import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
@@ -90,7 +90,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
 
                     override fun createFragment(position: Int): Fragment {
                         return when (position) {
-                            0 -> DetailFragment()
+                            0 -> SingleFragment()
                             1 -> YanxiujianFragment()
                             2 -> ToolsInitFragment()
                             else -> SettingsFragment()

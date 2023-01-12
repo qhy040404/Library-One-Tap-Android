@@ -34,10 +34,6 @@ object UpdateUtils {
     private var dialog: WeakReference<AlertDialog>? = null
 
     suspend fun checkUpdate(ctx: Context, fromSettings: Boolean = false) {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
-
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
                 ctx.showToast(R.string.glb_net_disconnected)
@@ -236,9 +232,6 @@ object UpdateUtils {
     }
 
     private fun checkConnection(): Boolean {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
         return when (Requests.get(URLManager.GITHUB_REPO)) {
             Constants.NET_TIMEOUT -> false
             Constants.NET_ERROR -> false

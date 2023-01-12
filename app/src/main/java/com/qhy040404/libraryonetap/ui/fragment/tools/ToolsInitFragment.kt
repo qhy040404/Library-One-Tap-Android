@@ -26,6 +26,7 @@ import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -45,9 +46,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
-            /*if (!BathUtils.isBathTimeValid()) {
+            if (!BathUtils.isBathTimeValid()) {
                 isVisible = false
-            }*/
+            }
             setOnPreferenceClickListener {
                 if (AppUtils.checkDataAndDialog(requireContext(),
                         GlobalValues.id,
@@ -187,7 +188,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
     override fun onResume() {
         super.onResume()
-        /*if (BathUtils.isTimeNearValidTime()) {
+        if (BathUtils.isTimeNearValidTime()) {
             lifecycleScope.launch(Dispatchers.IO) {
                 val current = BathUtils.isBathTimeValid()
                 while (isVisible) {
@@ -200,7 +201,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     }
                 }
             }
-        }*/
+        }
         if (!GlobalValues.minorVisible && GlobalValues.minorStuId != 0) {
             lifecycleScope.launch(Dispatchers.IO) { showMinor() }
         }

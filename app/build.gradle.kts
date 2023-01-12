@@ -15,6 +15,7 @@ val commitsCount by lazy { "git rev-list --count HEAD".exec().toInt() }
 android {
     namespace = "com.qhy040404.libraryonetap"
     compileSdk = 33
+    buildToolsVersion = "33.0.1"
     defaultConfig {
         applicationId = "com.qhy040404.libraryonetap"
         minSdk = 29

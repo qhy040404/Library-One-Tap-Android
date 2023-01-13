@@ -200,24 +200,24 @@ class GradesMajorActivity : SimplePageActivity() {
                 add(
                     Card(
                         String.format(
-                        R.string.gr_stat.getString(),
-                        GradesUtils.calculateWeightedAverage(
-                            buildList {
-                                semesters.forEach {
-                                    addAll(it.courses)
+                            R.string.gr_stat.getString(),
+                            GradesUtils.calculateWeightedAverage(
+                                buildList {
+                                    semesters.forEach {
+                                        addAll(it.courses)
+                                    }
                                 }
-                            }
-                        ),
-                        GradesUtils.calculateAverageGP(
-                            this@GradesMajorActivity,
-                            buildList {
-                                semesters.forEach {
-                                    addAll(it.courses)
+                            ),
+                            GradesUtils.calculateAverageGP(
+                                this@GradesMajorActivity,
+                                buildList {
+                                    semesters.forEach {
+                                        addAll(it.courses)
+                                    }
                                 }
-                            }
+                            )
                         )
-                    )
-                ))
+                    ))
             }
             semesters.forEach { semester ->
                 add(Category(semester.name))

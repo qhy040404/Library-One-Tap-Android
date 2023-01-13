@@ -14,4 +14,11 @@ object IntExtensions {
         }
         return context.createConfigurationContext(conf).getString(this)
     }
+
+    /**
+     * Get color from resource ID
+     */
+    fun Int.getColor(): Int {
+        return LibraryOneTapApp.app.getColor(this)
+    }
 }

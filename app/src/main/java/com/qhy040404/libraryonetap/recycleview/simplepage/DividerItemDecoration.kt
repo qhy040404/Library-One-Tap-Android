@@ -1,43 +1,32 @@
-package com.qhy040404.libraryonetap.recycleview.simplepage;
+package com.qhy040404.libraryonetap.recycleview.simplepage
 
-import android.graphics.Rect;
-import android.view.View;
+import android.graphics.Rect
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.drakeet.multitype.MultiTypeAdapter
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.drakeet.multitype.MultiTypeAdapter;
-
-import java.util.Arrays;
-import java.util.List;
-
-public class DividerItemDecoration extends RecyclerView.ItemDecoration {
-    private final @NonNull
-    MultiTypeAdapter adapter;
-    private final Class<?>[] dividerClasses = {Card.class, ClickableItem.class};
-
-    public DividerItemDecoration(@NonNull MultiTypeAdapter adapter) {
-        this.adapter = adapter;
-    }
-
-    @Override
-    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        if (adapter.getItemCount() == 0) {
-            outRect.set(0, 0, 0, 0);
-            return;
+class DividerItemDecoration(private val adapter: MultiTypeAdapter) : ItemDecoration() {
+    private val dividerClasses = arrayOf(Card::class.java, ClickableItem::class.java)
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State,
+    ) {
+        if (adapter.itemCount == 0) {
+            outRect.set(0, 0, 0, 0)
+            return
         }
-        List<?> items = adapter.getItems();
-        int position = parent.getChildAdapterPosition(view);
-        boolean should = false;
-        for (int i = 0; !should && i < dividerClasses.length; i++) {
-            should = position + 1 < items.size()
-                && Arrays.asList(dividerClasses).contains(items.get(position).getClass())
-                && Arrays.asList(dividerClasses).contains(items.get(position).getClass());
-        }
+        val items: List<*> = adapter.items
+        val position = parent.getChildAdapterPosition(view)
+        val should = position + 1 < items.size
+            && dividerClasses.contains(items[position]!!.javaClass)
+            && dividerClasses.contains(items[position + 1]!!.javaClass)
         if (should) {
-            outRect.set(0, 0, 0, 1);
+            outRect.set(0, 0, 0, 1)
         } else {
-            outRect.set(0, 0, 0, 0);
+            outRect.set(0, 0, 0, 0)
         }
     }
 }

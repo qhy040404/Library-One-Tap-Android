@@ -6,9 +6,9 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.drakeet.multitype.ItemViewBinder;
@@ -45,8 +45,8 @@ public class ClickableItemViewBinder extends ItemViewBinder<ClickableItem, Click
         protected @NonNull
         final SimplePageActivity activity;
 
-        public final TextView name;
-        public final TextView desc;
+        public final AppCompatTextView name;
+        public final AppCompatTextView desc;
         public ClickableItem data;
 
         public CIViewHolder(View itemView, @NonNull SimplePageActivity activity) {

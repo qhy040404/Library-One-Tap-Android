@@ -26,7 +26,7 @@
       android:background="@null" />
   </com.google.android.material.appbar.AppBarLayout>
 
-  <ImageView
+  <androidx.appcompat.widget.AppCompatImageView
     android:id="@+id/vcard_qr"
     android:layout_width="240dp"
     android:layout_height="240dp"
@@ -37,7 +37,7 @@
     app:layout_constraintStart_toStartOf="parent"
     tools:ignore="ContentDescription,MissingConstraints" />
 
-  <TextView
+  <androidx.appcompat.widget.AppCompatTextView
     android:id="@+id/vcard_balance"
     android:layout_width="337dp"
     android:layout_height="176dp"

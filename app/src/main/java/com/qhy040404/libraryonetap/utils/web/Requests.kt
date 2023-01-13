@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.utils.web
 
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -56,7 +56,7 @@ object Requests {
 
     fun get(
         url: String,
-        textView: TextView? = null,
+        textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
         toolsInit: Boolean = false,
     ): String {
@@ -120,7 +120,7 @@ object Requests {
         url: String,
         form: String,
         mediaType: MediaType,
-        textView: TextView? = null,
+        textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
         toolsInit: Boolean = false,
     ): String {

@@ -54,13 +54,13 @@
     <item name="android:textColor">@color/simple_page_category_text_color</item>
   </style>
 
-  <style name="SimplePage.ContributorName">
+  <style name="SimplePage.ClickableName">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:textColor">@color/simple_page_name_color</item>
   </style>
 
-  <style name="SimplePage.ContributorDesc">
+  <style name="SimplePage.ClickableDesc">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:textColor">@color/simple_page_desc_color</item>

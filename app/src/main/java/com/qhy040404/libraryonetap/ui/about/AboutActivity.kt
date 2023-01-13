@@ -242,14 +242,6 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "https://github.com/jonfinerty/Once"
                 )
             )
-            add(
-                License(
-                    "BaseRecyclerViewAdapterHelper",
-                    "CymChad",
-                    License.MIT,
-                    "https://github.com/CymChad/BaseRecyclerViewAdapterHelper"
-                )
-            )
         }
     }
 

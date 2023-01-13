@@ -11,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -40,7 +38,6 @@ import com.qhy040404.libraryonetap.constant.enums.InsetsParams;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import rikka.material.app.MaterialActivity;
 
@@ -52,8 +49,6 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbar;
     private LinearLayout headerContentLayout;
-
-    private MultiTypeAdapter adapter;
     private TextView slogan, version;
     private RecyclerView recyclerView;
 
@@ -69,15 +64,10 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     protected void onTitleViewCreated() {
     }
 
-    @LayoutRes
-    protected int layoutRes() {
-        return R.layout.about_page_main_activity;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layoutRes());
+        setContentView(R.layout.about_page_main_activity);
         toolbar = findViewById(R.id.toolbar);
         ImageView icon = findViewById(R.id.icon);
         slogan = findViewById(R.id.slogan);
@@ -144,7 +134,7 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        adapter = new MultiTypeAdapter();
+        MultiTypeAdapter adapter = new MultiTypeAdapter();
         adapter.register(Category.class, new CategoryViewBinder());
         adapter.register(Card.class, new CardViewBinder());
         adapter.register(Contributor.class, new ContributorViewBinder(this));
@@ -179,20 +169,6 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
         a.recycle();
     }
 
-    /**
-     * Use {@link #setHeaderBackground(int)} instead.
-     *
-     * @param resId The resource id of header background
-     */
-    @Deprecated
-    public void setHeaderBackgroundResource(@DrawableRes int resId) {
-        setHeaderBackground(resId);
-    }
-
-    public void setHeaderBackground(@DrawableRes int resId) {
-        setHeaderBackground(Objects.requireNonNull(ContextCompat.getDrawable(this, resId)));
-    }
-
     public void setHeaderBackground(@NonNull Drawable drawable) {
         ViewCompat.setBackground(headerContentLayout, drawable);
     }
@@ -223,14 +199,6 @@ public abstract class AbsAboutActivityProxy extends MaterialActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(menuItem);
-    }
-
-    public Toolbar getToolbar() {
-        return toolbar;
-    }
-
-    public MultiTypeAdapter getAdapter() {
-        return adapter;
     }
 
     public @Nullable

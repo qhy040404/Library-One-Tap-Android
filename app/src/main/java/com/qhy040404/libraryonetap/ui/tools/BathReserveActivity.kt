@@ -10,7 +10,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -76,8 +75,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         WebVPNUtils.init()
 
         val isCampus =
-            NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
-                this) == "DLUT-LingShui"
+            NetworkStateUtils.checkNetworkTypeStr(this) == "WIFI" && NetworkStateUtils.getSSID(
+                this
+            ) == "DLUT-LingShui"
 
         val online = if (isCampus) {
             Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
@@ -144,7 +144,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun generateUrl(original: String): String {
-        if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI) {
+        if (NetworkStateUtils.checkNetworkTypeStr(this) == "WIFI") {
             if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") {
                 return original
             }

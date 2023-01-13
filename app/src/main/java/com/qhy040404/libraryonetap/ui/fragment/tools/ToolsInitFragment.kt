@@ -10,7 +10,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ElectricData
 import com.qhy040404.libraryonetap.data.NetData
@@ -57,8 +56,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.glb_no_userdata)
                 ) {
                     val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
-                        NetworkStates.WIFI -> NetworkStateUtils.getSSID(requireContext())
-                        NetworkStates.CELLULAR -> NetworkStates.CELLULAR
+                        "WIFI" -> NetworkStateUtils.getSSID(requireContext())
+                        "Cellular" -> "Cellular"
                         else -> Constants.GLOBAL_ERROR
                     }
 

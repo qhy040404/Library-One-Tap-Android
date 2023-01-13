@@ -6,7 +6,6 @@ import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
 import androidx.core.content.ContextCompat
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.NetworkStates
 
 @Suppress("DEPRECATION")
 object NetworkStateUtils {
@@ -26,8 +25,8 @@ object NetworkStateUtils {
 
     fun checkNetworkTypeStr(ctx: Context): String {
         return when (checkNetworkType(ctx)) {
-            1 -> NetworkStates.WIFI
-            2 -> NetworkStates.CELLULAR
+            1 -> "WIFI"
+            2 -> "Cellular"
             else -> Constants.GLOBAL_ERROR
         }
     }

@@ -9,7 +9,6 @@ import androidx.core.view.marginTop
 import com.absinthe.libraries.utils.extensions.dp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDimen
 
 class CategoryView(context: Context) : LinearLayout(context) {
     val title = AppCompatTextView(context).apply {
@@ -21,7 +20,7 @@ class CategoryView(context: Context) : LinearLayout(context) {
             weight = 1f
         }
         setPadding(
-            R.dimen.simple_page_item_category_padding_horizontal.getDimen().toInt(),
+            16.dp,
             12.dp,
             12.dp,
             12.dp

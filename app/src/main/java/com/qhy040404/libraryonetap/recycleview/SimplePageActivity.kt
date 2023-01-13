@@ -49,7 +49,6 @@ abstract class SimplePageActivity : MaterialActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        onApplyPresetAttrs()
         recyclerView = findViewById(R.id.simple_list)
         applyEdgeToEdge()
         initializeView()
@@ -139,16 +138,6 @@ abstract class SimplePageActivity : MaterialActivity() {
                 )
                 recyclerView.adapter = it
             }
-        }
-    }
-
-    private fun onApplyPresetAttrs() {
-        obtainStyledAttributes(R.styleable.SimplePageActivity).apply {
-            getDrawable(R.styleable.SimplePageActivity_simplePageNavigationIcon)?.let {
-                toolbar.navigationIcon = it
-            }
-        }.also {
-            it.recycle()
         }
     }
 

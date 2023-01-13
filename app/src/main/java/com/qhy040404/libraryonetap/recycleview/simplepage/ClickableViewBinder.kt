@@ -10,22 +10,22 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewBinder
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder.CIViewHolder
+import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableViewBinder.CIViewHolder
 
-class ClickableItemViewBinder : ItemViewBinder<ClickableItem, CIViewHolder>() {
+class ClickableViewBinder : ItemViewBinder<Clickable, CIViewHolder>() {
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): CIViewHolder {
         return CIViewHolder(
             inflater.inflate(R.layout.simplepage_item_clickable, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: CIViewHolder, item: ClickableItem) {
+    override fun onBindViewHolder(holder: CIViewHolder, item: Clickable) {
         holder.name.text = item.name
         holder.desc.text = item.desc
         holder.data = item
     }
 
-    override fun getItemId(item: ClickableItem): Long {
+    override fun getItemId(item: Clickable): Long {
         return item.hashCode().toLong()
     }
 
@@ -33,7 +33,7 @@ class ClickableItemViewBinder : ItemViewBinder<ClickableItem, CIViewHolder>() {
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val name: AppCompatTextView
         val desc: AppCompatTextView
-        lateinit var data: ClickableItem
+        lateinit var data: Clickable
 
         init {
             name = itemView.findViewById(R.id.name)

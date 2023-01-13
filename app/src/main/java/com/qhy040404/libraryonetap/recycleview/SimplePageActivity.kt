@@ -22,8 +22,8 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItemViewBinder
+import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
+import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableViewBinder
 import com.qhy040404.libraryonetap.recycleview.simplepage.DividerItemDecoration
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
 import kotlinx.coroutines.Dispatchers
@@ -67,7 +67,8 @@ abstract class SimplePageActivity : MaterialActivity() {
 
     private fun applyEdgeToEdge() {
         window.apply {
-            navigationBarColor = R.color.simple_page_navigationBarColor.getColor()
+            navigationBarColor =
+                R.color.simple_page_navigationBarColor.getColor(this@SimplePageActivity)
             val appBarLayout = findViewById<AppBarLayout>(R.id.header_layout)
             val originalRecyclerViewPaddingBottom = recyclerView.paddingBottom
             givenInsetsToDecorView = false
@@ -126,7 +127,7 @@ abstract class SimplePageActivity : MaterialActivity() {
         MultiTypeAdapter().apply {
             register(Card::class.java, CardViewBinder())
             register(Category::class.java, CategoryViewBinder())
-            register(ClickableItem::class.java, ClickableItemViewBinder())
+            register(Clickable::class.java, ClickableViewBinder())
             val items = mutableListOf<Any>()
             onItemsCreated(items)
             this.items = items

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.drakeet.multitype.MultiTypeAdapter
 
 class DividerItemDecoration(private val adapter: MultiTypeAdapter) : ItemDecoration() {
-    private val dividerClasses = arrayOf(Card::class.java, ClickableItem::class.java)
+    private val dividerClasses = arrayOf(Card::class.java, Clickable::class.java)
     override fun getItemOffsets(
         outRect: Rect,
         view: View,

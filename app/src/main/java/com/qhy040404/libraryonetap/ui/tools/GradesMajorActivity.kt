@@ -15,7 +15,7 @@ import com.qhy040404.libraryonetap.data.tools.Semester
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
+import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
@@ -234,10 +234,12 @@ class GradesMajorActivity : SimplePageActivity() {
                         it.credit,
                         it.gp
                     )
-                    add(ClickableItem(
-                        head,
-                        desc
-                    ))
+                    add(
+                        Clickable(
+                            head,
+                            desc
+                        )
+                    )
                 }
             }
         }

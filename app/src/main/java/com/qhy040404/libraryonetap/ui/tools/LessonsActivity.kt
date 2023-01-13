@@ -14,7 +14,7 @@ import com.qhy040404.libraryonetap.data.tools.Lesson
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
+import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
@@ -204,10 +204,12 @@ class LessonsActivity : SimplePageActivity() {
                     it.credit,
                     it.compulsory
                 )
-                add(ClickableItem(
-                    head,
-                    desc
-                ))
+                add(
+                    Clickable(
+                        head,
+                        desc
+                    )
+                )
             }
         }
     }

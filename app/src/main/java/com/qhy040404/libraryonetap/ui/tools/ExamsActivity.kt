@@ -16,7 +16,7 @@ import com.qhy040404.libraryonetap.data.tools.Exam
 import com.qhy040404.libraryonetap.recycleview.SimplePageActivity
 import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableItem
+import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
@@ -55,10 +55,12 @@ class ExamsActivity : SimplePageActivity() {
                     pending.time,
                     pending.room
                 )
-                add(ClickableItem(
-                    name,
-                    desc
-                ))
+                add(
+                    Clickable(
+                        name,
+                        desc
+                    )
+                )
             }
 
             exams.filter { it.startTime < now }.let { finished ->
@@ -71,10 +73,12 @@ class ExamsActivity : SimplePageActivity() {
                             finish.time,
                             finish.room
                         )
-                        add(ClickableItem(
-                            name,
-                            desc
-                        ))
+                        add(
+                            Clickable(
+                                name,
+                                desc
+                            )
+                        )
                     }
                 }
             }

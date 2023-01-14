@@ -30,4 +30,11 @@ object IntExtensions {
     fun Int.getDrawable(context: Context): Drawable? {
         return context.getDrawable(this)
     }
+
+    /**
+     * Get dimen from resource ID
+     */
+    fun Int.getDimen(): Float {
+        return LibraryOneTapApp.app.resources.getDimension(this)
+    }
 }

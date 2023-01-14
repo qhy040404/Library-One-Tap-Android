@@ -162,7 +162,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         handleIntentFromShortcuts(intent)
     }
 
-    override fun scheduleAppbarLiftingStatus(isLifted: Boolean, from: String) {
+    override fun scheduleAppbarLiftingStatus(isLifted: Boolean) {
         binding.appbar.isLifted = isLifted
     }
 

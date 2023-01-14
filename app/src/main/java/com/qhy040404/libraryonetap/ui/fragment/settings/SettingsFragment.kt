@@ -279,8 +279,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onResume() {
         super.onResume()
         scheduleAppbarRaisingStatus(
-            !getBorderViewDelegate().isShowingTopBorder,
-            "SettingsFragment onResume"
+            !getBorderViewDelegate().isShowingTopBorder
         )
         (activity as? IAppBarContainer)?.setLiftOnScrollTargetView(prefRecyclerView)
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
@@ -313,8 +312,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         borderViewDelegate.borderVisibilityChangedListener =
             BorderView.OnBorderVisibilityChangedListener { top: Boolean, _: Boolean, _: Boolean, _: Boolean ->
                 scheduleAppbarRaisingStatus(
-                    !top,
-                    "SettingsFragment OnBorderVisibilityChangedListener: top=$top"
+                    !top
                 )
             }
 
@@ -322,8 +320,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         return recyclerView
     }
 
-    private fun scheduleAppbarRaisingStatus(isLifted: Boolean, from: String) {
-        (activity as? IAppBarContainer)?.scheduleAppbarLiftingStatus(isLifted, from)
+    private fun scheduleAppbarRaisingStatus(isLifted: Boolean) {
+        (activity as? IAppBarContainer)?.scheduleAppbarLiftingStatus(isLifted)
     }
 
     private fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate

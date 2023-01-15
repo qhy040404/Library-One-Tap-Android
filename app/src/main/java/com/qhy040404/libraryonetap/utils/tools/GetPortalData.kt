@@ -11,10 +11,9 @@ object GetPortalData {
      * mode 1:net
      */
     fun getPortalData(mode: Int): String {
-        if (!GlobalValues.mainSessionReady) {
-            Requests.init()
-        }
-
+        Requests.loginSso(URLManager.PORTAL_SSO_URL,
+            GlobalValues.ctSso,
+            URLManager.PORTAL_SSO_URL)
         Requests.get(URLManager.PORTAL_DIRECT_URL)
 
         return when (mode) {

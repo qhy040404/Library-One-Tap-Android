@@ -99,7 +99,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.id = newValue.toString()
-                GlobalValues.librarySessionReady = null
+                Requests.libInitialized = false
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
                 activity?.recreate()
@@ -113,7 +113,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.passwd = newValue.toString()
-                GlobalValues.librarySessionReady = null
+                Requests.libInitialized = false
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
                 activity?.recreate()

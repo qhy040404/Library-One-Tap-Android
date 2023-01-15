@@ -35,7 +35,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             CookieJarImpl.reset()
             SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
-            GlobalValues.librarySessionReady = null
+            Requests.libInitialized = false
             GlobalValues.initBasic()
             activity?.recreate()
         }
@@ -60,15 +60,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             return
         }
 
-        val loginSuccess: Boolean
-
-        while (true) {
-            if (GlobalValues.librarySessionReady != null) {
-                loginSuccess = GlobalValues.librarySessionReady!!
-                runOnUiThread { loading.visibility = View.INVISIBLE }
-                break
-            }
-        }
+        val loginSuccess = Requests.initLib()
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass = runCatching {
@@ -117,12 +109,13 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                     $full_time
                     $all_users
                 """.trimIndent()
+                loading.visibility = View.INVISIBLE
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
                 detail.text = R.string.glb_no_userdata.getString()
+                loading.visibility = View.INVISIBLE
             }
-            runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =

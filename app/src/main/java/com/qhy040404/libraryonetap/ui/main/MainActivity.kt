@@ -154,7 +154,9 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         handleIntentFromShortcuts(intent)
         showWelcomeDialog()
 
-        lifecycleScope.launch(Dispatchers.IO) { UpdateUtils.checkUpdate(this@MainActivity) }
+        lifecycleScope.launch(Dispatchers.IO) {
+            UpdateUtils.checkUpdate(this@MainActivity)
+        }
     }
 
     override fun onNewIntent(intent: Intent) {

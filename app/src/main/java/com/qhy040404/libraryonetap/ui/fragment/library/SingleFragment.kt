@@ -43,7 +43,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
             CookieJarImpl.reset()
             SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
-            GlobalValues.librarySessionReady = null
+            Requests.libInitialized = false
             GlobalValues.initBasic()
             activity?.recreate()
         }
@@ -76,11 +76,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
             return
         }
 
-        val loginSuccess = Requests.loginSso(URLManager.LIBRARY_SSO_URL,
-            GlobalValues.ctSso,
-            URLManager.LIBRARY_SESSION_URL,
-            hasSessionJson = true)
-        GlobalValues.librarySessionReady = loginSuccess
+        val loginSuccess = Requests.initLib()
 
         val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass = runCatching {

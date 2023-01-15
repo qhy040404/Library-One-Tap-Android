@@ -26,6 +26,8 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
+    var libInitialized = false
+
     val netLazyMgr = resettableManager()
     val client by resettableLazy(netLazyMgr) {
         OkHttpClient.Builder()
@@ -187,7 +189,6 @@ object Requests {
         noJsonString: String = "统一身份",
         hasSessionJson: Boolean = false,
         toolsInit: Boolean = false,
-        syncToGlobalValues: Boolean = false,
     ): Boolean {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
@@ -204,7 +205,7 @@ object Requests {
                 ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
             }.getOrDefault(Constants.STRING_NULL)
 
-            if (ltData.isNotEmpty()) {
+            if (ltExecution.isNotEmpty()) {
                 val rawData = "$id$passwd$ltData"
                 val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
 
@@ -248,9 +249,6 @@ object Requests {
                 break
             }
         }
-        if (syncToGlobalValues) {
-            GlobalValues.mainSessionReady = loginSuccess
-        }
         return loginSuccess
     }
 
@@ -263,10 +261,18 @@ object Requests {
     ) =
         "none=on&rsa=$rsa&ul=${id.length}&pl=${passwd.length}&sl=0&lt=$ltData&execution=$execution&_eventId=submit"
 
-    fun init() {
-        loginSso(URLManager.PORTAL_SSO_URL,
-            GlobalValues.ctSso,
-            URLManager.PORTAL_SSO_URL,
-            syncToGlobalValues = true)
+    fun initLib(): Boolean {
+        synchronized(client) {
+            if (libInitialized) {
+                return true
+            }
+            loginSso(URLManager.LIBRARY_SSO_URL,
+                GlobalValues.ctSso,
+                URLManager.LIBRARY_SESSION_URL,
+                hasSessionJson = true).also {
+                libInitialized = it
+                return it
+            }
+        }
     }
 }

@@ -77,10 +77,6 @@ object GlobalValues {
     }
     var newVersion: String? = null
     var latestApkName: String by SPDelegates(Constants.LATEST_APK_NAME, "")
-    var mainSessionReady = false
-
-    // Library
-    var librarySessionReady: Boolean? = null
 
     // Edu
     var majorStuId = 0

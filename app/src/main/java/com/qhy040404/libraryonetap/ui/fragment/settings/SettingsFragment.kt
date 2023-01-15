@@ -82,7 +82,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.name = newValue.toString()
-                GlobalValues.librarySessionReady = null
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
                 activity?.recreate()

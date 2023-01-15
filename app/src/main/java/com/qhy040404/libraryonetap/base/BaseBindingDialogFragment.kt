@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
 import com.qhy040404.libraryonetap.utils.extensions.CompatExtensions.inflateBinding
 
-abstract class BaseBindingDialogFragment<VB : ViewBinding> : BaseDialogFragment(), IBinding<VB> {
+abstract class BaseBindingDialogFragment<VB : ViewBinding> : DialogFragment(), IBinding<VB> {
     override lateinit var binding: VB
 
     abstract fun initOnce()
@@ -27,5 +28,13 @@ abstract class BaseBindingDialogFragment<VB : ViewBinding> : BaseDialogFragment(
     ): View? {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        dialog?.run {
+            setCanceledOnTouchOutside(isCancelable)
+            setCancelable(isCancelable)
+        }
     }
 }

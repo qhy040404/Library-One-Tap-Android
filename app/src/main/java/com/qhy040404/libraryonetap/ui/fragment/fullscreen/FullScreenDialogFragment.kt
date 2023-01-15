@@ -30,6 +30,4 @@ class FullScreenDialogFragment(private val message: String) :
     }
 
     override fun isCancelable() = false
-
-    override fun onBackPressed() = true
 }

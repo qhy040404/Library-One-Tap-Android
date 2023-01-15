@@ -13,7 +13,7 @@ object PermissionUtils {
         activity: Activity,
         permission: Array<String>,
         childFragmentMgr: FragmentManager,
-        @StringRes strResId: Int,
+        @StringRes strId: Int,
     ): Boolean {
         var hasPermission = true
         for (s in permission) {
@@ -22,7 +22,7 @@ object PermissionUtils {
                 requestPermission(arrayOf(s),
                     activity,
                     childFragmentMgr,
-                    FullScreenDialogFragment(strResId.getString()))
+                    FullScreenDialogFragment(strId.getString()))
             }
         }
         return hasPermission

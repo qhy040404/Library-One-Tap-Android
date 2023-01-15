@@ -155,8 +155,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             while (isActivityVisible) {
                 Thread.sleep(3000L)
                 val status =
-                    Requests
-                        .getVCard(URLManager.getVCardCheckUrl(openid, payCode))
+                    Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode))
                         .decode<VCardStatusDTO>()!!
                 if (status.resultData.status != "5" && isActivityVisible) {
                     runOnUiThread {

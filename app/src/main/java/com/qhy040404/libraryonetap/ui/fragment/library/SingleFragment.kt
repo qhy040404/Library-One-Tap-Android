@@ -79,7 +79,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
         val loginSuccess = Requests.loginSso(URLManager.LIBRARY_SSO_URL,
             GlobalValues.ctSso,
             URLManager.LIBRARY_SESSION_URL,
-            loading,
             hasSessionJson = true)
         GlobalValues.librarySessionReady = loginSuccess
 
@@ -363,12 +362,13 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                     $order_date
                     $back_time
                 """.trimIndent()
+                loading.visibility = View.INVISIBLE
             }
         } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
             runOnUiThread {
                 detail.text = R.string.glb_no_userdata.getString()
+                loading.visibility = View.INVISIBLE
             }
-            runOnUiThread { loading.visibility = View.INVISIBLE }
         } else if (!loginSuccess) {
             runOnUiThread {
                 detail.text =

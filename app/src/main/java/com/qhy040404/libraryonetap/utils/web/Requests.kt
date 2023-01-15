@@ -1,7 +1,5 @@
 package com.qhy040404.libraryonetap.utils.web
 
-import android.view.View
-import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatTextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -186,7 +184,6 @@ object Requests {
         sso: String,
         mt: MediaType,
         session: String? = null,
-        progressBar: ProgressBar? = null,
         noJsonString: String = "统一身份",
         hasSessionJson: Boolean = false,
         toolsInit: Boolean = false,
@@ -225,7 +222,6 @@ object Requests {
                 if (hasSessionJson) {
                     val sessionCheck = post(session, "", mt, toolsInit = toolsInit)
                     if (SessionData.isSuccess(sessionCheck)) {
-                        progressBar?.post { progressBar.visibility = View.INVISIBLE }
                         loginSuccess = true
                         break
                     } else {

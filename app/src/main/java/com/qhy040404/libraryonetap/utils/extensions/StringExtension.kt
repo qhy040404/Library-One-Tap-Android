@@ -23,11 +23,12 @@ object StringExtension {
      * @return true if they are same
      */
     fun String.isDuplicateGV(globalValue: String, isCustomTheme: Boolean = false): Boolean {
-        val a = this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == ""
-        return if (isCustomTheme) {
-            a && this != "random"
-        } else {
-            a
+        (this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == "").let {
+            return if (isCustomTheme) {
+                it && this != "random"
+            } else {
+                it
+            }
         }
     }
 

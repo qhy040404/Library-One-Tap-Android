@@ -61,13 +61,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         else -> Constants.GLOBAL_ERROR
                     }
 
-                    val permission: Array<String> =
-                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
-
                     @Suppress("SpellCheckingInspection")
                     if (netName == "<unknown ssid>") {
                         if (PermissionUtils.checkPermission(requireActivity(),
-                                permission,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
                                 childFragmentManager,
                                 R.string.br_permission_prompt)
                         ) {

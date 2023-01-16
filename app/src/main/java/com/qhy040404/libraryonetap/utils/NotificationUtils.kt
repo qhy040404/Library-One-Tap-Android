@@ -86,7 +86,7 @@ class NotificationUtils(
                 it as BaseActivity<*>
                 PermissionUtils.checkPermission(
                     it,
-                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    Manifest.permission.POST_NOTIFICATIONS,
                     it.supportFragmentManager,
                     R.string.stp_notification_permission_prompt
                 )

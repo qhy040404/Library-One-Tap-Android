@@ -3,11 +3,11 @@ package com.qhy040404.libraryonetap.ui.main
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.provider.Settings
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.edit
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -23,7 +23,6 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
@@ -32,6 +31,7 @@ import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
 import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
+import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.CacheUtils
@@ -189,27 +189,19 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         LibraryOneTapApp.instance?.dismissFragment()
-        GlobalManager.lazyMgr.reset()
         if (requestCode == 100) {
             for (i in permissions.indices) {
-                if (permissions[i] == Manifest.permission.ACCESS_FINE_LOCATION) {
-                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        MaterialAlertDialogBuilder(this)
-                            .setMessage(R.string.br_permission_got)
-                            .setTitle(R.string.bath_title)
-                            .setPositiveButton(R.string.glb_ok, null)
-                            .setCancelable(true)
-                            .create()
-                            .show()
+                when (permissions[i]) {
+                    Manifest.permission.ACCESS_FINE_LOCATION -> if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        startActivity(Intent(this, BathReserveActivity::class.java))
                     } else {
                         MaterialAlertDialogBuilder(this)
                             .setMessage(R.string.br_permission_fail)
                             .setTitle(R.string.glb_error)
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
-                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                                val uri = Uri.fromParts("package", packageName, null)
-                                intent.data = uri
-                                startActivity(intent)
+                                startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                    data = "package:$packageName".toUri()
+                                })
                             }
                             .setCancelable(false)
                             .create()

@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap.utils
 import android.app.Activity
 import android.content.pm.PackageManager
 import androidx.annotation.StringRes
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentManager
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
@@ -11,30 +10,18 @@ import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 object PermissionUtils {
     fun checkPermission(
         activity: Activity,
-        permission: Array<String>,
+        permission: String,
         childFragmentMgr: FragmentManager,
         @StringRes strId: Int,
     ): Boolean {
-        var hasPermission = true
-        for (s in permission) {
-            if (activity.checkSelfPermission(s) == PackageManager.PERMISSION_DENIED) {
-                hasPermission = false
-                requestPermission(arrayOf(s),
-                    activity,
-                    childFragmentMgr,
-                    FullScreenDialogFragment(strId.getString()))
+        return if (activity.checkSelfPermission(permission) == PackageManager.PERMISSION_DENIED) {
+            FullScreenDialogFragment(strId.getString()).apply {
+                show(childFragmentMgr, null)
             }
+            activity.requestPermissions(arrayOf(permission), 100)
+            false
+        } else {
+            true
         }
-        return hasPermission
-    }
-
-    private fun requestPermission(
-        s: Array<String>,
-        activity: Activity,
-        fragmentMgr: FragmentManager,
-        fsFragment: FullScreenDialogFragment,
-    ) {
-        fsFragment.show(fragmentMgr, null)
-        ActivityCompat.requestPermissions(activity, s, 100)
     }
 }

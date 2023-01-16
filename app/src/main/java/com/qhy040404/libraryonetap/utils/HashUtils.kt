@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
-import java.math.BigInteger
+import com.qhy040404.libraryonetap.utils.extensions.ByteExtensions.toHex
 import java.security.MessageDigest
 
 object HashUtils {
@@ -17,8 +17,6 @@ object HashUtils {
             reset()
         }
         messageDigest.update(byteArray)
-        val hashSum = messageDigest.digest()
-        val bigInt = BigInteger(1, hashSum).toString(16)
-        return String.format("%32s", bigInt).replace(' ', '0')
+        return messageDigest.digest().toHex()
     }
 }

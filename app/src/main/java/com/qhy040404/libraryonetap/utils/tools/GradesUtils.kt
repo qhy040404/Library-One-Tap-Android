@@ -3,9 +3,10 @@ package com.qhy040404.libraryonetap.utils.tools
 import android.content.Context
 import com.absinthe.libraries.utils.extensions.getStringArray
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.annotation.Parentheses
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.enums.GPAAlgorithm
+import com.qhy040404.libraryonetap.constant.enums.Parentheses
 import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.addParentheses
@@ -31,24 +32,24 @@ object GradesUtils {
         grades: List<Grade>,
     ): String {
         return when (GlobalValues.gpOption) {
-            Constants.GP_DLUT -> {
-                GPAUtils.calculateGPAByDlut(grades)
+            Constants.GPA_DLUT -> {
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_STANDARD5 -> {
-                GPAUtils.calculateGPAByStandard5(grades)
+            Constants.GPA_STANDARD5 -> {
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.STD5)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_STANDARD4 -> {
-                GPAUtils.calculateGPAByStandard4(grades)
+            Constants.GPA_STANDARD4 -> {
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.STD4)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
-            Constants.GP_PEKING4 -> {
-                GPAUtils.calculateGPAByPeking4(grades)
+            Constants.GPA_PEKING4 -> {
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.PK4)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
             else -> {
-                GPAUtils.calculateGPAByDlut(grades)
+                GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
             }
         }

@@ -16,7 +16,6 @@ import com.drakeet.about.Contributor
 import com.drakeet.about.License
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.constant.LicenseExtTypes
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
@@ -233,14 +232,6 @@ class AboutActivity : AbsAboutActivityProxy() {
                     "takisoft",
                     License.APACHE_2,
                     "https://github.com/takisoft/preferencex-android"
-                )
-            )
-            add(
-                License(
-                    "Rhino",
-                    "Mozilla",
-                    LicenseExtTypes.MPL_V2,
-                    "https://github.com/mozilla/rhino"
                 )
             )
             add(

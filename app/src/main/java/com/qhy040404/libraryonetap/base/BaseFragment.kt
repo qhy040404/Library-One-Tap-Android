@@ -14,10 +14,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment(), IBinding<VB> {
     override val binding: VB
         get() = checkNotNull(_binding) { "Binding has been destroyed" }
 
-    private var parentActivityVisible = false
-    private var visible = false
-    private var localParentFragment: BaseFragment<VB>? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

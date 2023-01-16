@@ -9,7 +9,7 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.takisoft.preferencex.EditTextPreference
-import androidx.preference.EditTextPreference as AEditTextPreference
+import androidx.preference.EditTextPreference.SimpleSummaryProvider as sSP
 
 @Suppress("unused")
 class PasswordPreference : EditTextPreference {
@@ -27,7 +27,7 @@ class PasswordPreference : EditTextPreference {
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
     init {
-        if (summaryProvider is AEditTextPreference.SimpleSummaryProvider) {
+        if (summaryProvider is sSP) {
             summaryProvider = SimpleSummaryProvider
         }
         setOnBindEditTextListener { editText ->
@@ -61,7 +61,7 @@ class PasswordPreference : EditTextPreference {
             return if (!text.isNullOrEmpty()) {
                 PasswordTransformationMethod.getInstance().getTransformation(text, null)
             } else {
-                AEditTextPreference.SimpleSummaryProvider.getInstance().provideSummary(preference)
+                sSP.getInstance().provideSummary(preference)
             }
         }
     }

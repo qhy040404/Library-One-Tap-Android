@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.utils.tools
 
-import android.os.StrictMode
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -12,14 +11,9 @@ object GetPortalData {
      * mode 1:net
      */
     fun getPortalData(mode: Int): String {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
-
-        if (!GlobalValues.mainSessionReady) {
-            Requests.init()
-        }
-
+        Requests.loginSso(URLManager.PORTAL_SSO_URL,
+            GlobalValues.ctSso,
+            URLManager.PORTAL_SSO_URL)
         Requests.get(URLManager.PORTAL_DIRECT_URL)
 
         return when (mode) {

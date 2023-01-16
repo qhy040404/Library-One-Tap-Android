@@ -8,16 +8,14 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.annotation.HttpProtocols
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.GlobalValues
-import com.qhy040404.libraryonetap.constant.NetworkStates
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.encrypt.AESEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.utils.web.WebVPNUtils
@@ -29,7 +27,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         setSupportActionBar(binding.toolbar)
         (binding.root as ViewGroup).bringChildToFront(binding.appbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.title = AppUtils.getResString(R.string.bath_title)
+        binding.toolbar.title = R.string.bath_title.getString()
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
@@ -37,7 +35,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         binding.bathText.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
-            AESEncryptUtils.init()
             bathReserve()
         }.also {
             it.start()
@@ -77,9 +74,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         WebVPNUtils.init()
 
-        val isCampus =
-            NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI && NetworkStateUtils.getSSID(
-                this) == "DLUT-LingShui"
+        val isCampus = NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID(
+            this
+        ) == "DLUT-LingShui"
 
         val online = if (isCampus) {
             Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
@@ -90,22 +87,15 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         }
 
         runOnUiThread {
-            text.text =
-                AppUtils.getResString(
-                    if (online) {
-                        R.string.glb_loaded
-                    } else {
-                        R.string.glb_fail_to_login_no_retry
-                    }
-                )
-        }
-
-        runOnUiThread {
+            text.text = if (online) {
+                R.string.glb_loaded.getString()
+            } else {
+                R.string.glb_fail_to_login_no_retry.getString()
+            }
             reserve.setOnClickListener {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
-                AESEncryptUtils.init()
                 @Suppress("SpellCheckingInspection")
                 val savePostData = "mealorder=0&goodsid=$targetRoom&goodsnum=1&addlocation=1"
 
@@ -128,11 +118,8 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                     mainPostData,
                     GlobalValues.ctSso)
                 Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
-                runOnUiThread { text.text = getString(R.string.br_request_sent) }
+                text.text = getString(R.string.br_request_sent)
             }
-        }
-
-        runOnUiThread {
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     when (spinner.selectedItem.toString()) {
@@ -150,11 +137,11 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun generateUrl(original: String): String {
-        if (NetworkStateUtils.checkNetworkTypeStr(this) == NetworkStates.WIFI) {
+        if (NetworkStateUtils.checkNetworkType() == "WIFI") {
             if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") {
                 return original
             }
         }
-        return WebVPNUtils.encrypt(original, HttpProtocols.HTTP)
+        return WebVPNUtils.encryptUrl(original)
     }
 }

@@ -1,9 +1,9 @@
 package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.annotation.OrderModes
-import com.qhy040404.libraryonetap.utils.AppUtils
+import com.qhy040404.libraryonetap.constant.enums.OrderModes
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
 @Suppress("FunctionName", "LocalVariableName", "PropertyName")
 object OrderListData {
@@ -22,17 +22,21 @@ object OrderListData {
 
     /**
      * get current order id
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return id String
      */
-    fun getOrder_id(@OrderModes mode: String): String {
+    fun getOrder_id(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode, list.order_date)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    mode.toString(),
+                    list.order_date)
+            ) {
                 return list.order_id!!
             }
         }
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode)) {
+            if (orderIsValid(list.order_process, list.order_type, mode.toString())) {
                 return list.order_id!!
             }
         }
@@ -41,17 +45,21 @@ object OrderListData {
 
     /**
      * get current order process
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return process String
      */
-    fun getOrder_process(@OrderModes mode: String): String {
+    fun getOrder_process(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode, list.order_date)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    mode.toString(),
+                    list.order_date)
+            ) {
                 return list.order_process!!
             }
         }
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode)) {
+            if (orderIsValid(list.order_process, list.order_type, mode.toString())) {
                 return list.order_process!!
             }
         }
@@ -60,17 +68,21 @@ object OrderListData {
 
     /**
      * get current order's space
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return space String
      */
-    fun getSpace_name(@OrderModes mode: String): String {
+    fun getSpace_name(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode, list.order_date)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    mode.toString(),
+                    list.order_date)
+            ) {
                 return list.space_name!!
             }
         }
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode)) {
+            if (orderIsValid(list.order_process, list.order_type, mode.toString())) {
                 return list.space_name!!
             }
         }
@@ -79,17 +91,21 @@ object OrderListData {
 
     /**
      * get current order's seat label
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return seat label String
      */
-    fun getSeat_label(@OrderModes mode: String): String {
+    fun getSeat_label(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode, list.order_date)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    mode.toString(),
+                    list.order_date)
+            ) {
                 return list.seat_label.toString()
             }
         }
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode)) {
+            if (orderIsValid(list.order_process, list.order_type, mode.toString())) {
                 return list.seat_label.toString()
             }
         }
@@ -98,17 +114,21 @@ object OrderListData {
 
     /**
      * get current order's date
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return date String
      */
-    fun getOrder_date(@OrderModes mode: String): String {
+    fun getOrder_date(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode, list.order_date)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    mode.toString(),
+                    list.order_date)
+            ) {
                 return list.order_date!!
             }
         }
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, mode)) {
+            if (orderIsValid(list.order_process, list.order_type, mode.toString())) {
                 return list.order_date!!
             }
         }
@@ -117,14 +137,14 @@ object OrderListData {
 
     /**
      * get back time
-     * @param mode @OrderModes String detail or yanxiujian
+     * @param mode OrderModes enum
      * @return back time String
      */
-    fun getBack_time(@OrderModes mode: String): String {
+    fun getBack_time(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (list.order_process == "暂离" && list.order_type == mode) {
+            if (list.order_process == "暂离" && list.order_type == mode.toString()) {
                 if (list.back_time != "00:00:00") {
-                    return AppUtils.getResString(R.string.df_temp_end_time) + list.back_time
+                    return R.string.df_temp_end_time.getString() + list.back_time
                 }
                 break
             }
@@ -138,7 +158,10 @@ object OrderListData {
      */
     fun getAll_users(): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, OrderModes.YANXIUJIAN)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    OrderModes.YANXIUJIAN.toString())
+            ) {
                 return list.all_users.toString()
             }
         }
@@ -151,7 +174,10 @@ object OrderListData {
      */
     fun getFull_time(): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process, list.order_type, OrderModes.YANXIUJIAN)) {
+            if (orderIsValid(list.order_process,
+                    list.order_type,
+                    OrderModes.YANXIUJIAN.toString())
+            ) {
                 return list.order_start_time!!.substringAfter(" ") + "-" +
                     list.order_end_time!!.substringAfter(" ")
             }

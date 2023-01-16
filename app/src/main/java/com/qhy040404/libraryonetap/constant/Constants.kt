@@ -45,10 +45,10 @@ object Constants {
     const val LIBRARY_METHOD_OUT = "out"
     const val LIBRARY_METHOD_TEMP = "temp"
 
-    const val GP_DLUT = "dlut"
-    const val GP_STANDARD5 = "std5"
-    const val GP_STANDARD4 = "std4"
-    const val GP_PEKING4 = "peking4"
+    const val GPA_DLUT = "dlut"
+    const val GPA_STANDARD5 = "std5"
+    const val GPA_STANDARD4 = "std4"
+    const val GPA_PEKING4 = "peking4"
 
     const val PORTAL_DEFAULT_POST = "{}"
 

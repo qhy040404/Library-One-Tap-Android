@@ -1,278 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TITLE -->
-    <string name="app_name">图书馆小程序</string>
-    <string name="library">图书馆</string>
-    <string name="settings_title">设置</string>
-    <string name="vcard_title">虚拟卡</string>
-    <string name="net_title">剩余流量</string>
-    <string name="electric_title">剩余电量</string>
-    <string name="bath_title">浴室预约</string>
-    <string name="secret_title">你 被 骗 了</string>
-    <string name="about_title">关于</string>
-    <string name="volunteer_title">志愿时长</string>
-    <string name="grade_major_title">成绩</string>
-    <string name="grade_minor_title">成绩 (辅修/双学位)</string>
-    <string name="lessons_title">已选课程</string>
-    <string name="exams_title">考试</string>
+  <!-- TITLE -->
+  <string name="app_name">Library One Tap</string>
+  <string name="library">Library</string>
+  <string name="settings_title">Settings</string>
+  <string name="vcard_title">Virtual Yulan card</string>
+  <string name="net_title">Remain Campus Network</string>
+  <string name="electric_title">Remain Electric Charge</string>
+  <string name="bath_title">Bathhouse Reservation</string>
+  <string name="about_title">About</string>
+  <string name="volunteer_title">Volunteer hours</string>
+  <string name="grade_major_title">Grades</string>
+  <string name="grade_minor_title">Grades (Minor)</string>
+  <string name="lessons_title">Selected courses</string>
+  <string name="exams_title">Exams</string>
 
-    <!-- INIT -->
-    <string name="in_welcome">欢迎</string>
-    <string name="in_message">首次启动请先设置相关信息\n点击好跳转到设置</string>
+  <!-- INIT -->
+  <string name="in_welcome">Welcome</string>
+  <string name="in_message">Welcome! Please set your information first. \nPress OK to go to Settings.</string>
 
-    <!-- MENU -->
-    <string name="mn_detail">单人座</string>
-    <string name="mn_yanxiujian">研修间</string>
-    <string name="mn_tools">工具箱</string>
+  <!-- MENU -->
+  <string name="mn_detail">Single</string>
+  <string name="mn_yanxiujian">Yanxiujian</string>
+  <string name="mn_tools">Tools</string>
 
-    <!-- DETAIL FRAGMENT -->
-    <string name="df_enter">签到码</string>
-    <string name="df_leave">离退码</string>
-    <string name="df_temp">暂离码</string>
-    <string name="df_refresh">刷新</string>
-    <string name="df_cancel">取消预约</string>
-    <string name="df_reserve">预约座位</string>
-    <string name="df_reset">重置预约</string>
+  <!-- DETAIL FRAGMENT -->
+  <string name="df_enter">Sign in</string>
+  <string name="df_leave">Sign out</string>
+  <string name="df_temp">Temp out</string>
+  <string name="df_refresh">Reload</string>
+  <string name="df_cancel">Cancel\nreservation</string>
+  <string name="df_reserve">Reserve\na seat</string>
+  <string name="df_reset">Reset\nreservation</string>
 
-    <string name="df_inside">进行中</string>
-    <string name="df_outside">暂离</string>
-    <string name="df_not_start">未开始</string>
+  <string name="df_inside">Inside</string>
+  <string name="df_outside">Temp outside</string>
+  <string name="df_not_start">Has not started</string>
 
-    <string name="df_no_valid_order">未找到有效的order</string>
-    <string name="df_temp_end_time">"暂离截止: "</string>
+  <string name="df_no_valid_order">No valid order found</string>
+  <string name="df_temp_end_time">"Temporary leave deadline: "</string>
 
-    <string name="df_cancel_confirm">确认取消吗</string>
-    <string name="df_cancel_confirm_yes">开摆</string>
-    <string name="df_cancel_confirm_no">继续卷</string>
+  <string name="df_cancel_confirm">Confirm cancellation</string>
+  <string name="df_cancel_confirm_yes">Yes</string>
+  <string name="df_cancel_confirm_no">No</string>
 
-    <string name="df_random">随机</string>
+  <string name="df_random">Random</string>
 
-    <string name="df_reserve_reset_confirm">请确认重置预约</string>
+  <string name="df_reserve_reset_confirm">Please confirm to reset reservation</string>
 
-    <string name="df_not_in_valid_time">现在不能预约</string>
+  <string name="df_not_in_valid_time">Cannot reserve NOW</string>
 
-    <!-- TOOLS -->
-    <string name="tl_bath">浴室预约</string>
-    <string name="tl_cernet">校园网剩余流量</string>
-    <string name="tl_electric">宿舍剩余电量</string>
-    <string name="tl_vcard">玉兰卡虚拟卡</string>
-    <string name="tl_volunteer">志愿总时长</string>
+  <!-- TOOLS -->
+  <string name="tl_bath">Reserve Bathroom NOW</string>
+  <string name="tl_cernet">Remaining campus network</string>
+  <string name="tl_electric">Remaining electric charge</string>
+  <string name="tl_vcard">Virtual Yulan card</string>
+  <string name="tl_volunteer">Total Volunteer Hours</string>
 
-    <!-- BATH RESERVE -->
-    <string name="br_bath_reserve">预约最近时间段</string>
-    <string name="br_request_sent">已发送预约请求</string>
+  <!-- BATH RESERVE -->
+  <string name="br_bath_reserve">Reserve bathroom right now</string>
+  <string name="br_request_sent">Appointment request has been sent</string>
 
-    <string name="br_permission_prompt">我们需要此权限来获得 WIFI 的 SSID, 从而检测是否在校园网环境中</string>
-    <string name="br_permission_got">已成功获取权限, 请重新点击按钮</string>
-    <string name="br_permission_fail">获取权限失败, 请到设置中手动开启</string>
+  <string name="br_permission_prompt">We need this permission to get SSID of WIFI, so as to detect whether it is in the campus network environment</string>
+  <string name="br_permission_got">Permission successfully obtained, please click the button again</string>
+  <string name="br_permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
 
-    <!-- GRADES -->
-    <string name="gr_empty">暂无分数</string>
-    <string name="gr_stat">加权均分: %1$.2f  平均绩点: %2$s</string>
-    <string name="gr_eval_first">请先评教</string>
-    <string name="gr_template">%1$s\n分数: %2$s\n学分: %3$.1f\n绩点: %4$.1f</string>
+  <!-- GRADES -->
+  <string name="gr_empty">There is no score.</string>
+  <string name="gr_stat">Weighted average score: %1$.2f  GPA: %2$s</string>
+  <string name="gr_eval_first">Evaluate first</string>
+  <string name="gr_template">%1$s\nScore: %2$s\nCredit: %3$.1f\nGP: %4$.1f</string>
 
-    <!-- EXAMS -->
-    <string name="ex_empty">暂无考试</string>
-    <string name="ex_finished_list">已完成</string>
-    <string name="ex_empty_room">暂未安排考场</string>
-    <string name="ex_template">时间: %1$s\n考场: %2$s</string>
-    <string name="ex_minor">辅修</string>
+  <!-- EXAMS -->
+  <string name="ex_empty">There is no exam.</string>
+  <string name="ex_finished_list">Finished</string>
+  <string name="ex_empty_room">Undefined</string>
+  <string name="ex_template">Time: %1$s\nRoom: %2$s</string>
+  <string name="ex_minor">Minor</string>
 
-    <!-- LESSONS -->
-    <string name="ls_unavailable">目前教务课表不可用，请稍后再试</string>
-    <string name="ls_stat">共 %1$d 门课\n总学分: %2$.1f</string>
-    <string name="ls_template">教师: %1$s\n教学班: %2$s\n学分: %3$.1f\n类型: %4$s</string>
-    <string name="ls_compulsory">必修</string>
-    <string name="ls_elective">选修</string>
+  <!-- LESSONS -->
+  <string name="ls_unavailable">The course table is not available at the moment, please try again later.</string>
+  <string name="ls_stat">Count: %1$d\nTotal Credits: %2$.1f</string>
+  <string name="ls_template">Teacher: %1$s\nClass code: %2$s\nCredit: %3$.1f\nType: %4$s</string>
+  <string name="ls_compulsory">Compulsory</string>
+  <string name="ls_elective">Elective</string>
 
-    <!-- SETTING -->
-    <string name="st_basic_information">基本信息</string>
-    <string name="st_name">姓名</string>
-    <string name="st_user_id">学号</string>
-    <string name="st_passwd">密码</string>
-    <string name="st_gp_algorithm">平均绩点算法</string>
-    <string name="st_general">通用</string>
-    <string name="st_dark_mode">深色模式</string>
-    <string name="st_main_theme">主题</string>
-    <string name="st_md3" translatable="false">Material Design 3</string>
-    <string name="st_language">语言</string>
-    <string name="st_reset_data">重置应用数据</string>
-    <string name="st_other">其他</string>
-    <string name="st_cache">清理缓存</string>
-    <string name="st_check_update">检查更新</string>
-    <string name="st_latest_changelog">查看最近一次更新的日志</string>
-    <string name="st_submit_issue">提交反馈</string>
+  <!-- SETTINGS -->
+  <string name="st_basic_information">Basic information</string>
+  <string name="st_name">Name</string>
+  <string name="st_user_id">ID</string>
+  <string name="st_passwd">Password</string>
+  <string name="st_gp_algorithm">GPA algorithm</string>
+  <string name="st_general">General</string>
+  <string name="st_dark_mode">Dark Mode</string>
+  <string name="st_main_theme">Theme</string>
+  <string name="st_language">Language</string>
+  <string name="st_reset_data">Reset App Data</string>
+  <string name="st_other">Others</string>
+  <string name="st_cache">Clear Cache</string>
+  <string name="st_check_update">Check Update</string>
+  <string name="st_latest_changelog">Show Latest Changelog</string>
+  <string name="st_submit_issue">Submit an issue</string>
 
-    <!-- GLOBAL PROMPT -->
-    <string name="glb_error">错误</string>
-    <string name="glb_ok">好</string>
-    <string name="glb_no">取消</string>
+  <!-- GLOBAL PROMPT -->
+  <string name="glb_error">Error</string>
+  <string name="glb_ok">OK</string>
+  <string name="glb_no">Cancel</string>
 
-    <string name="glb_unknown_error">未知错误</string>
+  <string name="glb_unknown_error">Unknown Error</string>
 
-    <string name="glb_loading">加载中…</string>
-    <string name="glb_loaded">登录成功</string>
-    <string name="glb_fail_to_login_no_retry">登录失败, 请重试</string>
-    <string name="glb_fail_to_login">登录失败, 正在重试</string>
-    <string name="glb_fail_to_login_three_times">连续失败3次\n请检查用户名和密码</string>
-    <string name="glb_login_timeout">登录失效, 请重新加载</string>
-    <string name="glb_no_userdata">请先到设置输入基本信息</string>
+  <string name="glb_loading">Loading…</string>
+  <string name="glb_loaded">Logged in</string>
+  <string name="glb_fail_to_login_no_retry">Login failed, please retry.</string>
+  <string name="glb_fail_to_login">Login failed, retrying…</string>
+  <string name="glb_fail_to_login_three_times">Failed 3 times…\nCheck your id and password</string>
+  <string name="glb_login_timeout">Session timeout, please refresh</string>
+  <string name="glb_no_userdata">Please input your information in the Settings page first.</string>
 
-    <string name="glb_net_error">网络错误</string>
-    <string name="glb_net_disconnected">无网络</string>
-    <string name="glb_net_timeout">网络超时</string>
+  <string name="glb_net_error">Network Error</string>
+  <string name="glb_net_disconnected">Network Disconnected</string>
+  <string name="glb_net_timeout">Network Timeout</string>
 
-    <string name="glb_net_api_error">接口异常, 暂无法使用</string>
+  <string name="glb_net_api_error">API Error. Temporarily unavailable.</string>
 
-    <string name="glb_download_start">下载开始</string>
-    <string name="glb_download_failed">下载失败</string>
-    <string name="glb_downloading">下载中…</string>
-    <string name="glb_downloaded">下载完成</string>
+  <string name="glb_download_start">Download start</string>
+  <string name="glb_download_failed">Download Failed</string>
+  <string name="glb_downloading">Downloading…</string>
+  <string name="glb_downloaded">Download finished</string>
 
-    <!-- UPDATE -->
-    <string name="upd_detected">检测到更新</string>
-    <string name="upd_confirm">立即更新</string>
-    <string name="upd_dismiss">以后再说</string>
+  <!-- UPDATE -->
+  <string name="upd_detected">Update detected</string>
+  <string name="upd_confirm">Update</string>
+  <string name="upd_dismiss">Dismiss</string>
 
-    <string name="upd_available">"发现新版本: "</string>
+  <string name="upd_available">"Update available: "</string>
 
-    <string name="upd_latest_changelog">最近一次的更新日志</string>
+  <string name="upd_latest_changelog">Latest Changelog</string>
 
-    <!-- UNIT -->
-    <string name="rmb">" 元"</string>
-    <string name="degree">" 度"</string>
-    <string name="gigabyte" translatable="false">" GB"</string>
-    <string name="hours">" 小时"</string>
+  <!-- UNIT -->
+  <string name="rmb">" Yuan"</string>
+  <string name="degree">" degree"</string>
+  <string name="hours">" hours"</string>
 
-    <!-- TOOLS PROMPT -->
-    <string name="tlp_remain_net_fee">"余额: "</string>
-    <string name="tlp_used_net">"已用流量: "</string>
-    <string name="tlp_remain_net">"剩余流量: "</string>
-    <string name="tlp_remain_electric">"剩余电量: "</string>
-    <string name="tlp_vol_update_time">"数据更新至: "</string>
-    <string name="tlp_invalid_id_or_name">姓名或 ID 错误</string>
-    <string name="tlp_find_same_data">有相同 ID 或姓名出现, 请检查\n如果检查后还是出错, 请前往公众号查询</string>
-    <string name="tlp_reserved">预约请求已发送</string>
-    <string name="tlp_minor_detected">检测到辅修/双学位，已添加入口</string>
+  <!-- TOOLS PROMPT -->
+  <string name="tlp_remain_net_fee">"Balance: "</string>
+  <string name="tlp_used_net">"Used network: "</string>
+  <string name="tlp_remain_net">"Remain network: "</string>
+  <string name="tlp_remain_electric">"Remain electric: "</string>
+  <string name="tlp_vol_update_time">"Updated: "</string>
+  <string name="tlp_invalid_id_or_name">Wrong name and ID</string>
+  <string name="tlp_find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
+  <string name="tlp_reserved">Reserve request has been sent</string>
+  <string name="tlp_minor_detected">Minor detected. Entry has been added.</string>
 
-    <!-- SETTINGS PROMPT -->
-    <string name="stp_data_reset_confirm">请确认重置应用数据</string>
-    <string name="stp_data_reset_completed">数据已被重置, 程序即将退出…</string>
-    <string name="stp_cache_cleared">缓存清理完毕</string>
-    <string name="stp_custom_deprecated">数个版本后 MD3 主题将会强制全局启用</string>
-    <string name="stp_issue_desc">Bug 反馈/新功能建议 (需要魔法)</string>
+  <!-- SETTINGS PROMPT -->
+  <string name="stp_data_reset_confirm">Please confirm to clear appdata.</string>
+  <string name="stp_data_reset_completed">AppData has been cleared, Exiting…</string>
+  <string name="stp_cache_cleared">Cache has been cleared</string>
+  <string name="stp_custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
+  <string name="stp_issue_desc">Bug Report/Feature Request (Need VPN)</string>
 
-    <string name="stp_current_is_latest_version">当前已是最新版本</string>
-    <string name="stp_failed_to_connect_github_api">无法连接到更新服务器</string>
-    <string name="stp_github_api_rate_limit">API 请求达到上限，请稍后重试</string>
+  <string name="stp_current_is_latest_version">You have the latest app.</string>
+  <string name="stp_failed_to_connect_github_api">Failed to connect to GitHub.</string>
+  <string name="stp_github_api_rate_limit">GitHub API rate limit, try later.</string>
 
-    <string name="stp_notification_permission_prompt">我们需要通知权限来显示下载进度</string>
+  <string name="stp_notification_permission_prompt">We need notification permissions to show the download progress.</string>
 
-    <!-- ABOUT -->
-    <string name="about_slogan" translatable="false">Library One Tap</string>
+  <!-- ARRAYS -->
+  <!-- TOOLS -->
+  <string-array name="gp">
+    <item>DLUT algorithm</item>
+    <item>Standard quintile algorithm</item>
+    <item>Standard quarter algorithm</item>
+    <item>Peking University quarter algorithm</item>
+  </string-array>
 
-    <!-- ARRAYS -->
-    <!-- TOOLS -->
-    <string-array name="gp">
-        <item>大工算法</item>
-        <item>标准5分</item>
-        <item>标准4分</item>
-        <item>北大4分</item>
-    </string-array>
+  <!-- SETTINGS -->
+  <string-array name="themes">
+    <item>Random</item>
+    <item>Library</item>
+    <item>Blue</item>
+    <item>Pink</item>
+    <item>Green</item>
+    <item>Orange</item>
+    <item>Red</item>
+    <item>Purple</item>
+    <item>Simple</item>
+  </string-array>
 
-    <string-array name="gp_values" translatable="false">
-        <item>dlut</item>
-        <item>std5</item>
-        <item>std4</item>
-        <item>peking4</item>
-    </string-array>
+  <string-array name="dark_mode">
+    <item>Follow system</item>
+    <item>On</item>
+    <item>Off</item>
+  </string-array>
 
-    <!-- SETTINGS -->
-    <string-array name="themes">
-        <item>随机主题</item>
-        <item>馆藏蓝</item>
-        <item>苍穹蓝</item>
-        <item>少女粉</item>
-        <item>青葱绿</item>
-        <item>活力橙</item>
-        <item>淡雅红</item>
-        <item>基佬紫</item>
-        <item>简约风</item>
-    </string-array>
+  <string-array name="language_name">
+    <item>Follow system</item>
+    <item>简体中文</item>
+    <item>English</item>
+  </string-array>
 
-    <string-array name="themes_value" translatable="false">
-        <item>random</item>
-        <item>library</item>
-        <item>blue</item>
-        <item>pink</item>
-        <item>green</item>
-        <item>orange</item>
-        <item>red</item>
-        <item>purple</item>
-        <item>simple</item>
-    </string-array>
+  <!-- BATH RESERVE ACTIVITY -->
+  <string-array name="bath_array">
+    <item>West 1F</item>
+    <item>West 2F</item>
+    <item>West 3F</item>
+    <item>North Male</item>
+    <item>North Female</item>
+  </string-array>
 
-    <string-array name="dark_mode">
-        <item>跟随系统</item>
-        <item>开启</item>
-        <item>关闭</item>
-    </string-array>
-
-    <string-array name="dark_mode_value" translatable="false">
-        <item>system</item>
-        <item>on</item>
-        <item>off</item>
-    </string-array>
-
-    <string-array name="language_name">
-        <item>跟随系统</item>
-        <item>简体中文</item>
-        <item>English</item>
-    </string-array>
-
-    <string-array name="language_value" translatable="false">
-        <item>system</item>
-        <item>zh-CN</item>
-        <item>en-US</item>
-    </string-array>
-
-    <!-- BATH RESERVE -->
-    <string-array name="bath_array">
-        <item>西山1楼</item>
-        <item>西山2楼</item>
-        <item>西山3楼</item>
-        <item>北山男</item>
-        <item>北山女</item>
-    </string-array>
-
-    <!-- DETAIL FRAGMENT -->
-    <string-array name="area_array">
-        <item>令希</item>
-        <item>伯川</item>
-    </string-array>
-
-    <string-array name="LXArray" translatable="false">
-        <item>@string/df_random</item>
-        <item>301</item>
-        <item>302</item>
-        <item>401</item>
-        <item>402</item>
-        <item>501</item>
-        <item>502</item>
-        <item>601</item>
-        <item>602</item>
-    </string-array>
-
-    <string-array name="BCArray" translatable="false">
-        <item>@string/df_random</item>
-        <item>301</item>
-        <item>312</item>
-        <item>401</item>
-        <item>404</item>
-        <item>409</item>
-        <item>501</item>
-        <item>504</item>
-        <item>507</item>
-    </string-array>
+  <!-- DETAIL FRAGMENT -->
+  <string-array name="area_array">
+    <item>Lingxi</item>
+    <item>Bochuan</item>
+  </string-array>
 </resources>

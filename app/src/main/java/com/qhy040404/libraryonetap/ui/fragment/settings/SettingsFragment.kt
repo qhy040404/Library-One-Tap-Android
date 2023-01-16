@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.ui.fragment.settings
 
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -26,12 +28,13 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.ui.about.AboutActivity
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
-import com.qhy040404.libraryonetap.ui.interfaces.IListController
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDimen
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -51,7 +54,7 @@ import java.io.File
 import java.util.Locale
 import kotlin.system.exitProcess
 
-class SettingsFragment : PreferenceFragmentCompat(), IListController {
+class SettingsFragment : PreferenceFragmentCompat() {
     private lateinit var borderViewDelegate: BorderViewDelegate
     private lateinit var prefRecyclerView: RecyclerView
 
@@ -98,6 +101,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.id = newValue.toString()
+                Requests.libInitialized = false
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
                 activity?.recreate()
@@ -111,6 +115,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.passwd = newValue.toString()
+                Requests.libInitialized = false
                 Requests.netLazyMgr.reset()
                 CookieJarImpl.reset()
                 activity?.recreate()
@@ -190,7 +195,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
                                 Once.clearAll()
-                                AppUtils.clearAppData(LibraryOneTapApp.app)
+                                (LibraryOneTapApp.app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
                                 exitProcess(0)
                             }
                             .setCancelable(false)
@@ -217,7 +222,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
             if (GlobalValues.newVersion != null) {
                 summary =
-                    AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
+                    R.string.upd_available.getString() + GlobalValues.newVersion
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -275,14 +280,13 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
     override fun onResume() {
         super.onResume()
         scheduleAppbarRaisingStatus(
-            !getBorderViewDelegate().isShowingTopBorder,
-            "SettingsFragment onResume"
+            !getBorderViewDelegate().isShowingTopBorder
         )
         (activity as? IAppBarContainer)?.setLiftOnScrollTargetView(prefRecyclerView)
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
         if (GlobalValues.newVersion != null) {
             findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
-                AppUtils.getResString(R.string.upd_available) + GlobalValues.newVersion
+                R.string.upd_available.getString() + GlobalValues.newVersion
         }
     }
 
@@ -301,9 +305,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
 
         val lp = recyclerView.layoutParams
         if (lp is FrameLayout.LayoutParams) {
-            lp.rightMargin = recyclerView.context.resources
-                .getDimension(rikka.material.R.dimen.rd_activity_horizontal_margin)
-                .toInt()
+            lp.rightMargin = rikka.material.R.dimen.rd_activity_horizontal_margin.getDimen().toInt()
             lp.leftMargin = lp.rightMargin
         }
 
@@ -311,8 +313,7 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         borderViewDelegate.borderVisibilityChangedListener =
             BorderView.OnBorderVisibilityChangedListener { top: Boolean, _: Boolean, _: Boolean, _: Boolean ->
                 scheduleAppbarRaisingStatus(
-                    !top,
-                    "SettingsFragment OnBorderVisibilityChangedListener: top=$top"
+                    !top
                 )
             }
 
@@ -320,15 +321,11 @@ class SettingsFragment : PreferenceFragmentCompat(), IListController {
         return recyclerView
     }
 
-    private fun scheduleAppbarRaisingStatus(isLifted: Boolean, from: String) {
-        (activity as? IAppBarContainer)?.scheduleAppbarLiftingStatus(isLifted, from)
+    private fun scheduleAppbarRaisingStatus(isLifted: Boolean) {
+        (activity as? IAppBarContainer)?.scheduleAppbarLiftingStatus(isLifted)
     }
 
-    override fun onReturnTop() {}
-
-    override fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate
-    override fun isAllowRefreshing(): Boolean = true
-    override fun getSuitableLayoutManager(): RecyclerView.LayoutManager? = null
+    private fun getBorderViewDelegate(): BorderViewDelegate = borderViewDelegate
 
     private fun setCustomThemeVisibility(visible: Boolean) {
         findPreference<SimpleMenuPreference>(Constants.PREF_THEME)?.isVisible = !visible

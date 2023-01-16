@@ -1,19 +1,19 @@
 package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 
 object NetData {
     fun getFee(data: String) = runCatching {
-        moshi.adapter(NetDTO::class.java).fromJson(data.trim())?.fee!!
+        data.decode<NetDTO>()?.fee!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 
     fun getDynamicUsedFlow(data: String) = runCatching {
-        moshi.adapter(NetDTO::class.java).fromJson(data.trim())?.dynamicUsedFlow!!
+        data.decode<NetDTO>()?.dynamicUsedFlow!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 
     fun getDynamicRemainFlow(data: String) = runCatching {
-        moshi.adapter(NetDTO::class.java).fromJson(data.trim())?.dynamicRemainFlow!!
+        data.decode<NetDTO>()?.dynamicRemainFlow!!
     }.getOrDefault(Constants.GLOBAL_ERROR)
 }
 

@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.ui.tools
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.StrictMode
 import android.util.Base64
@@ -11,12 +12,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -111,41 +112,26 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             return
         }
 
-        val qrUrl = URLManager.getVCardQRUrl(openid)
-
-        var qrPage = Requests.getVCard(qrUrl)
-        var qrInformation = qrPage.substringBetween("<p class=\"bdb\">", "</p>")
-
-        var qrBase64 = qrPage.substringBetween(
-            "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
-            "\">"
-        )
-        var payCode = qrPage.substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
-
-        var qr = Base64.decode(qrBase64, Base64.DEFAULT)
-        var bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-        runOnUiThread { loading.visibility = View.INVISIBLE }
-        qrView.load(QRUtils.toGrayscale(bitmap))
-        runOnUiThread { balance.text = qrInformation }
+        var payCode = ""
+        updateCode(openid).let {
+            runOnUiThread {
+                loading.visibility = View.INVISIBLE
+                qrView.load(QRUtils.toGrayscale(it.second))
+                balance.text = it.first
+                payCode = it.third
+            }
+        }
         runOnUiThread {
             refresh.setOnClickListener {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
                 )
-                qrPage = Requests.getVCard(qrUrl)
-                qrInformation = qrPage.substringBetween("<p class=\"bdb\">", "</p>")
 
-                qrBase64 = qrPage.substringBetween(
-                    "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
-                    "\">"
-                )
-                payCode = qrPage
-                    .substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
-
-                qr = Base64.decode(qrBase64, Base64.DEFAULT)
-                bitmap = BitmapFactory.decodeByteArray(qr, 0, qr.size)
-                qrView.load(QRUtils.toGrayscale(bitmap))
-                balance.text = qrInformation
+                updateCode(openid).let {
+                    qrView.load(QRUtils.toGrayscale(it.second))
+                    balance.text = it.first
+                    payCode = it.third
+                }
             }
         }
         thread {
@@ -154,15 +140,33 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             )
             while (isActivityVisible) {
                 Thread.sleep(3000L)
-                val statusOrig =
-                    Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode)).trim()
-                val status = moshi.adapter(VCardStatusDTO::class.java).fromJson(statusOrig)!!
-                if (status.resultData.status != "5" && isActivityVisible) {
-                    runOnUiThread {
-                        refresh.performClick()
+                Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode))
+                    .decode<VCardStatusDTO>()?.let {
+                        if (it.resultData.status != "5" && isActivityVisible) {
+                            runOnUiThread {
+                                refresh.performClick()
+                            }
+                        }
                     }
-                }
             }
         }
+    }
+
+    private fun updateCode(openid: String): Triple<String, Bitmap, String> {
+        val payData = Requests.getVCard(URLManager.getVCardQRUrl(openid)).let {
+            Triple(
+                it.substringBetween("<p class=\"bdb\">", "</p>"),
+                it.substringBetween(
+                    "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
+                    "\">"
+                ),
+                it.substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
+            )
+        }
+
+        val bitmap = Base64.decode(payData.second, Base64.DEFAULT).let {
+            BitmapFactory.decodeByteArray(it, 0, it.size)
+        }
+        return Triple(payData.first, bitmap, payData.third)
     }
 }

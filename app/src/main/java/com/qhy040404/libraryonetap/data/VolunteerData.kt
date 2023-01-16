@@ -1,18 +1,18 @@
 package com.qhy040404.libraryonetap.data
 
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 
 object VolunteerData {
     fun getSameID(data: String) = runCatching {
-        moshi.adapter(VolunteerDTO::class.java).fromJson(data.trim())?.numSameID!!
+        data.decode<VolunteerDTO>()?.numSameID!!
     }.getOrDefault(-1)
 
     fun getSameName(data: String) = runCatching {
-        moshi.adapter(VolunteerDTO::class.java).fromJson(data.trim())?.numSameName!!
+        data.decode<VolunteerDTO>()?.numSameName!!
     }.getOrDefault(-1)
 
     fun getTotalHours(data: String) = runCatching {
-        moshi.adapter(VolunteerDTO::class.java).fromJson(data.trim())?.totalDuration!!
+        data.decode<VolunteerDTO>()?.totalDuration!!
     }.getOrDefault(-1.0)
 }
 

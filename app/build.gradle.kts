@@ -2,13 +2,14 @@
 
 import java.net.InetAddress
 import java.nio.charset.Charset
+import java.nio.file.Paths
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
 
-val baseVersionName = "3.8.12"
+val baseVersionName = "4.0.0"
 val commitsCount by lazy { "git rev-list --count HEAD".exec().toInt() }
 
 android {
@@ -23,7 +24,6 @@ android {
 
         resourceConfigurations.addAll(
             setOf(
-                "zh",
                 "en",
                 "zh-rCN"
             )
@@ -46,7 +46,7 @@ android {
             isCrunchPngs = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro")
-            ndk.abiFilters.add("arm64-v8a")
+            ndk.abiFilters.add("")
             packagingOptions.resources.excludes += setOf(
                 "DebugProbesKt.bin",
                 "META-INF/*.version"
@@ -68,7 +68,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        dataBinding = true
     }
 }
 
@@ -80,7 +79,6 @@ configurations.all {
 dependencies {
     implementation("androidx.activity:activity-ktx:1.6.1")
     implementation("androidx.annotation:annotation:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.6.0-rc01")
     implementation("androidx.browser:browser:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.core:core-ktx:1.9.0")
@@ -94,8 +92,7 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.drakeet.about:about:2.5.2")
     implementation("com.drakeet.multitype:multitype:4.3.0")
-    //implementation("com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11")
-    implementation("com.github.qhy040404:datetime:1.2.3")
+    implementation("com.github.qhy040404:datetime:1.2.6")
     implementation("com.github.zhaobozhen.libraries:utils:1.1.3")
     implementation("com.google.android.material:material:1.7.0")
     implementation("com.jonathanfinerty.once:once:1.3.1")
@@ -114,11 +111,51 @@ dependencies {
     implementation("me.zhanghai.android.appiconloader:appiconloader:1.5.0")
     implementation("me.zhanghai.android.appiconloader:appiconloader-coil:1.5.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("org.mozilla:rhino:1.7.14")
+
+    // To unify version
+    implementation("androidx.collection:collection-ktx:1.2.0")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-process:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-service:2.5.1")
+    implementation("androidx.transition:transition:1.4.1")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
 
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
 
     testImplementation("junit:junit:4.13.2")
+}
+
+tasks.matching {
+    it.name.contains("optimizeReleaseRes")
+}.configureEach {
+    doLast {
+        val aapt2 = File(
+            androidComponents.sdkComponents.sdkDirectory.get().asFile,
+            "build-tools/${project.android.buildToolsVersion}/aapt2"
+        )
+        val zip = Paths.get(
+            buildDir.path,
+            "intermediates",
+            "optimized_processed_res",
+            "release",
+            "resources-release-optimize.ap_"
+        )
+        val optimized = File("$zip.opt")
+        val cmd = exec {
+            commandLine(
+                aapt2, "optimize",
+                "--collapse-resource-names",
+                "--resources-config-path", "aapt2-resources.cfg",
+                "-o", optimized,
+                zip
+            )
+            isIgnoreExitValue = false
+        }
+        if (cmd.exitValue == 0) {
+            delete(zip)
+            optimized.renameTo(zip.toFile())
+        }
+    }
 }
 
 fun getBuglyAppID(isBuildConfig: Boolean): String {
@@ -139,6 +176,10 @@ fun getBuildType(isBuildConfig: Boolean): String {
             && getStartParameters().contains("Release")
         ) {
             "Pre-release"
+        } else if ("git tag -l $baseVersionName".exec().isEmpty()
+            && getStartParameters().contains("Release")
+        ) {
+            "CI"
         } else {
             "Debug"
         }

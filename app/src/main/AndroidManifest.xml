@@ -1,95 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+  xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-    <application
-        android:name=".LibraryOneTapApp"
-        android:allowBackup="true"
-        android:appCategory="productivity"
-        android:enableOnBackInvokedCallback="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:targetApi="33">
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:name=".LibraryOneTapApp"
+    android:allowBackup="true"
+    android:appCategory="productivity"
+    android:enableOnBackInvokedCallback="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:networkSecurityConfig="@xml/network_security_config"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    tools:targetApi="33">
+    <activity
+      android:name=".ui.main.MainActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
-            </intent-filter>
+        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+      </intent-filter>
 
-            <meta-data
-                android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts" />
-        </activity>
-        <activity
-            android:name=".ui.tools.BathReserveActivity"
-            android:exported="false"
-            android:label="@string/bath_title" />
-        <activity
-            android:name=".ui.tools.GradesMajorActivity"
-            android:exported="false"
-            android:label="@string/grade_major_title" />
-        <activity
-            android:name=".ui.tools.GradesMinorActivity"
-            android:exported="false"
-            android:label="@string/grade_minor_title" />
-        <activity
-            android:name=".ui.tools.LessonsActivity"
-            android:exported="false"
-            android:label="@string/lessons_title" />
-        <activity
-            android:name=".ui.tools.ExamsActivity"
-            android:exported="false"
-            android:label="@string/exams_title" />
-        <activity
-            android:name=".ui.tools.VCardActivity"
-            android:exported="true"
-            android:label="@string/vcard_title" />
-        <activity
-            android:name=".ui.about.AboutActivity"
-            android:exported="false"
-            android:label="@string/about_title"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Library" />
+      <meta-data
+        android:name="android.app.shortcuts"
+        android:resource="@xml/shortcuts" />
+    </activity>
+    <activity
+      android:name=".ui.tools.BathReserveActivity"
+      android:exported="false"
+      android:label="@string/bath_title" />
+    <activity
+      android:name=".ui.tools.GradesMajorActivity"
+      android:exported="false"
+      android:label="@string/grade_major_title" />
+    <activity
+      android:name=".ui.tools.GradesMinorActivity"
+      android:exported="false"
+      android:label="@string/grade_minor_title" />
+    <activity
+      android:name=".ui.tools.LessonsActivity"
+      android:exported="false"
+      android:label="@string/lessons_title" />
+    <activity
+      android:name=".ui.tools.ExamsActivity"
+      android:exported="false"
+      android:label="@string/exams_title" />
+    <activity
+      android:name=".ui.tools.VCardActivity"
+      android:exported="true"
+      android:label="@string/vcard_title" />
+    <activity
+      android:name=".ui.about.AboutActivity"
+      android:exported="false"
+      android:label="@string/about_title"
+      android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Library" />
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.qhy040404.libraryonetap.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/filepaths" />
-        </provider>
+    <provider
+      android:name="androidx.core.content.FileProvider"
+      android:authorities="com.qhy040404.libraryonetap.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/filepaths" />
+    </provider>
 
-        <meta-data
-            android:name="Build Host"
-            android:value="${BUILD_HOST}" />
-        <meta-data
-            android:name="Channel"
-            android:value="${CHANNEL}" />
-        <meta-data
-            android:name="Commit"
-            android:value="${COMMIT}" />
-    </application>
-
+    <meta-data
+      android:name="Build Host"
+      android:value="${BUILD_HOST}" />
+    <meta-data
+      android:name="Channel"
+      android:value="${CHANNEL}" />
+    <meta-data
+      android:name="Commit"
+      android:value="${COMMIT}" />
+  </application>
 </manifest>

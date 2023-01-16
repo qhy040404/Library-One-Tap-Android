@@ -10,12 +10,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.FileExtensions.sha512
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.surroundingWith
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -33,10 +34,6 @@ object UpdateUtils {
     private var dialog: WeakReference<AlertDialog>? = null
 
     suspend fun checkUpdate(ctx: Context, fromSettings: Boolean = false) {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
-
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
                 ctx.showToast(R.string.glb_net_disconnected)
@@ -56,7 +53,7 @@ object UpdateUtils {
             .build()
         val latestOrig = try {
             client.newCall(request).execute().body!!.string()
-        } catch (socket: SocketTimeoutException) {
+        } catch (s: SocketTimeoutException) {
             ctx.showToast(R.string.glb_net_timeout)
             return
         } catch (_: Exception) {
@@ -71,7 +68,7 @@ object UpdateUtils {
             return
         }
 
-        val latestClazz = moshi.adapter(GithubAPIDTO::class.java).fromJson(latestOrig)!!
+        val latestClazz = latestOrig.decode<GithubAPIDTO>()!!
 
         val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)
         val localVersionCode = getVersionCode(BuildConfig.VERSION_NAME, false)
@@ -151,8 +148,10 @@ object UpdateUtils {
                     }
                     val notification = NotificationUtils(ctx, "update", "Update")
                     ctx.showToast(R.string.glb_download_start)
-                    notification.showNotification("$versionName ${AppUtils.getResString(R.string.glb_downloading)}",
-                        true)
+                    notification.showNotification(
+                        "$versionName ${R.string.glb_downloading.getString()}",
+                        true
+                    )
                     thread {
                         StrictMode.setThreadPolicy(
                             StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -166,7 +165,7 @@ object UpdateUtils {
                                 }
 
                                 override fun onDownloadSuccess() {
-                                    notification.finishProgress(AppUtils.getResString(R.string.glb_downloaded))
+                                    notification.finishProgress(R.string.glb_downloaded.getString())
                                     GlobalValues.latestApkName = packageName
                                     File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
                                         if (exists()) {
@@ -224,7 +223,7 @@ object UpdateUtils {
         intent.addCategory(Intent.CATEGORY_DEFAULT)
         intent.setDataAndType(
             FileProvider.getUriForFile(ctx,
-                ctx.packageName + ".fileprovider",
+                GlobalValues.FP_NAME,
                 File(ctx.cacheDir, name)),
             "application/vnd.android.package-archive")
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -233,9 +232,6 @@ object UpdateUtils {
     }
 
     private fun checkConnection(): Boolean {
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
         return when (Requests.get(URLManager.GITHUB_REPO)) {
             Constants.NET_TIMEOUT -> false
             Constants.NET_ERROR -> false

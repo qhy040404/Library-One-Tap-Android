@@ -31,4 +31,21 @@ object ByteExtensions {
      * @return SHA-512 hash of the ByteArray
      */
     fun ByteArray.sha512() = HashUtils.sha512(this)
+
+    /**
+     * Convert a ByteArray to Hex String
+     *
+     * @return HexString of the ByteArray
+     */
+    fun ByteArray.toHex(): String {
+        return buildString {
+            this@toHex.forEach {
+                var hex = Integer.toHexString(it.toInt() and 0xFF)
+                if (hex.length == 1) {
+                    hex = "0$hex"
+                }
+                append(hex.lowercase())
+            }
+        }
+    }
 }

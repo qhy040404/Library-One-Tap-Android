@@ -3,11 +3,14 @@ package com.qhy040404.libraryonetap.ui.main
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.provider.Settings
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.edit
+import androidx.core.net.toUri
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -20,22 +23,21 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.databinding.ActivityMainBottomBinding
-import com.qhy040404.libraryonetap.ui.fragment.library.DetailFragment
+import com.qhy040404.libraryonetap.ui.fragment.library.SingleFragment
 import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
 import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
-import com.qhy040404.libraryonetap.ui.interfaces.INavViewContainer
+import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
-import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
@@ -44,13 +46,12 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
-    INavViewContainer,
     IAppBarContainer {
     private val navViewBehavior by lazy { HideBottomViewOnScrollBehavior<BottomNavigationView>() }
 
     override fun init() {
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = AppUtils.setTitle(this)
+        supportActionBar?.title = R.string.app_name.getString()
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
         }
@@ -89,7 +90,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
 
                     override fun createFragment(position: Int): Fragment {
                         return when (position) {
-                            0 -> DetailFragment()
+                            0 -> SingleFragment()
                             1 -> YanxiujianFragment()
                             2 -> ToolsInitFragment()
                             else -> SettingsFragment()
@@ -142,12 +143,20 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                     }
                     true
                 }
+                ViewCompat.setOnApplyWindowInsetsListener(this) { _, windowInsets ->
+                    val naviBarsInsets = ViewCompat.getRootWindowInsets(this)!!
+                        .getInsets(WindowInsetsCompat.Type.navigationBars())
+                    this.updatePadding(bottom = naviBarsInsets.bottom)
+                    windowInsets
+                }
             }
         }
         handleIntentFromShortcuts(intent)
         showWelcomeDialog()
 
-        lifecycleScope.launch(Dispatchers.IO) { UpdateUtils.checkUpdate(this@MainActivity) }
+        lifecycleScope.launch(Dispatchers.IO) {
+            UpdateUtils.checkUpdate(this@MainActivity)
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -155,23 +164,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         handleIntentFromShortcuts(intent)
     }
 
-    override fun showNavigationView() {
-        navViewBehavior.slideUp(binding.navView)
-    }
-
-    override fun hideNavigationView() {
-        navViewBehavior.slideDown(binding.navView)
-    }
-
-    override fun showProgressBar() {
-        binding.progressHorizontal.show()
-    }
-
-    override fun hideProgressBar() {
-        binding.progressHorizontal.hide()
-    }
-
-    override fun scheduleAppbarLiftingStatus(isLifted: Boolean, from: String) {
+    override fun scheduleAppbarLiftingStatus(isLifted: Boolean) {
         binding.appbar.isLifted = isLifted
     }
 
@@ -196,27 +189,19 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         LibraryOneTapApp.instance?.dismissFragment()
-        GlobalManager.lazyMgr.reset()
         if (requestCode == 100) {
             for (i in permissions.indices) {
-                if (permissions[i] == Manifest.permission.ACCESS_FINE_LOCATION) {
-                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        MaterialAlertDialogBuilder(this)
-                            .setMessage(R.string.br_permission_got)
-                            .setTitle(R.string.bath_title)
-                            .setPositiveButton(R.string.glb_ok, null)
-                            .setCancelable(true)
-                            .create()
-                            .show()
+                when (permissions[i]) {
+                    Manifest.permission.ACCESS_FINE_LOCATION -> if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        startActivity(Intent(this, BathReserveActivity::class.java))
                     } else {
                         MaterialAlertDialogBuilder(this)
                             .setMessage(R.string.br_permission_fail)
                             .setTitle(R.string.glb_error)
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
-                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                                val uri = Uri.fromParts("package", packageName, null)
-                                intent.data = uri
-                                startActivity(intent)
+                                startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                    data = "package:$packageName".toUri()
+                                })
                             }
                             .setCancelable(false)
                             .create()

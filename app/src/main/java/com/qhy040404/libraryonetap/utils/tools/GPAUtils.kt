@@ -1,50 +1,21 @@
 package com.qhy040404.libraryonetap.utils.tools
 
+import com.qhy040404.libraryonetap.constant.enums.GPAAlgorithm
 import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
 
 object GPAUtils {
-    fun calculateGPAByDlut(grades: List<Grade>): Double {
-        var totalWeightedGP = 0.0
-        val totalCredits = grades.sumOf { it.credit }
-        grades.forEach {
-            totalWeightedGP += it.gp * it.credit
-        }
-        return (totalWeightedGP / totalCredits).to2Decimal()
-    }
-
-    fun calculateGPAByStandard5(grades: List<Grade>): Double {
+    fun calculateGPA(grades: List<Grade>, algorithm: GPAAlgorithm): Double {
         var totalWeightedGP = 0.0
         var totalCredits = grades.sumOf { it.credit }
         grades.forEach {
             runCatching {
-                totalWeightedGP += getGpByStandard5(it.grade.toInt()) * it.credit
-            }.onFailure { _ ->
-                totalCredits -= it.credit
-            }
-        }
-        return (totalWeightedGP / totalCredits).to2Decimal()
-    }
-
-    fun calculateGPAByStandard4(grades: List<Grade>): Double {
-        var totalWeightedGP = 0.0
-        var totalCredits = grades.sumOf { it.credit }
-        grades.forEach {
-            runCatching {
-                totalWeightedGP += getGpByStandard4(it.grade.toInt()) * it.credit
-            }.onFailure { _ ->
-                totalCredits -= it.credit
-            }
-        }
-        return (totalWeightedGP / totalCredits).to2Decimal()
-    }
-
-    fun calculateGPAByPeking4(grades: List<Grade>): Double {
-        var totalWeightedGP = 0.0
-        var totalCredits = grades.sumOf { it.credit }
-        grades.forEach {
-            runCatching {
-                totalWeightedGP += getGpByPeking4(it.grade.toInt()) * it.credit
+                totalWeightedGP += when (algorithm) {
+                    GPAAlgorithm.DLUT -> it.gp * it.credit
+                    GPAAlgorithm.STD5 -> getGpByStandard5(it.grade.toInt()) * it.credit
+                    GPAAlgorithm.STD4 -> getGpByStandard4(it.grade.toInt()) * it.credit
+                    GPAAlgorithm.PK4 -> getGpByPeking4(it.grade.toInt()) * it.credit
+                }
             }.onFailure { _ ->
                 totalCredits -= it.credit
             }

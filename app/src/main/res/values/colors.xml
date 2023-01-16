@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="translucent">#00000000</color>
-    <color name="ic_launcher_foreground">#FFFFFF</color>
-    <color name="ic_launcher_background">#FF104287</color>
-    <color name="about_black">#121212</color>
+  <color name="black">#FF000000</color>
+  <color name="white">#FFFFFFFF</color>
+  <color name="translucent">#00000000</color>
+  <color name="ic_launcher_foreground">#FFFFFF</color>
+  <color name="ic_launcher_background">#FF104287</color>
+  <color name="about_black">#121212</color>
 
-    <color name="colorPrimary">@color/blue_500</color>
-    <color name="colorPrimaryMd3">@color/blue_500</color>
-    <color name="aboutHeader">@color/blue_500</color>
-    <color name="textNormal">#FF000000</color>
-    <color name="textSecondary">#80464646</color>
+  <color name="colorPrimary">@color/blue_500</color>
+  <color name="colorPrimaryMd3">@color/blue_500</color>
+  <color name="aboutHeader">@color/blue_500</color>
+  <color name="textNormal">#FF000000</color>
+  <color name="textSecondary">#80464646</color>
 
-    <color name="background_gray">#FFDFDFDF</color>
-    <color name="lib_icon_background">#10000000</color>
-    <color name="feature_background">#15000000</color>
-    <color name="feature_ripple">#40000000</color>
+  <color name="background_gray">#FFDFDFDF</color>
+  <color name="lib_icon_background">#10000000</color>
+  <color name="feature_background">#15000000</color>
+  <color name="feature_ripple">#40000000</color>
 
-    <color name="app_color_dark">#B1B8DF</color>
-    <color name="highlight_component">@color/material_blue_100</color>
+  <color name="app_color_dark">#B1B8DF</color>
+  <color name="highlight_component">@color/material_blue_100</color>
 
-    <color name="bottom_sheet_header_handler">#CCDFDFDF</color>
-    <color name="bottom_sheet_header_handler_activated">#CC444444</color>
-    <color name="bottom_sheet_header_handler_md3">#CC888888</color>
-    <color name="bottom_sheet_header_handler_activated_md3">#CC444444</color>
+  <color name="bottom_sheet_header_handler">#CCDFDFDF</color>
+  <color name="bottom_sheet_header_handler_activated">#CC444444</color>
+  <color name="bottom_sheet_header_handler_md3">#CC888888</color>
+  <color name="bottom_sheet_header_handler_activated_md3">#CC444444</color>
 
-    <color name="common_transparent_20">#33000000</color>
+  <color name="common_transparent_20">#33000000</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
+import com.qhy040404.datetime.Datetime
 import java.util.Calendar
 
 object TimeUtils {
@@ -21,11 +22,11 @@ object TimeUtils {
     }
 
     fun isValidReserveTime(): Boolean {
-        val now = now()
-        if (now[0] in 7..22) {
+        val now = Datetime.now()
+        if (now.hour in 7..22) {
             return true
         }
-        if (now[0] == 6 && now[1] > 30) {
+        if (now.hour == 6 && now.minute > 30) {
             return true
         }
         return false
@@ -35,11 +36,5 @@ object TimeUtils {
         sTime.toString()
     } else {
         "0$sTime"
-    }
-
-    private fun now(): IntArray {
-        val hour = calendar[Calendar.HOUR_OF_DAY]
-        val minute = calendar[Calendar.MINUTE]
-        return intArrayOf(hour, minute)
     }
 }

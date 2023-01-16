@@ -99,33 +99,33 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                 }
             }
 
-            if (order_process == "审核通过") {
-                order_process = R.string.df_not_start.getString()
+            when (order_process) {
+                "审核通过" -> {
+                    order_process = R.string.df_not_start.getString()
 
-                runOnUiThread {
-                    cancel.visibility = View.VISIBLE
-                    cancel.isClickable = true
-                }
+                    runOnUiThread {
+                        cancel.visibility = View.VISIBLE
+                        cancel.isClickable = true
+                    }
 
-                val today = TimeUtils.getToday("-", true)
-                if (order_date != today) {
+                    val today = TimeUtils.getToday("-", true)
                     runOnUiThread {
-                        reserve.visibility = View.VISIBLE
-                        reserve.isClickable = true
-                    }
-                } else {
-                    runOnUiThread {
-                        reset.visibility = View.VISIBLE
-                        reset.isClickable = true
+                        if (order_date != today) {
+                            reserve.visibility = View.VISIBLE
+                            reserve.isClickable = true
+                        } else {
+                            reset.visibility = View.VISIBLE
+                            reset.isClickable = true
+                        }
                     }
                 }
-            } else if (order_process == "进行中") {
-                order_process = R.string.df_inside.getString()
-            } else if (order_process == "暂离") {
-                order_process = R.string.df_outside.getString()
-                runOnUiThread {
-                    tempReset.visibility = View.VISIBLE
-                    tempReset.isClickable = true
+                "进行中" -> order_process = R.string.df_inside.getString()
+                "暂离" -> {
+                    order_process = R.string.df_outside.getString()
+                    runOnUiThread {
+                        tempReset.visibility = View.VISIBLE
+                        tempReset.isClickable = true
+                    }
                 }
             }
 
@@ -152,8 +152,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         }
                     })
                 }
-            }
-            runOnUiThread {
                 leave.setOnClickListener {
                     val request =
                         Request.Builder()
@@ -169,8 +167,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         }
                     })
                 }
-            }
-            runOnUiThread {
                 tempLeave.setOnClickListener {
                     val request =
                         Request.Builder()
@@ -186,8 +182,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         }
                     })
                 }
-            }
-            runOnUiThread {
                 cancel.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -216,13 +210,9 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         .create()
                         .show()
                 }
-            }
-            runOnUiThread {
                 reserve.setOnClickListener {
                     ReserveDialog().showAlertDialog(requireActivity())
                 }
-            }
-            runOnUiThread {
                 reset.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -284,8 +274,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         .create()
                         .show()
                 }
-            }
-            runOnUiThread {
                 tempReset.setOnClickListener {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -346,8 +334,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         .create()
                         .show()
                 }
-            }
-            runOnUiThread {
                 detail.text = """
                     order_id: $order_id
 
@@ -367,8 +353,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
             }
         } else if (!loginSuccess) {
             runOnUiThread {
-                detail.text =
-                    R.string.glb_fail_to_login_three_times.getString()
+                detail.text = R.string.glb_fail_to_login_three_times.getString()
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()

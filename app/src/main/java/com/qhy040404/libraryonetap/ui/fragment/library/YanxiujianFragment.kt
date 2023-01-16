@@ -118,8 +118,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
         } else if (!loginSuccess) {
             runOnUiThread {
-                detail.text =
-                    R.string.glb_fail_to_login_three_times.getString()
+                detail.text = R.string.glb_fail_to_login_three_times.getString()
             }
         } else if (GlobalValues.netError) {
             AppUtils.pass()

@@ -92,9 +92,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             } else {
                 R.string.glb_fail_to_login_no_retry.getString()
             }
-        }
-
-        runOnUiThread {
             reserve.setOnClickListener {
                 StrictMode.setThreadPolicy(
                     StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -121,11 +118,8 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                     mainPostData,
                     GlobalValues.ctSso)
                 Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
-                runOnUiThread { text.text = getString(R.string.br_request_sent) }
+                text.text = getString(R.string.br_request_sent)
             }
-        }
-
-        runOnUiThread {
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     when (spinner.selectedItem.toString()) {

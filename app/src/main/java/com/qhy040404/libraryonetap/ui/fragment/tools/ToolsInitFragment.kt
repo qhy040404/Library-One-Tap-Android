@@ -55,7 +55,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
-                    val netName = when (NetworkStateUtils.checkNetworkTypeStr(requireContext())) {
+                    val netName = when (NetworkStateUtils.checkNetworkType()) {
                         "WIFI" -> NetworkStateUtils.getSSID(requireContext())
                         "Cellular" -> "Cellular"
                         else -> Constants.GLOBAL_ERROR

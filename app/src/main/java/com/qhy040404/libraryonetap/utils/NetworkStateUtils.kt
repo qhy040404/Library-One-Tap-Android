@@ -5,28 +5,20 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
 import androidx.core.content.ContextCompat
+import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.Constants
 
 @Suppress("DEPRECATION")
 object NetworkStateUtils {
-    private fun checkNetworkType(ctx: Context): Int {
-        val context = ctx.applicationContext
-        val netType = 0
-        val manager = ContextCompat.getSystemService(context, ConnectivityManager::class.java)
-            ?: return netType
+    fun checkNetworkType(): String {
+        val manager =
+            ContextCompat.getSystemService(LibraryOneTapApp.app, ConnectivityManager::class.java)
+                ?: return Constants.GLOBAL_ERROR
         val networkCapabilities =
-            manager.getNetworkCapabilities(manager.activeNetwork) ?: return netType
+            manager.getNetworkCapabilities(manager.activeNetwork) ?: return Constants.GLOBAL_ERROR
         return when {
-            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> 1
-            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> 2
-            else -> netType
-        }
-    }
-
-    fun checkNetworkTypeStr(ctx: Context): String {
-        return when (checkNetworkType(ctx)) {
-            1 -> "WIFI"
-            2 -> "Cellular"
+            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> "WIFI"
+            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> "Cellular"
             else -> Constants.GLOBAL_ERROR
         }
     }

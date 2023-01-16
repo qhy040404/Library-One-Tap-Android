@@ -74,10 +74,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         WebVPNUtils.init()
 
-        val isCampus =
-            NetworkStateUtils.checkNetworkTypeStr(this) == "WIFI" && NetworkStateUtils.getSSID(
-                this
-            ) == "DLUT-LingShui"
+        val isCampus = NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID(
+            this
+        ) == "DLUT-LingShui"
 
         val online = if (isCampus) {
             Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
@@ -144,7 +143,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun generateUrl(original: String): String {
-        if (NetworkStateUtils.checkNetworkTypeStr(this) == "WIFI") {
+        if (NetworkStateUtils.checkNetworkType() == "WIFI") {
             if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") {
                 return original
             }

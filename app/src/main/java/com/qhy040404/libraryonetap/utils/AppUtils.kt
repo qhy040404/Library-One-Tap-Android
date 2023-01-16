@@ -7,14 +7,11 @@ import android.content.res.Configuration
 import android.util.Log
 import androidx.annotation.StringRes
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import rikka.material.app.DayNightDelegate
 
 object AppUtils {
-    private val ctx = LibraryOneTapApp.app
-
     fun getNightMode(modeString: String) = when (modeString) {
         "on" -> DayNightDelegate.MODE_NIGHT_YES
         "off" -> DayNightDelegate.MODE_NIGHT_NO
@@ -88,6 +85,6 @@ object AppUtils {
     }
 
     fun hasNetwork(): Boolean {
-        return NetworkStateUtils.checkNetworkTypeStr(ctx) != Constants.GLOBAL_ERROR
+        return NetworkStateUtils.checkNetworkType() != Constants.GLOBAL_ERROR
     }
 }

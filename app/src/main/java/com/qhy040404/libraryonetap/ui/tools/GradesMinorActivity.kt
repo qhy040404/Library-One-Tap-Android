@@ -175,6 +175,7 @@ class GradesMinorActivity : SimplePageActivity() {
                     Card(
                         String.format(
                             R.string.gr_stat.getString(),
+                            semesters.first().courses.sumOf { it.credit },
                             GradesUtils.calculateWeightedAverage(
                                 buildList {
                                     semesters.forEach {

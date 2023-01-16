@@ -67,7 +67,7 @@
 
   <!-- GRADES -->
   <string name="gr_empty">There is no score.</string>
-  <string name="gr_stat">Weighted average score: %1$.2f  GPA: %2$s</string>
+  <string name="gr_stat">Credits earned this semester: %1$.1f\nWeighted average score: %2$.2f  GPA: %3$s</string>
   <string name="gr_eval_first">Evaluate first</string>
   <string name="gr_template">%1$s\nScore: %2$s\nCredit: %3$.1f\nGP: %4$.1f</string>
 

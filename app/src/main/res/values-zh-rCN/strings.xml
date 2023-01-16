@@ -67,7 +67,7 @@
 
   <!-- GRADES -->
   <string name="gr_empty">暂无分数</string>
-  <string name="gr_stat">加权均分: %1$.2f  平均绩点: %2$s</string>
+  <string name="gr_stat">本学期已获得学分: %1$.1f\n加权均分: %2$.2f  平均绩点: %3$s</string>
   <string name="gr_eval_first">请先评教</string>
   <string name="gr_template">%1$s\n分数: %2$s\n学分: %3$.1f\n绩点: %4$.1f</string>
 

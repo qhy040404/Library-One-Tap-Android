@@ -223,7 +223,7 @@ object UpdateUtils {
         intent.addCategory(Intent.CATEGORY_DEFAULT)
         intent.setDataAndType(
             FileProvider.getUriForFile(ctx,
-                ctx.packageName + ".fileprovider",
+                GlobalValues.FP_NAME,
                 File(ctx.cacheDir, name)),
             "application/vnd.android.package-archive")
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

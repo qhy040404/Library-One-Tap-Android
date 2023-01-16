@@ -13,8 +13,8 @@ import okhttp3.MediaType.Companion.toMediaType
 import java.util.Locale
 
 object GlobalValues {
-    // SharedPreferences
     const val SP_NAME = "${BuildConfig.APPLICATION_ID}_preferences"
+    const val FP_NAME = "${BuildConfig.APPLICATION_ID}.fileprovider"
 
     // Preferences
     var name: String by SPDelegates(Constants.PREF_NAME, Constants.GLOBAL_ERROR)

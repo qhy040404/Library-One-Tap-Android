@@ -49,9 +49,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 isVisible = false
             }
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -102,9 +102,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_VCARD)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -127,9 +127,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_GRADES_MAJOR)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -141,9 +141,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -155,9 +155,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_LESSONS)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -169,9 +169,9 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_EXAMS)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkDataAndDialog(requireContext(),
-                        GlobalValues.id,
+                if (AppUtils.checkData(GlobalValues.id,
                         GlobalValues.passwd,
+                        requireContext(),
                         R.string.mn_tools,
                         R.string.glb_no_userdata)
                 ) {
@@ -438,13 +438,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
     private suspend fun checkIdPass(isVolunteer: Boolean = false): Boolean {
         return withContext(Dispatchers.Main) {
-            AppUtils.checkDataAndDialog(requireContext(),
-                GlobalValues.id,
+            AppUtils.checkData(GlobalValues.id,
                 if (!isVolunteer) {
                     GlobalValues.passwd
                 } else {
                     GlobalValues.name
                 },
+                requireContext(),
                 R.string.mn_tools,
                 R.string.glb_no_userdata)
         }

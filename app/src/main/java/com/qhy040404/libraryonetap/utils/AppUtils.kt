@@ -30,28 +30,24 @@ object AppUtils {
         }
     }
 
-    fun checkData(id: String, passwd: String): Boolean {
-        return id != "Error" && passwd != "Error" && id.isNotEmpty() && passwd.isNotEmpty()
-    }
-
-    fun checkDataAndDialog(
-        ctx: Context,
+    fun checkData(
         id: String,
         passwd: String,
-        @StringRes titleResId: Int,
-        @StringRes messageResId: Int,
+        context: Context? = null,
+        @StringRes titleId: Int? = null,
+        @StringRes messageId: Int? = null,
     ): Boolean {
-        return if (id == "Error" || passwd == "Error" || id.isEmpty() || passwd.isEmpty()) {
-            MaterialAlertDialogBuilder(ctx)
-                .setTitle(titleResId)
-                .setMessage(messageResId)
-                .setPositiveButton(R.string.glb_ok, null)
-                .setCancelable(true)
-                .create()
-                .show()
-            false
-        } else {
-            true
+        (id != "Error" && passwd != "Error" && id.isNotEmpty() && passwd.isNotEmpty()).let {
+            if (!it && context != null && titleId != null && messageId != null) {
+                MaterialAlertDialogBuilder(context)
+                    .setTitle(titleId)
+                    .setMessage(messageId)
+                    .setPositiveButton(R.string.glb_ok, null)
+                    .setCancelable(true)
+                    .create()
+                    .show()
+            }
+            return it
         }
     }
 
@@ -67,14 +63,8 @@ object AppUtils {
         Log.i("Pass", "Slack off. $a")
     }
 
-    fun isError(
-        a: String,
-        b: String = Constants.STRING_NULL,
-        c: String = Constants.STRING_NULL,
-        d: String = Constants.STRING_NULL,
-        e: String = Constants.STRING_NULL,
-    ): Boolean {
-        return a == Constants.GLOBAL_ERROR || b == Constants.GLOBAL_ERROR || c == Constants.GLOBAL_ERROR || d == Constants.GLOBAL_ERROR || e == Constants.GLOBAL_ERROR
+    fun isError(vararg a: String): Boolean {
+        return a.contains(Constants.GLOBAL_ERROR)
     }
 
     fun hasNetwork(): Boolean {

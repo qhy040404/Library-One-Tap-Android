@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
+import androidx.appcompat.widget.AppCompatSpinner
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
@@ -27,8 +27,8 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 class ReserveDialog {
     fun showAlertDialog(ctx: Activity) {
         val view = LayoutInflater.from(ctx).inflate(R.layout.dialog_reserve, null)
-        val areaSpinner = view.findViewById<Spinner>(R.id.reserve_area)
-        val roomSpinner = view.findViewById<Spinner>(R.id.reserve_room)
+        val areaSpinner = view.findViewById<AppCompatSpinner>(R.id.reserve_area)
+        val roomSpinner = view.findViewById<AppCompatSpinner>(R.id.reserve_room)
 
         var targetRoom = 0
         ArrayAdapter.createFromResource(

@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.ui.global
+package com.qhy040404.libraryonetap.view
 
 import android.content.Context
 import android.graphics.Color

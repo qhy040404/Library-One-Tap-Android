@@ -356,7 +356,7 @@ object DesEncryptUtils {
         for (i in 0 until iterator) {
             keyBytes[i] = strToBt(key.substring(i * 4, i * 4 + 4))
         }
-        if ((key.length % 4) > 0) {
+        if (key.length % 4 > 0) {
             keyBytes[iterator] = strToBt(key.substring(iterator * 4, key.length))
         }
         return keyBytes

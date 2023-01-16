@@ -89,7 +89,6 @@ jobs:
 
   build_debug:
     name: Build_Debug
-    if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/') }}
     needs: check
     runs-on: ubuntu-latest
 
@@ -150,7 +149,6 @@ jobs:
 
   build_release:
     name: Build_Release
-    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
     needs: check
     runs-on: ubuntu-latest
 
@@ -226,7 +224,7 @@ jobs:
 
   pre-release:
     name: Pre-release
-    if: ${{ contains(github.ref, 'Pre') }}
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && contains(github.ref, 'Pre') }}
     needs: [ build_release, test_release ]
     runs-on: ubuntu-latest
 
@@ -308,7 +306,7 @@ jobs:
 
   release:
     name: Release
-    if: ${{ !contains(github.ref, 'Pre') }}
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !contains(github.ref, 'Pre') }}
     needs: [ build_release, test_release ]
     runs-on: ubuntu-latest
 

@@ -84,8 +84,6 @@ class LibraryOneTapApp : Application() {
                         this@LibraryOneTapApp.exit()
                         exitProcess(0)
                     }
-                }.also {
-                    it.start()
                 }
             }
         })

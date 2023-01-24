@@ -35,8 +35,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
         binding.bathText.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             bathReserve()
-        }.also {
-            it.start()
         }
     }
 

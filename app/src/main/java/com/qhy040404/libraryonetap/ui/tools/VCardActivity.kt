@@ -44,8 +44,6 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         binding.vcardBalance.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             vCard()
-        }.also {
-            it.start()
         }
     }
 

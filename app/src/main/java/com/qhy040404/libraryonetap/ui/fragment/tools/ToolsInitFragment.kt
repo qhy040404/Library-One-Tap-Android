@@ -82,8 +82,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
                     getNet()
-                }.also {
-                    it.start()
                 }
                 true
             }
@@ -93,8 +91,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
                     getElectric()
-                }.also {
-                    it.start()
                 }
                 true
             }
@@ -118,8 +114,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
                     getVolunteer()
-                }.also {
-                    it.start()
                 }
                 true
             }

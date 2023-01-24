@@ -49,8 +49,6 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
         }
         lifecycleScope.launch(Dispatchers.IO) {
             detail()
-        }.also {
-            it.start()
         }
     }
 

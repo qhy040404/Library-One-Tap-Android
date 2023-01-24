@@ -41,8 +41,6 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         }
         lifecycleScope.launch(Dispatchers.IO) {
             yanxiujian()
-        }.also {
-            it.start()
         }
     }
 

@@ -176,10 +176,6 @@ fun getBuildType(isBuildConfig: Boolean): String {
             && getStartParameters().contains("Release")
         ) {
             "Pre-release"
-        } else if ("git tag -l $baseVersionName".exec().isEmpty()
-            && getStartParameters().contains("Release")
-        ) {
-            "CI"
         } else {
             "Debug"
         }

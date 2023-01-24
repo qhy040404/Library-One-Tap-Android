@@ -8,7 +8,6 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.lifecycleScope
@@ -36,6 +35,7 @@ import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDimen
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
+import com.qhy040404.libraryonetap.utils.extensions.UriExtensions.start
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.view.PasswordPreference
@@ -254,16 +254,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.PREF_ISSUE)?.apply {
             setOnPreferenceClickListener {
-                runCatching {
-                    CustomTabsIntent.Builder().build()
-                        .launchUrl(requireContext(), URLManager.GITHUB_ISSUE_URL.toUri())
-                }.onFailure {
-                    val intent2 = Intent(Intent.ACTION_VIEW)
-                    intent2.data = URLManager.GITHUB_ISSUE_URL.toUri()
-                    runCatching {
-                        startActivity(intent2)
-                    }
-                }
+                URLManager.GITHUB_ISSUE_URL.toUri().start(requireContext())
                 true
             }
         }

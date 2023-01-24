@@ -1,14 +1,12 @@
 package com.qhy040404.libraryonetap.ui.about
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
 import coil.load
 import com.drakeet.about.Category
@@ -20,6 +18,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
+import com.qhy040404.libraryonetap.utils.extensions.UriExtensions.start
 
 @Suppress("SpellCheckingInspection")
 class AboutActivity : AbsAboutActivityProxy() {
@@ -77,26 +76,8 @@ class AboutActivity : AbsAboutActivityProxy() {
                     slogan.text = SECRET
                     showToast("你有本事继续点")
                 }
-                else -> runCatching {
-                    CustomTabsIntent.Builder().build()
-                        .launchUrl(this, URLManager.SURPRISE_BILI.toUri())
-                }.onFailure {
-                    runCatching {
-                        val intent1 = Intent(Intent.ACTION_VIEW)
-                        intent1.data = URLManager.SURPRISE_BILI.toUri()
-                        startActivity(intent1)
-                    }.onFailure {
-                        runCatching {
-                            CustomTabsIntent.Builder().build()
-                                .launchUrl(this, URLManager.SURPRISE_HTTP.toUri())
-                        }.onFailure {
-                            val intent2 = Intent(Intent.ACTION_VIEW)
-                            intent2.data = URLManager.SURPRISE_HTTP.toUri()
-                            runCatching {
-                                startActivity(intent2)
-                            }
-                        }
-                    }
+                else -> URLManager.SURPRISE_BILI.toUri().start(this) {
+                    URLManager.SURPRISE_HTTP.toUri().start(this)
                 }
             }
         }

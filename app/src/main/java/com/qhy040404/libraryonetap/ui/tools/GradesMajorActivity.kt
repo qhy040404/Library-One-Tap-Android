@@ -37,7 +37,14 @@ class GradesMajorActivity : SimplePageActivity() {
     }
 
     override fun initializeView() {
-        initView()
+        LibraryOneTapApp.instance?.addActivity(this)
+
+        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
+
+        if (!GlobalValues.md3) {
+            toolbar.setTitleTextColor(getColor(R.color.white))
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
+        }
     }
 
     override fun setData() {
@@ -244,17 +251,6 @@ class GradesMajorActivity : SimplePageActivity() {
                     )
                 }
             }
-        }
-    }
-
-    private fun initView() {
-        LibraryOneTapApp.instance?.addActivity(this)
-
-        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
-
-        if (!GlobalValues.md3) {
-            toolbar.setTitleTextColor(getColor(R.color.white))
-            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
     }
 

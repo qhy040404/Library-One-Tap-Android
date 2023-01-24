@@ -29,7 +29,17 @@ class AboutActivity : AbsAboutActivityProxy() {
         setTheme(R.style.Theme_MaterialComponents_DayNight_NoActionBar_Library)
 
         super.onCreate(savedInstanceState)
-        initView()
+        LibraryOneTapApp.instance?.addActivity(this)
+
+        findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
+
+        val color = getColor(if (AppUtils.currentIsNightMode(this)) {
+            R.color.about_black
+        } else {
+            R.color.library_500
+        })
+        setHeaderBackground(ColorDrawable(color))
+        setHeaderContentScrim(ColorDrawable(color))
     }
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -243,20 +253,6 @@ class AboutActivity : AbsAboutActivityProxy() {
                 )
             )
         }
-    }
-
-    private fun initView() {
-        LibraryOneTapApp.instance?.addActivity(this)
-
-        findViewById<Toolbar>(com.drakeet.about.R.id.toolbar)?.background = null
-
-        val color = getColor(if (AppUtils.currentIsNightMode(this)) {
-            R.color.about_black
-        } else {
-            R.color.library_500
-        })
-        setHeaderBackground(ColorDrawable(color))
-        setHeaderContentScrim(ColorDrawable(color))
     }
 
     companion object {

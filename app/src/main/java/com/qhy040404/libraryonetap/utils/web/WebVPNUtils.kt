@@ -4,7 +4,6 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AesEncryptUtils
-import java.util.Locale
 
 object WebVPNUtils {
     fun init() {
@@ -17,21 +16,21 @@ object WebVPNUtils {
     }
 
     fun encryptUrl(url: String): String {
-        val protocol: HttpProtocols
+        val protocol: String
         var port = ""
 
         var mUrl = if (url.startsWith("http://")) {
-            protocol = HttpProtocols.HTTP
+            protocol = "http://"
             url.removePrefix("http://")
         } else if (url.startsWith("https://")) {
-            protocol = HttpProtocols.HTTPS
+            protocol = "https://"
             url.removePrefix("https://")
         } else {
             throw IllegalArgumentException("Illegal url")
         }
 
         var v6 = ""
-        Regex("\\[[0-9a-fA-F:]+?]").find(mUrl).let {
+        Regex("\\[[\\da-fA-F:]+?]").find(mUrl).let {
             if (it != null) {
                 v6 = it.value
                 mUrl = mUrl.substring(v6.length)
@@ -46,30 +45,22 @@ object WebVPNUtils {
 
         val i = mUrl.indexOf('/')
         if (i == -1) {
-            if (v6 != "") {
+            if (v6.isNotEmpty()) {
                 mUrl = v6
             }
             mUrl = AesEncryptUtils.vpnEncrypt(mUrl, "wrdvpnisthebest!", "wrdvpnisthebest!")
         } else {
             var host = mUrl.substring(0, i)
             val path = mUrl.substring(i)
-            if (v6 != "") {
+            if (v6.isNotEmpty()) {
                 host = v6
             }
             mUrl = AesEncryptUtils.vpnEncrypt(host, "wrdvpnisthebest!", "wrdvpnisthebest!") + path
         }
-        return if (port != "") {
+        return if (port.isNotEmpty()) {
             "${URLManager.WEBVPN_INSTITUTION_URL}/$protocol-$port/$mUrl"
         } else {
             "${URLManager.WEBVPN_INSTITUTION_URL}/$protocol/$mUrl"
-        }
-    }
-
-    private enum class HttpProtocols {
-        HTTP, HTTPS;
-
-        override fun toString(): String {
-            return super.toString().lowercase(Locale.getDefault())
         }
     }
 }

@@ -20,10 +20,10 @@ object WebVPNUtils {
         var port = ""
 
         var mUrl = if (url.startsWith("http://")) {
-            protocol = "http://"
+            protocol = "http"
             url.removePrefix("http://")
         } else if (url.startsWith("https://")) {
-            protocol = "https://"
+            protocol = "https"
             url.removePrefix("https://")
         } else {
             throw IllegalArgumentException("Illegal url")

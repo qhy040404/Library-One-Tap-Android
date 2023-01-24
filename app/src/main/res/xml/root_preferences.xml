@@ -45,7 +45,6 @@
       app:defaultValue="true"
       app:icon="@drawable/ic_material"
       app:key="md3"
-      app:summaryOff="@string/stp_custom_deprecated"
       app:title="@string/st_md3" />
     <rikka.preference.SimpleMenuPreference
       app:defaultValue="library"

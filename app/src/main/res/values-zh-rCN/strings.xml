@@ -159,7 +159,6 @@
   <string name="stp_data_reset_confirm">请确认重置应用数据</string>
   <string name="stp_data_reset_completed">数据已被重置, 程序即将退出…</string>
   <string name="stp_cache_cleared">缓存清理完毕</string>
-  <string name="stp_custom_deprecated">数个版本后 MD3 主题将会强制全局启用</string>
   <string name="stp_issue_desc">Bug 反馈/新功能建议 (需要魔法)</string>
 
   <string name="stp_current_is_latest_version">当前已是最新版本</string>

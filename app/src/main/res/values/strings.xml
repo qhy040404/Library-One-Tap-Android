@@ -159,7 +159,6 @@
   <string name="stp_data_reset_confirm">Please confirm to clear appdata.</string>
   <string name="stp_data_reset_completed">AppData has been cleared, Exiting…</string>
   <string name="stp_cache_cleared">Cache has been cleared</string>
-  <string name="stp_custom_deprecated">MD3 themes will be enforced globally after a few versions</string>
   <string name="stp_issue_desc">Bug Report/Feature Request (Need VPN)</string>
 
   <string name="stp_current_is_latest_version">You have the latest app.</string>

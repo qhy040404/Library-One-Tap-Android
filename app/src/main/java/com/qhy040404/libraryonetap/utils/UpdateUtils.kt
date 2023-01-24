@@ -42,6 +42,9 @@ object UpdateUtils {
     private var dialog: WeakReference<AlertDialog>? = null
 
     suspend fun checkUpdate(context: Context, fromSettings: Boolean = false) {
+        if (BuildConfig.DEBUG) {
+            context.showToast(R.string.upd_debug_version)
+        }
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
                 context.showToast(R.string.glb_net_disconnected)

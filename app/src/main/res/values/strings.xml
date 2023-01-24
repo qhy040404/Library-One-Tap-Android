@@ -137,6 +137,8 @@
 
   <string name="upd_latest_changelog">Latest Changelog</string>
 
+  <string name="upd_debug_version">This version is built for debugging\nCheck Update may not work properly</string>
+
   <!-- UNIT -->
   <string name="rmb">" Yuan"</string>
   <string name="degree">" degree"</string>

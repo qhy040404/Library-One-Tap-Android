@@ -137,6 +137,8 @@
 
   <string name="upd_latest_changelog">最近一次的更新日志</string>
 
+  <string name="upd_debug_version">此版本为 Debug 版本\n检查更新可能无法正常工作</string>
+
   <!-- UNIT -->
   <string name="rmb">" 元"</string>
   <string name="degree">" 度"</string>

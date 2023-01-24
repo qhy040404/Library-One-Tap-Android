@@ -25,14 +25,14 @@ import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 
 class ReserveDialog {
-    fun showAlertDialog(ctx: Activity) {
-        val view = LayoutInflater.from(ctx).inflate(R.layout.dialog_reserve, null)
+    fun showAlertDialog(activity: Activity) {
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_reserve, null)
         val areaSpinner = view.findViewById<AppCompatSpinner>(R.id.reserve_area)
         val roomSpinner = view.findViewById<AppCompatSpinner>(R.id.reserve_room)
 
         var targetRoom = 0
         ArrayAdapter.createFromResource(
-            ctx,
+            activity,
             R.array.area_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
@@ -43,7 +43,7 @@ class ReserveDialog {
         areaSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 ArrayAdapter.createFromResource(
-                    ctx,
+                    activity,
                     when (areaSpinner.selectedItem.toString()) {
                         "伯川", "Bochuan" -> R.array.BCArray
                         else -> R.array.LXArray
@@ -69,19 +69,19 @@ class ReserveDialog {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
-        MaterialAlertDialogBuilder(ctx)
+        MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.library)
             .setView(view)
-            .setPositiveButton(R.string.glb_ok) { _, _ -> reserveSeat(ctx, targetRoom) }
+            .setPositiveButton(R.string.glb_ok) { _, _ -> reserveSeat(activity, targetRoom) }
             .setNegativeButton(R.string.glb_no) { _, _ -> }
             .setCancelable(true)
             .create()
             .show()
     }
 
-    private fun reserveSeat(ctx: Activity, target: Int) {
+    private fun reserveSeat(activity: Activity, target: Int) {
         if (!TimeUtils.isValidReserveTime()) {
-            MaterialAlertDialogBuilder(ctx)
+            MaterialAlertDialogBuilder(activity)
                 .setTitle(R.string.library)
                 .setMessage(R.string.df_not_in_valid_time)
                 .setPositiveButton(R.string.glb_ok, null)
@@ -129,14 +129,14 @@ class ReserveDialog {
                 loginSuccess = true
             } else {
                 timer++
-                ctx.showToast(R.string.glb_fail_to_login)
+                activity.showToast(R.string.glb_fail_to_login)
                 if (timer == 2) {
                     Requests.netLazyMgr.reset()
                     CookieJarImpl.reset()
                 }
                 if (timer >= 3) {
                     Toasty.cancel()
-                    MaterialAlertDialogBuilder(ctx)
+                    MaterialAlertDialogBuilder(activity)
                         .setTitle(R.string.library)
                         .setMessage(R.string.glb_fail_to_login_three_times)
                         .setPositiveButton(R.string.glb_ok, null)
@@ -157,10 +157,10 @@ class ReserveDialog {
             ReserveUtils.constructParaForFinalReserve(addCode),
             GlobalValues.ctVCard
         )
-        MaterialAlertDialogBuilder(ctx)
+        MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.library)
             .setMessage(R.string.tlp_reserved)
-            .setPositiveButton(R.string.glb_ok) { _, _ -> ctx.recreate() }
+            .setPositiveButton(R.string.glb_ok) { _, _ -> activity.recreate() }
             .setCancelable(false)
             .create()
             .show()

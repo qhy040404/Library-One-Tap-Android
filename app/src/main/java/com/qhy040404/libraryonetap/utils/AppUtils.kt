@@ -50,8 +50,8 @@ object AppUtils {
         }
     }
 
-    fun currentIsNightMode(ctx: Context): Boolean {
-        val uiMode = ctx.resources.configuration.uiMode
+    fun currentIsNightMode(context: Context): Boolean {
+        val uiMode = context.resources.configuration.uiMode
         return when (uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_YES -> true
             else -> false

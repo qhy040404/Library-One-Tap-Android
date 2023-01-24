@@ -14,14 +14,14 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
 class NotificationUtils(
-    private val ctx: Context,
+    private val context: Context,
     private val channelId: String,
     private val channelName: String,
 ) {
     private var notificationPermission: Boolean = false
     private val notificationId = Process.myPid()
     private val notificationIdNext = notificationId + 1
-    private val notificationManager = ctx.getSystemService<NotificationManager>()
+    private val notificationManager = context.getSystemService<NotificationManager>()
     private val builder = initBuilder().setProgress(0, 0, true)
     private val builderFinished = initBuilder()
 
@@ -67,22 +67,22 @@ class NotificationUtils(
         }
     }
 
-    private fun initBuilder() = NotificationCompat.Builder(ctx, channelId)
+    private fun initBuilder() = NotificationCompat.Builder(context, channelId)
         .setContentTitle(R.string.app_name.getString())
         .setSmallIcon(R.drawable.ic_about_foreground)
-        .setLargeIcon(BitmapFactory.decodeResource(ctx.resources, R.mipmap.ic_launcher))
+        .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher))
         .setPriority(NotificationCompat.PRIORITY_LOW)
         .setSilent(true)
         .setOngoing(false)
         .setAutoCancel(false).apply {
             if (!OsUtils.atLeastS()) {
-                color = ctx.getColor(R.color.colorPrimary)
+                color = context.getColor(R.color.colorPrimary)
             }
         }
 
     private fun checkPermission(): Boolean {
         return if (OsUtils.atLeastT()) {
-            ctx.activity?.let {
+            context.activity?.let {
                 it as BaseActivity<*>
                 PermissionUtils.checkPermission(
                     it,

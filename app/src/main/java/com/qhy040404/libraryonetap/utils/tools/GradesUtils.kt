@@ -28,34 +28,34 @@ object GradesUtils {
     }
 
     fun calculateAverageGP(
-        ctx: Context,
+        context: Context,
         grades: List<Grade>,
     ): String {
         return when (GlobalValues.gpOption) {
             Constants.GPA_DLUT -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
-                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+                    .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_STANDARD5 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.STD5)
-                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+                    .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_STANDARD4 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.STD4)
-                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+                    .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
             Constants.GPA_PEKING4 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.PK4)
-                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+                    .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
             else -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
-                    .toString() + getCurrentGPAAlgorithm(ctx).addParentheses(Parentheses.SMALL)
+                    .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
         }
     }
 
-    private fun getCurrentGPAAlgorithm(ctx: Context): String =
-        ctx.getStringArray(R.array.gp)[ctx.getStringArray(R.array.gp_values)
+    private fun getCurrentGPAAlgorithm(context: Context): String =
+        context.getStringArray(R.array.gp)[context.getStringArray(R.array.gp_values)
             .indexOf(GlobalValues.gpOption)]
 }

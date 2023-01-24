@@ -49,13 +49,13 @@ object ViewExtensions {
     /**
      * Auto detect night mode to generate a nicer QR code for ImageView
      *
-     * @param ctx           Context
+     * @param context       Context
      * @param origByteArray Original QR code byte array
      */
-    fun AppCompatImageView.mLoad(ctx: Context, origByteArray: ByteArray) {
+    fun AppCompatImageView.mLoad(context: Context, origByteArray: ByteArray) {
         val qrCode = BitmapFactory.decodeByteArray(origByteArray, 0, origByteArray.size)
         load(
-            if (AppUtils.currentIsNightMode(ctx)) {
+            if (AppUtils.currentIsNightMode(context)) {
                 QRUtils.createWhiteBorderBitmap(qrCode, 2)
             } else {
                 qrCode

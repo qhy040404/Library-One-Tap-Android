@@ -2,10 +2,17 @@ package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.StrictMode
+import android.text.Spannable
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
-import androidx.core.text.HtmlCompat
+import androidx.core.text.buildSpannedString
+import androidx.core.text.inSpans
+import androidx.core.text.toHtml
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
@@ -15,6 +22,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.FileExtensions.sha512
+import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
@@ -33,16 +41,16 @@ object UpdateUtils {
     private val client = OkHttpClient()
     private var dialog: WeakReference<AlertDialog>? = null
 
-    suspend fun checkUpdate(ctx: Context, fromSettings: Boolean = false) {
+    suspend fun checkUpdate(context: Context, fromSettings: Boolean = false) {
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
-                ctx.showToast(R.string.glb_net_disconnected)
+                context.showToast(R.string.glb_net_disconnected)
             }
             return
         }
         if (!checkConnection()) {
             if (fromSettings) {
-                ctx.showToast(R.string.stp_failed_to_connect_github_api)
+                context.showToast(R.string.stp_failed_to_connect_github_api)
             }
             return
         }
@@ -54,16 +62,16 @@ object UpdateUtils {
         val latestOrig = try {
             client.newCall(request).execute().body!!.string()
         } catch (s: SocketTimeoutException) {
-            ctx.showToast(R.string.glb_net_timeout)
+            context.showToast(R.string.glb_net_timeout)
             return
         } catch (_: Exception) {
-            ctx.showToast(R.string.stp_failed_to_connect_github_api)
+            context.showToast(R.string.stp_failed_to_connect_github_api)
             return
         }
 
         if (latestOrig.contains("API rate limit")) {
             if (fromSettings) {
-                ctx.showToast(R.string.stp_github_api_rate_limit)
+                context.showToast(R.string.stp_github_api_rate_limit)
             }
             return
         }
@@ -75,14 +83,14 @@ object UpdateUtils {
 
         if (remoteVersionCode <= localVersionCode) {
             if (fromSettings) {
-                ctx.showToast(R.string.stp_current_is_latest_version)
+                context.showToast(R.string.stp_current_is_latest_version)
             }
             return
         }
 
         val validateName = latestClazz.assets[1].name
         val validateUrl = latestClazz.assets[1].browser_download_url
-        val validateFile = File(ctx.cacheDir, validateName)
+        val validateFile = File(context.cacheDir, validateName)
         DownloadUtils.download(
             validateUrl,
             validateFile,
@@ -95,59 +103,83 @@ object UpdateUtils {
         val packageName = latestClazz.assets[0].name
         val packageUrl = latestClazz.assets[0].browser_download_url
         val changelog: List<String> =
-            latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim().split("\n")
+            latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim()
+                .split("\r\n")
 
         GlobalValues.newVersion = versionName
 
-        val dialogBody = buildString {
-            append("<h2>")
-            append(versionName)
-            append("</h2>")
+        val dialogBody = buildSpannedString {
+            inSpans(
+                RelativeSizeSpan(1.4F),
+                StyleSpan(Typeface.BOLD),
+                ForegroundColorSpan(R.color.black.getColor(context))
+            ) {
+                append(versionName)
+            }
+            appendLine()
+            appendLine()
             changelog.forEach {
                 if (it.isNotEmpty()) {
-                    append("\t")
+                    append('\t')
                     if (it.startsWith("* ")) {
-                        append(it.substring(2))
-                    } else if (it.startsWith("> ")) {
-                        append("// ")
-                        it.substring(2).let { content ->
-                            if (content.surroundingWith("_")) {
-                                append("<i>")
-                                append(content.removeSurrounding("_"))
-                                append("</i>")
-                            } else if (content.surroundingWith("**")) {
-                                append("<b>")
-                                append(content.removeSurrounding("**"))
-                                append("</b>")
-                            } else {
-                                append(content)
+                        append(
+                            it.substring(2),
+                            ForegroundColorSpan(R.color.material_grey_800.getColor(context)),
+                            Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                        )
+                    } else {
+                        append(
+                            buildSpannedString {
+                                var str = it
+                                val spans = mutableListOf<Any>()
+                                if (str.startsWith("> ")) {
+                                    spans.add(
+                                        ForegroundColorSpan(
+                                            R.color.material_grey_500.getColor(
+                                                context
+                                            )
+                                        )
+                                    )
+                                    str = str.substring(2)
+                                }
+                                while (str.surroundingWith("_") || str.surroundingWith("**")) {
+                                    if (str.surroundingWith("_")) {
+                                        spans.add(StyleSpan(Typeface.ITALIC))
+                                        str = str.removeSurrounding("_")
+                                    }
+                                    if (str.surroundingWith("**")) {
+                                        spans.add(StyleSpan(Typeface.BOLD))
+                                        str = str.removeSurrounding("**")
+                                    }
+                                }
+                                append("$str\n")
+                                spans.forEach { span ->
+                                    setSpan(span, 0, str.length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+                                }
                             }
-                        }
+                        )
                     }
                     if (it != changelog.last()) {
-                        append("<br>")
+                        appendLine()
                     }
                 }
             }
         }
 
         withContext(Dispatchers.Main) {
-            MaterialAlertDialogBuilder(ctx)
+            MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.upd_detected)
-                .setMessage(HtmlCompat.fromHtml(
-                    dialogBody,
-                    HtmlCompat.FROM_HTML_MODE_LEGACY
-                ))
+                .setMessage(dialogBody)
                 .setPositiveButton(R.string.upd_confirm) { _, _ ->
                     val validation = validateFile.readText().substringBefore("Library").trim()
-                    File(ctx.cacheDir, packageName).let {
+                    File(context.cacheDir, packageName).let {
                         if (it.exists() && it.sha512() == validation) {
-                            installApk(ctx, packageName)
+                            installApk(context, packageName)
                             return@setPositiveButton
                         }
                     }
-                    val notification = NotificationUtils(ctx, "update", "Update")
-                    ctx.showToast(R.string.glb_download_start)
+                    val notification = NotificationUtils(context, "update", "Update")
+                    context.showToast(R.string.glb_download_start)
                     notification.showNotification(
                         "$versionName ${R.string.glb_downloading.getString()}",
                         true
@@ -158,23 +190,23 @@ object UpdateUtils {
                         )
                         DownloadUtils.download(
                             packageUrl,
-                            File(ctx.cacheDir, packageName),
+                            File(context.cacheDir, packageName),
                             object : DownloadUtils.OnDownloadListener {
                                 override fun onDownloadFailed() {
-                                    ctx.showToast(R.string.glb_download_failed)
+                                    context.showToast(R.string.glb_download_failed)
                                 }
 
                                 override fun onDownloadSuccess() {
                                     notification.finishProgress(R.string.glb_downloaded.getString())
                                     GlobalValues.latestApkName = packageName
-                                    File(ctx.dataDir, Constants.CHANGELOG_INACTIVE).apply {
+                                    File(context.dataDir, Constants.CHANGELOG_INACTIVE).apply {
                                         if (exists()) {
                                             delete()
                                         }
                                         createNewFile()
-                                        writeText(dialogBody)
+                                        writeText(dialogBody.toHtml())
                                     }
-                                    installApk(ctx, packageName)
+                                    installApk(context, packageName)
                                 }
 
                                 override fun onDownloading(progress: Int, done: Boolean) {
@@ -218,17 +250,20 @@ object UpdateUtils {
         }
     }
 
-    private fun installApk(ctx: Context, name: String) {
+    private fun installApk(context: Context, name: String) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.addCategory(Intent.CATEGORY_DEFAULT)
         intent.setDataAndType(
-            FileProvider.getUriForFile(ctx,
+            FileProvider.getUriForFile(
+                context,
                 GlobalValues.FP_NAME,
-                File(ctx.cacheDir, name)),
-            "application/vnd.android.package-archive")
+                File(context.cacheDir, name)
+            ),
+            "application/vnd.android.package-archive"
+        )
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        ctx.startActivity(intent)
+        context.startActivity(intent)
     }
 
     private fun checkConnection(): Boolean {

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.getSystemService
 import androidx.core.net.toUri
-import androidx.core.text.HtmlCompat
+import androidx.core.text.parseAsHtml
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
@@ -242,10 +242,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 val body = file.readText()
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle(R.string.upd_latest_changelog)
-                    .setMessage(HtmlCompat.fromHtml(
-                        body,
-                        HtmlCompat.FROM_HTML_MODE_LEGACY
-                    ))
+                    .setMessage(body.parseAsHtml())
                     .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create().show()

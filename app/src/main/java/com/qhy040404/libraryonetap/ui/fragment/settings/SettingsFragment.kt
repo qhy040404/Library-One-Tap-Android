@@ -1,13 +1,13 @@
 package com.qhy040404.libraryonetap.ui.fragment.settings
 
 import android.app.ActivityManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.content.getSystemService
 import androidx.core.net.toUri
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.lifecycleScope
@@ -195,7 +195,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
                                 LibraryOneTapApp.instance?.exit()
                                 Once.clearAll()
-                                (LibraryOneTapApp.app.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
+                                LibraryOneTapApp.app.getSystemService<ActivityManager>()
+                                    ?.clearApplicationUserData()
                                 exitProcess(0)
                             }
                             .setCancelable(false)

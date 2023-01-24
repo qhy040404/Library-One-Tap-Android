@@ -138,6 +138,6 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun isCampus(): Boolean {
-        return NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID(this) == "DLUT-LingShui"
+        return NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID() == "DLUT-LingShui"
     }
 }

@@ -7,6 +7,7 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Process
 import androidx.core.app.NotificationCompat
+import androidx.core.content.getSystemService
 import com.absinthe.libraries.utils.extensions.activity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
@@ -20,8 +21,7 @@ class NotificationUtils(
     private var notificationPermission: Boolean = false
     private val notificationId = Process.myPid()
     private val notificationIdNext = notificationId + 1
-    private val notificationManager =
-        ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private val notificationManager = ctx.getSystemService<NotificationManager>()
     private val builder = initBuilder().setProgress(0, 0, true)
     private val builderFinished = initBuilder()
 
@@ -33,19 +33,19 @@ class NotificationUtils(
         if (!notificationPermission) {
             return
         }
-        notificationManager.cancelAll()
+        notificationManager?.cancelAll()
         builder.setContentText(content).apply {
             if (progressBar) {
                 setProgress(100, 0, false)
             }
         }
-        notificationManager.apply {
+        notificationManager?.apply {
             val name = channelName
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(channelId, name, importance)
             createNotificationChannel(channel)
         }
-        notificationManager.notify(notificationId, builder.build())
+        notificationManager?.notify(notificationId, builder.build())
     }
 
     fun updateProgress(progress: Int) {
@@ -53,7 +53,7 @@ class NotificationUtils(
             return
         }
         builder.setProgress(100, progress, false)
-        notificationManager.notify(notificationId, builder.build())
+        notificationManager?.notify(notificationId, builder.build())
     }
 
     fun finishProgress(content: String) {
@@ -61,7 +61,7 @@ class NotificationUtils(
             return
         }
         builderFinished.setContentText(content)
-        notificationManager.apply {
+        notificationManager?.apply {
             cancelAll()
             notify(notificationIdNext, builderFinished.build())
         }

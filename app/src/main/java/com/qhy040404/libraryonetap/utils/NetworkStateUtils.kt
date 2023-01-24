@@ -1,19 +1,17 @@
 package com.qhy040404.libraryonetap.utils
 
-import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
-import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.constant.Constants
 
 @Suppress("DEPRECATION")
 object NetworkStateUtils {
     fun checkNetworkType(): String {
-        val manager =
-            ContextCompat.getSystemService(LibraryOneTapApp.app, ConnectivityManager::class.java)
-                ?: return Constants.GLOBAL_ERROR
+        val manager = LibraryOneTapApp.app.getSystemService<ConnectivityManager>()
+            ?: return Constants.GLOBAL_ERROR
         val networkCapabilities =
             manager.getNetworkCapabilities(manager.activeNetwork) ?: return Constants.GLOBAL_ERROR
         return when {
@@ -23,14 +21,15 @@ object NetworkStateUtils {
         }
     }
 
-    fun getSSID(ctx: Context): String {
-        val wifiManager: WifiManager =
-            ctx.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        val wifiName = wifiManager.connectionInfo.ssid
-        return if (wifiName.startsWith("\"")) {
-            wifiName.substring(1, wifiName.length - 1)
-        } else {
-            wifiName
+    fun getSSID(): String {
+        val wifiManager =
+            LibraryOneTapApp.app.getSystemService<WifiManager>() ?: return "<unknown ssid>"
+        return wifiManager.connectionInfo.ssid.let {
+            if (it.startsWith("\"")) {
+                it.substring(1, it.length - 1)
+            } else {
+                it
+            }
         }
     }
 }

@@ -5,7 +5,6 @@ import android.app.Application
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.fragment.app.DialogFragment
 import coil.Coil
 import coil.ImageLoader
@@ -75,12 +74,10 @@ class LibraryOneTapApp : Application() {
         super.attachBaseContext(base)
         AppStatusHelper.register(this, object : OnAppStatusListener {
             override fun onFront() {
-                Log.i("AppStatus", "Front")
                 delayTerminateJob?.cancel()
             }
 
             override fun onBack() {
-                Log.i("AppStatus", "Back")
                 delayTerminateJob = GlobalScope.launch(Dispatchers.IO) {
                     delay(30000L)
                     withContext(Dispatchers.Main) {

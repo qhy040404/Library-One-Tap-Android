@@ -14,7 +14,6 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.throwData
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -74,13 +73,9 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         WebVPNUtils.init()
 
-        val isCampus = NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID(
-            this
-        ) == "DLUT-LingShui"
-
-        val online = if (isCampus) {
-            Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).throwData()
-            true
+        val online = if (isCampus()) {
+            // Always return true
+            Requests.loginSso(URLManager.BATH_SSO_URL, GlobalValues.ctSso).not()
         } else {
             Requests.get(generateUrl(URLManager.BATH_DIRECT_URL))
             "大连理工大学WebVPN系统门户" in Requests.get(URLManager.WEBVPN_INSTITUTION_URL)
@@ -137,11 +132,14 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
     }
 
     private fun generateUrl(original: String): String {
-        if (NetworkStateUtils.checkNetworkType() == "WIFI") {
-            if (NetworkStateUtils.getSSID(this) == "DLUT-LingShui") {
-                return original
-            }
+        return if (isCampus()) {
+            original
+        } else {
+            WebVPNUtils.encryptUrl(original)
         }
-        return WebVPNUtils.encryptUrl(original)
+    }
+
+    private fun isCampus(): Boolean {
+        return NetworkStateUtils.checkNetworkType() == "WIFI" && NetworkStateUtils.getSSID(this) == "DLUT-LingShui"
     }
 }

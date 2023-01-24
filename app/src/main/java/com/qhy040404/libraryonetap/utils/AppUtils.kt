@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
 import android.content.res.Configuration
-import android.util.Log
 import androidx.annotation.StringRes
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
@@ -57,10 +56,6 @@ object AppUtils {
             Configuration.UI_MODE_NIGHT_YES -> true
             else -> false
         }
-    }
-
-    fun pass(vararg a: Any?) {
-        Log.i("Pass", "Slack off. $a")
     }
 
     fun isError(vararg a: String): Boolean {

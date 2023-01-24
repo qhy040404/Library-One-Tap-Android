@@ -356,7 +356,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                 detail.text = R.string.glb_fail_to_login_three_times.getString()
             }
         } else if (GlobalValues.netError) {
-            AppUtils.pass()
+            // Do nothing
         } else {
             runOnUiThread {
                 detail.text = R.string.glb_login_timeout.getString()

@@ -96,7 +96,7 @@ dependencies {
     implementation("com.drakeet.multitype:multitype:4.3.0")
     implementation("com.github.qhy040404:datetime:1.2.6")
     implementation("com.github.zhaobozhen.libraries:utils:1.1.3")
-    implementation("com.google.android.material:material:1.7.0")
+    implementation("com.google.android.material:material:1.8.0")
     implementation("com.jonathanfinerty.once:once:1.3.1")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")

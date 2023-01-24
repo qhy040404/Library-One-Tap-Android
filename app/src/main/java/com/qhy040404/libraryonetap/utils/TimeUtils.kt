@@ -1,35 +1,28 @@
 package com.qhy040404.libraryonetap.utils
 
 import com.qhy040404.datetime.Datetime
-import java.util.Calendar
 
 object TimeUtils {
-    private val calendar: Calendar = Calendar.getInstance()
-
     fun getToday(separator: String, doubleNum: Boolean): String {
-        val year = calendar[Calendar.YEAR].toString()
+        val now = Datetime.now()
+        val year = now.year.toString()
         val month = if (doubleNum) {
-            timeSingleToDouble(calendar[Calendar.MONTH] + 1)
+            timeSingleToDouble(now.month)
         } else {
-            (calendar[Calendar.MONTH] + 1).toString()
+            now.month.toString()
         }
         val day = if (doubleNum) {
-            timeSingleToDouble(calendar[Calendar.DAY_OF_MONTH])
+            timeSingleToDouble(now.day)
         } else {
-            calendar[Calendar.DAY_OF_MONTH].toString()
+            now.day.toString()
         }
-        return year + separator + month + separator + day
+        return "$year$separator$month$separator$day"
     }
 
     fun isValidReserveTime(): Boolean {
-        val now = Datetime.now()
-        if (now.hour in 7..22) {
-            return true
+        return Datetime.now().let {
+            it.hour in 7..22 || it.hour == 6 && it.minute > 30
         }
-        if (now.hour == 6 && now.minute > 30) {
-            return true
-        }
-        return false
     }
 
     private fun timeSingleToDouble(sTime: Int) = if (sTime >= 10) {

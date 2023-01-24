@@ -266,10 +266,12 @@ object Requests {
             if (libInitialized) {
                 return true
             }
-            loginSso(URLManager.LIBRARY_SSO_URL,
+            loginSso(
+                URLManager.LIBRARY_SSO_URL,
                 GlobalValues.ctSso,
                 URLManager.LIBRARY_SESSION_URL,
-                hasSessionJson = true).also {
+                hasSessionJson = true
+            ).also {
                 libInitialized = it
                 return it
             }

@@ -342,10 +342,12 @@ object DesEncryptUtils {
     private fun hexToBt64(hex: String): String {
         return buildString {
             hex.forEach {
-                append(String.format(
-                    "%04d",
-                    it.toString().toInt(16).toString(2).toInt()
-                ))
+                append(
+                    String.format(
+                        "%04d",
+                        it.toString().toInt(16).toString(2).toInt()
+                    )
+                )
             }
         }
     }

@@ -50,9 +50,11 @@ class ExamsActivity : SimplePageActivity() {
     override fun onItemsCreated(items: MutableList<Any>) {
         items.apply {
             if (exams.isEmpty()) {
-                add(Card(
-                    R.string.ex_empty.getString()
-                ))
+                add(
+                    Card(
+                        R.string.ex_empty.getString()
+                    )
+                )
             }
 
             exams.filter { it.startTime > now }.forEach { pending ->

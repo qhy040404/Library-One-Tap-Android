@@ -101,15 +101,21 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
                 @Suppress("SpellCheckingInspection")
                 val payPostData = "goodis=$targetRoom&payway=nopay"
 
-                Requests.post(generateUrl(URLManager.BATH_SAVE_CART_URL),
+                Requests.post(
+                    generateUrl(URLManager.BATH_SAVE_CART_URL),
                     savePostData,
-                    GlobalValues.ctSso)
-                Requests.post(generateUrl(URLManager.BATH_UPDATE_CART_URL),
+                    GlobalValues.ctSso
+                )
+                Requests.post(
+                    generateUrl(URLManager.BATH_UPDATE_CART_URL),
                     cartPostData,
-                    GlobalValues.ctSso)
-                Requests.post(generateUrl(URLManager.BATH_MAIN_FUNC_URL),
+                    GlobalValues.ctSso
+                )
+                Requests.post(
+                    generateUrl(URLManager.BATH_MAIN_FUNC_URL),
                     mainPostData,
-                    GlobalValues.ctSso)
+                    GlobalValues.ctSso
+                )
                 Requests.post(generateUrl(URLManager.BATH_PAY_URL), payPostData, GlobalValues.ctSso)
                 text.text = getString(R.string.br_request_sent)
             }

@@ -89,18 +89,24 @@ object GlobalValues {
 
     fun initBasic() {
         SPUtils.spLazyMgr.reset()
-        if (name != SPUtils.getValue(Constants.PREF_NAME,
-                Constants.GLOBAL_ERROR) && name != Constants.GLOBAL_ERROR
+        if (name != SPUtils.getValue(
+                Constants.PREF_NAME,
+                Constants.GLOBAL_ERROR
+            ) && name != Constants.GLOBAL_ERROR
         ) {
             name = SPUtils.getValue(Constants.PREF_NAME, Constants.GLOBAL_ERROR)
         }
-        if (id != SPUtils.getValue(Constants.PREF_ID,
-                Constants.GLOBAL_ERROR) && id != Constants.GLOBAL_ERROR
+        if (id != SPUtils.getValue(
+                Constants.PREF_ID,
+                Constants.GLOBAL_ERROR
+            ) && id != Constants.GLOBAL_ERROR
         ) {
             id = SPUtils.getValue(Constants.PREF_ID, Constants.GLOBAL_ERROR)
         }
-        if (passwdEnc != SPUtils.getValue(Constants.PREF_PASSWD,
-                Constants.GLOBAL_ERROR) && passwdEnc != Constants.GLOBAL_ERROR
+        if (passwdEnc != SPUtils.getValue(
+                Constants.PREF_PASSWD,
+                Constants.GLOBAL_ERROR
+            ) && passwdEnc != Constants.GLOBAL_ERROR
         ) {
             passwdEnc = SPUtils.getValue(Constants.PREF_PASSWD, Constants.GLOBAL_ERROR)
         }

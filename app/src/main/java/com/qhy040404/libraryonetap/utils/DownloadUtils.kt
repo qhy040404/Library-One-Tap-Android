@@ -41,11 +41,13 @@ object DownloadUtils {
     ) {
         onDownloadListener = WeakReference(listener)
         val request: Request = Request.Builder()
-            .url(if (github) {
-                GH_PROXY + url
-            } else {
-                url
-            })
+            .url(
+                if (github) {
+                    GH_PROXY + url
+                } else {
+                    url
+                }
+            )
             .build()
         if (async) {
             client.newCall(request).enqueue(object : Callback {

@@ -76,12 +76,14 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             {
                 MaterialAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
-                    .setMessage(when (openidOrigin) {
-                        Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                        Constants.NET_ERROR -> R.string.glb_net_error
-                        Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                        else -> R.string.glb_unknown_error
-                    })
+                    .setMessage(
+                        when (openidOrigin) {
+                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                            Constants.NET_ERROR -> R.string.glb_net_error
+                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                            else -> R.string.glb_unknown_error
+                        }
+                    )
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }

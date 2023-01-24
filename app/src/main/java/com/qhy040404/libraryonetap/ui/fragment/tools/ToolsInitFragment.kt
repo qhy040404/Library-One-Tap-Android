@@ -49,11 +49,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 isVisible = false
             }
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     val netName = when (NetworkStateUtils.checkNetworkType()) {
                         "WIFI" -> NetworkStateUtils.getSSID()
@@ -63,10 +65,12 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
                     @Suppress("SpellCheckingInspection")
                     if (netName == "<unknown ssid>") {
-                        if (PermissionUtils.checkPermission(requireActivity(),
+                        if (PermissionUtils.checkPermission(
+                                requireActivity(),
                                 Manifest.permission.ACCESS_FINE_LOCATION,
                                 childFragmentManager,
-                                R.string.br_permission_prompt)
+                                R.string.br_permission_prompt
+                            )
                         ) {
                             requireContext().showToast(R.string.glb_error)
                         }
@@ -98,11 +102,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_VCARD)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     startActivity(Intent(requireContext(), VCardActivity::class.java))
                 }
@@ -121,11 +127,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_GRADES_MAJOR)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     startActivity(Intent(requireContext(), GradesMajorActivity::class.java))
                 }
@@ -135,11 +143,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
                 }
@@ -149,11 +159,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_LESSONS)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     startActivity(Intent(requireContext(), LessonsActivity::class.java))
                 }
@@ -163,11 +175,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.TOOLS_EXAMS)?.apply {
             setOnPreferenceClickListener {
-                if (AppUtils.checkData(GlobalValues.id,
+                if (AppUtils.checkData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         requireContext(),
                         R.string.mn_tools,
-                        R.string.glb_no_userdata)
+                        R.string.glb_no_userdata
+                    )
                 ) {
                     startActivity(Intent(requireContext(), ExamsActivity::class.java))
                 }
@@ -339,12 +353,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             if (sameID == -1 || sameName == -1) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
-                        .setMessage(when (data) {
-                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                            Constants.NET_ERROR -> R.string.glb_net_error
-                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                            else -> R.string.glb_unknown_error
-                        })
+                        .setMessage(
+                            when (data) {
+                                Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                                Constants.NET_ERROR -> R.string.glb_net_error
+                                Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                                else -> R.string.glb_unknown_error
+                            }
+                        )
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.glb_ok, null)
                         .setCancelable(true)
@@ -392,11 +408,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private fun initGrades() {
         var tempId = 0
         lifecycleScope.launch(Dispatchers.IO) {
-            Requests.loginSso(URLManager.EDU_LOGIN_SSO_URL,
+            Requests.loginSso(
+                URLManager.EDU_LOGIN_SSO_URL,
                 GlobalValues.ctSso,
                 URLManager.EDU_CHECK_URL,
                 noJsonString = "person",
-                toolsInit = true)
+                toolsInit = true
+            )
             val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
             val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
             GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
@@ -432,7 +450,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
     private suspend fun checkIdPass(isVolunteer: Boolean = false): Boolean {
         return withContext(Dispatchers.Main) {
-            AppUtils.checkData(GlobalValues.id,
+            AppUtils.checkData(
+                GlobalValues.id,
                 if (!isVolunteer) {
                     GlobalValues.passwd
                 } else {
@@ -440,7 +459,8 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 },
                 requireContext(),
                 R.string.mn_tools,
-                R.string.glb_no_userdata)
+                R.string.glb_no_userdata
+            )
         }
     }
 }

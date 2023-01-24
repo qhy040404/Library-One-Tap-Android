@@ -112,11 +112,13 @@ class ReserveDialog {
 
                 Requests.post(
                     URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(GlobalValues.id,
+                    Requests.loginPostData(
+                        GlobalValues.id,
                         GlobalValues.passwd,
                         ltData,
                         rsa,
-                        ltExecution),
+                        ltExecution
+                    ),
                     GlobalValues.ctSso
                 )
             }

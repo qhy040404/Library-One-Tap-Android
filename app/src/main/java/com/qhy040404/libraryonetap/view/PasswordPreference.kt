@@ -15,9 +15,11 @@ import androidx.preference.EditTextPreference.SimpleSummaryProvider as sSP
 class PasswordPreference : EditTextPreference {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context,
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+        context,
         attrs,
-        defStyleAttr)
+        defStyleAttr
+    )
 
     constructor(
         context: Context,

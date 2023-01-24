@@ -27,10 +27,12 @@ object OrderListData {
      */
     fun getOrder_id(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
                     mode.toString(),
-                    list.order_date)
+                    list.order_date
+                )
             ) {
                 return list.order_id!!
             }
@@ -50,10 +52,12 @@ object OrderListData {
      */
     fun getOrder_process(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
                     mode.toString(),
-                    list.order_date)
+                    list.order_date
+                )
             ) {
                 return list.order_process!!
             }
@@ -73,10 +77,12 @@ object OrderListData {
      */
     fun getSpace_name(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
                     mode.toString(),
-                    list.order_date)
+                    list.order_date
+                )
             ) {
                 return list.space_name!!
             }
@@ -96,10 +102,12 @@ object OrderListData {
      */
     fun getSeat_label(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
                     mode.toString(),
-                    list.order_date)
+                    list.order_date
+                )
             ) {
                 return list.seat_label.toString()
             }
@@ -119,10 +127,12 @@ object OrderListData {
      */
     fun getOrder_date(mode: OrderModes): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
                     mode.toString(),
-                    list.order_date)
+                    list.order_date
+                )
             ) {
                 return list.order_date!!
             }
@@ -158,9 +168,11 @@ object OrderListData {
      */
     fun getAll_users(): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
-                    OrderModes.YANXIUJIAN.toString())
+                    OrderModes.YANXIUJIAN.toString()
+                )
             ) {
                 return list.all_users.toString()
             }
@@ -174,9 +186,11 @@ object OrderListData {
      */
     fun getFull_time(): String {
         for (list in mClass?.rows!!) {
-            if (orderIsValid(list.order_process,
+            if (orderIsValid(
+                    list.order_process,
                     list.order_type,
-                    OrderModes.YANXIUJIAN.toString())
+                    OrderModes.YANXIUJIAN.toString()
+                )
             ) {
                 return list.order_start_time!!.substringAfter(" ") + "-" +
                     list.order_end_time!!.substringAfter(" ")

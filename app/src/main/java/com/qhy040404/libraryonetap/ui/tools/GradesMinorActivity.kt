@@ -20,6 +20,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 class GradesMinorActivity : SimplePageActivity() {
@@ -43,7 +44,7 @@ class GradesMinorActivity : SimplePageActivity() {
         }
     }
 
-    override fun setData() {
+    override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMinorActivity)
@@ -62,13 +63,7 @@ class GradesMinorActivity : SimplePageActivity() {
             return
         }
 
-        if (!Requests.loginSso(
-                URLManager.EDU_LOGIN_SSO_URL,
-                GlobalValues.ctSso,
-                URLManager.EDU_CHECK_URL,
-                shouldHas = "person"
-            )
-        ) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMinorActivity)
                     .setTitle(R.string.exams_title)
@@ -91,7 +86,7 @@ class GradesMinorActivity : SimplePageActivity() {
                     }
             }
         } else {
-            Thread.sleep(1000L)
+            delay(1000L)
             val gradesData =
                 Requests.get(URLManager.getEduGradeUrl(GlobalValues.minorStuId))
 

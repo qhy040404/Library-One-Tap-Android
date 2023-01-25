@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit
 @Suppress("SpellCheckingInspection")
 object Requests {
     var libInitialized = false
+    var eduInitialized = false
 
     val netLazyMgr = resettableManager()
     val client by resettableLazy(netLazyMgr) {
@@ -291,6 +292,32 @@ object Requests {
                 hasSessionJson = true
             ).also {
                 libInitialized = it
+                return it
+            }
+        }
+    }
+
+    fun initEdu(toolsInit: Boolean = false): Boolean {
+        synchronized(
+            if (toolsInit) {
+                toolsClient
+            } else {
+                client
+            }
+        ) {
+            if (!toolsInit && eduInitialized) {
+                return true
+            }
+            loginSso(
+                URLManager.EDU_LOGIN_SSO_URL,
+                GlobalValues.ctSso,
+                URLManager.EDU_CHECK_URL,
+                shouldHas = "person",
+                toolsInit = toolsInit
+            ).also {
+                if (!toolsInit) {
+                    eduInitialized = it
+                }
                 return it
             }
         }

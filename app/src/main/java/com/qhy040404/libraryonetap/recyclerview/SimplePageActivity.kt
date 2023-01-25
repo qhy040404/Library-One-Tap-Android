@@ -38,7 +38,7 @@ abstract class SimplePageActivity : MaterialActivity() {
     protected abstract fun initializeView()
     protected abstract fun initializeViewPref()
     protected abstract fun onItemsCreated(items: MutableList<Any>)
-    protected abstract fun setData()
+    protected abstract suspend fun setData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initializeViewPref()

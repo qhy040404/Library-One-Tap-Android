@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 class GradesMajorActivity : SimplePageActivity() {
@@ -44,7 +45,7 @@ class GradesMajorActivity : SimplePageActivity() {
         }
     }
 
-    override fun setData() {
+    override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMajorActivity)
@@ -65,13 +66,7 @@ class GradesMajorActivity : SimplePageActivity() {
 
         var majorStuId = 0
 
-        if (!Requests.loginSso(
-                URLManager.EDU_LOGIN_SSO_URL,
-                GlobalValues.ctSso,
-                URLManager.EDU_CHECK_URL,
-                shouldHas = "person"
-            )
-        ) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMajorActivity)
                     .setTitle(R.string.exams_title)
@@ -116,7 +111,7 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
 
-            Thread.sleep(2500L)
+            delay(2500L)
             val gradesData =
                 Requests.get(URLManager.getEduGradeUrl(GlobalValues.majorStuId))
 

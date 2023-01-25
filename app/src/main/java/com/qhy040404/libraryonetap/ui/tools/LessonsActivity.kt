@@ -44,7 +44,7 @@ class LessonsActivity : SimplePageActivity() {
         }
     }
 
-    override fun setData() {
+    override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@LessonsActivity)
@@ -63,13 +63,7 @@ class LessonsActivity : SimplePageActivity() {
             return
         }
 
-        if (!Requests.loginSso(
-                URLManager.EDU_LOGIN_SSO_URL,
-                GlobalValues.ctSso,
-                URLManager.EDU_CHECK_URL,
-                shouldHas = "person"
-            )
-        ) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@LessonsActivity)
                     .setTitle(R.string.exams_title)

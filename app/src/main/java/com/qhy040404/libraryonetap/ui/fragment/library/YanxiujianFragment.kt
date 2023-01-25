@@ -36,6 +36,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             SPUtils.spLazyMgr.reset()
             GlobalValues.netError = false
             Requests.libInitialized = false
+            Requests.eduInitialized = false
             GlobalValues.initBasic()
             activity?.recreate()
         }

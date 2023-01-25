@@ -21,6 +21,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.delay
 import org.json.JSONArray
 
 class ExamsActivity : SimplePageActivity() {
@@ -109,7 +110,7 @@ class ExamsActivity : SimplePageActivity() {
         LibraryOneTapApp.instance?.removeActivity(this)
     }
 
-    override fun setData() {
+    override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@ExamsActivity)
@@ -130,13 +131,7 @@ class ExamsActivity : SimplePageActivity() {
 
         var majorStuId = 0
 
-        if (!Requests.loginSso(
-                URLManager.EDU_LOGIN_SSO_URL,
-                GlobalValues.ctSso,
-                URLManager.EDU_CHECK_URL,
-                shouldHas = "person"
-            )
-        ) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@ExamsActivity)
                     .setTitle(R.string.exams_title)
@@ -186,14 +181,14 @@ class ExamsActivity : SimplePageActivity() {
                 }
             }
 
-            Thread.sleep(2500L)
+            delay(2500L)
             var examsMinorData: String? = null
 
             val examsMajorData =
                 Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
                     .substringBetween("var studentExamInfoVms = ", "];") + "]"
             if (GlobalValues.minorStuId != 0) {
-                Thread.sleep(2500L)
+                delay(2500L)
                 examsMinorData =
                     Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))
                         .substringBetween("var studentExamInfoVms = ", "];") + "]"

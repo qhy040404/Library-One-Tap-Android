@@ -130,8 +130,9 @@ class ExamsActivity : SimplePageActivity() {
         }
 
         var majorStuId = 0
+        val loginSuccess = Requests.initEdu()
 
-        if (!Requests.initEdu()) {
+        if (!loginSuccess.first) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@ExamsActivity)
                     .setTitle(R.string.exams_title)
@@ -181,14 +182,16 @@ class ExamsActivity : SimplePageActivity() {
                 }
             }
 
-            delay(2500L)
+            if (!loginSuccess.second) {
+                delay(2000L)
+            }
             var examsMinorData: String? = null
 
             val examsMajorData =
                 Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
                     .substringBetween("var studentExamInfoVms = ", "];") + "]"
             if (GlobalValues.minorStuId != 0) {
-                delay(2500L)
+                delay(2000L)
                 examsMinorData =
                     Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))
                         .substringBetween("var studentExamInfoVms = ", "];") + "]"

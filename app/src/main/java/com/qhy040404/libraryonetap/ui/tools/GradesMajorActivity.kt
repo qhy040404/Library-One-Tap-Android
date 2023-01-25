@@ -65,8 +65,9 @@ class GradesMajorActivity : SimplePageActivity() {
         }
 
         var majorStuId = 0
+        val loginSuccess = Requests.initEdu()
 
-        if (!Requests.initEdu()) {
+        if (!loginSuccess.first) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMajorActivity)
                     .setTitle(R.string.exams_title)
@@ -111,7 +112,9 @@ class GradesMajorActivity : SimplePageActivity() {
                 }
             }
 
-            delay(2500L)
+            if (!loginSuccess.second) {
+                delay(2000L)
+            }
             val gradesData =
                 Requests.get(URLManager.getEduGradeUrl(GlobalValues.majorStuId))
 

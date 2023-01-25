@@ -63,7 +63,9 @@ class GradesMinorActivity : SimplePageActivity() {
             return
         }
 
-        if (!Requests.initEdu()) {
+        val loginSuccess = Requests.initEdu()
+
+        if (!loginSuccess.first) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesMinorActivity)
                     .setTitle(R.string.exams_title)
@@ -86,7 +88,9 @@ class GradesMinorActivity : SimplePageActivity() {
                     }
             }
         } else {
-            delay(1000L)
+            if (!loginSuccess.second) {
+                delay(2000L)
+            }
             val gradesData =
                 Requests.get(URLManager.getEduGradeUrl(GlobalValues.minorStuId))
 

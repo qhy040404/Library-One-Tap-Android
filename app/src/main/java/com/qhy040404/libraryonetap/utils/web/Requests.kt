@@ -297,7 +297,10 @@ object Requests {
         }
     }
 
-    fun initEdu(toolsInit: Boolean = false): Boolean {
+    /**
+     * @return Two Boolean, first to session, second to if cache
+     */
+    fun initEdu(toolsInit: Boolean = false): Pair<Boolean, Boolean> {
         synchronized(
             if (toolsInit) {
                 toolsClient
@@ -306,7 +309,7 @@ object Requests {
             }
         ) {
             if (!toolsInit && eduInitialized) {
-                return true
+                return Pair(true, true)
             }
             loginSso(
                 URLManager.EDU_LOGIN_SSO_URL,
@@ -318,7 +321,7 @@ object Requests {
                 if (!toolsInit) {
                     eduInitialized = it
                 }
-                return it
+                return Pair(true, false)
             }
         }
     }

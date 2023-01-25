@@ -408,7 +408,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private fun initGrades() {
         var tempId = 0
         lifecycleScope.launch(Dispatchers.IO) {
-            if (Requests.initEdu(true)) {
+            if (Requests.initEdu(true).first) {
                 val initUrl =
                     Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
                 val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)

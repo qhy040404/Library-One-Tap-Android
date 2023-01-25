@@ -19,6 +19,7 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 class LessonsActivity : SimplePageActivity() {
@@ -63,7 +64,9 @@ class LessonsActivity : SimplePageActivity() {
             return
         }
 
-        if (!Requests.initEdu()) {
+        val loginSuccess = Requests.initEdu()
+
+        if (!loginSuccess.first) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@LessonsActivity)
                     .setTitle(R.string.exams_title)
@@ -86,6 +89,9 @@ class LessonsActivity : SimplePageActivity() {
                     }
             }
         } else {
+            if (!loginSuccess.second) {
+                delay(2000L)
+            }
             val source = Requests.get(URLManager.EDU_COURSE_TABLE_URL)
             runCatching {
                 JSONObject(source).let {

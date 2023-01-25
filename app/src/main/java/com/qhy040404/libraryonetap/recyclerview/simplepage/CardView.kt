@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.recycleview.simplepage
+package com.qhy040404.libraryonetap.recyclerview.simplepage
 
 import android.content.Context
 import android.util.TypedValue

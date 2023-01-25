@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.recycleview
+package com.qhy040404.libraryonetap.recyclerview
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -18,13 +18,13 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.compat.WICompat.getInsetsParam
 import com.qhy040404.libraryonetap.compat.WICompat.getSystemBars
 import com.qhy040404.libraryonetap.constant.enums.InsetsParams
-import com.qhy040404.libraryonetap.recycleview.simplepage.Card
-import com.qhy040404.libraryonetap.recycleview.simplepage.CardViewBinder
-import com.qhy040404.libraryonetap.recycleview.simplepage.Category
-import com.qhy040404.libraryonetap.recycleview.simplepage.CategoryViewBinder
-import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
-import com.qhy040404.libraryonetap.recycleview.simplepage.ClickableViewBinder
-import com.qhy040404.libraryonetap.recycleview.simplepage.DividerItemDecoration
+import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
+import com.qhy040404.libraryonetap.recyclerview.simplepage.CardViewBinder
+import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
+import com.qhy040404.libraryonetap.recyclerview.simplepage.CategoryViewBinder
+import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
+import com.qhy040404.libraryonetap.recyclerview.simplepage.ClickableViewBinder
+import com.qhy040404.libraryonetap.recyclerview.simplepage.DividerItemDecoration
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

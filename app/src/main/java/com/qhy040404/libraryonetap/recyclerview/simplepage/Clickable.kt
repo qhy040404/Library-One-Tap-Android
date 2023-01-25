@@ -1,4 +1,4 @@
-package com.qhy040404.libraryonetap.recycleview.simplepage
+package com.qhy040404.libraryonetap.recyclerview.simplepage
 
 data class Clickable(
     val name: String,

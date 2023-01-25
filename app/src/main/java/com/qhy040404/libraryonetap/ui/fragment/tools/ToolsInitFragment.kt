@@ -408,35 +408,38 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private fun initGrades() {
         var tempId = 0
         lifecycleScope.launch(Dispatchers.IO) {
-            Requests.loginSso(
-                URLManager.EDU_LOGIN_SSO_URL,
-                GlobalValues.ctSso,
-                URLManager.EDU_CHECK_URL,
-                noJsonString = "person",
-                toolsInit = true
-            )
-            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
-            val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
-            GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                initUrl.substringAfter("/").toInt()
-            } else {
-                val initList =
-                    initData.split("onclick=\"myFunction(this)\" value=\"")
-                if (initList.size == 3) {
-                    if (!GlobalValues.toastShowed) {
-                        runCatching { requireContext().showToast(R.string.tlp_minor_detected) }
-                        GlobalValues.toastShowed = true
+            if (Requests.loginSso(
+                    URLManager.EDU_LOGIN_SSO_URL,
+                    GlobalValues.ctSso,
+                    URLManager.EDU_CHECK_URL,
+                    shouldHas = "person",
+                    toolsInit = true
+                )
+            ) {
+                val initUrl =
+                    Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
+                val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
+                GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
+                    initUrl.substringAfter("/").toInt()
+                } else {
+                    val initList =
+                        initData.split("onclick=\"myFunction(this)\" value=\"")
+                    if (initList.size == 3) {
+                        if (!GlobalValues.toastShowed) {
+                            runCatching { requireContext().showToast(R.string.tlp_minor_detected) }
+                            GlobalValues.toastShowed = true
+                        }
+                        val aStuId = initList[1].substringBefore("\"").toInt()
+                        val bStuId = initList[2].substringBefore("\"").toInt()
+                        GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
+                        tempId = aStuId.coerceAtMost(bStuId)
                     }
-                    val aStuId = initList[1].substringBefore("\"").toInt()
-                    val bStuId = initList[2].substringBefore("\"").toInt()
-                    GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
-                    tempId = aStuId.coerceAtMost(bStuId)
+                    tempId
                 }
-                tempId
-            }
-            if (GlobalValues.minorStuId != 0) {
-                showMinor()
-                GlobalValues.minorVisible = true
+                if (GlobalValues.minorStuId != 0) {
+                    showMinor()
+                    GlobalValues.minorVisible = true
+                }
             }
         }
     }

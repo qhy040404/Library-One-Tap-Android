@@ -86,6 +86,7 @@ object GlobalValues {
 
     // Net
     var netError = false
+    var netPrompt = Constants.STRING_NULL
 
     fun initBasic() {
         SPUtils.spLazyMgr.reset()

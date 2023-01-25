@@ -1,28 +1,24 @@
 package com.qhy040404.libraryonetap.ui.dialog
 
 import android.app.Activity
-import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatSpinner
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ReserveData
-import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.Toasty
-import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
 import com.qhy040404.libraryonetap.utils.library.RoomUtils
-import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ReserveDialog {
     fun showAlertDialog(activity: Activity) {
@@ -91,80 +87,37 @@ class ReserveDialog {
             return
         }
 
-        StrictMode.setThreadPolicy(
-            StrictMode.ThreadPolicy.Builder().permitAll().build()
-        )
-
-        var timer = 0
-        var loginSuccess = false
-        while (!loginSuccess) {
-            val ltResponse = Requests.get(URLManager.LIBRARY_SSO_URL)
-            val ltData = runCatching {
-                ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
-            }.getOrDefault(Constants.STRING_NULL)
-            val ltExecution = runCatching {
-                ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
-            }.getOrDefault(Constants.STRING_NULL)
-
-            if (ltData.isNotEmpty()) {
-                val rawData = "${GlobalValues.id}${GlobalValues.passwd}$ltData"
-                val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
-
-                Requests.post(
-                    URLManager.LIBRARY_SSO_URL,
-                    Requests.loginPostData(
-                        GlobalValues.id,
-                        GlobalValues.passwd,
-                        ltData,
-                        rsa,
-                        ltExecution
-                    ),
-                    GlobalValues.ctSso
+        if (!Requests.initLib()) {
+            MaterialAlertDialogBuilder(activity)
+                .setTitle(R.string.library)
+                .setMessage(R.string.glb_fail_to_login_three_times)
+                .setPositiveButton(R.string.glb_ok, null)
+                .setCancelable(true)
+                .create()
+                .show()
+        } else {
+            (activity as LifecycleOwner).lifecycleScope.launch(Dispatchers.IO) {
+                val addCodeOrigin = Requests.post(
+                    URLManager.LIBRARY_RESERVE_URL,
+                    ReserveUtils.constructPara(target),
+                    GlobalValues.ctVCard
                 )
-            }
-
-            val session = Requests.post(
-                URLManager.LIBRARY_SESSION_URL, "",
-                GlobalValues.ctSso
-            )
-            if (SessionData.isSuccess(session)) {
-                loginSuccess = true
-            } else {
-                timer++
-                activity.showToast(R.string.glb_fail_to_login)
-                if (timer == 2) {
-                    Requests.netLazyMgr.reset()
-                    CookieJarImpl.reset()
-                }
-                if (timer >= 3) {
-                    Toasty.cancel()
+                val addCode = ReserveData.getAddCode(addCodeOrigin)
+                Requests.post(
+                    URLManager.LIBRARY_RESERVE_FINAL_URL,
+                    ReserveUtils.constructParaForFinalReserve(addCode),
+                    GlobalValues.ctVCard
+                )
+                activity.runOnUiThread {
                     MaterialAlertDialogBuilder(activity)
                         .setTitle(R.string.library)
-                        .setMessage(R.string.glb_fail_to_login_three_times)
-                        .setPositiveButton(R.string.glb_ok, null)
-                        .setCancelable(true)
+                        .setMessage(R.string.tlp_reserved)
+                        .setPositiveButton(R.string.glb_ok) { _, _ -> activity.recreate() }
+                        .setCancelable(false)
                         .create()
                         .show()
                 }
             }
         }
-        val addCodeOrigin = Requests.post(
-            URLManager.LIBRARY_RESERVE_URL,
-            ReserveUtils.constructPara(target),
-            GlobalValues.ctVCard
-        )
-        val addCode = ReserveData.getAddCode(addCodeOrigin)
-        Requests.post(
-            URLManager.LIBRARY_RESERVE_FINAL_URL,
-            ReserveUtils.constructParaForFinalReserve(addCode),
-            GlobalValues.ctVCard
-        )
-        MaterialAlertDialogBuilder(activity)
-            .setTitle(R.string.library)
-            .setMessage(R.string.tlp_reserved)
-            .setPositiveButton(R.string.glb_ok) { _, _ -> activity.recreate() }
-            .setCancelable(false)
-            .create()
-            .show()
     }
 }

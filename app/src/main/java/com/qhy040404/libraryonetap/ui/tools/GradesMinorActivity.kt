@@ -17,11 +17,8 @@ import com.qhy040404.libraryonetap.recycleview.simplepage.Card
 import com.qhy040404.libraryonetap.recycleview.simplepage.Category
 import com.qhy040404.libraryonetap.recycleview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
-import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
@@ -65,69 +62,35 @@ class GradesMinorActivity : SimplePageActivity() {
             return
         }
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
-
-        var loginSuccess = false
-        var timer = 0
-        while (!loginSuccess && AppUtils.checkData(id, passwd)) {
-            val ltResponse = Requests.get(URLManager.EDU_LOGIN_SSO_URL)
-            val ltData = runCatching {
-                ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
-            }.getOrDefault(Constants.STRING_NULL)
-            val ltExecution = runCatching {
-                ltResponse.substringBetween("name=\"execution\" value=\"", "\"")
-            }.getOrDefault(Constants.STRING_NULL)
-
-            if (ltData.isNotEmpty()) {
-                val rawData = "$id$passwd$ltData"
-                val rsa = DesEncryptUtils.strEnc(rawData, "1", "2", "3")
-
-                Thread.sleep(200L)
-
-                Requests.post(
-                    URLManager.EDU_LOGIN_SSO_URL,
-                    Requests.loginPostData(id, passwd, ltData, rsa, ltExecution),
-                    GlobalValues.ctSso
-                )
-            }
-
-            val session = Requests.get(URLManager.EDU_CHECK_URL)
-            if (session.contains("person")) {
-                loginSuccess = true
-            } else {
-                timer++
-                if (timer == 2) {
-                    Requests.netLazyMgr.reset()
-                    CookieJarImpl.reset()
-                }
-                if (timer >= 3) {
-                    runOnUiThread {
-                        MaterialAlertDialogBuilder(this@GradesMinorActivity)
-                            .setTitle(R.string.grade_major_title)
-                            .setMessage(
-                                when (session) {
-                                    Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                                    Constants.NET_ERROR -> R.string.glb_net_error
-                                    Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                                    else -> R.string.glb_fail_to_login_three_times
-                                }
-                            )
-                            .setPositiveButton(R.string.glb_ok) { _, _ ->
-                                finish()
-                            }
-                            .setCancelable(false)
-                            .create().also {
-                                if (this@GradesMinorActivity.currentVisible) {
-                                    it.show()
-                                }
-                            }
+        if (!Requests.loginSso(
+                URLManager.EDU_LOGIN_SSO_URL,
+                GlobalValues.ctSso,
+                URLManager.EDU_CHECK_URL,
+                shouldHas = "person"
+            )
+        ) {
+            runOnUiThread {
+                MaterialAlertDialogBuilder(this@GradesMinorActivity)
+                    .setTitle(R.string.exams_title)
+                    .setMessage(
+                        when (GlobalValues.netPrompt) {
+                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+                            Constants.NET_ERROR -> R.string.glb_net_error
+                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+                            else -> R.string.glb_fail_to_login_three_times
+                        }
+                    )
+                    .setPositiveButton(R.string.glb_ok) { _, _ ->
+                        finish()
                     }
-                    break
-                }
+                    .setCancelable(false)
+                    .create().also {
+                        if (this@GradesMinorActivity.currentVisible) {
+                            it.show()
+                        }
+                    }
             }
-        }
-        if (loginSuccess) {
+        } else {
             Thread.sleep(1000L)
             val gradesData =
                 Requests.get(URLManager.getEduGradeUrl(GlobalValues.minorStuId))

@@ -62,9 +62,11 @@ object Requests {
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_disconnected.getString()
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
+        GlobalValues.netPrompt = Constants.STRING_NULL
         val request = Request.Builder()
             .url(url)
             .get()
@@ -82,10 +84,12 @@ object Requests {
             }
         } catch (s: SocketTimeoutException) {
             textView?.post { textView.text = R.string.glb_net_timeout.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_timeout.getString()
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
             textView?.post { textView.text = R.string.glb_net_error.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_error.getString()
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
@@ -126,9 +130,11 @@ object Requests {
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_disconnected.getString()
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
         }
+        GlobalValues.netPrompt = Constants.STRING_NULL
         val body = form.toRequestBody(mediaType)
         val request = Request.Builder()
             .url(url)
@@ -147,10 +153,12 @@ object Requests {
             }
         } catch (s: SocketTimeoutException) {
             textView?.post { textView.text = R.string.glb_net_timeout.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_timeout.getString()
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
             textView?.post { textView.text = R.string.glb_net_error.getString() }
+            GlobalValues.netPrompt = R.string.glb_net_error.getString()
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
@@ -183,11 +191,12 @@ object Requests {
     }
 
     fun loginSso(
-        sso: String,
+        ssoUrl: String,
         mt: MediaType,
-        session: String? = null,
-        noJsonString: String = "统一身份",
+        sessionUrl: String? = null,
         hasSessionJson: Boolean = false,
+        shouldMiss: String = "统一身份",
+        shouldHas: String = "",
         toolsInit: Boolean = false,
     ): Boolean {
         val id = GlobalValues.id
@@ -197,7 +206,7 @@ object Requests {
         var timer = 0
 
         while (AppUtils.checkData(id, passwd)) {
-            val ltResponse = get(sso, toolsInit = toolsInit)
+            val ltResponse = get(ssoUrl, toolsInit = toolsInit)
             val ltData = runCatching {
                 ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
             }.getOrDefault(Constants.STRING_NULL)
@@ -212,25 +221,33 @@ object Requests {
                 Thread.sleep(200L)
 
                 post(
-                    sso,
+                    ssoUrl,
                     loginPostData(id, passwd, ltData, rsa, ltExecution),
                     mt,
                     toolsInit = toolsInit
                 )
             }
 
-            if (session != null) {
+            if (sessionUrl != null) {
                 if (hasSessionJson) {
-                    val sessionCheck = post(session, "", mt, toolsInit = toolsInit)
+                    val sessionCheck = post(sessionUrl, "", mt, toolsInit = toolsInit)
                     if (SessionData.isSuccess(sessionCheck)) {
                         loginSuccess = true
                         break
                     } else {
                         timer++
                     }
+                } else if (shouldHas.isNotEmpty()) {
+                    val sessionCheck = get(sessionUrl, toolsInit = toolsInit)
+                    if (sessionCheck.contains(shouldHas)) {
+                        loginSuccess = true
+                        break
+                    } else {
+                        timer++
+                    }
                 } else {
-                    val sessionCheck = get(session, toolsInit = toolsInit)
-                    if (!sessionCheck.contains(noJsonString)) {
+                    val sessionCheck = get(sessionUrl, toolsInit = toolsInit)
+                    if (!sessionCheck.contains(shouldMiss)) {
                         loginSuccess = true
                         break
                     } else {
@@ -240,6 +257,7 @@ object Requests {
                 if (timer == 2) {
                     netLazyMgr.reset()
                     SPUtils.spLazyMgr.reset()
+                    CookieJarImpl.reset()
                     GlobalValues.initBasic()
                 }
                 if (timer >= 3) {

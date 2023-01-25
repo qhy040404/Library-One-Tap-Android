@@ -60,12 +60,10 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
         val loginSuccess = Requests.initLib()
 
-        val list = Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail)
         OrderListData.mClass = runCatching {
-            list.decode<OrderListDTO>()
+            Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail).decode<OrderListDTO>()
         }.getOrNull()
-        val total = OrderListData.getTotal()
-        if (total != "0") {
+        if (OrderListData.getTotal() != "0") {
             val space_name = OrderListData.getSpace_name(OrderModes.YANXIUJIAN)
             val order_date = OrderListData.getOrder_date(OrderModes.YANXIUJIAN)
             var order_id = OrderListData.getOrder_id(OrderModes.YANXIUJIAN)
@@ -84,8 +82,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
             }
 
             val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
-            val call = Requests.client.newCall(request)
-            call.enqueue(object : Callback {
+            Requests.client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {}
 
                 override fun onResponse(call: Call, response: Response) {

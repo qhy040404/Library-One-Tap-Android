@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <!-- TITLE -->
-  <string name="app_name">图书馆小程序</string>
   <string name="library">图书馆</string>
   <string name="settings_title">设置</string>
   <string name="vcard_title">虚拟卡</string>

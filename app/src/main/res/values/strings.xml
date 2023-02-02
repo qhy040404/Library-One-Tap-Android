@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <!-- TITLE -->
-  <string name="app_name">Library One Tap</string>
+  <string name="app_name" translatable="false">Library One Tap</string>
   <string name="library">Library</string>
   <string name="settings_title">Settings</string>
   <string name="vcard_title">Virtual Yulan card</string>

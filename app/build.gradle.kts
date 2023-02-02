@@ -120,7 +120,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-process:2.5.1")
     implementation("androidx.lifecycle:lifecycle-service:2.5.1")
     implementation("androidx.transition:transition:1.4.1")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
 
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
 

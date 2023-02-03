@@ -13,9 +13,9 @@ import androidx.core.content.FileProvider
 import androidx.core.text.buildSpannedString
 import androidx.core.text.inSpans
 import androidx.core.text.toHtml
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -170,7 +170,7 @@ object UpdateUtils {
         }
 
         withContext(Dispatchers.Main) {
-            MaterialAlertDialogBuilder(context)
+            BaseAlertDialogBuilder(context)
                 .setTitle(R.string.upd_detected)
                 .setMessage(dialogBody)
                 .setPositiveButton(R.string.upd_confirm) { _, _ ->

@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.os.StrictMode
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.base.BaseFragment
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -180,7 +180,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(R.string.df_cancel_confirm)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.df_cancel_confirm_yes) { _, _ ->
@@ -191,7 +191,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                                     GlobalValues.ctSso
                                 )
                             )
-                            MaterialAlertDialogBuilder(requireContext())
+                            BaseAlertDialogBuilder(requireContext())
                                 .setMessage(message)
                                 .setTitle(R.string.library)
                                 .setPositiveButton(R.string.glb_ok) { _, _ -> activity?.recreate() }
@@ -211,7 +211,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(R.string.df_reserve_reset_confirm)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.glb_ok) { _, _ ->
@@ -272,7 +272,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                     StrictMode.setThreadPolicy(
                         StrictMode.ThreadPolicy.Builder().permitAll().build()
                     )
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(R.string.df_reserve_reset_confirm)
                         .setTitle(R.string.library)
                         .setPositiveButton(R.string.glb_ok) { _, _ ->

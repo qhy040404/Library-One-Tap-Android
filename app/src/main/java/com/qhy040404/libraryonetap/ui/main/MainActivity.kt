@@ -17,11 +17,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.OnceTag
@@ -195,7 +195,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
                     Manifest.permission.ACCESS_FINE_LOCATION -> if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                         startActivity(Intent(this, BathReserveActivity::class.java))
                     } else {
-                        MaterialAlertDialogBuilder(this)
+                        BaseAlertDialogBuilder(this)
                             .setMessage(R.string.br_permission_fail)
                             .setTitle(R.string.glb_error)
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
@@ -214,7 +214,7 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
 
     private fun showWelcomeDialog() {
         if (!Once.beenDone(Once.THIS_APP_INSTALL, OnceTag.FIRST_DATA_INPUT)) {
-            MaterialAlertDialogBuilder(this)
+            BaseAlertDialogBuilder(this)
                 .setTitle(R.string.in_welcome)
                 .setMessage(R.string.in_message)
                 .setPositiveButton(R.string.glb_ok) { _, _ ->

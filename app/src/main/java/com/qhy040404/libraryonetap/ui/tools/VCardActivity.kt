@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import coil.load
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -74,7 +74,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         if (!openidOrigin.isValid()) {
             withContext(Dispatchers.Main)
             {
-                MaterialAlertDialogBuilder(this@VCardActivity)
+                BaseAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
                     .setMessage(
                         when (openidOrigin) {
@@ -99,7 +99,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         } catch (_: Exception) {
             withContext(Dispatchers.Main)
             {
-                MaterialAlertDialogBuilder(this@VCardActivity)
+                BaseAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
                     .setMessage(R.string.glb_fail_to_login_three_times)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->

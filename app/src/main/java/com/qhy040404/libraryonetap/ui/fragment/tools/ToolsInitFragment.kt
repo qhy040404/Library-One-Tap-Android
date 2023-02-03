@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -214,7 +214,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private suspend fun getNet() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.net_title)
                     .setPositiveButton(R.string.glb_ok, null)
@@ -258,7 +258,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             }
 
             withContext(Dispatchers.Main) {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(netMessage)
                     .setTitle(R.string.net_title)
                     .setPositiveButton(R.string.glb_ok, null)
@@ -272,7 +272,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private suspend fun getElectric() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.electric_title)
                     .setPositiveButton(R.string.glb_ok, null)
@@ -310,7 +310,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             }
 
             withContext(Dispatchers.Main) {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(electricMessage)
                     .setTitle(R.string.electric_title)
                     .setPositiveButton(R.string.glb_ok, null)
@@ -324,7 +324,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
     private suspend fun getVolunteer() {
         if (!AppUtils.hasNetwork()) {
             withContext(Dispatchers.Main) {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.volunteer_title)
                     .setPositiveButton(R.string.glb_ok, null)
@@ -352,7 +352,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             if (sameID == -1 || sameName == -1) {
                 withContext(Dispatchers.Main) {
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(
                             when (data) {
                                 Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
@@ -369,7 +369,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 }
             } else if (sameID == 0 || sameName == 0) {
                 withContext(Dispatchers.Main) {
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(R.string.tlp_invalid_id_or_name)
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.glb_ok, null)
@@ -379,7 +379,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 }
             } else if (sameID != 1 || sameName != 1) {
                 withContext(Dispatchers.Main) {
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(R.string.tlp_find_same_data)
                         .setTitle(R.string.volunteer_title)
                         .setPositiveButton(R.string.glb_ok, null)
@@ -393,7 +393,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                 val title = R.string.volunteer_title.getString() + "\n" + latestDate
                 val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
                 withContext(Dispatchers.Main) {
-                    MaterialAlertDialogBuilder(requireContext())
+                    BaseAlertDialogBuilder(requireContext())
                         .setMessage(message)
                         .setTitle(title)
                         .setPositiveButton(R.string.glb_ok, null)

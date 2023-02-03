@@ -18,9 +18,9 @@ import androidx.preference.SwitchPreference
 import androidx.recyclerview.widget.RecyclerView
 import com.absinthe.libraries.utils.extensions.addPaddingTop
 import com.absinthe.libraries.utils.utils.UiUtils
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager
 import com.qhy040404.libraryonetap.constant.GlobalValues
@@ -188,12 +188,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>(Constants.PREF_RESET)?.apply {
             setOnPreferenceClickListener {
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setMessage(R.string.stp_data_reset_confirm)
                     .setTitle(R.string.settings_title)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
                         SPUtils.resetAll()
-                        MaterialAlertDialogBuilder(requireContext())
+                        BaseAlertDialogBuilder(requireContext())
                             .setMessage(R.string.stp_data_reset_completed)
                             .setTitle(R.string.settings_title)
                             .setPositiveButton(R.string.glb_ok) { _, _ ->
@@ -244,7 +244,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
             setOnPreferenceClickListener {
                 val body = file.readText()
-                MaterialAlertDialogBuilder(requireContext())
+                BaseAlertDialogBuilder(requireContext())
                     .setTitle(R.string.upd_latest_changelog)
                     .setMessage(body.parseAsHtml())
                     .setPositiveButton(R.string.glb_ok, null)

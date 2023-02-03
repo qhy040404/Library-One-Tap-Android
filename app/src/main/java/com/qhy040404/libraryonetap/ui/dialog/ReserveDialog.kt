@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.ReserveData
@@ -65,7 +65,7 @@ class ReserveDialog {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
-        MaterialAlertDialogBuilder(activity)
+        BaseAlertDialogBuilder(activity)
             .setTitle(R.string.library)
             .setView(view)
             .setPositiveButton(R.string.glb_ok) { _, _ -> reserveSeat(activity, targetRoom) }
@@ -77,7 +77,7 @@ class ReserveDialog {
 
     private fun reserveSeat(activity: Activity, target: Int) {
         if (!TimeUtils.isValidReserveTime()) {
-            MaterialAlertDialogBuilder(activity)
+            BaseAlertDialogBuilder(activity)
                 .setTitle(R.string.library)
                 .setMessage(R.string.df_not_in_valid_time)
                 .setPositiveButton(R.string.glb_ok, null)
@@ -88,7 +88,7 @@ class ReserveDialog {
         }
 
         if (!Requests.initLib()) {
-            MaterialAlertDialogBuilder(activity)
+            BaseAlertDialogBuilder(activity)
                 .setTitle(R.string.library)
                 .setMessage(R.string.glb_fail_to_login_three_times)
                 .setPositiveButton(R.string.glb_ok, null)
@@ -109,7 +109,7 @@ class ReserveDialog {
                     GlobalValues.ctVCard
                 )
                 activity.runOnUiThread {
-                    MaterialAlertDialogBuilder(activity)
+                    BaseAlertDialogBuilder(activity)
                         .setTitle(R.string.library)
                         .setMessage(R.string.tlp_reserved)
                         .setPositiveButton(R.string.glb_ok) { _, _ -> activity.recreate() }

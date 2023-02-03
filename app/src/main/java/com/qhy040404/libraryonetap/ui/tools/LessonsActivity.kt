@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.view.View
 import android.widget.ProgressBar
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
@@ -48,7 +48,7 @@ class LessonsActivity : SimplePageActivity() {
     override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@LessonsActivity)
+                BaseAlertDialogBuilder(this@LessonsActivity)
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.lessons_title)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
@@ -68,7 +68,7 @@ class LessonsActivity : SimplePageActivity() {
 
         if (!loginSuccess.first) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@LessonsActivity)
+                BaseAlertDialogBuilder(this@LessonsActivity)
                     .setTitle(R.string.exams_title)
                     .setMessage(
                         when (GlobalValues.netPrompt) {

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
+import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
@@ -45,7 +45,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
 
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@BathReserveActivity)
+                BaseAlertDialogBuilder(this@BathReserveActivity)
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.bath_title)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->

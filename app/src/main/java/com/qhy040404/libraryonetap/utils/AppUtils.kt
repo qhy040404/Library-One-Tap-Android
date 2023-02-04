@@ -3,8 +3,8 @@ package com.qhy040404.libraryonetap.utils
 import android.content.Context
 import android.content.res.Configuration
 import androidx.annotation.StringRes
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.base.BaseAlertDialogBuilder
 import com.qhy040404.libraryonetap.constant.Constants
 import rikka.material.app.DayNightDelegate
 
@@ -38,7 +38,7 @@ object AppUtils {
     ): Boolean {
         (id != "Error" && passwd != "Error" && id.isNotEmpty() && passwd.isNotEmpty()).let {
             if (!it && context != null && titleId != null && messageId != null) {
-                BaseAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(context)
                     .setTitle(titleId)
                     .setMessage(messageId)
                     .setPositiveButton(R.string.glb_ok, null)

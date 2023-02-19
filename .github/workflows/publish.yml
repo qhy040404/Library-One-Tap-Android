@@ -58,7 +58,7 @@ jobs:
           java-version: 17
 
       - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1.0.5
+        uses: gradle/wrapper-validation-action@v1.0.6
 
   check:
     name: Check

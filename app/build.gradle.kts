@@ -118,7 +118,7 @@ dependencies {
     implementation("androidx.collection:collection-ktx:1.2.0")
     implementation("androidx.lifecycle:lifecycle-livedata:2.5.1")
     implementation("androidx.lifecycle:lifecycle-process:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-service:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-service:2.6.0")
     implementation("androidx.transition:transition:1.4.1")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
 

@@ -19,7 +19,7 @@ androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", 
 androidx-navi-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navi-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-preference-ktx = "androidx.preference:preference-ktx:1.2.0"
-androidx-rv = "androidx.recyclerview:recyclerview:1.2.1"
+androidx-rv = "androidx.recyclerview:recyclerview:1.3.0"
 androidx-transition = "androidx.transition:transition:1.4.1"
 androidx-viewpaper2 = "androidx.viewpager2:viewpager2:1.0.0"
 

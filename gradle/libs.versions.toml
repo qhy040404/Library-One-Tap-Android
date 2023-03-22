@@ -1,5 +1,5 @@
 [versions]
-lifecycle = "2.6.0"
+lifecycle = "2.6.1"
 navigation = "2.5.3"
 zh-appiconloader = "1.5.0"
 

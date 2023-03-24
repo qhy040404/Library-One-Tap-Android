@@ -40,7 +40,7 @@ moshi-kt = "com.squareup.moshi:moshi-kotlin:1.14.0"
 okhttp = "com.squareup.okhttp3:okhttp:4.10.0"
 okio = "com.squareup.okio:okio:3.3.0"
 prefx = "com.takisoft.preferencex:preferencex:1.1.0"
-bugly = "com.tencent.bugly:crashreport:4.1.9"
+bugly = "com.tencent.bugly:crashreport:4.1.9.1"
 coil = "io.coil-kt:coil:2.2.2"
 appiconloader-base = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "zh-appiconloader" }
 appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader-coil", version.ref = "zh-appiconloader" }

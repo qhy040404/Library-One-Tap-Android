@@ -24,7 +24,7 @@ androidx-transition = "androidx.transition:transition:1.4.1"
 androidx-viewpaper2 = "androidx.viewpager2:viewpager2:1.0.0"
 
 rikka-appcompat = "dev.rikka.rikkax.appcompat:appcompat:1.6.1"
-rikka-material = "dev.rikka.rikkax.material:material:2.6.0"
+rikka-material = "dev.rikka.rikkax.material:material:2.7.0"
 rikka-material-pref = "dev.rikka.rikkax.material:material-preference:2.0.0"
 rikka-simplemenu-pref = "dev.rikka.rikkax.preference:simplemenu-preference:1.0.3"
 rikka-rv-ktx = "dev.rikka.rikkax.recyclerview:recyclerview-ktx:1.3.1"

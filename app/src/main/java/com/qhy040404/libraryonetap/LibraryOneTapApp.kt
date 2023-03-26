@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.DialogFragment
 import coil.Coil
 import coil.ImageLoader
@@ -26,7 +27,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import me.zhanghai.android.appiconloader.coil.AppIconFetcher
 import me.zhanghai.android.appiconloader.coil.AppIconKeyer
-import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import kotlin.system.exitProcess
 
@@ -51,8 +51,7 @@ class LibraryOneTapApp : Application() {
         app = this
 
         LocaleDelegate.defaultLocale = GlobalValues.locale
-        DayNightDelegate.setApplicationContext(this)
-        DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(GlobalValues.darkMode))
+        AppCompatDelegate.setDefaultNightMode(AppUtils.getNightMode(GlobalValues.darkMode))
         DynamicColors.applyToActivitiesIfAvailable(this)
 
         Utility.init(this)

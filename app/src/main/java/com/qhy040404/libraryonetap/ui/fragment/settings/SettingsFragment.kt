@@ -7,6 +7,7 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.getSystemService
 import androidx.core.net.toUri
 import androidx.core.text.parseAsHtml
@@ -43,7 +44,6 @@ import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import rikka.material.app.DayNightDelegate
 import rikka.material.app.LocaleDelegate
 import rikka.preference.SimpleMenuPreference
 import rikka.recyclerview.fixEdgeEffect
@@ -143,7 +143,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     return@setOnPreferenceChangeListener true
                 }
                 GlobalValues.darkMode = newValue.toString()
-                DayNightDelegate.setDefaultNightMode(AppUtils.getNightMode(newValue.toString()))
+                AppCompatDelegate.setDefaultNightMode(AppUtils.getNightMode(newValue.toString()))
                 activity?.recreate()
                 true
             }

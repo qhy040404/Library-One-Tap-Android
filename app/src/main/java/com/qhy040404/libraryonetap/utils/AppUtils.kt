@@ -3,16 +3,16 @@ package com.qhy040404.libraryonetap.utils
 import android.content.Context
 import android.content.res.Configuration
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
-import rikka.material.app.DayNightDelegate
 
 object AppUtils {
     fun getNightMode(modeString: String) = when (modeString) {
-        "on" -> DayNightDelegate.MODE_NIGHT_YES
-        "off" -> DayNightDelegate.MODE_NIGHT_NO
-        else -> DayNightDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        "on" -> AppCompatDelegate.MODE_NIGHT_YES
+        "off" -> AppCompatDelegate.MODE_NIGHT_NO
+        else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
     }
 
     fun getThemeID(theme: String): Int {

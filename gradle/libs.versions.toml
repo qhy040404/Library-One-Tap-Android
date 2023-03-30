@@ -45,7 +45,7 @@ coil = "io.coil-kt:coil:2.3.0"
 appiconloader-base = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "zh-appiconloader" }
 appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader-coil", version.ref = "zh-appiconloader" }
 coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.8.10"
+kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.8.20"
 
 leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
 junit = "junit:junit:4.13.2"

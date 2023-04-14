@@ -77,15 +77,14 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Check_debug
+      - name: Gradle cache
         uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: lintAnalyzeDebug --warning-mode all --scan
 
-      - name: Check_release
-        uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: lintAnalyzeRelease --warning-mode all --scan
+      - name: Check (debug)
+        run: ./gradlew lintAnalyzeDebug --warning-mode all --scan
+
+      - name: Check (release)
+        run: ./gradlew lintAnalyzeRelease --warning-mode all --scan
 
   build_debug:
     name: Build_Debug
@@ -105,10 +104,10 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Build with Gradle
+      - name: Gradle cache
         uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: assembleDebug --scan
+
+      - run: ./gradlew assembleDebug --scan
 
       - name: Sign apk release
         id: signStep
@@ -143,10 +142,10 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Test_Debug
+      - name: Gradle cache
         uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: testDebugUnitTest --warning-mode all
+
+      - run: ./gradlew testDebugUnitTest --warning-mode all
 
   build_release:
     name: Build_Release
@@ -166,10 +165,10 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Build with Gradle
+      - name: Gradle cache
         uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: assembleRelease --scan
+
+      - run: ./gradlew assembleRelease --scan
 
       - name: Upload mapping to Bugly
         uses: qhy040404/Bugly-mapping-upload@v1.0.1
@@ -219,10 +218,10 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Test_Release
+      - name: Gradle cache
         uses: gradle/gradle-build-action@v2.4.1
-        with:
-          arguments: testReleaseUnitTest --warning-mode all
+
+      - run: ./gradlew testReleaseUnitTest --warning-mode all
 
   pre-release:
     name: Pre-release

@@ -271,7 +271,7 @@ object Requests {
         return loginSuccess
     }
 
-    fun loginPostData(
+    private fun loginPostData(
         id: String,
         passwd: String,
         ltData: String,

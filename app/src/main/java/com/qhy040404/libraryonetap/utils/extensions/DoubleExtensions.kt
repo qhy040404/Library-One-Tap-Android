@@ -3,7 +3,6 @@ package com.qhy040404.libraryonetap.utils.extensions
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-@Suppress("unused")
 object DoubleExtensions {
     /**
      * Keep two decimal places after rounding

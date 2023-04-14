@@ -33,7 +33,7 @@ import rikka.material.app.MaterialActivity
 
 abstract class SimplePageActivity : MaterialActivity() {
     private var givenInsetsToDecorView = false
-    lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: RecyclerView
     lateinit var toolbar: Toolbar
 
     protected abstract fun initializeView()

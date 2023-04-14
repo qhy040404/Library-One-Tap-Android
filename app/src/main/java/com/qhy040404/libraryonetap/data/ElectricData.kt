@@ -24,7 +24,6 @@ object ElectricData {
     }.getOrDefault(Constants.GLOBAL_ERROR)
 }
 
-@Suppress("SpellCheckingInspection")
 data class ElectricDTO(
     val dormitoryInfo_list: List<ElectricInnerDTO>? = null,
     val flag: String,

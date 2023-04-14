@@ -10,8 +10,7 @@
   <string name="bath_title">Bathhouse Reservation</string>
   <string name="about_title">About</string>
   <string name="volunteer_title">Volunteer hours</string>
-  <string name="grade_major_title">Grades</string>
-  <string name="grade_minor_title">Grades (Minor)</string>
+  <string name="grade_title">Grades</string>
   <string name="lessons_title">Selected courses</string>
   <string name="exams_title">Exams</string>
 
@@ -62,7 +61,6 @@
   <string name="br_request_sent">Appointment request has been sent</string>
 
   <string name="br_permission_prompt">We need this permission to get SSID of WIFI, so as to detect whether it is in the campus network environment</string>
-  <string name="br_permission_got">Permission successfully obtained, please click the button again</string>
   <string name="br_permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
 
   <!-- GRADES -->
@@ -115,7 +113,6 @@
   <string name="glb_loading">Loading…</string>
   <string name="glb_loaded">Logged in</string>
   <string name="glb_fail_to_login_no_retry">Login failed, please retry.</string>
-  <string name="glb_fail_to_login">Login failed, retrying…</string>
   <string name="glb_fail_to_login_three_times">Failed 3 times…\nCheck your id and password</string>
   <string name="glb_login_timeout">Session timeout, please refresh</string>
   <string name="glb_no_userdata">Please input your information in the Settings page first.</string>
@@ -156,7 +153,6 @@
   <string name="tlp_invalid_id_or_name">Wrong name and ID</string>
   <string name="tlp_find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
   <string name="tlp_reserved">Reserve request has been sent</string>
-  <string name="tlp_minor_detected">Minor detected. Entry has been added.</string>
 
   <!-- SETTINGS PROMPT -->
   <string name="stp_data_reset_confirm">Please confirm to clear appdata.</string>

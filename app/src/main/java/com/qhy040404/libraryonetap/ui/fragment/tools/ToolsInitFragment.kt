@@ -56,7 +56,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         else -> Constants.GLOBAL_ERROR
                     }
 
-                    @Suppress("SpellCheckingInspection")
                     if (netName == "<unknown ssid>") {
                         if (PermissionUtils.checkPermission(
                                 requireActivity(),

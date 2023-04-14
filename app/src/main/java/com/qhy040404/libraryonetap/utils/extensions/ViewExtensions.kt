@@ -12,7 +12,6 @@ import coil.load
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.QRUtils
 
-@Suppress("unused")
 object ViewExtensions {
     fun ViewPager2.setCurrentItem(
         item: Int,

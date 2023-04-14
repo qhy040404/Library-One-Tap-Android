@@ -5,7 +5,7 @@ import com.qhy040404.libraryonetap.constant.enums.OrderModes
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 
-@Suppress("FunctionName", "LocalVariableName", "PropertyName")
+@Suppress("FunctionName")
 object OrderListData {
     var mClass: OrderListDTO? = null
 

@@ -9,8 +9,7 @@
   <string name="bath_title">浴室预约</string>
   <string name="about_title">关于</string>
   <string name="volunteer_title">志愿时长</string>
-  <string name="grade_major_title">成绩</string>
-  <string name="grade_minor_title">成绩 (辅修/双学位)</string>
+  <string name="grade_title">成绩</string>
   <string name="lessons_title">已选课程</string>
   <string name="exams_title">考试</string>
 
@@ -61,7 +60,6 @@
   <string name="br_request_sent">已发送预约请求</string>
 
   <string name="br_permission_prompt">我们需要此权限来获得 WIFI 的 SSID, 从而检测是否在校园网环境中</string>
-  <string name="br_permission_got">已成功获取权限, 请重新点击按钮</string>
   <string name="br_permission_fail">获取权限失败, 请到设置中手动开启</string>
 
   <!-- GRADES -->
@@ -114,7 +112,6 @@
   <string name="glb_loading">加载中…</string>
   <string name="glb_loaded">登录成功</string>
   <string name="glb_fail_to_login_no_retry">登录失败, 请重试</string>
-  <string name="glb_fail_to_login">登录失败, 正在重试</string>
   <string name="glb_fail_to_login_three_times">连续失败3次\n请检查用户名和密码</string>
   <string name="glb_login_timeout">登录失效, 请重新加载</string>
   <string name="glb_no_userdata">请先到设置输入基本信息</string>
@@ -155,7 +152,6 @@
   <string name="tlp_invalid_id_or_name">姓名或 ID 错误</string>
   <string name="tlp_find_same_data">有相同 ID 或姓名出现, 请检查\n如果检查后还是出错, 请前往公众号查询</string>
   <string name="tlp_reserved">预约请求已发送</string>
-  <string name="tlp_minor_detected">检测到辅修/双学位，已添加入口</string>
 
   <!-- SETTINGS PROMPT -->
   <string name="stp_data_reset_confirm">请确认重置应用数据</string>

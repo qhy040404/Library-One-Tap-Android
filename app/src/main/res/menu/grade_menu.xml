@@ -3,7 +3,7 @@
   <item
     android:id="@+id/grade_id"
     android:icon="@drawable/ic_userid"
-    android:title="id"
+    android:title="@string/gr_id"
     android:visible="false"
     android:showAsAction="always" />
 </menu>

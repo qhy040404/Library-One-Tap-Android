@@ -1,4 +1,4 @@
-@file:Suppress("SpellCheckingInspection", "UnstableApiUsage")
+@file:Suppress("UnstableApiUsage")
 
 import java.net.InetAddress
 import java.nio.charset.Charset

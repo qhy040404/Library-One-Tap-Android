@@ -2,7 +2,6 @@ package com.qhy040404.libraryonetap.utils.extensions
 
 import com.qhy040404.libraryonetap.utils.JsonUtils
 
-@Suppress("unused")
 object AnyExtensions {
     /**
      * Convert any data class to json string

@@ -27,7 +27,7 @@
   <Preference
     app:icon="@drawable/ic_grades"
     app:key="major"
-    app:title="@string/grade_major_title" />
+    app:title="@string/grade_title" />
 
   <Preference
     app:icon="@drawable/ic_lessons"

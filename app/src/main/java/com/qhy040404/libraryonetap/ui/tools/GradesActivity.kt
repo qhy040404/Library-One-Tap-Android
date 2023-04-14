@@ -64,7 +64,7 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesActivity)
                     .setMessage(R.string.glb_net_disconnected)
-                    .setTitle(R.string.grade_major_title)
+                    .setTitle(R.string.grade_title)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }

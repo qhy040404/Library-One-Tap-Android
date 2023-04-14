@@ -46,13 +46,9 @@
       android:exported="false"
       android:label="@string/bath_title" />
     <activity
-      android:name=".ui.tools.GradesMajorActivity"
+      android:name=".ui.tools.GradesActivity"
       android:exported="false"
       android:label="@string/grade_major_title" />
-    <activity
-      android:name=".ui.tools.GradesMinorActivity"
-      android:exported="false"
-      android:label="@string/grade_minor_title" />
     <activity
       android:name=".ui.tools.LessonsActivity"
       android:exported="false"

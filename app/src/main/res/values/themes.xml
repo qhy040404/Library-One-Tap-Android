@@ -32,4 +32,9 @@
 
     <item name="android:statusBarColor">@color/library_500</item>
   </style>
+
+  <style name="Widget.PopupMenu" parent="Widget.AppCompat.ListView.DropDown">
+    <item name="android:paddingEnd">-16dp</item>
+    <item name="android:clipToPadding">false</item>
+  </style>
 </resources>

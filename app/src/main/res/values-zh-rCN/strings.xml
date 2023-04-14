@@ -65,6 +65,9 @@
   <string name="br_permission_fail">获取权限失败, 请到设置中手动开启</string>
 
   <!-- GRADES -->
+  <string name="gr_id">学籍</string>
+  <string name="gr_major">主修</string>
+  <string name="gr_minor">辅修</string>
   <string name="gr_empty">暂无分数</string>
   <string name="gr_stat">本学期已获得学分: %1$.1f\n加权均分: %2$.2f  平均绩点: %3$s</string>
   <string name="gr_eval_first">请先评教</string>

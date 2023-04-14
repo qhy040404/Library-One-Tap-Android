@@ -95,6 +95,7 @@ dependencies {
     implementation(libs.prefx)
     implementation(libs.bugly)
     implementation(libs.coil)
+    implementation(libs.cascade)
     implementation(libs.appiconloader.base)
     implementation(libs.appiconloader.coil)
     implementation(libs.coroutines)

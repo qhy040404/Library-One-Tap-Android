@@ -81,8 +81,6 @@ object GlobalValues {
     // Edu
     var majorStuId = 0
     var minorStuId = 0
-    var toastShowed = false
-    var minorVisible = false
 
     // Net
     var netError = false

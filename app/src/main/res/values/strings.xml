@@ -66,6 +66,9 @@
   <string name="br_permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
 
   <!-- GRADES -->
+  <string name="gr_id">Roll</string>
+  <string name="gr_major">Major</string>
+  <string name="gr_minor">Minor</string>
   <string name="gr_empty">There is no score.</string>
   <string name="gr_stat">Credits earned this semester: %1$.1f\nWeighted average score: %2$.2f  GPA: %3$s</string>
   <string name="gr_eval_first">Evaluate first</string>

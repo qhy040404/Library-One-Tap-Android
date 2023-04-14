@@ -16,8 +16,7 @@ import com.qhy040404.libraryonetap.data.NetData
 import com.qhy040404.libraryonetap.data.VolunteerData
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
-import com.qhy040404.libraryonetap.ui.tools.GradesMajorActivity
-import com.qhy040404.libraryonetap.ui.tools.GradesMinorActivity
+import com.qhy040404.libraryonetap.ui.tools.GradesActivity
 import com.qhy040404.libraryonetap.ui.tools.LessonsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
@@ -37,12 +36,6 @@ import org.json.JSONObject
 class ToolsInitFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.tools_list, rootKey)
-
-        if (GlobalValues.minorVisible) {
-            findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible = true
-        } else {
-            initGrades()
-        }
 
         findPreference<Preference>(Constants.TOOLS_BATH)?.apply {
             if (!BathUtils.isBathTimeValid()) {
@@ -135,23 +128,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         R.string.glb_no_userdata
                     )
                 ) {
-                    startActivity(Intent(requireContext(), GradesMajorActivity::class.java))
-                }
-                true
-            }
-        }
-
-        findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.apply {
-            setOnPreferenceClickListener {
-                if (AppUtils.checkData(
-                        GlobalValues.id,
-                        GlobalValues.passwd,
-                        requireContext(),
-                        R.string.mn_tools,
-                        R.string.glb_no_userdata
-                    )
-                ) {
-                    startActivity(Intent(requireContext(), GradesMinorActivity::class.java))
+                    startActivity(Intent(requireContext(), GradesActivity::class.java))
                 }
                 true
             }
@@ -205,9 +182,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     }
                 }
             }
-        }
-        if (!GlobalValues.minorVisible && GlobalValues.minorStuId != 0) {
-            lifecycleScope.launch(Dispatchers.IO) { showMinor() }
         }
     }
 
@@ -408,45 +382,6 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .show()
                 }
             }
-        }
-    }
-
-    private fun initGrades() {
-        var tempId = 0
-        lifecycleScope.launch(Dispatchers.IO) {
-            if (Requests.initEdu(true).first) {
-                val initUrl =
-                    Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true, toolsInit = true)
-                val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL, toolsInit = true)
-                GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                    initUrl.substringAfter("/").toInt()
-                } else {
-                    val initList =
-                        initData.split("onclick=\"myFunction(this)\" value=\"")
-                    if (initList.size == 3) {
-                        if (!GlobalValues.toastShowed) {
-                            runCatching { requireContext().showToast(R.string.tlp_minor_detected) }
-                            GlobalValues.toastShowed = true
-                        }
-                        val aStuId = initList[1].substringBefore("\"").toInt()
-                        val bStuId = initList[2].substringBefore("\"").toInt()
-                        GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
-                        tempId = aStuId.coerceAtMost(bStuId)
-                    }
-                    tempId
-                }
-                if (GlobalValues.minorStuId != 0) {
-                    showMinor()
-                    GlobalValues.minorVisible = true
-                }
-            }
-        }
-    }
-
-    private suspend fun showMinor() {
-        withContext(Dispatchers.Main) {
-            this@ToolsInitFragment.findPreference<Preference>(Constants.TOOLS_GRADES_MINOR)?.isVisible =
-                true
         }
     }
 

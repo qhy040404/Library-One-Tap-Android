@@ -2,8 +2,16 @@ package com.qhy040404.libraryonetap.ui.tools
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
+import android.graphics.drawable.PaintDrawable
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.lifecycleScope
+import com.absinthe.libraries.utils.extensions.dp
+import com.absinthe.libraries.utils.extensions.getColorByAttr
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
@@ -17,16 +25,20 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
 import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import me.saket.cascade.CascadePopupMenu
 import org.json.JSONObject
 
-class GradesMajorActivity : SimplePageActivity() {
+class GradesActivity : SimplePageActivity(), MenuProvider {
     private var currentVisible = true
     private val semesters = mutableListOf<Semester>()
+    private var menu: Menu? = null
+    private var idPopup: CascadePopupMenu? = null
 
     override fun initializeViewPref() {
         if (!GlobalValues.md3) {
@@ -43,12 +55,14 @@ class GradesMajorActivity : SimplePageActivity() {
             toolbar.setTitleTextColor(getColor(R.color.white))
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
+
+        addMenuProvider(this)
     }
 
     override suspend fun setData() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@GradesMajorActivity)
+                MaterialAlertDialogBuilder(this@GradesActivity)
                     .setMessage(R.string.glb_net_disconnected)
                     .setTitle(R.string.grade_major_title)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
@@ -56,7 +70,7 @@ class GradesMajorActivity : SimplePageActivity() {
                     }
                     .setCancelable(true)
                     .create().also {
-                        if (this@GradesMajorActivity.currentVisible) {
+                        if (this@GradesActivity.currentVisible) {
                             it.show()
                         }
                     }
@@ -64,12 +78,11 @@ class GradesMajorActivity : SimplePageActivity() {
             return
         }
 
-        var majorStuId = 0
         val loginSuccess = Requests.initEdu()
 
         if (!loginSuccess.first) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@GradesMajorActivity)
+                MaterialAlertDialogBuilder(this@GradesActivity)
                     .setTitle(R.string.exams_title)
                     .setMessage(
                         when (GlobalValues.netPrompt) {
@@ -84,39 +97,45 @@ class GradesMajorActivity : SimplePageActivity() {
                     }
                     .setCancelable(false)
                     .create().also {
-                        if (this@GradesMajorActivity.currentVisible) {
+                        if (this@GradesActivity.currentVisible) {
                             it.show()
                         }
                     }
             }
         } else {
-            if (GlobalValues.majorStuId == 0) {
+            if (GlobalValues.majorStuId == 0 || GlobalValues.minorStuId == 0) {
                 val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                 val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-                GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                    initUrl.substringAfter("/").toInt()
+
+                if (initUrl.contains("semester-index")) {
+                    GlobalValues.majorStuId = initUrl.substringAfter("/").toInt()
+                    GlobalValues.minorStuId = -1
                 } else {
-                    val initList =
-                        initData.split("onclick=\"myFunction(this)\" value=\"")
+                    val initList = initData.split("onclick=\"myFunction(this)\" value=\"")
                     if (initList.size == 3) {
-                        if (!GlobalValues.toastShowed) {
-                            showToast(R.string.tlp_minor_detected.getString())
-                            GlobalValues.toastShowed = true
-                        }
                         val aStuId = initList[1].substringBefore("\"").toInt()
                         val bStuId = initList[2].substringBefore("\"").toInt()
+                        GlobalValues.majorStuId = aStuId.coerceAtMost(bStuId)
                         GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
-                        majorStuId = aStuId.coerceAtMost(bStuId)
                     }
-                    majorStuId
                 }
             }
-
+            if (GlobalValues.minorStuId > 0) {
+                runOnUiThread {
+                    menu?.findItem(R.id.grade_id)?.isVisible = true
+                }
+            }
             if (!loginSuccess.second) {
                 delay(2000L)
             }
-            val gradesData =
-                Requests.get(URLManager.getEduGradeUrl(GlobalValues.majorStuId))
+            analyzeGradesJson(GlobalValues.majorStuId)
+        }
+    }
+
+    private fun analyzeGradesJson(stuId: Int) {
+        semesters.clear()
+        lifecycleScope.launch(Dispatchers.IO) {
+            val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
 
             val gradesJsonObject = JSONObject(gradesData)
             val semesterArray = gradesJsonObject.optJSONArray("semesters")!!
@@ -152,11 +171,13 @@ class GradesMajorActivity : SimplePageActivity() {
                     )
                 )
             }
+            semesters.sortByDescending { it.id }
+            syncRecycleView()
         }
-        semesters.sortByDescending { it.id }
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
+        super.onItemsCreated(items)
         items.apply {
             if (semesters.isEmpty()) {
                 add(
@@ -178,7 +199,7 @@ class GradesMajorActivity : SimplePageActivity() {
                                 }
                             ),
                             GradesUtils.calculateAverageGP(
-                                this@GradesMajorActivity,
+                                this@GradesActivity,
                                 buildList {
                                     semesters.forEach {
                                         addAll(it.courses)
@@ -229,5 +250,52 @@ class GradesMajorActivity : SimplePageActivity() {
     override fun onDestroy() {
         super.onDestroy()
         LibraryOneTapApp.instance?.removeActivity(this)
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.grade_menu, menu)
+        this.menu = menu
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
+            R.id.grade_id -> {
+                initIdMenu()
+                idPopup?.show()
+            }
+        }
+        return true
+    }
+
+    private fun initIdMenu() {
+        val color = this.getColorByAttr(com.google.android.material.R.attr.colorSurface)
+        val styler = CascadePopupMenu.Styler(
+            background = {
+                PaintDrawable(color).apply {
+                    setCornerRadius(6.dp.toFloat())
+                }
+            }
+        )
+        idPopup = CascadePopupMenu(
+            this,
+            findViewById(R.id.grade_id),
+            defStyleAttr = R.style.Widget_PopupMenu,
+            styler = styler
+        ).apply {
+            menu.also {
+                it.add(R.string.gr_major).apply {
+                    setOnMenuItemClickListener {
+                        analyzeGradesJson(GlobalValues.majorStuId)
+                        true
+                    }
+                }
+                it.add(R.string.gr_minor).apply {
+                    setOnMenuItemClickListener {
+                        analyzeGradesJson(GlobalValues.minorStuId)
+                        true
+                    }
+                }
+            }
+        }
     }
 }

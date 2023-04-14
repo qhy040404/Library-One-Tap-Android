@@ -10,6 +10,7 @@ import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.MultiTypeAdapter
@@ -31,13 +32,16 @@ import kotlinx.coroutines.launch
 import rikka.material.app.MaterialActivity
 
 abstract class SimplePageActivity : MaterialActivity() {
-    private lateinit var recyclerView: RecyclerView
     private var givenInsetsToDecorView = false
+    lateinit var recyclerView: RecyclerView
     lateinit var toolbar: Toolbar
 
     protected abstract fun initializeView()
     protected abstract fun initializeViewPref()
-    protected abstract fun onItemsCreated(items: MutableList<Any>)
+    protected open fun onItemsCreated(items: MutableList<Any>) {
+        items.clear()
+    }
+
     protected abstract suspend fun setData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,10 +61,6 @@ abstract class SimplePageActivity : MaterialActivity() {
         }
         lifecycleScope.launch(Dispatchers.IO) {
             setData()
-            syncRecycleView()
-            runOnUiThread {
-                findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.INVISIBLE
-            }
         }
     }
 
@@ -122,7 +122,10 @@ abstract class SimplePageActivity : MaterialActivity() {
         }
     }
 
-    private fun syncRecycleView() {
+    fun syncRecycleView() {
+        runOnUiThread {
+            findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
+        }
         MultiTypeAdapter().apply {
             register(Card::class.java, CardViewBinder())
             register(Category::class.java, CategoryViewBinder())
@@ -138,6 +141,9 @@ abstract class SimplePageActivity : MaterialActivity() {
                 )
                 recyclerView.adapter = it
             }
+        }
+        runOnUiThread {
+            findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = false
         }
     }
 

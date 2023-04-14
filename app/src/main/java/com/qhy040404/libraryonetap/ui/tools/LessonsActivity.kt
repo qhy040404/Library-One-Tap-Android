@@ -144,10 +144,12 @@ class LessonsActivity : SimplePageActivity() {
                     )
                 )
             }
+            syncRecycleView()
         }
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
+        super.onItemsCreated(items)
         items.apply {
             if (!courseTableAvailable) {
                 add(Card(R.string.ls_unavailable.getString()))

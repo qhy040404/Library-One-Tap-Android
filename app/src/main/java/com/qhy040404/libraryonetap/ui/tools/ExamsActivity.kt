@@ -47,6 +47,7 @@ class ExamsActivity : SimplePageActivity() {
     }
 
     override fun onItemsCreated(items: MutableList<Any>) {
+        super.onItemsCreated(items)
         items.apply {
             if (exams.isEmpty()) {
                 add(
@@ -241,7 +242,8 @@ class ExamsActivity : SimplePageActivity() {
                     )
                 }
             }
+            exams.sortBy { it.startTime }
+            syncRecycleView()
         }
-        exams.sortBy { it.startTime }
     }
 }

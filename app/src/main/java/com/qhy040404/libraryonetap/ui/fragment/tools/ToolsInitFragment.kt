@@ -305,7 +305,13 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                     Constants.NET_ERROR -> R.string.glb_net_error.getString()
                     Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected.getString()
                     Constants.NET_TIMEOUT -> R.string.glb_net_timeout.getString()
-                    else -> R.string.glb_fail_to_login_three_times.getString()
+                    else -> {
+                        if (data.contains("error-code")) {
+                            R.string.glb_net_api_error.getString()
+                        } else {
+                            R.string.glb_fail_to_login_three_times.getString()
+                        }
+                    }
                 }
             }
 

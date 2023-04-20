@@ -10,7 +10,7 @@ androidx-browser = "androidx.browser:browser:1.5.0"
 androidx-collection-ktx = "androidx.collection:collection-ktx:1.2.0"
 androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 androidx-core-ktx = "androidx.core:core-ktx:1.10.0"
-androidx-core-splashscreen = "androidx.core:core-splashscreen:1.0.0"
+androidx-core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
 androidx-fragment-ktx = "androidx.fragment:fragment-ktx:1.5.7"
 androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycle" }
 androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycle" }

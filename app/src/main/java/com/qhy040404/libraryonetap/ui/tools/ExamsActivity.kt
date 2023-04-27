@@ -191,7 +191,7 @@ class ExamsActivity : SimplePageActivity() {
             val examsMajorData =
                 Requests.get(URLManager.getEduExamsUrl(GlobalValues.majorStuId))
                     .substringBetween("var studentExamInfoVms = ", "];") + "]"
-            if (GlobalValues.minorStuId != 0) {
+            if (GlobalValues.minorStuId > 0) {
                 delay(2000L)
                 examsMinorData =
                     Requests.get(URLManager.getEduExamsUrl(GlobalValues.minorStuId))

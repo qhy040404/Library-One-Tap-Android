@@ -13,9 +13,6 @@ import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
-import okhttp3.Cookie
-import okhttp3.CookieJar
-import okhttp3.HttpUrl
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -38,28 +35,11 @@ object Requests {
             .cookieJar(CookieJarImpl)
             .build()
     }
-    private val toolsClient = OkHttpClient.Builder()
-        .connectTimeout(25, TimeUnit.SECONDS)
-        .readTimeout(50, TimeUnit.SECONDS)
-        .writeTimeout(50, TimeUnit.SECONDS)
-        .cookieJar(object : CookieJar {
-            private val cookieStore = mutableListOf<Cookie>()
-
-            override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-                cookieStore.addAll(cookies)
-            }
-
-            override fun loadForRequest(url: HttpUrl): List<Cookie> {
-                return cookieStore
-            }
-        })
-        .build()
 
     fun get(
         url: String,
         textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
-        toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
@@ -73,11 +53,7 @@ object Requests {
             .get()
             .build()
         try {
-            (if (toolsInit) {
-                toolsClient
-            } else {
-                client
-            }).newCall(request).execute().use { response ->
+            client.newCall(request).execute().use { response ->
                 if (getUrl) {
                     return response.request.url.toString()
                 }
@@ -127,7 +103,6 @@ object Requests {
         mediaType: MediaType,
         textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
-        toolsInit: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
             textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
@@ -142,11 +117,7 @@ object Requests {
             .post(body)
             .build()
         try {
-            (if (toolsInit) {
-                toolsClient
-            } else {
-                client
-            }).newCall(request).execute().use { response ->
+            client.newCall(request).execute().use { response ->
                 if (getUrl) {
                     return response.request.url.toString()
                 }
@@ -198,7 +169,6 @@ object Requests {
         hasSessionJson: Boolean = false,
         shouldMiss: String = "统一身份",
         shouldHas: String = "",
-        toolsInit: Boolean = false,
     ): Boolean {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
@@ -207,7 +177,7 @@ object Requests {
         var timer = 0
 
         while (AppUtils.checkData(id, passwd)) {
-            val ltResponse = get(ssoUrl, toolsInit = toolsInit)
+            val ltResponse = get(ssoUrl)
             val ltData = runCatching {
                 ltResponse.substringBetween("LT", "cas", includeDelimiter = true)
             }.getOrDefault(Constants.STRING_NULL)
@@ -224,14 +194,13 @@ object Requests {
                 post(
                     ssoUrl,
                     loginPostData(id, passwd, ltData, rsa, ltExecution),
-                    mt,
-                    toolsInit = toolsInit
+                    mt
                 )
             }
 
             if (sessionUrl != null) {
                 if (hasSessionJson) {
-                    val sessionCheck = post(sessionUrl, "", mt, toolsInit = toolsInit)
+                    val sessionCheck = post(sessionUrl, "", mt)
                     if (SessionData.isSuccess(sessionCheck)) {
                         loginSuccess = true
                         break
@@ -239,7 +208,7 @@ object Requests {
                         timer++
                     }
                 } else if (shouldHas.isNotEmpty()) {
-                    val sessionCheck = get(sessionUrl, toolsInit = toolsInit)
+                    val sessionCheck = get(sessionUrl)
                     if (sessionCheck.contains(shouldHas)) {
                         loginSuccess = true
                         break
@@ -247,7 +216,7 @@ object Requests {
                         timer++
                     }
                 } else {
-                    val sessionCheck = get(sessionUrl, toolsInit = toolsInit)
+                    val sessionCheck = get(sessionUrl)
                     if (!sessionCheck.contains(shouldMiss)) {
                         loginSuccess = true
                         break
@@ -297,31 +266,19 @@ object Requests {
         }
     }
 
-    /**
-     * @return Two Boolean, first to session, second to if cache
-     */
-    fun initEdu(toolsInit: Boolean = false): Pair<Boolean, Boolean> {
-        synchronized(
-            if (toolsInit) {
-                toolsClient
-            } else {
-                client
-            }
-        ) {
-            if (!toolsInit && eduInitialized) {
-                return Pair(true, true)
+    fun initEdu(): Boolean {
+        synchronized(client) {
+            if (eduInitialized) {
+                return true
             }
             loginSso(
                 URLManager.EDU_LOGIN_SSO_URL,
                 GlobalValues.ctSso,
                 URLManager.EDU_CHECK_URL,
-                shouldHas = "person",
-                toolsInit = toolsInit
+                shouldHas = "person"
             ).also {
-                if (!toolsInit) {
-                    eduInitialized = it
-                }
-                return Pair(true, false)
+                eduInitialized = it
+                return it
             }
         }
     }

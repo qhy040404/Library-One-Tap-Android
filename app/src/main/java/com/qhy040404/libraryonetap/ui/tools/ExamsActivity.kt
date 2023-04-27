@@ -130,10 +130,7 @@ class ExamsActivity : SimplePageActivity() {
             return
         }
 
-        var majorStuId = 0
-        val loginSuccess = Requests.initEdu()
-
-        if (!loginSuccess.first) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@ExamsActivity)
                     .setTitle(R.string.exams_title)
@@ -174,9 +171,6 @@ class ExamsActivity : SimplePageActivity() {
                 }
             }
 
-            if (!loginSuccess.second) {
-                delay(2000L)
-            }
             var examsMinorData: String? = null
 
             val examsMajorData =

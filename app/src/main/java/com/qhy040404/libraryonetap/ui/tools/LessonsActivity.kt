@@ -11,7 +11,6 @@ import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.tools.Lesson
-import com.qhy040404.libraryonetap.recyclerview.SimplePageActivity
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
@@ -21,8 +20,7 @@ import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBet
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
 
-class LessonsActivity : SimplePageActivity() {
-    private var currentVisible = true
+class LessonsActivity : BaseEduActivity() {
     private var courseTableAvailable = true
     private var semester: String = Constants.STRING_NULL
     private val lessons = mutableListOf<Lesson>()
@@ -65,25 +63,7 @@ class LessonsActivity : SimplePageActivity() {
 
         if (!Requests.initEdu()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@LessonsActivity)
-                    .setTitle(R.string.exams_title)
-                    .setMessage(
-                        when (GlobalValues.netPrompt) {
-                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                            Constants.NET_ERROR -> R.string.glb_net_error
-                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                            else -> R.string.glb_fail_to_login_three_times
-                        }
-                    )
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(false)
-                    .create().also {
-                        if (this@LessonsActivity.currentVisible) {
-                            it.show()
-                        }
-                    }
+                showInitFailedAlertDialog(R.string.lessons_title)
             }
         } else {
             val source = Requests.get(URLManager.EDU_COURSE_TABLE_URL)

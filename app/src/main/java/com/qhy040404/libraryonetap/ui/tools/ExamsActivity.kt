@@ -9,11 +9,9 @@ import com.qhy040404.datetime.Datetime
 import com.qhy040404.datetime.Datetime.Companion.toDatetime
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.tools.Exam
-import com.qhy040404.libraryonetap.recyclerview.SimplePageActivity
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
@@ -24,8 +22,7 @@ import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.delay
 import org.json.JSONArray
 
-class ExamsActivity : SimplePageActivity() {
-    private var currentVisible = true
+class ExamsActivity : BaseEduActivity() {
     private val exams = mutableListOf<Exam>()
     private val now = Datetime.now()
 
@@ -132,44 +129,10 @@ class ExamsActivity : SimplePageActivity() {
 
         if (!Requests.initEdu()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@ExamsActivity)
-                    .setTitle(R.string.exams_title)
-                    .setMessage(
-                        when (GlobalValues.netPrompt) {
-                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                            Constants.NET_ERROR -> R.string.glb_net_error
-                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                            else -> R.string.glb_fail_to_login_three_times
-                        }
-                    )
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(false)
-                    .create().also {
-                        if (this@ExamsActivity.currentVisible) {
-                            it.show()
-                        }
-                    }
+                showInitFailedAlertDialog(R.string.exams_title)
             }
         } else {
-            if (GlobalValues.majorStuId == 0 || GlobalValues.minorStuId == 0) {
-                val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
-                val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-
-                if (initUrl.contains("semester-index")) {
-                    GlobalValues.majorStuId = initUrl.substringAfter("/").toInt()
-                    GlobalValues.minorStuId = -1
-                } else {
-                    val initList = initData.split("onclick=\"myFunction(this)\" value=\"")
-                    if (initList.size == 3) {
-                        val aStuId = initList[1].substringBefore("\"").toInt()
-                        val bStuId = initList[2].substringBefore("\"").toInt()
-                        GlobalValues.majorStuId = aStuId.coerceAtMost(bStuId)
-                        GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
-                    }
-                }
-            }
+            initMinor()
 
             var examsMinorData: String? = null
 

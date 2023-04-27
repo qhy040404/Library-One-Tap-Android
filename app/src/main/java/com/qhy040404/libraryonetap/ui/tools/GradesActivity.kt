@@ -15,12 +15,10 @@ import com.absinthe.libraries.utils.extensions.getColorByAttr
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.tools.Grade
 import com.qhy040404.libraryonetap.data.tools.Semester
-import com.qhy040404.libraryonetap.recyclerview.SimplePageActivity
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
@@ -33,8 +31,7 @@ import kotlinx.coroutines.launch
 import me.saket.cascade.CascadePopupMenu
 import org.json.JSONObject
 
-class GradesActivity : SimplePageActivity(), MenuProvider {
-    private var currentVisible = true
+class GradesActivity : BaseEduActivity(), MenuProvider {
     private val semesters = mutableListOf<Semester>()
     private var menu: Menu? = null
     private var idPopup: CascadePopupMenu? = null
@@ -79,44 +76,10 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
 
         if (!Requests.initEdu()) {
             runOnUiThread {
-                MaterialAlertDialogBuilder(this@GradesActivity)
-                    .setTitle(R.string.exams_title)
-                    .setMessage(
-                        when (GlobalValues.netPrompt) {
-                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                            Constants.NET_ERROR -> R.string.glb_net_error
-                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                            else -> R.string.glb_fail_to_login_three_times
-                        }
-                    )
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(false)
-                    .create().also {
-                        if (this@GradesActivity.currentVisible) {
-                            it.show()
-                        }
-                    }
+                showInitFailedAlertDialog(R.string.grade_title)
             }
         } else {
-            if (GlobalValues.majorStuId == 0 || GlobalValues.minorStuId == 0) {
-                val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
-                val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-
-                if (initUrl.contains("semester-index")) {
-                    GlobalValues.majorStuId = initUrl.substringAfter("/").toInt()
-                    GlobalValues.minorStuId = -1
-                } else {
-                    val initList = initData.split("onclick=\"myFunction(this)\" value=\"")
-                    if (initList.size == 3) {
-                        val aStuId = initList[1].substringBefore("\"").toInt()
-                        val bStuId = initList[2].substringBefore("\"").toInt()
-                        GlobalValues.majorStuId = aStuId.coerceAtMost(bStuId)
-                        GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
-                    }
-                }
-            }
+            initMinor()
             if (GlobalValues.minorStuId > 0) {
                 runOnUiThread {
                     menu?.findItem(R.id.grade_id)?.isVisible = true

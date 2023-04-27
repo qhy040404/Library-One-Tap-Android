@@ -120,15 +120,15 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
                     }
                 }
             }
+            if (!loginSuccess.second) {
+                delay(2000L)
+            }
+            analyzeGradesJson(GlobalValues.majorStuId)
             if (GlobalValues.minorStuId > 0) {
                 runOnUiThread {
                     menu?.findItem(R.id.grade_id)?.isVisible = true
                 }
             }
-            if (!loginSuccess.second) {
-                delay(2000L)
-            }
-            analyzeGradesJson(GlobalValues.majorStuId)
         }
     }
 

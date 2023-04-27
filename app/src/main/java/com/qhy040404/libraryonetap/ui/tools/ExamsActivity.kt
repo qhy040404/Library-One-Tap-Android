@@ -156,30 +156,21 @@ class ExamsActivity : SimplePageActivity() {
                     }
             }
         } else {
-            if (GlobalValues.majorStuId == 0) {
+            if (GlobalValues.majorStuId == 0 || GlobalValues.minorStuId == 0) {
                 val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, null, true)
                 val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
-                GlobalValues.majorStuId = if (initUrl.contains("semester-index")) {
-                    initUrl.substringAfter("/").toInt()
+
+                if (initUrl.contains("semester-index")) {
+                    GlobalValues.majorStuId = initUrl.substringAfter("/").toInt()
+                    GlobalValues.minorStuId = -1
                 } else {
-                    val initList =
-                        initData.split("onclick=\"myFunction(this)\" value=\"")
+                    val initList = initData.split("onclick=\"myFunction(this)\" value=\"")
                     if (initList.size == 3) {
                         val aStuId = initList[1].substringBefore("\"").toInt()
                         val bStuId = initList[2].substringBefore("\"").toInt()
-                        when {
-                            aStuId > bStuId -> {
-                                GlobalValues.minorStuId = aStuId
-                                majorStuId = bStuId
-                            }
-                            bStuId > aStuId -> {
-                                GlobalValues.minorStuId = bStuId
-                                majorStuId = aStuId
-                            }
-                            else -> throw IllegalStateException("Illegal Student ID")
-                        }
+                        GlobalValues.majorStuId = aStuId.coerceAtMost(bStuId)
+                        GlobalValues.minorStuId = aStuId.coerceAtLeast(bStuId)
                     }
-                    majorStuId
                 }
             }
 

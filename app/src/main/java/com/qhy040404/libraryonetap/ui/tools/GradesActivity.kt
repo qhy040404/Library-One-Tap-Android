@@ -29,7 +29,6 @@ import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.saket.cascade.CascadePopupMenu
 import org.json.JSONObject
@@ -78,9 +77,7 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
             return
         }
 
-        val loginSuccess = Requests.initEdu()
-
-        if (!loginSuccess.first) {
+        if (!Requests.initEdu()) {
             runOnUiThread {
                 MaterialAlertDialogBuilder(this@GradesActivity)
                     .setTitle(R.string.exams_title)
@@ -120,15 +117,12 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
                     }
                 }
             }
-            if (!loginSuccess.second) {
-                delay(2000L)
-            }
-            analyzeGradesJson(GlobalValues.majorStuId)
             if (GlobalValues.minorStuId > 0) {
                 runOnUiThread {
                     menu?.findItem(R.id.grade_id)?.isVisible = true
                 }
             }
+            analyzeGradesJson(GlobalValues.majorStuId)
         }
     }
 
@@ -255,6 +249,9 @@ class GradesActivity : SimplePageActivity(), MenuProvider {
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.grade_menu, menu)
         this.menu = menu
+        if (GlobalValues.minorStuId > 0) {
+            menu.findItem(R.id.grade_id)?.isVisible = true
+        }
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {

@@ -9,5 +9,9 @@ object DoubleExtensions {
      *
      * @return Double with two decimal
      */
-    fun Double.to2Decimal() = BigDecimal.valueOf(this).setScale(2, RoundingMode.HALF_UP).toDouble()
+    fun Double.to2Decimal(): Double {
+        return runCatching {
+            BigDecimal.valueOf(this).setScale(2, RoundingMode.HALF_UP).toDouble()
+        }.getOrDefault(0.0)
+    }
 }

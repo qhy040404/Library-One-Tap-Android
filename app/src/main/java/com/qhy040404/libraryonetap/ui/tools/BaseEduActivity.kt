@@ -40,7 +40,7 @@ abstract class BaseEduActivity : SimplePageActivity() {
             val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
 
             if (initUrl.contains("semester-index")) {
-                GlobalValues.majorStuId = initUrl.substringAfter("/").toInt()
+                GlobalValues.majorStuId = initUrl.substringAfter("semester-index/").toInt()
                 GlobalValues.minorStuId = -1
             } else {
                 val initList = initData.split("onclick=\"myFunction(this)\" value=\"")

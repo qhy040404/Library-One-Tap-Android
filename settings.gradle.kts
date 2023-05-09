@@ -8,7 +8,7 @@ pluginManagement {
     }
 }
 plugins {
-    id("com.gradle.enterprise") version "3.13.1"
+    id("com.gradle.enterprise") version "3.13.2"
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)

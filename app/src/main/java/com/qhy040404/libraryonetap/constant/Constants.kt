@@ -66,4 +66,6 @@ object Constants {
 
     const val CHANGELOG_INACTIVE = "changelog_html_inactive"
     const val CHANGELOG_ACTIVE = "changelog_html_active"
+
+    const val LATEST_GRADE_ID = "latest_grade_id"
 }

@@ -15,6 +15,7 @@ import com.absinthe.libraries.utils.extensions.getColorByAttr
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
+import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.tools.Grade
@@ -30,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.saket.cascade.CascadePopupMenu
 import org.json.JSONObject
+import java.io.File
 
 class GradesActivity : BaseEduActivity(), MenuProvider {
     private val semesters = mutableListOf<Semester>()
@@ -97,6 +99,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
             val gradesJsonObject = JSONObject(gradesData)
             val semesterArray = gradesJsonObject.optJSONArray("semesters")!!
             val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
+            val gradesIds = mutableListOf<Int>()
             for (i in 0 until semesterArray.length()) {
                 val semesterId = semesterArray.optJSONObject(i).optInt("id")
                 semesters.add(
@@ -108,8 +111,10 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                             buildList {
                                 for (j in 0 until count) {
                                     val currentCourse = currentSemester.optJSONObject(j)!!
+                                    gradesIds.add(currentCourse.optInt("id"))
                                     add(
                                         Grade(
+                                            currentCourse.optInt("id"),
                                             currentCourse.optJSONObject("course")!!
                                                 .optString("nameZh"),
                                             currentCourse.optJSONObject("course")!!
@@ -127,6 +132,31 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                         }
                     )
                 )
+            }
+            File(dataDir, Constants.LATEST_GRADE_ID).apply {
+                if (exists().not()) {
+                    createNewFile()
+                    writeText(gradesIds.max().toString())
+                } else {
+                    val latestId = readText().toInt()
+                    val newGrades = buildList {
+                        semesters.forEach { semester ->
+                            addAll(semester.courses.filter { it.id > latestId })
+                        }
+                    }
+                    if (newGrades.isNotEmpty()) {
+                        semesters.add(
+                            Semester(
+                                Int.MAX_VALUE,
+                                "新成绩",
+                                newGrades
+                            )
+                        )
+                        delete()
+                        createNewFile()
+                        writeText(newGrades.maxOf { it.id }.toString())
+                    }
+                }
             }
             semesters.sortByDescending { it.id }
             syncRecycleView()
@@ -147,11 +177,13 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                     Card(
                         String.format(
                             R.string.gr_stat.getString(),
-                            semesters.first().courses.sumOf { it.credit },
+                            semesters.first { it.id != Int.MAX_VALUE }.courses.sumOf { it.credit },
                             GradesUtils.calculateWeightedAverage(
                                 buildList {
                                     semesters.forEach {
-                                        addAll(it.courses)
+                                        if (it.id != Int.MAX_VALUE) {
+                                            addAll(it.courses)
+                                        }
                                     }
                                 }
                             ),
@@ -159,7 +191,9 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                                 this@GradesActivity,
                                 buildList {
                                     semesters.forEach {
-                                        addAll(it.courses)
+                                        if (it.id != Int.MAX_VALUE) {
+                                            addAll(it.courses)
+                                        }
                                     }
                                 }
                             )

@@ -114,8 +114,7 @@ object UpdateUtils {
         val dialogBody = buildSpannedString {
             inSpans(
                 RelativeSizeSpan(1.4F),
-                StyleSpan(Typeface.BOLD),
-                ForegroundColorSpan(R.color.black.getColor(context))
+                StyleSpan(Typeface.BOLD)
             ) {
                 append(versionName)
             }
@@ -126,9 +125,7 @@ object UpdateUtils {
                     append('\t')
                     if (it.startsWith("* ")) {
                         append(
-                            it.substring(2),
-                            ForegroundColorSpan(R.color.material_grey_800.getColor(context)),
-                            Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                            it.substring(2)
                         )
                     } else {
                         append(

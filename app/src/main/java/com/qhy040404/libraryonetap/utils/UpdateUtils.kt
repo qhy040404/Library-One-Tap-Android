@@ -121,18 +121,19 @@ object UpdateUtils {
             appendLine()
             appendLine()
             changelog.forEach {
-                if (it.isNotEmpty()) {
+                val str = it.trim()
+                if (str.isNotEmpty()) {
                     append('\t')
-                    if (it.startsWith("* ")) {
+                    if (str.startsWith("* ")) {
                         append(
-                            it.substring(2)
+                            str.substring(2)
                         )
                     } else {
                         append(
                             buildSpannedString {
-                                var str = it
+                                var mStr = str
                                 val spans = mutableListOf<Any>()
-                                if (str.startsWith("> ")) {
+                                if (mStr.startsWith("> ")) {
                                     spans.add(
                                         ForegroundColorSpan(
                                             R.color.material_grey_500.getColor(
@@ -140,21 +141,26 @@ object UpdateUtils {
                                             )
                                         )
                                     )
-                                    str = str.substring(2)
+                                    mStr = mStr.substring(2)
                                 }
-                                while (str.surroundingWith("_") || str.surroundingWith("**")) {
-                                    if (str.surroundingWith("_")) {
+                                while (mStr.surroundingWith("_") || mStr.surroundingWith("**")) {
+                                    if (mStr.surroundingWith("_")) {
                                         spans.add(StyleSpan(Typeface.ITALIC))
-                                        str = str.removeSurrounding("_")
+                                        mStr = mStr.removeSurrounding("_")
                                     }
-                                    if (str.surroundingWith("**")) {
+                                    if (mStr.surroundingWith("**")) {
                                         spans.add(StyleSpan(Typeface.BOLD))
-                                        str = str.removeSurrounding("**")
+                                        mStr = mStr.removeSurrounding("**")
                                     }
                                 }
-                                append("$str\n")
+                                append("$mStr\n")
                                 spans.forEach { span ->
-                                    setSpan(span, 0, str.length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+                                    setSpan(
+                                        span,
+                                        0,
+                                        mStr.length,
+                                        Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                                    )
                                 }
                             }
                         )

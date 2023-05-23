@@ -14,17 +14,14 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.concurrent.thread
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
@@ -134,7 +131,8 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 }
             }
         }
-        thread {
+        // TODO: Disabled because api changed
+        /*thread {
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder().permitAll().build()
             )
@@ -149,7 +147,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                         }
                     }
             }
-        }
+        }*/
     }
 
     private fun updateCode(openid: String): Triple<String, Bitmap, String> {

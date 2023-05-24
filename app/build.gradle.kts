@@ -100,6 +100,7 @@ dependencies {
     implementation(libs.appiconloader.coil)
     implementation(libs.coroutines)
     implementation(libs.kt.reflect)
+    implementation(libs.spongycastle)
 
     debugImplementation(libs.leakcanary)
 

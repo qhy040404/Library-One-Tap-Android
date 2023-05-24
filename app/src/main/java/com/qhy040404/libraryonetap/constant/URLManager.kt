@@ -77,6 +77,6 @@ object URLManager {
     fun getVCardQRUrl(openid: String) =
         "https://card.m.dlut.edu.cn/virtualcard/openVirtualcard?openid=$openid&displayflag=1&id=19"
 
-    fun getVCardCheckUrl(openid: String, paycode: String) =
-        "https://card.m.dlut.edu.cn/virtualcard/queryOrderStatus?openid=$openid&connect_redirect=1&paycode=$paycode&openid=$openid"
+    fun getVCardCheckUrl(openid: String) =
+        "https://card.m.dlut.edu.cn/virtualcard/queryOrderStatus?openid=$openid&connect_redirect=1"
 }

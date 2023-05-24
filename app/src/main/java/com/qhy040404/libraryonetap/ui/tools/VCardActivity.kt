@@ -14,14 +14,20 @@ import com.qhy040404.libraryonetap.base.BaseActivity
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
+import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
+import com.qhy040404.libraryonetap.utils.encrypt.AesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.toJson
+import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
 import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import kotlin.concurrent.thread
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
@@ -131,23 +137,49 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
                 }
             }
         }
-        // TODO: Disabled because api changed
-        /*thread {
+        thread {
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder().permitAll().build()
             )
             while (isActivityVisible) {
                 Thread.sleep(3000L)
-                Requests.getVCard(URLManager.getVCardCheckUrl(openid, payCode))
-                    .decode<VCardStatusDTO>()?.let {
-                        if (it.resultData.status != "5" && isActivityVisible) {
-                            runOnUiThread {
-                                refresh.performClick()
+                val targetUrl = URLManager.getVCardCheckUrl(openid)
+                val params = mapOf(
+                    "paycode" to payCode,
+                    "openid" to openid
+                ).toJson()!!
+
+                val key = AesEncryptUtils.VCard.genKey(16)
+                val encryptedParams = mapOf(
+                    "datajson" to (AesEncryptUtils.VCard.handleKey(
+                        key,
+                        true
+                    ) + AesEncryptUtils.VCard.encrypt(
+                        params,
+                        key
+                    )).replace("\n", "")
+                ).toJson()!!
+
+                Requests.postVCard(targetUrl, encryptedParams, GlobalValues.ctJson)
+                    .let { response ->
+                        JSONObject(response).optString("datajson").let { data ->
+                            AesEncryptUtils.VCard.decrypt(
+                                data.substring(16),
+                                AesEncryptUtils.VCard.handleKey(
+                                    data.substring(0, 16),
+                                    false
+                                )
+                            ).decode<VCardStatusDTO>()?.let { result ->
+                                if (result.resultData.status != "5" && isActivityVisible) {
+                                    runOnUiThread {
+                                        refresh.performClick()
+                                    }
+                                }
                             }
                         }
                     }
             }
-        }*/
+        }
     }
 
     private fun updateCode(openid: String): Triple<String, Bitmap, String> {

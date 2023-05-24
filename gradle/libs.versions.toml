@@ -47,6 +47,7 @@ appiconloader-base = { module = "me.zhanghai.android.appiconloader:appiconloader
 appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader-coil", version.ref = "zh-appiconloader" }
 coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
 kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.8.21"
+spongycastle = "com.madgag.spongycastle:prov:1.58.0.0"
 
 leakcanary = "com.squareup.leakcanary:leakcanary-android:2.11"
 junit = "junit:junit:4.13.2"

@@ -84,7 +84,7 @@ object UpdateUtils {
         val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)
         val localVersionCode = getVersionCode(BuildConfig.VERSION_NAME, false)
 
-        if (remoteVersionCode <= localVersionCode) {
+        if (remoteVersionCode <= localVersionCode && BuildConfig.CHANNEL != "Debug") {
             if (fromSettings) {
                 context.showToast(R.string.stp_current_is_latest_version)
             }

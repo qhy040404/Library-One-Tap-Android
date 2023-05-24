@@ -140,10 +140,8 @@
   void setStateInternal(int);
 }
 
-# MPAndroidChart
--keep public class com.github.mikephil.charting.animation.* {
-    public protected *;
-}
+# SpongyCastle
+-keep class org.spongycastle.** { *; }
 
 # LOTA
 -keep public class com.qhy040404.libraryonetap.base.**{*;}

@@ -20,9 +20,9 @@ import com.qhy040404.libraryonetap.ui.dialog.ReserveDialog
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
-import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.mLoad
+import com.qhy040404.libraryonetap.utils.extensions.decode
+import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.mLoad
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -116,6 +116,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         }
                     }
                 }
+
                 "进行中" -> order_process = R.string.df_inside.getString()
                 "暂离" -> {
                     order_process = R.string.df_outside.getString()

@@ -14,7 +14,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.databinding.ActivityBathReserveBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.utils.web.WebVPNUtils

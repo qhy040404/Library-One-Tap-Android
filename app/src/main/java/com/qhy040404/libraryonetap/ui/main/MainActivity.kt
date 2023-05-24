@@ -37,8 +37,8 @@ import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.ViewExtensions.setCurrentItem
+import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.setCurrentItem
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

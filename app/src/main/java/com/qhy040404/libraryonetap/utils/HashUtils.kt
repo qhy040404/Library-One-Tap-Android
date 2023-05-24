@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils
 
-import com.qhy040404.libraryonetap.utils.extensions.ByteExtensions.toHex
+import com.qhy040404.libraryonetap.utils.extensions.toHex
 import java.security.MessageDigest
 
 object HashUtils {

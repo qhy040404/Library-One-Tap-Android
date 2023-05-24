@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.data
 
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
+import com.qhy040404.libraryonetap.utils.extensions.decode
 
 object SessionData {
     fun isSuccess(ret: String) = runCatching {

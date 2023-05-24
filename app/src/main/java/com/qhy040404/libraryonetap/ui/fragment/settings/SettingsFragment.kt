@@ -32,11 +32,11 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDimen
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isDuplicateGV
-import com.qhy040404.libraryonetap.utils.extensions.UriExtensions.start
+import com.qhy040404.libraryonetap.utils.extensions.getDimen
+import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.isDuplicateGV
+import com.qhy040404.libraryonetap.utils.extensions.showToast
+import com.qhy040404.libraryonetap.utils.extensions.start
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import com.qhy040404.libraryonetap.view.PasswordPreference

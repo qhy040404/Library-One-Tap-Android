@@ -5,7 +5,7 @@ import android.content.pm.PackageManager
 import androidx.annotation.StringRes
 import androidx.fragment.app.FragmentManager
 import com.qhy040404.libraryonetap.ui.fragment.fullscreen.FullScreenDialogFragment
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
 
 object PermissionUtils {
     fun checkPermission(

@@ -11,7 +11,7 @@ import androidx.core.content.getSystemService
 import com.absinthe.libraries.utils.extensions.activity
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseActivity
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
 
 class NotificationUtils(
     private val context: Context,

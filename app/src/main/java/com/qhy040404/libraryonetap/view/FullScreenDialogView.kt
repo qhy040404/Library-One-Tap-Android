@@ -12,8 +12,8 @@ import androidx.core.view.marginRight
 import coil.load
 import com.absinthe.libraries.utils.extensions.dp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getColor
+import com.qhy040404.libraryonetap.utils.extensions.getString
 
 class FullScreenDialogView(context: Context) : ConstraintLayout(context) {
     private val viewId = View.generateViewId()

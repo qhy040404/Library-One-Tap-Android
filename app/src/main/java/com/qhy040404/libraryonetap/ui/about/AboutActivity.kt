@@ -17,8 +17,8 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
-import com.qhy040404.libraryonetap.utils.extensions.UriExtensions.start
+import com.qhy040404.libraryonetap.utils.extensions.showToast
+import com.qhy040404.libraryonetap.utils.extensions.start
 
 @Suppress("SpellCheckingInspection")
 class AboutActivity : AbsAboutActivityProxy() {
@@ -73,11 +73,13 @@ class AboutActivity : AbsAboutActivityProxy() {
                     slogan.text = MIDDLE_SECRET
                     showToast("点坏了啊喂！")
                 }
+
                 in 11..19 -> {}
                 20 -> {
                     slogan.text = SECRET
                     showToast("你有本事继续点")
                 }
+
                 else -> URLManager.SURPRISE_BILI.toUri().start(this) {
                     URLManager.SURPRISE_HTTP.toUri().start(this)
                 }

@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.data
 
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
+import com.qhy040404.libraryonetap.utils.extensions.decode
 
 object CancelData {
     fun getMessage(ret: String) = ret.decode<CancelDTO>()?.message!!

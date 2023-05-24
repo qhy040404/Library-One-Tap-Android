@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.utils.tools
 
 import com.qhy040404.libraryonetap.constant.enums.GPAAlgorithm
 import com.qhy040404.libraryonetap.data.tools.Grade
-import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
+import com.qhy040404.libraryonetap.utils.extensions.to2Decimal
 
 object GPAUtils {
     fun calculateGPA(grades: List<Grade>, algorithm: GPAAlgorithm): Double {

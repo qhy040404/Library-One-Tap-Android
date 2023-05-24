@@ -18,10 +18,10 @@ import com.qhy040404.libraryonetap.data.VCardStatusDTO
 import com.qhy040404.libraryonetap.databinding.ActivityVcardBinding
 import com.qhy040404.libraryonetap.utils.QRUtils
 import com.qhy040404.libraryonetap.utils.encrypt.AesEncryptUtils
-import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.toJson
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.isValid
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.decode
+import com.qhy040404.libraryonetap.utils.extensions.isValid
+import com.qhy040404.libraryonetap.utils.extensions.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.toJson
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

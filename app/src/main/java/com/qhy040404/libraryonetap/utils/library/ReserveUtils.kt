@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.utils.library
 
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 
 object ReserveUtils {
     fun getResetRoomCode(space: String): Int {

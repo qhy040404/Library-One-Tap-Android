@@ -9,8 +9,8 @@ import com.qhy040404.libraryonetap.data.SessionData
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import okhttp3.MediaType

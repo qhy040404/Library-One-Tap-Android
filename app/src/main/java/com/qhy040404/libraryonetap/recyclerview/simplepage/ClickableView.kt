@@ -8,8 +8,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.net.toUri
 import com.absinthe.libraries.utils.extensions.dp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDrawable
+import com.qhy040404.libraryonetap.utils.extensions.getColor
+import com.qhy040404.libraryonetap.utils.extensions.getDrawable
 
 class ClickableView(context: Context) : LinearLayout(context), View.OnClickListener {
     val name = AppCompatTextView(context).apply {

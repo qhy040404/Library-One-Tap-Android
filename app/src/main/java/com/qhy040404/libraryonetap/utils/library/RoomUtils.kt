@@ -18,6 +18,7 @@ object RoomUtils {
                 temp[RandomDataUtils.getNum(8)]
             }
         }
+
         "令希", "Lingxi" -> when (room) {
             "301" -> 207
             "302" -> 208
@@ -32,6 +33,7 @@ object RoomUtils {
                 temp[RandomDataUtils.getNum(8)]
             }
         }
+
         else -> 0
     }
 }

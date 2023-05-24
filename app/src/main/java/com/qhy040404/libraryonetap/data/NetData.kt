@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.data
 
 import com.qhy040404.libraryonetap.constant.Constants
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
+import com.qhy040404.libraryonetap.utils.extensions.decode
 
 object NetData {
     fun getFee(data: String) = runCatching {

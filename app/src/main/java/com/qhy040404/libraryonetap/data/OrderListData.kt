@@ -3,7 +3,7 @@ package com.qhy040404.libraryonetap.data
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.enums.OrderModes
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
 
 @Suppress("FunctionName")
 object OrderListData {

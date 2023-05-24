@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.data
 
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.decode
+import com.qhy040404.libraryonetap.utils.extensions.decode
 
 object ReserveData {
     fun getAddCode(data: String) = data.decode<ReserveDTO>()?.data!!.addCode!!

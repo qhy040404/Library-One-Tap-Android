@@ -8,7 +8,7 @@ import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
 import com.absinthe.libraries.utils.extensions.dp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
+import com.qhy040404.libraryonetap.utils.extensions.getColor
 
 class CategoryView(context: Context) : LinearLayout(context) {
     val title = AppCompatTextView(context).apply {

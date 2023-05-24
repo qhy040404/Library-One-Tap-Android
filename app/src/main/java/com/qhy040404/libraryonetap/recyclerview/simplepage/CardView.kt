@@ -6,8 +6,8 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatTextView
 import com.absinthe.libraries.utils.extensions.dp
 import com.qhy040404.libraryonetap.R
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getDrawable
+import com.qhy040404.libraryonetap.utils.extensions.getColor
+import com.qhy040404.libraryonetap.utils.extensions.getDrawable
 
 class CardView(context: Context) : LinearLayout(context) {
     val content = AppCompatTextView(context).apply {

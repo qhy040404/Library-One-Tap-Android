@@ -26,7 +26,7 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.CategoryViewBinder
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.recyclerview.simplepage.ClickableViewBinder
 import com.qhy040404.libraryonetap.recyclerview.simplepage.DividerItemDecoration
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getColor
+import com.qhy040404.libraryonetap.utils.extensions.getColor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import rikka.material.app.MaterialActivity

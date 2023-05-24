@@ -8,8 +8,8 @@ import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.enums.GPAAlgorithm
 import com.qhy040404.libraryonetap.constant.enums.Parentheses
 import com.qhy040404.libraryonetap.data.tools.Grade
-import com.qhy040404.libraryonetap.utils.extensions.DoubleExtensions.to2Decimal
-import com.qhy040404.libraryonetap.utils.extensions.StringExtension.addParentheses
+import com.qhy040404.libraryonetap.utils.extensions.addParentheses
+import com.qhy040404.libraryonetap.utils.extensions.to2Decimal
 
 object GradesUtils {
     fun calculateWeightedAverage(
@@ -36,18 +36,22 @@ object GradesUtils {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
+
             Constants.GPA_STANDARD5 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.STD5)
                     .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
+
             Constants.GPA_STANDARD4 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.STD4)
                     .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
+
             Constants.GPA_PEKING4 -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.PK4)
                     .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)
             }
+
             else -> {
                 GPAUtils.calculateGPA(grades, GPAAlgorithm.DLUT)
                     .toString() + getCurrentGPAAlgorithm(context).addParentheses(Parentheses.SMALL)

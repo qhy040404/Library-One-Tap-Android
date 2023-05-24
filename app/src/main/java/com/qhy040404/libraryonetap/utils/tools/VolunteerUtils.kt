@@ -1,6 +1,6 @@
 package com.qhy040404.libraryonetap.utils.tools
 
-import com.qhy040404.libraryonetap.utils.extensions.AnyExtensions.toJson
+import com.qhy040404.libraryonetap.utils.extensions.toJson
 
 object VolunteerUtils {
     fun createVolunteerPostData(name: String, id: String) =

@@ -22,8 +22,8 @@ import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
-import com.qhy040404.libraryonetap.utils.extensions.ContextExtension.showToast
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
 import com.qhy040404.libraryonetap.utils.tools.VolunteerUtils

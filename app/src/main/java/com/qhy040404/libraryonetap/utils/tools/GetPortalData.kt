@@ -24,11 +24,13 @@ object GetPortalData {
                 Constants.PORTAL_DEFAULT_POST,
                 GlobalValues.ctJson
             )
+
             1 -> Requests.post(
                 URLManager.PORTAL_NET_URL,
                 Constants.PORTAL_DEFAULT_POST,
                 GlobalValues.ctJson
             )
+
             else -> throw IllegalArgumentException("Unknown mode")
         }
     }

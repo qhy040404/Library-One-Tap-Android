@@ -2,7 +2,7 @@ package com.qhy040404.libraryonetap.utils.encrypt
 
 import android.annotation.SuppressLint
 import android.util.Base64
-import com.qhy040404.libraryonetap.utils.extensions.ByteExtensions.toHex
+import com.qhy040404.libraryonetap.utils.extensions.toHex
 import org.spongycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 import javax.crypto.Cipher

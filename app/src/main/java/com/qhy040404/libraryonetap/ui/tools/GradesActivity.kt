@@ -24,7 +24,7 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.Card
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
-import com.qhy040404.libraryonetap.utils.extensions.IntExtensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers

@@ -142,6 +142,7 @@
 
 # SpongyCastle
 -keep class org.spongycastle.** { *; }
+-dontwarn javax.naming.**
 
 # LOTA
 -keep public class com.qhy040404.libraryonetap.base.**{*;}

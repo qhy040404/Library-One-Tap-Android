@@ -13,6 +13,7 @@ import com.qhy040404.libraryonetap.data.OrderListData
 import com.qhy040404.libraryonetap.databinding.FragmentYanxiujianBinding
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
+import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.mLoad
@@ -54,6 +55,14 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         if (!AppUtils.hasNetwork()) {
             runOnUiThread {
                 detail.text = R.string.glb_net_disconnected.getString()
+                loading.visibility = View.INVISIBLE
+            }
+            return
+        }
+
+        if (!TimeUtils.isServerAvailableTime()) {
+            runOnUiThread {
+                detail.text = R.string.df_server_unavailable.getString()
                 loading.visibility = View.INVISIBLE
             }
             return

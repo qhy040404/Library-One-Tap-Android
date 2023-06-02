@@ -49,6 +49,8 @@
 
   <string name="df_not_in_valid_time">Cannot reserve NOW</string>
 
+  <string name="df_server_unavailable">Server not available</string>
+
   <!-- TOOLS -->
   <string name="tl_bath">Reserve Bathroom NOW</string>
   <string name="tl_cernet">Remaining campus network</string>

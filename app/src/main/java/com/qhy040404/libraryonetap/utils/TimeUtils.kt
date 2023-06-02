@@ -25,6 +25,11 @@ object TimeUtils {
         }
     }
 
+    fun isServerAvailableTime(): Boolean {
+        // TODO
+        return Datetime.now().hour in 6..23
+    }
+
     private fun timeSingleToDouble(sTime: Int) = if (sTime >= 10) {
         sTime.toString()
     } else {

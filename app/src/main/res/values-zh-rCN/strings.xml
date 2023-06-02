@@ -48,6 +48,8 @@
 
   <string name="df_not_in_valid_time">现在不能预约</string>
 
+  <string name="df_server_unavailable">服务器不可用</string>
+
   <!-- TOOLS -->
   <string name="tl_bath">浴室预约</string>
   <string name="tl_cernet">校园网剩余流量</string>

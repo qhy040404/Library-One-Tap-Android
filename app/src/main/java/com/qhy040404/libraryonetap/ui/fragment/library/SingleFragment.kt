@@ -75,6 +75,14 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
             return
         }
 
+        if (!TimeUtils.isServerAvailableTime()) {
+            runOnUiThread {
+                detail.text = R.string.df_server_unavailable.getString()
+                loading.visibility = View.INVISIBLE
+            }
+            return
+        }
+
         val loginSuccess = Requests.initLib()
 
         OrderListData.mClass = runCatching {

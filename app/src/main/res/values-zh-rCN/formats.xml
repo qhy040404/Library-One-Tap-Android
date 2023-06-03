@@ -1,0 +1,23 @@
+<resources>
+  <!-- DETAIL FRAGMENT -->
+  <string name="df_temp_end_time">"暂离截止: %s"</string>
+
+  <!-- GRADES -->
+  <string name="gr_stat">本学期已获得学分: %1$.1f\n加权均分: %2$.2f  平均绩点: %3$s</string>
+  <string name="gr_template">%1$s\n分数: %2$s\n学分: %3$.1f\n绩点: %4$.1f</string>
+
+  <!-- EXAMS -->
+  <string name="ex_template">时间: %1$s\n考场: %2$s</string>
+
+  <!-- LESSONS -->
+  <string name="ls_stat">共 %1$d 门课\n总学分: %2$.1f</string>
+  <string name="ls_template">教师: %1$s\n教学班: %2$s\n学分: %3$.1f\n类型: %4$s</string>
+
+  <!-- UPDATE -->
+  <string name="upd_available">"发现新版本: %s"</string>
+
+  <!-- TOOLS PROMPT -->
+  <string name="tlp_net_template">余额: %1$s 元\n已用流量: %2$s GB\n剩余流量: %3$s GB</string>
+  <string name="tlp_electric_template">%1$s\n剩余电量: %2$s 度</string>
+  <string name="tlp_vol_update_time">"数据更新至: %s"</string>
+</resources>

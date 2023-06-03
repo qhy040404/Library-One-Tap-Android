@@ -49,7 +49,7 @@ abstract class SimplePageActivity : MaterialActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.simplepage_activity)
         toolbar = findViewById(R.id.simple_toolbar)
-        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.INVISIBLE
+        findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = false
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)

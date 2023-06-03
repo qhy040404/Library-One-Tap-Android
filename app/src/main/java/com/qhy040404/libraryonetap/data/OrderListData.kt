@@ -3,7 +3,7 @@ package com.qhy040404.libraryonetap.data
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.enums.OrderModes
 import com.qhy040404.libraryonetap.utils.TimeUtils
-import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 
 @Suppress("FunctionName")
 object OrderListData {
@@ -25,7 +25,7 @@ object OrderListData {
      * @param mode OrderModes enum
      * @return id String
      */
-    fun getOrder_id(mode: OrderModes): String {
+    fun getOrder_id(mode: OrderModes): String? {
         for (list in mClass?.rows!!) {
             if (orderIsValid(
                     list.order_process,
@@ -42,7 +42,7 @@ object OrderListData {
                 return list.order_id!!
             }
         }
-        return "oid"
+        return null
     }
 
     /**
@@ -154,7 +154,7 @@ object OrderListData {
         for (list in mClass?.rows!!) {
             if (list.order_process == "暂离" && list.order_type == mode.toString()) {
                 if (list.back_time != "00:00:00") {
-                    return R.string.df_temp_end_time.getString() + list.back_time
+                    return R.string.df_temp_end_time.getStringAndFormat(list.back_time)
                 }
                 break
             }

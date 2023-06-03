@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.compat
 
-import android.view.WindowInsets
 import androidx.core.view.WindowInsetsCompat
 import com.qhy040404.libraryonetap.constant.enums.InsetsParams
 import com.qhy040404.libraryonetap.utils.OsUtils
@@ -11,7 +10,7 @@ import com.qhy040404.libraryonetap.utils.OsUtils
  */
 object WICompat {
     fun getSystemBars() = if (OsUtils.atLeastR()) {
-        WindowInsets.Type.systemBars()
+        WindowInsetsCompat.Type.systemBars()
     } else {
         0
     }

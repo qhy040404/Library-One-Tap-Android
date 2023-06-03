@@ -1,0 +1,30 @@
+<resources>
+  <!-- APP -->
+  <string name="app_version" translatable="false">%s %s v%s (%d)</string>
+
+  <!-- ABOUT -->
+  <string name="about_version" translatable="false">%s v%s (%d)</string>
+
+  <!-- DETAIL FRAGMENT -->
+  <string name="df_temp_end_time">"Temporary leave deadline: %s"</string>
+  <string name="df_order_id_format" translatable="false">order_id: %1$s\n\n%2$s\n\n%3$s\n%4$s\n%5$s\n%6$s\n</string>
+
+  <!-- GRADES -->
+  <string name="gr_stat">Credits earned this semester: %1$.1f\nWeighted average score: %2$.2f  GPA: %3$s</string>
+  <string name="gr_template">%1$s\nScore: %2$s\nCredit: %3$.1f\nGP: %4$.1f</string>
+
+  <!-- EXAMS -->
+  <string name="ex_template">Time: %1$s\nRoom: %2$s</string>
+
+  <!-- LESSONS -->
+  <string name="ls_stat">Count: %1$d\nTotal Credits: %2$.1f</string>
+  <string name="ls_template">Teacher: %1$s\nClass code: %2$s\nCredit: %3$.1f\nType: %4$s</string>
+
+  <!-- UPDATE -->
+  <string name="upd_available">"Update available: %s"</string>
+
+  <!-- TOOLS PROMPT -->
+  <string name="tlp_net_template">Balance: %1$s Yuan\nUsed network: %2$s GB\nRemain network: %3$s GB</string>
+  <string name="tlp_electric_template">%1$s\nRemain electric: %2$s degree</string>
+  <string name="tlp_vol_update_time">"Updated: %s"</string>
+</resources>

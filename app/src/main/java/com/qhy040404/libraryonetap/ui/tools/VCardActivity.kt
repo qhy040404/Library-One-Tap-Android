@@ -4,8 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.StrictMode
 import android.util.Base64
-import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -44,7 +44,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         }
         isActivityVisible = true
 
-        binding.vcardBalance.visibility = View.VISIBLE
+        binding.vcardBalance.isVisible = true
         lifecycleScope.launch(Dispatchers.IO) {
             vCard()
         }
@@ -104,7 +104,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             {
                 MaterialAlertDialogBuilder(this@VCardActivity)
                     .setTitle(R.string.vcard_title)
-                    .setMessage(R.string.glb_fail_to_login_three_times)
+                    .setMessage(R.string.glb_fail_to_login_no_retry)
                     .setPositiveButton(R.string.glb_ok) { _, _ ->
                         finish()
                     }
@@ -118,7 +118,7 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
         var payCode = ""
         updateCode(openid).let {
             runOnUiThread {
-                loading.visibility = View.INVISIBLE
+                loading.isVisible = false
                 qrView.load(QRUtils.toGrayscale(it.second))
                 balance.text = it.first
                 payCode = it.third

@@ -2,8 +2,8 @@ package com.qhy040404.libraryonetap.ui.tools
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
-import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.datetime.Datetime
 import com.qhy040404.datetime.Datetime.Companion.toDatetime
@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.delay
@@ -35,7 +36,7 @@ class ExamsActivity : BaseEduActivity() {
     override fun initializeView() {
         LibraryOneTapApp.instance?.addActivity(this)
 
-        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
+        findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
 
         if (!GlobalValues.md3) {
             toolbar.setTitleTextColor(getColor(R.color.white))
@@ -56,8 +57,7 @@ class ExamsActivity : BaseEduActivity() {
 
             exams.filter { it.startTime > now }.forEach { pending ->
                 val name = pending.name
-                val desc = String.format(
-                    R.string.ex_template.getString(),
+                val desc = R.string.ex_template.getStringAndFormat(
                     pending.time,
                     pending.room
                 )
@@ -74,8 +74,7 @@ class ExamsActivity : BaseEduActivity() {
                     add(Category(R.string.ex_finished_list.getString()))
                     finished.forEach { finish ->
                         val name = finish.name
-                        val desc = String.format(
-                            R.string.ex_template.getString(),
+                        val desc = R.string.ex_template.getStringAndFormat(
                             finish.time,
                             finish.room
                         )

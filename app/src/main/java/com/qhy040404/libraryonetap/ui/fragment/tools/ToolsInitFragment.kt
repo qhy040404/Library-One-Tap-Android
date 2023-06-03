@@ -11,9 +11,9 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.ElectricData
-import com.qhy040404.libraryonetap.data.NetData
-import com.qhy040404.libraryonetap.data.VolunteerData
+import com.qhy040404.libraryonetap.data.ElectricDTO
+import com.qhy040404.libraryonetap.data.NetDTO
+import com.qhy040404.libraryonetap.data.VolunteerDTO
 import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.GradesActivity
@@ -22,7 +22,9 @@ import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.NetworkStateUtils
 import com.qhy040404.libraryonetap.utils.PermissionUtils
+import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.tools.BathUtils
 import com.qhy040404.libraryonetap.utils.tools.GetPortalData
@@ -205,16 +207,15 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             val data = GetPortalData.getPortalData(1)
 
-            val remainFee = NetData.getFee(data)
-            val usedNet = NetData.getDynamicUsedFlow(data)
-            val remainNet = NetData.getDynamicRemainFlow(data)
-            val netMessage = if (!AppUtils.isError(remainFee, usedNet, remainNet)) {
-                R.string.tlp_remain_net_fee.getString() + remainFee +
-                    R.string.rmb.getString() + "\n" +
-                    R.string.tlp_used_net.getString() + usedNet +
-                    R.string.gigabyte.getString() + "\n" +
-                    R.string.tlp_remain_net.getString() + remainNet +
-                    R.string.gigabyte.getString()
+            val remainFee = data.decode<NetDTO>()?.fee
+            val usedNet = data.decode<NetDTO>()?.dynamicUsedFlow
+            val remainNet = data.decode<NetDTO>()?.dynamicRemainFlow
+            val netMessage = if (remainFee != null && usedNet != null && remainNet != null) {
+                R.string.tlp_net_template.getStringAndFormat(
+                    remainFee,
+                    usedNet,
+                    remainNet
+                )
             } else {
                 when (data) {
                     Constants.NET_ERROR -> R.string.glb_net_error.getString()
@@ -224,7 +225,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         if (data.contains("异常")) {
                             R.string.glb_net_api_error.getString()
                         } else {
-                            R.string.glb_fail_to_login_three_times.getString()
+                            GlobalValues.netPrompt
                         }
                     }
                 }
@@ -263,26 +264,26 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
 
             val data = GetPortalData.getPortalData(0)
 
+            val flag = data.decode<ElectricDTO>()?.dormitoryInfo_list?.first()?.flag
+
             @Suppress("SpellCheckingInspection", "LocalVariableName")
-            val SSMC = ElectricData.getSSMC(data)
-            val remainElectric = ElectricData.getResele(data)
-            val electricMessage = if (!AppUtils.isError(SSMC, remainElectric)) {
-                SSMC + "\n" +
-                    if (remainElectric != Constants.API_ERROR) {
-                        R.string.tlp_remain_electric.getString() + remainElectric + R.string.degree.getString()
-                    } else {
-                        R.string.glb_net_api_error.getString()
-                    }
+            val SSMC = data.decode<ElectricDTO>()?.dormitoryInfo_list?.first()?.SSMC
+            val remainElectric = data.decode<ElectricDTO>()?.dormitoryInfo_list?.first()?.resele
+            val electricMessage = if (SSMC != null && remainElectric != null) {
+                R.string.tlp_electric_template.getStringAndFormat(
+                    SSMC,
+                    remainElectric
+                )
             } else {
                 when (data) {
                     Constants.NET_ERROR -> R.string.glb_net_error.getString()
                     Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected.getString()
                     Constants.NET_TIMEOUT -> R.string.glb_net_timeout.getString()
                     else -> {
-                        if (data.contains("error-code")) {
+                        if (data.contains("error-code") || flag == "exception") {
                             R.string.glb_net_api_error.getString()
                         } else {
-                            R.string.glb_fail_to_login_three_times.getString()
+                            GlobalValues.netPrompt
                         }
                     }
                 }
@@ -322,14 +323,14 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
             val postData =
                 VolunteerUtils.createVolunteerPostData(GlobalValues.name, GlobalValues.id)
             val data = Requests.post(URLManager.VOLTIME_POST_URL, postData, GlobalValues.ctJson)
-            val latestDate =
-                R.string.tlp_vol_update_time.getString() +
-                    JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString("lastDate")
+            val latestDate = R.string.tlp_vol_update_time.getStringAndFormat(
+                JSONObject(Requests.get(URLManager.VOLTIME_LATEST_URL)).optString("lastDate")
+            )
 
-            val sameID = VolunteerData.getSameID(data)
-            val sameName = VolunteerData.getSameName(data)
+            val sameID = data.decode<VolunteerDTO>()?.numSameID
+            val sameName = data.decode<VolunteerDTO>()?.numSameName
 
-            if (sameID == -1 || sameName == -1) {
+            if (sameID == null || sameName == null) {
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(
@@ -367,10 +368,10 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         .show()
                 }
             } else {
-                val totalHours = VolunteerData.getTotalHours(data).toString() +
-                    R.string.hours.getString()
-                val title = R.string.volunteer_title.getString() + "\n" + latestDate
-                val message = GlobalValues.name + "\n" + GlobalValues.id + "\n" + totalHours
+                val totalHours =
+                    "${data.decode<VolunteerDTO>()?.totalDuration.toString()}${R.string.hours.getString()}"
+                val title = "${R.string.volunteer_title.getString()}\n$latestDate"
+                val message = "${GlobalValues.name}\n${GlobalValues.id}\n$totalHours"
                 withContext(Dispatchers.Main) {
                     MaterialAlertDialogBuilder(requireContext())
                         .setMessage(message)

@@ -1,7 +1,6 @@
 package com.qhy040404.libraryonetap.ui.fragment.library
 
-import android.annotation.SuppressLint
-import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.base.BaseFragment
@@ -16,6 +15,7 @@ import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.TimeUtils
 import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.mLoad
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -30,7 +30,7 @@ import java.io.IOException
 @Suppress("LocalVariableName")
 class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
     override fun init() {
-        binding.yxjDetail.visibility = View.VISIBLE
+        binding.yxjDetail.isVisible = true
         binding.yxjRefresh.setOnClickListener {
             Requests.netLazyMgr.reset()
             CookieJarImpl.reset()
@@ -46,49 +46,66 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun yanxiujian() {
         val detail = binding.yxjDetail
         val qr = binding.yxjQr
         val loading = binding.yxjLoading
 
-        if (!AppUtils.hasNetwork()) {
+        if (AppUtils.hasNetwork().not()) {
             runOnUiThread {
                 detail.text = R.string.glb_net_disconnected.getString()
-                loading.visibility = View.INVISIBLE
+                loading.isVisible = false
             }
             return
         }
 
-        if (!TimeUtils.isServerAvailableTime()) {
+        if (AppUtils.checkData(GlobalValues.id, GlobalValues.passwd).not()) {
+            runOnUiThread {
+                detail.text = R.string.glb_no_userdata.getString()
+                loading.isVisible = false
+            }
+            return
+        }
+
+        if (TimeUtils.isServerAvailableTime().not()) {
             runOnUiThread {
                 detail.text = R.string.df_server_unavailable.getString()
-                loading.visibility = View.INVISIBLE
+                loading.isVisible = false
             }
             return
         }
 
-        val loginSuccess = Requests.initLib()
+        if (Requests.initLib().not()) {
+            runOnUiThread {
+                detail.text = GlobalValues.netPrompt
+            }
+            return
+        }
 
         OrderListData.mClass = runCatching {
-            Requests.get(URLManager.LIBRARY_ORDER_LIST_URL, detail).decode<OrderListDTO>()
-        }.getOrNull()
+            Requests.get(URLManager.LIBRARY_ORDER_LIST_URL).decode<OrderListDTO>()
+        }.getOrElse {
+            runOnUiThread {
+                detail.text = GlobalValues.netPrompt
+            }
+            return
+        }
+
         if (OrderListData.getTotal() != "0") {
+            val order_id = OrderListData.getOrder_id(OrderModes.YANXIUJIAN)
+                ?: R.string.df_no_valid_order.getString()
+
             val space_name = OrderListData.getSpace_name(OrderModes.YANXIUJIAN)
             val order_date = OrderListData.getOrder_date(OrderModes.YANXIUJIAN)
-            var order_id = OrderListData.getOrder_id(OrderModes.YANXIUJIAN)
             var order_process = OrderListData.getOrder_process(OrderModes.YANXIUJIAN)
             val all_users = OrderListData.getAll_users()
             val full_time = OrderListData.getFull_time()
 
-            if (order_id == "oid") {
-                order_id = R.string.df_no_valid_order.getString()
-            }
-
-            when (order_process) {
-                "审核通过" -> order_process = R.string.df_not_start.getString()
-                "进行中" -> order_process = R.string.df_inside.getString()
-                "暂离" -> order_process = R.string.df_outside.getString()
+            order_process = when (order_process) {
+                "审核通过" -> R.string.df_not_start.getString()
+                "进行中" -> R.string.df_inside.getString()
+                "暂离" -> R.string.df_outside.getString()
+                else -> order_process
             }
 
             val request = Request.Builder().url(URLManager.LIBRARY_QR_CERT_URL).build()
@@ -104,30 +121,15 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
                 }
             })
             runOnUiThread {
-                detail.text = """
-                    order_id: $order_id
-
-                    $order_process
-
-                    $space_name
-                    $order_date
-                    $full_time
-                    $all_users
-                """.trimIndent()
-                loading.visibility = View.INVISIBLE
-            }
-        } else if (!AppUtils.checkData(GlobalValues.id, GlobalValues.passwd)) {
-            runOnUiThread {
-                detail.text = R.string.glb_no_userdata.getString()
-                loading.visibility = View.INVISIBLE
-            }
-        } else if (!loginSuccess) {
-            runOnUiThread {
-                detail.text = R.string.glb_fail_to_login_three_times.getString()
-            }
-        } else if (!GlobalValues.netError) {
-            runOnUiThread {
-                detail.text = R.string.glb_login_timeout.getString()
+                detail.text = R.string.df_order_id_format.getStringAndFormat(
+                    order_id,
+                    order_process,
+                    space_name,
+                    order_date,
+                    full_time,
+                    all_users
+                )
+                loading.isVisible = false
             }
         }
     }

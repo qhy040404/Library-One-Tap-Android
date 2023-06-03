@@ -17,6 +17,13 @@ fun Int.getString(): String {
 }
 
 /**
+ * Get format string from resource ID and format with provided params
+ */
+fun Int.getStringAndFormat(vararg params: Any?): String {
+    return this.getString().format(*params)
+}
+
+/**
  * Get color from resource ID
  */
 fun Int.getColor(context: Context): Int {

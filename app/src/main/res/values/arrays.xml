@@ -1,0 +1,50 @@
+<resources>
+  <!-- TOOLS -->
+  <string-array name="gp">
+    <item>DLUT algorithm</item>
+    <item>Standard quintile algorithm</item>
+    <item>Standard quarter algorithm</item>
+    <item>Peking University quarter algorithm</item>
+  </string-array>
+
+  <!-- SETTINGS -->
+  <string-array name="themes">
+    <item>Random</item>
+    <item>Library</item>
+    <item>Blue</item>
+    <item>Pink</item>
+    <item>Green</item>
+    <item>Orange</item>
+    <item>Red</item>
+    <item>Purple</item>
+    <item>Simple</item>
+  </string-array>
+
+  <string-array name="dark_mode">
+    <item>Follow system</item>
+    <item>On</item>
+    <item>Off</item>
+  </string-array>
+
+  <string-array name="language_name">
+    <item>Follow system</item>
+    <item>简体中文</item>
+    <item>English</item>
+  </string-array>
+
+  <!-- BATH RESERVE ACTIVITY -->
+  <string-array name="bath_array">
+    <item>West 1F</item>
+    <item>West 2F</item>
+    <item>West 3F</item>
+    <item>North Male</item>
+    <item>North Female</item>
+  </string-array>
+
+  <!-- DETAIL FRAGMENT -->
+  <string-array name="area_array">
+    <item>Lingxi</item>
+    <item>Bochuan</item>
+  </string-array>
+
+</resources>

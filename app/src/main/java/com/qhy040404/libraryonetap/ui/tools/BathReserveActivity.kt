@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
@@ -32,7 +33,7 @@ class BathReserveActivity : BaseActivity<ActivityBathReserveBinding>() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
         }
 
-        binding.bathText.visibility = View.VISIBLE
+        binding.bathText.isVisible = true
         lifecycleScope.launch(Dispatchers.IO) {
             bathReserve()
         }

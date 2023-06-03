@@ -8,6 +8,7 @@ import com.qhy040404.libraryonetap.utils.SPDelegates
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import okhttp3.MediaType.Companion.toMediaType
 import java.util.Locale
@@ -67,8 +68,7 @@ object GlobalValues {
 
     // App
     val version by resettableLazy(GlobalManager.lazyMgr) {
-        String.format(
-            "%s %s v%s (%d)",
+        R.string.app_version.getStringAndFormat(
             R.string.app_name.getString(),
             PackageUtils.buildType,
             PackageUtils.versionName,

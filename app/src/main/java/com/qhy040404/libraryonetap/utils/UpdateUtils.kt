@@ -18,6 +18,7 @@ import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
+import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.decode
@@ -28,6 +29,7 @@ import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.extensions.surroundingWith
 import com.qhy040404.libraryonetap.utils.web.Requests
+import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -42,8 +44,9 @@ object UpdateUtils {
     private var dialog: WeakReference<AlertDialog>? = null
 
     suspend fun checkUpdate(context: Context, fromSettings: Boolean = false) {
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG && !Once.beenDone(Once.THIS_APP_SESSION, OnceTag.APP_INITIALIZED)) {
             context.showToast(R.string.upd_debug_version)
+            Once.markDone(OnceTag.APP_INITIALIZED)
         }
         if (!AppUtils.hasNetwork()) {
             if (fromSettings) {
@@ -84,7 +87,7 @@ object UpdateUtils {
         val remoteVersionCode = getVersionCode(latestClazz.tag_name, false)
         val localVersionCode = getVersionCode(BuildConfig.VERSION_NAME, false)
 
-        if (remoteVersionCode <= localVersionCode && BuildConfig.CHANNEL != "Debug") {
+        if (remoteVersionCode <= localVersionCode) {
             if (fromSettings) {
                 context.showToast(R.string.stp_current_is_latest_version)
             }

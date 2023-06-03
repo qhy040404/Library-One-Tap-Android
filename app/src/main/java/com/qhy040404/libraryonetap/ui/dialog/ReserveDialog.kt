@@ -12,8 +12,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.ReserveData
+import com.qhy040404.libraryonetap.data.ReserveDTO
 import com.qhy040404.libraryonetap.utils.TimeUtils
+import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.library.ReserveUtils
 import com.qhy040404.libraryonetap.utils.library.RoomUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
@@ -90,19 +91,14 @@ class ReserveDialog {
         if (!Requests.initLib()) {
             MaterialAlertDialogBuilder(activity)
                 .setTitle(R.string.library)
-                .setMessage(R.string.glb_fail_to_login_three_times)
+                .setMessage(GlobalValues.netPrompt)
                 .setPositiveButton(R.string.glb_ok, null)
                 .setCancelable(true)
                 .create()
                 .show()
         } else {
             (activity as LifecycleOwner).lifecycleScope.launch(Dispatchers.IO) {
-                val addCodeOrigin = Requests.post(
-                    URLManager.LIBRARY_RESERVE_URL,
-                    ReserveUtils.constructPara(target),
-                    GlobalValues.ctVCard
-                )
-                val addCode = ReserveData.getAddCode(addCodeOrigin)
+                val addCode = getAddCode(target)
                 Requests.post(
                     URLManager.LIBRARY_RESERVE_FINAL_URL,
                     ReserveUtils.constructParaForFinalReserve(addCode),
@@ -118,6 +114,17 @@ class ReserveDialog {
                         .show()
                 }
             }
+        }
+    }
+
+    private fun getAddCode(target: Int, timer: Int = 0): String {
+        return Requests.post(
+            URLManager.LIBRARY_RESERVE_URL,
+            ReserveUtils.constructPara(target),
+            GlobalValues.ctVCard
+        ).decode<ReserveDTO>()?.data?.addCode ?: run {
+            if (timer >= 5) return ""
+            getAddCode(target, timer + 1)
         }
     }
 }

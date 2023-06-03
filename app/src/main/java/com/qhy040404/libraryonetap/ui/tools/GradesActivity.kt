@@ -6,9 +6,9 @@ import android.graphics.drawable.PaintDrawable
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.ProgressBar
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.absinthe.libraries.utils.extensions.dp
 import com.absinthe.libraries.utils.extensions.getColorByAttr
@@ -25,6 +25,7 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
@@ -47,7 +48,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
     override fun initializeView() {
         LibraryOneTapApp.instance?.addActivity(this)
 
-        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
+        findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
 
         if (!GlobalValues.md3) {
             toolbar.setTitleTextColor(getColor(R.color.white))
@@ -175,8 +176,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
             } else {
                 add(
                     Card(
-                        String.format(
-                            R.string.gr_stat.getString(),
+                        R.string.gr_stat.getStringAndFormat(
                             semesters.first { it.id != Int.MAX_VALUE }.courses.sumOf { it.credit },
                             GradesUtils.calculateWeightedAverage(
                                 buildList {
@@ -208,8 +208,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                 }
                 semester.courses.forEach {
                     val head = "${it.name} : ${it.type}"
-                    val desc = String.format(
-                        R.string.gr_template.getString(),
+                    val desc = R.string.gr_template.getStringAndFormat(
                         it.code,
                         it.grade,
                         it.credit,

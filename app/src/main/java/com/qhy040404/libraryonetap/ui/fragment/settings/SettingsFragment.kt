@@ -33,7 +33,7 @@ import com.qhy040404.libraryonetap.utils.CacheUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.getDimen
-import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.isDuplicateGV
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.start
@@ -227,7 +227,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
             if (GlobalValues.newVersion != null) {
                 summary =
-                    R.string.upd_available.getString() + GlobalValues.newVersion
+                    R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -279,7 +279,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(Constants.PREF_CACHE)?.summary = CacheUtils.getCacheSize()
         if (GlobalValues.newVersion != null) {
             findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
-                R.string.upd_available.getString() + GlobalValues.newVersion
+                R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
         }
     }
 

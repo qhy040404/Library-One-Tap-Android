@@ -97,6 +97,8 @@ fun String.surroundingWith(prefix: String, suffix: String): Boolean {
  * @param T Data class
  */
 inline fun <reified T> String.decode(): T? {
-    return moshi.adapter(T::class.java).fromJson(this.trim())
+    return runCatching {
+        moshi.adapter(T::class.java).fromJson(this.trim())
+    }.getOrNull()
 }
 

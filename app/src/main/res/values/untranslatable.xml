@@ -3,9 +3,6 @@
   <!-- SETTING -->
   <string name="st_md3" translatable="false">Material Design 3</string>
 
-  <!-- UNIT -->
-  <string name="gigabyte" translatable="false">" GB"</string>
-
   <!-- ABOUT -->
   <string name="about_slogan" translatable="false">Library One Tap</string>
 

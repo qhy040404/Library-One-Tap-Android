@@ -1,18 +1,21 @@
 package com.qhy040404.libraryonetap.utils.web
 
-import androidx.appcompat.widget.AppCompatTextView
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalValues
 import com.qhy040404.libraryonetap.constant.URLManager
-import com.qhy040404.libraryonetap.data.SessionData
+import com.qhy040404.libraryonetap.data.SessionDTO
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
+import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.hasElementIn
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -23,6 +26,10 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
+    private val SSO_LOGIN_FAILED_PROMPT = setOf(
+        "用户名密码错误", "Invalid credentials"
+    )
+
     var libInitialized = false
     var eduInitialized = false
 
@@ -38,11 +45,9 @@ object Requests {
 
     fun get(
         url: String,
-        textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
             GlobalValues.netPrompt = R.string.glb_net_disconnected.getString()
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
@@ -53,23 +58,26 @@ object Requests {
             .get()
             .build()
         try {
-            client.newCall(request).execute().use { response ->
+            runBlocking(Dispatchers.IO) {
+                client.newCall(request).execute()
+            }.use { response ->
                 if (getUrl) {
                     return response.request.url.toString()
                 }
-                return response.body!!.string()
+                return runBlocking(Dispatchers.IO) {
+                    response.body!!.string()
+                }
             }
         } catch (s: SocketTimeoutException) {
-            textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netPrompt = R.string.glb_net_timeout.getString()
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
-            textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netPrompt = R.string.glb_net_error.getString()
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
+            GlobalValues.netPrompt = R.string.glb_unknown_error.getString()
             return Constants.STRING_NULL
         }
     }
@@ -85,14 +93,19 @@ object Requests {
             .get()
             .build()
         try {
-            client.newCall(request).execute().use { response ->
-                return response.body!!.string()
+            runBlocking(Dispatchers.IO) {
+                client.newCall(request).execute()
+            }.use { response ->
+                return runBlocking(Dispatchers.IO) {
+                    response.body!!.string()
+                }
             }
         } catch (s: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
             return Constants.NET_ERROR
         } catch (e: Exception) {
+            GlobalValues.netPrompt = R.string.glb_unknown_error.getString()
             return Constants.STRING_NULL
         }
     }
@@ -101,11 +114,9 @@ object Requests {
         url: String,
         form: String,
         mediaType: MediaType,
-        textView: AppCompatTextView? = null,
         getUrl: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
-            textView?.post { textView.text = R.string.glb_net_disconnected.getString() }
             GlobalValues.netPrompt = R.string.glb_net_disconnected.getString()
             GlobalValues.netError = true
             return Constants.NET_DISCONNECTED
@@ -117,23 +128,29 @@ object Requests {
             .post(body)
             .build()
         try {
-            client.newCall(request).execute().use { response ->
+            runBlocking(Dispatchers.IO) {
+                client.newCall(request).execute()
+            }.use { response ->
                 if (getUrl) {
                     return response.request.url.toString()
                 }
-                return response.body!!.string()
+                return runBlocking(Dispatchers.IO) {
+                    response.body!!.string().also {
+                        val b = form
+                        val a = it
+                    }
+                }
             }
         } catch (s: SocketTimeoutException) {
-            textView?.post { textView.text = R.string.glb_net_timeout.getString() }
             GlobalValues.netPrompt = R.string.glb_net_timeout.getString()
             GlobalValues.netError = true
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
-            textView?.post { textView.text = R.string.glb_net_error.getString() }
             GlobalValues.netPrompt = R.string.glb_net_error.getString()
             GlobalValues.netError = true
             return Constants.NET_ERROR
         } catch (e: Exception) {
+            GlobalValues.netPrompt = R.string.glb_unknown_error.getString()
             return Constants.STRING_NULL
         }
     }
@@ -150,14 +167,19 @@ object Requests {
             .post(body)
             .build()
         try {
-            client.newCall(request).execute().use { response ->
-                return response.body!!.string()
+            runBlocking(Dispatchers.IO) {
+                client.newCall(request).execute()
+            }.use { response ->
+                return runBlocking(Dispatchers.IO) {
+                    response.body!!.string()
+                }
             }
         } catch (s: SocketTimeoutException) {
             return Constants.NET_TIMEOUT
         } catch (h: UnknownHostException) {
             return Constants.NET_ERROR
         } catch (e: Exception) {
+            GlobalValues.netPrompt = R.string.glb_unknown_error.getString()
             return Constants.STRING_NULL
         }
     }
@@ -176,6 +198,8 @@ object Requests {
         var loginSuccess = false
         var timer = 0
 
+        var response: String
+
         while (AppUtils.checkData(id, passwd)) {
             val ltResponse = get(ssoUrl)
             val ltData = runCatching {
@@ -191,17 +215,19 @@ object Requests {
 
                 Thread.sleep(200L)
 
-                post(
+                response = post(
                     ssoUrl,
                     loginPostData(id, passwd, ltData, rsa, ltExecution),
                     mt
                 )
+            } else {
+                return false
             }
 
             if (sessionUrl != null) {
                 if (hasSessionJson) {
                     val sessionCheck = post(sessionUrl, "", mt)
-                    if (SessionData.isSuccess(sessionCheck)) {
+                    if (sessionCheck.decode<SessionDTO>()?.success == true) {
                         loginSuccess = true
                         break
                     } else {
@@ -215,10 +241,18 @@ object Requests {
                     } else {
                         timer++
                     }
-                } else {
+                } else if (shouldMiss.isNotEmpty()) {
                     val sessionCheck = get(sessionUrl)
                     if (!sessionCheck.contains(shouldMiss)) {
                         loginSuccess = true
+                        break
+                    } else {
+                        timer++
+                    }
+                } else {
+                    if (SSO_LOGIN_FAILED_PROMPT.hasElementIn(response)) {
+                        loginSuccess = false
+                        GlobalValues.netPrompt = R.string.glb_invalid_credentials.getString()
                         break
                     } else {
                         timer++

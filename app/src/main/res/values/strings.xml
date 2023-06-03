@@ -37,7 +37,6 @@
   <string name="df_not_start">Has not started</string>
 
   <string name="df_no_valid_order">No valid order found</string>
-  <string name="df_temp_end_time">"Temporary leave deadline: "</string>
 
   <string name="df_cancel_confirm">Confirm cancellation</string>
   <string name="df_cancel_confirm_yes">Yes</string>
@@ -70,21 +69,16 @@
   <string name="gr_major">Major</string>
   <string name="gr_minor">Minor</string>
   <string name="gr_empty">There is no score.</string>
-  <string name="gr_stat">Credits earned this semester: %1$.1f\nWeighted average score: %2$.2f  GPA: %3$s</string>
   <string name="gr_eval_first">Evaluate first</string>
-  <string name="gr_template">%1$s\nScore: %2$s\nCredit: %3$.1f\nGP: %4$.1f</string>
 
   <!-- EXAMS -->
   <string name="ex_empty">There is no exam.</string>
   <string name="ex_finished_list">Finished</string>
   <string name="ex_empty_room">Undefined</string>
-  <string name="ex_template">Time: %1$s\nRoom: %2$s</string>
   <string name="ex_minor">Minor</string>
 
   <!-- LESSONS -->
   <string name="ls_unavailable">The course table is not available at the moment, please try again later.</string>
-  <string name="ls_stat">Count: %1$d\nTotal Credits: %2$.1f</string>
-  <string name="ls_template">Teacher: %1$s\nClass code: %2$s\nCredit: %3$.1f\nType: %4$s</string>
   <string name="ls_compulsory">Compulsory</string>
   <string name="ls_elective">Elective</string>
 
@@ -115,7 +109,7 @@
   <string name="glb_loading">Loading…</string>
   <string name="glb_loaded">Logged in</string>
   <string name="glb_fail_to_login_no_retry">Login failed, please retry.</string>
-  <string name="glb_fail_to_login_three_times">Failed 3 times…\nCheck your id and password</string>
+  <string name="glb_invalid_credentials">Invalid credentials</string>
   <string name="glb_login_timeout">Session timeout, please refresh</string>
   <string name="glb_no_userdata">Please input your information in the Settings page first.</string>
 
@@ -135,23 +129,14 @@
   <string name="upd_confirm">Update</string>
   <string name="upd_dismiss">Dismiss</string>
 
-  <string name="upd_available">"Update available: "</string>
-
   <string name="upd_latest_changelog">Latest Changelog</string>
 
   <string name="upd_debug_version">This version is built for debugging\nCheck Update may not work properly</string>
 
   <!-- UNIT -->
-  <string name="rmb">" Yuan"</string>
-  <string name="degree">" degree"</string>
   <string name="hours">" hours"</string>
 
   <!-- TOOLS PROMPT -->
-  <string name="tlp_remain_net_fee">"Balance: "</string>
-  <string name="tlp_used_net">"Used network: "</string>
-  <string name="tlp_remain_net">"Remain network: "</string>
-  <string name="tlp_remain_electric">"Remain electric: "</string>
-  <string name="tlp_vol_update_time">"Updated: "</string>
   <string name="tlp_invalid_id_or_name">Wrong name and ID</string>
   <string name="tlp_find_same_data">Same ID/name detected. Check your ID.\nIf this problem still exists, please check on WeChat official account.</string>
   <string name="tlp_reserved">Reserve request has been sent</string>
@@ -167,53 +152,4 @@
   <string name="stp_github_api_rate_limit">GitHub API rate limit, try later.</string>
 
   <string name="stp_notification_permission_prompt">We need notification permissions to show the download progress.</string>
-
-  <!-- ARRAYS -->
-  <!-- TOOLS -->
-  <string-array name="gp">
-    <item>DLUT algorithm</item>
-    <item>Standard quintile algorithm</item>
-    <item>Standard quarter algorithm</item>
-    <item>Peking University quarter algorithm</item>
-  </string-array>
-
-  <!-- SETTINGS -->
-  <string-array name="themes">
-    <item>Random</item>
-    <item>Library</item>
-    <item>Blue</item>
-    <item>Pink</item>
-    <item>Green</item>
-    <item>Orange</item>
-    <item>Red</item>
-    <item>Purple</item>
-    <item>Simple</item>
-  </string-array>
-
-  <string-array name="dark_mode">
-    <item>Follow system</item>
-    <item>On</item>
-    <item>Off</item>
-  </string-array>
-
-  <string-array name="language_name">
-    <item>Follow system</item>
-    <item>简体中文</item>
-    <item>English</item>
-  </string-array>
-
-  <!-- BATH RESERVE ACTIVITY -->
-  <string-array name="bath_array">
-    <item>West 1F</item>
-    <item>West 2F</item>
-    <item>West 3F</item>
-    <item>North Male</item>
-    <item>North Female</item>
-  </string-array>
-
-  <!-- DETAIL FRAGMENT -->
-  <string-array name="area_array">
-    <item>Lingxi</item>
-    <item>Bochuan</item>
-  </string-array>
 </resources>

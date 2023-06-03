@@ -40,7 +40,7 @@ object DesEncryptUtils {
     }
 
     private fun getBoxBinary(i: Int): String {
-        return String.format("%04d", i.toString(2).toInt())
+        return "%04d".format(i.toString(2).toInt())
     }
 
     private fun initPermute(originalData: ByteArray): ByteArray {
@@ -343,10 +343,7 @@ object DesEncryptUtils {
         return buildString {
             hex.forEach {
                 append(
-                    String.format(
-                        "%04d",
-                        it.toString().toInt(16).toString(2).toInt()
-                    )
+                    "%04d".format(it.toString().toInt(16).toString(2).toInt())
                 )
             }
         }

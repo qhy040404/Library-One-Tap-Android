@@ -2,8 +2,8 @@ package com.qhy040404.libraryonetap.ui.tools
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
-import android.view.View
 import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.R
@@ -16,6 +16,7 @@ import com.qhy040404.libraryonetap.recyclerview.simplepage.Category
 import com.qhy040404.libraryonetap.recyclerview.simplepage.Clickable
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.web.Requests
 import org.json.JSONObject
@@ -34,7 +35,7 @@ class LessonsActivity : BaseEduActivity() {
     override fun initializeView() {
         LibraryOneTapApp.instance?.addActivity(this)
 
-        findViewById<ProgressBar>(R.id.simple_progressbar).visibility = View.VISIBLE
+        findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
 
         if (!GlobalValues.md3) {
             toolbar.setTitleTextColor(getColor(R.color.white))
@@ -135,16 +136,14 @@ class LessonsActivity : BaseEduActivity() {
                 )
             )
             add(Card(
-                String.format(
-                    R.string.ls_stat.getString(),
+                R.string.ls_stat.getStringAndFormat(
                     lessons.count(),
                     lessons.sumOf { it.credit }
                 )
             ))
             lessons.forEach {
                 val head = "${it.type}  ${it.name}"
-                val desc = String.format(
-                    R.string.ls_template.getString(),
+                val desc = R.string.ls_template.getStringAndFormat(
                     it.teacher,
                     it.code,
                     it.credit,

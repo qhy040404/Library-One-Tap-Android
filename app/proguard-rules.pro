@@ -1,23 +1,5 @@
-# This is a configuration file for ProGuard.
-# http://proguard.sourceforge.net/index.html#manual/usage.html
-#
-# Starting with version 2.2 of the Android plugin for Gradle, this file is distributed together with
-# the plugin and unpacked at build-time. The files in $ANDROID_HOME are no longer maintained and
-# will be ignored by new version of the Android plugin for Gradle.
-
-#-dontusemixedcaseclassnames
--dontskipnonpubliclibraryclasses
+-dontusemixedcaseclassnames
 -verbose
-
-# Optimization is turned off by default. Dex does not like code run
-# through the ProGuard optimize and preverify steps (and performs some
-# of these optimizations on its own).
-# -dontoptimize
--optimizationpasses 5
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!class/unboxing/enum
--repackageclasses com.qhy040404.libraryonetap
-
--dontpreverify
 
 # Preserve some attributes that may be required for reflection.
 -keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod

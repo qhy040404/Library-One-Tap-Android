@@ -17,6 +17,7 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.PackageUtils
+import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.start
 
@@ -57,8 +58,7 @@ class AboutActivity : AbsAboutActivityProxy() {
     override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {
         icon.load(R.drawable.ic_about_foreground)
         slogan.text = getString(R.string.about_slogan)
-        version.text = String.format(
-            "%s v%s (%d)",
+        version.text = R.string.about_version.getStringAndFormat(
             PackageUtils.buildType,
             PackageUtils.versionName,
             PackageUtils.versionCode

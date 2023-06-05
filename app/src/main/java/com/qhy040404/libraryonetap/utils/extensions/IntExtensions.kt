@@ -43,3 +43,14 @@ fun Int.getDrawable(context: Context): Drawable? {
 fun Int.getDimen(): Float {
     return LibraryOneTapApp.app.resources.getDimension(this)
 }
+
+/**
+ * Convert an Integer from one digit to two digits
+ */
+fun Int.one2two(): String {
+    return if (this >= 10) {
+        "$this"
+    } else {
+        "0$this"
+    }
+}

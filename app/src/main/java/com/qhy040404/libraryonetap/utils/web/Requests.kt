@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
-
     var libInitialized = false
     var eduInitialized = false
 
@@ -131,10 +130,7 @@ object Requests {
                     return response.request.url.toString()
                 }
                 return runBlocking(Dispatchers.IO) {
-                    response.body!!.string().also {
-                        val b = form
-                        val a = it
-                    }
+                    response.body!!.string()
                 }
             }
         } catch (s: SocketTimeoutException) {

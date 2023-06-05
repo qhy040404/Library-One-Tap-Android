@@ -26,7 +26,6 @@ object TimeUtils {
     }
 
     fun isServerAvailableTime(): Boolean {
-        // TODO
         return Datetime.now().hour in 6..23
     }
 

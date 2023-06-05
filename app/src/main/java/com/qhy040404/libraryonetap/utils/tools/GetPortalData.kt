@@ -15,7 +15,11 @@ object GetPortalData {
             URLManager.PORTAL_SSO_URL,
             GlobalValues.ctSso,
             URLManager.PORTAL_SSO_URL
-        )
+        ).let {
+            if (it.not()) {
+                return GlobalValues.ssoPrompt
+            }
+        }
         Requests.get(URLManager.PORTAL_DIRECT_URL)
 
         return when (mode) {

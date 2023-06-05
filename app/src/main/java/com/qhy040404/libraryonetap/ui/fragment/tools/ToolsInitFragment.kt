@@ -225,7 +225,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         if (data.contains("异常")) {
                             R.string.glb_net_api_error.getString()
                         } else {
-                            GlobalValues.netPrompt
+                            data
                         }
                     }
                 }
@@ -283,7 +283,7 @@ class ToolsInitFragment : PreferenceFragmentCompat() {
                         if (data.contains("error-code") || flag == "exception") {
                             R.string.glb_net_api_error.getString()
                         } else {
-                            GlobalValues.netPrompt
+                            data
                         }
                     }
                 }

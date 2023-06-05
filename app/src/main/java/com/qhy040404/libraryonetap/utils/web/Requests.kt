@@ -10,7 +10,6 @@ import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.hasElementIn
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
@@ -26,9 +25,6 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
-    private val SSO_LOGIN_FAILED_PROMPT = setOf(
-        "用户名密码错误", "Invalid credentials"
-    )
 
     var libInitialized = false
     var eduInitialized = false
@@ -195,10 +191,10 @@ object Requests {
         val id = GlobalValues.id
         val passwd = GlobalValues.passwd
 
+        GlobalValues.ssoPrompt = Constants.STRING_NULL
+
         var loginSuccess = false
         var timer = 0
-
-        var response: String
 
         while (AppUtils.checkData(id, passwd)) {
             val ltResponse = get(ssoUrl)
@@ -215,7 +211,7 @@ object Requests {
 
                 Thread.sleep(200L)
 
-                response = post(
+                post(
                     ssoUrl,
                     loginPostData(id, passwd, ltData, rsa, ltExecution),
                     mt
@@ -249,14 +245,6 @@ object Requests {
                     } else {
                         timer++
                     }
-                } else {
-                    if (SSO_LOGIN_FAILED_PROMPT.hasElementIn(response)) {
-                        loginSuccess = false
-                        GlobalValues.netPrompt = R.string.glb_invalid_credentials.getString()
-                        break
-                    } else {
-                        timer++
-                    }
                 }
                 if (timer == 2) {
                     netLazyMgr.reset()
@@ -271,7 +259,9 @@ object Requests {
                 break
             }
         }
-        return loginSuccess
+        return loginSuccess.also {
+            if (it.not()) GlobalValues.ssoPrompt = R.string.glb_invalid_credentials.getString()
+        }
     }
 
     private fun loginPostData(

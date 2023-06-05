@@ -14,7 +14,7 @@ abstract class BaseEduActivity : SimplePageActivity() {
     fun showInitFailedAlertDialog(@StringRes title: Int) {
         MaterialAlertDialogBuilder(this)
             .setTitle(title)
-            .setMessage(GlobalValues.netPrompt)
+            .setMessage(GlobalValues.ssoPrompt)
             .setPositiveButton(R.string.glb_ok) { _, _ ->
                 finish()
             }

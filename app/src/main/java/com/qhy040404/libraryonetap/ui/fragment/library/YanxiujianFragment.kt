@@ -77,7 +77,7 @@ class YanxiujianFragment : BaseFragment<FragmentYanxiujianBinding>() {
 
         if (Requests.initLib().not()) {
             runOnUiThread {
-                detail.text = GlobalValues.netPrompt
+                detail.text = GlobalValues.ssoPrompt
             }
             return
         }

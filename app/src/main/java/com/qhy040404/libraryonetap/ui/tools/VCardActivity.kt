@@ -97,9 +97,10 @@ class VCardActivity : BaseActivity<ActivityVcardBinding>() {
             return
         }
 
-        val openid = try {
+        val openid =
             openidOrigin.substringBetween("<input id=\"openid\" value=\"", "\" type=\"hidden\">")
-        } catch (_: Exception) {
+
+        if (openid.contains("统一身份")) {
             withContext(Dispatchers.Main)
             {
                 MaterialAlertDialogBuilder(this@VCardActivity)

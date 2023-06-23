@@ -49,11 +49,15 @@ object URLManager {
     const val VOLTIME_POST_URL = "https://www.dutbit.com/apivue/voltime/"
     const val VOLTIME_LATEST_URL = "https://www.dutbit.com/apivue/voltime/last-date"
 
+    const val EDU_TOP_DOMAIN = "http://jxgl.dlut.edu.cn"
     const val EDU_LOGIN_SSO_URL =
         "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2Fjxgl.dlut.edu.cn%2Fstudent%2Fucas-sso%2Flogin"
     const val EDU_CHECK_URL = "http://jxgl.dlut.edu.cn/student/ws/student/home-page/students"
     const val EDU_GRADE_INIT_URL = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
     const val EDU_COURSE_TABLE_URL = "http://jxgl.dlut.edu.cn/student/for-std/course-table"
+    const val EDU_EVALUATION_URL = "http://jxgl.dlut.edu.cn/student/for-std/evaluation/summative"
+    const val EDU_EVALUATION_TOKEN_URL =
+        "http://jxgl.dlut.edu.cn/evaluation-student-backend/api/v1/evaluation/token-check"
 
     const val WEBVPN_INIT_URL =
         "https://api.m.dlut.edu.cn/login?client_id=87b91a9e463df720&redirect_uri=http://webvpn.dlut.edu.cn/login?filter=app&response_type=code&state=11&scope=base_api"
@@ -61,6 +65,9 @@ object URLManager {
 
     fun getEduGradeUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/$stuId?semester="
+
+    fun getEduEvaluationTaskUrl(semesterId: Int) =
+        "http://jxgl.dlut.edu.cn/evaluation-student-backend/api/v1/student/summative-evaluation/task/semester/$semesterId"
 
     fun getEduExamsUrl(stuId: Int) =
         "http://jxgl.dlut.edu.cn/student/for-std/exam-arrange/info/$stuId"

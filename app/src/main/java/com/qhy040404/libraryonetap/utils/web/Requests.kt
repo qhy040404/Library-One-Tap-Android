@@ -11,14 +11,20 @@ import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
+import com.qhy040404.libraryonetap.utils.extensions.toJson
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import okhttp3.Cookie
+import okhttp3.Headers
+import okhttp3.Headers.Companion.toHeaders
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
@@ -40,6 +46,7 @@ object Requests {
 
     fun get(
         url: String,
+        headers: Headers = mapOf<String, String>().toHeaders(),
         getUrl: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
@@ -50,6 +57,11 @@ object Requests {
         GlobalValues.netPrompt = Constants.STRING_NULL
         val request = Request.Builder()
             .url(url)
+            .apply {
+                if (headers.size != 0) {
+                    headers(headers)
+                }
+            }
             .get()
             .build()
         try {
@@ -109,6 +121,7 @@ object Requests {
         url: String,
         form: String,
         mediaType: MediaType,
+        headers: Headers = mapOf<String, String>().toHeaders(),
         getUrl: Boolean = false,
     ): String {
         if (!AppUtils.hasNetwork()) {
@@ -120,6 +133,11 @@ object Requests {
         val body = form.toRequestBody(mediaType)
         val request = Request.Builder()
             .url(url)
+            .apply {
+                if (headers.size != 0) {
+                    headers(headers)
+                }
+            }
             .post(body)
             .build()
         try {
@@ -297,9 +315,31 @@ object Requests {
                 URLManager.EDU_CHECK_URL,
                 shouldHas = "person"
             ).also {
+                initEduEval()
                 eduInitialized = it
                 return it
             }
         }
+    }
+
+    private fun initEduEval() {
+        val initToken = get(URLManager.EDU_EVALUATION_URL).substringBetween("token=", "';")
+        val finalToken = post(
+            URLManager.EDU_EVALUATION_TOKEN_URL,
+            mapOf("token" to initToken).toJson()!!,
+            GlobalValues.ctJson
+        ).let {
+            JSONObject(it).optJSONObject("data")!!.optString("token")
+        }
+        val url = URLManager.EDU_TOP_DOMAIN.toHttpUrl()
+        CookieJarImpl.saveFromResponse(
+            url,
+            listOf(
+                Cookie.Builder().name("student_evaluation_login_way").value("SSO")
+                    .hostOnlyDomain(url.host).build(),
+                Cookie.Builder().name("student_evaluation_token").value(finalToken)
+                    .hostOnlyDomain(url.host).build()
+            )
+        )
     }
 }

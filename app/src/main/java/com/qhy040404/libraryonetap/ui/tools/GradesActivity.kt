@@ -27,10 +27,14 @@ import com.qhy040404.libraryonetap.utils.AppUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
+import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.saket.cascade.CascadePopupMenu
+import okhttp3.Headers.Companion.toHeaders
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import org.json.JSONObject
 import java.io.File
 
@@ -131,7 +135,27 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                                 }
                             }
                         }
-                    )
+                    ).apply {
+                        if (this.courses.isEmpty()) {
+                            delay(500)
+                            val evaluationTasks =
+                                Requests.get(
+                                    URLManager.getEduEvaluationTaskUrl(this.id),
+                                    mapOf(
+                                        "Authorization" to CookieJarImpl.loadForRequest(URLManager.EDU_TOP_DOMAIN.toHttpUrl())
+                                            .find { it.name == "student_evaluation_token" }?.value.orEmpty()
+                                    ).toHeaders()
+                                )
+                            val evalTasksObj = JSONObject(evaluationTasks).optJSONArray("data")!!
+                            for (k in 0 until evalTasksObj.length()) {
+                                val currentTask = evalTasksObj.optJSONObject(k)!!
+                                needsEvaluationTasks.add(
+                                    currentTask.optJSONObject("lesson")!!.optJSONObject("course")!!
+                                        .optString("nameZh"),
+                                )
+                            }
+                        }
+                    }
                 )
             }
             File(dataDir, Constants.LATEST_GRADE_ID).apply {
@@ -203,7 +227,16 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
             semesters.forEach { semester ->
                 add(Category(semester.name))
                 if (semester.courses.isEmpty()) {
-                    add(Card(R.string.gr_eval_first.getString()))
+                    if (semester.needsEvaluationTasks.isEmpty()) {
+                        add(Card(R.string.gr_empty.getString()))
+                    } else {
+                        add(
+                            Clickable(
+                                R.string.gr_eval_first.getString(),
+                                semester.needsEvaluationTasks.joinToString()
+                            )
+                        )
+                    }
                     return@forEach
                 }
                 semester.courses.forEach {

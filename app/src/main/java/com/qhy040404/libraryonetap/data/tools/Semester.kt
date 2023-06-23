@@ -4,4 +4,6 @@ data class Semester(
     val id: Int,
     val name: String,
     val courses: List<Grade>,
-)
+) {
+    var needsEvaluationTasks = mutableListOf<String>()
+}

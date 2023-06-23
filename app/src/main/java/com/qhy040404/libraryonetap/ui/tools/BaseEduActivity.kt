@@ -28,7 +28,7 @@ abstract class BaseEduActivity : SimplePageActivity() {
 
     fun initMinor() {
         if (GlobalValues.majorStuId == 0 || GlobalValues.minorStuId == 0) {
-            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, true)
+            val initUrl = Requests.get(URLManager.EDU_GRADE_INIT_URL, getUrl = true)
             val initData = Requests.get(URLManager.EDU_GRADE_INIT_URL)
 
             if (initUrl.contains("semester-index")) {

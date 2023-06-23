@@ -280,7 +280,7 @@ class SingleFragment : BaseFragment<FragmentSingleBinding>() {
                         URLManager.getSeatAvailableUrl(
                             TimeUtils.getToday("/", false),
                             roomCode
-                        )
+                        ),
                     )
                 )
                 val amList = availableMap.split(",")

@@ -1,6 +1,12 @@
 package com.qhy040404.libraryonetap.utils
 
-import okhttp3.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.MediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.ResponseBody
 import okio.Buffer
 import okio.BufferedSource
 import okio.ForwardingSource
@@ -15,12 +21,12 @@ import java.lang.ref.WeakReference
 object DownloadUtils {
     private val client by lazy {
         OkHttpClient.Builder()
-            .addInterceptor(Interceptor { chain ->
+            .addInterceptor { chain ->
                 val response = chain.proceed(chain.request())
                 response.newBuilder()
                     .body(ProgressResponseBody(response.body!!))
                     .build()
-            }).build()
+            }.build()
     }
     private const val GH_PROXY = "https://ghproxy.com/"
     private var onDownloadListener: WeakReference<OnDownloadListener>? = null

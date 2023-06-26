@@ -15,6 +15,7 @@ import com.qhy040404.libraryonetap.utils.extensions.toJson
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import com.qhy040404.libraryonetap.utils.lazy.resettableManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import okhttp3.Cookie
 import okhttp3.Headers
@@ -27,7 +28,6 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
-import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object Requests {
@@ -37,12 +37,11 @@ object Requests {
     val netLazyMgr = resettableManager()
     val client by resettableLazy(netLazyMgr) {
         OkHttpClient.Builder()
-            .connectTimeout(10, TimeUnit.SECONDS)
-            .readTimeout(15, TimeUnit.SECONDS)
-            .writeTimeout(15, TimeUnit.SECONDS)
             .cookieJar(CookieJarImpl)
             .build()
     }
+
+    private val EDU_HOST = URLManager.EDU_DOMAIN.toHttpUrl().host
 
     fun get(
         url: String,
@@ -66,6 +65,9 @@ object Requests {
             .build()
         try {
             runBlocking(Dispatchers.IO) {
+                if (url.contains(EDU_HOST)) {
+                    delay(200L)
+                }
                 client.newCall(request).execute()
             }.use { response ->
                 if (getUrl) {
@@ -142,6 +144,9 @@ object Requests {
             .build()
         try {
             runBlocking(Dispatchers.IO) {
+                if (url.contains(EDU_HOST)) {
+                    delay(200L)
+                }
                 client.newCall(request).execute()
             }.use { response ->
                 if (getUrl) {
@@ -315,7 +320,9 @@ object Requests {
                 URLManager.EDU_CHECK_URL,
                 shouldHas = "person"
             ).also {
-                initEduEval()
+                if (it) {
+                    initEduEval()
+                }
                 eduInitialized = it
                 return it
             }
@@ -331,7 +338,7 @@ object Requests {
         ).let {
             JSONObject(it).optJSONObject("data")!!.optString("token")
         }
-        val url = URLManager.EDU_TOP_DOMAIN.toHttpUrl()
+        val url = URLManager.EDU_DOMAIN.toHttpUrl()
         CookieJarImpl.saveFromResponse(
             url,
             listOf(

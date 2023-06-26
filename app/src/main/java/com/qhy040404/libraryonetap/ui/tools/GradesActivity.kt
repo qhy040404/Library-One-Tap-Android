@@ -142,7 +142,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                                 Requests.get(
                                     URLManager.getEduEvaluationTaskUrl(this.id),
                                     mapOf(
-                                        "Authorization" to CookieJarImpl.loadForRequest(URLManager.EDU_TOP_DOMAIN.toHttpUrl())
+                                        "Authorization" to CookieJarImpl.loadForRequest(URLManager.EDU_DOMAIN.toHttpUrl())
                                             .find { it.name == "student_evaluation_token" }?.value.orEmpty()
                                     ).toHeaders()
                                 )

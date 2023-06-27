@@ -57,8 +57,8 @@ object Requests {
         val request = Request.Builder()
             .url(url)
             .apply {
-                if (headers.size != 0) {
-                    headers(headers)
+                headers.forEach { (name, value) ->
+                    header(name, value)
                 }
             }
             .get()
@@ -136,8 +136,8 @@ object Requests {
         val request = Request.Builder()
             .url(url)
             .apply {
-                if (headers.size != 0) {
-                    headers(headers)
+                headers.forEach { (name, value) ->
+                    header(name, value)
                 }
             }
             .post(body)

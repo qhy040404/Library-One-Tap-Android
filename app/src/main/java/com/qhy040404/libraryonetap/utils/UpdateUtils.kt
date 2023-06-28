@@ -113,6 +113,7 @@ object UpdateUtils {
                 .split("\r\n")
 
         GlobalValues.newVersion = versionName
+        GlobalValues.newVersionLiveData.postValue(versionName)
 
         val dialogBody = buildSpannedString {
             inSpans(

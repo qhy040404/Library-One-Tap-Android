@@ -225,9 +225,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
-            if (GlobalValues.newVersion != null) {
-                summary =
-                    R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
+            GlobalValues.newVersionLiveData.observe(viewLifecycleOwner) {
+                if (it.isNullOrEmpty().not()) {
+                    summary =
+                        R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
+                }
             }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {

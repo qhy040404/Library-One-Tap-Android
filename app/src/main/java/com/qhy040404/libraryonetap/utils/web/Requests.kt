@@ -66,7 +66,7 @@ object Requests {
         try {
             runBlocking(Dispatchers.IO) {
                 if (url.contains(EDU_HOST)) {
-                    delay(200L)
+                    delay(500L)
                 }
                 client.newCall(request).execute()
             }.use { response ->
@@ -145,7 +145,7 @@ object Requests {
         try {
             runBlocking(Dispatchers.IO) {
                 if (url.contains(EDU_HOST)) {
-                    delay(200L)
+                    delay(500L)
                 }
                 client.newCall(request).execute()
             }.use { response ->

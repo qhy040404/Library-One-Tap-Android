@@ -137,13 +137,22 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                         }
                     ).apply {
                         if (this.courses.isEmpty()) {
-                            delay(500)
+                            if (!Requests.initEduEval()) {
+                                delay(500L)
+                                if (!Requests.initEduEval()) return@apply
+                            }
+                            delay(500L)
+
+                            val token =
+                                CookieJarImpl.loadForRequest(URLManager.EDU_DOMAIN.toHttpUrl())
+                                    .find { it.name == "student_evaluation_token" }?.value
+                            if (token.isNullOrEmpty()) return@apply
+
                             val evaluationTasks =
                                 Requests.get(
                                     URLManager.getEduEvaluationTaskUrl(this.id),
                                     mapOf(
-                                        "Authorization" to CookieJarImpl.loadForRequest(URLManager.EDU_DOMAIN.toHttpUrl())
-                                            .find { it.name == "student_evaluation_token" }?.value.orEmpty()
+                                        "Authorization" to token
                                     ).toHeaders()
                                 )
                             val evalTasksObj = JSONObject(evaluationTasks).optJSONArray("data")!!

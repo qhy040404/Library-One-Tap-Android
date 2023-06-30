@@ -320,16 +320,13 @@ object Requests {
                 URLManager.EDU_CHECK_URL,
                 shouldHas = "person"
             ).also {
-                if (it) {
-                    initEduEval()
-                }
                 eduInitialized = it
                 return it
             }
         }
     }
 
-    private fun initEduEval() {
+    fun initEduEval(): Boolean {
         val initToken = get(URLManager.EDU_EVALUATION_URL).substringBetween("token=", "';")
         val finalToken = post(
             URLManager.EDU_EVALUATION_TOKEN_URL,
@@ -348,5 +345,7 @@ object Requests {
                     .hostOnlyDomain(url.host).build()
             )
         )
+        return !CookieJarImpl.loadForRequest(url)
+            .find { it.name == "student_evaluation_token" }?.value.isNullOrEmpty()
     }
 }

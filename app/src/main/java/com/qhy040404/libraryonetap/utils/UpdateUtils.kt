@@ -110,7 +110,7 @@ object UpdateUtils {
         val packageUrl = latestClazz.assets[0].browser_download_url
         val changelog: List<String> =
             latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim()
-                .split("\r\n")
+                .split("\n")
 
         GlobalValues.newVersion = versionName
         GlobalValues.newVersionLiveData.postValue(versionName)

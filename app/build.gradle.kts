@@ -9,7 +9,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-val baseVersionName = "4.2.3"
+val baseVersionName = "4.2.4"
 val commitsCount by lazy { "git rev-list --count HEAD".exec().toInt() }
 
 android {

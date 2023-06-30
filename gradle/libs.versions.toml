@@ -49,7 +49,7 @@ coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2"
 kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.8.22"
 spongycastle = "com.madgag.spongycastle:prov:1.58.0.0"
 
-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.11"
+leakcanary = "com.squareup.leakcanary:leakcanary-android:2.12"
 junit = "junit:junit:4.13.2"
 
 [bundles]

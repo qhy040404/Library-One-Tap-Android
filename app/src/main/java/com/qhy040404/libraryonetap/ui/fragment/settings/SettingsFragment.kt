@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatDelegate
@@ -225,12 +226,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>(Constants.PREF_UPDATE)?.apply {
-            GlobalValues.newVersionLiveData.observe(viewLifecycleOwner) {
-                if (it.isNullOrEmpty().not()) {
-                    summary =
-                        R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
-                }
-            }
             setOnPreferenceClickListener {
                 lifecycleScope.launch(Dispatchers.IO) {
                     UpdateUtils.checkUpdate(requireContext(), true)
@@ -268,6 +263,23 @@ class SettingsFragment : PreferenceFragmentCompat() {
             setOnPreferenceClickListener {
                 startActivity(Intent(requireContext(), AboutActivity::class.java))
                 true
+            }
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        return super.onCreateView(inflater, container, savedInstanceState).also {
+            GlobalValues.newVersionLiveData.observe(viewLifecycleOwner) {
+                if (it.isNullOrEmpty().not()) {
+                    requireActivity().runOnUiThread {
+                        findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
+                            R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
+                    }
+                }
             }
         }
     }

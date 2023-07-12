@@ -35,6 +35,9 @@ on:
 env:
   BUGLY_APPID: ${{ secrets.BUGLY_APPID }}
 
+permissions:
+  contents: write
+
 jobs:
   validate-gradle-wrapper:
     name: Validate_Gradle_Wrapper
@@ -85,6 +88,29 @@ jobs:
 
       - name: Check (release)
         run: ./gradlew lintAnalyzeRelease --warning-mode all --scan
+  
+  submit_dep_gragh:
+    name: Submit dependency gragh
+    needs: check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+
+      - name: Set up java
+        uses: actions/setup-java@v3.11.0
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Gradle cache and set up
+        uses: gradle/gradle-build-action@v2.6.0
+        with:
+          dependency-graph: generate-and-submit
+      - run: ./gradlew build
 
   build_debug:
     name: Build_Debug

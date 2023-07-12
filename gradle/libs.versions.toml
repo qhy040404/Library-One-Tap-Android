@@ -1,7 +1,14 @@
 [versions]
+agp = "8.0.2"
+kotlin = "1.9.0"
 lifecycle = "2.6.1"
 navigation = "2.6.0"
 zh-appiconloader = "1.5.0"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [libraries]
 androidx-activity-ktx = "androidx.activity:activity-ktx:1.7.2"

@@ -5,8 +5,8 @@ import java.nio.charset.Charset
 import java.nio.file.Paths
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 val baseVersionName = "4.2.5"

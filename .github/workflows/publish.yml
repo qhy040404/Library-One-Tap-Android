@@ -81,7 +81,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
 
       - name: Check (debug)
         run: ./gradlew lintAnalyzeDebug --warning-mode all --scan
@@ -107,7 +107,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache and set up
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
         with:
           dependency-graph: generate-and-submit
       - run: ./gradlew build
@@ -131,7 +131,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
 
       - run: ./gradlew assembleDebug --scan
 
@@ -169,7 +169,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
 
       - run: ./gradlew testDebugUnitTest --warning-mode all
 
@@ -192,7 +192,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
 
       - run: ./gradlew assembleRelease --scan
 
@@ -245,7 +245,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.6.1
+        uses: gradle/gradle-build-action@v2.7.0
 
       - run: ./gradlew testReleaseUnitTest --warning-mode all
 

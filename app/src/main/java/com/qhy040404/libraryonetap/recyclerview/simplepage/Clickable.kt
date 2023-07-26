@@ -4,4 +4,5 @@ data class Clickable(
     val name: String,
     val desc: String,
     val url: String? = null,
+    val passed: Boolean = true,
 )

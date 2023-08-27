@@ -256,12 +256,11 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                         it.credit,
                         it.gp
                     )
-                    val passed = it.gp >= 1.0
                     add(
                         Clickable(
                             head,
                             desc,
-                            passed = passed
+                            passed = it.gp >= 1.0
                         )
                     )
                 }

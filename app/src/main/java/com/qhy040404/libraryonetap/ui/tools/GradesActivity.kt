@@ -256,7 +256,7 @@ class GradesActivity : BaseEduActivity(), MenuProvider {
                         it.credit,
                         it.gp
                     )
-                    val passed = it.grade.toInt() >= 60
+                    val passed = it.gp >= 1.0
                     add(
                         Clickable(
                             head,

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
-import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -56,9 +55,6 @@ abstract class SimplePageActivity : MaterialActivity() {
         recyclerView = findViewById(R.id.simple_list)
         applyEdgeToEdge()
         initializeView()
-        onBackPressedDispatcher.addCallback(this, true) {
-            finish()
-        }
         lifecycleScope.launch(Dispatchers.IO) {
             setData()
         }

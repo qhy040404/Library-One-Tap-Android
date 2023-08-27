@@ -116,7 +116,7 @@ tasks.matching {
             "build-tools/${project.android.buildToolsVersion}/aapt2"
         )
         val zip = Paths.get(
-            layout.buildDirectory.path,
+            layout.buildDirectory.toString(),
             "intermediates",
             "optimized_processed_res",
             "release",

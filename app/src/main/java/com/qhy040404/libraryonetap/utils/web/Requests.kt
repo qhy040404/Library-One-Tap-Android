@@ -54,7 +54,7 @@ object Requests {
             return Constants.NET_DISCONNECTED
         }
         GlobalValues.netPrompt = Constants.STRING_NULL
-        var request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .apply {
                 headers.forEach { (name, value) ->
@@ -66,7 +66,6 @@ object Requests {
         try {
             runBlocking(Dispatchers.IO) {
                 if (url.contains(EDU_HOST)) {
-                    request = request.newBuilder().addHeader("Connection", "close").build()
                     delay(500L)
                 }
                 client.newCall(request).execute()
@@ -134,7 +133,7 @@ object Requests {
         }
         GlobalValues.netPrompt = Constants.STRING_NULL
         val body = form.toRequestBody(mediaType)
-        var request = Request.Builder()
+        val request = Request.Builder()
             .url(url)
             .apply {
                 headers.forEach { (name, value) ->
@@ -146,7 +145,6 @@ object Requests {
         try {
             runBlocking(Dispatchers.IO) {
                 if (url.contains(EDU_HOST)) {
-                    request = request.newBuilder().addHeader("Connection", "close").build()
                     delay(500L)
                 }
                 client.newCall(request).execute()

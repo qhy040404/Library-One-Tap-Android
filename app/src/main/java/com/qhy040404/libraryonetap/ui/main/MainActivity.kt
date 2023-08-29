@@ -39,6 +39,7 @@ import com.qhy040404.libraryonetap.utils.SPUtils
 import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.setCurrentItem
+import com.qhy040404.libraryonetap.utils.migration.Migration
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -55,6 +56,8 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
         if (!GlobalValues.md3) {
             binding.toolbar.setTitleTextColor(getColor(R.color.white))
         }
+
+        Migration.checkAndMigrate()
 
         if (!Once.beenDone(Once.THIS_APP_VERSION, OnceTag.CLEAR_AFTER_UPDATE)) {
             if (!BuildConfig.DEBUG) {

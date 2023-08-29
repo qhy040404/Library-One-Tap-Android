@@ -108,6 +108,7 @@ dependencies {
 tasks.matching {
   it.name.contains("optimizeReleaseRes")
 }.configureEach {
+  notCompatibleWithConfigurationCache("optimizeReleaseRes tasks haven't support CC.")
   doLast {
     val aapt2 = File(
       androidComponents.sdkComponents.sdkDirectory.get().asFile,
@@ -125,7 +126,6 @@ tasks.matching {
       commandLine(
         aapt2, "optimize",
         "--collapse-resource-names",
-        "--resources-config-path", "aapt2-resources.cfg",
         "-o", optimized,
         zip
       )

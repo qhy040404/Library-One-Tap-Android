@@ -36,13 +36,13 @@ fun ByteArray.sha512() = HashUtils.sha512(this)
  * @return HexString of the ByteArray
  */
 fun ByteArray.toHex(): String {
-    return buildString {
-        this@toHex.forEach {
-            var hex = Integer.toHexString(it.toInt() and 0xFF)
-            if (hex.length == 1) {
-                hex = "0$hex"
-            }
-            append(hex.lowercase())
-        }
+  return buildString {
+    this@toHex.forEach {
+      var hex = Integer.toHexString(it.toInt() and 0xFF)
+      if (hex.length == 1) {
+        hex = "0$hex"
+      }
+      append(hex.lowercase())
     }
+  }
 }

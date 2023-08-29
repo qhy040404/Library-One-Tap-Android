@@ -11,31 +11,31 @@ import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.extensions.getColor
 
 class CategoryView(context: Context) : LinearLayout(context) {
-    val title = AppCompatTextView(context).apply {
-        layoutParams = LayoutParams(
-            0.dp,
-            LayoutParams.WRAP_CONTENT
-        ).apply {
-            setMargins(1.dp, marginTop, 1.dp, marginBottom)
-            weight = 1f
-        }
-        setPadding(
-            16.dp,
-            12.dp,
-            12.dp,
-            12.dp
-        )
-        setTextColor(R.color.simple_page_category_text_color.getColor(context))
+  val title = AppCompatTextView(context).apply {
+    layoutParams = LayoutParams(
+      0.dp,
+      LayoutParams.WRAP_CONTENT
+    ).apply {
+      setMargins(1.dp, marginTop, 1.dp, marginBottom)
+      weight = 1f
     }
+    setPadding(
+      16.dp,
+      12.dp,
+      12.dp,
+      12.dp
+    )
+    setTextColor(R.color.simple_page_category_text_color.getColor(context))
+  }
 
-    init {
-        layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        gravity = Gravity.CENTER_VERTICAL
-        orientation = HORIZONTAL
+  init {
+    layoutParams = LayoutParams(
+      LayoutParams.MATCH_PARENT,
+      LayoutParams.WRAP_CONTENT
+    )
+    gravity = Gravity.CENTER_VERTICAL
+    orientation = HORIZONTAL
 
-        addView(title)
-    }
+    addView(title)
+  }
 }

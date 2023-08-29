@@ -11,21 +11,20 @@ import androidx.browser.customtabs.CustomTabsIntent
  * @param context Context
  */
 fun Uri.start(
-    context: Context,
-    onFailure: () -> Unit = {
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            data = this@start
-        }
-        runCatching {
-            context.startActivity(intent)
-        }
-    },
-) {
-    runCatching {
-        CustomTabsIntent.Builder().build()
-            .launchUrl(context, this)
-    }.onFailure {
-        onFailure()
+  context: Context,
+  onFailure: () -> Unit = {
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+      data = this@start
     }
+    runCatching {
+      context.startActivity(intent)
+    }
+  }
+) {
+  runCatching {
+    CustomTabsIntent.Builder().build()
+      .launchUrl(context, this)
+  }.onFailure {
+    onFailure()
+  }
 }
-

@@ -9,7 +9,7 @@ import java.math.RoundingMode
  * @return Double with two decimal
  */
 fun Double.to2Decimal(): Double {
-    return runCatching {
-        BigDecimal.valueOf(this).setScale(2, RoundingMode.HALF_UP).toDouble()
-    }.getOrDefault(0.0)
+  return runCatching {
+    BigDecimal.valueOf(this).setScale(2, RoundingMode.HALF_UP).toDouble()
+  }.getOrDefault(0.0)
 }

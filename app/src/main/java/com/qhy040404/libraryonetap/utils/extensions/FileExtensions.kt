@@ -30,4 +30,3 @@ fun File.sha256() = HashUtils.sha256(this.readBytes())
  * @return SHA-512 hash of the File
  */
 fun File.sha512() = HashUtils.sha512(this.readBytes())
-

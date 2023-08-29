@@ -11,7 +11,7 @@ import com.qhy040404.libraryonetap.utils.MarkdownUtils
  * @return true if the data is OK to use. Not equals to ERROR
  */
 fun String.isValid(): Boolean {
-    return this != Constants.GLOBAL_ERROR && this != Constants.NET_TIMEOUT && this != Constants.NET_ERROR && this != Constants.NET_DISCONNECTED
+  return this != Constants.GLOBAL_ERROR && this != Constants.NET_TIMEOUT && this != Constants.NET_ERROR && this != Constants.NET_DISCONNECTED
 }
 
 /**
@@ -22,13 +22,13 @@ fun String.isValid(): Boolean {
  * @return true if they are same
  */
 fun String.isDuplicateGV(globalValue: String, isCustomTheme: Boolean = false): Boolean {
-    (this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == "").let {
-        return if (isCustomTheme) {
-            it && this != "random"
-        } else {
-            it
-        }
+  (this == globalValue || globalValue == Constants.GLOBAL_ERROR && this == "").let {
+    return if (isCustomTheme) {
+      it && this != "random"
+    } else {
+      it
     }
+  }
 }
 
 /**
@@ -39,11 +39,11 @@ fun String.isDuplicateGV(globalValue: String, isCustomTheme: Boolean = false): B
  * @return string with parentheses
  */
 fun String.addParentheses(size: Parentheses): String {
-    return when (size) {
-        Parentheses.SMALL -> "(${this.trim()})"
-        Parentheses.MEDIUM -> "[${this.trim()}]"
-        Parentheses.LARGE -> "{${this.trim()}}"
-    }
+  return when (size) {
+    Parentheses.SMALL -> "(${this.trim()})"
+    Parentheses.MEDIUM -> "[${this.trim()}]"
+    Parentheses.LARGE -> "{${this.trim()}}"
+  }
 }
 
 /**
@@ -56,21 +56,21 @@ fun String.addParentheses(size: Parentheses): String {
  * @return string
  */
 fun String.substringBetween(
-    frontDelimiter: String,
-    behindDelimiter: String,
-    includeDelimiter: Boolean = false,
-    reverse: Boolean = false,
+  frontDelimiter: String,
+  behindDelimiter: String,
+  includeDelimiter: Boolean = false,
+  reverse: Boolean = false
 ): String {
-    val subStr = if (!reverse) {
-        this.substringAfter(frontDelimiter).substringBefore(behindDelimiter)
-    } else {
-        this.substringBefore(behindDelimiter).substringAfter(frontDelimiter)
-    }
-    return if (includeDelimiter) {
-        frontDelimiter + subStr + behindDelimiter
-    } else {
-        subStr
-    }
+  val subStr = if (!reverse) {
+    this.substringAfter(frontDelimiter).substringBefore(behindDelimiter)
+  } else {
+    this.substringBefore(behindDelimiter).substringAfter(frontDelimiter)
+  }
+  return if (includeDelimiter) {
+    frontDelimiter + subStr + behindDelimiter
+  } else {
+    subStr
+  }
 }
 
 /**
@@ -79,7 +79,7 @@ fun String.substringBetween(
  * @param delimiter Delimiter
  */
 fun String.surroundingWith(delimiter: String): Boolean {
-    return this.startsWith(delimiter) && this.endsWith(delimiter)
+  return this.startsWith(delimiter) && this.endsWith(delimiter)
 }
 
 /**
@@ -89,7 +89,7 @@ fun String.surroundingWith(delimiter: String): Boolean {
  * @param suffix Suffix
  */
 fun String.surroundingWith(prefix: String, suffix: String): Boolean {
-    return this.startsWith(prefix) && this.endsWith(suffix)
+  return this.startsWith(prefix) && this.endsWith(suffix)
 }
 
 /**
@@ -98,14 +98,14 @@ fun String.surroundingWith(prefix: String, suffix: String): Boolean {
  * @param T Data class
  */
 inline fun <reified T> String.decode(): T? {
-    return runCatching {
-        moshi.adapter(T::class.java).fromJson(this.trim())
-    }.getOrNull()
+  return runCatching {
+    moshi.adapter(T::class.java).fromJson(this.trim())
+  }.getOrNull()
 }
 
 /**
  * Parse string as Markdown and export HTML
  */
 fun String.markdownToHtml(): String {
-    return MarkdownUtils.fromString(this)
+  return MarkdownUtils.fromString(this)
 }

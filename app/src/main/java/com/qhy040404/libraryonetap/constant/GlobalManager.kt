@@ -5,8 +5,8 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 object GlobalManager {
-    val lazyMgr = resettableManager()
-    val moshi: Moshi = Moshi.Builder()
-        .addLast(KotlinJsonAdapterFactory())
-        .build()
+  val lazyMgr = resettableManager()
+  val moshi: Moshi = Moshi.Builder()
+    .addLast(KotlinJsonAdapterFactory())
+    .build()
 }

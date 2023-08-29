@@ -1,5 +1,6 @@
 package com.qhy040404.libraryonetap.view
 
+import androidx.preference.EditTextPreference.SimpleSummaryProvider as sSP
 import android.content.Context
 import android.graphics.Typeface
 import android.text.InputType
@@ -9,62 +10,61 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import com.qhy040404.libraryonetap.utils.encrypt.DesEncryptUtils
 import com.takisoft.preferencex.EditTextPreference
-import androidx.preference.EditTextPreference.SimpleSummaryProvider as sSP
 
 @Suppress("unused")
 class PasswordPreference : EditTextPreference {
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
+  constructor(context: Context) : super(context)
+  constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+  constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+    context,
+    attrs,
+    defStyleAttr
+  )
 
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        @AttrRes defStyleAttr: Int,
-        @StyleRes defStyleRes: Int,
-    ) : super(context, attrs, defStyleAttr, defStyleRes)
+  constructor(
+    context: Context,
+    attrs: AttributeSet?,
+    @AttrRes defStyleAttr: Int,
+    @StyleRes defStyleRes: Int
+  ) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    init {
-        if (summaryProvider is sSP) {
-            summaryProvider = SimpleSummaryProvider
-        }
-        setOnBindEditTextListener { editText ->
-            editText.inputType =
-                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            editText.typeface = Typeface.DEFAULT
-            text?.let { editText.setSelection(it.length) }
-        }
+  init {
+    if (summaryProvider is sSP) {
+      summaryProvider = SimpleSummaryProvider
     }
-
-    override fun setText(text: String?) {
-        return if (text?.length!! > 16) {
-            super.setText(text)
-        } else {
-            super.setText(DesEncryptUtils.strEnc(text, "q", "h", "y"))
-        }
+    setOnBindEditTextListener { editText ->
+      editText.inputType =
+        InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+      editText.typeface = Typeface.DEFAULT
+      text?.let { editText.setSelection(it.length) }
     }
+  }
 
-    override fun getText(): String? {
-        val currentText = super.getText()
-        return if (currentText == null) {
-            null
-        } else {
-            DesEncryptUtils.strDec(currentText, "q", "h", "y")
-        }
+  override fun setText(text: String?) {
+    return if (text?.length!! > 16) {
+      super.setText(text)
+    } else {
+      super.setText(DesEncryptUtils.strEnc(text, "q", "h", "y"))
     }
+  }
 
-    object SimpleSummaryProvider : SummaryProvider<EditTextPreference> {
-        override fun provideSummary(preference: EditTextPreference): CharSequence? {
-            val text = preference.text
-            return if (!text.isNullOrEmpty()) {
-                PasswordTransformationMethod.getInstance().getTransformation(text, null)
-            } else {
-                sSP.getInstance().provideSummary(preference)
-            }
-        }
+  override fun getText(): String? {
+    val currentText = super.getText()
+    return if (currentText == null) {
+      null
+    } else {
+      DesEncryptUtils.strDec(currentText, "q", "h", "y")
     }
+  }
+
+  object SimpleSummaryProvider : SummaryProvider<EditTextPreference> {
+    override fun provideSummary(preference: EditTextPreference): CharSequence? {
+      val text = preference.text
+      return if (!text.isNullOrEmpty()) {
+        PasswordTransformationMethod.getInstance().getTransformation(text, null)
+      } else {
+        sSP.getInstance().provideSummary(preference)
+      }
+    }
+  }
 }

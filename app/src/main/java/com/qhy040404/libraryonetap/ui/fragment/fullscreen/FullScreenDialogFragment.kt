@@ -12,38 +12,38 @@ import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.view.FullScreenDialogView
 
 class FullScreenDialogFragment(private val message: String) : DialogFragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        LibraryOneTapApp.instance?.addFragment(this)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    LibraryOneTapApp.instance?.addFragment(this)
+  }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        return FullScreenDialogView(requireContext()).apply {
-            detail.text = message
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View {
+    dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    return FullScreenDialogView(requireContext()).apply {
+      detail.text = message
+    }
+  }
+
+  override fun onResume() {
+    super.onResume()
+    dialog?.apply {
+      run {
+        setCanceledOnTouchOutside(isCancelable)
+        setCancelable(isCancelable)
+      }
+      window?.run {
+        attributes = attributes?.apply {
+          width = ViewGroup.LayoutParams.MATCH_PARENT
+          height = ViewGroup.LayoutParams.MATCH_PARENT
+          gravity = Gravity.BOTTOM
         }
+      }
     }
+  }
 
-    override fun onResume() {
-        super.onResume()
-        dialog?.apply {
-            run {
-                setCanceledOnTouchOutside(isCancelable)
-                setCancelable(isCancelable)
-            }
-            window?.run {
-                attributes = attributes?.apply {
-                    width = ViewGroup.LayoutParams.MATCH_PARENT
-                    height = ViewGroup.LayoutParams.MATCH_PARENT
-                    gravity = Gravity.BOTTOM
-                }
-            }
-        }
-    }
-
-    override fun isCancelable() = false
+  override fun isCancelable() = false
 }

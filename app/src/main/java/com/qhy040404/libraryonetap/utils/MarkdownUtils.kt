@@ -5,9 +5,9 @@ import org.intellij.markdown.html.HtmlGenerator
 import org.intellij.markdown.parser.MarkdownParser
 
 object MarkdownUtils {
-    fun fromString(src: String): String {
-        val flavour = CommonMarkFlavourDescriptor()
-        val parsedTree = MarkdownParser(flavour).buildMarkdownTreeFromString(src)
-        return HtmlGenerator(src, parsedTree, flavour).generateHtml()
-    }
+  fun fromString(src: String): String {
+    val flavour = CommonMarkFlavourDescriptor()
+    val parsedTree = MarkdownParser(flavour).buildMarkdownTreeFromString(src)
+    return HtmlGenerator(src, parsedTree, flavour).generateHtml()
+  }
 }

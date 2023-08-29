@@ -29,6 +29,7 @@ import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.tools.GradesUtils
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
 import com.qhy040404.libraryonetap.utils.web.Requests
+import java.io.File
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,302 +37,302 @@ import me.saket.cascade.CascadePopupMenu
 import okhttp3.Headers.Companion.toHeaders
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import org.json.JSONObject
-import java.io.File
 
 class GradesActivity : BaseEduActivity(), MenuProvider {
-    private val semesters = mutableListOf<Semester>()
-    private var menu: Menu? = null
-    private var idPopup: CascadePopupMenu? = null
+  private val semesters = mutableListOf<Semester>()
+  private var menu: Menu? = null
+  private var idPopup: CascadePopupMenu? = null
 
-    override fun initializeViewPref() {
-        if (!GlobalValues.md3) {
-            setTheme(AppUtils.getThemeID(GlobalValues.theme))
-        }
+  override fun initializeViewPref() {
+    if (!GlobalValues.md3) {
+      setTheme(AppUtils.getThemeID(GlobalValues.theme))
+    }
+  }
+
+  override fun initializeView() {
+    LibraryOneTapApp.instance?.addActivity(this)
+
+    findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
+
+    if (!GlobalValues.md3) {
+      toolbar.setTitleTextColor(getColor(R.color.white))
+      supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
     }
 
-    override fun initializeView() {
-        LibraryOneTapApp.instance?.addActivity(this)
+    addMenuProvider(this)
+  }
 
-        findViewById<ProgressBar>(R.id.simple_progressbar).isVisible = true
-
-        if (!GlobalValues.md3) {
-            toolbar.setTitleTextColor(getColor(R.color.white))
-            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
-        }
-
-        addMenuProvider(this)
+  override suspend fun setData() {
+    if (!AppUtils.hasNetwork()) {
+      runOnUiThread {
+        MaterialAlertDialogBuilder(this@GradesActivity)
+          .setMessage(R.string.glb_net_disconnected)
+          .setTitle(R.string.grade_title)
+          .setPositiveButton(R.string.glb_ok) { _, _ ->
+            finish()
+          }
+          .setCancelable(true)
+          .create().also {
+            if (this@GradesActivity.currentVisible) {
+              it.show()
+            }
+          }
+      }
+      return
     }
 
-    override suspend fun setData() {
-        if (!AppUtils.hasNetwork()) {
-            runOnUiThread {
-                MaterialAlertDialogBuilder(this@GradesActivity)
-                    .setMessage(R.string.glb_net_disconnected)
-                    .setTitle(R.string.grade_title)
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(true)
-                    .create().also {
-                        if (this@GradesActivity.currentVisible) {
-                            it.show()
-                        }
-                    }
-            }
-            return
+    if (!Requests.initEdu()) {
+      runOnUiThread {
+        showInitFailedAlertDialog(R.string.grade_title)
+      }
+    } else {
+      initMinor()
+      if (GlobalValues.minorStuId > 0) {
+        runOnUiThread {
+          menu?.findItem(R.id.grade_id)?.isVisible = true
         }
+      }
+      analyzeGradesJson(GlobalValues.majorStuId)
+    }
+  }
 
-        if (!Requests.initEdu()) {
-            runOnUiThread {
-                showInitFailedAlertDialog(R.string.grade_title)
-            }
-        } else {
-            initMinor()
-            if (GlobalValues.minorStuId > 0) {
-                runOnUiThread {
-                    menu?.findItem(R.id.grade_id)?.isVisible = true
+  private fun analyzeGradesJson(stuId: Int) {
+    semesters.clear()
+    lifecycleScope.launch(Dispatchers.IO) {
+      val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
+
+      val gradesJsonObject = JSONObject(gradesData)
+      val semesterArray = gradesJsonObject.optJSONArray("semesters")!!
+      val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
+      val gradesIds = mutableListOf<Int>()
+      for (i in 0 until semesterArray.length()) {
+        val semesterId = semesterArray.optJSONObject(i).optInt("id")
+        semesters.add(
+          Semester(
+            semesterId,
+            semesterArray.optJSONObject(i).optString("name"),
+            grades.optJSONArray(semesterId.toString())!!.let { currentSemester ->
+              val count = currentSemester.length()
+              buildList {
+                for (j in 0 until count) {
+                  val currentCourse = currentSemester.optJSONObject(j)!!
+                  gradesIds.add(currentCourse.optInt("id"))
+                  add(
+                    Grade(
+                      currentCourse.optInt("id"),
+                      currentCourse.optJSONObject("course")!!
+                        .optString("nameZh"),
+                      currentCourse.optJSONObject("course")!!
+                        .optString("code"),
+                      currentCourse.optJSONObject("course")!!
+                        .optDouble("credits"),
+                      currentCourse.optString("gaGrade"),
+                      currentCourse.optDouble("gp"),
+                      currentCourse.optJSONObject("studyType")!!
+                        .optString("text")
+                    )
+                  )
                 }
+              }
             }
-            analyzeGradesJson(GlobalValues.majorStuId)
-        }
-    }
+          ).apply {
+            if (this.courses.isEmpty()) {
+              if (!Requests.initEduEval()) {
+                delay(500L)
+                if (!Requests.initEduEval()) return@apply
+              }
+              delay(500L)
 
-    private fun analyzeGradesJson(stuId: Int) {
-        semesters.clear()
-        lifecycleScope.launch(Dispatchers.IO) {
-            val gradesData = Requests.get(URLManager.getEduGradeUrl(stuId))
+              val token =
+                CookieJarImpl.loadForRequest(URLManager.EDU_DOMAIN.toHttpUrl())
+                  .find { it.name == "student_evaluation_token" }?.value
+              if (token.isNullOrEmpty()) return@apply
 
-            val gradesJsonObject = JSONObject(gradesData)
-            val semesterArray = gradesJsonObject.optJSONArray("semesters")!!
-            val grades = gradesJsonObject.optJSONObject("semesterId2studentGrades")!!
-            val gradesIds = mutableListOf<Int>()
-            for (i in 0 until semesterArray.length()) {
-                val semesterId = semesterArray.optJSONObject(i).optInt("id")
-                semesters.add(
-                    Semester(
-                        semesterId,
-                        semesterArray.optJSONObject(i).optString("name"),
-                        grades.optJSONArray(semesterId.toString())!!.let { currentSemester ->
-                            val count = currentSemester.length()
-                            buildList {
-                                for (j in 0 until count) {
-                                    val currentCourse = currentSemester.optJSONObject(j)!!
-                                    gradesIds.add(currentCourse.optInt("id"))
-                                    add(
-                                        Grade(
-                                            currentCourse.optInt("id"),
-                                            currentCourse.optJSONObject("course")!!
-                                                .optString("nameZh"),
-                                            currentCourse.optJSONObject("course")!!
-                                                .optString("code"),
-                                            currentCourse.optJSONObject("course")!!
-                                                .optDouble("credits"),
-                                            currentCourse.optString("gaGrade"),
-                                            currentCourse.optDouble("gp"),
-                                            currentCourse.optJSONObject("studyType")!!
-                                                .optString("text")
-                                        )
-                                    )
-                                }
-                            }
-                        }
-                    ).apply {
-                        if (this.courses.isEmpty()) {
-                            if (!Requests.initEduEval()) {
-                                delay(500L)
-                                if (!Requests.initEduEval()) return@apply
-                            }
-                            delay(500L)
-
-                            val token =
-                                CookieJarImpl.loadForRequest(URLManager.EDU_DOMAIN.toHttpUrl())
-                                    .find { it.name == "student_evaluation_token" }?.value
-                            if (token.isNullOrEmpty()) return@apply
-
-                            val evaluationTasks =
-                                Requests.get(
-                                    URLManager.getEduEvaluationTaskUrl(this.id),
-                                    mapOf(
-                                        "Authorization" to token
-                                    ).toHeaders()
-                                )
-                            val evalTasksObj = JSONObject(evaluationTasks).optJSONArray("data")!!
-                            for (k in 0 until evalTasksObj.length()) {
-                                val currentTask = evalTasksObj.optJSONObject(k)!!
-                                needsEvaluationTasks.add(
-                                    currentTask.optJSONObject("lesson")!!.optJSONObject("course")!!
-                                        .optString("nameZh"),
-                                )
-                            }
-                        }
-                    }
+              val evaluationTasks =
+                Requests.get(
+                  URLManager.getEduEvaluationTaskUrl(this.id),
+                  mapOf(
+                    "Authorization" to token
+                  ).toHeaders()
                 )
-            }
-            File(dataDir, Constants.LATEST_GRADE_ID).apply {
-                if (exists().not()) {
-                    createNewFile()
-                    writeText(gradesIds.max().toString())
-                } else {
-                    val latestId = readText().toInt()
-                    val newGrades = buildList {
-                        semesters.forEach { semester ->
-                            addAll(semester.courses.filter { it.id > latestId })
-                        }
-                    }
-                    if (newGrades.isNotEmpty()) {
-                        semesters.add(
-                            Semester(
-                                Int.MAX_VALUE,
-                                "新成绩",
-                                newGrades
-                            )
-                        )
-                        delete()
-                        createNewFile()
-                        writeText(newGrades.maxOf { it.id }.toString())
-                    }
-                }
-            }
-            semesters.sortByDescending { it.id }
-            syncRecycleView()
-        }
-    }
-
-    override fun onItemsCreated(items: MutableList<Any>) {
-        super.onItemsCreated(items)
-        items.apply {
-            if (semesters.isEmpty()) {
-                add(
-                    Card(
-                        R.string.gr_empty.getString()
-                    )
+              val evalTasksObj = JSONObject(evaluationTasks).optJSONArray("data")!!
+              for (k in 0 until evalTasksObj.length()) {
+                val currentTask = evalTasksObj.optJSONObject(k)!!
+                needsEvaluationTasks.add(
+                  currentTask.optJSONObject("lesson")!!.optJSONObject("course")!!
+                    .optString("nameZh")
                 )
-            } else {
-                add(
-                    Card(
-                        R.string.gr_stat.getStringAndFormat(
-                            semesters.first { it.id != Int.MAX_VALUE }.courses.sumOf { it.credit },
-                            GradesUtils.calculateWeightedAverage(
-                                buildList {
-                                    semesters.forEach {
-                                        if (it.id != Int.MAX_VALUE) {
-                                            addAll(it.courses)
-                                        }
-                                    }
-                                }
-                            ),
-                            GradesUtils.calculateAverageGP(
-                                this@GradesActivity,
-                                buildList {
-                                    semesters.forEach {
-                                        if (it.id != Int.MAX_VALUE) {
-                                            addAll(it.courses)
-                                        }
-                                    }
-                                }
-                            )
-                        )
-                    ))
+              }
             }
-            semesters.forEach { semester ->
-                add(Category(semester.name))
-                if (semester.courses.isEmpty()) {
-                    if (semester.needsEvaluationTasks.isEmpty()) {
-                        add(Card(R.string.gr_empty.getString()))
-                    } else {
-                        add(
-                            Clickable(
-                                R.string.gr_eval_first.getString(),
-                                semester.needsEvaluationTasks.joinToString()
-                            )
-                        )
-                    }
-                    return@forEach
-                }
-                semester.courses.forEach {
-                    val head = "${it.name} : ${it.type}"
-                    val desc = R.string.gr_template.getStringAndFormat(
-                        it.code,
-                        it.grade,
-                        it.credit,
-                        it.gp
-                    )
-                    add(
-                        Clickable(
-                            head,
-                            desc,
-                            passed = it.gp >= 1.0
-                        )
-                    )
-                }
-            }
-        }
-    }
-
-    @SuppressLint("SourceLockedOrientationActivity")
-    override fun onResume() {
-        super.onResume()
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        currentVisible = true
-    }
-
-    override fun onPause() {
-        super.onPause()
-        currentVisible = false
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        LibraryOneTapApp.instance?.removeActivity(this)
-    }
-
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.grade_menu, menu)
-        this.menu = menu
-        if (GlobalValues.minorStuId > 0) {
-            menu.findItem(R.id.grade_id)?.isVisible = true
-        }
-    }
-
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        when (menuItem.itemId) {
-            R.id.grade_id -> {
-                initIdMenu()
-                idPopup?.show()
-            }
-        }
-        return true
-    }
-
-    private fun initIdMenu() {
-        val color = this.getColorByAttr(com.google.android.material.R.attr.colorSurface)
-        val styler = CascadePopupMenu.Styler(
-            background = {
-                PaintDrawable(color).apply {
-                    setCornerRadius(6.dp.toFloat())
-                }
-            }
+          }
         )
-        idPopup = CascadePopupMenu(
-            this,
-            findViewById(R.id.grade_id),
-            defStyleAttr = R.style.Widget_PopupMenu,
-            styler = styler
-        ).apply {
-            menu.also {
-                it.add(R.string.gr_major).apply {
-                    setOnMenuItemClickListener {
-                        analyzeGradesJson(GlobalValues.majorStuId)
-                        true
-                    }
-                }
-                it.add(R.string.gr_minor).apply {
-                    setOnMenuItemClickListener {
-                        analyzeGradesJson(GlobalValues.minorStuId)
-                        true
-                    }
-                }
+      }
+      File(dataDir, Constants.LATEST_GRADE_ID).apply {
+        if (exists().not()) {
+          createNewFile()
+          writeText(gradesIds.max().toString())
+        } else {
+          val latestId = readText().toInt()
+          val newGrades = buildList {
+            semesters.forEach { semester ->
+              addAll(semester.courses.filter { it.id > latestId })
             }
+          }
+          if (newGrades.isNotEmpty()) {
+            semesters.add(
+              Semester(
+                Int.MAX_VALUE,
+                "新成绩",
+                newGrades
+              )
+            )
+            delete()
+            createNewFile()
+            writeText(newGrades.maxOf { it.id }.toString())
+          }
         }
+      }
+      semesters.sortByDescending { it.id }
+      syncRecycleView()
     }
+  }
+
+  override fun onItemsCreated(items: MutableList<Any>) {
+    super.onItemsCreated(items)
+    items.apply {
+      if (semesters.isEmpty()) {
+        add(
+          Card(
+            R.string.gr_empty.getString()
+          )
+        )
+      } else {
+        add(
+          Card(
+            R.string.gr_stat.getStringAndFormat(
+              semesters.first { it.id != Int.MAX_VALUE }.courses.sumOf { it.credit },
+              GradesUtils.calculateWeightedAverage(
+                buildList {
+                  semesters.forEach {
+                    if (it.id != Int.MAX_VALUE) {
+                      addAll(it.courses)
+                    }
+                  }
+                }
+              ),
+              GradesUtils.calculateAverageGP(
+                this@GradesActivity,
+                buildList {
+                  semesters.forEach {
+                    if (it.id != Int.MAX_VALUE) {
+                      addAll(it.courses)
+                    }
+                  }
+                }
+              )
+            )
+          )
+        )
+      }
+      semesters.forEach { semester ->
+        add(Category(semester.name))
+        if (semester.courses.isEmpty()) {
+          if (semester.needsEvaluationTasks.isEmpty()) {
+            add(Card(R.string.gr_empty.getString()))
+          } else {
+            add(
+              Clickable(
+                R.string.gr_eval_first.getString(),
+                semester.needsEvaluationTasks.joinToString()
+              )
+            )
+          }
+          return@forEach
+        }
+        semester.courses.forEach {
+          val head = "${it.name} : ${it.type}"
+          val desc = R.string.gr_template.getStringAndFormat(
+            it.code,
+            it.grade,
+            it.credit,
+            it.gp
+          )
+          add(
+            Clickable(
+              head,
+              desc,
+              passed = it.gp >= 1.0
+            )
+          )
+        }
+      }
+    }
+  }
+
+  @SuppressLint("SourceLockedOrientationActivity")
+  override fun onResume() {
+    super.onResume()
+    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    currentVisible = true
+  }
+
+  override fun onPause() {
+    super.onPause()
+    currentVisible = false
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    LibraryOneTapApp.instance?.removeActivity(this)
+  }
+
+  override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+    menuInflater.inflate(R.menu.grade_menu, menu)
+    this.menu = menu
+    if (GlobalValues.minorStuId > 0) {
+      menu.findItem(R.id.grade_id)?.isVisible = true
+    }
+  }
+
+  override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+    when (menuItem.itemId) {
+      R.id.grade_id -> {
+        initIdMenu()
+        idPopup?.show()
+      }
+    }
+    return true
+  }
+
+  private fun initIdMenu() {
+    val color = this.getColorByAttr(com.google.android.material.R.attr.colorSurface)
+    val styler = CascadePopupMenu.Styler(
+      background = {
+        PaintDrawable(color).apply {
+          setCornerRadius(6.dp.toFloat())
+        }
+      }
+    )
+    idPopup = CascadePopupMenu(
+      this,
+      findViewById(R.id.grade_id),
+      defStyleAttr = R.style.Widget_PopupMenu,
+      styler = styler
+    ).apply {
+      menu.also {
+        it.add(R.string.gr_major).apply {
+          setOnMenuItemClickListener {
+            analyzeGradesJson(GlobalValues.majorStuId)
+            true
+          }
+        }
+        it.add(R.string.gr_minor).apply {
+          setOnMenuItemClickListener {
+            analyzeGradesJson(GlobalValues.minorStuId)
+            true
+          }
+        }
+      }
+    }
+  }
 }

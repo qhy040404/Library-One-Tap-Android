@@ -23,181 +23,181 @@ import com.qhy040404.libraryonetap.utils.extensions.isValid
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
 import com.qhy040404.libraryonetap.utils.extensions.toJson
 import com.qhy040404.libraryonetap.utils.web.Requests
+import kotlin.concurrent.thread
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
-import kotlin.concurrent.thread
 
 @Suppress("SpellCheckingInspection")
 class VCardActivity : BaseActivity<ActivityVcardBinding>() {
-    private var isActivityVisible = false
+  private var isActivityVisible = false
 
-    override fun init() {
-        setSupportActionBar(binding.toolbar)
-        (binding.root as ViewGroup).bringChildToFront(binding.appbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.title = getString(R.string.vcard_title)
-        if (!GlobalValues.md3) {
-            binding.toolbar.setTitleTextColor(getColor(R.color.white))
-            supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
-        }
-        isActivityVisible = true
-
-        binding.vcardBalance.isVisible = true
-        lifecycleScope.launch(Dispatchers.IO) {
-            vCard()
-        }
+  override fun init() {
+    setSupportActionBar(binding.toolbar)
+    (binding.root as ViewGroup).bringChildToFront(binding.appbar)
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    binding.toolbar.title = getString(R.string.vcard_title)
+    if (!GlobalValues.md3) {
+      binding.toolbar.setTitleTextColor(getColor(R.color.white))
+      supportActionBar?.setHomeAsUpIndicator(R.drawable.white_back_btn)
     }
+    isActivityVisible = true
 
-    override fun onResume() {
-        super.onResume()
-        isActivityVisible = true
+    binding.vcardBalance.isVisible = true
+    lifecycleScope.launch(Dispatchers.IO) {
+      vCard()
     }
+  }
 
-    override fun onStop() {
-        super.onStop()
-        isActivityVisible = false
-    }
+  override fun onResume() {
+    super.onResume()
+    isActivityVisible = true
+  }
 
-    private suspend fun vCard() {
-        val qrView = binding.vcardQr
-        val balance = binding.vcardBalance
-        val refresh = binding.vcardRefresh
-        val loading = binding.vcardLoading
+  override fun onStop() {
+    super.onStop()
+    isActivityVisible = false
+  }
 
-        val id = GlobalValues.id
-        val passwd = GlobalValues.passwd
+  private suspend fun vCard() {
+    val qrView = binding.vcardQr
+    val balance = binding.vcardBalance
+    val refresh = binding.vcardRefresh
+    val loading = binding.vcardLoading
 
-        @Suppress("SpellCheckingInspection")
-        val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
-        Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
+    val id = GlobalValues.id
+    val passwd = GlobalValues.passwd
 
-        val openidOrigin = Requests.getVCard(URLManager.VCARD_OPENID_URL)
-        if (!openidOrigin.isValid()) {
-            withContext(Dispatchers.Main)
-            {
-                MaterialAlertDialogBuilder(this@VCardActivity)
-                    .setTitle(R.string.vcard_title)
-                    .setMessage(
-                        when (openidOrigin) {
-                            Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
-                            Constants.NET_ERROR -> R.string.glb_net_error
-                            Constants.NET_TIMEOUT -> R.string.glb_net_timeout
-                            else -> R.string.glb_unknown_error
-                        }
-                    )
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(false)
-                    .create()
-                    .show()
+    @Suppress("SpellCheckingInspection")
+    val apiPostData = "schoolcode=dlut&username=$id&password=$passwd&ssokey="
+    Requests.postVCard(URLManager.VCARD_API_URL, apiPostData, GlobalValues.ctVCard)
+
+    val openidOrigin = Requests.getVCard(URLManager.VCARD_OPENID_URL)
+    if (!openidOrigin.isValid()) {
+      withContext(Dispatchers.Main) {
+        MaterialAlertDialogBuilder(this@VCardActivity)
+          .setTitle(R.string.vcard_title)
+          .setMessage(
+            when (openidOrigin) {
+              Constants.NET_DISCONNECTED -> R.string.glb_net_disconnected
+              Constants.NET_ERROR -> R.string.glb_net_error
+              Constants.NET_TIMEOUT -> R.string.glb_net_timeout
+              else -> R.string.glb_unknown_error
             }
-            return
-        }
+          )
+          .setPositiveButton(R.string.glb_ok) { _, _ ->
+            finish()
+          }
+          .setCancelable(false)
+          .create()
+          .show()
+      }
+      return
+    }
 
-        val openid =
-            openidOrigin.substringBetween("<input id=\"openid\" value=\"", "\" type=\"hidden\">")
+    val openid =
+      openidOrigin.substringBetween("<input id=\"openid\" value=\"", "\" type=\"hidden\">")
 
-        if (openid.contains("统一身份")) {
-            withContext(Dispatchers.Main)
-            {
-                MaterialAlertDialogBuilder(this@VCardActivity)
-                    .setTitle(R.string.vcard_title)
-                    .setMessage(R.string.glb_fail_to_login_no_retry)
-                    .setPositiveButton(R.string.glb_ok) { _, _ ->
-                        finish()
-                    }
-                    .setCancelable(false)
-                    .create()
-                    .show()
-            }
-            return
-        }
+    if (openid.contains("统一身份")) {
+      withContext(Dispatchers.Main) {
+        MaterialAlertDialogBuilder(this@VCardActivity)
+          .setTitle(R.string.vcard_title)
+          .setMessage(R.string.glb_fail_to_login_no_retry)
+          .setPositiveButton(R.string.glb_ok) { _, _ ->
+            finish()
+          }
+          .setCancelable(false)
+          .create()
+          .show()
+      }
+      return
+    }
 
-        var payCode = ""
+    var payCode = ""
+    updateCode(openid).let {
+      runOnUiThread {
+        loading.isVisible = false
+        qrView.load(QRUtils.toGrayscale(it.second))
+        balance.text = it.first
+        payCode = it.third
+      }
+    }
+    runOnUiThread {
+      refresh.setOnClickListener {
+        StrictMode.setThreadPolicy(
+          StrictMode.ThreadPolicy.Builder().permitAll().build()
+        )
+
         updateCode(openid).let {
-            runOnUiThread {
-                loading.isVisible = false
-                qrView.load(QRUtils.toGrayscale(it.second))
-                balance.text = it.first
-                payCode = it.third
-            }
+          qrView.load(QRUtils.toGrayscale(it.second))
+          balance.text = it.first
+          payCode = it.third
         }
-        runOnUiThread {
-            refresh.setOnClickListener {
-                StrictMode.setThreadPolicy(
-                    StrictMode.ThreadPolicy.Builder().permitAll().build()
+      }
+    }
+    thread {
+      StrictMode.setThreadPolicy(
+        StrictMode.ThreadPolicy.Builder().permitAll().build()
+      )
+      while (isActivityVisible) {
+        Thread.sleep(3000L)
+        val targetUrl = URLManager.getVCardCheckUrl(openid)
+        val params = mapOf(
+          "paycode" to payCode,
+          "openid" to openid
+        ).toJson()!!
+
+        val key = AesEncryptUtils.VCard.genKey(16)
+        val encryptedParams = mapOf(
+          "datajson" to (
+            AesEncryptUtils.VCard.handleKey(
+              key,
+              true
+            ) + AesEncryptUtils.VCard.encrypt(
+              params,
+              key
+            )
+            ).replace("\n", "")
+        ).toJson()!!
+
+        Requests.postVCard(targetUrl, encryptedParams, GlobalValues.ctJson)
+          .let { response ->
+            JSONObject(response).optString("datajson").let { data ->
+              AesEncryptUtils.VCard.decrypt(
+                data.substring(16),
+                AesEncryptUtils.VCard.handleKey(
+                  data.substring(0, 16),
+                  false
                 )
-
-                updateCode(openid).let {
-                    qrView.load(QRUtils.toGrayscale(it.second))
-                    balance.text = it.first
-                    payCode = it.third
+              ).decode<VCardStatusDTO>()?.let { result ->
+                if (result.resultData.status != "5" && isActivityVisible) {
+                  runOnUiThread {
+                    refresh.performClick()
+                  }
                 }
+              }
             }
-        }
-        thread {
-            StrictMode.setThreadPolicy(
-                StrictMode.ThreadPolicy.Builder().permitAll().build()
-            )
-            while (isActivityVisible) {
-                Thread.sleep(3000L)
-                val targetUrl = URLManager.getVCardCheckUrl(openid)
-                val params = mapOf(
-                    "paycode" to payCode,
-                    "openid" to openid
-                ).toJson()!!
+          }
+      }
+    }
+  }
 
-                val key = AesEncryptUtils.VCard.genKey(16)
-                val encryptedParams = mapOf(
-                    "datajson" to (AesEncryptUtils.VCard.handleKey(
-                        key,
-                        true
-                    ) + AesEncryptUtils.VCard.encrypt(
-                        params,
-                        key
-                    )).replace("\n", "")
-                ).toJson()!!
-
-                Requests.postVCard(targetUrl, encryptedParams, GlobalValues.ctJson)
-                    .let { response ->
-                        JSONObject(response).optString("datajson").let { data ->
-                            AesEncryptUtils.VCard.decrypt(
-                                data.substring(16),
-                                AesEncryptUtils.VCard.handleKey(
-                                    data.substring(0, 16),
-                                    false
-                                )
-                            ).decode<VCardStatusDTO>()?.let { result ->
-                                if (result.resultData.status != "5" && isActivityVisible) {
-                                    runOnUiThread {
-                                        refresh.performClick()
-                                    }
-                                }
-                            }
-                        }
-                    }
-            }
-        }
+  private fun updateCode(openid: String): Triple<String, Bitmap, String> {
+    val payData = Requests.getVCard(URLManager.getVCardQRUrl(openid)).let {
+      Triple(
+        it.substringBetween("<p class=\"bdb\">", "</p>"),
+        it.substringBetween(
+          "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
+          "\">"
+        ),
+        it.substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
+      )
     }
 
-    private fun updateCode(openid: String): Triple<String, Bitmap, String> {
-        val payData = Requests.getVCard(URLManager.getVCardQRUrl(openid)).let {
-            Triple(
-                it.substringBetween("<p class=\"bdb\">", "</p>"),
-                it.substringBetween(
-                    "<img id=\"qrcode\" onclick=\"refreshPaycode();\" src=\"data:image/png;base64,",
-                    "\">"
-                ),
-                it.substringBetween("<input id=\"code\" value=\"", "\" type=\"hidden\">")
-            )
-        }
-
-        val bitmap = Base64.decode(payData.second, Base64.DEFAULT).let {
-            BitmapFactory.decodeByteArray(it, 0, it.size)
-        }
-        return Triple(payData.first, bitmap, payData.third)
+    val bitmap = Base64.decode(payData.second, Base64.DEFAULT).let {
+      BitmapFactory.decodeByteArray(it, 0, it.size)
     }
+    return Triple(payData.first, bitmap, payData.third)
+  }
 }

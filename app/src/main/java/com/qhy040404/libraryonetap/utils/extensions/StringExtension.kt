@@ -1,5 +1,7 @@
 package com.qhy040404.libraryonetap.utils.extensions
 
+import android.text.Spanned
+import androidx.core.text.parseAsHtml
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.enums.Parentheses
@@ -104,8 +106,8 @@ inline fun <reified T> String.decode(): T? {
 }
 
 /**
- * Parse string as Markdown and export HTML
+ * Parse string as Markdown and export Spanned
  */
-fun String.markdownToHtml(): String {
-  return MarkdownUtils.fromString(this)
+fun String.markdownToSpanned(): Spanned {
+  return MarkdownUtils.fromString(this).parseAsHtml()
 }

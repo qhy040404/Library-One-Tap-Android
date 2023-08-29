@@ -15,7 +15,7 @@ import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.decode
 import com.qhy040404.libraryonetap.utils.extensions.getString
-import com.qhy040404.libraryonetap.utils.extensions.markdownToHtml
+import com.qhy040404.libraryonetap.utils.extensions.markdownToSpanned
 import com.qhy040404.libraryonetap.utils.extensions.sha512
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
@@ -107,7 +107,7 @@ object UpdateUtils {
     withContext(Dispatchers.Main) {
       MaterialAlertDialogBuilder(context)
         .setTitle(R.string.upd_detected)
-        .setMessage(changelog.markdownToHtml())
+        .setMessage(changelog.markdownToSpanned())
         .setPositiveButton(R.string.upd_confirm) { _, _ ->
           val validation = validateFile.readText().substringBefore("Library").trim()
           File(context.cacheDir, packageName).let {

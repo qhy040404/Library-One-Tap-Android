@@ -35,7 +35,7 @@ import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.getDimen
 import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.isDuplicateGV
-import com.qhy040404.libraryonetap.utils.extensions.markdownToHtml
+import com.qhy040404.libraryonetap.utils.extensions.markdownToSpanned
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.start
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -240,7 +240,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         isVisible = false
       }
       setOnPreferenceClickListener {
-        val body = file.readText().markdownToHtml()
+        val body = file.readText().markdownToSpanned()
         MaterialAlertDialogBuilder(requireContext())
           .setTitle(R.string.upd_latest_changelog)
           .setMessage(body)

@@ -83,17 +83,14 @@ jobs:
       - name: Gradle cache
         uses: gradle/gradle-build-action@v2.7.1
 
-      - name: Check (debug)
-        run: ./gradlew lintAnalyzeDebug --warning-mode all --scan
+      - name: Check
+        run: ./gradlew lintKotlinMain --warning-mode all
 
-      - name: Check (release)
-        run: ./gradlew lintAnalyzeRelease --warning-mode all --scan
-  
   submit_dep_gragh:
     name: Submit dependency gragh
     needs: check
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3.6.0
@@ -110,7 +107,7 @@ jobs:
         uses: gradle/gradle-build-action@v2.7.1
         with:
           dependency-graph: generate-and-submit
-      - run: ./gradlew build
+      - run: ./gradlew assembleRelease
 
   build_debug:
     name: Build_Debug
@@ -133,7 +130,7 @@ jobs:
       - name: Gradle cache
         uses: gradle/gradle-build-action@v2.7.1
 
-      - run: ./gradlew assembleDebug --scan
+      - run: ./gradlew assembleDebug
 
       - name: Sign apk release
         id: signStep
@@ -194,7 +191,7 @@ jobs:
       - name: Gradle cache
         uses: gradle/gradle-build-action@v2.7.1
 
-      - run: ./gradlew assembleRelease --scan
+      - run: ./gradlew assembleRelease
 
       - name: Upload mapping to Bugly
         uses: qhy040404/Bugly-mapping-upload@v1.0.1

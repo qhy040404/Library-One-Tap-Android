@@ -3,6 +3,7 @@ package com.qhy040404.libraryonetap.utils.extensions
 import com.qhy040404.libraryonetap.constant.Constants
 import com.qhy040404.libraryonetap.constant.GlobalManager.moshi
 import com.qhy040404.libraryonetap.constant.enums.Parentheses
+import com.qhy040404.libraryonetap.utils.MarkdownUtils
 
 /**
  * Check if a string is equals to ERROR message
@@ -102,3 +103,9 @@ inline fun <reified T> String.decode(): T? {
     }.getOrNull()
 }
 
+/**
+ * Parse string as Markdown and export HTML
+ */
+fun String.markdownToHtml(): String {
+    return MarkdownUtils.fromString(this)
+}

@@ -2,17 +2,9 @@ package com.qhy040404.libraryonetap.utils
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.StrictMode
-import android.text.Spannable
-import android.text.style.ForegroundColorSpan
-import android.text.style.RelativeSizeSpan
-import android.text.style.StyleSpan
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
-import androidx.core.text.buildSpannedString
-import androidx.core.text.inSpans
-import androidx.core.text.toHtml
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
@@ -22,12 +14,11 @@ import com.qhy040404.libraryonetap.constant.OnceTag
 import com.qhy040404.libraryonetap.constant.URLManager
 import com.qhy040404.libraryonetap.data.GithubAPIDTO
 import com.qhy040404.libraryonetap.utils.extensions.decode
-import com.qhy040404.libraryonetap.utils.extensions.getColor
 import com.qhy040404.libraryonetap.utils.extensions.getString
+import com.qhy040404.libraryonetap.utils.extensions.markdownToHtml
 import com.qhy040404.libraryonetap.utils.extensions.sha512
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.substringBetween
-import com.qhy040404.libraryonetap.utils.extensions.surroundingWith
 import com.qhy040404.libraryonetap.utils.web.Requests
 import jonathanfinerty.once.Once
 import kotlinx.coroutines.Dispatchers
@@ -108,78 +99,15 @@ object UpdateUtils {
         val versionName = latestClazz.name
         val packageName = latestClazz.assets[0].name
         val packageUrl = latestClazz.assets[0].browser_download_url
-        val changelog: List<String> =
-            latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim()
-                .split("\n")
+        val changelog = latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim()
 
         GlobalValues.newVersion = versionName
         GlobalValues.newVersionLiveData.postValue(versionName)
 
-        val dialogBody = buildSpannedString {
-            inSpans(
-                RelativeSizeSpan(1.4F),
-                StyleSpan(Typeface.BOLD)
-            ) {
-                append(versionName)
-            }
-            appendLine()
-            appendLine()
-            changelog.forEach {
-                val str = it.trim()
-                if (str.isNotEmpty()) {
-                    append('\t')
-                    if (str.startsWith("* ")) {
-                        append(
-                            str.substring(2)
-                        )
-                    } else {
-                        append(
-                            buildSpannedString {
-                                var mStr = str
-                                val spans = mutableListOf<Any>()
-                                if (mStr.startsWith("> ")) {
-                                    spans.add(
-                                        ForegroundColorSpan(
-                                            R.color.material_grey_500.getColor(
-                                                context
-                                            )
-                                        )
-                                    )
-                                    mStr = mStr.substring(2)
-                                }
-                                while (mStr.surroundingWith("_") || mStr.surroundingWith("**")) {
-                                    if (mStr.surroundingWith("_")) {
-                                        spans.add(StyleSpan(Typeface.ITALIC))
-                                        mStr = mStr.removeSurrounding("_")
-                                    }
-                                    if (mStr.surroundingWith("**")) {
-                                        spans.add(StyleSpan(Typeface.BOLD))
-                                        mStr = mStr.removeSurrounding("**")
-                                    }
-                                }
-                                append("$mStr\n")
-                                spans.forEach { span ->
-                                    setSpan(
-                                        span,
-                                        0,
-                                        mStr.length,
-                                        Spannable.SPAN_INCLUSIVE_EXCLUSIVE
-                                    )
-                                }
-                            }
-                        )
-                    }
-                    if (it != changelog.last()) {
-                        appendLine()
-                    }
-                }
-            }
-        }
-
         withContext(Dispatchers.Main) {
             MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.upd_detected)
-                .setMessage(dialogBody)
+                .setMessage(changelog.markdownToHtml())
                 .setPositiveButton(R.string.upd_confirm) { _, _ ->
                     val validation = validateFile.readText().substringBefore("Library").trim()
                     File(context.cacheDir, packageName).let {
@@ -214,7 +142,7 @@ object UpdateUtils {
                                             delete()
                                         }
                                         createNewFile()
-                                        writeText(dialogBody.toHtml())
+                                        writeText(changelog)
                                     }
                                     installApk(context, packageName)
                                 }

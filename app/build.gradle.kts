@@ -101,6 +101,7 @@ dependencies {
     implementation(libs.coroutines)
     implementation(libs.kt.reflect)
     implementation(libs.spongycastle)
+    implementation(libs.markdown)
 
     debugImplementation(libs.leakcanary)
 

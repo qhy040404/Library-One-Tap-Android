@@ -11,7 +11,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.getSystemService
 import androidx.core.net.toUri
-import androidx.core.text.parseAsHtml
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
@@ -36,6 +35,7 @@ import com.qhy040404.libraryonetap.utils.UpdateUtils
 import com.qhy040404.libraryonetap.utils.extensions.getDimen
 import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.extensions.isDuplicateGV
+import com.qhy040404.libraryonetap.utils.extensions.markdownToHtml
 import com.qhy040404.libraryonetap.utils.extensions.showToast
 import com.qhy040404.libraryonetap.utils.extensions.start
 import com.qhy040404.libraryonetap.utils.web.CookieJarImpl
@@ -240,10 +240,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 isVisible = false
             }
             setOnPreferenceClickListener {
-                val body = file.readText()
+                val body = file.readText().markdownToHtml()
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle(R.string.upd_latest_changelog)
-                    .setMessage(body.parseAsHtml())
+                    .setMessage(body)
                     .setPositiveButton(R.string.glb_ok, null)
                     .setCancelable(true)
                     .create().show()

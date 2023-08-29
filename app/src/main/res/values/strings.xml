@@ -7,7 +7,6 @@
   <string name="vcard_title">Virtual Yulan card</string>
   <string name="net_title">Remain Campus Network</string>
   <string name="electric_title">Remain Electric Charge</string>
-  <string name="bath_title">Bathhouse Reservation</string>
   <string name="about_title">About</string>
   <string name="volunteer_title">Volunteer hours</string>
   <string name="grade_title">Grades</string>
@@ -51,18 +50,10 @@
   <string name="df_server_unavailable">Server not available</string>
 
   <!-- TOOLS -->
-  <string name="tl_bath">Reserve Bathroom NOW</string>
   <string name="tl_cernet">Remaining campus network</string>
   <string name="tl_electric">Remaining electric charge</string>
   <string name="tl_vcard">Virtual Yulan card</string>
   <string name="tl_volunteer">Total Volunteer Hours</string>
-
-  <!-- BATH RESERVE -->
-  <string name="br_bath_reserve">Reserve bathroom right now</string>
-  <string name="br_request_sent">Appointment request has been sent</string>
-
-  <string name="br_permission_prompt">We need this permission to get SSID of WIFI, so as to detect whether it is in the campus network environment</string>
-  <string name="br_permission_fail">Failed to obtain permission, please go to settings to enable it manually</string>
 
   <!-- GRADES -->
   <string name="gr_id">Roll</string>

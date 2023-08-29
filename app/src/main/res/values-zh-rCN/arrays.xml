@@ -32,15 +32,6 @@
     <item>English</item>
   </string-array>
 
-  <!-- BATH RESERVE -->
-  <string-array name="bath_array">
-    <item>西山1楼</item>
-    <item>西山2楼</item>
-    <item>西山3楼</item>
-    <item>北山男</item>
-    <item>北山女</item>
-  </string-array>
-
   <!-- DETAIL FRAGMENT -->
   <string-array name="area_array">
     <item>令希</item>

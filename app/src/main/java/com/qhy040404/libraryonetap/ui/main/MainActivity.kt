@@ -1,13 +1,9 @@
 package com.qhy040404.libraryonetap.ui.main
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.provider.Settings
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.edit
-import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -31,7 +27,6 @@ import com.qhy040404.libraryonetap.ui.fragment.library.YanxiujianFragment
 import com.qhy040404.libraryonetap.ui.fragment.settings.SettingsFragment
 import com.qhy040404.libraryonetap.ui.fragment.tools.ToolsInitFragment
 import com.qhy040404.libraryonetap.ui.interfaces.IAppBarContainer
-import com.qhy040404.libraryonetap.ui.tools.BathReserveActivity
 import com.qhy040404.libraryonetap.ui.tools.ExamsActivity
 import com.qhy040404.libraryonetap.ui.tools.VCardActivity
 import com.qhy040404.libraryonetap.utils.CacheUtils
@@ -192,27 +187,6 @@ class MainActivity : BaseActivity<ActivityMainBottomBinding>(),
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         LibraryOneTapApp.instance?.dismissFragment()
-        if (requestCode == 100) {
-            for (i in permissions.indices) {
-                when (permissions[i]) {
-                    Manifest.permission.ACCESS_FINE_LOCATION -> if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        startActivity(Intent(this, BathReserveActivity::class.java))
-                    } else {
-                        MaterialAlertDialogBuilder(this)
-                            .setMessage(R.string.br_permission_fail)
-                            .setTitle(R.string.glb_error)
-                            .setPositiveButton(R.string.glb_ok) { _, _ ->
-                                startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                    data = "package:$packageName".toUri()
-                                })
-                            }
-                            .setCancelable(false)
-                            .create()
-                            .show()
-                    }
-                }
-            }
-        }
     }
 
     private fun showWelcomeDialog() {

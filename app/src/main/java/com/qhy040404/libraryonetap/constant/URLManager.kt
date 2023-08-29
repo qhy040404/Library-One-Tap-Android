@@ -34,14 +34,6 @@ object URLManager {
     const val PORTAL_ELEC_URL = "https://portal.dlut.edu.cn/tp/up/subgroup/getElectricCharge"
     const val PORTAL_NET_URL = "https://portal.dlut.edu.cn/tp/up/subgroup/getWlzzList"
 
-    const val BATH_SSO_URL =
-        "https://sso.dlut.edu.cn/cas/login?service=http%3A%2F%2F202.118.74.5%3A8193%2FopenHomeRJPage"
-    const val BATH_DIRECT_URL = "http://202.118.74.5:8193/openHomeRJPage"
-    const val BATH_SAVE_CART_URL = "http://202.118.74.5:8193/goods/saveGoodsShopcar"
-    const val BATH_UPDATE_CART_URL = "http://202.118.74.5:8193/goods/updateGoodsShopcar"
-    const val BATH_MAIN_FUNC_URL = "http://202.118.74.5:8193/goods/queryNoChoiceTimeInfo"
-    const val BATH_PAY_URL = "http://202.118.74.5:8193/payAdvanceOrder"
-
     const val VCARD_API_URL =
         "https://api.m.dlut.edu.cn/login?redirect_uri=https://card.m.dlut.edu.cn/homerj/openHomePage&response_type=code&scope=base_api&state=weishao"
     const val VCARD_OPENID_URL = "https://card.m.dlut.edu.cn/homerj/openRjOAuthPage"

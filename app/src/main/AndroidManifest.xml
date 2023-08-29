@@ -42,10 +42,6 @@
         android:resource="@xml/shortcuts" />
     </activity>
     <activity
-      android:name=".ui.tools.BathReserveActivity"
-      android:exported="false"
-      android:label="@string/bath_title" />
-    <activity
       android:name=".ui.tools.GradesActivity"
       android:exported="false"
       android:label="@string/grade_title" />

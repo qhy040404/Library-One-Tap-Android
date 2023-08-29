@@ -32,15 +32,6 @@
     <item>English</item>
   </string-array>
 
-  <!-- BATH RESERVE ACTIVITY -->
-  <string-array name="bath_array">
-    <item>West 1F</item>
-    <item>West 2F</item>
-    <item>West 3F</item>
-    <item>North Male</item>
-    <item>North Female</item>
-  </string-array>
-
   <!-- DETAIL FRAGMENT -->
   <string-array name="area_array">
     <item>Lingxi</item>

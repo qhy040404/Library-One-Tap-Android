@@ -1,10 +1,5 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
   <Preference
-    app:icon="@drawable/ic_bath"
-    app:key="bath"
-    app:title="@string/tl_bath" />
-
-  <Preference
     app:icon="@drawable/ic_language"
     app:key="net"
     app:title="@string/tl_cernet" />

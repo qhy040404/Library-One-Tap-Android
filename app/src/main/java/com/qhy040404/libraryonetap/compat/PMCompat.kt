@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import com.qhy040404.libraryonetap.LibraryOneTapApp
 import com.qhy040404.libraryonetap.utils.OsUtils
 
-@Suppress("DEPRECATION")
 /**
  * Modified Package Manager implementations
  */

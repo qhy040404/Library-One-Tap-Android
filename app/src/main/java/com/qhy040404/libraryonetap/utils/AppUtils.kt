@@ -58,10 +58,6 @@ object AppUtils {
         }
     }
 
-    fun isError(vararg a: String): Boolean {
-        return a.contains(Constants.GLOBAL_ERROR)
-    }
-
     fun hasNetwork(): Boolean {
         return NetworkStateUtils.checkNetworkType() != Constants.GLOBAL_ERROR
     }

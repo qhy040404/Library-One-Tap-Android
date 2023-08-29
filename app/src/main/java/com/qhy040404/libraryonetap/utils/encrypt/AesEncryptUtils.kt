@@ -12,7 +12,7 @@ import javax.crypto.spec.SecretKeySpec
 object AesEncryptUtils {
     private const val cipherMode = "AES/CFB/NoPadding"
 
-    fun encrypt(text: String, key: String, iv: String): String {
+    private fun encrypt(text: String, key: String, iv: String): String {
         val sKeySpec = SecretKeySpec(key.toByteArray(), "AES")
         val cipher = Cipher.getInstance(cipherMode)
         cipher.init(Cipher.ENCRYPT_MODE, sKeySpec, IvParameterSpec(iv.toByteArray()))

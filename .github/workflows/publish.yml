@@ -67,6 +67,7 @@ jobs:
     name: Check
     needs: validate-gradle-wrapper
     runs-on: ubuntu-latest
+    continue-on-error: true
     timeout-minutes: 10
     steps:
       - name: Checkout

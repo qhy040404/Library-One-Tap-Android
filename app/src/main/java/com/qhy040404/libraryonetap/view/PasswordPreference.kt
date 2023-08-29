@@ -1,6 +1,5 @@
 package com.qhy040404.libraryonetap.view
 
-import androidx.preference.EditTextPreference.SimpleSummaryProvider as sSP
 import android.content.Context
 import android.graphics.Typeface
 import android.text.InputType
@@ -29,8 +28,8 @@ class PasswordPreference : EditTextPreference {
   ) : super(context, attrs, defStyleAttr, defStyleRes)
 
   init {
-    if (summaryProvider is sSP) {
-      summaryProvider = SimpleSummaryProvider
+    if (summaryProvider is SimpleSummaryProvider) {
+      summaryProvider = PasswordSummaryProvider
     }
     setOnBindEditTextListener { editText ->
       editText.inputType =
@@ -57,13 +56,13 @@ class PasswordPreference : EditTextPreference {
     }
   }
 
-  object SimpleSummaryProvider : SummaryProvider<EditTextPreference> {
+  object PasswordSummaryProvider : SummaryProvider<EditTextPreference> {
     override fun provideSummary(preference: EditTextPreference): CharSequence? {
       val text = preference.text
       return if (!text.isNullOrEmpty()) {
         PasswordTransformationMethod.getInstance().getTransformation(text, null)
       } else {
-        sSP.getInstance().provideSummary(preference)
+        SimpleSummaryProvider.getInstance().provideSummary(preference)
       }
     }
   }

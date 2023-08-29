@@ -177,15 +177,13 @@ object UpdateUtils {
       0
     } else {
       buildList {
-        (
+        str.apply {
           if (fromPackage) {
-            str.substringBetween("_v", "-release")
-          } else {
-            str
+            substringBetween("_v", "-release")
           }
-          ).split(".").forEach {
-            add(it.formatVersion())
-          }
+        }.split(".").forEach {
+          add(it.formatVersion())
+        }
       }.joinToString("").toInt()
     }
   }

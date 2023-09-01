@@ -10,6 +10,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }
+resopt = { id = "com.qhy04.gradle.android.res_opt", version = "1.0.2" }
 
 [libraries]
 androidx-activity-ktx = "androidx.activity:activity-ktx:1.7.2"
@@ -63,31 +64,31 @@ junit = "junit:junit:4.13.2"
 
 [bundles]
 androidX = [
-    "androidx-activity-ktx",
-    "androidx-annotation",
-    "androidx-browser",
-    "androidx-collection-ktx",
-    "androidx-constraintlayout",
-    "androidx-core-ktx",
-    "androidx-core-splashscreen",
-    "androidx-fragment-ktx",
-    "androidx-lifecycle-livedata",
-    "androidx-lifecycle-process",
-    "androidx-lifecycle-runtime-ktx",
-    "androidx-lifecycle-service",
-    "androidx-navi-fragment-ktx",
-    "androidx-navi-ui-ktx",
-    "androidx-preference-ktx",
-    "androidx-rv",
-    "androidx-transition",
-    "androidx-viewpaper2"
+  "androidx-activity-ktx",
+  "androidx-annotation",
+  "androidx-browser",
+  "androidx-collection-ktx",
+  "androidx-constraintlayout",
+  "androidx-core-ktx",
+  "androidx-core-splashscreen",
+  "androidx-fragment-ktx",
+  "androidx-lifecycle-livedata",
+  "androidx-lifecycle-process",
+  "androidx-lifecycle-runtime-ktx",
+  "androidx-lifecycle-service",
+  "androidx-navi-fragment-ktx",
+  "androidx-navi-ui-ktx",
+  "androidx-preference-ktx",
+  "androidx-rv",
+  "androidx-transition",
+  "androidx-viewpaper2"
 ]
 rikkax = [
-    "rikka-appcompat",
-    "rikka-material",
-    "rikka-material-pref",
-    "rikka-simplemenu-pref",
-    "rikka-rv-ktx",
-    "rikka-borderview"
+  "rikka-appcompat",
+  "rikka-material",
+  "rikka-material-pref",
+  "rikka-simplemenu-pref",
+  "rikka-rv-ktx",
+  "rikka-borderview"
 ]
 

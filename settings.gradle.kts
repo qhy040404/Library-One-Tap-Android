@@ -1,15 +1,15 @@
 @file:Suppress("UnstableApiUsage")
 
 pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+  }
 }
 
 plugins {
-    id("com.gradle.enterprise") version "3.14.1"
+  id("com.gradle.enterprise") version "3.14.1"
 }
 
 dependencyResolutionManagement {

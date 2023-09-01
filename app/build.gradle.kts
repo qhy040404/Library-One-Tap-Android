@@ -1,9 +1,9 @@
 import java.net.InetAddress
-import java.nio.file.Paths
 
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.resopt)
 }
 
 val baseVersionName = "4.2.7"
@@ -103,39 +103,6 @@ dependencies {
   debugImplementation(libs.leakcanary)
 
   testImplementation(libs.junit)
-}
-
-tasks.matching {
-  it.name.contains("optimizeReleaseRes")
-}.configureEach {
-  notCompatibleWithConfigurationCache("optimizeReleaseRes tasks haven't support CC.")
-  doLast {
-    val aapt2 = File(
-      androidComponents.sdkComponents.sdkDirectory.get().asFile,
-      "build-tools/${project.android.buildToolsVersion}/aapt2"
-    )
-    val zip = Paths.get(
-      layout.buildDirectory.get().toString(),
-      "intermediates",
-      "optimized_processed_res",
-      "release",
-      "resources-release-optimize.ap_"
-    )
-    val optimized = File("$zip.opt")
-    val cmd = exec {
-      commandLine(
-        aapt2, "optimize",
-        "--collapse-resource-names",
-        "-o", optimized,
-        zip
-      )
-      isIgnoreExitValue = false
-    }
-    if (cmd.exitValue == 0) {
-      delete(zip)
-      optimized.renameTo(zip.toFile())
-    }
-  }
 }
 
 fun getBuglyAppID(isBuildConfig: Boolean): String {

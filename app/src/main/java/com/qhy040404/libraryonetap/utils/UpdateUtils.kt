@@ -217,7 +217,7 @@ object UpdateUtils {
     return when (this.length) {
       1 -> "0$this"
       2 -> this
-      else -> throw IllegalArgumentException("Illegal version")
+      else -> throw IllegalArgumentException("Illegal version for length ${this.length}")
     }
   }
 }

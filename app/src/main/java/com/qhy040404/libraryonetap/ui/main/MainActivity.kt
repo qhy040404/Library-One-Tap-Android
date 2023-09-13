@@ -59,21 +59,23 @@ class MainActivity :
       if (!BuildConfig.DEBUG) {
         CacheUtils.trimCaches()
       }
-      if (
-        UpdateUtils.getVersionCode(
-          GlobalValues.latestApkName, true
-        ) <= UpdateUtils.getVersionCode(
-          BuildConfig.VERSION_NAME, false
-        )
-      ) {
-        SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
-        val file = File(dataDir, Constants.CHANGELOG_INACTIVE)
-        if (file.exists()) {
-          val newFile = File(dataDir, Constants.CHANGELOG_ACTIVE)
-          if (newFile.exists()) {
-            newFile.delete()
+      runCatching {
+        if (
+          UpdateUtils.getVersionCode(
+            GlobalValues.latestApkName, true
+          ) <= UpdateUtils.getVersionCode(
+            BuildConfig.VERSION_NAME, false
+          )
+        ) {
+          SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }
+          val file = File(dataDir, Constants.CHANGELOG_INACTIVE)
+          if (file.exists()) {
+            val newFile = File(dataDir, Constants.CHANGELOG_ACTIVE)
+            if (newFile.exists()) {
+              newFile.delete()
+            }
+            file.renameTo(newFile)
           }
-          file.renameTo(newFile)
         }
       }
       Once.markDone(OnceTag.CLEAR_AFTER_UPDATE)

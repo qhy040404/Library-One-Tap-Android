@@ -195,7 +195,7 @@ jobs:
       - run: ./gradlew assembleRelease
 
       - name: Upload mapping to Bugly
-        uses: qhy040404/Bugly-mapping-upload@v1.0.1
+        uses: qhy040404/Bugly-mapping-upload@v1.0.2
         with:
           appid: ${{ secrets.BUGLY_APPID }}
           appkey: ${{ secrets.BUGLY_APPKEY }}

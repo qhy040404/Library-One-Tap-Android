@@ -6,7 +6,7 @@ plugins {
   alias(libs.plugins.resopt)
 }
 
-val baseVersionName = "4.2.7"
+val baseVersionName = "4.2.8"
 val commitsCount by lazy { "git rev-list --count HEAD".exec().toInt() }
 
 android {

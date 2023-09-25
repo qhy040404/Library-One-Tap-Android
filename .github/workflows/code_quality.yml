@@ -43,7 +43,7 @@ jobs:
         continue-on-error: true
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v2.8.0
+        uses: gradle/gradle-build-action@v2.8.1
 
       - run: ./gradlew build
 

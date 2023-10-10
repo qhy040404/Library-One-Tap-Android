@@ -1,7 +1,7 @@
 package com.qhy040404.libraryonetap.constant.enums
 
 enum class OrderModes {
-  YANXIUJIAN, 
+  YANXIUJIAN,
   DETAIL;
 
   override fun toString(): String {

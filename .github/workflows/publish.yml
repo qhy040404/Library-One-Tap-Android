@@ -50,7 +50,7 @@ jobs:
           fetch-depth: 0
 
       - name: Skip duplicate actions
-        uses: fkirc/skip-duplicate-actions@v5.3.0
+        uses: fkirc/skip-duplicate-actions@v5.3.1
         with:
           cancel_others: true
 

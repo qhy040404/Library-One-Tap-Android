@@ -55,7 +55,7 @@ cascade = "me.saket.cascade:cascade:2.3.0"
 appiconloader-base = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "zh-appiconloader" }
 appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader-coil", version.ref = "zh-appiconloader" }
 coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
-kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
+kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.9.20"
 spongycastle = "com.madgag.spongycastle:prov:1.58.0.0"
 markdown = "org.jetbrains:markdown:0.5.2"
 

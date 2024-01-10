@@ -260,7 +260,7 @@ jobs:
           fetch-depth: 0
 
       - name: Download signed release apk
-        uses: actions/download-artifact@v4.1.0
+        uses: actions/download-artifact@v4.1.1
         with:
           name: signed_release_apk
           path: upload
@@ -342,7 +342,7 @@ jobs:
           fetch-depth: 0
 
       - name: Download signed release apk
-        uses: actions/download-artifact@v4.1.0
+        uses: actions/download-artifact@v4.1.1
         with:
           name: signed_release_apk
           path: upload

@@ -62,9 +62,11 @@ class MainActivity :
       runCatching {
         if (
           UpdateUtils.getVersionCode(
-            GlobalValues.latestApkName, true
+            GlobalValues.latestApkName,
+						true
           ) <= UpdateUtils.getVersionCode(
-            BuildConfig.VERSION_NAME, false
+            BuildConfig.VERSION_NAME,
+						false
           )
         ) {
           SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }

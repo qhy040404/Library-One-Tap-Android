@@ -63,10 +63,10 @@ class MainActivity :
         if (
           UpdateUtils.getVersionCode(
             GlobalValues.latestApkName,
-						true
+            true
           ) <= UpdateUtils.getVersionCode(
             BuildConfig.VERSION_NAME,
-						false
+            false
           )
         ) {
           SPUtils.sp.edit { remove(Constants.LATEST_APK_NAME) }

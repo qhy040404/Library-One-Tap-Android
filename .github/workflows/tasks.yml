@@ -29,6 +29,6 @@ jobs:
         uses: gradle/wrapper-validation-action@v1.1.0
 
       - name: Gradle cache
-        uses: gradle/gradle-build-action@v3.0.0
+        uses: gradle/actions/setup-gradle@v3
 
       - run: ./gradlew ${{ inputs.task }}

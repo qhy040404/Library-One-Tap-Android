@@ -273,36 +273,19 @@ jobs:
           fore-delimiter: ${{ github.ref_name }}
           back-delimiter: '---'
 
-      - name: Create GitHub release
+      - name: Create Github release
         id: github_release
-        uses: actions/create-release@v1.1.4
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: v${{ github.ref }}
+          name: v${{ github.ref }}
           body_path: .github/RELEASE_TEMPLATE.md
           prerelease: true
-
-      - name: Upload apk to Github release
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
-        with:
-          upload_url: ${{ steps.github_release.outputs.upload_url }}
-          asset_path: upload/Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
-          asset_name: Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
-          asset_content_type: application/vnd.android.package-archive
-
-      - name: Upload SHA512SUMS to GitHub release
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
-        with:
-          upload_url: ${{ steps.github_release.outputs.upload_url }}
-          asset_path: upload/SHA512SUMS
-          asset_name: SHA512SUMS
-          asset_content_type: text/plain
+          files: |
+            upload/Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
+            upload/SHA512SUMS
 
   release:
     name: Release
@@ -352,31 +335,14 @@ jobs:
 
       - name: Create Github release
         id: github_release
-        uses: actions/create-release@v1.1.4
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: v${{ github.ref }}
+          name: v${{ github.ref }}
           body_path: .github/RELEASE_TEMPLATE.md
           prerelease: false
-
-      - name: Upload apk to Github release
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
-        with:
-          upload_url: ${{ steps.github_release.outputs.upload_url }}
-          asset_path: upload/Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
-          asset_name: Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
-          asset_content_type: application/vnd.android.package-archive
-
-      - name: Upload SHA512SUMS to GitHub release
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.QHYBOT_RELEASE_TOKEN }}
-        with:
-          upload_url: ${{ steps.github_release.outputs.upload_url }}
-          asset_path: upload/SHA512SUMS
-          asset_name: SHA512SUMS
-          asset_content_type: text/plain
+          files: |
+            upload/Library-One-Tap_v${{ github.ref_name }}-release-signed.apk
+            upload/SHA512SUMS

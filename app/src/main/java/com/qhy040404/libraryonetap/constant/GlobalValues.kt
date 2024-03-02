@@ -1,7 +1,6 @@
 package com.qhy040404.libraryonetap.constant
 
 import androidx.core.content.edit
-import androidx.lifecycle.MutableLiveData
 import com.qhy040404.libraryonetap.BuildConfig
 import com.qhy040404.libraryonetap.R
 import com.qhy040404.libraryonetap.utils.PackageUtils
@@ -12,6 +11,7 @@ import com.qhy040404.libraryonetap.utils.extensions.getString
 import com.qhy040404.libraryonetap.utils.extensions.getStringAndFormat
 import com.qhy040404.libraryonetap.utils.lazy.resettableLazy
 import java.util.Locale
+import kotlinx.coroutines.flow.MutableStateFlow
 import okhttp3.MediaType.Companion.toMediaType
 
 object GlobalValues {
@@ -77,7 +77,7 @@ object GlobalValues {
     )
   }
   var newVersion: String? = null
-  var newVersionLiveData: MutableLiveData<String?> = MutableLiveData()
+  var newVersionStateFlow: MutableStateFlow<String?> = MutableStateFlow(null)
   var latestApkName: String by SPDelegates(Constants.LATEST_APK_NAME, "")
 
   // Edu

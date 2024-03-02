@@ -102,7 +102,7 @@ object UpdateUtils {
     val changelog = latestClazz.body.substringBetween("Changelog", "---", reverse = true).trim()
 
     GlobalValues.newVersion = versionName
-    GlobalValues.newVersionLiveData.postValue(versionName)
+    GlobalValues.newVersionStateFlow.emit(versionName)
 
     withContext(Dispatchers.Main) {
       MaterialAlertDialogBuilder(context)

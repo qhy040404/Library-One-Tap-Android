@@ -46,6 +46,8 @@ import java.util.Locale
 import jonathanfinerty.once.Once
 import kotlin.system.exitProcess
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import rikka.material.app.LocaleDelegate
@@ -273,14 +275,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
     savedInstanceState: Bundle?
   ): View {
     return super.onCreateView(inflater, container, savedInstanceState).also {
-      GlobalValues.newVersionLiveData.observe(viewLifecycleOwner) {
+      GlobalValues.newVersionStateFlow.onEach {
         if (it.isNullOrEmpty().not()) {
           requireActivity().runOnUiThread {
             findPreference<Preference>(Constants.PREF_UPDATE)?.summary =
               R.string.upd_available.getStringAndFormat(GlobalValues.newVersion)
           }
         }
-      }
+      }.launchIn(lifecycleScope)
     }
   }
 

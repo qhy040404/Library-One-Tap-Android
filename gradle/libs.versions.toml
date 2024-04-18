@@ -13,7 +13,7 @@ kotlinter = { id = "org.jmailen.kotlinter", version = "4.3.0" }
 resopt = { id = "com.qhy04.gradle.android.res_opt", version = "1.0.3" }
 
 [libraries]
-androidx-activity-ktx = "androidx.activity:activity-ktx:1.8.2"
+androidx-activity-ktx = "androidx.activity:activity-ktx:1.9.0"
 androidx-annotation = "androidx.annotation:annotation:1.7.1"
 androidx-browser = "androidx.browser:browser:1.8.0"
 androidx-collection-ktx = "androidx.collection:collection-ktx:1.4.0"

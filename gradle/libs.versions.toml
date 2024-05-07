@@ -1,6 +1,6 @@
 [versions]
 agp = "8.4.0"
-kotlin = "1.9.23"
+kotlin = "1.9.24"
 lifecycle = "2.7.0"
 navigation = "2.7.7"
 zh-appiconloader = "1.5.0"
@@ -55,7 +55,7 @@ cascade = "me.saket.cascade:cascade:2.3.0"
 appiconloader-base = { module = "me.zhanghai.android.appiconloader:appiconloader", version.ref = "zh-appiconloader" }
 appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader-coil", version.ref = "zh-appiconloader" }
 coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0"
-kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
+kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.9.24"
 spongycastle = "com.madgag.spongycastle:prov:1.58.0.0"
 markdown = "org.jetbrains:markdown:0.7.0"
 

@@ -57,7 +57,7 @@ appiconloader-coil = { module = "me.zhanghai.android.appiconloader:appiconloader
 coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0"
 kt-reflect = "org.jetbrains.kotlin:kotlin-reflect:1.9.24"
 spongycastle = "com.madgag.spongycastle:prov:1.58.0.0"
-markdown = "org.jetbrains:markdown:0.7.1"
+markdown = "org.jetbrains:markdown:0.7.2"
 
 leakcanary = "com.squareup.leakcanary:leakcanary-android:2.14"
 junit = "junit:junit:4.13.2"

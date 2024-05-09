@@ -44,7 +44,7 @@ jobs:
       - run: ./gradlew build
 
       - name: 'Run Qodana'
-        uses: JetBrains/qodana-action@v2024.1.3
+        uses: JetBrains/qodana-action@v2024.1.4
         with:
           args: >
             --env,BUGLY_APPID=${{ secrets.BUGLY_APPID }}

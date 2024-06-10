@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.1"
+agp = "8.4.2"
 kotlin = "1.9.24"
 lifecycle = "2.8.1"
 navigation = "2.7.7"

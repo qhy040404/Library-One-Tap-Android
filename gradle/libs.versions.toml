@@ -29,7 +29,7 @@ androidx-navi-fragment-ktx = { module = "androidx.navigation:navigation-fragment
 androidx-navi-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-preference-ktx = "androidx.preference:preference-ktx:1.2.1"
 androidx-rv = "androidx.recyclerview:recyclerview:1.3.2"
-androidx-transition = "androidx.transition:transition:1.5.0"
+androidx-transition = "androidx.transition:transition:1.5.1"
 androidx-viewpaper2 = "androidx.viewpager2:viewpager2:1.1.0"
 
 rikka-appcompat = "dev.rikka.rikkax.appcompat:appcompat:1.6.1"

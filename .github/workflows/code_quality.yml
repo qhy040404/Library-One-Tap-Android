@@ -39,7 +39,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - run: ./gradlew build
 

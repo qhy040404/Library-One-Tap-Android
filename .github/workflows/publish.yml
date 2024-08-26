@@ -80,7 +80,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache and set up
-        uses: gradle/actions/setup-gradle@v4.0.0
+        uses: gradle/actions/setup-gradle@v4.0.1
         with:
           dependency-graph: generate-and-submit
       - run: ./gradlew assembleRelease
@@ -104,7 +104,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v4.0.0
+        uses: gradle/actions/setup-gradle@v4.0.1
 
       - run: ./gradlew assembleDebug
 
@@ -142,7 +142,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v4.0.0
+        uses: gradle/actions/setup-gradle@v4.0.1
 
       - run: ./gradlew testDebugUnitTest --warning-mode all
 
@@ -165,7 +165,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v4.0.0
+        uses: gradle/actions/setup-gradle@v4.0.1
 
       - run: ./gradlew assembleRelease
 
@@ -218,7 +218,7 @@ jobs:
           java-version: 17
 
       - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v4.0.0
+        uses: gradle/actions/setup-gradle@v4.0.1
 
       - run: ./gradlew testReleaseUnitTest --warning-mode all
 

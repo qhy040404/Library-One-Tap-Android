@@ -33,7 +33,7 @@ jobs:
           cancel_others: true
 
       - name: Set up java
-        uses: actions/setup-java@v4.2.2
+        uses: actions/setup-java@v4.3.0
         with:
           distribution: 'zulu'
           java-version: 17
